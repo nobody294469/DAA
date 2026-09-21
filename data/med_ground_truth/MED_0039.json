@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0039",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "prescription_date": "2025-02-14",
+  "patient": {
+    "patient_id": "PAT-30039",
+    "name": "David Hernandez",
+    "dob": "1950-03-08",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Cephalexin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "four times daily",
+      "duration": "10 days",
+      "quantity": 40,
+      "refills": 0,
+      "sig_text": "1 capsule by mouth four times daily x 10 days",
+      "canonical_name": "Cephalexin",
+      "rxcui": "2231"
+    }
+  ]
+}

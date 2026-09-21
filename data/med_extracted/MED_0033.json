@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0033",
+  "patient": {
+    "patient_id": "PAT-30033",
+    "name": "Jennifer Miller",
+    "dob": "1956-12-17",
+    "gender": "F"
+  },
+  "date": "2025-06-16",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "facility": "Family Medicine Associates of Healthcare City",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Losartan",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 90,
+      "refills": 3,
+      "sig": "1 tablet PO QD",
+      "normalized_name": "Losartan",
+      "rxcui": "5224",
+      "source_evidence": {
+        "text": "Losartan 100 mg tablet",
+        "page": 1,
+        "bbox": [
+          42.0,
+          192.73,
+          161.81,
+          207.88
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

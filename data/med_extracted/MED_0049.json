@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0049",
+  "patient": {
+    "patient_id": "PAT-30049",
+    "name": "Linda Lopez",
+    "dob": "1950-07-04",
+    "gender": "F"
+  },
+  "date": "2025-06-12",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "facility": "Family Medicine Associates of Healthcare City",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Atorvastatin",
+      "dose": 80.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 30,
+      "refills": 3,
+      "sig": "Take 1 tablet by mouth QD",
+      "normalized_name": "Atorvastatin",
+      "rxcui": "83367",
+      "source_evidence": {
+        "text": "Atorvastatin 80 mg tablet",
+        "page": 1,
+        "bbox": [
+          42.0,
+          192.73,
+          173.42,
+          207.88
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0019",
+  "patient": {
+    "patient_id": "PAT-30019",
+    "name": "DAVID GARCIA (MRN: PAT-30019)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-02-23",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 30,
+      "refills": 0,
+      "sig": "TAKE 1 CAPSULE ORAL QD",
+      "normalized_name": "Omeprazole",
+      "rxcui": "7646",
+      "source_evidence": {
+        "text": "MEDICATION: OMEPRAZOLE 20 MG CAPSULE",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          260.04,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "doc_id": "MED_0034",
+  "patient": {
+    "patient_id": "PAT-30034",
+    "name": "Robert Jones",
+    "dob": "2001-08-08",
+    "gender": null
+  },
+  "date": "2025-04-29",
+  "prescriber": "Dr. Marcus Vance, DO",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Gabapentin",
+      "dose": 300.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "TID",
+      "duration": "30 days",
+      "quantity": 270,
+      "refills": 2,
+      "sig": "Gabapentin 300 mg capsule by mouth TID 1 capsule by mouth TID for 30 days #270 (Ref: 2)",
+      "normalized_name": "Gabapentin",
+      "rxcui": "25480",
+      "source_evidence": {
+        "text": "Gabapentin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          104.01,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Amoxicillin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "PO",
+      "frequency": "three times a day",
+      "duration": "10 days",
+      "quantity": 15,
+      "refills": 0,
+      "sig": "Amoxicillin 500 mg capsule PO three times a day Take 1 capsule PO three times a day for 10 days #15 (Ref: 0)",
+      "normalized_name": "Amoxicillin",
+      "rxcui": "723",
+      "source_evidence": {
+        "text": "Amoxicillin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          203.87,
+          102.51,
+          216.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "QD",
+      "duration": "3 days",
+      "quantity": 6,
+      "refills": 0,
+      "sig": "Azithromycin 250 mg tablet PO QD 1 tablet PO QD x 3 days #6 (Ref: 0)",
+      "normalized_name": "Azithromycin",
+      "rxcui": "18631",
+      "source_evidence": {
+        "text": "Azithromycin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          237.87,
+          111.51,
+          250.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 3
+  }
+}

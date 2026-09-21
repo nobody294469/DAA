@@ -1,0 +1,43 @@
+{
+  "doc_id": "MED_0012",
+  "template_type": "mar_order_sheet",
+  "facility_name": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "prescriber": "Dr. Marcus Vance, DO",
+  "prescription_date": "2025-06-22",
+  "patient": {
+    "patient_id": "PAT-30012",
+    "name": "Susan Davis",
+    "dob": "2000-12-02",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Lisinopril",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily",
+      "duration": "30 days",
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "1 tablet oral once daily",
+      "canonical_name": "Lisinopril",
+      "rxcui": "29046"
+    },
+    {
+      "medication_name": "Sertraline",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": "30 days",
+      "quantity": 90,
+      "refills": 2,
+      "sig_text": "Take 1 tablet by mouth once daily",
+      "canonical_name": "Sertraline",
+      "rxcui": "36437"
+    }
+  ]
+}

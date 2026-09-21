@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0030",
+  "patient": {
+    "patient_id": "PAT-30030",
+    "name": "Elizabeth Anderson",
+    "dob": "1950-08-01",
+    "gender": null
+  },
+  "date": "2025-05-19",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Hydrochlorothiazide",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 30,
+      "refills": 1,
+      "sig": "Hydrochlorothiazide 50 mg tablet by mouth QD Take 1 tablet by mouth QD #30 (Ref: 1)",
+      "normalized_name": "Hydrochlorothiazide",
+      "rxcui": "5487",
+      "source_evidence": {
+        "text": "Hydrochlorothiazide",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          141.51,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "PO",
+      "frequency": "once daily before breakfast",
+      "duration": null,
+      "quantity": 30,
+      "refills": 1,
+      "sig": "Omeprazole 20 mg capsule PO once daily before breakfast Take 1 capsule PO once daily before breakfast #30 (Ref: 1)",
+      "normalized_name": "Omeprazole",
+      "rxcui": "7646",
+      "source_evidence": {
+        "text": "Omeprazole",
+        "page": 1,
+        "bbox": [
+          54.5,
+          203.87,
+          106.02,
+          216.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

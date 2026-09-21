@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0018",
+  "template_type": "discharge_summary",
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "prescription_date": "2025-06-12",
+  "patient": {
+    "patient_id": "PAT-30018",
+    "name": "Sarah Davis",
+    "dob": "1961-01-03",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Losartan",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "every morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 3,
+      "sig_text": "1 tablet by mouth every morning",
+      "canonical_name": "Losartan",
+      "rxcui": "5224"
+    },
+    {
+      "medication_name": "Lisinopril",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "Take 1 tablet PO every morning",
+      "canonical_name": "Lisinopril",
+      "rxcui": "29046"
+    },
+    {
+      "medication_name": "Amoxicillin",
+      "dose": 875.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "three times daily",
+      "duration": "7 days",
+      "quantity": 30,
+      "refills": 0,
+      "sig_text": "1 capsule by mouth three times daily x 7 days",
+      "canonical_name": "Amoxicillin",
+      "rxcui": "723"
+    }
+  ]
+}

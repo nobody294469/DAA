@@ -1,0 +1,43 @@
+{
+  "doc_id": "MED_0004",
+  "template_type": "mar_order_sheet",
+  "facility_name": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "prescription_date": "2025-04-04",
+  "patient": {
+    "patient_id": "PAT-30004",
+    "name": "Robert Miller",
+    "dob": "1962-08-21",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Hydrochlorothiazide",
+      "dose": 12.5,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 30,
+      "refills": 3,
+      "sig_text": "Take 1 tablet PO once daily",
+      "canonical_name": "Hydrochlorothiazide",
+      "rxcui": "5487"
+    },
+    {
+      "medication_name": "Cephalexin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "QID",
+      "duration": "10 days",
+      "quantity": 40,
+      "refills": 0,
+      "sig_text": "1 capsule by mouth QID x 10 days",
+      "canonical_name": "Cephalexin",
+      "rxcui": "2231"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0031",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Gregory House, MD",
+  "prescription_date": "2025-06-05",
+  "patient": {
+    "patient_id": "PAT-30031",
+    "name": "Joseph Lopez",
+    "dob": "1961-06-06",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Atorvastatin",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily at bedtime",
+      "duration": null,
+      "quantity": 30,
+      "refills": 3,
+      "sig_text": "1 tablet oral once daily at bedtime",
+      "canonical_name": "Atorvastatin",
+      "rxcui": "83367"
+    }
+  ]
+}

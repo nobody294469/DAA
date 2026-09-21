@@ -1,0 +1,2290 @@
+{
+  "doc_id": "MED_0004",
+  "source_path": "data\\med_rendered\\MED_0004.pdf",
+  "engine": "pymupdf_digital",
+  "device": "cpu",
+  "num_pages": 1,
+  "lines": [
+    {
+      "text": "Metro Health Ambulatory Infusion & Specialty Clinic",
+      "bbox": [
+        42.0,
+        41.02,
+        388.18,
+        60.3
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Metro",
+          "bbox": [
+            42.0,
+            41.02,
+            80.11,
+            60.3
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Health",
+          "bbox": [
+            84.0,
+            41.02,
+            126.78,
+            60.3
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Ambulatory",
+          "bbox": [
+            130.68,
+            41.02,
+            208.46,
+            60.3
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Infusion",
+          "bbox": [
+            212.35,
+            41.02,
+            266.8,
+            60.3
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "&",
+          "bbox": [
+            270.69,
+            41.02,
+            280.8,
+            60.3
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Specialty",
+          "bbox": [
+            284.69,
+            41.02,
+            346.16,
+            60.3
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Clinic",
+          "bbox": [
+            350.06,
+            41.02,
+            388.18,
+            60.3
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "PHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD",
+      "bbox": [
+        42.0,
+        59.33,
+        363.04,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "PHYSICIAN",
+          "bbox": [
+            42.0,
+            59.33,
+            90.51,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MEDICATION",
+          "bbox": [
+            93.01,
+            59.33,
+            149.51,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "ORDERS",
+          "bbox": [
+            152.02,
+            59.33,
+            190.52,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "&",
+          "bbox": [
+            193.02,
+            59.33,
+            199.02,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "CLINICAL",
+          "bbox": [
+            201.53,
+            59.33,
+            242.03,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "ADMINISTRATION",
+          "bbox": [
+            244.54,
+            59.33,
+            321.54,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "RECORD",
+          "bbox": [
+            324.04,
+            59.33,
+            363.04,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Patient: Robert Miller | DOB: 1962-08-21 | MRN: PAT-30004 | Order Date: 2025-04-04",
+      "bbox": [
+        42.0,
+        87.82,
+        391.61,
+        100.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Patient:",
+          "bbox": [
+            42.0,
+            87.87,
+            75.0,
+            100.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Robert",
+          "bbox": [
+            77.51,
+            87.82,
+            104.51,
+            100.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Miller",
+          "bbox": [
+            107.02,
+            87.82,
+            128.51,
+            100.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            131.01,
+            87.82,
+            133.35,
+            100.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "DOB:",
+          "bbox": [
+            135.85,
+            87.87,
+            158.85,
+            100.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1962-08-21",
+          "bbox": [
+            161.35,
+            87.82,
+            207.37,
+            100.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            209.88,
+            87.82,
+            212.22,
+            100.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MRN:",
+          "bbox": [
+            214.72,
+            87.87,
+            238.21,
+            100.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PAT-30004",
+          "bbox": [
+            240.71,
+            87.82,
+            286.23,
+            100.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            288.73,
+            87.82,
+            291.07,
+            100.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Order",
+          "bbox": [
+            293.58,
+            87.87,
+            318.08,
+            100.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Date:",
+          "bbox": [
+            320.59,
+            87.87,
+            343.09,
+            100.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "2025-04-04",
+          "bbox": [
+            345.59,
+            87.82,
+            391.61,
+            100.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Ordering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004",
+      "bbox": [
+        42.0,
+        99.82,
+        310.4,
+        112.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Ordering",
+          "bbox": [
+            42.0,
+            99.87,
+            80.01,
+            112.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Provider:",
+          "bbox": [
+            82.51,
+            99.87,
+            122.02,
+            112.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Dr.",
+          "bbox": [
+            124.52,
+            99.82,
+            136.52,
+            112.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Allison",
+          "bbox": [
+            139.02,
+            99.82,
+            165.52,
+            112.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Cameron,",
+          "bbox": [
+            168.03,
+            99.82,
+            207.54,
+            112.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MD",
+          "bbox": [
+            210.04,
+            99.82,
+            224.03,
+            112.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            226.54,
+            99.82,
+            228.88,
+            112.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Doc",
+          "bbox": [
+            231.38,
+            99.87,
+            248.38,
+            112.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "ID:",
+          "bbox": [
+            250.88,
+            99.87,
+            262.88,
+            112.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MED_0004",
+          "bbox": [
+            265.38,
+            99.82,
+            310.4,
+            112.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Order #1: Hydrochlorothiazide 12.5 mg",
+      "bbox": [
+        59.0,
+        125.8,
+        242.94,
+        139.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Order",
+          "bbox": [
+            59.0,
+            125.8,
+            86.23,
+            139.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "#1:",
+          "bbox": [
+            89.01,
+            125.8,
+            103.46,
+            139.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Hydrochlorothiazide",
+          "bbox": [
+            106.24,
+            125.8,
+            202.92,
+            139.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "12.5",
+          "bbox": [
+            205.7,
+            125.8,
+            225.16,
+            139.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mg",
+          "bbox": [
+            227.94,
+            125.8,
+            242.94,
+            139.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Route: PO | Form: tablet",
+      "bbox": [
+        329.0,
+        126.82,
+        430.36,
+        139.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Route:",
+          "bbox": [
+            329.0,
+            126.87,
+            357.49,
+            139.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PO",
+          "bbox": [
+            360.0,
+            126.82,
+            373.0,
+            139.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            375.5,
+            126.82,
+            377.84,
+            139.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Form:",
+          "bbox": [
+            380.35,
+            126.87,
+            405.84,
+            139.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "tablet",
+          "bbox": [
+            408.34,
+            126.82,
+            430.36,
+            139.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Schedule/Frequency: once daily",
+      "bbox": [
+        59.0,
+        146.82,
+        193.05,
+        159.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Schedule/Frequency:",
+          "bbox": [
+            59.0,
+            146.87,
+            150.03,
+            159.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "once",
+          "bbox": [
+            152.53,
+            146.82,
+            172.04,
+            159.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "daily",
+          "bbox": [
+            174.54,
+            146.82,
+            193.05,
+            159.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Duration: Ongoing | Dispense: #30",
+      "bbox": [
+        329.0,
+        146.82,
+        473.39,
+        159.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Duration:",
+          "bbox": [
+            329.0,
+            146.87,
+            369.0,
+            159.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Ongoing",
+          "bbox": [
+            371.5,
+            146.82,
+            405.52,
+            159.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            408.02,
+            146.82,
+            410.36,
+            159.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Dispense:",
+          "bbox": [
+            412.86,
+            146.87,
+            455.87,
+            159.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "#30",
+          "bbox": [
+            458.38,
+            146.82,
+            473.39,
+            159.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Instructions: Take 1 tablet PO once daily",
+      "bbox": [
+        59.0,
+        166.82,
+        226.56,
+        179.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Instructions:",
+          "bbox": [
+            59.0,
+            166.87,
+            113.5,
+            179.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Take",
+          "bbox": [
+            116.01,
+            166.82,
+            136.01,
+            179.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1",
+          "bbox": [
+            138.51,
+            166.82,
+            143.52,
+            179.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "tablet",
+          "bbox": [
+            146.02,
+            166.82,
+            168.03,
+            179.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PO",
+          "bbox": [
+            170.54,
+            166.82,
+            183.54,
+            179.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "once",
+          "bbox": [
+            186.04,
+            166.82,
+            205.56,
+            179.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "daily",
+          "bbox": [
+            208.06,
+            166.82,
+            226.56,
+            179.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Refills: 3",
+      "bbox": [
+        329.0,
+        166.82,
+        366.51,
+        179.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Refills:",
+          "bbox": [
+            329.0,
+            166.87,
+            359.01,
+            179.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "3",
+          "bbox": [
+            361.51,
+            166.82,
+            366.51,
+            179.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Order #2: Cephalexin 250 mg",
+      "bbox": [
+        59.0,
+        194.8,
+        196.83,
+        208.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Order",
+          "bbox": [
+            59.0,
+            194.8,
+            86.23,
+            208.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "#2:",
+          "bbox": [
+            89.01,
+            194.8,
+            103.46,
+            208.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Cephalexin",
+          "bbox": [
+            106.24,
+            194.8,
+            159.59,
+            208.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "250",
+          "bbox": [
+            162.37,
+            194.8,
+            179.05,
+            208.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mg",
+          "bbox": [
+            181.83,
+            194.8,
+            196.83,
+            208.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Route: by mouth | Form: capsule",
+      "bbox": [
+        329.0,
+        195.82,
+        463.37,
+        208.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Route:",
+          "bbox": [
+            329.0,
+            195.87,
+            357.49,
+            208.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "by",
+          "bbox": [
+            360.0,
+            195.82,
+            369.5,
+            208.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mouth",
+          "bbox": [
+            372.0,
+            195.82,
+            397.01,
+            208.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            399.52,
+            195.82,
+            401.86,
+            208.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Form:",
+          "bbox": [
+            404.36,
+            195.87,
+            429.85,
+            208.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "capsule",
+          "bbox": [
+            432.36,
+            195.82,
+            463.37,
+            208.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Schedule/Frequency: QID",
+      "bbox": [
+        59.0,
+        215.82,
+        168.53,
+        228.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Schedule/Frequency:",
+          "bbox": [
+            59.0,
+            215.87,
+            150.03,
+            228.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "QID",
+          "bbox": [
+            152.53,
+            215.82,
+            168.53,
+            228.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Duration: 10 days | Dispense: #40",
+      "bbox": [
+        329.0,
+        215.82,
+        470.88,
+        228.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Duration:",
+          "bbox": [
+            329.0,
+            215.87,
+            369.0,
+            228.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "10",
+          "bbox": [
+            371.5,
+            215.82,
+            381.51,
+            228.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "days",
+          "bbox": [
+            384.01,
+            215.82,
+            403.02,
+            228.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            405.52,
+            215.82,
+            407.86,
+            228.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Dispense:",
+          "bbox": [
+            410.36,
+            215.87,
+            453.37,
+            228.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "#40",
+          "bbox": [
+            455.87,
+            215.82,
+            470.88,
+            228.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Instructions: 1 capsule by mouth QID x 10 days",
+      "bbox": [
+        59.0,
+        235.82,
+        253.57,
+        248.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Instructions:",
+          "bbox": [
+            59.0,
+            235.87,
+            113.5,
+            248.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1",
+          "bbox": [
+            116.01,
+            235.82,
+            121.01,
+            248.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "capsule",
+          "bbox": [
+            123.51,
+            235.82,
+            154.53,
+            248.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "by",
+          "bbox": [
+            157.03,
+            235.82,
+            166.53,
+            248.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mouth",
+          "bbox": [
+            169.03,
+            235.82,
+            194.04,
+            248.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "QID",
+          "bbox": [
+            196.55,
+            235.82,
+            212.55,
+            248.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "x",
+          "bbox": [
+            215.05,
+            235.82,
+            219.55,
+            248.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "10",
+          "bbox": [
+            222.05,
+            235.82,
+            232.06,
+            248.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "days",
+          "bbox": [
+            234.56,
+            235.82,
+            253.57,
+            248.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Refills: 0",
+      "bbox": [
+        329.0,
+        235.82,
+        366.51,
+        248.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Refills:",
+          "bbox": [
+            329.0,
+            235.87,
+            359.01,
+            248.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "0",
+          "bbox": [
+            361.51,
+            235.82,
+            366.51,
+            248.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "text": "Metro",
+      "bbox": [
+        42.0,
+        41.02,
+        80.11,
+        60.3
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Health",
+      "bbox": [
+        84.0,
+        41.02,
+        126.78,
+        60.3
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Ambulatory",
+      "bbox": [
+        130.68,
+        41.02,
+        208.46,
+        60.3
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Infusion",
+      "bbox": [
+        212.35,
+        41.02,
+        266.8,
+        60.3
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "&",
+      "bbox": [
+        270.69,
+        41.02,
+        280.8,
+        60.3
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Specialty",
+      "bbox": [
+        284.69,
+        41.02,
+        346.16,
+        60.3
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Clinic",
+      "bbox": [
+        350.06,
+        41.02,
+        388.18,
+        60.3
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PHYSICIAN",
+      "bbox": [
+        42.0,
+        59.33,
+        90.51,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MEDICATION",
+      "bbox": [
+        93.01,
+        59.33,
+        149.51,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "ORDERS",
+      "bbox": [
+        152.02,
+        59.33,
+        190.52,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "&",
+      "bbox": [
+        193.02,
+        59.33,
+        199.02,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "CLINICAL",
+      "bbox": [
+        201.53,
+        59.33,
+        242.03,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "ADMINISTRATION",
+      "bbox": [
+        244.54,
+        59.33,
+        321.54,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "RECORD",
+      "bbox": [
+        324.04,
+        59.33,
+        363.04,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Patient:",
+      "bbox": [
+        42.0,
+        87.87,
+        75.0,
+        100.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Robert",
+      "bbox": [
+        77.51,
+        87.82,
+        104.51,
+        100.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Miller",
+      "bbox": [
+        107.02,
+        87.82,
+        128.51,
+        100.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        131.01,
+        87.82,
+        133.35,
+        100.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "DOB:",
+      "bbox": [
+        135.85,
+        87.87,
+        158.85,
+        100.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1962-08-21",
+      "bbox": [
+        161.35,
+        87.82,
+        207.37,
+        100.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        209.88,
+        87.82,
+        212.22,
+        100.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MRN:",
+      "bbox": [
+        214.72,
+        87.87,
+        238.21,
+        100.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PAT-30004",
+      "bbox": [
+        240.71,
+        87.82,
+        286.23,
+        100.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        288.73,
+        87.82,
+        291.07,
+        100.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Order",
+      "bbox": [
+        293.58,
+        87.87,
+        318.08,
+        100.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Date:",
+      "bbox": [
+        320.59,
+        87.87,
+        343.09,
+        100.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "2025-04-04",
+      "bbox": [
+        345.59,
+        87.82,
+        391.61,
+        100.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Ordering",
+      "bbox": [
+        42.0,
+        99.87,
+        80.01,
+        112.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Provider:",
+      "bbox": [
+        82.51,
+        99.87,
+        122.02,
+        112.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Dr.",
+      "bbox": [
+        124.52,
+        99.82,
+        136.52,
+        112.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Allison",
+      "bbox": [
+        139.02,
+        99.82,
+        165.52,
+        112.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Cameron,",
+      "bbox": [
+        168.03,
+        99.82,
+        207.54,
+        112.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MD",
+      "bbox": [
+        210.04,
+        99.82,
+        224.03,
+        112.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        226.54,
+        99.82,
+        228.88,
+        112.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Doc",
+      "bbox": [
+        231.38,
+        99.87,
+        248.38,
+        112.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "ID:",
+      "bbox": [
+        250.88,
+        99.87,
+        262.88,
+        112.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MED_0004",
+      "bbox": [
+        265.38,
+        99.82,
+        310.4,
+        112.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Order",
+      "bbox": [
+        59.0,
+        125.8,
+        86.23,
+        139.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "#1:",
+      "bbox": [
+        89.01,
+        125.8,
+        103.46,
+        139.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Hydrochlorothiazide",
+      "bbox": [
+        106.24,
+        125.8,
+        202.92,
+        139.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "12.5",
+      "bbox": [
+        205.7,
+        125.8,
+        225.16,
+        139.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mg",
+      "bbox": [
+        227.94,
+        125.8,
+        242.94,
+        139.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Route:",
+      "bbox": [
+        329.0,
+        126.87,
+        357.49,
+        139.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PO",
+      "bbox": [
+        360.0,
+        126.82,
+        373.0,
+        139.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        375.5,
+        126.82,
+        377.84,
+        139.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Form:",
+      "bbox": [
+        380.35,
+        126.87,
+        405.84,
+        139.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "tablet",
+      "bbox": [
+        408.34,
+        126.82,
+        430.36,
+        139.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Schedule/Frequency:",
+      "bbox": [
+        59.0,
+        146.87,
+        150.03,
+        159.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "once",
+      "bbox": [
+        152.53,
+        146.82,
+        172.04,
+        159.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "daily",
+      "bbox": [
+        174.54,
+        146.82,
+        193.05,
+        159.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Duration:",
+      "bbox": [
+        329.0,
+        146.87,
+        369.0,
+        159.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Ongoing",
+      "bbox": [
+        371.5,
+        146.82,
+        405.52,
+        159.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        408.02,
+        146.82,
+        410.36,
+        159.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Dispense:",
+      "bbox": [
+        412.86,
+        146.87,
+        455.87,
+        159.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "#30",
+      "bbox": [
+        458.38,
+        146.82,
+        473.39,
+        159.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Instructions:",
+      "bbox": [
+        59.0,
+        166.87,
+        113.5,
+        179.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Take",
+      "bbox": [
+        116.01,
+        166.82,
+        136.01,
+        179.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1",
+      "bbox": [
+        138.51,
+        166.82,
+        143.52,
+        179.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "tablet",
+      "bbox": [
+        146.02,
+        166.82,
+        168.03,
+        179.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PO",
+      "bbox": [
+        170.54,
+        166.82,
+        183.54,
+        179.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "once",
+      "bbox": [
+        186.04,
+        166.82,
+        205.56,
+        179.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "daily",
+      "bbox": [
+        208.06,
+        166.82,
+        226.56,
+        179.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Refills:",
+      "bbox": [
+        329.0,
+        166.87,
+        359.01,
+        179.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "3",
+      "bbox": [
+        361.51,
+        166.82,
+        366.51,
+        179.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Order",
+      "bbox": [
+        59.0,
+        194.8,
+        86.23,
+        208.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "#2:",
+      "bbox": [
+        89.01,
+        194.8,
+        103.46,
+        208.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Cephalexin",
+      "bbox": [
+        106.24,
+        194.8,
+        159.59,
+        208.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "250",
+      "bbox": [
+        162.37,
+        194.8,
+        179.05,
+        208.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mg",
+      "bbox": [
+        181.83,
+        194.8,
+        196.83,
+        208.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Route:",
+      "bbox": [
+        329.0,
+        195.87,
+        357.49,
+        208.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "by",
+      "bbox": [
+        360.0,
+        195.82,
+        369.5,
+        208.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mouth",
+      "bbox": [
+        372.0,
+        195.82,
+        397.01,
+        208.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        399.52,
+        195.82,
+        401.86,
+        208.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Form:",
+      "bbox": [
+        404.36,
+        195.87,
+        429.85,
+        208.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "capsule",
+      "bbox": [
+        432.36,
+        195.82,
+        463.37,
+        208.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Schedule/Frequency:",
+      "bbox": [
+        59.0,
+        215.87,
+        150.03,
+        228.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "QID",
+      "bbox": [
+        152.53,
+        215.82,
+        168.53,
+        228.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Duration:",
+      "bbox": [
+        329.0,
+        215.87,
+        369.0,
+        228.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "10",
+      "bbox": [
+        371.5,
+        215.82,
+        381.51,
+        228.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "days",
+      "bbox": [
+        384.01,
+        215.82,
+        403.02,
+        228.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        405.52,
+        215.82,
+        407.86,
+        228.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Dispense:",
+      "bbox": [
+        410.36,
+        215.87,
+        453.37,
+        228.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "#40",
+      "bbox": [
+        455.87,
+        215.82,
+        470.88,
+        228.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Instructions:",
+      "bbox": [
+        59.0,
+        235.87,
+        113.5,
+        248.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1",
+      "bbox": [
+        116.01,
+        235.82,
+        121.01,
+        248.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "capsule",
+      "bbox": [
+        123.51,
+        235.82,
+        154.53,
+        248.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "by",
+      "bbox": [
+        157.03,
+        235.82,
+        166.53,
+        248.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mouth",
+      "bbox": [
+        169.03,
+        235.82,
+        194.04,
+        248.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "QID",
+      "bbox": [
+        196.55,
+        235.82,
+        212.55,
+        248.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "x",
+      "bbox": [
+        215.05,
+        235.82,
+        219.55,
+        248.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "10",
+      "bbox": [
+        222.05,
+        235.82,
+        232.06,
+        248.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "days",
+      "bbox": [
+        234.56,
+        235.82,
+        253.57,
+        248.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Refills:",
+      "bbox": [
+        329.0,
+        235.87,
+        359.01,
+        248.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "0",
+      "bbox": [
+        361.51,
+        235.82,
+        366.51,
+        248.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    }
+  ],
+  "metadata": {
+    "processing_time_ms": 21.5
+  }
+}

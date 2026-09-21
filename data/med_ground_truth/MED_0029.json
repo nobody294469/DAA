@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0029",
+  "template_type": "clinic_rx_pad",
+  "facility_name": "Family Medicine Associates of Healthcare City",
+  "prescriber": "Dr. Robert Evans, MD",
+  "prescription_date": "2025-03-08",
+  "patient": {
+    "patient_id": "PAT-30029",
+    "name": "Jennifer Anderson",
+    "dob": "1974-03-02",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Sertraline",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig_text": "1 tablet by mouth once daily",
+      "canonical_name": "Sertraline",
+      "rxcui": "36437"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0041",
+  "template_type": "clinic_rx_pad",
+  "facility_name": "Family Medicine Associates of Healthcare City",
+  "prescriber": "Dr. Emily Chen, MD",
+  "prescription_date": "2025-03-11",
+  "patient": {
+    "patient_id": "PAT-30041",
+    "name": "Joseph Lopez",
+    "dob": "1964-12-13",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Furosemide",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 60,
+      "refills": 2,
+      "sig_text": "1 tablet oral once daily in the morning",
+      "canonical_name": "Furosemide",
+      "rxcui": "4603"
+    }
+  ]
+}

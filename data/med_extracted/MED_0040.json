@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0040",
+  "patient": {
+    "patient_id": "PAT-30040",
+    "name": "David Lopez",
+    "dob": "1963-12-28",
+    "gender": null
+  },
+  "date": "2025-04-27",
+  "prescriber": "Dr. Robert Evans, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "once daily before breakfast",
+      "duration": "60 days",
+      "quantity": 30,
+      "refills": 0,
+      "sig": "Take one capsule oral once daily before breakfast for 60 days",
+      "normalized_name": "Omeprazole",
+      "rxcui": "7646",
+      "source_evidence": {
+        "text": "Order #1: Omeprazole 20 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          195.16,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Losartan",
+      "dose": 25.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": "30 days",
+      "quantity": 90,
+      "refills": 3,
+      "sig": "1 tablet by mouth once daily",
+      "normalized_name": "Losartan",
+      "rxcui": "5224",
+      "source_evidence": {
+        "text": "Order #2: Losartan 25 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          206.8,
+          180.15,
+          220.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

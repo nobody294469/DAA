@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0020",
+  "patient": {
+    "patient_id": "PAT-30020",
+    "name": "Richard Smith",
+    "dob": "1956-12-11",
+    "gender": null
+  },
+  "date": "2025-04-16",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Losartan",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": "30 days",
+      "quantity": 90,
+      "refills": 1,
+      "sig": "Take 1 tablet by mouth QD",
+      "normalized_name": "Losartan",
+      "rxcui": "5224",
+      "source_evidence": {
+        "text": "Order #1: Losartan 100 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          185.71,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Amlodipine",
+      "dose": 5.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": "30 days",
+      "quantity": 30,
+      "refills": 1,
+      "sig": "Take 1 tablet oral QD",
+      "normalized_name": "Amlodipine",
+      "rxcui": "17767",
+      "source_evidence": {
+        "text": "Order #2: Amlodipine 5 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          194.8,
+          186.81,
+          208.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

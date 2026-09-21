@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0043",
+  "patient": {
+    "patient_id": "PAT-30043",
+    "name": "SARAH SMITH (MRN: PAT-30043)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-03-06",
+  "prescriber": "Dr. Marcus Vance, DO",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Gabapentin",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "three times a day",
+      "duration": null,
+      "quantity": 270,
+      "refills": 2,
+      "sig": "TAKE 1 CAPSULE ORAL THREE TIMES A DAY",
+      "normalized_name": "Gabapentin",
+      "rxcui": "25480",
+      "source_evidence": {
+        "text": "MEDICATION: GABAPENTIN 100 MG CAPSULE",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          260.54,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

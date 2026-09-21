@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0035",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Emily Chen, MD",
+  "prescription_date": "2025-03-04",
+  "patient": {
+    "patient_id": "PAT-30035",
+    "name": "Robert Jones",
+    "dob": "1959-07-23",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Albuterol",
+      "dose": 90.0,
+      "dose_unit": "mcg",
+      "dosage_form": "inhaler",
+      "route": "by inhalation",
+      "frequency": "as needed for shortness of breath",
+      "duration": null,
+      "quantity": 2,
+      "refills": 2,
+      "sig_text": "2 puffs by inhalation as needed for shortness of breath",
+      "canonical_name": "Albuterol",
+      "rxcui": "435"
+    }
+  ]
+}

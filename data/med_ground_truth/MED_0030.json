@@ -1,0 +1,43 @@
+{
+  "doc_id": "MED_0030",
+  "template_type": "discharge_summary",
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "prescription_date": "2025-05-19",
+  "patient": {
+    "patient_id": "PAT-30030",
+    "name": "Elizabeth Anderson",
+    "dob": "1950-08-01",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Hydrochlorothiazide",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "Take 1 tablet by mouth QD",
+      "canonical_name": "Hydrochlorothiazide",
+      "rxcui": "5487"
+    },
+    {
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "PO",
+      "frequency": "once daily before breakfast",
+      "duration": null,
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "Take 1 capsule PO once daily before breakfast",
+      "canonical_name": "Omeprazole",
+      "rxcui": "7646"
+    }
+  ]
+}

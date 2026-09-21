@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0014",
+  "template_type": "discharge_summary",
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "prescription_date": "2025-03-09",
+  "patient": {
+    "patient_id": "PAT-30014",
+    "name": "Mary Williams",
+    "dob": "1969-01-13",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Albuterol",
+      "dose": 90.0,
+      "dose_unit": "mcg",
+      "dosage_form": "inhaler",
+      "route": "inhalation",
+      "frequency": "every 4-6 hours PRN",
+      "duration": null,
+      "quantity": 1,
+      "refills": 1,
+      "sig_text": "2 puffs inhalation every 4-6 hours PRN",
+      "canonical_name": "Albuterol",
+      "rxcui": "435"
+    },
+    {
+      "medication_name": "Prednisone",
+      "dose": 5.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": "7 days",
+      "quantity": 20,
+      "refills": 0,
+      "sig_text": "Take 1 tablet by mouth QD for 7 days",
+      "canonical_name": "Prednisone",
+      "rxcui": "8640"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": "5 days",
+      "quantity": 6,
+      "refills": 0,
+      "sig_text": "Take 1 tablet by mouth once daily for 5 days",
+      "canonical_name": "Azithromycin",
+      "rxcui": "18631"
+    }
+  ]
+}

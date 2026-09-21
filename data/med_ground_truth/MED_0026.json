@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0026",
+  "template_type": "discharge_summary",
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "prescriber": "Dr. Gregory House, MD",
+  "prescription_date": "2025-05-16",
+  "patient": {
+    "patient_id": "PAT-30026",
+    "name": "Robert Davis",
+    "dob": "1953-08-22",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Ciprofloxacin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "every 12 hours",
+      "duration": "10 days",
+      "quantity": 20,
+      "refills": 0,
+      "sig_text": "Take 1 tablet by mouth every 12 hours for 10 days",
+      "canonical_name": "Ciprofloxacin",
+      "rxcui": "2551"
+    },
+    {
+      "medication_name": "Furosemide",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "twice daily",
+      "duration": null,
+      "quantity": 60,
+      "refills": 2,
+      "sig_text": "Take 1 tablet PO twice daily",
+      "canonical_name": "Furosemide",
+      "rxcui": "4603"
+    },
+    {
+      "medication_name": "Prednisone",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning with food",
+      "duration": "7 days",
+      "quantity": 14,
+      "refills": 0,
+      "sig_text": "Take 1 tablet oral once daily in the morning with food for 7 days",
+      "canonical_name": "Prednisone",
+      "rxcui": "8640"
+    }
+  ]
+}

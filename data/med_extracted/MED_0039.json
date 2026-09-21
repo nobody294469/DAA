@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0039",
+  "patient": {
+    "patient_id": "PAT-30039",
+    "name": "DAVID HERNANDEZ (MRN: PAT-30039)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-02-14",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Cephalexin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "four times daily",
+      "duration": "10 days",
+      "quantity": 40,
+      "refills": 0,
+      "sig": "1 CAPSULE BY MOUTH FOUR TIMES DAILY X 10 DAYS",
+      "normalized_name": "Cephalexin",
+      "rxcui": "2231",
+      "source_evidence": {
+        "text": "MEDICATION: CEPHALEXIN 250 MG CAPSULE",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          259.54,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

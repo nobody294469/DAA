@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0015",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Gregory House, MD",
+  "prescription_date": "2025-04-18",
+  "patient": {
+    "patient_id": "PAT-30015",
+    "name": "Charles Martinez",
+    "dob": "1947-10-03",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Furosemide",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig_text": "1 tablet oral once daily in the morning",
+      "canonical_name": "Furosemide",
+      "rxcui": "4603"
+    }
+  ]
+}

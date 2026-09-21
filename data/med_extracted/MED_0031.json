@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0031",
+  "patient": {
+    "patient_id": "PAT-30031",
+    "name": "JOSEPH LOPEZ (MRN: PAT-30031)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-06-05",
+  "prescriber": "Dr. Gregory House, MD",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Atorvastatin",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily at bedtime",
+      "duration": null,
+      "quantity": 30,
+      "refills": 3,
+      "sig": "1 TABLET ORAL ONCE DAILY AT BEDTIME",
+      "normalized_name": "Atorvastatin",
+      "rxcui": "83367",
+      "source_evidence": {
+        "text": "MEDICATION: ATORVASTATIN 20 MG TABLET",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          258.53,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0044",
+  "patient": {
+    "patient_id": "PAT-30044",
+    "name": "Karen Wilson",
+    "dob": "1976-11-15",
+    "gender": null
+  },
+  "date": "2025-01-14",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Losartan",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "every morning",
+      "duration": "90 days",
+      "quantity": 30,
+      "refills": 1,
+      "sig": "Take 1 tablet oral every morning",
+      "normalized_name": "Losartan",
+      "rxcui": "5224",
+      "source_evidence": {
+        "text": "Order #1: Losartan 50 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          180.15,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Levothyroxine",
+      "dose": 50.0,
+      "dose_unit": "mcg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig": "Take 1 tablet oral once daily in the morning",
+      "normalized_name": "Levothyroxine",
+      "rxcui": "10582",
+      "source_evidence": {
+        "text": "Order #2: Levothyroxine 50 mcg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          194.8,
+          211.83,
+          208.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

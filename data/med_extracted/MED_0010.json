@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0010",
+  "patient": {
+    "patient_id": "PAT-30010",
+    "name": "Jessica Rodriguez",
+    "dob": "1973-02-08",
+    "gender": null
+  },
+  "date": "2025-02-27",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Gabapentin",
+      "dose": 600.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "PO",
+      "frequency": "three times daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 1,
+      "sig": "Gabapentin 600 mg capsule PO three times daily Take 1 capsule PO three times daily #90 (Ref: 1)",
+      "normalized_name": "Gabapentin",
+      "rxcui": "25480",
+      "source_evidence": {
+        "text": "Gabapentin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          104.01,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Amoxicillin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "three times daily",
+      "duration": "7 days",
+      "quantity": 15,
+      "refills": 0,
+      "sig": "Amoxicillin 250 mg capsule by mouth three times daily 1 capsule by mouth three times daily x 7 days #15 (Ref: 0)",
+      "normalized_name": "Amoxicillin",
+      "rxcui": "723",
+      "source_evidence": {
+        "text": "Amoxicillin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          203.87,
+          102.51,
+          216.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

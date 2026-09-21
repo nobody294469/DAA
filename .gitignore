@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+.venv_ocr/
+venv/
+env/
+ENV/
+
+# Testing & Linting
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project Data & Caches (keep directory structure via .gitkeep)
+data/synthea/*
+!data/synthea/.gitkeep
+data/rendered/*
+!data/rendered/.gitkeep
+data/ground_truth/*
+!data/ground_truth/.gitkeep
+data/extracted/*
+!data/extracted/.gitkeep
+data/ocr_cache/*
+!data/ocr_cache/.gitkeep
+data/degraded/*
+!data/degraded/.gitkeep

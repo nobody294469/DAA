@@ -1,0 +1,96 @@
+{
+  "doc_id": "MED_0042",
+  "patient": {
+    "patient_id": "PAT-30042",
+    "name": "Michael Hernandez",
+    "dob": "1998-10-19",
+    "gender": null
+  },
+  "date": "2025-01-06",
+  "prescriber": "Dr. Robert Evans, MD",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Lisinopril",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": "90 days",
+      "quantity": 30,
+      "refills": 3,
+      "sig": "Lisinopril 40 mg tablet PO every morning Take one tablet PO every morning for 90 days #30 (Ref: 3)",
+      "normalized_name": "Lisinopril",
+      "rxcui": "29046",
+      "source_evidence": {
+        "text": "Lisinopril",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          95.01,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Amlodipine",
+      "dose": 10.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig": "Amlodipine 10 mg tablet oral once daily 1 tablet oral once daily #90 (Ref: 2)",
+      "normalized_name": "Amlodipine",
+      "rxcui": "17767",
+      "source_evidence": {
+        "text": "Amlodipine",
+        "page": 1,
+        "bbox": [
+          54.5,
+          203.87,
+          103.51,
+          216.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "once daily",
+      "duration": "5 days",
+      "quantity": 3,
+      "refills": 0,
+      "sig": "Azithromycin 500 mg tablet PO once daily 1 tablet PO once daily x 5 days #3 (Ref: 0)",
+      "normalized_name": "Azithromycin",
+      "rxcui": "18631",
+      "source_evidence": {
+        "text": "Azithromycin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          237.87,
+          111.51,
+          250.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 3
+  }
+}

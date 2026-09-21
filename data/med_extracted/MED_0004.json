@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0004",
+  "patient": {
+    "patient_id": "PAT-30004",
+    "name": "Robert Miller",
+    "dob": "1962-08-21",
+    "gender": null
+  },
+  "date": "2025-04-04",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Hydrochlorothiazide",
+      "dose": 12.5,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 30,
+      "refills": 3,
+      "sig": "Take 1 tablet PO once daily",
+      "normalized_name": "Hydrochlorothiazide",
+      "rxcui": "5487",
+      "source_evidence": {
+        "text": "Order #1: Hydrochlorothiazide 12.5 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          242.94,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Cephalexin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "QID",
+      "duration": "10 days",
+      "quantity": 40,
+      "refills": 0,
+      "sig": "1 capsule by mouth QID x 10 days",
+      "normalized_name": "Cephalexin",
+      "rxcui": "2231",
+      "source_evidence": {
+        "text": "Order #2: Cephalexin 250 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          194.8,
+          196.83,
+          208.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

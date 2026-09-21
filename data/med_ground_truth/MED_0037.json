@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0037",
+  "template_type": "clinic_rx_pad",
+  "facility_name": "Family Medicine Associates of Healthcare City",
+  "prescriber": "Dr. Robert Evans, MD",
+  "prescription_date": "2025-03-29",
+  "patient": {
+    "patient_id": "PAT-30037",
+    "name": "Charles Jones",
+    "dob": "1975-08-15",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Amlodipine",
+      "dose": 2.5,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig_text": "1 tablet oral QD",
+      "canonical_name": "Amlodipine",
+      "rxcui": "17767"
+    }
+  ]
+}

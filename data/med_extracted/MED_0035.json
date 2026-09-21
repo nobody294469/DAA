@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0035",
+  "patient": {
+    "patient_id": "PAT-30035",
+    "name": "ROBERT JONES (MRN: PAT-30035)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-03-04",
+  "prescriber": "Dr. Emily Chen, MD",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Albuterol",
+      "dose": 90.0,
+      "dose_unit": "mcg",
+      "dosage_form": "inhaler",
+      "route": "inhalation",
+      "frequency": "as needed for shortness of breath",
+      "duration": null,
+      "quantity": 2,
+      "refills": 2,
+      "sig": "2 PUFFS BY INHALATION AS NEEDED FOR SHORTNESS OF BREATH",
+      "normalized_name": "Albuterol",
+      "rxcui": "435",
+      "source_evidence": {
+        "text": "MEDICATION: ALBUTEROL 90 MCG INHALER",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          254.53,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

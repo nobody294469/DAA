@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0002",
+  "template_type": "discharge_summary",
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "prescription_date": "2025-05-20",
+  "patient": {
+    "patient_id": "PAT-30002",
+    "name": "Thomas Brown",
+    "dob": "1990-11-23",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 60,
+      "refills": 1,
+      "sig_text": "Take 1 capsule by mouth QD",
+      "canonical_name": "Omeprazole",
+      "rxcui": "7646"
+    },
+    {
+      "medication_name": "Ciprofloxacin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "twice daily",
+      "duration": "7 days",
+      "quantity": 20,
+      "refills": 0,
+      "sig_text": "1 tablet oral twice daily x 7 days",
+      "canonical_name": "Ciprofloxacin",
+      "rxcui": "2551"
+    },
+    {
+      "medication_name": "Losartan",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 90,
+      "refills": 3,
+      "sig_text": "Take 1 tablet PO QD",
+      "canonical_name": "Losartan",
+      "rxcui": "5224"
+    }
+  ]
+}

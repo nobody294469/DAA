@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0022",
+  "template_type": "discharge_summary",
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "prescription_date": "2025-03-22",
+  "patient": {
+    "patient_id": "PAT-30022",
+    "name": "Mary Johnson",
+    "dob": "1983-07-12",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Furosemide",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "1 tablet oral once daily in the morning",
+      "canonical_name": "Furosemide",
+      "rxcui": "4603"
+    },
+    {
+      "medication_name": "Atorvastatin",
+      "dose": 80.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig_text": "1 tablet by mouth QD",
+      "canonical_name": "Atorvastatin",
+      "rxcui": "83367"
+    },
+    {
+      "medication_name": "Sertraline",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig_text": "1 tablet PO once daily",
+      "canonical_name": "Sertraline",
+      "rxcui": "36437"
+    }
+  ]
+}

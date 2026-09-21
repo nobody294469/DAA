@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0012",
+  "patient": {
+    "patient_id": "PAT-30012",
+    "name": "Susan Davis",
+    "dob": "2000-12-02",
+    "gender": null
+  },
+  "date": "2025-06-22",
+  "prescriber": "Dr. Marcus Vance, DO",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Lisinopril",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily",
+      "duration": "30 days",
+      "quantity": 30,
+      "refills": 1,
+      "sig": "1 tablet oral once daily",
+      "normalized_name": "Lisinopril",
+      "rxcui": "29046",
+      "source_evidence": {
+        "text": "Order #1: Lisinopril 40 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          182.93,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Sertraline",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": "30 days",
+      "quantity": 90,
+      "refills": 2,
+      "sig": "Take 1 tablet by mouth once daily",
+      "normalized_name": "Sertraline",
+      "rxcui": "36437",
+      "source_evidence": {
+        "text": "Order #2: Sertraline 50 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          194.8,
+          184.05,
+          208.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

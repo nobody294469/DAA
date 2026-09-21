@@ -1,0 +1,35 @@
+# M0a Baseline Configuration
+version: "1.0.0"
+milestone: "M0a"
+seed: 42
+
+paths:
+  synthea_data_dir: "data/synthea"
+  rendered_docs_dir: "data/rendered"
+  ground_truth_dir: "data/ground_truth"
+  ocr_cache_dir: "data/ocr_cache"
+
+synthetic_generation:
+  sample_size: 50
+  template: "standard_lab_v1"
+
+ingestion:
+  use_born_digital_text: true
+  ocr_engine: "paddleocr"
+  cache_enabled: true
+
+extraction:
+  mode: "deterministic_row_parser"
+
+normalization:
+  loinc_mapping_file: "configs/loinc_subset.json"
+  ucum_units_file: "configs/ucum_subset.json"
+
+verification:
+  ocr_confidence_threshold: 0.80
+  flag_unsupported_evidence: true
+  check_reference_ranges: true
+
+fhir:
+  target_version: "R4"
+  validate_structural: true

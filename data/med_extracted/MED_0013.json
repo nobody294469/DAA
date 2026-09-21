@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0013",
+  "patient": {
+    "patient_id": "PAT-30013",
+    "name": "Joseph Wilson",
+    "dob": "2000-09-04",
+    "gender": "M"
+  },
+  "date": "2025-01-13",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "facility": "Family Medicine Associates of Healthcare City",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Cephalexin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "four times daily",
+      "duration": "7 days",
+      "quantity": 40,
+      "refills": 0,
+      "sig": "1 capsule by mouth four times daily x 7 days",
+      "normalized_name": "Cephalexin",
+      "rxcui": "2231",
+      "source_evidence": {
+        "text": "Cephalexin 250 mg capsule",
+        "page": 1,
+        "bbox": [
+          42.0,
+          192.73,
+          185.67,
+          207.88
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

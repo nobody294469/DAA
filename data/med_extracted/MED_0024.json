@@ -1,0 +1,96 @@
+{
+  "doc_id": "MED_0024",
+  "patient": {
+    "patient_id": "PAT-30024",
+    "name": "Karen Martinez",
+    "dob": "1986-06-15",
+    "gender": null
+  },
+  "date": "2025-04-24",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Metoprolol",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "twice a day",
+      "duration": "30 days",
+      "quantity": 180,
+      "refills": 3,
+      "sig": "Take 1 tablet by mouth twice a day with or immediately after meals",
+      "normalized_name": "Metoprolol",
+      "rxcui": "6918",
+      "source_evidence": {
+        "text": "Order #1: Metoprolol 100 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          194.59,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Furosemide",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "twice daily",
+      "duration": "30 days",
+      "quantity": 30,
+      "refills": 1,
+      "sig": "Take 1 tablet PO twice daily",
+      "normalized_name": "Furosemide",
+      "rxcui": "4603",
+      "source_evidence": {
+        "text": "Order #2: Furosemide 20 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          206.8,
+          194.6,
+          220.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": "5 days",
+      "quantity": 3,
+      "refills": 0,
+      "sig": "Take 1 tablet by mouth QD for 5 days",
+      "normalized_name": "Azithromycin",
+      "rxcui": "18631",
+      "source_evidence": {
+        "text": "Order #3: Azithromycin 250 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          275.8,
+          206.82,
+          289.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 3
+  }
+}

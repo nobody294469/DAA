@@ -1,0 +1,43 @@
+{
+  "doc_id": "MED_0048",
+  "template_type": "mar_order_sheet",
+  "facility_name": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "prescriber": "Dr. Robert Evans, MD",
+  "prescription_date": "2025-06-17",
+  "patient": {
+    "patient_id": "PAT-30048",
+    "name": "Mary Lopez",
+    "dob": "1954-07-28",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Metformin",
+      "dose": 850.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "every 12 hours",
+      "duration": null,
+      "quantity": 60,
+      "refills": 2,
+      "sig_text": "Take one tablet oral every 12 hours with food",
+      "canonical_name": "Metformin",
+      "rxcui": "6809"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "daily",
+      "duration": "3 days",
+      "quantity": 6,
+      "refills": 0,
+      "sig_text": "Take 1 tablet oral daily for 3 days",
+      "canonical_name": "Azithromycin",
+      "rxcui": "18631"
+    }
+  ]
+}

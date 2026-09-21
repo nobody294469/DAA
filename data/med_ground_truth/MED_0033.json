@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0033",
+  "template_type": "clinic_rx_pad",
+  "facility_name": "Family Medicine Associates of Healthcare City",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "prescription_date": "2025-06-16",
+  "patient": {
+    "patient_id": "PAT-30033",
+    "name": "Jennifer Miller",
+    "dob": "1956-12-17",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Losartan",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 90,
+      "refills": 3,
+      "sig_text": "1 tablet PO QD",
+      "canonical_name": "Losartan",
+      "rxcui": "5224"
+    }
+  ]
+}

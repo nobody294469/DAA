@@ -1,0 +1,142 @@
+{
+  "amoxicillin": {
+    "canonical_name": "Amoxicillin",
+    "rxcui": "723",
+    "drug_class": "Penicillin antibiotic",
+    "default_route": "oral",
+    "common_forms": ["capsule", "tablet", "suspension"]
+  },
+  "lisinopril": {
+    "canonical_name": "Lisinopril",
+    "rxcui": "29046",
+    "drug_class": "ACE inhibitor",
+    "default_route": "oral",
+    "common_forms": ["tablet"]
+  },
+  "metformin": {
+    "canonical_name": "Metformin",
+    "rxcui": "6809",
+    "drug_class": "Biguanide antidiabetic",
+    "default_route": "oral",
+    "common_forms": ["tablet", "extended-release tablet"]
+  },
+  "atorvastatin": {
+    "canonical_name": "Atorvastatin",
+    "rxcui": "83367",
+    "drug_class": "HMG-CoA reductase inhibitor (statin)",
+    "default_route": "oral",
+    "common_forms": ["tablet"]
+  },
+  "levothyroxine": {
+    "canonical_name": "Levothyroxine",
+    "rxcui": "10582",
+    "drug_class": "Thyroid hormone",
+    "default_route": "oral",
+    "common_forms": ["tablet"]
+  },
+  "amlodipine": {
+    "canonical_name": "Amlodipine",
+    "rxcui": "17767",
+    "drug_class": "Calcium channel blocker",
+    "default_route": "oral",
+    "common_forms": ["tablet"]
+  },
+  "metoprolol": {
+    "canonical_name": "Metoprolol",
+    "rxcui": "6918",
+    "drug_class": "Beta blocker",
+    "default_route": "oral",
+    "common_forms": ["tablet", "extended-release tablet"]
+  },
+  "omeprazole": {
+    "canonical_name": "Omeprazole",
+    "rxcui": "7646",
+    "drug_class": "Proton pump inhibitor",
+    "default_route": "oral",
+    "common_forms": ["capsule", "delayed-release capsule"]
+  },
+  "losartan": {
+    "canonical_name": "Losartan",
+    "rxcui": "5224",
+    "drug_class": "Angiotensin II receptor blocker",
+    "default_route": "oral",
+    "common_forms": ["tablet"]
+  },
+  "albuterol": {
+    "canonical_name": "Albuterol",
+    "rxcui": "435",
+    "drug_class": "Beta-2 agonist bronchodilator",
+    "default_route": "inhalation",
+    "common_forms": ["inhaler", "solution"]
+  },
+  "gabapentin": {
+    "canonical_name": "Gabapentin",
+    "rxcui": "25480",
+    "drug_class": "Anticonvulsant / Neuropathic agent",
+    "default_route": "oral",
+    "common_forms": ["capsule", "tablet"]
+  },
+  "hydrochlorothiazide": {
+    "canonical_name": "Hydrochlorothiazide",
+    "rxcui": "5487",
+    "drug_class": "Thiazide diuretic",
+    "default_route": "oral",
+    "common_forms": ["tablet", "capsule"]
+  },
+  "sertraline": {
+    "canonical_name": "Sertraline",
+    "rxcui": "36437",
+    "drug_class": "SSRI antidepressant",
+    "default_route": "oral",
+    "common_forms": ["tablet"]
+  },
+  "simvastatin": {
+    "canonical_name": "Simvastatin",
+    "rxcui": "36567",
+    "drug_class": "HMG-CoA reductase inhibitor (statin)",
+    "default_route": "oral",
+    "common_forms": ["tablet"]
+  },
+  "montelukast": {
+    "canonical_name": "Montelukast",
+    "rxcui": "88249",
+    "drug_class": "Leukotriene receptor antagonist",
+    "default_route": "oral",
+    "common_forms": ["tablet", "chewable tablet"]
+  },
+  "prednisone": {
+    "canonical_name": "Prednisone",
+    "rxcui": "8640",
+    "drug_class": "Corticosteroid",
+    "default_route": "oral",
+    "common_forms": ["tablet"]
+  },
+  "ciprofloxacin": {
+    "canonical_name": "Ciprofloxacin",
+    "rxcui": "2551",
+    "drug_class": "Fluoroquinolone antibiotic",
+    "default_route": "oral",
+    "common_forms": ["tablet", "ophthalmic solution"]
+  },
+  "azithromycin": {
+    "canonical_name": "Azithromycin",
+    "rxcui": "18631",
+    "drug_class": "Macrolide antibiotic",
+    "default_route": "oral",
+    "common_forms": ["tablet", "oral suspension"]
+  },
+  "furosemide": {
+    "canonical_name": "Furosemide",
+    "rxcui": "4603",
+    "drug_class": "Loop diuretic",
+    "default_route": "oral",
+    "common_forms": ["tablet", "solution"]
+  },
+  "cephalexin": {
+    "canonical_name": "Cephalexin",
+    "rxcui": "2231",
+    "drug_class": "Cephalosporin antibiotic",
+    "default_route": "oral",
+    "common_forms": ["capsule", "suspension"]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0027",
+  "patient": {
+    "patient_id": "PAT-30027",
+    "name": "MICHAEL MILLER (MRN: PAT-30027)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-02-24",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Metformin",
+      "dose": 850.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "twice a day",
+      "duration": null,
+      "quantity": 180,
+      "refills": 2,
+      "sig": "TAKE 1 TABLET ORAL TWICE A DAY WITH MEALS",
+      "normalized_name": "Metformin",
+      "rxcui": "6809",
+      "source_evidence": {
+        "text": "MEDICATION: METFORMIN 850 MG TABLET",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          249.02,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

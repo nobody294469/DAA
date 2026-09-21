@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0027",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "prescription_date": "2025-02-24",
+  "patient": {
+    "patient_id": "PAT-30027",
+    "name": "Michael Miller",
+    "dob": "1989-03-23",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Metformin",
+      "dose": 850.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "twice a day",
+      "duration": null,
+      "quantity": 180,
+      "refills": 2,
+      "sig_text": "Take 1 tablet oral twice a day with meals",
+      "canonical_name": "Metformin",
+      "rxcui": "6809"
+    }
+  ]
+}

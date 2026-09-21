@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0024",
+  "template_type": "mar_order_sheet",
+  "facility_name": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "prescription_date": "2025-04-24",
+  "patient": {
+    "patient_id": "PAT-30024",
+    "name": "Karen Martinez",
+    "dob": "1986-06-15",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Metoprolol",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "twice a day",
+      "duration": "30 days",
+      "quantity": 180,
+      "refills": 3,
+      "sig_text": "Take 1 tablet by mouth twice a day with or immediately after meals",
+      "canonical_name": "Metoprolol",
+      "rxcui": "6918"
+    },
+    {
+      "medication_name": "Furosemide",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "twice daily",
+      "duration": "30 days",
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "Take 1 tablet PO twice daily",
+      "canonical_name": "Furosemide",
+      "rxcui": "4603"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": "5 days",
+      "quantity": 3,
+      "refills": 0,
+      "sig_text": "Take 1 tablet by mouth QD for 5 days",
+      "canonical_name": "Azithromycin",
+      "rxcui": "18631"
+    }
+  ]
+}

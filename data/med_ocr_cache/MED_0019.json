@@ -1,0 +1,1737 @@
+{
+  "doc_id": "MED_0019",
+  "source_path": "data\\med_rendered\\MED_0019.pdf",
+  "engine": "pymupdf_digital",
+  "device": "cpu",
+  "num_pages": 1,
+  "lines": [
+    {
+      "text": "Walgreens Community Pharmacy #4192",
+      "bbox": [
+        42.0,
+        41.09,
+        288.36,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Walgreens",
+          "bbox": [
+            42.0,
+            41.09,
+            107.74,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Community",
+          "bbox": [
+            111.36,
+            41.09,
+            182.85,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Pharmacy",
+          "bbox": [
+            186.47,
+            41.09,
+            248.61,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "#4192",
+          "bbox": [
+            252.22,
+            41.09,
+            288.36,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "800 Main Street | Store Ph: (555) 789-0123 | Pharmacy Lic # 882741",
+      "bbox": [
+        42.0,
+        57.4,
+        285.84,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "800",
+          "bbox": [
+            42.0,
+            57.4,
+            55.34,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Main",
+          "bbox": [
+            57.57,
+            57.4,
+            74.9,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Street",
+          "bbox": [
+            77.13,
+            57.4,
+            98.47,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            100.7,
+            57.4,
+            102.78,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Store",
+          "bbox": [
+            105.0,
+            57.4,
+            124.12,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Ph:",
+          "bbox": [
+            126.34,
+            57.4,
+            138.35,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "(555)",
+          "bbox": [
+            140.58,
+            57.4,
+            159.25,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "789-0123",
+          "bbox": [
+            161.47,
+            57.4,
+            195.27,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            197.5,
+            57.4,
+            199.58,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Pharmacy",
+          "bbox": [
+            201.8,
+            57.4,
+            237.81,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Lic",
+          "bbox": [
+            240.03,
+            57.4,
+            250.26,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "#",
+          "bbox": [
+            252.48,
+            57.4,
+            256.93,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "882741",
+          "bbox": [
+            259.15,
+            57.4,
+            285.84,
+            68.39
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "RX#7000019 Date Filled: 2025-02-23 Discard After: 1 Year",
+      "bbox": [
+        42.0,
+        84.82,
+        302.13,
+        97.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "RX#7000019",
+          "bbox": [
+            42.0,
+            84.87,
+            94.53,
+            97.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            109.55,
+            84.82,
+            128.55,
+            97.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Filled:",
+          "bbox": [
+            131.05,
+            84.82,
+            155.06,
+            97.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "2025-02-23",
+          "bbox": [
+            157.56,
+            84.82,
+            203.59,
+            97.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Discard",
+          "bbox": [
+            218.6,
+            84.82,
+            249.1,
+            97.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "After:",
+          "bbox": [
+            251.6,
+            84.82,
+            273.11,
+            97.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1",
+          "bbox": [
+            275.61,
+            84.82,
+            280.62,
+            97.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Year",
+          "bbox": [
+            283.12,
+            84.82,
+            302.13,
+            97.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "PATIENT: DAVID GARCIA (MRN: PAT-30019)",
+      "bbox": [
+        42.0,
+        100.82,
+        237.53,
+        113.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "PATIENT:",
+          "bbox": [
+            42.0,
+            100.87,
+            83.5,
+            113.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "DAVID",
+          "bbox": [
+            86.0,
+            100.82,
+            113.51,
+            113.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "GARCIA",
+          "bbox": [
+            116.01,
+            100.82,
+            150.51,
+            113.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "(MRN:",
+          "bbox": [
+            160.52,
+            100.82,
+            186.51,
+            113.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PAT-30019)",
+          "bbox": [
+            189.01,
+            100.82,
+            237.53,
+            113.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "DIRECTIONS:",
+      "bbox": [
+        61.0,
+        128.66,
+        139.0,
+        145.18
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "DIRECTIONS:",
+          "bbox": [
+            61.0,
+            128.66,
+            139.0,
+            145.18
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "TAKE 1 CAPSULE ORAL QD",
+      "bbox": [
+        61.0,
+        144.66,
+        223.01,
+        161.18
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "TAKE",
+          "bbox": [
+            61.0,
+            144.66,
+            93.66,
+            161.18
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1",
+          "bbox": [
+            97.0,
+            144.66,
+            103.67,
+            161.18
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "CAPSULE",
+          "bbox": [
+            107.01,
+            144.66,
+            164.34,
+            161.18
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "ORAL",
+          "bbox": [
+            167.68,
+            144.66,
+            201.68,
+            161.18
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "QD",
+          "bbox": [
+            205.01,
+            144.66,
+            223.01,
+            161.18
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "MEDICATION: OMEPRAZOLE 20 MG CAPSULE",
+      "bbox": [
+        61.0,
+        172.82,
+        260.04,
+        185.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "MEDICATION:",
+          "bbox": [
+            61.0,
+            172.87,
+            120.99,
+            185.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "OMEPRAZOLE",
+          "bbox": [
+            123.5,
+            172.82,
+            186.01,
+            185.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "20",
+          "bbox": [
+            188.51,
+            172.82,
+            198.52,
+            185.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MG",
+          "bbox": [
+            201.02,
+            172.82,
+            215.52,
+            185.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "CAPSULE",
+          "bbox": [
+            218.02,
+            172.82,
+            260.04,
+            185.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "QTY: 30 | REFILLS LEFT: 0 | PRESCRIBER: Dr. Sarah Jenkins, MD",
+      "bbox": [
+        61.0,
+        196.82,
+        357.75,
+        209.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "QTY:",
+          "bbox": [
+            61.0,
+            196.87,
+            82.5,
+            209.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "30",
+          "bbox": [
+            85.0,
+            196.82,
+            95.01,
+            209.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            102.52,
+            196.82,
+            104.86,
+            209.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "REFILLS",
+          "bbox": [
+            112.36,
+            196.87,
+            149.87,
+            209.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "LEFT:",
+          "bbox": [
+            152.37,
+            196.87,
+            177.86,
+            209.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "0",
+          "bbox": [
+            180.37,
+            196.82,
+            185.37,
+            209.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            192.88,
+            196.82,
+            195.22,
+            209.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PRESCRIBER:",
+          "bbox": [
+            202.72,
+            196.87,
+            264.72,
+            209.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Dr.",
+          "bbox": [
+            267.23,
+            196.82,
+            279.22,
+            209.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Sarah",
+          "bbox": [
+            281.73,
+            196.82,
+            305.74,
+            209.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Jenkins,",
+          "bbox": [
+            308.24,
+            196.82,
+            341.25,
+            209.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MD",
+          "bbox": [
+            343.75,
+            196.82,
+            357.75,
+            209.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "CAUTION: Federal law prohibits transfer of this drug to any person other than the patient for whom it was prescribed.",
+      "bbox": [
+        42.0,
+        224.9,
+        456.38,
+        235.96
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "CAUTION:",
+          "bbox": [
+            42.0,
+            224.94,
+            81.1,
+            235.96
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Federal",
+          "bbox": [
+            83.33,
+            224.9,
+            110.45,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "law",
+          "bbox": [
+            112.67,
+            224.9,
+            124.67,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "prohibits",
+          "bbox": [
+            126.9,
+            224.9,
+            157.13,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "transfer",
+          "bbox": [
+            159.35,
+            224.9,
+            186.47,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "of",
+          "bbox": [
+            188.7,
+            224.9,
+            195.37,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "this",
+          "bbox": [
+            197.59,
+            224.9,
+            210.04,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "drug",
+          "bbox": [
+            212.26,
+            224.9,
+            228.27,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "to",
+          "bbox": [
+            230.5,
+            224.9,
+            237.17,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "any",
+          "bbox": [
+            239.39,
+            224.9,
+            252.29,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "person",
+          "bbox": [
+            254.51,
+            224.9,
+            278.97,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "other",
+          "bbox": [
+            281.19,
+            224.9,
+            299.42,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "than",
+          "bbox": [
+            301.65,
+            224.9,
+            317.22,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "the",
+          "bbox": [
+            319.44,
+            224.9,
+            330.56,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "patient",
+          "bbox": [
+            332.78,
+            224.9,
+            356.8,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "for",
+          "bbox": [
+            359.02,
+            224.9,
+            368.36,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "whom",
+          "bbox": [
+            370.58,
+            224.9,
+            391.92,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "it",
+          "bbox": [
+            394.14,
+            224.9,
+            398.14,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "was",
+          "bbox": [
+            400.37,
+            224.9,
+            414.59,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "prescribed.",
+          "bbox": [
+            416.82,
+            224.9,
+            456.38,
+            235.89
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "text": "Walgreens",
+      "bbox": [
+        42.0,
+        41.09,
+        107.74,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Community",
+      "bbox": [
+        111.36,
+        41.09,
+        182.85,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Pharmacy",
+      "bbox": [
+        186.47,
+        41.09,
+        248.61,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "#4192",
+      "bbox": [
+        252.22,
+        41.09,
+        288.36,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "800",
+      "bbox": [
+        42.0,
+        57.4,
+        55.34,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Main",
+      "bbox": [
+        57.57,
+        57.4,
+        74.9,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Street",
+      "bbox": [
+        77.13,
+        57.4,
+        98.47,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        100.7,
+        57.4,
+        102.78,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Store",
+      "bbox": [
+        105.0,
+        57.4,
+        124.12,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Ph:",
+      "bbox": [
+        126.34,
+        57.4,
+        138.35,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "(555)",
+      "bbox": [
+        140.58,
+        57.4,
+        159.25,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "789-0123",
+      "bbox": [
+        161.47,
+        57.4,
+        195.27,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        197.5,
+        57.4,
+        199.58,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Pharmacy",
+      "bbox": [
+        201.8,
+        57.4,
+        237.81,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Lic",
+      "bbox": [
+        240.03,
+        57.4,
+        250.26,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "#",
+      "bbox": [
+        252.48,
+        57.4,
+        256.93,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "882741",
+      "bbox": [
+        259.15,
+        57.4,
+        285.84,
+        68.39
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "RX#7000019",
+      "bbox": [
+        42.0,
+        84.87,
+        94.53,
+        97.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Date",
+      "bbox": [
+        109.55,
+        84.82,
+        128.55,
+        97.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Filled:",
+      "bbox": [
+        131.05,
+        84.82,
+        155.06,
+        97.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "2025-02-23",
+      "bbox": [
+        157.56,
+        84.82,
+        203.59,
+        97.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Discard",
+      "bbox": [
+        218.6,
+        84.82,
+        249.1,
+        97.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "After:",
+      "bbox": [
+        251.6,
+        84.82,
+        273.11,
+        97.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1",
+      "bbox": [
+        275.61,
+        84.82,
+        280.62,
+        97.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Year",
+      "bbox": [
+        283.12,
+        84.82,
+        302.13,
+        97.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PATIENT:",
+      "bbox": [
+        42.0,
+        100.87,
+        83.5,
+        113.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "DAVID",
+      "bbox": [
+        86.0,
+        100.82,
+        113.51,
+        113.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "GARCIA",
+      "bbox": [
+        116.01,
+        100.82,
+        150.51,
+        113.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "(MRN:",
+      "bbox": [
+        160.52,
+        100.82,
+        186.51,
+        113.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PAT-30019)",
+      "bbox": [
+        189.01,
+        100.82,
+        237.53,
+        113.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "DIRECTIONS:",
+      "bbox": [
+        61.0,
+        128.66,
+        139.0,
+        145.18
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "TAKE",
+      "bbox": [
+        61.0,
+        144.66,
+        93.66,
+        161.18
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1",
+      "bbox": [
+        97.0,
+        144.66,
+        103.67,
+        161.18
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "CAPSULE",
+      "bbox": [
+        107.01,
+        144.66,
+        164.34,
+        161.18
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "ORAL",
+      "bbox": [
+        167.68,
+        144.66,
+        201.68,
+        161.18
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "QD",
+      "bbox": [
+        205.01,
+        144.66,
+        223.01,
+        161.18
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MEDICATION:",
+      "bbox": [
+        61.0,
+        172.87,
+        120.99,
+        185.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "OMEPRAZOLE",
+      "bbox": [
+        123.5,
+        172.82,
+        186.01,
+        185.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "20",
+      "bbox": [
+        188.51,
+        172.82,
+        198.52,
+        185.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MG",
+      "bbox": [
+        201.02,
+        172.82,
+        215.52,
+        185.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "CAPSULE",
+      "bbox": [
+        218.02,
+        172.82,
+        260.04,
+        185.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "QTY:",
+      "bbox": [
+        61.0,
+        196.87,
+        82.5,
+        209.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "30",
+      "bbox": [
+        85.0,
+        196.82,
+        95.01,
+        209.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        102.52,
+        196.82,
+        104.86,
+        209.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "REFILLS",
+      "bbox": [
+        112.36,
+        196.87,
+        149.87,
+        209.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "LEFT:",
+      "bbox": [
+        152.37,
+        196.87,
+        177.86,
+        209.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "0",
+      "bbox": [
+        180.37,
+        196.82,
+        185.37,
+        209.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        192.88,
+        196.82,
+        195.22,
+        209.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PRESCRIBER:",
+      "bbox": [
+        202.72,
+        196.87,
+        264.72,
+        209.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Dr.",
+      "bbox": [
+        267.23,
+        196.82,
+        279.22,
+        209.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Sarah",
+      "bbox": [
+        281.73,
+        196.82,
+        305.74,
+        209.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Jenkins,",
+      "bbox": [
+        308.24,
+        196.82,
+        341.25,
+        209.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MD",
+      "bbox": [
+        343.75,
+        196.82,
+        357.75,
+        209.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "CAUTION:",
+      "bbox": [
+        42.0,
+        224.94,
+        81.1,
+        235.96
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Federal",
+      "bbox": [
+        83.33,
+        224.9,
+        110.45,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "law",
+      "bbox": [
+        112.67,
+        224.9,
+        124.67,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "prohibits",
+      "bbox": [
+        126.9,
+        224.9,
+        157.13,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "transfer",
+      "bbox": [
+        159.35,
+        224.9,
+        186.47,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "of",
+      "bbox": [
+        188.7,
+        224.9,
+        195.37,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "this",
+      "bbox": [
+        197.59,
+        224.9,
+        210.04,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "drug",
+      "bbox": [
+        212.26,
+        224.9,
+        228.27,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "to",
+      "bbox": [
+        230.5,
+        224.9,
+        237.17,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "any",
+      "bbox": [
+        239.39,
+        224.9,
+        252.29,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "person",
+      "bbox": [
+        254.51,
+        224.9,
+        278.97,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "other",
+      "bbox": [
+        281.19,
+        224.9,
+        299.42,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "than",
+      "bbox": [
+        301.65,
+        224.9,
+        317.22,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "the",
+      "bbox": [
+        319.44,
+        224.9,
+        330.56,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "patient",
+      "bbox": [
+        332.78,
+        224.9,
+        356.8,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "for",
+      "bbox": [
+        359.02,
+        224.9,
+        368.36,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "whom",
+      "bbox": [
+        370.58,
+        224.9,
+        391.92,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "it",
+      "bbox": [
+        394.14,
+        224.9,
+        398.14,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "was",
+      "bbox": [
+        400.37,
+        224.9,
+        414.59,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "prescribed.",
+      "bbox": [
+        416.82,
+        224.9,
+        456.38,
+        235.89
+      ],
+      "confidence": 1.0,
+      "page": 1
+    }
+  ],
+  "metadata": {
+    "processing_time_ms": 17.4
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0032",
+  "patient": {
+    "patient_id": "PAT-30032",
+    "name": "Susan Lopez",
+    "dob": "1957-02-19",
+    "gender": null
+  },
+  "date": "2025-06-26",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Atorvastatin",
+      "dose": 10.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "once daily at bedtime",
+      "duration": "90 days",
+      "quantity": 90,
+      "refills": 3,
+      "sig": "Take 1 tablet PO once daily at bedtime",
+      "normalized_name": "Atorvastatin",
+      "rxcui": "83367",
+      "source_evidence": {
+        "text": "Order #1: Atorvastatin 10 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          196.26,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Albuterol",
+      "dose": 90.0,
+      "dose_unit": "mcg",
+      "dosage_form": "inhaler",
+      "route": "inhalation",
+      "frequency": "every 4-6 hours PRN",
+      "duration": "as needed",
+      "quantity": 1,
+      "refills": 2,
+      "sig": "2 puffs inhalation every 4-6 hours PRN",
+      "normalized_name": "Albuterol",
+      "rxcui": "435",
+      "source_evidence": {
+        "text": "Order #2: Albuterol 90 mcg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          194.8,
+          187.37,
+          208.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

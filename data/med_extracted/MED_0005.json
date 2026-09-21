@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0005",
+  "patient": {
+    "patient_id": "PAT-30005",
+    "name": "Michael Anderson",
+    "dob": "1947-06-13",
+    "gender": "M"
+  },
+  "date": "2025-03-10",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "facility": "Family Medicine Associates of Healthcare City",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Metformin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "twice a day",
+      "duration": null,
+      "quantity": 180,
+      "refills": 2,
+      "sig": "Take one tablet PO twice a day with food",
+      "normalized_name": "Metformin",
+      "rxcui": "6809",
+      "source_evidence": {
+        "text": "Metformin 500 mg tablet",
+        "page": 1,
+        "bbox": [
+          42.0,
+          192.73,
+          168.52,
+          207.88
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

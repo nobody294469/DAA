@@ -1,0 +1,43 @@
+{
+  "doc_id": "MED_0044",
+  "template_type": "mar_order_sheet",
+  "facility_name": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "prescription_date": "2025-01-14",
+  "patient": {
+    "patient_id": "PAT-30044",
+    "name": "Karen Wilson",
+    "dob": "1976-11-15",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Losartan",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "every morning",
+      "duration": "90 days",
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "Take 1 tablet oral every morning",
+      "canonical_name": "Losartan",
+      "rxcui": "5224"
+    },
+    {
+      "medication_name": "Levothyroxine",
+      "dose": 50.0,
+      "dose_unit": "mcg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig_text": "Take 1 tablet oral once daily in the morning",
+      "canonical_name": "Levothyroxine",
+      "rxcui": "10582"
+    }
+  ]
+}

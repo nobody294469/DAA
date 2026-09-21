@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0025",
+  "template_type": "clinic_rx_pad",
+  "facility_name": "Family Medicine Associates of Healthcare City",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "prescription_date": "2025-06-26",
+  "patient": {
+    "patient_id": "PAT-30025",
+    "name": "Jessica Miller",
+    "dob": "1960-03-21",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Amoxicillin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "TID",
+      "duration": "5 days",
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "Take 1 capsule oral TID for 5 days",
+      "canonical_name": "Amoxicillin",
+      "rxcui": "723"
+    }
+  ]
+}

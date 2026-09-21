@@ -1,0 +1,43 @@
+{
+  "doc_id": "MED_0016",
+  "template_type": "mar_order_sheet",
+  "facility_name": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "prescription_date": "2025-04-28",
+  "patient": {
+    "patient_id": "PAT-30016",
+    "name": "Jessica Garcia",
+    "dob": "2004-02-01",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Metformin",
+      "dose": 1000.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "BID",
+      "duration": "90 days",
+      "quantity": 60,
+      "refills": 1,
+      "sig_text": "1 tablet oral BID",
+      "canonical_name": "Metformin",
+      "rxcui": "6809"
+    },
+    {
+      "medication_name": "Metoprolol",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "BID",
+      "duration": null,
+      "quantity": 180,
+      "refills": 2,
+      "sig_text": "1 tablet by mouth BID",
+      "canonical_name": "Metoprolol",
+      "rxcui": "6918"
+    }
+  ]
+}

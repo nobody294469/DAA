@@ -1,0 +1,43 @@
+{
+  "doc_id": "MED_0020",
+  "template_type": "mar_order_sheet",
+  "facility_name": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "prescription_date": "2025-04-16",
+  "patient": {
+    "patient_id": "PAT-30020",
+    "name": "Richard Smith",
+    "dob": "1956-12-11",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Losartan",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": "30 days",
+      "quantity": 90,
+      "refills": 1,
+      "sig_text": "Take 1 tablet by mouth QD",
+      "canonical_name": "Losartan",
+      "rxcui": "5224"
+    },
+    {
+      "medication_name": "Amlodipine",
+      "dose": 5.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": "30 days",
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "Take 1 tablet oral QD",
+      "canonical_name": "Amlodipine",
+      "rxcui": "17767"
+    }
+  ]
+}

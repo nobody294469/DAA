@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0042",
+  "template_type": "discharge_summary",
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "prescriber": "Dr. Robert Evans, MD",
+  "prescription_date": "2025-01-06",
+  "patient": {
+    "patient_id": "PAT-30042",
+    "name": "Michael Hernandez",
+    "dob": "1998-10-19",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Lisinopril",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": "90 days",
+      "quantity": 30,
+      "refills": 3,
+      "sig_text": "Take one tablet PO every morning for 90 days",
+      "canonical_name": "Lisinopril",
+      "rxcui": "29046"
+    },
+    {
+      "medication_name": "Amlodipine",
+      "dose": 10.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig_text": "1 tablet oral once daily",
+      "canonical_name": "Amlodipine",
+      "rxcui": "17767"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "once daily",
+      "duration": "5 days",
+      "quantity": 3,
+      "refills": 0,
+      "sig_text": "1 tablet PO once daily x 5 days",
+      "canonical_name": "Azithromycin",
+      "rxcui": "18631"
+    }
+  ]
+}

@@ -1,0 +1,927 @@
+{
+  "timestamp": "2026-09-21T23:13:19.789579",
+  "fhir_package_version": "fhir.resources 7.1.0 (sub-package: fhir.resources.R4B, FHIR release 4.3.0)",
+  "documents_processed": 50,
+  "documents_converted": 50,
+  "validation_failures": 0,
+  "failure_details": [],
+  "resources_generated": {
+    "Patient": 50,
+    "Organization": 50,
+    "Practitioner": 50,
+    "DiagnosticReport": 50,
+    "Observation": 705
+  },
+  "total_resources": 905,
+  "observations_represented": 705,
+  "verification_states_represented": {
+    "VERIFIED": 705,
+    "DISCREPANCY": 0,
+    "MISSING_SOURCE_EVIDENCE": 0,
+    "UNCHECKED": 0
+  },
+  "elapsed_seconds": 2.144,
+  "avg_ms_per_document": 42.87,
+  "per_document_summary": [
+    {
+      "doc_id": "LAB_0001",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42407
+    },
+    {
+      "doc_id": "LAB_0002",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56797
+    },
+    {
+      "doc_id": "LAB_0003",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53894
+    },
+    {
+      "doc_id": "LAB_0004",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16562
+    },
+    {
+      "doc_id": "LAB_0005",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42345
+    },
+    {
+      "doc_id": "LAB_0006",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56789
+    },
+    {
+      "doc_id": "LAB_0007",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53995
+    },
+    {
+      "doc_id": "LAB_0008",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16558
+    },
+    {
+      "doc_id": "LAB_0009",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42360
+    },
+    {
+      "doc_id": "LAB_0010",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56877
+    },
+    {
+      "doc_id": "LAB_0011",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53886
+    },
+    {
+      "doc_id": "LAB_0012",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16566
+    },
+    {
+      "doc_id": "LAB_0013",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42412
+    },
+    {
+      "doc_id": "LAB_0014",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56776
+    },
+    {
+      "doc_id": "LAB_0015",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53886
+    },
+    {
+      "doc_id": "LAB_0016",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16582
+    },
+    {
+      "doc_id": "LAB_0017",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42342
+    },
+    {
+      "doc_id": "LAB_0018",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56795
+    },
+    {
+      "doc_id": "LAB_0019",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53962
+    },
+    {
+      "doc_id": "LAB_0020",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16554
+    },
+    {
+      "doc_id": "LAB_0021",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42350
+    },
+    {
+      "doc_id": "LAB_0022",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56879
+    },
+    {
+      "doc_id": "LAB_0023",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53895
+    },
+    {
+      "doc_id": "LAB_0024",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16564
+    },
+    {
+      "doc_id": "LAB_0025",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42406
+    },
+    {
+      "doc_id": "LAB_0026",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56775
+    },
+    {
+      "doc_id": "LAB_0027",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53904
+    },
+    {
+      "doc_id": "LAB_0028",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16580
+    },
+    {
+      "doc_id": "LAB_0029",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42330
+    },
+    {
+      "doc_id": "LAB_0030",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56792
+    },
+    {
+      "doc_id": "LAB_0031",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53982
+    },
+    {
+      "doc_id": "LAB_0032",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16546
+    },
+    {
+      "doc_id": "LAB_0033",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42361
+    },
+    {
+      "doc_id": "LAB_0034",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56866
+    },
+    {
+      "doc_id": "LAB_0035",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53883
+    },
+    {
+      "doc_id": "LAB_0036",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16561
+    },
+    {
+      "doc_id": "LAB_0037",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42418
+    },
+    {
+      "doc_id": "LAB_0038",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56763
+    },
+    {
+      "doc_id": "LAB_0039",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53902
+    },
+    {
+      "doc_id": "LAB_0040",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16573
+    },
+    {
+      "doc_id": "LAB_0041",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42339
+    },
+    {
+      "doc_id": "LAB_0042",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56791
+    },
+    {
+      "doc_id": "LAB_0043",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53986
+    },
+    {
+      "doc_id": "LAB_0044",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16538
+    },
+    {
+      "doc_id": "LAB_0045",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42359
+    },
+    {
+      "doc_id": "LAB_0046",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56885
+    },
+    {
+      "doc_id": "LAB_0047",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 18
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 18,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 53884
+    },
+    {
+      "doc_id": "LAB_0048",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 5
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 5,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 16559
+    },
+    {
+      "doc_id": "LAB_0049",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 14
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 14,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 42417
+    },
+    {
+      "doc_id": "LAB_0050",
+      "is_valid": true,
+      "resource_counts": {
+        "Patient": 1,
+        "Organization": 1,
+        "Practitioner": 1,
+        "DiagnosticReport": 1,
+        "Observation": 19
+      },
+      "verification_status_counts": {
+        "UNCHECKED": 0,
+        "MISSING_SOURCE_EVIDENCE": 0,
+        "VERIFIED": 19,
+        "DISCREPANCY": 0
+      },
+      "file_size_bytes": 56777
+    }
+  ]
+}

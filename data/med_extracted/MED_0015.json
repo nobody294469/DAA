@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0015",
+  "patient": {
+    "patient_id": "PAT-30015",
+    "name": "CHARLES MARTINEZ (MRN: PAT-30015)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-04-18",
+  "prescriber": "Dr. Gregory House, MD",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Furosemide",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig": "1 TABLET ORAL ONCE DAILY IN THE MORNING",
+      "normalized_name": "Furosemide",
+      "rxcui": "4603",
+      "source_evidence": {
+        "text": "MEDICATION: FUROSEMIDE 40 MG TABLET",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          249.52,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

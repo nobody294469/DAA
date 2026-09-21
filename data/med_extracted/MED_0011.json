@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0011",
+  "patient": {
+    "patient_id": "PAT-30011",
+    "name": "LINDA RODRIGUEZ (MRN: PAT-30011)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-05-28",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": "5 days",
+      "quantity": 6,
+      "refills": 0,
+      "sig": "1 TABLET ORAL QD X 5 DAYS",
+      "normalized_name": "Azithromycin",
+      "rxcui": "18631",
+      "source_evidence": {
+        "text": "MEDICATION: AZITHROMYCIN 250 MG TABLET",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          263.02,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

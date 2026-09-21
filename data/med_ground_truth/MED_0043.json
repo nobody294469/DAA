@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0043",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Marcus Vance, DO",
+  "prescription_date": "2025-03-06",
+  "patient": {
+    "patient_id": "PAT-30043",
+    "name": "Sarah Smith",
+    "dob": "1974-02-11",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Gabapentin",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "three times a day",
+      "duration": null,
+      "quantity": 270,
+      "refills": 2,
+      "sig_text": "Take 1 capsule oral three times a day",
+      "canonical_name": "Gabapentin",
+      "rxcui": "25480"
+    }
+  ]
+}

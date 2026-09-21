@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0017",
+  "patient": {
+    "patient_id": "PAT-30017",
+    "name": "John Jones",
+    "dob": "1952-02-24",
+    "gender": "M"
+  },
+  "date": "2025-05-22",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "facility": "Family Medicine Associates of Healthcare City",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Levothyroxine",
+      "dose": 75.0,
+      "dose_unit": "mcg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig": "1 tablet oral once daily",
+      "normalized_name": "Levothyroxine",
+      "rxcui": "10582",
+      "source_evidence": {
+        "text": "Levothyroxine 75 mcg tablet",
+        "page": 1,
+        "bbox": [
+          42.0,
+          192.73,
+          190.54,
+          207.88
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0048",
+  "patient": {
+    "patient_id": "PAT-30048",
+    "name": "Mary Lopez",
+    "dob": "1954-07-28",
+    "gender": null
+  },
+  "date": "2025-06-17",
+  "prescriber": "Dr. Robert Evans, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Metformin",
+      "dose": 850.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "every 12 hours",
+      "duration": null,
+      "quantity": 60,
+      "refills": 2,
+      "sig": "Take one tablet oral every 12 hours with food",
+      "normalized_name": "Metformin",
+      "rxcui": "6809",
+      "source_evidence": {
+        "text": "Order #1: Metformin 850 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          191.81,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "daily",
+      "duration": "3 days",
+      "quantity": 6,
+      "refills": 0,
+      "sig": "Take 1 tablet oral daily for 3 days",
+      "normalized_name": "Azithromycin",
+      "rxcui": "18631",
+      "source_evidence": {
+        "text": "Order #2: Azithromycin 500 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          194.8,
+          206.82,
+          208.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

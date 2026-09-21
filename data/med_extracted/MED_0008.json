@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0008",
+  "patient": {
+    "patient_id": "PAT-30008",
+    "name": "Sarah Martinez",
+    "dob": "1957-03-12",
+    "gender": null
+  },
+  "date": "2025-02-11",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Gabapentin",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "TID",
+      "duration": "90 days",
+      "quantity": 90,
+      "refills": 1,
+      "sig": "Take 1 capsule by mouth TID",
+      "normalized_name": "Gabapentin",
+      "rxcui": "25480",
+      "source_evidence": {
+        "text": "Order #1: Gabapentin 100 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          198.49,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "daily",
+      "duration": "3 days",
+      "quantity": 6,
+      "refills": 0,
+      "sig": "Take 1 tablet by mouth daily for 3 days",
+      "normalized_name": "Azithromycin",
+      "rxcui": "18631",
+      "source_evidence": {
+        "text": "Order #2: Azithromycin 250 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          194.8,
+          206.82,
+          208.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

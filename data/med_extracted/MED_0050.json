@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0050",
+  "patient": {
+    "patient_id": "PAT-30050",
+    "name": "Barbara Miller",
+    "dob": "1954-04-17",
+    "gender": null
+  },
+  "date": "2025-04-16",
+  "prescriber": "Dr. Marcus Vance, DO",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Amlodipine",
+      "dose": 2.5,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig": "Amlodipine 2.5 mg tablet PO QD Take 1 tablet PO QD #30 (Ref: 2)",
+      "normalized_name": "Amlodipine",
+      "rxcui": "17767",
+      "source_evidence": {
+        "text": "Amlodipine",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          103.51,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Cephalexin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "every 6 hours",
+      "duration": "10 days",
+      "quantity": 40,
+      "refills": 0,
+      "sig": "Cephalexin 250 mg capsule oral every 6 hours Take 1 capsule oral every 6 hours for 10 days #40 (Ref: 0)",
+      "normalized_name": "Cephalexin",
+      "rxcui": "2231",
+      "source_evidence": {
+        "text": "Cephalexin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          203.87,
+          102.52,
+          216.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

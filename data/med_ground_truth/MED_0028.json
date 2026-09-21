@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0028",
+  "template_type": "mar_order_sheet",
+  "facility_name": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "prescription_date": "2025-05-28",
+  "patient": {
+    "patient_id": "PAT-30028",
+    "name": "Susan Wilson",
+    "dob": "1982-12-01",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Azithromycin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": "5 days",
+      "quantity": 3,
+      "refills": 0,
+      "sig_text": "1 tablet oral QD x 5 days",
+      "canonical_name": "Azithromycin",
+      "rxcui": "18631"
+    },
+    {
+      "medication_name": "Amoxicillin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "three times daily",
+      "duration": "7 days",
+      "quantity": 21,
+      "refills": 1,
+      "sig_text": "Take one capsule oral three times daily for 7 days",
+      "canonical_name": "Amoxicillin",
+      "rxcui": "723"
+    },
+    {
+      "medication_name": "Hydrochlorothiazide",
+      "dose": 12.5,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig_text": "Take 1 tablet oral once daily in the morning",
+      "canonical_name": "Hydrochlorothiazide",
+      "rxcui": "5487"
+    }
+  ]
+}

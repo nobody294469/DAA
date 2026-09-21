@@ -1,0 +1,1859 @@
+{
+  "doc_id": "MED_0021",
+  "source_path": "data\\med_rendered\\MED_0021.pdf",
+  "engine": "pymupdf_digital",
+  "device": "cpu",
+  "num_pages": 1,
+  "lines": [
+    {
+      "text": "Family Medicine Associates of Healthcare City",
+      "bbox": [
+        42.0,
+        40.95,
+        372.94,
+        61.6
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Family",
+          "bbox": [
+            42.0,
+            40.95,
+            89.52,
+            61.6
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Medicine",
+          "bbox": [
+            93.69,
+            40.95,
+            157.88,
+            61.6
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Associates",
+          "bbox": [
+            162.05,
+            40.95,
+            241.24,
+            61.6
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "of",
+          "bbox": [
+            245.41,
+            40.95,
+            259.57,
+            61.6
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Healthcare",
+          "bbox": [
+            263.74,
+            40.95,
+            340.44,
+            61.6
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "City",
+          "bbox": [
+            344.61,
+            40.95,
+            372.94,
+            61.6
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "1200 Healthcare Parkway, Suite 400 | Ph: (555) 321-7890 | Fax: (555) 321-7899",
+      "bbox": [
+        42.0,
+        59.33,
+        361.84,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "1200",
+          "bbox": [
+            42.0,
+            59.33,
+            62.02,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Healthcare",
+          "bbox": [
+            64.52,
+            59.33,
+            108.03,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Parkway,",
+          "bbox": [
+            110.54,
+            59.33,
+            147.54,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Suite",
+          "bbox": [
+            150.05,
+            59.33,
+            170.56,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "400",
+          "bbox": [
+            173.06,
+            59.33,
+            188.07,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            190.57,
+            59.33,
+            192.91,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Ph:",
+          "bbox": [
+            195.41,
+            59.33,
+            208.92,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "(555)",
+          "bbox": [
+            211.42,
+            59.33,
+            232.43,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "321-7890",
+          "bbox": [
+            234.93,
+            59.33,
+            272.96,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            275.46,
+            59.33,
+            277.8,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Fax:",
+          "bbox": [
+            280.3,
+            59.33,
+            297.81,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "(555)",
+          "bbox": [
+            300.31,
+            59.33,
+            321.31,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "321-7899",
+          "bbox": [
+            323.82,
+            59.33,
+            361.84,
+            71.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Prescriber: Dr. Emily Chen, MD | DEA: BV9284719 | NPI: 1982740192",
+      "bbox": [
+        42.0,
+        71.32,
+        322.79,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Prescriber:",
+          "bbox": [
+            42.0,
+            71.32,
+            85.51,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Dr.",
+          "bbox": [
+            88.01,
+            71.32,
+            100.01,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Emily",
+          "bbox": [
+            102.51,
+            71.32,
+            124.5,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Chen,",
+          "bbox": [
+            127.01,
+            71.32,
+            151.02,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MD",
+          "bbox": [
+            153.52,
+            71.32,
+            167.51,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            170.02,
+            71.32,
+            172.36,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "DEA:",
+          "bbox": [
+            174.86,
+            71.32,
+            195.86,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "BV9284719",
+          "bbox": [
+            198.37,
+            71.32,
+            245.4,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            247.9,
+            71.32,
+            250.24,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "NPI:",
+          "bbox": [
+            252.74,
+            71.32,
+            270.25,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1982740192",
+          "bbox": [
+            272.75,
+            71.32,
+            322.79,
+            83.69
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Patient Name: Elizabeth Anderson",
+      "bbox": [
+        57.0,
+        107.75,
+        213.17,
+        121.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Patient",
+          "bbox": [
+            57.0,
+            107.8,
+            90.34,
+            121.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Name:",
+          "bbox": [
+            93.12,
+            107.8,
+            123.68,
+            121.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Elizabeth",
+          "bbox": [
+            126.46,
+            107.75,
+            167.59,
+            121.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Anderson",
+          "bbox": [
+            170.37,
+            107.75,
+            213.17,
+            121.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "DOB: 1949-05-12",
+      "bbox": [
+        257.0,
+        107.75,
+        336.47,
+        121.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "DOB:",
+          "bbox": [
+            257.0,
+            107.8,
+            282.55,
+            121.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1949-05-12",
+          "bbox": [
+            285.33,
+            107.75,
+            336.47,
+            121.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Date: 2025-06-14",
+      "bbox": [
+        417.0,
+        107.75,
+        495.92,
+        121.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Date:",
+          "bbox": [
+            417.0,
+            107.8,
+            442.0,
+            121.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "2025-06-14",
+          "bbox": [
+            444.78,
+            107.75,
+            495.92,
+            121.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "MRN: PAT-30021",
+      "bbox": [
+        57.0,
+        126.75,
+        136.46,
+        140.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "MRN:",
+          "bbox": [
+            57.0,
+            126.8,
+            83.1,
+            140.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PAT-30021",
+          "bbox": [
+            85.88,
+            126.75,
+            136.46,
+            140.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Gender: F",
+      "bbox": [
+        257.0,
+        126.75,
+        304.23,
+        140.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Gender:",
+          "bbox": [
+            257.0,
+            126.8,
+            295.34,
+            140.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "F",
+          "bbox": [
+            298.12,
+            126.75,
+            304.23,
+            140.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Doc ID: MED_0021",
+      "bbox": [
+        417.0,
+        126.75,
+        504.8,
+        140.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Doc",
+          "bbox": [
+            417.0,
+            126.8,
+            435.89,
+            140.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "ID:",
+          "bbox": [
+            438.67,
+            126.8,
+            452.0,
+            140.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MED_0021",
+          "bbox": [
+            454.78,
+            126.75,
+            504.8,
+            140.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Rx",
+      "bbox": [
+        42.0,
+        157.82,
+        72.67,
+        190.87
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Rx",
+          "bbox": [
+            42.0,
+            157.82,
+            72.67,
+            190.87
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Furosemide 40 mg tablet",
+      "bbox": [
+        42.0,
+        192.73,
+        171.59,
+        207.88
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Furosemide",
+          "bbox": [
+            42.0,
+            192.73,
+            104.35,
+            207.88
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "40",
+          "bbox": [
+            107.41,
+            192.73,
+            119.64,
+            207.88
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mg",
+          "bbox": [
+            122.7,
+            192.73,
+            139.2,
+            207.88
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "tablet",
+          "bbox": [
+            142.25,
+            192.73,
+            171.59,
+            207.88
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Sig: 1 tablet PO BID",
+      "bbox": [
+        42.0,
+        211.75,
+        133.15,
+        225.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Sig:",
+          "bbox": [
+            42.0,
+            211.8,
+            60.89,
+            225.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1",
+          "bbox": [
+            63.67,
+            211.75,
+            69.23,
+            225.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "tablet",
+          "bbox": [
+            72.01,
+            211.75,
+            96.47,
+            225.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PO",
+          "bbox": [
+            99.25,
+            211.75,
+            113.7,
+            225.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "BID",
+          "bbox": [
+            116.48,
+            211.75,
+            133.15,
+            225.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Dispense Quantity: #30 Refills: 1",
+      "bbox": [
+        42.0,
+        228.75,
+        210.95,
+        242.57
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Dispense",
+          "bbox": [
+            42.0,
+            228.8,
+            86.46,
+            242.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Quantity:",
+          "bbox": [
+            89.24,
+            228.8,
+            133.13,
+            242.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "#30",
+          "bbox": [
+            135.91,
+            228.75,
+            152.59,
+            242.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Refills:",
+          "bbox": [
+            169.27,
+            228.8,
+            202.61,
+            242.57
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1",
+          "bbox": [
+            205.39,
+            228.75,
+            210.95,
+            242.49
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Signature: Dr. Emily Chen, MD (Electronically Signed)",
+      "bbox": [
+        42.0,
+        285.52,
+        297.06,
+        299.34
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Signature:",
+          "bbox": [
+            42.0,
+            285.55,
+            91.45,
+            299.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Dr.",
+          "bbox": [
+            94.23,
+            285.52,
+            108.12,
+            299.34
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Emily",
+          "bbox": [
+            110.9,
+            285.52,
+            137.58,
+            299.34
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Chen,",
+          "bbox": [
+            140.36,
+            285.52,
+            168.14,
+            299.34
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MD",
+          "bbox": [
+            170.92,
+            285.52,
+            186.47,
+            299.34
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "(Electronically",
+          "bbox": [
+            189.25,
+            285.55,
+            257.61,
+            299.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Signed)",
+          "bbox": [
+            260.39,
+            285.55,
+            297.06,
+            299.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Substitution Permitted [ ] Dispense as Written [X]",
+      "bbox": [
+        42.0,
+        298.58,
+        249.09,
+        310.94
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Substitution",
+          "bbox": [
+            42.0,
+            298.58,
+            89.03,
+            310.94
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Permitted",
+          "bbox": [
+            91.53,
+            298.58,
+            130.04,
+            310.94
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "[",
+          "bbox": [
+            132.54,
+            298.58,
+            135.04,
+            310.94
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "]",
+          "bbox": [
+            137.54,
+            298.58,
+            140.05,
+            310.94
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Dispense",
+          "bbox": [
+            155.06,
+            298.58,
+            192.57,
+            310.94
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "as",
+          "bbox": [
+            195.07,
+            298.58,
+            204.58,
+            310.94
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Written",
+          "bbox": [
+            207.08,
+            298.58,
+            235.58,
+            310.94
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "[X]",
+          "bbox": [
+            238.08,
+            298.58,
+            249.09,
+            310.94
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "text": "Family",
+      "bbox": [
+        42.0,
+        40.95,
+        89.52,
+        61.6
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Medicine",
+      "bbox": [
+        93.69,
+        40.95,
+        157.88,
+        61.6
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Associates",
+      "bbox": [
+        162.05,
+        40.95,
+        241.24,
+        61.6
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "of",
+      "bbox": [
+        245.41,
+        40.95,
+        259.57,
+        61.6
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Healthcare",
+      "bbox": [
+        263.74,
+        40.95,
+        340.44,
+        61.6
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "City",
+      "bbox": [
+        344.61,
+        40.95,
+        372.94,
+        61.6
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1200",
+      "bbox": [
+        42.0,
+        59.33,
+        62.02,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Healthcare",
+      "bbox": [
+        64.52,
+        59.33,
+        108.03,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Parkway,",
+      "bbox": [
+        110.54,
+        59.33,
+        147.54,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Suite",
+      "bbox": [
+        150.05,
+        59.33,
+        170.56,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "400",
+      "bbox": [
+        173.06,
+        59.33,
+        188.07,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        190.57,
+        59.33,
+        192.91,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Ph:",
+      "bbox": [
+        195.41,
+        59.33,
+        208.92,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "(555)",
+      "bbox": [
+        211.42,
+        59.33,
+        232.43,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "321-7890",
+      "bbox": [
+        234.93,
+        59.33,
+        272.96,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        275.46,
+        59.33,
+        277.8,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Fax:",
+      "bbox": [
+        280.3,
+        59.33,
+        297.81,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "(555)",
+      "bbox": [
+        300.31,
+        59.33,
+        321.31,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "321-7899",
+      "bbox": [
+        323.82,
+        59.33,
+        361.84,
+        71.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Prescriber:",
+      "bbox": [
+        42.0,
+        71.32,
+        85.51,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Dr.",
+      "bbox": [
+        88.01,
+        71.32,
+        100.01,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Emily",
+      "bbox": [
+        102.51,
+        71.32,
+        124.5,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Chen,",
+      "bbox": [
+        127.01,
+        71.32,
+        151.02,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MD",
+      "bbox": [
+        153.52,
+        71.32,
+        167.51,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        170.02,
+        71.32,
+        172.36,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "DEA:",
+      "bbox": [
+        174.86,
+        71.32,
+        195.86,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "BV9284719",
+      "bbox": [
+        198.37,
+        71.32,
+        245.4,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        247.9,
+        71.32,
+        250.24,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "NPI:",
+      "bbox": [
+        252.74,
+        71.32,
+        270.25,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1982740192",
+      "bbox": [
+        272.75,
+        71.32,
+        322.79,
+        83.69
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Patient",
+      "bbox": [
+        57.0,
+        107.8,
+        90.34,
+        121.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Name:",
+      "bbox": [
+        93.12,
+        107.8,
+        123.68,
+        121.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Elizabeth",
+      "bbox": [
+        126.46,
+        107.75,
+        167.59,
+        121.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Anderson",
+      "bbox": [
+        170.37,
+        107.75,
+        213.17,
+        121.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "DOB:",
+      "bbox": [
+        257.0,
+        107.8,
+        282.55,
+        121.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1949-05-12",
+      "bbox": [
+        285.33,
+        107.75,
+        336.47,
+        121.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Date:",
+      "bbox": [
+        417.0,
+        107.8,
+        442.0,
+        121.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "2025-06-14",
+      "bbox": [
+        444.78,
+        107.75,
+        495.92,
+        121.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MRN:",
+      "bbox": [
+        57.0,
+        126.8,
+        83.1,
+        140.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PAT-30021",
+      "bbox": [
+        85.88,
+        126.75,
+        136.46,
+        140.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Gender:",
+      "bbox": [
+        257.0,
+        126.8,
+        295.34,
+        140.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "F",
+      "bbox": [
+        298.12,
+        126.75,
+        304.23,
+        140.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Doc",
+      "bbox": [
+        417.0,
+        126.8,
+        435.89,
+        140.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "ID:",
+      "bbox": [
+        438.67,
+        126.8,
+        452.0,
+        140.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MED_0021",
+      "bbox": [
+        454.78,
+        126.75,
+        504.8,
+        140.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Rx",
+      "bbox": [
+        42.0,
+        157.82,
+        72.67,
+        190.87
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Furosemide",
+      "bbox": [
+        42.0,
+        192.73,
+        104.35,
+        207.88
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "40",
+      "bbox": [
+        107.41,
+        192.73,
+        119.64,
+        207.88
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mg",
+      "bbox": [
+        122.7,
+        192.73,
+        139.2,
+        207.88
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "tablet",
+      "bbox": [
+        142.25,
+        192.73,
+        171.59,
+        207.88
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Sig:",
+      "bbox": [
+        42.0,
+        211.8,
+        60.89,
+        225.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1",
+      "bbox": [
+        63.67,
+        211.75,
+        69.23,
+        225.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "tablet",
+      "bbox": [
+        72.01,
+        211.75,
+        96.47,
+        225.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PO",
+      "bbox": [
+        99.25,
+        211.75,
+        113.7,
+        225.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "BID",
+      "bbox": [
+        116.48,
+        211.75,
+        133.15,
+        225.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Dispense",
+      "bbox": [
+        42.0,
+        228.8,
+        86.46,
+        242.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Quantity:",
+      "bbox": [
+        89.24,
+        228.8,
+        133.13,
+        242.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "#30",
+      "bbox": [
+        135.91,
+        228.75,
+        152.59,
+        242.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Refills:",
+      "bbox": [
+        169.27,
+        228.8,
+        202.61,
+        242.57
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1",
+      "bbox": [
+        205.39,
+        228.75,
+        210.95,
+        242.49
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Signature:",
+      "bbox": [
+        42.0,
+        285.55,
+        91.45,
+        299.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Dr.",
+      "bbox": [
+        94.23,
+        285.52,
+        108.12,
+        299.34
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Emily",
+      "bbox": [
+        110.9,
+        285.52,
+        137.58,
+        299.34
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Chen,",
+      "bbox": [
+        140.36,
+        285.52,
+        168.14,
+        299.34
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MD",
+      "bbox": [
+        170.92,
+        285.52,
+        186.47,
+        299.34
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "(Electronically",
+      "bbox": [
+        189.25,
+        285.55,
+        257.61,
+        299.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Signed)",
+      "bbox": [
+        260.39,
+        285.55,
+        297.06,
+        299.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Substitution",
+      "bbox": [
+        42.0,
+        298.58,
+        89.03,
+        310.94
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Permitted",
+      "bbox": [
+        91.53,
+        298.58,
+        130.04,
+        310.94
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "[",
+      "bbox": [
+        132.54,
+        298.58,
+        135.04,
+        310.94
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "]",
+      "bbox": [
+        137.54,
+        298.58,
+        140.05,
+        310.94
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Dispense",
+      "bbox": [
+        155.06,
+        298.58,
+        192.57,
+        310.94
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "as",
+      "bbox": [
+        195.07,
+        298.58,
+        204.58,
+        310.94
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Written",
+      "bbox": [
+        207.08,
+        298.58,
+        235.58,
+        310.94
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "[X]",
+      "bbox": [
+        238.08,
+        298.58,
+        249.09,
+        310.94
+      ],
+      "confidence": 1.0,
+      "page": 1
+    }
+  ],
+  "metadata": {
+    "processing_time_ms": 27.9
+  }
+}

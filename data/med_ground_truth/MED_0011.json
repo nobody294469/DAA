@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0011",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "prescription_date": "2025-05-28",
+  "patient": {
+    "patient_id": "PAT-30011",
+    "name": "Linda Rodriguez",
+    "dob": "1953-12-19",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": "5 days",
+      "quantity": 6,
+      "refills": 0,
+      "sig_text": "1 tablet oral QD x 5 days",
+      "canonical_name": "Azithromycin",
+      "rxcui": "18631"
+    }
+  ]
+}

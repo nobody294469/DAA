@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0016",
+  "patient": {
+    "patient_id": "PAT-30016",
+    "name": "Jessica Garcia",
+    "dob": "2004-02-01",
+    "gender": null
+  },
+  "date": "2025-04-28",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Metformin",
+      "dose": 1000.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "BID",
+      "duration": "90 days",
+      "quantity": 60,
+      "refills": 1,
+      "sig": "1 tablet oral BID",
+      "normalized_name": "Metformin",
+      "rxcui": "6809",
+      "source_evidence": {
+        "text": "Order #1: Metformin 1000 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          197.37,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Metoprolol",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "BID",
+      "duration": null,
+      "quantity": 180,
+      "refills": 2,
+      "sig": "1 tablet by mouth BID",
+      "normalized_name": "Metoprolol",
+      "rxcui": "6918",
+      "source_evidence": {
+        "text": "Order #2: Metoprolol 50 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          194.8,
+          189.03,
+          208.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

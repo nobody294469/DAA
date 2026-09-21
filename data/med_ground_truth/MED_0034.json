@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0034",
+  "template_type": "discharge_summary",
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "prescriber": "Dr. Marcus Vance, DO",
+  "prescription_date": "2025-04-29",
+  "patient": {
+    "patient_id": "PAT-30034",
+    "name": "Robert Jones",
+    "dob": "2001-08-08",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Gabapentin",
+      "dose": 300.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "TID",
+      "duration": "30 days",
+      "quantity": 270,
+      "refills": 2,
+      "sig_text": "1 capsule by mouth TID for 30 days",
+      "canonical_name": "Gabapentin",
+      "rxcui": "25480"
+    },
+    {
+      "medication_name": "Amoxicillin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "PO",
+      "frequency": "three times a day",
+      "duration": "10 days",
+      "quantity": 15,
+      "refills": 0,
+      "sig_text": "Take 1 capsule PO three times a day for 10 days",
+      "canonical_name": "Amoxicillin",
+      "rxcui": "723"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "QD",
+      "duration": "3 days",
+      "quantity": 6,
+      "refills": 0,
+      "sig_text": "1 tablet PO QD x 3 days",
+      "canonical_name": "Azithromycin",
+      "rxcui": "18631"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0001",
+  "template_type": "clinic_rx_pad",
+  "facility_name": "Family Medicine Associates of Healthcare City",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "prescription_date": "2025-02-05",
+  "patient": {
+    "patient_id": "PAT-30001",
+    "name": "James Lopez",
+    "dob": "1962-04-08",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Atorvastatin",
+      "dose": 10.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "every evening",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig_text": "Take 1 tablet PO every evening",
+      "canonical_name": "Atorvastatin",
+      "rxcui": "83367"
+    }
+  ]
+}

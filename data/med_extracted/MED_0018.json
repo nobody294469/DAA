@@ -1,0 +1,96 @@
+{
+  "doc_id": "MED_0018",
+  "patient": {
+    "patient_id": "PAT-30018",
+    "name": "Sarah Davis",
+    "dob": "1961-01-03",
+    "gender": null
+  },
+  "date": "2025-06-12",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Losartan",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "every morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 3,
+      "sig": "Losartan 50 mg tablet by mouth every morning 1 tablet by mouth every morning #30 (Ref: 3)",
+      "normalized_name": "Losartan",
+      "rxcui": "5224",
+      "source_evidence": {
+        "text": "Losartan",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          92.51,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Lisinopril",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 1,
+      "sig": "Lisinopril 40 mg tablet PO every morning Take 1 tablet PO every morning #30 (Ref: 1)",
+      "normalized_name": "Lisinopril",
+      "rxcui": "29046",
+      "source_evidence": {
+        "text": "Lisinopril",
+        "page": 1,
+        "bbox": [
+          54.5,
+          203.87,
+          95.01,
+          216.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Amoxicillin",
+      "dose": 875.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "three times daily",
+      "duration": "7 days",
+      "quantity": 30,
+      "refills": 0,
+      "sig": "Amoxicillin 875 mg capsule by mouth three times daily 1 capsule by mouth three times daily x 7 days #30 (Ref: 0)",
+      "normalized_name": "Amoxicillin",
+      "rxcui": "723",
+      "source_evidence": {
+        "text": "Amoxicillin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          237.87,
+          102.51,
+          250.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 3
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0003",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Emily Chen, MD",
+  "prescription_date": "2025-04-03",
+  "patient": {
+    "patient_id": "PAT-30003",
+    "name": "Thomas Jones",
+    "dob": "1998-11-20",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Metoprolol",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "twice daily",
+      "duration": null,
+      "quantity": 60,
+      "refills": 3,
+      "sig_text": "Take 1 tablet by mouth twice daily with or immediately after meals",
+      "canonical_name": "Metoprolol",
+      "rxcui": "6918"
+    }
+  ]
+}

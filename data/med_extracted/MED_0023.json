@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0023",
+  "patient": {
+    "patient_id": "PAT-30023",
+    "name": "SARAH WILLIAMS (MRN: PAT-30023)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-04-08",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Amlodipine",
+      "dose": 10.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig": "1 TABLET PO QD",
+      "normalized_name": "Amlodipine",
+      "rxcui": "17767",
+      "source_evidence": {
+        "text": "MEDICATION: AMLODIPINE 10 MG TABLET",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          245.03,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

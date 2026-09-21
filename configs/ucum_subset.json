@@ -1,0 +1,9 @@
+{
+  "g/dL": {"canonical": "g/dL", "ucum": "g/dL"},
+  "mg/dL": {"canonical": "mg/dL", "ucum": "mg/dL"},
+  "mmol/L": {"canonical": "mmol/L", "ucum": "mmol/L"},
+  "10*3/uL": {"canonical": "10*3/uL", "ucum": "10*3/uL"},
+  "10*6/uL": {"canonical": "10*6/uL", "ucum": "10*6/uL"},
+  "U/L": {"canonical": "U/L", "ucum": "U/L"},
+  "%": {"canonical": "%", "ucum": "%"}
+}

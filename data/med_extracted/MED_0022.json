@@ -1,0 +1,96 @@
+{
+  "doc_id": "MED_0022",
+  "patient": {
+    "patient_id": "PAT-30022",
+    "name": "Mary Johnson",
+    "dob": "1983-07-12",
+    "gender": null
+  },
+  "date": "2025-03-22",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Furosemide",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 1,
+      "sig": "Furosemide 20 mg tablet oral once daily in the morning 1 tablet oral once daily in the morning #30 (Ref: 1)",
+      "normalized_name": "Furosemide",
+      "rxcui": "4603",
+      "source_evidence": {
+        "text": "Furosemide",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          105.51,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Atorvastatin",
+      "dose": 80.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig": "Atorvastatin 80 mg tablet by mouth QD 1 tablet by mouth QD #90 (Ref: 2)",
+      "normalized_name": "Atorvastatin",
+      "rxcui": "83367",
+      "source_evidence": {
+        "text": "Atorvastatin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          215.87,
+          107.01,
+          228.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Sertraline",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig": "Sertraline 50 mg tablet PO once daily 1 tablet PO once daily #90 (Ref: 2)",
+      "normalized_name": "Sertraline",
+      "rxcui": "36437",
+      "source_evidence": {
+        "text": "Sertraline",
+        "page": 1,
+        "bbox": [
+          54.5,
+          249.87,
+          96.02,
+          262.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 3
+  }
+}

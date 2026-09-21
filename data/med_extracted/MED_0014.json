@@ -1,0 +1,96 @@
+{
+  "doc_id": "MED_0014",
+  "patient": {
+    "patient_id": "PAT-30014",
+    "name": "Mary Williams",
+    "dob": "1969-01-13",
+    "gender": null
+  },
+  "date": "2025-03-09",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Albuterol",
+      "dose": 90.0,
+      "dose_unit": "mcg",
+      "dosage_form": "inhaler",
+      "route": "inhalation",
+      "frequency": "every 4-6 hours PRN",
+      "duration": null,
+      "quantity": 1,
+      "refills": 1,
+      "sig": "Albuterol 90 mcg inhaler inhalation every 4-6 hours PRN 2 puffs inhalation every 4-6 hours PRN #1 (Ref: 1)",
+      "normalized_name": "Albuterol",
+      "rxcui": "435",
+      "source_evidence": {
+        "text": "Albuterol",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          94.0,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Prednisone",
+      "dose": 5.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": "7 days",
+      "quantity": 20,
+      "refills": 0,
+      "sig": "Prednisone 5 mg tablet by mouth QD Take 1 tablet by mouth QD for 7 days #20 (Ref: 0)",
+      "normalized_name": "Prednisone",
+      "rxcui": "8640",
+      "source_evidence": {
+        "text": "Prednisone",
+        "page": 1,
+        "bbox": [
+          54.5,
+          203.87,
+          103.51,
+          216.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": "5 days",
+      "quantity": 6,
+      "refills": 0,
+      "sig": "Azithromycin 250 mg tablet by mouth once daily Take 1 tablet by mouth once daily for 5 days #6 (Ref: 0)",
+      "normalized_name": "Azithromycin",
+      "rxcui": "18631",
+      "source_evidence": {
+        "text": "Azithromycin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          237.87,
+          111.51,
+          250.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 3
+  }
+}

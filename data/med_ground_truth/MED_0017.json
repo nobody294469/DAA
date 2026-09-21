@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0017",
+  "template_type": "clinic_rx_pad",
+  "facility_name": "Family Medicine Associates of Healthcare City",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "prescription_date": "2025-05-22",
+  "patient": {
+    "patient_id": "PAT-30017",
+    "name": "John Jones",
+    "dob": "1952-02-24",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Levothyroxine",
+      "dose": 75.0,
+      "dose_unit": "mcg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig_text": "1 tablet oral once daily",
+      "canonical_name": "Levothyroxine",
+      "rxcui": "10582"
+    }
+  ]
+}

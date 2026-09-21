@@ -1,0 +1,96 @@
+{
+  "doc_id": "MED_0028",
+  "patient": {
+    "patient_id": "PAT-30028",
+    "name": "Susan Wilson",
+    "dob": "1982-12-01",
+    "gender": null
+  },
+  "date": "2025-05-28",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "facility": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Azithromycin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": "5 days",
+      "quantity": 3,
+      "refills": 0,
+      "sig": "1 tablet oral QD x 5 days",
+      "normalized_name": "Azithromycin",
+      "rxcui": "18631",
+      "source_evidence": {
+        "text": "Order #1: Azithromycin 500 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          125.8,
+          206.82,
+          139.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Amoxicillin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "three times daily",
+      "duration": "7 days",
+      "quantity": 21,
+      "refills": 1,
+      "sig": "Take one capsule oral three times daily for 7 days",
+      "normalized_name": "Amoxicillin",
+      "rxcui": "723",
+      "source_evidence": {
+        "text": "Order #2: Amoxicillin 500 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          194.8,
+          196.83,
+          208.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Hydrochlorothiazide",
+      "dose": 12.5,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig": "Take 1 tablet oral once daily in the morning",
+      "normalized_name": "Hydrochlorothiazide",
+      "rxcui": "5487",
+      "source_evidence": {
+        "text": "Order #3: Hydrochlorothiazide 12.5 mg",
+        "page": 1,
+        "bbox": [
+          59.0,
+          275.8,
+          242.94,
+          289.57
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 3
+  }
+}

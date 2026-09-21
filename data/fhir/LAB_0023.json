@@ -1,0 +1,1943 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-lab-0023",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-lab-0023",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-lab-0023",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "PAT-16764"
+          }
+        ],
+        "name": [
+          {
+            "text": "Jessica Gonzalez",
+            "family": "Gonzalez",
+            "given": [
+              "Jessica"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1963-05-18"
+      }
+    },
+    {
+      "fullUrl": "Organization/org-lab-0023",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-lab-0023",
+        "name": "BioPath Reference Laboratory Services"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-lab-0023",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-lab-0023",
+        "name": [
+          {
+            "text": "Dr. Marcus Vance, DO"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-lab-0023",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-lab-0023",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Comprehensive Metabolic Panel"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "reference": "Practitioner/pract-lab-0023"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-lab-0023-1"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-2"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-3"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-4"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-5"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-6"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-7"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-8"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-9"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-10"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-11"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-12"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-13"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-14"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-15"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-16"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-17"
+          },
+          {
+            "reference": "Observation/obs-lab-0023-18"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-1",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Glucose 90.0 mg/dL 70 - 99"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 190.32, 420.02, 202.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2345-7",
+              "display": "Glucose"
+            }
+          ],
+          "text": "Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 90.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 99.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "70 - 99"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-2",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "BUN 26.0 mg/dL 7 - 20 H"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 208.32, 508.5, 220.76]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3094-0",
+              "display": "BUN"
+            }
+          ],
+          "text": "BUN"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 26.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ],
+            "text": "HIGH"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 7.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 20.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "7 - 20"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-3",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Creatinine 0.77 mg/dL 0.60 - 1.30"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 226.32, 435.03, 238.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine"
+            }
+          ],
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 0.77,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 0.6,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 1.3,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "0.60 - 1.30"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-4",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Sodium 148.0 mmol/L 135 - 145 H"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 244.32, 508.5, 256.76]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2951-2",
+              "display": "Sodium"
+            }
+          ],
+          "text": "Sodium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 148.0,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ],
+            "text": "HIGH"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 135.0,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "high": {
+              "value": 145.0,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "text": "135 - 145"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-5",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Potassium 3.6 mmol/L 3.5 - 5.1"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 262.33, 425.02, 274.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium"
+            }
+          ],
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 3.6,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 3.5,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "high": {
+              "value": 5.1,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "text": "3.5 - 5.1"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-6",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Chloride 105.0 mmol/L 96 - 106"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 280.33, 425.02, 292.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2075-0",
+              "display": "Chloride"
+            }
+          ],
+          "text": "Chloride"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 105.0,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 96.0,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "high": {
+              "value": 106.0,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "text": "96 - 106"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-7",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Carbon Dioxide 23.0 mmol/L 22 - 29"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 298.33, 420.02, 310.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2028-9",
+              "display": "Carbon Dioxide"
+            }
+          ],
+          "text": "Carbon Dioxide"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 23.0,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 22.0,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "high": {
+              "value": 29.0,
+              "unit": "mmol/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "mmol/L"
+            },
+            "text": "22 - 29"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-8",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Calcium 9.3 mg/dL 8.5 - 10.2"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 316.33, 430.02, 328.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "17861-6",
+              "display": "Calcium"
+            }
+          ],
+          "text": "Calcium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 9.3,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 8.5,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 10.2,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "8.5 - 10.2"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-9",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Total Protein 7.2 g/dL 6.0 - 8.3"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 334.33, 425.02, 346.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2885-2",
+              "display": "Total Protein"
+            }
+          ],
+          "text": "Total Protein"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 7.2,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 6.0,
+              "unit": "g/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "g/dL"
+            },
+            "high": {
+              "value": 8.3,
+              "unit": "g/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "g/dL"
+            },
+            "text": "6.0 - 8.3"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-10",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Albumin 4.8 g/dL 3.5 - 5.0"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 352.33, 425.02, 364.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1751-7",
+              "display": "Albumin"
+            }
+          ],
+          "text": "Albumin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 4.8,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 3.5,
+              "unit": "g/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "g/dL"
+            },
+            "high": {
+              "value": 5.0,
+              "unit": "g/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "g/dL"
+            },
+            "text": "3.5 - 5.0"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-11",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Total Bilirubin 0.4 mg/dL 0.1 - 1.2"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 370.33, 425.02, 382.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1975-2",
+              "display": "Total Bilirubin"
+            }
+          ],
+          "text": "Total Bilirubin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 0.4,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 0.1,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 1.2,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "0.1 - 1.2"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-12",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Alkaline Phosphatase 84.0 U/L 44 - 147"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 388.33, 425.02, 400.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6768-6",
+              "display": "Alkaline Phosphatase"
+            }
+          ],
+          "text": "Alkaline Phosphatase"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 84.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 44.0,
+              "unit": "U/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "U/L"
+            },
+            "high": {
+              "value": 147.0,
+              "unit": "U/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "U/L"
+            },
+            "text": "44 - 147"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-13",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Alanine Aminotransferase (ALT) 32.0 U/L 7 - 56"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 406.33, 415.01, 418.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1742-6",
+              "display": "Alanine Aminotransferase (ALT)"
+            }
+          ],
+          "text": "Alanine Aminotransferase (ALT)"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 32.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 7.0,
+              "unit": "U/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "U/L"
+            },
+            "high": {
+              "value": 56.0,
+              "unit": "U/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "U/L"
+            },
+            "text": "7 - 56"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-14",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Aspartate Aminotransferase (AST) 36.0 U/L 10 - 40"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 424.33, 420.02, 436.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1920-8",
+              "display": "Aspartate Aminotransferase (AST)"
+            }
+          ],
+          "text": "Aspartate Aminotransferase (AST)"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 36.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 10.0,
+              "unit": "U/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "U/L"
+            },
+            "high": {
+              "value": 40.0,
+              "unit": "U/L",
+              "system": "http://unitsofmeasure.org",
+              "code": "U/L"
+            },
+            "text": "10 - 40"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-15",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Total Cholesterol 184.0 mg/dL 125 - 200"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 487.33, 430.02, 499.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2093-3",
+              "display": "Total Cholesterol"
+            }
+          ],
+          "text": "Total Cholesterol"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 184.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 125.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 200.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "125 - 200"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-16",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Triglycerides 143.0 mg/dL 50 - 150"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 505.33, 425.02, 517.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2571-8",
+              "display": "Triglycerides"
+            }
+          ],
+          "text": "Triglycerides"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 143.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 50.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 150.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "50 - 150"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-17",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "HDL Cholesterol 56.0 mg/dL 40 - 60"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 523.33, 420.02, 535.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2085-9",
+              "display": "HDL Cholesterol"
+            }
+          ],
+          "text": "HDL Cholesterol"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 56.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 40.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 60.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "40 - 60"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0023-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0023-18",
+        "extension": [
+          {
+            "url": "http://clindoc.local/fhir/StructureDefinition/verification-status",
+            "valueCode": "VERIFIED"
+          },
+          {
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "LDL Cholesterol 65.0 mg/dL 50 - 100"
+              },
+              {
+                "url": "page",
+                "valueInteger": 1
+              },
+              {
+                "url": "bbox",
+                "valueString": "[52.0, 541.33, 425.02, 553.69]"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.local/fhir/StructureDefinition/source-evidence"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "13457-7",
+              "display": "LDL Cholesterol"
+            }
+          ],
+          "text": "LDL Cholesterol"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0023"
+        },
+        "effectiveDateTime": "2025-03-09",
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0023"
+          }
+        ],
+        "valueQuantity": {
+          "value": 65.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ],
+            "text": "NORMAL"
+          }
+        ],
+        "referenceRange": [
+          {
+            "low": {
+              "value": 50.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100.0,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "50 - 100"
+          }
+        ]
+      }
+    }
+  ]
+}

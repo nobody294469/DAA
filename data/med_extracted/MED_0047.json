@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0047",
+  "patient": {
+    "patient_id": "PAT-30047",
+    "name": "JESSICA LOPEZ (MRN: PAT-30047)",
+    "dob": null,
+    "gender": null
+  },
+  "date": "2025-06-19",
+  "prescriber": "Dr. Robert Evans, MD",
+  "facility": "Walgreens Community Pharmacy #4192",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Levothyroxine",
+      "dose": 100.0,
+      "dose_unit": "mcg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig": "TAKE ONE TABLET BY MOUTH ONCE DAILY 30 MINUTES BEFORE BREAKFAST",
+      "normalized_name": "Levothyroxine",
+      "rxcui": "10582",
+      "source_evidence": {
+        "text": "MEDICATION: LEVOTHYROXINE 100 MCG TABLET",
+        "page": 1,
+        "bbox": [
+          61.0,
+          172.82,
+          277.54,
+          185.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

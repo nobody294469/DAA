@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0023",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "prescription_date": "2025-04-08",
+  "patient": {
+    "patient_id": "PAT-30023",
+    "name": "Sarah Williams",
+    "dob": "1957-07-22",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Amlodipine",
+      "dose": 10.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig_text": "1 tablet PO QD",
+      "canonical_name": "Amlodipine",
+      "rxcui": "17767"
+    }
+  ]
+}

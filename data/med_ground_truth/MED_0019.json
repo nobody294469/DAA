@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0019",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "prescription_date": "2025-02-23",
+  "patient": {
+    "patient_id": "PAT-30019",
+    "name": "David Garcia",
+    "dob": "2002-01-12",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 30,
+      "refills": 0,
+      "sig_text": "Take 1 capsule oral QD",
+      "canonical_name": "Omeprazole",
+      "rxcui": "7646"
+    }
+  ]
+}

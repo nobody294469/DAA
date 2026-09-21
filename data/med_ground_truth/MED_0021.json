@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0021",
+  "template_type": "clinic_rx_pad",
+  "facility_name": "Family Medicine Associates of Healthcare City",
+  "prescriber": "Dr. Emily Chen, MD",
+  "prescription_date": "2025-06-14",
+  "patient": {
+    "patient_id": "PAT-30021",
+    "name": "Elizabeth Anderson",
+    "dob": "1949-05-12",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Furosemide",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": null,
+      "quantity": 30,
+      "refills": 1,
+      "sig_text": "1 tablet PO BID",
+      "canonical_name": "Furosemide",
+      "rxcui": "4603"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "doc_id": "MED_0041",
+  "patient": {
+    "patient_id": "PAT-30041",
+    "name": "Joseph Lopez",
+    "dob": "1964-12-13",
+    "gender": "M"
+  },
+  "date": "2025-03-11",
+  "prescriber": "Dr. Emily Chen, MD",
+  "facility": "Family Medicine Associates of Healthcare City",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Furosemide",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "quantity": 60,
+      "refills": 2,
+      "sig": "1 tablet oral once daily in the morning",
+      "normalized_name": "Furosemide",
+      "rxcui": "4603",
+      "source_evidence": {
+        "text": "Furosemide 40 mg tablet",
+        "page": 1,
+        "bbox": [
+          42.0,
+          192.73,
+          171.59,
+          207.88
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 1
+  }
+}

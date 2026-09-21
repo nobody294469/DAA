@@ -1,0 +1,96 @@
+{
+  "doc_id": "MED_0002",
+  "patient": {
+    "patient_id": "PAT-30002",
+    "name": "Thomas Brown",
+    "dob": "1990-11-23",
+    "gender": null
+  },
+  "date": "2025-05-20",
+  "prescriber": "Dr. Sarah Jenkins, MD",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 60,
+      "refills": 1,
+      "sig": "Omeprazole 20 mg capsule by mouth QD Take 1 capsule by mouth QD #60 (Ref: 1)",
+      "normalized_name": "Omeprazole",
+      "rxcui": "7646",
+      "source_evidence": {
+        "text": "Omeprazole",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          106.02,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Ciprofloxacin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "twice daily",
+      "duration": "7 days",
+      "quantity": 20,
+      "refills": 0,
+      "sig": "Ciprofloxacin 250 mg tablet oral twice daily 1 tablet oral twice daily x 7 days #20 (Ref: 0)",
+      "normalized_name": "Ciprofloxacin",
+      "rxcui": "2551",
+      "source_evidence": {
+        "text": "Ciprofloxacin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          203.87,
+          112.01,
+          216.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Losartan",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "QD",
+      "duration": null,
+      "quantity": 90,
+      "refills": 3,
+      "sig": "Losartan 50 mg tablet PO QD Take 1 tablet PO QD #90 (Ref: 3)",
+      "normalized_name": "Losartan",
+      "rxcui": "5224",
+      "source_evidence": {
+        "text": "Losartan",
+        "page": 1,
+        "bbox": [
+          54.5,
+          237.87,
+          92.51,
+          250.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 3
+  }
+}

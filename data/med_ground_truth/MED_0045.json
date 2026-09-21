@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0045",
+  "template_type": "clinic_rx_pad",
+  "facility_name": "Family Medicine Associates of Healthcare City",
+  "prescriber": "Dr. Allison Cameron, MD",
+  "prescription_date": "2025-03-16",
+  "patient": {
+    "patient_id": "PAT-30045",
+    "name": "Joseph Johnson",
+    "dob": "1986-03-16",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Furosemide",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "twice daily",
+      "duration": null,
+      "quantity": 30,
+      "refills": 2,
+      "sig_text": "Take 1 tablet oral twice daily",
+      "canonical_name": "Furosemide",
+      "rxcui": "4603"
+    }
+  ]
+}

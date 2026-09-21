@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0007",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Lisa Cuddy, MD",
+  "prescription_date": "2025-01-29",
+  "patient": {
+    "patient_id": "PAT-30007",
+    "name": "Thomas Wilson",
+    "dob": "1962-11-11",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Albuterol",
+      "dose": 90.0,
+      "dose_unit": "mcg",
+      "dosage_form": "inhaler",
+      "route": "inhalation",
+      "frequency": "every 4-6 hours PRN",
+      "duration": null,
+      "quantity": 2,
+      "refills": 1,
+      "sig_text": "Inhale 2 puffs inhalation every 4-6 hours PRN",
+      "canonical_name": "Albuterol",
+      "rxcui": "435"
+    }
+  ]
+}

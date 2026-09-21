@@ -1,0 +1,70 @@
+{
+  "doc_id": "MED_0038",
+  "patient": {
+    "patient_id": "PAT-30038",
+    "name": "John Williams",
+    "dob": "1996-10-10",
+    "gender": null
+  },
+  "date": "2025-01-22",
+  "prescriber": "Dr. Robert Evans, MD",
+  "facility": "Memorial General Hospital - Department of Inpatient Medicine",
+  "template_type": null,
+  "medications": [
+    {
+      "medication_name": "Atorvastatin",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "PO",
+      "frequency": "every evening",
+      "duration": null,
+      "quantity": 90,
+      "refills": 3,
+      "sig": "Atorvastatin 20 mg tablet PO every evening 1 tablet PO every evening #90 (Ref: 3)",
+      "normalized_name": "Atorvastatin",
+      "rxcui": "83367",
+      "source_evidence": {
+        "text": "Atorvastatin",
+        "page": 1,
+        "bbox": [
+          54.5,
+          169.87,
+          107.01,
+          182.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    },
+    {
+      "medication_name": "Prednisone",
+      "dose": 10.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": "10 days",
+      "quantity": 10,
+      "refills": 0,
+      "sig": "Prednisone 10 mg tablet oral QD Take 1 tablet oral QD for 10 days #10 (Ref: 0)",
+      "normalized_name": "Prednisone",
+      "rxcui": "8640",
+      "source_evidence": {
+        "text": "Prednisone",
+        "page": 1,
+        "bbox": [
+          54.5,
+          203.87,
+          103.51,
+          216.26
+        ],
+        "ocr_confidence": 1.0
+      },
+      "source_model": "gliner_biomed_v1.0"
+    }
+  ],
+  "metadata": {
+    "total_extracted_medications": 2
+  }
+}

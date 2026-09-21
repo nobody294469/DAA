@@ -1,0 +1,57 @@
+{
+  "doc_id": "MED_0046",
+  "template_type": "discharge_summary",
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "prescriber": "Dr. Emily Chen, MD",
+  "prescription_date": "2025-01-18",
+  "patient": {
+    "patient_id": "PAT-30046",
+    "name": "Charles Rodriguez",
+    "dob": "1992-03-28",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Prednisone",
+      "dose": 5.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "oral",
+      "frequency": "QD",
+      "duration": "7 days",
+      "quantity": 20,
+      "refills": 0,
+      "sig_text": "Take 1 tablet oral QD for 7 days",
+      "canonical_name": "Prednisone",
+      "rxcui": "8640"
+    },
+    {
+      "medication_name": "Gabapentin",
+      "dose": 300.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "PO",
+      "frequency": "TID",
+      "duration": "90 days",
+      "quantity": 270,
+      "refills": 2,
+      "sig_text": "1 capsule PO TID for 90 days",
+      "canonical_name": "Gabapentin",
+      "rxcui": "25480"
+    },
+    {
+      "medication_name": "Losartan",
+      "dose": 50.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "every morning",
+      "duration": null,
+      "quantity": 90,
+      "refills": 1,
+      "sig_text": "1 tablet by mouth every morning",
+      "canonical_name": "Losartan",
+      "rxcui": "5224"
+    }
+  ]
+}

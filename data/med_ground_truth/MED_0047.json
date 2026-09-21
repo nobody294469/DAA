@@ -1,0 +1,29 @@
+{
+  "doc_id": "MED_0047",
+  "template_type": "pharmacy_label",
+  "facility_name": "Walgreens Community Pharmacy #4192",
+  "prescriber": "Dr. Robert Evans, MD",
+  "prescription_date": "2025-06-19",
+  "patient": {
+    "patient_id": "PAT-30047",
+    "name": "Jessica Lopez",
+    "dob": "2003-07-13",
+    "gender": "F"
+  },
+  "medications": [
+    {
+      "medication_name": "Levothyroxine",
+      "dose": 100.0,
+      "dose_unit": "mcg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": null,
+      "quantity": 90,
+      "refills": 2,
+      "sig_text": "Take one tablet by mouth once daily 30 minutes before breakfast",
+      "canonical_name": "Levothyroxine",
+      "rxcui": "10582"
+    }
+  ]
+}

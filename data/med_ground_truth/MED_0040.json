@@ -1,0 +1,43 @@
+{
+  "doc_id": "MED_0040",
+  "template_type": "mar_order_sheet",
+  "facility_name": "Metro Health Ambulatory Infusion & Specialty Clinic",
+  "prescriber": "Dr. Robert Evans, MD",
+  "prescription_date": "2025-04-27",
+  "patient": {
+    "patient_id": "PAT-30040",
+    "name": "David Lopez",
+    "dob": "1963-12-28",
+    "gender": "M"
+  },
+  "medications": [
+    {
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "dosage_form": "capsule",
+      "route": "oral",
+      "frequency": "once daily before breakfast",
+      "duration": "60 days",
+      "quantity": 30,
+      "refills": 0,
+      "sig_text": "Take one capsule oral once daily before breakfast for 60 days",
+      "canonical_name": "Omeprazole",
+      "rxcui": "7646"
+    },
+    {
+      "medication_name": "Losartan",
+      "dose": 25.0,
+      "dose_unit": "mg",
+      "dosage_form": "tablet",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": "30 days",
+      "quantity": 90,
+      "refills": 3,
+      "sig_text": "1 tablet by mouth once daily",
+      "canonical_name": "Losartan",
+      "rxcui": "5224"
+    }
+  ]
+}
