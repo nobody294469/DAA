@@ -1,0 +1,1856 @@
+{
+  "title": "M1 Document Degradation & Robustness Benchmark Report",
+  "timestamp": "2026-09-22T19:09:43.349853",
+  "duration_seconds": 1183.52,
+  "configuration": {
+    "visual_sample_size": 2,
+    "text_sample_size": 50,
+    "paddleocr_dpi": 150
+  },
+  "track_a_visual_robustness": {
+    "lab": {
+      "gaussian_blur": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "gaussian_blur",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2108,
+            "mean_wer": 0.4945,
+            "mean_token_f1": 0.7008
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "gaussian_blur",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.1975,
+            "mean_wer": 0.4081,
+            "mean_token_f1": 0.7866
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.9394,
+            "f1": 0.9688,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 2,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0606
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "gaussian_blur",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.4118,
+            "mean_wer": 0.9005,
+            "mean_token_f1": 0.27
+          },
+          "extraction_metrics": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "value_accuracy": 0.0,
+            "unit_accuracy": 0.0,
+            "loinc_accuracy": 0.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 17,
+            "extraction_failures": 16,
+            "ocr_failure_rate": 0.5152,
+            "extraction_failure_rate": 0.4848
+          }
+        }
+      },
+      "jpeg_compression": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "jpeg_compression",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2114,
+            "mean_wer": 0.4891,
+            "mean_token_f1": 0.701
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "jpeg_compression",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2154,
+            "mean_wer": 0.5046,
+            "mean_token_f1": 0.6861
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "jpeg_compression",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2158,
+            "mean_wer": 0.5263,
+            "mean_token_f1": 0.6726
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.9697,
+            "f1": 0.9846,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 1,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0303
+          }
+        }
+      },
+      "resolution_reduction": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "resolution_reduction",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2114,
+            "mean_wer": 0.495,
+            "mean_token_f1": 0.6924
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "resolution_reduction",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2077,
+            "mean_wer": 0.4413,
+            "mean_token_f1": 0.7355
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.9394,
+            "f1": 0.9688,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 2,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0606
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "resolution_reduction",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.501,
+            "mean_wer": 0.9408,
+            "mean_token_f1": 0.1564
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.1212,
+            "f1": 0.2162,
+            "value_accuracy": 0.5,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 14,
+            "extraction_failures": 17,
+            "ocr_failure_rate": 0.4242,
+            "extraction_failure_rate": 0.5152
+          }
+        }
+      },
+      "rotation_skew": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "rotation_skew",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2006,
+            "mean_wer": 0.359,
+            "mean_token_f1": 0.831
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.1515,
+            "f1": 0.2632,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 28,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.8485
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "rotation_skew",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.4031,
+            "mean_wer": 0.6751,
+            "mean_token_f1": 0.8447
+          },
+          "extraction_metrics": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "value_accuracy": 0.0,
+            "unit_accuracy": 0.0,
+            "loinc_accuracy": 0.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 33,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 1.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "rotation_skew",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.5202,
+            "mean_wer": 0.8997,
+            "mean_token_f1": 0.7718
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.2121,
+            "f1": 0.35,
+            "value_accuracy": 0.0,
+            "unit_accuracy": 0.2857,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 33,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 1.0
+          }
+        }
+      },
+      "contrast_brightness": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "contrast_brightness",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2105,
+            "mean_wer": 0.4784,
+            "mean_token_f1": 0.7067
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "contrast_brightness",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2536,
+            "mean_wer": 0.5249,
+            "mean_token_f1": 0.6653
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.9697,
+            "f1": 0.9846,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 1,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0303
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "contrast_brightness",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 1.0,
+            "mean_wer": 1.0,
+            "mean_token_f1": 0.0
+          },
+          "extraction_metrics": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "value_accuracy": 0.0,
+            "unit_accuracy": 0.0,
+            "loinc_accuracy": 0.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 33,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 1.0,
+            "extraction_failure_rate": 0.0
+          }
+        }
+      },
+      "partial_local": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "partial_local",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.201,
+            "mean_wer": 0.4082,
+            "mean_token_f1": 0.7785
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "partial_local",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2032,
+            "mean_wer": 0.4297,
+            "mean_token_f1": 0.7622
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "partial_local",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2042,
+            "mean_wer": 0.4344,
+            "mean_token_f1": 0.7567
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.9394,
+            "f1": 0.9688,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 1,
+            "extraction_failures": 1,
+            "ocr_failure_rate": 0.0303,
+            "extraction_failure_rate": 0.0303
+          }
+        }
+      },
+      "combined": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "combined",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2142,
+            "mean_wer": 0.5013,
+            "mean_token_f1": 0.6841
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "value_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "combined",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.3173,
+            "mean_wer": 0.7787,
+            "mean_token_f1": 0.516
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.1818,
+            "f1": 0.3077,
+            "value_accuracy": 0.0,
+            "unit_accuracy": 0.8333,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 3,
+            "extraction_failures": 30,
+            "ocr_failure_rate": 0.0909,
+            "extraction_failure_rate": 0.9091
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "lab",
+          "degradation_type": "combined",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.897,
+            "mean_wer": 0.9833,
+            "mean_token_f1": 0.0334
+          },
+          "extraction_metrics": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "value_accuracy": 0.0,
+            "unit_accuracy": 0.0,
+            "loinc_accuracy": 0.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 33,
+            "ocr_failures": 33,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 1.0,
+            "extraction_failure_rate": 0.0
+          }
+        }
+      }
+    },
+    "medication": {
+      "gaussian_blur": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "gaussian_blur",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.091,
+            "mean_wer": 0.4556,
+            "mean_token_f1": 0.6552
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "gaussian_blur",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.0876,
+            "mean_wer": 0.49,
+            "mean_token_f1": 0.6071
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "gaussian_blur",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.4051,
+            "mean_wer": 0.7407,
+            "mean_token_f1": 0.3608
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 0.75,
+            "entity_f1": 0.8571,
+            "dose_accuracy": 0.3333,
+            "unit_accuracy": 0.6667,
+            "complete_regimen_exact_match": 0.25
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 1,
+            "extraction_failures": 2,
+            "ocr_failure_rate": 0.25,
+            "extraction_failure_rate": 0.5
+          }
+        }
+      },
+      "jpeg_compression": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "jpeg_compression",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.097,
+            "mean_wer": 0.492,
+            "mean_token_f1": 0.6162
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 0.75
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "jpeg_compression",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.1028,
+            "mean_wer": 0.5111,
+            "mean_token_f1": 0.5963
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "jpeg_compression",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.1151,
+            "mean_wer": 0.558,
+            "mean_token_f1": 0.55
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        }
+      },
+      "resolution_reduction": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "resolution_reduction",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.091,
+            "mean_wer": 0.4728,
+            "mean_token_f1": 0.6348
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "resolution_reduction",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.0882,
+            "mean_wer": 0.4603,
+            "mean_token_f1": 0.631
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "resolution_reduction",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.6657,
+            "mean_wer": 0.9481,
+            "mean_token_f1": 0.157
+          },
+          "extraction_metrics": {
+            "entity_precision": 0.0,
+            "entity_recall": 0.0,
+            "entity_f1": 0.0,
+            "dose_accuracy": 0.0,
+            "unit_accuracy": 0.0,
+            "complete_regimen_exact_match": 0.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 4,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 1.0,
+            "extraction_failure_rate": 0.0
+          }
+        }
+      },
+      "rotation_skew": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "rotation_skew",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.0765,
+            "mean_wer": 0.3521,
+            "mean_token_f1": 0.7524
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "rotation_skew",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.1283,
+            "mean_wer": 0.3274,
+            "mean_token_f1": 0.8073
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 0.75
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "rotation_skew",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.2172,
+            "mean_wer": 0.4961,
+            "mean_token_f1": 0.7321
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 0.25
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        }
+      },
+      "contrast_brightness": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "contrast_brightness",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.0886,
+            "mean_wer": 0.4427,
+            "mean_token_f1": 0.6663
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "contrast_brightness",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.1513,
+            "mean_wer": 0.4251,
+            "mean_token_f1": 0.6952
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "contrast_brightness",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 1.0,
+            "mean_wer": 1.0,
+            "mean_token_f1": 0.0
+          },
+          "extraction_metrics": {
+            "entity_precision": 0.0,
+            "entity_recall": 0.0,
+            "entity_f1": 0.0,
+            "dose_accuracy": 0.0,
+            "unit_accuracy": 0.0,
+            "complete_regimen_exact_match": 0.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 4,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 1.0,
+            "extraction_failure_rate": 0.0
+          }
+        }
+      },
+      "partial_local": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "partial_local",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.0848,
+            "mean_wer": 0.4385,
+            "mean_token_f1": 0.6651
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "partial_local",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.0866,
+            "mean_wer": 0.4488,
+            "mean_token_f1": 0.6577
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "partial_local",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.0846,
+            "mean_wer": 0.4362,
+            "mean_token_f1": 0.671
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        }
+      },
+      "combined": {
+        "LOW": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "combined",
+          "severity": "LOW",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.1096,
+            "mean_wer": 0.5474,
+            "mean_token_f1": 0.5665
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 1.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "MEDIUM": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "combined",
+          "severity": "MEDIUM",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.1926,
+            "mean_wer": 0.6573,
+            "mean_token_f1": 0.4466
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 1.0,
+            "entity_f1": 1.0,
+            "dose_accuracy": 1.0,
+            "unit_accuracy": 1.0,
+            "complete_regimen_exact_match": 0.75
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 0,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 0.0,
+            "extraction_failure_rate": 0.0
+          }
+        },
+        "HIGH": {
+          "track": "visual",
+          "dataset": "medication",
+          "degradation_type": "combined",
+          "severity": "HIGH",
+          "documents_evaluated": 2,
+          "ocr_metrics": {
+            "mean_cer": 0.8537,
+            "mean_wer": 0.9504,
+            "mean_token_f1": 0.0828
+          },
+          "extraction_metrics": {
+            "entity_precision": 0.0,
+            "entity_recall": 0.0,
+            "entity_f1": 0.0,
+            "dose_accuracy": 0.0,
+            "unit_accuracy": 0.0,
+            "complete_regimen_exact_match": 0.0
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 4,
+            "ocr_failures": 4,
+            "extraction_failures": 0,
+            "ocr_failure_rate": 1.0,
+            "extraction_failure_rate": 0.0
+          }
+        }
+      }
+    }
+  },
+  "track_b_ocr_text_robustness": {
+    "lab": {
+      "ocr_character_corruption": {
+        "LOW": {
+          "track": "ocr_text",
+          "dataset": "lab",
+          "degradation_type": "ocr_character_corruption",
+          "severity": "LOW",
+          "documents_evaluated": 50,
+          "ocr_metrics": {
+            "mean_cer": 0.0197,
+            "mean_wer": 0.1293,
+            "mean_token_f1": 0.8944
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.7163,
+            "f1": 0.8347,
+            "value_accuracy": 0.9604,
+            "unit_accuracy": 0.9901,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 705,
+            "ocr_failures": 25,
+            "extraction_failures": 195,
+            "ocr_failure_rate": 0.0355,
+            "extraction_failure_rate": 0.2766
+          }
+        },
+        "MEDIUM": {
+          "track": "ocr_text",
+          "dataset": "lab",
+          "degradation_type": "ocr_character_corruption",
+          "severity": "MEDIUM",
+          "documents_evaluated": 50,
+          "ocr_metrics": {
+            "mean_cer": 0.0706,
+            "mean_wer": 0.3827,
+            "mean_token_f1": 0.699
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "value_accuracy": 0.7574,
+            "unit_accuracy": 0.9957,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 705,
+            "ocr_failures": 130,
+            "extraction_failures": 397,
+            "ocr_failure_rate": 0.1844,
+            "extraction_failure_rate": 0.5631
+          }
+        },
+        "HIGH": {
+          "track": "ocr_text",
+          "dataset": "lab",
+          "degradation_type": "ocr_character_corruption",
+          "severity": "HIGH",
+          "documents_evaluated": 50,
+          "ocr_metrics": {
+            "mean_cer": 0.17,
+            "mean_wer": 0.7522,
+            "mean_token_f1": 0.4435
+          },
+          "extraction_metrics": {
+            "precision": 1.0,
+            "recall": 0.0965,
+            "f1": 0.1759,
+            "value_accuracy": 0.5294,
+            "unit_accuracy": 1.0,
+            "loinc_accuracy": 1.0
+          },
+          "failure_attribution": {
+            "total_observations_evaluated": 705,
+            "ocr_failures": 242,
+            "extraction_failures": 427,
+            "ocr_failure_rate": 0.3433,
+            "extraction_failure_rate": 0.6057
+          }
+        }
+      }
+    },
+    "medication": {
+      "ocr_character_corruption": {
+        "LOW": {
+          "track": "ocr_text",
+          "dataset": "medication",
+          "degradation_type": "ocr_character_corruption",
+          "severity": "LOW",
+          "documents_evaluated": 50,
+          "ocr_metrics": {
+            "mean_cer": 0.0189,
+            "mean_wer": 0.1305,
+            "mean_token_f1": 0.8924
+          },
+          "extraction_metrics": {
+            "entity_precision": 0.9859,
+            "entity_recall": 0.8046,
+            "entity_f1": 0.8861,
+            "dose_accuracy": 0.8714,
+            "unit_accuracy": 0.9429,
+            "complete_regimen_exact_match": 0.6207
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 87,
+            "ocr_failures": 15,
+            "extraction_failures": 11,
+            "ocr_failure_rate": 0.1724,
+            "extraction_failure_rate": 0.1264
+          }
+        },
+        "MEDIUM": {
+          "track": "ocr_text",
+          "dataset": "medication",
+          "degradation_type": "ocr_character_corruption",
+          "severity": "MEDIUM",
+          "documents_evaluated": 50,
+          "ocr_metrics": {
+            "mean_cer": 0.0678,
+            "mean_wer": 0.3736,
+            "mean_token_f1": 0.7165
+          },
+          "extraction_metrics": {
+            "entity_precision": 0.8667,
+            "entity_recall": 0.4483,
+            "entity_f1": 0.5909,
+            "dose_accuracy": 0.3846,
+            "unit_accuracy": 0.6923,
+            "complete_regimen_exact_match": 0.069
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 87,
+            "ocr_failures": 40,
+            "extraction_failures": 32,
+            "ocr_failure_rate": 0.4598,
+            "extraction_failure_rate": 0.3678
+          }
+        },
+        "HIGH": {
+          "track": "ocr_text",
+          "dataset": "medication",
+          "degradation_type": "ocr_character_corruption",
+          "severity": "HIGH",
+          "documents_evaluated": 50,
+          "ocr_metrics": {
+            "mean_cer": 0.1636,
+            "mean_wer": 0.7711,
+            "mean_token_f1": 0.4599
+          },
+          "extraction_metrics": {
+            "entity_precision": 1.0,
+            "entity_recall": 0.1724,
+            "entity_f1": 0.2941,
+            "dose_accuracy": 0.2667,
+            "unit_accuracy": 0.4667,
+            "complete_regimen_exact_match": 0.0115
+          },
+          "failure_attribution": {
+            "total_medications_evaluated": 87,
+            "ocr_failures": 71,
+            "extraction_failures": 12,
+            "ocr_failure_rate": 0.8161,
+            "extraction_failure_rate": 0.1379
+          }
+        }
+      }
+    }
+  },
+  "robustness_curves": [
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "gaussian_blur",
+      "severity": "LOW",
+      "mean_cer": 0.2108,
+      "extraction_f1": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "gaussian_blur",
+      "severity": "LOW",
+      "mean_cer": 0.091,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "gaussian_blur",
+      "severity": "MEDIUM",
+      "mean_cer": 0.1975,
+      "extraction_f1": 0.9688,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0606
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "gaussian_blur",
+      "severity": "MEDIUM",
+      "mean_cer": 0.0876,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "gaussian_blur",
+      "severity": "HIGH",
+      "mean_cer": 0.4118,
+      "extraction_f1": 0.0,
+      "ocr_failure_rate": 0.5152,
+      "extraction_failure_rate": 0.4848
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "gaussian_blur",
+      "severity": "HIGH",
+      "mean_cer": 0.4051,
+      "extraction_f1": 0.8571,
+      "complete_regimen_exact_match": 0.25,
+      "ocr_failure_rate": 0.25,
+      "extraction_failure_rate": 0.5
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "jpeg_compression",
+      "severity": "LOW",
+      "mean_cer": 0.2114,
+      "extraction_f1": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "jpeg_compression",
+      "severity": "LOW",
+      "mean_cer": 0.097,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 0.75,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "jpeg_compression",
+      "severity": "MEDIUM",
+      "mean_cer": 0.2154,
+      "extraction_f1": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "jpeg_compression",
+      "severity": "MEDIUM",
+      "mean_cer": 0.1028,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "jpeg_compression",
+      "severity": "HIGH",
+      "mean_cer": 0.2158,
+      "extraction_f1": 0.9846,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0303
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "jpeg_compression",
+      "severity": "HIGH",
+      "mean_cer": 0.1151,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "resolution_reduction",
+      "severity": "LOW",
+      "mean_cer": 0.2114,
+      "extraction_f1": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "resolution_reduction",
+      "severity": "LOW",
+      "mean_cer": 0.091,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "resolution_reduction",
+      "severity": "MEDIUM",
+      "mean_cer": 0.2077,
+      "extraction_f1": 0.9688,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0606
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "resolution_reduction",
+      "severity": "MEDIUM",
+      "mean_cer": 0.0882,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "resolution_reduction",
+      "severity": "HIGH",
+      "mean_cer": 0.501,
+      "extraction_f1": 0.2162,
+      "ocr_failure_rate": 0.4242,
+      "extraction_failure_rate": 0.5152
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "resolution_reduction",
+      "severity": "HIGH",
+      "mean_cer": 0.6657,
+      "extraction_f1": 0.0,
+      "complete_regimen_exact_match": 0.0,
+      "ocr_failure_rate": 1.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "rotation_skew",
+      "severity": "LOW",
+      "mean_cer": 0.2006,
+      "extraction_f1": 0.2632,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.8485
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "rotation_skew",
+      "severity": "LOW",
+      "mean_cer": 0.0765,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "rotation_skew",
+      "severity": "MEDIUM",
+      "mean_cer": 0.4031,
+      "extraction_f1": 0.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 1.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "rotation_skew",
+      "severity": "MEDIUM",
+      "mean_cer": 0.1283,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 0.75,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "rotation_skew",
+      "severity": "HIGH",
+      "mean_cer": 0.5202,
+      "extraction_f1": 0.35,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 1.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "rotation_skew",
+      "severity": "HIGH",
+      "mean_cer": 0.2172,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 0.25,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "contrast_brightness",
+      "severity": "LOW",
+      "mean_cer": 0.2105,
+      "extraction_f1": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "contrast_brightness",
+      "severity": "LOW",
+      "mean_cer": 0.0886,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "contrast_brightness",
+      "severity": "MEDIUM",
+      "mean_cer": 0.2536,
+      "extraction_f1": 0.9846,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0303
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "contrast_brightness",
+      "severity": "MEDIUM",
+      "mean_cer": 0.1513,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "contrast_brightness",
+      "severity": "HIGH",
+      "mean_cer": 1.0,
+      "extraction_f1": 0.0,
+      "ocr_failure_rate": 1.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "contrast_brightness",
+      "severity": "HIGH",
+      "mean_cer": 1.0,
+      "extraction_f1": 0.0,
+      "complete_regimen_exact_match": 0.0,
+      "ocr_failure_rate": 1.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "partial_local",
+      "severity": "LOW",
+      "mean_cer": 0.201,
+      "extraction_f1": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "partial_local",
+      "severity": "LOW",
+      "mean_cer": 0.0848,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "partial_local",
+      "severity": "MEDIUM",
+      "mean_cer": 0.2032,
+      "extraction_f1": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "partial_local",
+      "severity": "MEDIUM",
+      "mean_cer": 0.0866,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "partial_local",
+      "severity": "HIGH",
+      "mean_cer": 0.2042,
+      "extraction_f1": 0.9688,
+      "ocr_failure_rate": 0.0303,
+      "extraction_failure_rate": 0.0303
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "partial_local",
+      "severity": "HIGH",
+      "mean_cer": 0.0846,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "combined",
+      "severity": "LOW",
+      "mean_cer": 0.2142,
+      "extraction_f1": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "combined",
+      "severity": "LOW",
+      "mean_cer": 0.1096,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 1.0,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "combined",
+      "severity": "MEDIUM",
+      "mean_cer": 0.3173,
+      "extraction_f1": 0.3077,
+      "ocr_failure_rate": 0.0909,
+      "extraction_failure_rate": 0.9091
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "combined",
+      "severity": "MEDIUM",
+      "mean_cer": 0.1926,
+      "extraction_f1": 1.0,
+      "complete_regimen_exact_match": 0.75,
+      "ocr_failure_rate": 0.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "lab",
+      "degradation": "combined",
+      "severity": "HIGH",
+      "mean_cer": 0.897,
+      "extraction_f1": 0.0,
+      "ocr_failure_rate": 1.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "visual",
+      "dataset": "medication",
+      "degradation": "combined",
+      "severity": "HIGH",
+      "mean_cer": 0.8537,
+      "extraction_f1": 0.0,
+      "complete_regimen_exact_match": 0.0,
+      "ocr_failure_rate": 1.0,
+      "extraction_failure_rate": 0.0
+    },
+    {
+      "track": "ocr_text",
+      "dataset": "lab",
+      "degradation": "ocr_character_corruption",
+      "severity": "LOW",
+      "mean_cer": 0.0197,
+      "extraction_f1": 0.8347,
+      "ocr_failure_rate": 0.0355,
+      "extraction_failure_rate": 0.2766
+    },
+    {
+      "track": "ocr_text",
+      "dataset": "medication",
+      "degradation": "ocr_character_corruption",
+      "severity": "LOW",
+      "mean_cer": 0.0189,
+      "extraction_f1": 0.8861,
+      "complete_regimen_exact_match": 0.6207,
+      "ocr_failure_rate": 0.1724,
+      "extraction_failure_rate": 0.1264
+    },
+    {
+      "track": "ocr_text",
+      "dataset": "lab",
+      "degradation": "ocr_character_corruption",
+      "severity": "MEDIUM",
+      "mean_cer": 0.0706,
+      "extraction_f1": 0.5,
+      "ocr_failure_rate": 0.1844,
+      "extraction_failure_rate": 0.5631
+    },
+    {
+      "track": "ocr_text",
+      "dataset": "medication",
+      "degradation": "ocr_character_corruption",
+      "severity": "MEDIUM",
+      "mean_cer": 0.0678,
+      "extraction_f1": 0.5909,
+      "complete_regimen_exact_match": 0.069,
+      "ocr_failure_rate": 0.4598,
+      "extraction_failure_rate": 0.3678
+    },
+    {
+      "track": "ocr_text",
+      "dataset": "lab",
+      "degradation": "ocr_character_corruption",
+      "severity": "HIGH",
+      "mean_cer": 0.17,
+      "extraction_f1": 0.1759,
+      "ocr_failure_rate": 0.3433,
+      "extraction_failure_rate": 0.6057
+    },
+    {
+      "track": "ocr_text",
+      "dataset": "medication",
+      "degradation": "ocr_character_corruption",
+      "severity": "HIGH",
+      "mean_cer": 0.1636,
+      "extraction_f1": 0.2941,
+      "complete_regimen_exact_match": 0.0115,
+      "ocr_failure_rate": 0.8161,
+      "extraction_failure_rate": 0.1379
+    }
+  ]
+}

@@ -56,3 +56,5 @@ data/ocr_cache/*
 !data/ocr_cache/.gitkeep
 data/degraded/*
 !data/degraded/.gitkeep
+# M2 experiment outputs / checkpoints
+data/m2_results/

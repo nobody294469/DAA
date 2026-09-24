@@ -1,0 +1,105 @@
+{
+  "version": "1.0.0",
+  "random_seed": 42,
+  "rasterize_dpi": 200,
+  "degradations": {
+    "gaussian_blur": {
+      "name": "Gaussian Blur",
+      "track": "visual",
+      "description": "Visual blurring simulating lens defocus or camera motion",
+      "levels": {
+        "LOW": { "radius": 1.0 },
+        "MEDIUM": { "radius": 2.2 },
+        "HIGH": { "radius": 3.8 }
+      }
+    },
+    "jpeg_compression": {
+      "name": "JPEG Compression",
+      "track": "visual",
+      "description": "Lossy DCT compression artifacts and high-frequency ringing",
+      "levels": {
+        "LOW": { "quality": 45 },
+        "MEDIUM": { "quality": 20 },
+        "HIGH": { "quality": 8 }
+      }
+    },
+    "resolution_reduction": {
+      "name": "Resolution Reduction",
+      "track": "visual",
+      "description": "Downsampling and re-upsampling simulating low-DPI scan or fax resolution",
+      "levels": {
+        "LOW": { "target_dpi": 100 },
+        "MEDIUM": { "target_dpi": 65 },
+        "HIGH": { "target_dpi": 40 }
+      }
+    },
+    "rotation_skew": {
+      "name": "Rotation / Skew",
+      "track": "visual",
+      "description": "Affine rotational misalignment on physical feeder bed",
+      "levels": {
+        "LOW": { "angle_degrees": 1.5 },
+        "MEDIUM": { "angle_degrees": 4.0 },
+        "HIGH": { "angle_degrees": 8.5 }
+      }
+    },
+    "contrast_brightness": {
+      "name": "Contrast / Brightness Variation",
+      "track": "visual",
+      "description": "Faded thermal paper, photocopy overexposure or toner depletion",
+      "levels": {
+        "LOW": { "contrast_factor": 0.75, "brightness_factor": 1.15 },
+        "MEDIUM": { "contrast_factor": 0.50, "brightness_factor": 1.30 },
+        "HIGH": { "contrast_factor": 0.30, "brightness_factor": 1.45 }
+      }
+    },
+    "ocr_character_corruption": {
+      "name": "OCR Character Corruption",
+      "track": "ocr_text",
+      "description": "Simulated optical character recognition substitutions, digit swaps, and symbol drops",
+      "levels": {
+        "LOW": { "error_rate": 0.03 },
+        "MEDIUM": { "error_rate": 0.08 },
+        "HIGH": { "error_rate": 0.18 }
+      }
+    },
+    "partial_local": {
+      "name": "Partial / Local Degradation",
+      "track": "visual",
+      "description": "Localized gradient smudge, crease line, or shadow across part of document",
+      "levels": {
+        "LOW": { "coverage_ratio": 0.10, "opacity": 0.35, "blur_radius": 1.5 },
+        "MEDIUM": { "coverage_ratio": 0.20, "opacity": 0.60, "blur_radius": 3.0 },
+        "HIGH": { "coverage_ratio": 0.35, "opacity": 0.85, "blur_radius": 5.0 }
+      }
+    },
+    "combined": {
+      "name": "Combined Degradation",
+      "track": "visual",
+      "description": "Realistic real-world scan/fax combining skew, low-DPI, blur, and JPEG compression",
+      "levels": {
+        "LOW": {
+          "skew_angle": 1.0,
+          "blur_radius": 0.6,
+          "target_dpi": 110,
+          "jpeg_quality": 50,
+          "contrast_factor": 0.85
+        },
+        "MEDIUM": {
+          "skew_angle": 2.5,
+          "blur_radius": 1.4,
+          "target_dpi": 80,
+          "jpeg_quality": 25,
+          "contrast_factor": 0.70
+        },
+        "HIGH": {
+          "skew_angle": 5.0,
+          "blur_radius": 2.5,
+          "target_dpi": 50,
+          "jpeg_quality": 10,
+          "contrast_factor": 0.50
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "model_id": "thomas-sounack/BioClinical-ModernBERT-base",
+  "num_labels": 3,
+  "max_seq_length": 256,
+  "encoder_lr": 2e-5,
+  "head_lr": 1e-4,
+  "weight_decay": 0.01,
+  "warmup_fraction": 0.06,
+  "max_epochs": 10,
+  "early_stopping_patience": 3,
+  "batch_size": 16,
+  "seeds": [42, 43, 44],
+  "freeze_lower_n_layers": 0,
+  "frozen_variant_n_layers": 8,
+  "use_aux": true,
+  "aux_dim": 21,
+  "aux_proj_dim": 64
+}

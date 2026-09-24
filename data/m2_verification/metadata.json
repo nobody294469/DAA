@@ -1,0 +1,256 @@
+{
+  "total_examples": 7446,
+  "label_counts": {
+    "DISCREPANCY": 3867,
+    "SUPPORTED": 3249,
+    "INSUFFICIENT_EVIDENCE": 330
+  },
+  "label_percentages": {
+    "DISCREPANCY": 51.93,
+    "SUPPORTED": 43.63,
+    "INSUFFICIENT_EVIDENCE": 4.43
+  },
+  "by_severity": {
+    "low": {
+      "DISCREPANCY": 786,
+      "SUPPORTED": 786,
+      "INSUFFICIENT_EVIDENCE": 6
+    },
+    "high": {
+      "SUPPORTED": 665,
+      "DISCREPANCY": 665,
+      "INSUFFICIENT_EVIDENCE": 127
+    },
+    "medium": {
+      "DISCREPANCY": 745,
+      "INSUFFICIENT_EVIDENCE": 47,
+      "SUPPORTED": 745
+    },
+    "clean": {
+      "DISCREPANCY": 1671,
+      "SUPPORTED": 1053,
+      "INSUFFICIENT_EVIDENCE": 150
+    }
+  },
+  "by_field_type": {
+    "lab.value": {
+      "DISCREPANCY": 2668,
+      "SUPPORTED": 2668,
+      "INSUFFICIENT_EVIDENCE": 252
+    },
+    "med.dose": {
+      "DISCREPANCY": 320,
+      "SUPPORTED": 320,
+      "INSUFFICIENT_EVIDENCE": 78
+    },
+    "lab.flag": {
+      "DISCREPANCY": 705
+    },
+    "med.name": {
+      "SUPPORTED": 87
+    },
+    "med.frequency": {
+      "DISCREPANCY": 87,
+      "SUPPORTED": 87
+    },
+    "med.route": {
+      "DISCREPANCY": 87,
+      "SUPPORTED": 87
+    }
+  },
+  "by_doc_template": {
+    "template_a": {
+      "DISCREPANCY": 1068,
+      "SUPPORTED": 844,
+      "INSUFFICIENT_EVIDENCE": 84
+    },
+    "template_c": {
+      "SUPPORTED": 925,
+      "DISCREPANCY": 1168,
+      "INSUFFICIENT_EVIDENCE": 81
+    },
+    "template_b": {
+      "SUPPORTED": 899,
+      "INSUFFICIENT_EVIDENCE": 87,
+      "DISCREPANCY": 1137
+    },
+    "mar_order_sheet": {
+      "DISCREPANCY": 156,
+      "SUPPORTED": 183,
+      "INSUFFICIENT_EVIDENCE": 18
+    },
+    "discharge_summary": {
+      "SUPPORTED": 234,
+      "DISCREPANCY": 199,
+      "INSUFFICIENT_EVIDENCE": 24
+    },
+    "clinic_rx_pad": {
+      "SUPPORTED": 85,
+      "DISCREPANCY": 72,
+      "INSUFFICIENT_EVIDENCE": 19
+    },
+    "pharmacy_label": {
+      "SUPPORTED": 79,
+      "DISCREPANCY": 67,
+      "INSUFFICIENT_EVIDENCE": 17
+    }
+  },
+  "by_generation_method": {
+    "m1_track_b_low_readable_discrepancy": {
+      "DISCREPANCY": 786
+    },
+    "m1_track_b_high_readable_supported": {
+      "SUPPORTED": 665
+    },
+    "m1_track_b_low_readable_supported": {
+      "SUPPORTED": 786
+    },
+    "m1_track_b_medium_readable_discrepancy": {
+      "DISCREPANCY": 745
+    },
+    "m1_track_b_medium_ocr_failure": {
+      "INSUFFICIENT_EVIDENCE": 47
+    },
+    "m1_track_b_medium_readable_supported": {
+      "SUPPORTED": 745
+    },
+    "vocab_substitution_discrepancy": {
+      "DISCREPANCY": 1671
+    },
+    "m1_track_b_high_readable_discrepancy": {
+      "DISCREPANCY": 665
+    },
+    "clean_extraction_supported": {
+      "SUPPORTED": 1053
+    },
+    "clean_unobserved_claim_insufficient_evidence": {
+      "INSUFFICIENT_EVIDENCE": 150
+    },
+    "m1_track_b_high_ocr_failure": {
+      "INSUFFICIENT_EVIDENCE": 127
+    },
+    "m1_track_b_low_ocr_failure": {
+      "INSUFFICIENT_EVIDENCE": 6
+    }
+  },
+  "by_claim_type": {
+    "lab": {
+      "DISCREPANCY": 3373,
+      "SUPPORTED": 2668,
+      "INSUFFICIENT_EVIDENCE": 252
+    },
+    "med": {
+      "DISCREPANCY": 494,
+      "SUPPORTED": 581,
+      "INSUFFICIENT_EVIDENCE": 78
+    }
+  },
+  "ood_doc_ids": [
+    "LAB_0002",
+    "LAB_0005",
+    "LAB_0008",
+    "LAB_0011",
+    "LAB_0014",
+    "LAB_0017",
+    "LAB_0020",
+    "LAB_0023",
+    "LAB_0026",
+    "LAB_0029",
+    "LAB_0032",
+    "LAB_0035",
+    "LAB_0038",
+    "LAB_0041",
+    "LAB_0044",
+    "LAB_0047",
+    "LAB_0050",
+    "MED_0004",
+    "MED_0008",
+    "MED_0012",
+    "MED_0016",
+    "MED_0020",
+    "MED_0024",
+    "MED_0028",
+    "MED_0032",
+    "MED_0036",
+    "MED_0040",
+    "MED_0044",
+    "MED_0048"
+  ],
+  "cv_doc_ids": [
+    "LAB_0001",
+    "LAB_0003",
+    "LAB_0004",
+    "LAB_0006",
+    "LAB_0007",
+    "LAB_0009",
+    "LAB_0010",
+    "LAB_0012",
+    "LAB_0013",
+    "LAB_0015",
+    "LAB_0016",
+    "LAB_0018",
+    "LAB_0019",
+    "LAB_0021",
+    "LAB_0022",
+    "LAB_0024",
+    "LAB_0025",
+    "LAB_0027",
+    "LAB_0028",
+    "LAB_0030",
+    "LAB_0031",
+    "LAB_0033",
+    "LAB_0034",
+    "LAB_0036",
+    "LAB_0037",
+    "LAB_0039",
+    "LAB_0040",
+    "LAB_0042",
+    "LAB_0043",
+    "LAB_0045",
+    "LAB_0046",
+    "LAB_0048",
+    "LAB_0049",
+    "MED_0001",
+    "MED_0002",
+    "MED_0003",
+    "MED_0005",
+    "MED_0006",
+    "MED_0007",
+    "MED_0009",
+    "MED_0010",
+    "MED_0011",
+    "MED_0013",
+    "MED_0014",
+    "MED_0015",
+    "MED_0017",
+    "MED_0018",
+    "MED_0019",
+    "MED_0021",
+    "MED_0022",
+    "MED_0023",
+    "MED_0025",
+    "MED_0026",
+    "MED_0027",
+    "MED_0029",
+    "MED_0030",
+    "MED_0031",
+    "MED_0033",
+    "MED_0034",
+    "MED_0035",
+    "MED_0037",
+    "MED_0038",
+    "MED_0039",
+    "MED_0041",
+    "MED_0042",
+    "MED_0043",
+    "MED_0045",
+    "MED_0046",
+    "MED_0047",
+    "MED_0049",
+    "MED_0050"
+  ],
+  "generation_stats": {
+    "total_generated": 7446,
+    "excluded_ungrounded_med_claims": 62
+  }
+}
