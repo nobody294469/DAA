@@ -302,28 +302,45 @@ def run_training(
     ood_examples: list[M2Example] | None = None,
     results_file: Path | None = None,
     recovered_file: Path | None = None,
+    headline_file: Path | None = None,
+    persist_dir: Path | str | None = None,
 ) -> list[dict]:
-    """Run full CV training for all 4 neural variants across 5 folds x 3 seeds with resumability."""
+    """Run full CV training for all 4 neural variants across 5 folds x 3 seeds with resumability and persistent backup."""
     from clindoc.m2.recovery import (
         recover_and_evaluate_checkpoint,
         save_incremental_results,
         load_existing_results_map,
+        load_recovered_headline_results,
         is_quarantined_checkpoint,
+        get_persist_dir,
     )
 
     if results_file is None:
         results_file = out_dir.parent / ("m2_train_debug_results.json" if debug else "m2_train_results.json")
     if recovered_file is None:
         recovered_file = out_dir.parent / "m2_train_results_recovered.json"
+    if headline_file is None:
+        headline_file = out_dir.parent / "m2_recovered_headline_results.json"
+    if persist_dir is None:
+        persist_dir = get_persist_dir()
 
-    # Merge recovered and official existing results
+    if persist_dir:
+        print(f"Persistent backup enabled -> will sync completed results to {persist_dir}")
+
+    # Merge recovered and official existing results (including persistent backup if present)
     existing_results_map = load_existing_results_map(
         results_file=results_file,
         recovered_file=recovered_file,
         debug=debug,
+        persist_dir=persist_dir,
     )
     if existing_results_map:
         print(f"Loaded {len(existing_results_map)} valid completed result(s) from previous runs")
+
+    # Load recovered headline results separately
+    headline_results_map = load_recovered_headline_results(headline_file=headline_file)
+    if headline_results_map:
+        print(f"Loaded {len(headline_results_map)} historical headline-recovered result(s) (checkpoints/detailed metrics not available)")
 
     results = []
     n_folds = 1 if debug else manifest["n_splits"]
@@ -358,14 +375,19 @@ def run_training(
                 ckpt_name = f"{var['name']}_fold{fold_idx}_seed{seed}.pt"
                 ckpt_path = var_dir / ckpt_name
 
-                # 1. Result already recorded in existing_results_map (recovered or official)
-                if run_key in existing_results_map:
-                    print(f"  [SKIP] Result already recorded for {var['name']} fold={fold_idx} seed={seed}")
+                # 1. Result already recorded in official existing_results_map
+                if run_key in existing_results_map and run_key not in headline_results_map:
+                    print(f"  [SKIP] Full result already recorded for {var['name']} fold={fold_idx} seed={seed}")
                     results.append(existing_results_map[run_key])
-                    save_incremental_results(results_file, results)
+                    save_incremental_results(results_file, results, persist_dir=persist_dir)
                     continue
 
-                # 2. Checkpoint already exists on disk and is not quarantined -> recover evaluation
+                # 2. Historical headline-recovered result (do not retrain, do not load missing checkpoint)
+                if run_key in headline_results_map:
+                    print(f"  [SKIP] Historical headline-recovered result recognized for {var['name']} fold={fold_idx} seed={seed} (val_f1={headline_results_map[run_key]['val_macro_f1']}, ood_f1={headline_results_map[run_key]['ood_macro_f1']}; will not retrain)")
+                    continue
+
+                # 3. Checkpoint already exists on disk and is not quarantined -> recover evaluation
                 if ckpt_path.exists() and not is_quarantined_checkpoint(ckpt_path, debug=debug):
                     print(f"  [RESUME] Found existing checkpoint {ckpt_path.name}, recovering evaluation...")
                     if tokenizer is None:
@@ -379,7 +401,7 @@ def run_training(
                         config=config,
                     )
                     results.append(res)
-                    save_incremental_results(results_file, results)
+                    save_incremental_results(results_file, results, persist_dir=persist_dir)
                     continue
 
                 # 3. Train normally
@@ -397,6 +419,6 @@ def run_training(
                     ood_examples=ood_examples,
                 )
                 results.append(res)
-                save_incremental_results(results_file, results)
+                save_incremental_results(results_file, results, persist_dir=persist_dir)
 
     return results

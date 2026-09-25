@@ -113,8 +113,47 @@ def test_stale_debug_full_checkpoint_not_counted_as_completed(tmp_path):
     assert ("modernbert_full", 0, 42) not in res_map
 
 
-def test_expected_remaining_training_count_is_45():
-    """Verify official remaining training count is exactly 45 (15 text-only completed, 45 to train)."""
+def test_load_recovered_headline_results_30_records():
+    """Verify loading the 30 recovered records with exact schema and preserved metrics."""
+    from clindoc.m2.recovery import load_recovered_headline_results, DEFAULT_HEADLINE_RECOVERED_FILE
+
+    if not DEFAULT_HEADLINE_RECOVERED_FILE.exists():
+        pytest.skip("m2_recovered_headline_results.json not found")
+
+    headline_map = load_recovered_headline_results(DEFAULT_HEADLINE_RECOVERED_FILE)
+    assert len(headline_map) == 30
+
+    text_only = [rec for k, rec in headline_map.items() if k[0] == "modernbert_text_only"]
+    ocr_only = [rec for k, rec in headline_map.items() if k[0] == "modernbert_ocr_only"]
+    full_runs = [rec for k, rec in headline_map.items() if k[0] == "modernbert_full"]
+    frozen_runs = [rec for k, rec in headline_map.items() if k[0] == "modernbert_frozen_lower8"]
+
+    assert len(text_only) == 15
+    assert len(ocr_only) == 15
+    assert len(full_runs) == 0
+    assert len(frozen_runs) == 0
+
+    for k, rec in headline_map.items():
+        assert rec["status"] == "completed_recovered_headline"
+        assert rec["detailed_metrics_available"] is False
+        assert rec["checkpoint_available"] is False
+
+        # Verify all four headline metrics exist and are non-trivial floats
+        assert 0.0 < rec["val_macro_f1"] <= 1.0
+        assert 0.0 < rec["val_discrepancy_recall"] <= 1.0
+        assert 0.0 < rec["ood_macro_f1"] <= 1.0
+        assert 0.0 < rec["ood_discrepancy_recall"] <= 1.0
+
+        # Verify missing detailed metrics are NOT fabricated in the record
+        assert "per_class" not in rec
+        assert "auroc_discrepancy" not in rec
+        assert "brier_score" not in rec
+        assert "ece" not in rec
+        assert "confusion_matrix" not in rec
+
+
+def test_expected_training_plan_with_recovered_headline_results():
+    """Verify official training plan counts: 0 full completed, 30 headline recovered, 0 recovery, 30 training."""
     manifest_path = Path("data/m2_verification/split_manifest.json")
     if not manifest_path.exists():
         pytest.skip("split_manifest.json not found")
@@ -126,22 +165,69 @@ def test_expected_remaining_training_count_is_45():
     plan = get_training_plan(manifest, config, debug=False)
 
     by_variant = plan["by_variant"]
-    assert by_variant["modernbert_text_only"]["completed"] == 15
+    assert by_variant["modernbert_text_only"]["completed"] == 0
+    assert by_variant["modernbert_text_only"]["headline_recovered"] == 15
     assert by_variant["modernbert_text_only"]["recovery"] == 0
     assert by_variant["modernbert_text_only"]["training"] == 0
 
     assert by_variant["modernbert_ocr_only"]["completed"] == 0
+    assert by_variant["modernbert_ocr_only"]["headline_recovered"] == 15
     assert by_variant["modernbert_ocr_only"]["recovery"] == 0
-    assert by_variant["modernbert_ocr_only"]["training"] == 15
+    assert by_variant["modernbert_ocr_only"]["training"] == 0
 
     assert by_variant["modernbert_full"]["completed"] == 0
+    assert by_variant["modernbert_full"]["headline_recovered"] == 0
     assert by_variant["modernbert_full"]["recovery"] == 0
     assert by_variant["modernbert_full"]["training"] == 15
 
     assert by_variant["modernbert_frozen_lower8"]["completed"] == 0
+    assert by_variant["modernbert_frozen_lower8"]["headline_recovered"] == 0
     assert by_variant["modernbert_frozen_lower8"]["recovery"] == 0
     assert by_variant["modernbert_frozen_lower8"]["training"] == 15
 
-    assert plan["total_completed"] == 15
+    assert plan["total_completed"] == 0
+    assert plan["total_headline_recovered"] == 30
     assert plan["total_recovery"] == 0
-    assert plan["total_training"] == 45
+    assert plan["total_training"] == 30
+
+
+def test_headline_records_distinguished_and_not_retrained():
+    """Ensure training planner recognizes headline records so they are not retrained."""
+    from clindoc.m2.recovery import load_recovered_headline_results
+
+    headline_map = load_recovered_headline_results()
+    assert len(headline_map) == 30
+
+    # Ensure all 15 text_only and 15 ocr_only runs are recognized
+    for fold in range(5):
+        for seed in (42, 43, 44):
+            assert ("modernbert_text_only", fold, seed) in headline_map
+            assert ("modernbert_ocr_only", fold, seed) in headline_map
+            assert ("modernbert_full", fold, seed) not in headline_map
+            assert ("modernbert_frozen_lower8", fold, seed) not in headline_map
+
+            rec_text = headline_map[("modernbert_text_only", fold, seed)]
+            assert rec_text["status"] == "completed_recovered_headline"
+            assert rec_text["detailed_metrics_available"] is False
+            assert rec_text["checkpoint_available"] is False
+
+
+def test_step_evaluate_distinguishes_headline_without_fabrication(tmp_path):
+    """Verify that reporting layer distinguishes headline-only from full results without fabricating metrics."""
+    from clindoc.m2.run import _mean_std
+    from clindoc.m2.recovery import load_recovered_headline_results
+
+    headline_map = load_recovered_headline_results()
+    text_runs = [rec for k, rec in headline_map.items() if k[0] == "modernbert_text_only"]
+    assert len(text_runs) == 15
+
+    val_f1_m, val_f1_s = _mean_std([r["val_macro_f1"] for r in text_runs])
+    val_rec_m, val_rec_s = _mean_std([r["val_discrepancy_recall"] for r in text_runs])
+    ood_f1_m, ood_f1_s = _mean_std([r["ood_macro_f1"] for r in text_runs])
+    ood_rec_m, ood_rec_s = _mean_std([r["ood_discrepancy_recall"] for r in text_runs])
+
+    # Verify real mean values computed directly from the 15 preserved runs
+    assert round(val_f1_m, 4) == 0.8714
+    assert round(val_rec_m, 4) == 0.9411
+    assert round(ood_f1_m, 4) == 0.7822
+    assert round(ood_rec_m, 4) == 0.9460

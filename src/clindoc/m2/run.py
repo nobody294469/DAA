@@ -163,7 +163,12 @@ def step_run_baselines(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DI
     return serializable
 
 
-def step_train(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR, debug: bool = False):
+def step_train(
+    data_dir: Path = DATA_DIR,
+    results_dir: Path = RESULTS_DIR,
+    debug: bool = False,
+    persist_dir: Path | str | None = None,
+):
     print("\n" + "=" * 60)
     mode = "DEBUG (1 fold, 1 epoch, subset)" if debug else "FULL TRAINING (4 variants x 5 folds x 3 seeds)"
     print(f"STEP 3: Training BioClinical ModernBERT Models [{mode}]")
@@ -179,6 +184,7 @@ def step_train(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR, debug
     results = run_training(
         examples, manifest, config, ckpt_dir,
         debug=debug, ood_examples=ood_ex, results_file=res_file,
+        persist_dir=persist_dir,
     )
 
     print(f"\nTraining run complete. Results saved to {res_file}")
@@ -212,16 +218,23 @@ def step_evaluate(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR):
     with open(baseline_file, "r", encoding="utf-8") as f:
         baseline_data = json.load(f)
 
-    # 2. Load Neural Training Results
+    # 2. Load Neural Training Results & Recovered Headline Results
+    from clindoc.m2.recovery import load_recovered_headline_results
+    headline_file = results_dir / "m2_recovered_headline_results.json"
+    headline_results_map = load_recovered_headline_results(headline_file)
+
     train_file = results_dir / "m2_train_results.json"
     if not train_file.exists():
         # Fallback to debug results if full train not run yet
         train_file = results_dir / "m2_train_debug_results.json"
-    if not train_file.exists():
-        raise FileNotFoundError(f"No training results found in {results_dir}")
 
-    with open(train_file, "r", encoding="utf-8") as f:
-        train_results = json.load(f)
+    train_results = []
+    if train_file.exists():
+        with open(train_file, "r", encoding="utf-8") as f:
+            train_results = json.load(f)
+
+    if not train_results and not headline_results_map:
+        raise FileNotFoundError(f"No training or headline-recovered results found in {results_dir}")
 
     # Combine all results into model-level groupings
     # 8 Models:
@@ -243,7 +256,8 @@ def step_evaluate(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR):
     for res in baseline_data.get("ood_results", []):
         ood_results_by_model[res["model_name"]].append(res)
 
-    # Add neural variants
+    # Add neural variants with full evaluations
+    full_runs_by_model = defaultdict(list)
     for run in train_results:
         mname = run.get("model_name", "modernbert_full")
         val_eval = run.get("val_eval")
@@ -252,6 +266,12 @@ def step_evaluate(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR):
             cv_results_by_model[mname].append(val_eval)
         if ood_eval:
             ood_results_by_model[mname].append(ood_eval)
+        full_runs_by_model[mname].append(run)
+
+    # Group headline-only runs by variant
+    headline_runs_by_model = defaultdict(list)
+    for (var, fold, seed), h_record in headline_results_map.items():
+        headline_runs_by_model[var].append(h_record)
 
     ALL_MODELS = [
         "deterministic_verifier",
@@ -270,85 +290,144 @@ def step_evaluate(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR):
     for mname in ALL_MODELS:
         cv_list = cv_results_by_model.get(mname, [])
         ood_list = ood_results_by_model.get(mname, [])
+        headline_list = headline_runs_by_model.get(mname, [])
 
-        cv_f1_m, cv_f1_s = _mean_std([r["macro_f1"] for r in cv_list])
-        cv_rec_m, cv_rec_s = _mean_std([r["discrepancy_recall"] for r in cv_list])
+        # Determine result provenance type
+        if mname.startswith("deterministic") or mname.startswith("levenshtein") or mname.startswith("tfidf") or mname.startswith("frozen_modernbert"):
+            result_type = "baseline_full"
+            detailed_metrics_available = True
+            checkpoint_available = False
+        elif cv_list:
+            result_type = "newly_trained" if (train_file and "debug" not in train_file.name) else "debug_trained"
+            detailed_metrics_available = True
+            checkpoint_available = True
+        elif headline_list:
+            result_type = "recovered_headline_only"
+            detailed_metrics_available = False
+            checkpoint_available = False
+        else:
+            result_type = "not_run"
+            detailed_metrics_available = False
+            checkpoint_available = False
 
-        aurocs = [r["auroc_discrepancy"] for r in cv_list if r.get("auroc_discrepancy") is not None]
-        cv_auc_m, cv_auc_s = _mean_std(aurocs) if aurocs else (None, None)
+        if result_type in ("baseline_full", "newly_trained", "debug_trained"):
+            n_runs = len(cv_list)
+            cv_f1_m, cv_f1_s = _mean_std([r["macro_f1"] for r in cv_list])
+            cv_rec_m, cv_rec_s = _mean_std([r["discrepancy_recall"] for r in cv_list])
 
-        briers = [r["brier_score"] for r in cv_list if r.get("brier_score") is not None]
-        cv_bs_m, cv_bs_s = _mean_std(briers) if briers else (None, None)
+            aurocs = [r["auroc_discrepancy"] for r in cv_list if r.get("auroc_discrepancy") is not None]
+            cv_auc_m, cv_auc_s = _mean_std(aurocs) if aurocs else (None, None)
 
-        eces = [r["ece"] for r in cv_list if r.get("ece") is not None]
-        cv_ece_m, cv_ece_s = _mean_std(eces) if eces else (None, None)
+            briers = [r["brier_score"] for r in cv_list if r.get("brier_score") is not None]
+            cv_bs_m, cv_bs_s = _mean_std(briers) if briers else (None, None)
 
-        ood_f1_m, ood_f1_s = _mean_std([r["macro_f1"] for r in ood_list])
-        ood_rec_m, ood_rec_s = _mean_std([r["discrepancy_recall"] for r in ood_list])
-        ood_aurocs = [r["auroc_discrepancy"] for r in ood_list if r.get("auroc_discrepancy") is not None]
-        ood_auc_m, ood_auc_s = _mean_std(ood_aurocs) if ood_aurocs else (None, None)
+            eces = [r["ece"] for r in cv_list if r.get("ece") is not None]
+            cv_ece_m, cv_ece_s = _mean_std(eces) if eces else (None, None)
 
-        # Average per-class metrics
-        pc_avg = {}
-        for lbl in LABEL_ORDER:
-            precs = [r["per_class"][lbl]["precision"] for r in cv_list if lbl in r.get("per_class", {})]
-            recs = [r["per_class"][lbl]["recall"] for r in cv_list if lbl in r.get("per_class", {})]
-            f1s = [r["per_class"][lbl]["f1"] for r in cv_list if lbl in r.get("per_class", {})]
-            pc_avg[lbl] = {
-                "precision": _mean_std(precs)[0],
-                "recall": _mean_std(recs)[0],
-                "f1": _mean_std(f1s)[0],
-            }
+            ood_f1_m, ood_f1_s = _mean_std([r["macro_f1"] for r in ood_list])
+            ood_rec_m, ood_rec_s = _mean_std([r["discrepancy_recall"] for r in ood_list])
+            ood_aurocs = [r["auroc_discrepancy"] for r in ood_list if r.get("auroc_discrepancy") is not None]
+            ood_auc_m, ood_auc_s = _mean_std(ood_aurocs) if ood_aurocs else (None, None)
 
-        # Average severity macro-F1
-        sev_avg = {}
-        for sev in ["clean", "low", "medium", "high"]:
-            f1s = [r["by_severity"][sev]["macro_f1"] for r in cv_list if sev in r.get("by_severity", {})]
-            sev_avg[sev] = _mean_std(f1s)[0]
+            # Average per-class metrics
+            pc_avg = {}
+            for lbl in LABEL_ORDER:
+                precs = [r["per_class"][lbl]["precision"] for r in cv_list if lbl in r.get("per_class", {})]
+                recs = [r["per_class"][lbl]["recall"] for r in cv_list if lbl in r.get("per_class", {})]
+                f1s = [r["per_class"][lbl]["f1"] for r in cv_list if lbl in r.get("per_class", {})]
+                pc_avg[lbl] = {
+                    "precision": _mean_std(precs)[0],
+                    "recall": _mean_std(recs)[0],
+                    "f1": _mean_std(f1s)[0],
+                }
 
-        # Field type macro-F1
-        ft_avg = {}
-        for r in cv_list:
-            for ft, stats in r.get("by_field_type", {}).items():
-                if ft not in ft_avg:
-                    ft_avg[ft] = []
-                ft_avg[ft].append(stats["macro_f1"])
-        ft_summary = {k: _mean_std(v)[0] for k, v in ft_avg.items()}
+            # Average severity macro-F1
+            sev_avg = {}
+            for sev in ["clean", "low", "medium", "high"]:
+                f1s = [r["by_severity"][sev]["macro_f1"] for r in cv_list if sev in r.get("by_severity", {})]
+                sev_avg[sev] = _mean_std(f1s)[0]
+
+            # Field type macro-F1
+            ft_avg = {}
+            for r in cv_list:
+                for ft, stats in r.get("by_field_type", {}).items():
+                    if ft not in ft_avg:
+                        ft_avg[ft] = []
+                    ft_avg[ft].append(stats["macro_f1"])
+            ft_summary = {k: _mean_std(v)[0] for k, v in ft_avg.items()}
+            sample_cm = cv_list[0]["confusion_matrix"] if cv_list else None
+
+        elif result_type == "recovered_headline_only":
+            n_runs = len(headline_list)
+            # Four headline metrics preserved exactly from Colab output
+            cv_f1_m, cv_f1_s = _mean_std([r["val_macro_f1"] for r in headline_list])
+            cv_rec_m, cv_rec_s = _mean_std([r["val_discrepancy_recall"] for r in headline_list])
+            ood_f1_m, ood_f1_s = _mean_std([r["ood_macro_f1"] for r in headline_list])
+            ood_rec_m, ood_rec_s = _mean_std([r["ood_discrepancy_recall"] for r in headline_list])
+
+            # Explicitly do NOT fabricate missing detailed metrics
+            cv_auc_m, cv_auc_s = None, None
+            cv_bs_m, cv_bs_s = None, None
+            cv_ece_m, cv_ece_s = None, None
+            ood_auc_m, ood_auc_s = None, None
+            pc_avg = None
+            sev_avg = None
+            ft_summary = None
+            sample_cm = None
+
+        else:
+            n_runs = 0
+            cv_f1_m, cv_f1_s = 0.0, 0.0
+            cv_rec_m, cv_rec_s = 0.0, 0.0
+            ood_f1_m, ood_f1_s = 0.0, 0.0
+            ood_rec_m, ood_rec_s = 0.0, 0.0
+            cv_auc_m, cv_auc_s = None, None
+            cv_bs_m, cv_bs_s = None, None
+            cv_ece_m, cv_ece_s = None, None
+            ood_auc_m, ood_auc_s = None, None
+            pc_avg = None
+            sev_avg = None
+            ft_summary = None
+            sample_cm = None
 
         detailed_metrics[mname] = {
-            "cv_runs": len(cv_list),
-            "ood_runs": len(ood_list),
-            "macro_f1": {"mean": cv_f1_m, "std": cv_f1_s},
-            "discrepancy_recall": {"mean": cv_rec_m, "std": cv_rec_s},
+            "result_type": result_type,
+            "detailed_metrics_available": detailed_metrics_available,
+            "checkpoint_available": checkpoint_available,
+            "cv_runs": n_runs,
+            "ood_runs": n_runs if result_type == "recovered_headline_only" else len(ood_list),
+            "macro_f1": {"mean": cv_f1_m, "std": cv_f1_s} if n_runs > 0 else None,
+            "discrepancy_recall": {"mean": cv_rec_m, "std": cv_rec_s} if n_runs > 0 else None,
             "auroc_discrepancy": {"mean": cv_auc_m, "std": cv_auc_s} if cv_auc_m is not None else None,
             "brier_score": {"mean": cv_bs_m, "std": cv_bs_s} if cv_bs_m is not None else None,
             "ece": {"mean": cv_ece_m, "std": cv_ece_s} if cv_ece_m is not None else None,
-            "ood_macro_f1": {"mean": ood_f1_m, "std": ood_f1_s},
-            "ood_discrepancy_recall": {"mean": ood_rec_m, "std": ood_rec_s},
+            "ood_macro_f1": {"mean": ood_f1_m, "std": ood_f1_s} if n_runs > 0 else None,
+            "ood_discrepancy_recall": {"mean": ood_rec_m, "std": ood_rec_s} if n_runs > 0 else None,
             "ood_auroc_discrepancy": {"mean": ood_auc_m, "std": ood_auc_s} if ood_auc_m is not None else None,
             "per_class": pc_avg,
             "by_severity": sev_avg,
             "by_field_type": ft_summary,
-            "sample_confusion_matrix": cv_list[0]["confusion_matrix"] if cv_list else None,
+            "sample_confusion_matrix": sample_cm,
         }
 
-        auc_cell = f"{cv_auc_m:.4f}±{cv_auc_s:.4f}" if cv_auc_m is not None else "N/A"
+        auc_cell = f"{cv_auc_m:.4f}±{cv_auc_s:.4f}" if cv_auc_m is not None else ("N/A (headline)" if result_type == "recovered_headline_only" else "N/A")
         summary_table.append({
             "Model": mname,
-            "CV Macro-F1": f"{cv_f1_m:.4f} ± {cv_f1_s:.4f}",
-            "CV Disc Recall": f"{cv_rec_m:.4f} ± {cv_rec_s:.4f}",
+            "Result Type": result_type,
+            "CV Macro-F1": f"{cv_f1_m:.4f} ± {cv_f1_s:.4f}" if n_runs > 0 else "N/A",
+            "CV Disc Recall": f"{cv_rec_m:.4f} ± {cv_rec_s:.4f}" if n_runs > 0 else "N/A",
             "CV AUROC": auc_cell,
-            "OOD Macro-F1": f"{ood_f1_m:.4f} ± {ood_f1_s:.4f}" if ood_f1_m else "N/A",
-            "OOD Disc Recall": f"{ood_rec_m:.4f} ± {ood_rec_s:.4f}" if ood_rec_m else "N/A",
+            "OOD Macro-F1": f"{ood_f1_m:.4f} ± {ood_f1_s:.4f}" if n_runs > 0 else "N/A",
+            "OOD Disc Recall": f"{ood_rec_m:.4f} ± {ood_rec_s:.4f}" if n_runs > 0 else "N/A",
         })
 
     # Print Summary Table
-    print("\n" + "=" * 105)
-    print(f"{'Model':<30} | {'CV Macro-F1':<16} | {'CV Disc Recall':<16} | {'CV AUROC':<15} | {'OOD Macro-F1':<15}")
-    print("-" * 105)
+    print("\n" + "=" * 125)
+    print(f"{'Model':<28} | {'Type':<25} | {'CV Macro-F1':<16} | {'CV Disc Recall':<16} | {'CV AUROC':<16} | {'OOD Macro-F1':<15}")
+    print("-" * 125)
     for row in summary_table:
-        print(f"{row['Model']:<30} | {row['CV Macro-F1']:<16} | {row['CV Disc Recall']:<16} | {row['CV AUROC']:<15} | {row['OOD Macro-F1']:<15}")
-    print("=" * 105)
+        print(f"{row['Model']:<28} | {row['Result Type']:<25} | {row['CV Macro-F1']:<16} | {row['CV Disc Recall']:<16} | {row['CV AUROC']:<16} | {row['OOD Macro-F1']:<15}")
+    print("=" * 125)
 
     # 3. Generate Real Plots
     print("\nGenerating final evaluation plots...")
@@ -397,6 +476,20 @@ def step_evaluate(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR):
             error_analysis_report = json.load(f)
 
     # 5. Compile Final Master Report
+    def _safe_mean(model_key: str, metric_key: str = "macro_f1") -> float | None:
+        model_data = detailed_metrics.get(model_key)
+        if not model_data:
+            return None
+        m = model_data.get(metric_key)
+        return m.get("mean") if isinstance(m, dict) else None
+
+    def _safe_diff(m1: str, m2: str, metric_key: str = "macro_f1") -> float | None:
+        v1 = _safe_mean(m1, metric_key)
+        v2 = _safe_mean(m2, metric_key)
+        if v1 is not None and v2 is not None:
+            return round(v1 - v2, 4)
+        return None
+
     report = {
         "status": "complete",
         "dataset": {
@@ -409,34 +502,19 @@ def step_evaluate(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR):
         "ablations": {
             "auxiliary_features": {
                 "full_vs_text_only": {
-                    "cv_macro_f1_diff": round(
-                        detailed_metrics.get("modernbert_full", {}).get("macro_f1", {}).get("mean", 0) -
-                        detailed_metrics.get("modernbert_text_only", {}).get("macro_f1", {}).get("mean", 0), 4
-                    ),
-                    "ood_macro_f1_diff": round(
-                        detailed_metrics.get("modernbert_full", {}).get("ood_macro_f1", {}).get("mean", 0) -
-                        detailed_metrics.get("modernbert_text_only", {}).get("ood_macro_f1", {}).get("mean", 0), 4
-                    ),
+                    "cv_macro_f1_diff": _safe_diff("modernbert_full", "modernbert_text_only", "macro_f1"),
+                    "ood_macro_f1_diff": _safe_diff("modernbert_full", "modernbert_text_only", "ood_macro_f1"),
                 },
                 "full_vs_ocr_only": {
-                    "cv_macro_f1_diff": round(
-                        detailed_metrics.get("modernbert_full", {}).get("macro_f1", {}).get("mean", 0) -
-                        detailed_metrics.get("modernbert_ocr_only", {}).get("macro_f1", {}).get("mean", 0), 4
-                    ),
+                    "cv_macro_f1_diff": _safe_diff("modernbert_full", "modernbert_ocr_only", "macro_f1"),
                 },
             },
             "layer_freezing": {
                 "full_vs_frozen_lower8": {
-                    "cv_macro_f1_diff": round(
-                        detailed_metrics.get("modernbert_full", {}).get("macro_f1", {}).get("mean", 0) -
-                        detailed_metrics.get("modernbert_frozen_lower8", {}).get("macro_f1", {}).get("mean", 0), 4
-                    ),
+                    "cv_macro_f1_diff": _safe_diff("modernbert_full", "modernbert_frozen_lower8", "macro_f1"),
                 },
                 "full_vs_frozen_probe": {
-                    "cv_macro_f1_diff": round(
-                        detailed_metrics.get("modernbert_full", {}).get("macro_f1", {}).get("mean", 0) -
-                        detailed_metrics.get("frozen_modernbert_probe", {}).get("macro_f1", {}).get("mean", 0), 4
-                    ),
+                    "cv_macro_f1_diff": _safe_diff("modernbert_full", "frozen_modernbert_probe", "macro_f1"),
                 },
             },
         },
@@ -465,9 +543,14 @@ def main():
     parser.add_argument("--recover-checkpoints", action="store_true", help="Recover evaluations for existing checkpoints without retraining")
     parser.add_argument("--smoke-test-recovery", action="store_true", help="Smoke test recovery on a single checkpoint")
     parser.add_argument("--plan", action="store_true", help="Display planned training/recovery run counts without training")
+    parser.add_argument("--persist-dir", type=str, default=None, help="Directory to persistently backup completed result records (e.g. Google Drive)")
     parser.add_argument("--all", action="store_true", help="Run full pipeline: baselines, training, and evaluation")
 
     args = parser.parse_args()
+
+    if args.persist_dir:
+        import os
+        os.environ["M2_PERSIST_DIR"] = args.persist_dir
 
     if not any([
         args.generate_dataset, args.run_baselines, args.train,
@@ -481,19 +564,34 @@ def main():
         config = load_config()
         with open(DATA_DIR / "split_manifest.json", "r", encoding="utf-8") as f:
             manifest = json.load(f)
-        plan = get_training_plan(manifest, config, debug=args.debug)
-        print("\n" + "=" * 65)
+        plan = get_training_plan(manifest, config, debug=args.debug, persist_dir=args.persist_dir)
+        print("\n" + "=" * 80)
         print("M2 TRAINING PLAN (DRY RUN)")
-        print("=" * 65)
-        print(f"{'Variant':<28} | {'Completed':<10} | {'Recovery':<10} | {'Training':<10}")
-        print("-" * 65)
+        print("=" * 80)
+        print(f"{'Variant':<28} | {'Completed':<10} | {'Headline Rec':<13} | {'Recovery':<10} | {'Training':<10}")
+        print("-" * 80)
         for var, counts in plan["by_variant"].items():
-            print(f"{var:<28} | {counts['completed']:<10} | {counts['recovery']:<10} | {counts['training']:<10}")
-        print("=" * 65)
-        print(f"Total Completed (Skipped): {plan['total_completed']}")
-        print(f"Total Recovery Needed:     {plan['total_recovery']}")
-        print(f"Total Training Runs:       {plan['total_training']}")
-        print("=" * 65)
+            print(f"{var:<28} | {counts['completed']:<10} | {counts.get('headline_recovered', 0):<13} | {counts['recovery']:<10} | {counts['training']:<10}")
+        print("=" * 80)
+        print("Summary:")
+        print(f"  - full completed:     {plan['total_completed']}")
+        print(f"  - headline recovered: {plan.get('total_headline_recovered', 0)}")
+        print(f"  - recovery required:  {plan['total_recovery']}")
+        print(f"  - training required:  {plan['total_training']}")
+        print("\nBreakdown:")
+        for var, counts in plan["by_variant"].items():
+            parts = []
+            if counts.get("headline_recovered", 0) > 0:
+                parts.append(f"{counts['headline_recovered']} headline recovered")
+            if counts.get("completed", 0) > 0:
+                parts.append(f"{counts['completed']} full completed")
+            if counts.get("recovery", 0) > 0:
+                parts.append(f"{counts['recovery']} checkpoint recovery")
+            if counts.get("training", 0) > 0:
+                parts.append(f"{counts['training']} training")
+            summary_str = ", ".join(parts) if parts else "0 runs"
+            print(f"  {var}: {summary_str}")
+        print("=" * 80)
         return
 
     if args.generate_dataset:
@@ -507,7 +605,7 @@ def main():
         from clindoc.m2.recovery import recover_checkpoints
         recover_checkpoints(max_recoveries=1)
     if args.train or args.all:
-        step_train(debug=args.debug)
+        step_train(debug=args.debug, persist_dir=args.persist_dir)
     if args.evaluate or args.all:
         step_evaluate()
 

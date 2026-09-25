@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from pathlib import Path
 from typing import Optional
@@ -32,6 +33,7 @@ DEFAULT_CHECKPOINT_DIR = Path("data/m2_results/checkpoints")
 DEFAULT_DATA_DIR = Path("data/m2_verification")
 DEFAULT_RECOVERED_FILE = Path("data/m2_results/m2_train_results_recovered.json")
 DEFAULT_RESULTS_FILE = Path("data/m2_results/m2_train_results.json")
+DEFAULT_HEADLINE_RECOVERED_FILE = Path("data/m2_results/m2_recovered_headline_results.json")
 
 # Explicitly quarantined debug checkpoints that must NOT be treated as official completed runs
 QUARANTINED_CHECKPOINT_NAMES = {
@@ -98,16 +100,40 @@ def discover_checkpoints(
     return valid_ckpts
 
 
+def get_persist_dir() -> Path | None:
+    """Return Path to persistent directory if M2_PERSIST_DIR environment variable is set."""
+    env_dir = os.environ.get("M2_PERSIST_DIR")
+    if env_dir and env_dir.strip():
+        return Path(env_dir.strip())
+    return None
+
+
+def deduplicate_results(results: list[dict]) -> list[dict]:
+    """Deduplicate result records by (model_name, fold, seed), keeping the latest entry."""
+    seen: dict[tuple, dict] = {}
+    for r in results:
+        mname = r.get("model_name") or r.get("variant")
+        fold = r.get("fold")
+        seed = r.get("seed")
+        if mname is not None and fold is not None and seed is not None:
+            seen[(mname, fold, seed)] = r
+        else:
+            seen[id(r)] = r
+    return list(seen.values())
+
+
 def load_existing_results_map(
     results_file: Path | None = None,
     recovered_file: Path | None = None,
     debug: bool = False,
+    persist_dir: Path | str | None = None,
 ) -> dict[tuple[str, int, int], dict]:
-    """Load and merge results from recovered_file and results_file.
+    """Load and merge results from recovered_file, results_file, and persistent backup if present.
     
     Rules:
       - Quarantined debug results are filtered out in normal (non-debug) mode.
       - Recovered results provide completed evaluations for matching (model_name, fold, seed).
+      - Persistent backup file (from M2_PERSIST_DIR) is checked if local results_file does not exist.
       - Official results_file takes precedence over recovered_file for duplicate keys.
       - Never creates duplicate records.
     """
@@ -130,10 +156,20 @@ def load_existing_results_map(
         except Exception as e:
             print(f"Warning: Could not read recovered results from {recovered_file}: {e}")
 
-    # 2. Load official results file (takes precedence over recovered)
-    if results_file and results_file.exists():
+    # 2. Check persistent directory backup if local results_file is missing
+    target_results_file = results_file
+    if target_results_file and not target_results_file.exists():
+        p_dir = persist_dir if persist_dir is not None else get_persist_dir()
+        if p_dir:
+            p_dir_path = Path(p_dir) if isinstance(p_dir, str) else p_dir
+            candidate = p_dir_path / target_results_file.name
+            if candidate.exists():
+                target_results_file = candidate
+
+    # 3. Load official results file (takes precedence over recovered)
+    if target_results_file and target_results_file.exists():
         try:
-            with open(results_file, "r", encoding="utf-8") as f:
+            with open(target_results_file, "r", encoding="utf-8") as f:
                 res_data = json.load(f)
             if isinstance(res_data, list):
                 for item in res_data:
@@ -145,9 +181,59 @@ def load_existing_results_map(
                     if mname is not None and fold is not None and seed is not None:
                         merged[(mname, fold, seed)] = item
         except Exception as e:
-            print(f"Warning: Could not read official results from {results_file}: {e}")
+            print(f"Warning: Could not read official results from {target_results_file}: {e}")
 
     return merged
+
+
+def load_recovered_headline_results(
+    headline_file: Path | None = None,
+) -> dict[tuple[str, int, int], dict]:
+    """Load recovered headline-only results from m2_recovered_headline_results.json.
+    
+    Returns a dict keyed by (variant, fold, seed).
+    Each entry preserves the recovered headline metrics:
+      - val_macro_f1
+      - val_discrepancy_recall
+      - ood_macro_f1
+      - ood_discrepancy_recall
+      - status: 'completed_recovered_headline'
+      - detailed_metrics_available: False
+      - checkpoint_available: False
+    
+    These records are distinct from full evaluation records and must never fabricate
+    missing detailed metrics (AUROC, Brier, ECE, per_class, confusion matrix).
+    """
+    if headline_file is None:
+        headline_file = DEFAULT_HEADLINE_RECOVERED_FILE
+
+    results: dict[tuple[str, int, int], dict] = {}
+    if not headline_file.exists():
+        return results
+
+    try:
+        with open(headline_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        runs = data.get("runs", []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
+        for run in runs:
+            var = run.get("variant") or run.get("model_name")
+            fold = run.get("fold")
+            seed = run.get("seed")
+            if var is not None and fold is not None and seed is not None:
+                record = dict(run)
+                record["variant"] = var
+                record["model_name"] = var
+                record["fold"] = fold
+                record["seed"] = seed
+                record["status"] = run.get("status", "completed_recovered_headline")
+                record["detailed_metrics_available"] = False
+                record["checkpoint_available"] = False
+                results[(var, fold, seed)] = record
+    except Exception as e:
+        print(f"Warning: Could not read headline recovered results from {headline_file}: {e}")
+
+    return results
 
 
 def recover_and_evaluate_checkpoint(
@@ -246,13 +332,67 @@ def recover_and_evaluate_checkpoint(
     }
 
 
-def save_incremental_results(path: Path, results: list[dict]) -> None:
-    """Save results atomically so interruptions cannot corrupt the JSON file."""
+def save_incremental_results(
+    path: Path,
+    results: list[dict],
+    persist_dir: Path | str | None = None,
+) -> Path | None:
+    """Save results atomically so interruptions cannot corrupt the JSON file.
+    
+    If persist_dir is provided or M2_PERSIST_DIR environment variable is set,
+    also saves a synchronized backup atomically into the persistent directory.
+    
+    Deduplicates results by (model_name, fold, seed) while preserving order,
+    ensuring repeated saves never create duplicate records.
+    
+    Returns the persistent file path if backup was written, else None.
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
+    deduped = deduplicate_results(results)
     temp_path = path.with_suffix(".tmp")
     with open(temp_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2)
+        json.dump(deduped, f, indent=2)
     temp_path.replace(path)
+
+    # Persistent backup (e.g. Google Drive when running in Colab)
+    target_persist = None
+    if persist_dir is None:
+        target_persist = get_persist_dir()
+    elif isinstance(persist_dir, str):
+        target_persist = Path(persist_dir.strip()) if persist_dir.strip() else None
+    else:
+        target_persist = persist_dir
+
+    if target_persist is not None:
+        try:
+            target_persist.mkdir(parents=True, exist_ok=True)
+            persist_file = target_persist / path.name
+            persist_temp = persist_file.with_suffix(".tmp")
+            with open(persist_temp, "w", encoding="utf-8") as f:
+                json.dump(deduped, f, indent=2)
+            persist_temp.replace(persist_file)
+
+            # Also persist the latest individual completed run record
+            if deduped and isinstance(deduped[-1], dict):
+                last = deduped[-1]
+                mname = last.get("model_name") or last.get("variant")
+                fold = last.get("fold")
+                seed = last.get("seed")
+                if mname is not None and fold is not None and seed is not None:
+                    runs_dir = target_persist / "runs"
+                    runs_dir.mkdir(parents=True, exist_ok=True)
+                    single_file = runs_dir / f"{mname}_fold{fold}_seed{seed}.json"
+                    single_temp = single_file.with_suffix(".tmp")
+                    with open(single_temp, "w", encoding="utf-8") as f:
+                        json.dump(last, f, indent=2)
+                    single_temp.replace(single_file)
+
+            return persist_file
+        except Exception as e:
+            print(f"Warning: Failed to backup results to persistent directory {target_persist}: {e}")
+            return None
+
+    return None
 
 
 def get_training_plan(
@@ -262,14 +402,33 @@ def get_training_plan(
     debug: bool = False,
     results_file: Path | None = None,
     recovered_file: Path | None = None,
+    headline_file: Path | None = None,
+    persist_dir: Path | str | None = None,
 ) -> dict:
     """Compute the planned run counts broken down by variant without running training."""
     if results_file is None:
         results_file = out_dir.parent / ("m2_train_debug_results.json" if debug else "m2_train_results.json")
     if recovered_file is None:
         recovered_file = out_dir.parent / "m2_train_results_recovered.json"
+    if headline_file is None:
+        headline_file = out_dir.parent / "m2_recovered_headline_results.json"
 
-    existing_results_map = load_existing_results_map(results_file, recovered_file, debug=debug)
+    # Official completed results from active training runs (checking persistent backup if local missing)
+    official_results_map = load_existing_results_map(
+        results_file=results_file,
+        recovered_file=None,
+        debug=debug,
+        persist_dir=persist_dir,
+    )
+    # Recovered headline-only results from preserved console outputs
+    headline_results_map = load_recovered_headline_results(headline_file)
+    # Older recovered checkpoint results (fallback)
+    ckpt_recovered_map = load_existing_results_map(
+        results_file=None,
+        recovered_file=recovered_file,
+        debug=debug,
+        persist_dir=persist_dir,
+    )
 
     n_folds = 1 if debug else manifest["n_splits"]
     seeds = [config.seeds[0]] if debug else config.seeds
@@ -287,11 +446,17 @@ def get_training_plan(
     total_training = 0
     total_recovery = 0
     total_completed = 0
+    total_headline_recovered = 0
 
     for var in variants:
         var_name = var["name"]
         var_dir = out_dir / var_name
-        v_plan = {"completed": 0, "recovery": 0, "training": 0}
+        v_plan = {
+            "completed": 0,
+            "headline_recovered": 0,
+            "recovery": 0,
+            "training": 0,
+        }
 
         for fold_idx in range(n_folds):
             for seed in seeds:
@@ -299,7 +464,11 @@ def get_training_plan(
                 ckpt_name = f"{var_name}_fold{fold_idx}_seed{seed}.pt"
                 ckpt_path = var_dir / ckpt_name
 
-                if run_key in existing_results_map:
+                if run_key in official_results_map:
+                    v_plan["completed"] += 1
+                elif run_key in headline_results_map:
+                    v_plan["headline_recovered"] += 1
+                elif run_key in ckpt_recovered_map:
                     v_plan["completed"] += 1
                 elif ckpt_path.exists() and not is_quarantined_checkpoint(ckpt_path, debug=debug):
                     v_plan["recovery"] += 1
@@ -310,13 +479,17 @@ def get_training_plan(
         total_training += v_plan["training"]
         total_recovery += v_plan["recovery"]
         total_completed += v_plan["completed"]
+        total_headline_recovered += v_plan["headline_recovered"]
 
     return {
         "by_variant": plan_by_variant,
         "total_completed": total_completed,
+        "total_headline_recovered": total_headline_recovered,
         "total_recovery": total_recovery,
         "total_training": total_training,
-        "existing_results_count": len(existing_results_map),
+        "official_results_count": len(official_results_map),
+        "headline_results_count": len(headline_results_map),
+        "existing_results_count": len(official_results_map) + len(headline_results_map),
     }
 
 
