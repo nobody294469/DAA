@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clindoc.project/schemas/routing_decision.json",
+  "title": "RoutingDecision",
+  "description": "Output schema for Extraction Router decisions per document region (§7.2)",
+  "type": "object",
+  "required": [
+    "document_id",
+    "region_id",
+    "route",
+    "reason",
+    "confidence"
+  ],
+  "properties": {
+    "document_id": {
+      "type": "string",
+      "description": "Identifier of the source document"
+    },
+    "region_id": {
+      "type": "string",
+      "description": "Identifier of the parsed region/block within the document"
+    },
+    "route": {
+      "type": "string",
+      "enum": [
+        "deterministic",
+        "gliner",
+        "llm_narrative"
+      ],
+      "description": "Extraction path selected for this region"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Human- and machine-readable explanation of the routing choice"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Confidence score of the routing classifier/heuristic"
+    }
+  },
+  "additionalProperties": false
+}

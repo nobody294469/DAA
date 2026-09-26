@@ -14,7 +14,6 @@ lib/
 lib64/
 parts/
 sdist/
-var/
 wheels/
 *.egg-info/
 .installed.cfg
@@ -23,16 +22,32 @@ wheels/
 # Virtual environments
 .venv/
 .venv_ocr/
+.venv_ner/
 venv/
 env/
 ENV/
 
-# Testing & Linting
+# Testing, Scratch & Linting
 .pytest_cache/
 .coverage
 htmlcov/
 .mypy_cache/
 .ruff_cache/
+scratch/
+
+# Secrets & Environment variables
+*.env
+*.env.*
+*.pem
+*.key
+
+# Model checkpoints & large binary weights
+*.pt
+*.bin
+*.safetensors
+checkpoints/
+data/m2_results_v1_legacy/checkpoints/
+data/m2_results_v1_legacy/test_ckpt/
 
 # IDE & OS
 .idea/
@@ -56,5 +71,7 @@ data/ocr_cache/*
 !data/ocr_cache/.gitkeep
 data/degraded/*
 !data/degraded/.gitkeep
+data/*_backup/
+
 # M2 experiment outputs / checkpoints
 data/m2_results/

@@ -1,0 +1,727 @@
+{
+  "doc_id": "NARRATIVE_0018",
+  "template_id": "narrative_specialty_consult_note_v1",
+  "template_version": "1.0",
+  "split": "OOD",
+  "patient": {
+    "patient_id": "PAT-60018",
+    "name": "Daniel Harris",
+    "dob": "1961-02-03",
+    "gender": "M"
+  },
+  "facility_name": "Metro Health Medical Center - Acute Care Pavilion",
+  "attending_physician": "Dr. Marcus Vance, DO",
+  "admission_date": "2025-06-17",
+  "discharge_date": "2025-06-19",
+  "sections": [
+    {
+      "title": "REASON FOR CONSULTATION",
+      "text": "Consult requested by primary medical team regarding refractory clinical optimization and therapeutic titration. Consultant team: Cardiovascular Medicine Consult Service."
+    },
+    {
+      "title": "CHRONOLOGICAL CLINICAL NARRATIVE",
+      "text": "CHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient Daniel Harris, who was admitted three days ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed calcium of 9.46 mg/dL. Subsequent evaluation demonstrated that serum white blood cell count was 2.8 10*3/uL (LOW). Prior outpatient regimens had proven insufficient to achieve therapeutic stability."
+    },
+    {
+      "title": "HOSPITAL COURSE & TRAJECTORY",
+      "text": "HOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological therapy. The patient was initiated on Amlodipine 2.5 mg PO every morning. Following this intervention, trajectory assessment showed total cholesterol of 167.7 mg/dL. Clinical response has been favorable with marked improvement in objective metabolic parameters."
+    },
+    {
+      "title": "FOCUSED PHARMACOTHERAPY RECOMMENDATIONS",
+      "text": "FOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance regimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days. Avoid NSAIDs and nephrotoxic exposures."
+    },
+    {
+      "title": "CONSULTANT ASSESSMENT & SPECIALTY PLAN",
+      "text": "The patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48 hours. Thank you for this interesting consultation."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0018_narr_lab_0",
+      "test_name": "Calcium",
+      "loinc_code": "17861-6",
+      "value": 9.46,
+      "unit": "mg/dL",
+      "ref_range_low": 8.5,
+      "ref_range_high": 10.2,
+      "ref_range_text": "8.5 - 10.2",
+      "flag": "NORMAL",
+      "evidence_text": "initial biomarker profiling revealed calcium of\n9.46 mg/dL",
+      "char_start": 711,
+      "char_end": 769,
+      "bbox": [
+        46.0,
+        212.04,
+        556.54,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0018_narr_lab_1",
+      "test_name": "White Blood Cell Count",
+      "loinc_code": "6690-2",
+      "value": 2.8,
+      "unit": "10*3/uL",
+      "ref_range_low": 4.5,
+      "ref_range_high": 11.0,
+      "ref_range_text": "4.5 - 11.0",
+      "flag": "LOW",
+      "evidence_text": "serum white blood cell count was 2.8 10*3/uL (LOW)",
+      "char_start": 811,
+      "char_end": 861,
+      "bbox": [
+        46.0,
+        225.54,
+        523.87,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0018_narr_lab_2",
+      "test_name": "Total Cholesterol",
+      "loinc_code": "2093-3",
+      "value": 167.7,
+      "unit": "mg/dL",
+      "ref_range_low": 125.0,
+      "ref_range_high": 200.0,
+      "ref_range_text": "125.0 - 200.0",
+      "flag": "NORMAL",
+      "evidence_text": "trajectory\nassessment showed total cholesterol of 167.7 mg/dL",
+      "char_start": 1193,
+      "char_end": 1254,
+      "bbox": [
+        46.0,
+        301.04,
+        549.71,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0018_narr_med_0",
+      "medication_name": "Amlodipine",
+      "dose": 2.5,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": null,
+      "sig_text": "initiated on Amlodipine 2.5 mg PO every morning",
+      "evidence_text": "initiated on Amlodipine 2.5 mg PO every morning",
+      "char_start": 1115,
+      "char_end": 1162,
+      "bbox": [
+        46.0,
+        301.04,
+        518.03,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0018_narr_med_1",
+      "medication_name": "Metoprolol",
+      "dose": 25.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "twice daily",
+      "duration": null,
+      "sig_text": "Metoprolol 25 mg PO twice daily",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1507,
+      "char_end": 1538,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0018_narr_med_2",
+      "medication_name": "Amoxicillin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "route": "by mouth",
+      "frequency": "three times daily",
+      "duration": "for 7 days",
+      "sig_text": "Amoxicillin 500 mg by mouth three times daily for 7 days",
+      "evidence_text": "Amoxicillin 500 mg by mouth three times daily for 7 days",
+      "char_start": 1552,
+      "char_end": 1608,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "e72abbb6-7630-4307-ae8c-8d2096489c52",
+      "group_id": "NARRATIVE_0018_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Calcium: 9.46 mg/dL",
+      "canonical_value": 9.46,
+      "unit": "mg/dL",
+      "evidence_id": "99d651fd-4ae7-47e4-878d-03f306119141",
+      "evidence_text": "initial biomarker profiling revealed calcium of\n9.46 mg/dL",
+      "char_start": 711,
+      "char_end": 769,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        556.54,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "95f4107d-52b2-42a1-8e6d-2dcad844de6f",
+      "group_id": "NARRATIVE_0018_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Calcium flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "99d651fd-4ae7-47e4-878d-03f306119141",
+      "evidence_text": "initial biomarker profiling revealed calcium of\n9.46 mg/dL",
+      "char_start": 711,
+      "char_end": 769,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        556.54,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "08fe3462-54a0-4cda-95d5-c4fd8a9e8465",
+      "group_id": "NARRATIVE_0018_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "99d651fd-4ae7-47e4-878d-03f306119141",
+      "evidence_text": "initial biomarker profiling revealed calcium of\n9.46 mg/dL",
+      "char_start": 711,
+      "char_end": 769,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        556.54,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b1729c26-4571-43b8-96c3-95f25f1f4410",
+      "group_id": "NARRATIVE_0018_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "8.5 - 10.2",
+      "canonical_value": "8.5 - 10.2",
+      "unit": null,
+      "evidence_id": "99d651fd-4ae7-47e4-878d-03f306119141",
+      "evidence_text": "initial biomarker profiling revealed calcium of\n9.46 mg/dL",
+      "char_start": 711,
+      "char_end": 769,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        556.54,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "cc534795-30ed-4267-a826-5d3db2cbef92",
+      "group_id": "NARRATIVE_0018_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Calcium",
+      "canonical_value": "Calcium",
+      "unit": null,
+      "evidence_id": "99d651fd-4ae7-47e4-878d-03f306119141",
+      "evidence_text": "initial biomarker profiling revealed calcium of\n9.46 mg/dL",
+      "char_start": 711,
+      "char_end": 769,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        556.54,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9bb585a1-c44d-4884-9638-3b034c8f038c",
+      "group_id": "NARRATIVE_0018_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "White Blood Cell Count: 2.8 10*3/uL",
+      "canonical_value": 2.8,
+      "unit": "10*3/uL",
+      "evidence_id": "29b44d00-0c8b-49ba-9f66-a5e6f37d9c03",
+      "evidence_text": "serum white blood cell count was 2.8 10*3/uL (LOW)",
+      "char_start": 811,
+      "char_end": 861,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        523.87,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "987c554a-f80d-4e05-84cc-cd25252730a6",
+      "group_id": "NARRATIVE_0018_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "White Blood Cell Count flag: LOW",
+      "canonical_value": "LOW",
+      "unit": null,
+      "evidence_id": "29b44d00-0c8b-49ba-9f66-a5e6f37d9c03",
+      "evidence_text": "serum white blood cell count was 2.8 10*3/uL (LOW)",
+      "char_start": 811,
+      "char_end": 861,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        523.87,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2e4c01f3-37c8-4ae2-a9cb-f96b6d04862e",
+      "group_id": "NARRATIVE_0018_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "29b44d00-0c8b-49ba-9f66-a5e6f37d9c03",
+      "evidence_text": "serum white blood cell count was 2.8 10*3/uL (LOW)",
+      "char_start": 811,
+      "char_end": 861,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        523.87,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2f8b97e1-ba33-42fe-8759-7981c9ef3d6b",
+      "group_id": "NARRATIVE_0018_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "4.5 - 11.0",
+      "canonical_value": "4.5 - 11.0",
+      "unit": null,
+      "evidence_id": "29b44d00-0c8b-49ba-9f66-a5e6f37d9c03",
+      "evidence_text": "serum white blood cell count was 2.8 10*3/uL (LOW)",
+      "char_start": 811,
+      "char_end": 861,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        523.87,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "533d5292-f161-4885-af14-666c70c7679a",
+      "group_id": "NARRATIVE_0018_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "canonical_value": "White Blood Cell Count",
+      "unit": null,
+      "evidence_id": "29b44d00-0c8b-49ba-9f66-a5e6f37d9c03",
+      "evidence_text": "serum white blood cell count was 2.8 10*3/uL (LOW)",
+      "char_start": 811,
+      "char_end": 861,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        523.87,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7a9b20fc-fed2-4736-9f8e-9a50b9aed24a",
+      "group_id": "NARRATIVE_0018_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Total Cholesterol: 167.7 mg/dL",
+      "canonical_value": 167.7,
+      "unit": "mg/dL",
+      "evidence_id": "6853e4cd-e97d-492a-aaa1-d7aaa7a2a6cc",
+      "evidence_text": "trajectory\nassessment showed total cholesterol of 167.7 mg/dL",
+      "char_start": 1193,
+      "char_end": 1254,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        549.71,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "15a2bb9a-678c-4b32-8c7f-3ca2015b36a9",
+      "group_id": "NARRATIVE_0018_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Total Cholesterol flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "6853e4cd-e97d-492a-aaa1-d7aaa7a2a6cc",
+      "evidence_text": "trajectory\nassessment showed total cholesterol of 167.7 mg/dL",
+      "char_start": 1193,
+      "char_end": 1254,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        549.71,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "77252fed-6e85-4253-b436-fd9a965fc5ba",
+      "group_id": "NARRATIVE_0018_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "6853e4cd-e97d-492a-aaa1-d7aaa7a2a6cc",
+      "evidence_text": "trajectory\nassessment showed total cholesterol of 167.7 mg/dL",
+      "char_start": 1193,
+      "char_end": 1254,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        549.71,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b2d94302-b4cf-4519-a5e3-4c11b874294f",
+      "group_id": "NARRATIVE_0018_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "125.0 - 200.0",
+      "canonical_value": "125.0 - 200.0",
+      "unit": null,
+      "evidence_id": "6853e4cd-e97d-492a-aaa1-d7aaa7a2a6cc",
+      "evidence_text": "trajectory\nassessment showed total cholesterol of 167.7 mg/dL",
+      "char_start": 1193,
+      "char_end": 1254,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        549.71,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f36493de-3e66-4487-a5a9-425f7acbed99",
+      "group_id": "NARRATIVE_0018_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Total Cholesterol",
+      "canonical_value": "Total Cholesterol",
+      "unit": null,
+      "evidence_id": "6853e4cd-e97d-492a-aaa1-d7aaa7a2a6cc",
+      "evidence_text": "trajectory\nassessment showed total cholesterol of 167.7 mg/dL",
+      "char_start": 1193,
+      "char_end": 1254,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        549.71,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d8a7d09b-6465-4bfc-ae62-84b58a457d0c",
+      "group_id": "NARRATIVE_0018_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Amlodipine",
+      "canonical_value": "Amlodipine",
+      "unit": null,
+      "evidence_id": "9971a5cc-efce-4e71-b559-1a10a6cccef1",
+      "evidence_text": "initiated on Amlodipine 2.5 mg PO every morning",
+      "char_start": 1115,
+      "char_end": 1162,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        518.03,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "10420d38-d974-46ca-bcf0-ba6e6c09cb4d",
+      "group_id": "NARRATIVE_0018_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Amlodipine dose: 2.5 mg",
+      "canonical_value": 2.5,
+      "unit": "mg",
+      "evidence_id": "9971a5cc-efce-4e71-b559-1a10a6cccef1",
+      "evidence_text": "initiated on Amlodipine 2.5 mg PO every morning",
+      "char_start": 1115,
+      "char_end": 1162,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        518.03,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d33201f3-ce59-4c6b-85a5-0694136a515b",
+      "group_id": "NARRATIVE_0018_narr_med_0",
+      "field_type": "med.route",
+      "value": "Amlodipine route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "9971a5cc-efce-4e71-b559-1a10a6cccef1",
+      "evidence_text": "initiated on Amlodipine 2.5 mg PO every morning",
+      "char_start": 1115,
+      "char_end": 1162,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        518.03,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "792dadb1-3640-42cd-8791-b95c6b91b788",
+      "group_id": "NARRATIVE_0018_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Amlodipine frequency: every morning",
+      "canonical_value": "every morning",
+      "unit": null,
+      "evidence_id": "9971a5cc-efce-4e71-b559-1a10a6cccef1",
+      "evidence_text": "initiated on Amlodipine 2.5 mg PO every morning",
+      "char_start": 1115,
+      "char_end": 1162,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        518.03,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "02ac9923-0b1c-4caa-88bf-a8c635b54219",
+      "group_id": "NARRATIVE_0018_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Metoprolol",
+      "canonical_value": "Metoprolol",
+      "unit": null,
+      "evidence_id": "329a9d89-5845-4c14-b7a5-f71987670df6",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1507,
+      "char_end": 1538,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a1939424-c770-46fe-a36d-ca698e597d5c",
+      "group_id": "NARRATIVE_0018_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Metoprolol dose: 25 mg",
+      "canonical_value": 25.0,
+      "unit": "mg",
+      "evidence_id": "329a9d89-5845-4c14-b7a5-f71987670df6",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1507,
+      "char_end": 1538,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a659b0ea-e965-49a7-9f52-16e116de2f9d",
+      "group_id": "NARRATIVE_0018_narr_med_1",
+      "field_type": "med.route",
+      "value": "Metoprolol route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "329a9d89-5845-4c14-b7a5-f71987670df6",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1507,
+      "char_end": 1538,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "55ce2097-3ce4-4d59-be12-d575661ede44",
+      "group_id": "NARRATIVE_0018_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Metoprolol frequency: twice daily",
+      "canonical_value": "twice daily",
+      "unit": null,
+      "evidence_id": "329a9d89-5845-4c14-b7a5-f71987670df6",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1507,
+      "char_end": 1538,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "36e53014-e99a-40c4-b90d-c220e8b1d3ef",
+      "group_id": "NARRATIVE_0018_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Amoxicillin",
+      "canonical_value": "Amoxicillin",
+      "unit": null,
+      "evidence_id": "68d273e8-2ab4-495d-a14b-c1e1606f2392",
+      "evidence_text": "Amoxicillin 500 mg by mouth three times daily for 7 days",
+      "char_start": 1552,
+      "char_end": 1608,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "cb66329d-16b2-43a0-bfbc-4f94b1ac29f6",
+      "group_id": "NARRATIVE_0018_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Amoxicillin dose: 500 mg",
+      "canonical_value": 500.0,
+      "unit": "mg",
+      "evidence_id": "68d273e8-2ab4-495d-a14b-c1e1606f2392",
+      "evidence_text": "Amoxicillin 500 mg by mouth three times daily for 7 days",
+      "char_start": 1552,
+      "char_end": 1608,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "cdccb071-86f0-4fca-8c7f-81432f9ac694",
+      "group_id": "NARRATIVE_0018_narr_med_2",
+      "field_type": "med.route",
+      "value": "Amoxicillin route: by mouth",
+      "canonical_value": "by mouth",
+      "unit": null,
+      "evidence_id": "68d273e8-2ab4-495d-a14b-c1e1606f2392",
+      "evidence_text": "Amoxicillin 500 mg by mouth three times daily for 7 days",
+      "char_start": 1552,
+      "char_end": 1608,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "00a1758b-6b90-42b7-a5a8-c45b1083f89f",
+      "group_id": "NARRATIVE_0018_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Amoxicillin frequency: three times daily",
+      "canonical_value": "three times daily",
+      "unit": null,
+      "evidence_id": "68d273e8-2ab4-495d-a14b-c1e1606f2392",
+      "evidence_text": "Amoxicillin 500 mg by mouth three times daily for 7 days",
+      "char_start": 1552,
+      "char_end": 1608,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0534ee0a-cbb0-4a07-93eb-a5f3ecf2d61f",
+      "group_id": "NARRATIVE_0018_narr_med_2",
+      "field_type": "med.duration",
+      "value": "for 7 days",
+      "canonical_value": "for 7 days",
+      "unit": null,
+      "evidence_id": "68d273e8-2ab4-495d-a14b-c1e1606f2392",
+      "evidence_text": "Amoxicillin 500 mg by mouth three times daily for 7 days",
+      "char_start": 1552,
+      "char_end": 1608,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        550.22,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

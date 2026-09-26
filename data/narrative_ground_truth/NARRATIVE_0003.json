@@ -1,0 +1,707 @@
+{
+  "doc_id": "NARRATIVE_0003",
+  "template_id": "narrative_inpatient_discharge_summary_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60003",
+    "name": "Robert Smith",
+    "dob": "1958-08-23",
+    "gender": "M"
+  },
+  "facility_name": "St. Jude Academic Health Center - Division of Hospital Medicine",
+  "attending_physician": "Dr. Sarah Jenkins, MD",
+  "admission_date": "2025-02-17",
+  "discharge_date": "2025-02-19",
+  "sections": [
+    {
+      "title": "CHIEF COMPLAINT",
+      "text": "The patient presented with generalized fatigue, productive cough, and persistent fevers."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient is a 49-year-old male with a medical history pertinent for hypertension and dyslipidemia who presented for evaluation of generalized fatigue, productive cough, and persistent fevers. Symptoms began approximately four days prior to admission and escalated in severity. On presentation to the emergency department, initial diagnostic evaluation demonstrated that potassium was 4.61 mmol/L. Concurrently, serum chemistry was notable for a white blood cell count of 7.2 10*3/uL. Vital signs upon arrival were stable, and the patient was admitted to the inpatient general medicine service."
+    },
+    {
+      "title": "HOSPITAL COURSE",
+      "text": "During the hospital course, the inpatient team initiated targeted management. The patient received Lisinopril 40 mg by mouth every morning with good clinical tolerance. Serial assessments revealed gradual resolution of presenting symptoms. Prior to planned discharge, repeat laboratory testing confirmed that calcium stabilized at 12.4 mg/dL (HIGH). The patient was ambulating without assistance and tolerating a regular diet."
+    },
+    {
+      "title": "DISCHARGE MEDICATIONS",
+      "text": "The patient was discharged home in stable clinical condition with instructions to take Metformin 1000 mg oral BID, and Omeprazole 20 mg by mouth once daily in the morning. Medication reconciliation was completed and all questions regarding dosing schedules were answered."
+    },
+    {
+      "title": "DISCHARGE INSTRUCTIONS & FOLLOW-UP",
+      "text": "The patient was advised to follow up with their primary care physician within 7 to 10 days. Return precautions for chest pain, recurrent shortness of breath, or fever were provided and understood."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0003_narr_lab_0",
+      "test_name": "Potassium",
+      "loinc_code": "2823-3",
+      "value": 4.61,
+      "unit": "mmol/L",
+      "ref_range_low": 3.5,
+      "ref_range_high": 5.1,
+      "ref_range_text": "3.5 - 5.1",
+      "flag": "NORMAL",
+      "evidence_text": "potassium was 4.61 mmol/L",
+      "char_start": 827,
+      "char_end": 852,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0003_narr_lab_1",
+      "test_name": "White Blood Cell Count",
+      "loinc_code": "6690-2",
+      "value": 7.2,
+      "unit": "10*3/uL",
+      "ref_range_low": 4.5,
+      "ref_range_high": 11.0,
+      "ref_range_text": "4.5 - 11.0",
+      "flag": "NORMAL",
+      "evidence_text": "white blood cell count of\n7.2 10*3/uL",
+      "char_start": 902,
+      "char_end": 939,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        252.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0003_narr_lab_2",
+      "test_name": "Calcium",
+      "loinc_code": "17861-6",
+      "value": 12.4,
+      "unit": "mg/dL",
+      "ref_range_low": 8.5,
+      "ref_range_high": 10.2,
+      "ref_range_text": "8.5 - 10.2",
+      "flag": "HIGH",
+      "evidence_text": "calcium stabilized at 12.4 mg/dL (HIGH)",
+      "char_start": 1376,
+      "char_end": 1415,
+      "bbox": [
+        46.0,
+        314.54,
+        550.77,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0003_narr_med_0",
+      "medication_name": "Lisinopril",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "route": "by mouth",
+      "frequency": "every morning",
+      "duration": null,
+      "sig_text": "Lisinopril 40 mg by mouth every morning",
+      "evidence_text": "Lisinopril 40 mg by\nmouth every morning",
+      "char_start": 1166,
+      "char_end": 1205,
+      "bbox": [
+        46.0,
+        287.54,
+        562.36,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0003_narr_med_1",
+      "medication_name": "Metformin",
+      "dose": 1000.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "BID",
+      "duration": null,
+      "sig_text": "Metformin 1000 mg oral BID",
+      "evidence_text": "Metformin 1000 mg oral BID",
+      "char_start": 1603,
+      "char_end": 1629,
+      "bbox": [
+        46.0,
+        376.54,
+        542.32,
+        389.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0003_narr_med_2",
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "route": "by mouth",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "sig_text": "Omeprazole 20 mg by mouth once daily in the morning",
+      "evidence_text": "Omeprazole 20 mg by mouth once daily in the morning",
+      "char_start": 1635,
+      "char_end": 1686,
+      "bbox": [
+        46.0,
+        390.04,
+        525.95,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "159674b6-80b1-4e4a-a856-17b40075d18b",
+      "group_id": "NARRATIVE_0003_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Potassium: 4.61 mmol/L",
+      "canonical_value": 4.61,
+      "unit": "mmol/L",
+      "evidence_id": "8852350c-5b8e-4812-b712-e4f82fa8719f",
+      "evidence_text": "potassium was 4.61 mmol/L",
+      "char_start": 827,
+      "char_end": 852,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c59da8b4-8a6b-4975-80fd-d544466c7d9b",
+      "group_id": "NARRATIVE_0003_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Potassium flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "8852350c-5b8e-4812-b712-e4f82fa8719f",
+      "evidence_text": "potassium was 4.61 mmol/L",
+      "char_start": 827,
+      "char_end": 852,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ae9ca5fc-4a7f-46a5-9180-844170adf63d",
+      "group_id": "NARRATIVE_0003_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "8852350c-5b8e-4812-b712-e4f82fa8719f",
+      "evidence_text": "potassium was 4.61 mmol/L",
+      "char_start": 827,
+      "char_end": 852,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "998468b2-dfe1-4677-82a8-bc398e3b214e",
+      "group_id": "NARRATIVE_0003_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "3.5 - 5.1",
+      "canonical_value": "3.5 - 5.1",
+      "unit": null,
+      "evidence_id": "8852350c-5b8e-4812-b712-e4f82fa8719f",
+      "evidence_text": "potassium was 4.61 mmol/L",
+      "char_start": 827,
+      "char_end": 852,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "157681c4-6580-4983-9883-df522c94fb33",
+      "group_id": "NARRATIVE_0003_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "canonical_value": "Potassium",
+      "unit": null,
+      "evidence_id": "8852350c-5b8e-4812-b712-e4f82fa8719f",
+      "evidence_text": "potassium was 4.61 mmol/L",
+      "char_start": 827,
+      "char_end": 852,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9d6cc5b2-94a2-48ba-b5c6-ddd283f9513e",
+      "group_id": "NARRATIVE_0003_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "White Blood Cell Count: 7.2 10*3/uL",
+      "canonical_value": 7.2,
+      "unit": "10*3/uL",
+      "evidence_id": "bf921e53-6747-4399-98db-18f119e8d197",
+      "evidence_text": "white blood cell count of\n7.2 10*3/uL",
+      "char_start": 902,
+      "char_end": 939,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "88cd8549-7dc9-4f2c-94f7-0a8b236af5eb",
+      "group_id": "NARRATIVE_0003_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "White Blood Cell Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "bf921e53-6747-4399-98db-18f119e8d197",
+      "evidence_text": "white blood cell count of\n7.2 10*3/uL",
+      "char_start": 902,
+      "char_end": 939,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a73ad4db-47cf-4371-adc9-0582309cbe36",
+      "group_id": "NARRATIVE_0003_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "bf921e53-6747-4399-98db-18f119e8d197",
+      "evidence_text": "white blood cell count of\n7.2 10*3/uL",
+      "char_start": 902,
+      "char_end": 939,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ce7b367b-dae5-4b4e-a4bb-162ffbcee3d3",
+      "group_id": "NARRATIVE_0003_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "4.5 - 11.0",
+      "canonical_value": "4.5 - 11.0",
+      "unit": null,
+      "evidence_id": "bf921e53-6747-4399-98db-18f119e8d197",
+      "evidence_text": "white blood cell count of\n7.2 10*3/uL",
+      "char_start": 902,
+      "char_end": 939,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "24771c74-4a32-4f34-afe2-4c5092d3a355",
+      "group_id": "NARRATIVE_0003_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "canonical_value": "White Blood Cell Count",
+      "unit": null,
+      "evidence_id": "bf921e53-6747-4399-98db-18f119e8d197",
+      "evidence_text": "white blood cell count of\n7.2 10*3/uL",
+      "char_start": 902,
+      "char_end": 939,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "074845ad-f3ee-4c2f-b21d-0f69cde423b9",
+      "group_id": "NARRATIVE_0003_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Calcium: 12.4 mg/dL",
+      "canonical_value": 12.4,
+      "unit": "mg/dL",
+      "evidence_id": "c0bb3bcb-c787-4376-aa82-9ce70d8db06d",
+      "evidence_text": "calcium stabilized at 12.4 mg/dL (HIGH)",
+      "char_start": 1376,
+      "char_end": 1415,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        550.77,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0e531685-cc43-41e5-9ccf-908ecbd6ed55",
+      "group_id": "NARRATIVE_0003_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Calcium flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "c0bb3bcb-c787-4376-aa82-9ce70d8db06d",
+      "evidence_text": "calcium stabilized at 12.4 mg/dL (HIGH)",
+      "char_start": 1376,
+      "char_end": 1415,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        550.77,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "26cd0a33-bd24-4dba-90c3-70ff1223d635",
+      "group_id": "NARRATIVE_0003_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "c0bb3bcb-c787-4376-aa82-9ce70d8db06d",
+      "evidence_text": "calcium stabilized at 12.4 mg/dL (HIGH)",
+      "char_start": 1376,
+      "char_end": 1415,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        550.77,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "daa5ead8-1ccf-4d9d-b19f-03a7c6360dd3",
+      "group_id": "NARRATIVE_0003_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "8.5 - 10.2",
+      "canonical_value": "8.5 - 10.2",
+      "unit": null,
+      "evidence_id": "c0bb3bcb-c787-4376-aa82-9ce70d8db06d",
+      "evidence_text": "calcium stabilized at 12.4 mg/dL (HIGH)",
+      "char_start": 1376,
+      "char_end": 1415,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        550.77,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3a2ef4ea-dd10-4c99-8389-dedeae305d85",
+      "group_id": "NARRATIVE_0003_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Calcium",
+      "canonical_value": "Calcium",
+      "unit": null,
+      "evidence_id": "c0bb3bcb-c787-4376-aa82-9ce70d8db06d",
+      "evidence_text": "calcium stabilized at 12.4 mg/dL (HIGH)",
+      "char_start": 1376,
+      "char_end": 1415,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        550.77,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c6268c83-4a66-4ecb-9a8d-73cfe9ed4fd0",
+      "group_id": "NARRATIVE_0003_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Lisinopril",
+      "canonical_value": "Lisinopril",
+      "unit": null,
+      "evidence_id": "1f47a4a3-ed8c-4b32-aefb-7e9eb79faa19",
+      "evidence_text": "Lisinopril 40 mg by\nmouth every morning",
+      "char_start": 1166,
+      "char_end": 1205,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        562.36,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a1a86f55-89d9-4fbc-8b3d-292fbb332b34",
+      "group_id": "NARRATIVE_0003_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Lisinopril dose: 40 mg",
+      "canonical_value": 40.0,
+      "unit": "mg",
+      "evidence_id": "1f47a4a3-ed8c-4b32-aefb-7e9eb79faa19",
+      "evidence_text": "Lisinopril 40 mg by\nmouth every morning",
+      "char_start": 1166,
+      "char_end": 1205,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        562.36,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5550a59b-ff61-4993-9998-e026859ed20c",
+      "group_id": "NARRATIVE_0003_narr_med_0",
+      "field_type": "med.route",
+      "value": "Lisinopril route: by mouth",
+      "canonical_value": "by mouth",
+      "unit": null,
+      "evidence_id": "1f47a4a3-ed8c-4b32-aefb-7e9eb79faa19",
+      "evidence_text": "Lisinopril 40 mg by\nmouth every morning",
+      "char_start": 1166,
+      "char_end": 1205,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        562.36,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2134448a-7e45-4cc4-a50d-d5ea0648e743",
+      "group_id": "NARRATIVE_0003_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Lisinopril frequency: every morning",
+      "canonical_value": "every morning",
+      "unit": null,
+      "evidence_id": "1f47a4a3-ed8c-4b32-aefb-7e9eb79faa19",
+      "evidence_text": "Lisinopril 40 mg by\nmouth every morning",
+      "char_start": 1166,
+      "char_end": 1205,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        562.36,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "212caa07-638f-4ab5-b98c-c74ec0694e98",
+      "group_id": "NARRATIVE_0003_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Metformin",
+      "canonical_value": "Metformin",
+      "unit": null,
+      "evidence_id": "d4f2f38f-e95e-4014-b2de-120df660107a",
+      "evidence_text": "Metformin 1000 mg oral BID",
+      "char_start": 1603,
+      "char_end": 1629,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        542.32,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "beb2af2f-cddd-4ac3-9535-94910a65cb1c",
+      "group_id": "NARRATIVE_0003_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Metformin dose: 1000 mg",
+      "canonical_value": 1000.0,
+      "unit": "mg",
+      "evidence_id": "d4f2f38f-e95e-4014-b2de-120df660107a",
+      "evidence_text": "Metformin 1000 mg oral BID",
+      "char_start": 1603,
+      "char_end": 1629,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        542.32,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0f8bebbe-80a7-47e3-b17f-f89f4c536156",
+      "group_id": "NARRATIVE_0003_narr_med_1",
+      "field_type": "med.route",
+      "value": "Metformin route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "d4f2f38f-e95e-4014-b2de-120df660107a",
+      "evidence_text": "Metformin 1000 mg oral BID",
+      "char_start": 1603,
+      "char_end": 1629,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        542.32,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e8fad8b0-ddca-4b3b-ab83-705f303711cf",
+      "group_id": "NARRATIVE_0003_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Metformin frequency: BID",
+      "canonical_value": "BID",
+      "unit": null,
+      "evidence_id": "d4f2f38f-e95e-4014-b2de-120df660107a",
+      "evidence_text": "Metformin 1000 mg oral BID",
+      "char_start": 1603,
+      "char_end": 1629,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        542.32,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f7eb35d2-4514-4917-b08e-9ca76eaa8b4c",
+      "group_id": "NARRATIVE_0003_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Omeprazole",
+      "canonical_value": "Omeprazole",
+      "unit": null,
+      "evidence_id": "d662322c-54a5-46a7-a008-8e027049d56f",
+      "evidence_text": "Omeprazole 20 mg by mouth once daily in the morning",
+      "char_start": 1635,
+      "char_end": 1686,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        525.95,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "dc946166-66c2-494f-bff8-3c983ebb60dc",
+      "group_id": "NARRATIVE_0003_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Omeprazole dose: 20 mg",
+      "canonical_value": 20.0,
+      "unit": "mg",
+      "evidence_id": "d662322c-54a5-46a7-a008-8e027049d56f",
+      "evidence_text": "Omeprazole 20 mg by mouth once daily in the morning",
+      "char_start": 1635,
+      "char_end": 1686,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        525.95,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d98e02ab-119f-4543-b031-0483c9672bec",
+      "group_id": "NARRATIVE_0003_narr_med_2",
+      "field_type": "med.route",
+      "value": "Omeprazole route: by mouth",
+      "canonical_value": "by mouth",
+      "unit": null,
+      "evidence_id": "d662322c-54a5-46a7-a008-8e027049d56f",
+      "evidence_text": "Omeprazole 20 mg by mouth once daily in the morning",
+      "char_start": 1635,
+      "char_end": 1686,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        525.95,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5cd4e3ed-3d53-4cf9-9df5-c8c5ff38fde1",
+      "group_id": "NARRATIVE_0003_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Omeprazole frequency: once daily in the morning",
+      "canonical_value": "once daily in the morning",
+      "unit": null,
+      "evidence_id": "d662322c-54a5-46a7-a008-8e027049d56f",
+      "evidence_text": "Omeprazole 20 mg by mouth once daily in the morning",
+      "char_start": 1635,
+      "char_end": 1686,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        525.95,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

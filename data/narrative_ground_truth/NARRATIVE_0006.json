@@ -1,0 +1,627 @@
+{
+  "doc_id": "NARRATIVE_0006",
+  "template_id": "narrative_emergency_observation_note_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60006",
+    "name": "Jennifer Garcia",
+    "dob": "1975-09-14",
+    "gender": "F"
+  },
+  "facility_name": "Metro Health Medical Center - Acute Care Pavilion",
+  "attending_physician": "Dr. Allison Cameron, MD",
+  "admission_date": "2025-03-13",
+  "discharge_date": "2025-03-16",
+  "sections": [
+    {
+      "title": "EMERGENCY DEPARTMENT PRESENTATION",
+      "text": "Patient Jennifer Garcia was triaged in the emergency department following acute onset of lightheadedness and palpitations earlier this morning. Initial hemodynamic parameters were reviewed and patient was placed on telemetry."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient describes experiencing recurrent lightheadedness over the preceding 48 hours without syncope. Initial emergency workup revealed that initial bun was measured at 13.6 mg/dL. Point-of-care laboratory screening additionally noted alanine aminotransferase (alt) resulted at 27.6 U/L. Given these findings, the patient was transitioned to the Clinical Decision Unit for 24-hour observation."
+    },
+    {
+      "title": "OBSERVATION UNIT CLINICAL COURSE",
+      "text": "Throughout the observation unit stay, continuous telemetry showed normal sinus rhythm without pause or tachyarrhythmia. The patient was administered Amlodipine at a dose of 2.5 mg orally once daily, which promptly alleviated acute symptoms. Follow-up protocol monitoring of sodium demonstrated 149.8 mmol/L (HIGH). Orthostatic blood pressures were negative upon ambulation."
+    },
+    {
+      "title": "DISCHARGE REGIMEN",
+      "text": "Patient was deemed safe for outpatient discharge. The ongoing regimen includes Cephalexin 500 mg PO every 6 hours for 10 days as prescribed. Prescription counseling was performed by nursing prior to release."
+    },
+    {
+      "title": "PLAN & PRECAUTIONS",
+      "text": "Resume normal daily activities as tolerated. Avoid strenuous exercise until cardiology follow-up in 1 to 2 weeks. Immediate emergency precautions detailed."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0006_narr_lab_0",
+      "test_name": "BUN",
+      "loinc_code": "3094-0",
+      "value": 13.6,
+      "unit": "mg/dL",
+      "ref_range_low": 7.0,
+      "ref_range_high": 20.0,
+      "ref_range_text": "7.0 - 20.0",
+      "flag": "NORMAL",
+      "evidence_text": "initial bun was measured at 13.6 mg/dL",
+      "char_start": 746,
+      "char_end": 784,
+      "bbox": [
+        46.0,
+        212.04,
+        550.24,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0006_narr_lab_1",
+      "test_name": "Alanine Aminotransferase (ALT)",
+      "loinc_code": "1742-6",
+      "value": 27.6,
+      "unit": "U/L",
+      "ref_range_low": 7.0,
+      "ref_range_high": 56.0,
+      "ref_range_text": "7.0 - 56.0",
+      "flag": "NORMAL",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.6 U/L",
+      "char_start": 840,
+      "char_end": 891,
+      "bbox": [
+        46.0,
+        225.54,
+        555.55,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0006_narr_lab_2",
+      "test_name": "Sodium",
+      "loinc_code": "2951-2",
+      "value": 149.8,
+      "unit": "mmol/L",
+      "ref_range_low": 135.0,
+      "ref_range_high": 145.0,
+      "ref_range_text": "135.0 - 145.0",
+      "flag": "HIGH",
+      "evidence_text": "monitoring of sodium demonstrated 149.8 mmol/L (HIGH)",
+      "char_start": 1292,
+      "char_end": 1345,
+      "bbox": [
+        46.0,
+        314.54,
+        551.27,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0006_narr_med_0",
+      "medication_name": "Amlodipine",
+      "dose": 2.5,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "once daily",
+      "duration": null,
+      "sig_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1181,
+      "char_end": 1229,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0006_narr_med_1",
+      "medication_name": "Cephalexin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every 6 hours",
+      "duration": "for 10 days",
+      "sig_text": "Cephalexin 500 mg PO every 6 hours for 10 days",
+      "evidence_text": "Cephalexin 500 mg PO every 6 hours for\n10 days",
+      "char_start": 1503,
+      "char_end": 1549,
+      "bbox": [
+        46.0,
+        376.54,
+        561.89,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "6f83af28-bc14-4ac2-82e7-53a861b9b0d4",
+      "group_id": "NARRATIVE_0006_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "BUN: 13.6 mg/dL",
+      "canonical_value": 13.6,
+      "unit": "mg/dL",
+      "evidence_id": "4a72894e-2251-4e14-8541-2cc2b1103db5",
+      "evidence_text": "initial bun was measured at 13.6 mg/dL",
+      "char_start": 746,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        550.24,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "993806e4-586e-4c90-8b79-10b7bb2a488c",
+      "group_id": "NARRATIVE_0006_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "BUN flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "4a72894e-2251-4e14-8541-2cc2b1103db5",
+      "evidence_text": "initial bun was measured at 13.6 mg/dL",
+      "char_start": 746,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        550.24,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8f5c82b7-b763-4ce5-a004-4f896f28794b",
+      "group_id": "NARRATIVE_0006_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "4a72894e-2251-4e14-8541-2cc2b1103db5",
+      "evidence_text": "initial bun was measured at 13.6 mg/dL",
+      "char_start": 746,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        550.24,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "05fcff86-b7bd-4a31-8760-983f87213a49",
+      "group_id": "NARRATIVE_0006_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "7.0 - 20.0",
+      "canonical_value": "7.0 - 20.0",
+      "unit": null,
+      "evidence_id": "4a72894e-2251-4e14-8541-2cc2b1103db5",
+      "evidence_text": "initial bun was measured at 13.6 mg/dL",
+      "char_start": 746,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        550.24,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "32d58d3b-05cc-4393-9c4c-fcbb322d6ca8",
+      "group_id": "NARRATIVE_0006_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "canonical_value": "BUN",
+      "unit": null,
+      "evidence_id": "4a72894e-2251-4e14-8541-2cc2b1103db5",
+      "evidence_text": "initial bun was measured at 13.6 mg/dL",
+      "char_start": 746,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        550.24,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "af0335dc-e498-4c77-9720-9b0991eaf5e8",
+      "group_id": "NARRATIVE_0006_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Alanine Aminotransferase (ALT): 27.6 U/L",
+      "canonical_value": 27.6,
+      "unit": "U/L",
+      "evidence_id": "c0551262-d0ee-4a96-ba7b-85def309b7f1",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.6 U/L",
+      "char_start": 840,
+      "char_end": 891,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        555.55,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3283bffc-eabe-4f90-aa27-ac5370dead90",
+      "group_id": "NARRATIVE_0006_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Alanine Aminotransferase (ALT) flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "c0551262-d0ee-4a96-ba7b-85def309b7f1",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.6 U/L",
+      "char_start": 840,
+      "char_end": 891,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        555.55,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "69379ef9-e8c5-4780-be12-c99b7b634ace",
+      "group_id": "NARRATIVE_0006_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "canonical_value": "U/L",
+      "unit": null,
+      "evidence_id": "c0551262-d0ee-4a96-ba7b-85def309b7f1",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.6 U/L",
+      "char_start": 840,
+      "char_end": 891,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        555.55,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e4a15f56-141f-4880-a53f-ab30ae5444dc",
+      "group_id": "NARRATIVE_0006_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "7.0 - 56.0",
+      "canonical_value": "7.0 - 56.0",
+      "unit": null,
+      "evidence_id": "c0551262-d0ee-4a96-ba7b-85def309b7f1",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.6 U/L",
+      "char_start": 840,
+      "char_end": 891,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        555.55,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "16bd21c9-53b7-47f0-80d2-989417232005",
+      "group_id": "NARRATIVE_0006_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Alanine Aminotransferase (ALT)",
+      "canonical_value": "Alanine Aminotransferase (ALT)",
+      "unit": null,
+      "evidence_id": "c0551262-d0ee-4a96-ba7b-85def309b7f1",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.6 U/L",
+      "char_start": 840,
+      "char_end": 891,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        555.55,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fca3b8a4-7718-433d-8e0b-c654c11eb64d",
+      "group_id": "NARRATIVE_0006_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Sodium: 149.8 mmol/L",
+      "canonical_value": 149.8,
+      "unit": "mmol/L",
+      "evidence_id": "015725cc-eb05-42c7-a7af-ba2355575e2a",
+      "evidence_text": "monitoring of sodium demonstrated 149.8 mmol/L (HIGH)",
+      "char_start": 1292,
+      "char_end": 1345,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        551.27,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f84651ff-92d6-478f-a1c4-73b4c621ba48",
+      "group_id": "NARRATIVE_0006_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Sodium flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "015725cc-eb05-42c7-a7af-ba2355575e2a",
+      "evidence_text": "monitoring of sodium demonstrated 149.8 mmol/L (HIGH)",
+      "char_start": 1292,
+      "char_end": 1345,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        551.27,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "84c48e39-ec6e-47ed-bdab-6201fcca50a7",
+      "group_id": "NARRATIVE_0006_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "015725cc-eb05-42c7-a7af-ba2355575e2a",
+      "evidence_text": "monitoring of sodium demonstrated 149.8 mmol/L (HIGH)",
+      "char_start": 1292,
+      "char_end": 1345,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        551.27,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f8daa1f3-6b09-4082-9b7e-e96500bdb1fd",
+      "group_id": "NARRATIVE_0006_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "135.0 - 145.0",
+      "canonical_value": "135.0 - 145.0",
+      "unit": null,
+      "evidence_id": "015725cc-eb05-42c7-a7af-ba2355575e2a",
+      "evidence_text": "monitoring of sodium demonstrated 149.8 mmol/L (HIGH)",
+      "char_start": 1292,
+      "char_end": 1345,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        551.27,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8ca042e2-b4a8-43e8-af90-4f4c4394e470",
+      "group_id": "NARRATIVE_0006_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Sodium",
+      "canonical_value": "Sodium",
+      "unit": null,
+      "evidence_id": "015725cc-eb05-42c7-a7af-ba2355575e2a",
+      "evidence_text": "monitoring of sodium demonstrated 149.8 mmol/L (HIGH)",
+      "char_start": 1292,
+      "char_end": 1345,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        551.27,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e379ce1a-a02f-474f-8641-58c1f3e7ad43",
+      "group_id": "NARRATIVE_0006_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Amlodipine",
+      "canonical_value": "Amlodipine",
+      "unit": null,
+      "evidence_id": "eccae6ff-5038-4be0-a32d-4474f13be273",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1181,
+      "char_end": 1229,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "34f65953-c134-4fbf-9d51-6bb6cc4d28ab",
+      "group_id": "NARRATIVE_0006_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Amlodipine dose: 2.5 mg",
+      "canonical_value": 2.5,
+      "unit": "mg",
+      "evidence_id": "eccae6ff-5038-4be0-a32d-4474f13be273",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1181,
+      "char_end": 1229,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "4ebe5309-67b7-4631-94a4-517279adba8c",
+      "group_id": "NARRATIVE_0006_narr_med_0",
+      "field_type": "med.route",
+      "value": "Amlodipine route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "eccae6ff-5038-4be0-a32d-4474f13be273",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1181,
+      "char_end": 1229,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f4759c13-6595-4a42-84ec-6f39e26439fc",
+      "group_id": "NARRATIVE_0006_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Amlodipine frequency: once daily",
+      "canonical_value": "once daily",
+      "unit": null,
+      "evidence_id": "eccae6ff-5038-4be0-a32d-4474f13be273",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1181,
+      "char_end": 1229,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ee4e3e15-495b-4fa0-9ae5-44b5ebc0a268",
+      "group_id": "NARRATIVE_0006_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Cephalexin",
+      "canonical_value": "Cephalexin",
+      "unit": null,
+      "evidence_id": "38953496-fa1b-4bba-bc4e-530a311ab037",
+      "evidence_text": "Cephalexin 500 mg PO every 6 hours for\n10 days",
+      "char_start": 1503,
+      "char_end": 1549,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        561.89,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "393d5c9e-59b2-4c9f-848e-b78dc9216ac8",
+      "group_id": "NARRATIVE_0006_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Cephalexin dose: 500 mg",
+      "canonical_value": 500.0,
+      "unit": "mg",
+      "evidence_id": "38953496-fa1b-4bba-bc4e-530a311ab037",
+      "evidence_text": "Cephalexin 500 mg PO every 6 hours for\n10 days",
+      "char_start": 1503,
+      "char_end": 1549,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        561.89,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3ca726e8-de74-42dc-a79a-faa864aafdfb",
+      "group_id": "NARRATIVE_0006_narr_med_1",
+      "field_type": "med.route",
+      "value": "Cephalexin route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "38953496-fa1b-4bba-bc4e-530a311ab037",
+      "evidence_text": "Cephalexin 500 mg PO every 6 hours for\n10 days",
+      "char_start": 1503,
+      "char_end": 1549,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        561.89,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "89889b48-3ebb-418e-92a5-411deaad686e",
+      "group_id": "NARRATIVE_0006_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Cephalexin frequency: every 6 hours",
+      "canonical_value": "every 6 hours",
+      "unit": null,
+      "evidence_id": "38953496-fa1b-4bba-bc4e-530a311ab037",
+      "evidence_text": "Cephalexin 500 mg PO every 6 hours for\n10 days",
+      "char_start": 1503,
+      "char_end": 1549,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        561.89,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9de2cfb4-3f36-4b05-b7a0-3279f98e2342",
+      "group_id": "NARRATIVE_0006_narr_med_1",
+      "field_type": "med.duration",
+      "value": "for 10 days",
+      "canonical_value": "for 10 days",
+      "unit": null,
+      "evidence_id": "38953496-fa1b-4bba-bc4e-530a311ab037",
+      "evidence_text": "Cephalexin 500 mg PO every 6 hours for\n10 days",
+      "char_start": 1503,
+      "char_end": 1549,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        561.89,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

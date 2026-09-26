@@ -69,6 +69,30 @@ def step_generate_dataset(data_dir: Path = DATA_DIR) -> tuple[list, dict, M2Data
     with open(data_dir / "metadata.json", "w", encoding="utf-8") as f:
         json.dump(meta_dict, f, indent=2)
 
+    # Mandatory CI Class Balance Assertion (DEC-011)
+    from clindoc.m2.dataset import assert_class_balance
+    assert_class_balance(metadata, Path("configs/class_balance_floor.yaml"))
+    print("Class-balance floor assertion (DEC-011): PASSED")
+
+    import datetime
+    gen_manifest = {
+        "dataset_version": "2.0-phase1-canonical",
+        "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "seed": 42,
+        "total_documents": len(manifest["cv_doc_ids"]) + len(manifest["ood_doc_ids"]),
+        "cv_documents": len(manifest["cv_doc_ids"]),
+        "ood_documents": len(manifest["ood_doc_ids"]),
+        "total_examples": len(examples),
+        "total_groups": metadata.total_groups,
+        "by_field_type": metadata.by_field_type,
+        "by_class": metadata.label_counts,
+        "by_contradiction_type": metadata.by_contradiction_type,
+        "class_balance_status": "PASSED_DEC_011",
+        "context_window_config": metadata.context_window_config,
+    }
+    with open(data_dir / "generation_manifest.json", "w", encoding="utf-8") as f:
+        json.dump(gen_manifest, f, indent=2)
+
     print_dataset_summary(metadata)
     print(f"Excluded ungrounded medication claims: {stats.get('excluded_ungrounded_med_claims', 0)}")
     print(f"Dataset successfully written to {data_dir}")

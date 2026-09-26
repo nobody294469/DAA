@@ -1,0 +1,707 @@
+{
+  "doc_id": "NARRATIVE_0005",
+  "template_id": "narrative_inpatient_discharge_summary_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60005",
+    "name": "Michael Brown",
+    "dob": "1969-07-30",
+    "gender": "M"
+  },
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "attending_physician": "Dr. Emily Chen, MD",
+  "admission_date": "2025-03-05",
+  "discharge_date": "2025-03-08",
+  "sections": [
+    {
+      "title": "CHIEF COMPLAINT",
+      "text": "The patient presented with generalized fatigue, productive cough, and persistent fevers."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient is a 64-year-old male with a medical history pertinent for hypertension and dyslipidemia who presented for evaluation of generalized fatigue, productive cough, and persistent fevers. Symptoms began approximately four days prior to admission and escalated in severity. On presentation to the emergency department, initial diagnostic evaluation demonstrated that white blood cell count was 7.2 10*3/uL. Concurrently, serum chemistry was notable for a total cholesterol of 114.7 mg/dL (LOW). Vital signs upon arrival were stable, and the patient was admitted to the inpatient general medicine service."
+    },
+    {
+      "title": "HOSPITAL COURSE",
+      "text": "During the hospital course, the inpatient team initiated targeted management. The patient received Metformin 500 mg PO BID with good clinical tolerance. Serial assessments revealed gradual resolution of presenting symptoms. Prior to planned discharge, repeat laboratory testing confirmed that bun stabilized at 4.22 mg/dL (LOW). The patient was ambulating without assistance and tolerating a regular diet."
+    },
+    {
+      "title": "DISCHARGE MEDICATIONS",
+      "text": "The patient was discharged home in stable clinical condition with instructions to take Amlodipine 2.5 mg PO once daily, and Lisinopril 5 mg PO every morning. Medication reconciliation was completed and all questions regarding dosing schedules were answered."
+    },
+    {
+      "title": "DISCHARGE INSTRUCTIONS & FOLLOW-UP",
+      "text": "The patient was advised to follow up with their primary care physician within 7 to 10 days. Return precautions for chest pain, recurrent shortness of breath, or fever were provided and understood."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0005_narr_lab_0",
+      "test_name": "White Blood Cell Count",
+      "loinc_code": "6690-2",
+      "value": 7.2,
+      "unit": "10*3/uL",
+      "ref_range_low": 4.5,
+      "ref_range_high": 11.0,
+      "ref_range_text": "4.5 - 11.0",
+      "flag": "NORMAL",
+      "evidence_text": "white blood cell count was 7.2 10*3/uL",
+      "char_start": 822,
+      "char_end": 860,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0005_narr_lab_1",
+      "test_name": "Total Cholesterol",
+      "loinc_code": "2093-3",
+      "value": 114.7,
+      "unit": "mg/dL",
+      "ref_range_low": 125.0,
+      "ref_range_high": 200.0,
+      "ref_range_text": "125.0 - 200.0",
+      "flag": "LOW",
+      "evidence_text": "total cholesterol\nof 114.7 mg/dL (LOW)",
+      "char_start": 910,
+      "char_end": 948,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        252.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0005_narr_lab_2",
+      "test_name": "BUN",
+      "loinc_code": "3094-0",
+      "value": 4.22,
+      "unit": "mg/dL",
+      "ref_range_low": 7.0,
+      "ref_range_high": 20.0,
+      "ref_range_text": "7.0 - 20.0",
+      "flag": "LOW",
+      "evidence_text": "bun stabilized at 4.22 mg/dL (LOW)",
+      "char_start": 1369,
+      "char_end": 1403,
+      "bbox": [
+        46.0,
+        328.04,
+        563.99,
+        341.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0005_narr_med_0",
+      "medication_name": "Metformin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": null,
+      "sig_text": "Metformin 500 mg PO BID",
+      "evidence_text": "Metformin 500 mg PO\nBID",
+      "char_start": 1175,
+      "char_end": 1198,
+      "bbox": [
+        46.0,
+        301.04,
+        558.68,
+        327.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0005_narr_med_1",
+      "medication_name": "Amlodipine",
+      "dose": 2.5,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "once daily",
+      "duration": null,
+      "sig_text": "Amlodipine 2.5 mg PO once daily",
+      "evidence_text": "Amlodipine 2.5 mg PO once daily",
+      "char_start": 1591,
+      "char_end": 1622,
+      "bbox": [
+        46.0,
+        390.04,
+        563.98,
+        403.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0005_narr_med_2",
+      "medication_name": "Lisinopril",
+      "dose": 5.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": null,
+      "sig_text": "Lisinopril 5 mg PO every morning",
+      "evidence_text": "Lisinopril 5 mg PO every morning",
+      "char_start": 1628,
+      "char_end": 1660,
+      "bbox": [
+        46.0,
+        403.54,
+        554.45,
+        416.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "0b3e5e9b-85eb-4560-bce6-aac994b4ba56",
+      "group_id": "NARRATIVE_0005_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "White Blood Cell Count: 7.2 10*3/uL",
+      "canonical_value": 7.2,
+      "unit": "10*3/uL",
+      "evidence_id": "ff946cb8-2471-4370-ab75-c61bacc68ad6",
+      "evidence_text": "white blood cell count was 7.2 10*3/uL",
+      "char_start": 822,
+      "char_end": 860,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "537aba6c-9036-4f93-a335-4367c1f0ebc9",
+      "group_id": "NARRATIVE_0005_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "White Blood Cell Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "ff946cb8-2471-4370-ab75-c61bacc68ad6",
+      "evidence_text": "white blood cell count was 7.2 10*3/uL",
+      "char_start": 822,
+      "char_end": 860,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a60dea7a-f62d-46a3-a369-f0f35e0e6e64",
+      "group_id": "NARRATIVE_0005_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "ff946cb8-2471-4370-ab75-c61bacc68ad6",
+      "evidence_text": "white blood cell count was 7.2 10*3/uL",
+      "char_start": 822,
+      "char_end": 860,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b4643512-baaa-41b7-a6f3-aeeeaafd269b",
+      "group_id": "NARRATIVE_0005_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "4.5 - 11.0",
+      "canonical_value": "4.5 - 11.0",
+      "unit": null,
+      "evidence_id": "ff946cb8-2471-4370-ab75-c61bacc68ad6",
+      "evidence_text": "white blood cell count was 7.2 10*3/uL",
+      "char_start": 822,
+      "char_end": 860,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a720b957-2863-4aad-ad4d-90cf7bc0dcf1",
+      "group_id": "NARRATIVE_0005_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "canonical_value": "White Blood Cell Count",
+      "unit": null,
+      "evidence_id": "ff946cb8-2471-4370-ab75-c61bacc68ad6",
+      "evidence_text": "white blood cell count was 7.2 10*3/uL",
+      "char_start": 822,
+      "char_end": 860,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "36f4e191-87d2-4e01-b3c1-fa9fd17cc7fc",
+      "group_id": "NARRATIVE_0005_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Total Cholesterol: 114.7 mg/dL",
+      "canonical_value": 114.7,
+      "unit": "mg/dL",
+      "evidence_id": "d42372a7-1262-47c6-9772-143cee4cd1fe",
+      "evidence_text": "total cholesterol\nof 114.7 mg/dL (LOW)",
+      "char_start": 910,
+      "char_end": 948,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ba6204e4-53d3-43dc-a9ff-f4ac26815346",
+      "group_id": "NARRATIVE_0005_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Total Cholesterol flag: LOW",
+      "canonical_value": "LOW",
+      "unit": null,
+      "evidence_id": "d42372a7-1262-47c6-9772-143cee4cd1fe",
+      "evidence_text": "total cholesterol\nof 114.7 mg/dL (LOW)",
+      "char_start": 910,
+      "char_end": 948,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5a4e2d2a-ae17-4f5c-a295-8a37040283ec",
+      "group_id": "NARRATIVE_0005_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "d42372a7-1262-47c6-9772-143cee4cd1fe",
+      "evidence_text": "total cholesterol\nof 114.7 mg/dL (LOW)",
+      "char_start": 910,
+      "char_end": 948,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "109912a2-4be5-49b6-8388-f48fc32ef4b6",
+      "group_id": "NARRATIVE_0005_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "125.0 - 200.0",
+      "canonical_value": "125.0 - 200.0",
+      "unit": null,
+      "evidence_id": "d42372a7-1262-47c6-9772-143cee4cd1fe",
+      "evidence_text": "total cholesterol\nof 114.7 mg/dL (LOW)",
+      "char_start": 910,
+      "char_end": 948,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9f5b9eff-2422-4a22-b7b9-bdc166a9025f",
+      "group_id": "NARRATIVE_0005_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Total Cholesterol",
+      "canonical_value": "Total Cholesterol",
+      "unit": null,
+      "evidence_id": "d42372a7-1262-47c6-9772-143cee4cd1fe",
+      "evidence_text": "total cholesterol\nof 114.7 mg/dL (LOW)",
+      "char_start": 910,
+      "char_end": 948,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        565.03,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0239b1ee-0c99-4026-91d2-cfaeaa3bd027",
+      "group_id": "NARRATIVE_0005_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "BUN: 4.22 mg/dL",
+      "canonical_value": 4.22,
+      "unit": "mg/dL",
+      "evidence_id": "6eaca886-6d59-4799-8fad-88269fe09c01",
+      "evidence_text": "bun stabilized at 4.22 mg/dL (LOW)",
+      "char_start": 1369,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        328.04,
+        563.99,
+        341.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6068a0f1-5a29-4a8a-9613-e60791b5a3db",
+      "group_id": "NARRATIVE_0005_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "BUN flag: LOW",
+      "canonical_value": "LOW",
+      "unit": null,
+      "evidence_id": "6eaca886-6d59-4799-8fad-88269fe09c01",
+      "evidence_text": "bun stabilized at 4.22 mg/dL (LOW)",
+      "char_start": 1369,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        328.04,
+        563.99,
+        341.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "cc0cde63-7b8d-4929-a32a-173f79777d25",
+      "group_id": "NARRATIVE_0005_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "6eaca886-6d59-4799-8fad-88269fe09c01",
+      "evidence_text": "bun stabilized at 4.22 mg/dL (LOW)",
+      "char_start": 1369,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        328.04,
+        563.99,
+        341.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "58f008df-4457-4368-b950-62d964351851",
+      "group_id": "NARRATIVE_0005_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "7.0 - 20.0",
+      "canonical_value": "7.0 - 20.0",
+      "unit": null,
+      "evidence_id": "6eaca886-6d59-4799-8fad-88269fe09c01",
+      "evidence_text": "bun stabilized at 4.22 mg/dL (LOW)",
+      "char_start": 1369,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        328.04,
+        563.99,
+        341.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "490f35e1-c5d4-4d86-82f8-ec35ca9cdf58",
+      "group_id": "NARRATIVE_0005_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "canonical_value": "BUN",
+      "unit": null,
+      "evidence_id": "6eaca886-6d59-4799-8fad-88269fe09c01",
+      "evidence_text": "bun stabilized at 4.22 mg/dL (LOW)",
+      "char_start": 1369,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        328.04,
+        563.99,
+        341.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3eeccfa9-116b-4c61-a2f9-2cdfa9da2a67",
+      "group_id": "NARRATIVE_0005_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Metformin",
+      "canonical_value": "Metformin",
+      "unit": null,
+      "evidence_id": "c62a782a-b5d8-4116-a9ca-519bab417e83",
+      "evidence_text": "Metformin 500 mg PO\nBID",
+      "char_start": 1175,
+      "char_end": 1198,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        558.68,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "bf83a0a2-429d-4440-bb7a-e2483c263fc6",
+      "group_id": "NARRATIVE_0005_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Metformin dose: 500 mg",
+      "canonical_value": 500.0,
+      "unit": "mg",
+      "evidence_id": "c62a782a-b5d8-4116-a9ca-519bab417e83",
+      "evidence_text": "Metformin 500 mg PO\nBID",
+      "char_start": 1175,
+      "char_end": 1198,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        558.68,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "29b25cad-be6f-4ac2-b58a-05931f65cce7",
+      "group_id": "NARRATIVE_0005_narr_med_0",
+      "field_type": "med.route",
+      "value": "Metformin route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "c62a782a-b5d8-4116-a9ca-519bab417e83",
+      "evidence_text": "Metformin 500 mg PO\nBID",
+      "char_start": 1175,
+      "char_end": 1198,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        558.68,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "afb0c44b-54bd-4676-8bf3-1dd3425bfa55",
+      "group_id": "NARRATIVE_0005_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Metformin frequency: BID",
+      "canonical_value": "BID",
+      "unit": null,
+      "evidence_id": "c62a782a-b5d8-4116-a9ca-519bab417e83",
+      "evidence_text": "Metformin 500 mg PO\nBID",
+      "char_start": 1175,
+      "char_end": 1198,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        558.68,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0965a5ab-43b1-4625-a0d0-edf44456cd31",
+      "group_id": "NARRATIVE_0005_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Amlodipine",
+      "canonical_value": "Amlodipine",
+      "unit": null,
+      "evidence_id": "55691a9c-0d55-4560-b48c-a28b93101a43",
+      "evidence_text": "Amlodipine 2.5 mg PO once daily",
+      "char_start": 1591,
+      "char_end": 1622,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        563.98,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e3784dbe-c434-4350-a1b0-af4cf3cd91d9",
+      "group_id": "NARRATIVE_0005_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Amlodipine dose: 2.5 mg",
+      "canonical_value": 2.5,
+      "unit": "mg",
+      "evidence_id": "55691a9c-0d55-4560-b48c-a28b93101a43",
+      "evidence_text": "Amlodipine 2.5 mg PO once daily",
+      "char_start": 1591,
+      "char_end": 1622,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        563.98,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "831d1ec2-53ca-4e9b-b97f-faf53d6ed191",
+      "group_id": "NARRATIVE_0005_narr_med_1",
+      "field_type": "med.route",
+      "value": "Amlodipine route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "55691a9c-0d55-4560-b48c-a28b93101a43",
+      "evidence_text": "Amlodipine 2.5 mg PO once daily",
+      "char_start": 1591,
+      "char_end": 1622,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        563.98,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "30f8b07d-1183-4cc5-8adb-a0bd91166c6c",
+      "group_id": "NARRATIVE_0005_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Amlodipine frequency: once daily",
+      "canonical_value": "once daily",
+      "unit": null,
+      "evidence_id": "55691a9c-0d55-4560-b48c-a28b93101a43",
+      "evidence_text": "Amlodipine 2.5 mg PO once daily",
+      "char_start": 1591,
+      "char_end": 1622,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        563.98,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "bcd6e314-ca51-428c-ad14-3f9714f5fe56",
+      "group_id": "NARRATIVE_0005_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Lisinopril",
+      "canonical_value": "Lisinopril",
+      "unit": null,
+      "evidence_id": "d41ef642-ae46-4c48-831c-3133fff09975",
+      "evidence_text": "Lisinopril 5 mg PO every morning",
+      "char_start": 1628,
+      "char_end": 1660,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        403.54,
+        554.45,
+        416.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6ab92f18-8935-4f0f-b49e-624ccadca4e9",
+      "group_id": "NARRATIVE_0005_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Lisinopril dose: 5 mg",
+      "canonical_value": 5.0,
+      "unit": "mg",
+      "evidence_id": "d41ef642-ae46-4c48-831c-3133fff09975",
+      "evidence_text": "Lisinopril 5 mg PO every morning",
+      "char_start": 1628,
+      "char_end": 1660,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        403.54,
+        554.45,
+        416.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "13493e12-b99f-4075-9a0a-d31ddf749ce2",
+      "group_id": "NARRATIVE_0005_narr_med_2",
+      "field_type": "med.route",
+      "value": "Lisinopril route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "d41ef642-ae46-4c48-831c-3133fff09975",
+      "evidence_text": "Lisinopril 5 mg PO every morning",
+      "char_start": 1628,
+      "char_end": 1660,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        403.54,
+        554.45,
+        416.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7feb599d-e6ce-488a-a676-f83c08fdbdef",
+      "group_id": "NARRATIVE_0005_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Lisinopril frequency: every morning",
+      "canonical_value": "every morning",
+      "unit": null,
+      "evidence_id": "d41ef642-ae46-4c48-831c-3133fff09975",
+      "evidence_text": "Lisinopril 5 mg PO every morning",
+      "char_start": 1628,
+      "char_end": 1660,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        403.54,
+        554.45,
+        416.59
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

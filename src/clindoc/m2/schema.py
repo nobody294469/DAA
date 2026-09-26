@@ -47,6 +47,11 @@ DOC_TEMPLATE_ORDER: list[str] = [
 
 OOD_MED_TEMPLATE = "mar_order_sheet"
 OOD_LAB_TEMPLATE = "template_c"
+OOD_NARRATIVE_TEMPLATES: list[str] = [
+    "narrative_specialty_consult_note_v1",
+    "narrative_ambulatory_progress_note_v1",
+]
+
 
 AUX_DIM = 1 + len(FIELD_TYPE_ORDER) + len(DOC_TEMPLATE_ORDER)  # 21
 HIDDEN_DIM = 768
@@ -68,6 +73,13 @@ class M2Example(BaseModel):
     generation_method: str
     claim_type: Literal["lab", "med"]
     split: str = "unassigned"
+    group_id: str | None = None
+    contradiction_type: str | None = None
+    evidence_id: str | None = None
+    char_start: int | None = None
+    char_end: int | None = None
+    page_number: int = 1
+    bbox: list[float] | None = None
 
 
 class M2DatasetMetadata(BaseModel):
@@ -81,6 +93,10 @@ class M2DatasetMetadata(BaseModel):
     by_claim_type: dict[str, dict[str, int]]
     ood_doc_ids: list[str]
     cv_doc_ids: list[str]
+    dataset_version: str = "2.0-phase1-canonical"
+    total_groups: int = 0
+    by_contradiction_type: dict[str, int] = Field(default_factory=dict)
+    context_window_config: dict[str, Any] = Field(default_factory=dict)
 
 
 class M2ModelConfig(BaseModel):

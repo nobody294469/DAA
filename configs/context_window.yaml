@@ -1,0 +1,18 @@
+# Verification Context Window Configuration (DR-3, DEC-003)
+# Status: EMPIRICALLY OPEN
+# FINAL VALUE REQUIRES EXPERIMENT: Context window mini-ablation on negation/temporal subsets prior to Phase 4 training
+
+status: "EMPIRICALLY OPEN"
+development_default: true
+final_value_requires_experiment: "Phase 1 context window mini-ablation on negation/temporal subsets"
+
+window_policy:
+  primary_strategy: "paragraph_bounded"
+  max_characters: 500  # development_default: FINAL VALUE REQUIRES EXPERIMENT
+  fallback_strategy: "fixed_symmetric_window"
+  fallback_characters: 250  # development_default (±250 chars around evidence span): FINAL VALUE REQUIRES EXPERIMENT
+
+dense_tabular_override:
+  enabled: true
+  strategy: "fixed_symmetric_window"
+  window_characters: 250  # development_default: FINAL VALUE REQUIRES EXPERIMENT

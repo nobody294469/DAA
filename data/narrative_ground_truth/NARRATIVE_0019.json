@@ -1,0 +1,723 @@
+{
+  "doc_id": "NARRATIVE_0019",
+  "template_id": "narrative_ambulatory_progress_note_v1",
+  "template_version": "1.0",
+  "split": "OOD",
+  "patient": {
+    "patient_id": "PAT-60019",
+    "name": "Sarah Martin",
+    "dob": "1979-11-29",
+    "gender": "F"
+  },
+  "facility_name": "St. Jude Academic Health Center - Division of Hospital Medicine",
+  "attending_physician": "Dr. Emily Chen, MD",
+  "admission_date": "2025-06-25",
+  "discharge_date": "2025-06-28",
+  "sections": [
+    {
+      "title": "SUBJECTIVE INTERVAL HISTORY",
+      "text": "SUBJECTIVE INTERVAL HISTORY: Patient Sarah Martin presents for longitudinal chronic disease management. Since the last comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations. Recent outpatient send-out interval laboratory check showed potassium of 4.01 mmol/L. Concurrent testing noted that fasting calcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes."
+    },
+    {
+      "title": "CLINICAL COURSE & PROGRESSION",
+      "text": "CLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily for 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and sensory examinations of bilateral feet were normal without neuropathy."
+    },
+    {
+      "title": "UPDATED CHRONIC MEDICATION PLAN",
+      "text": "UPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as Amlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning versus evening administration."
+    },
+    {
+      "title": "FOLLOW-UP & COORDINATION",
+      "text": "Return to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine health maintenance screenings were reviewed and scheduled."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0019_narr_lab_0",
+      "test_name": "Potassium",
+      "loinc_code": "2823-3",
+      "value": 4.01,
+      "unit": "mmol/L",
+      "ref_range_low": 3.5,
+      "ref_range_high": 5.1,
+      "ref_range_text": "3.5 - 5.1",
+      "flag": "NORMAL",
+      "evidence_text": "interval laboratory check showed potassium of 4.01 mmol/L",
+      "char_start": 598,
+      "char_end": 655,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        176.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0019_narr_lab_1",
+      "test_name": "Calcium",
+      "loinc_code": "17861-6",
+      "value": 8.98,
+      "unit": "mg/dL",
+      "ref_range_low": 8.5,
+      "ref_range_high": 10.2,
+      "ref_range_text": "8.5 - 10.2",
+      "flag": "NORMAL",
+      "evidence_text": "fasting\ncalcium was 8.98 mg/dL",
+      "char_start": 687,
+      "char_end": 717,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        190.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0019_narr_lab_2",
+      "test_name": "Glucose",
+      "loinc_code": "2345-7",
+      "value": 88.2,
+      "unit": "mg/dL",
+      "ref_range_low": 70.0,
+      "ref_range_high": 99.0,
+      "ref_range_text": "70.0 - 99.0",
+      "flag": "NORMAL",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 967,
+      "char_end": 1003,
+      "bbox": [
+        46.0,
+        239.04,
+        551.28,
+        252.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0019_narr_med_0",
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "once daily",
+      "duration": "for 5 days",
+      "sig_text": "Azithromycin at 250 mg orally once daily for 5 days",
+      "evidence_text": "Azithromycin at 250 mg orally once daily\nfor 5 days",
+      "char_start": 889,
+      "char_end": 940,
+      "bbox": [
+        46.0,
+        225.54,
+        562.34,
+        252.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0019_narr_med_1",
+      "medication_name": "Metoprolol",
+      "dose": 100.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "twice daily",
+      "duration": null,
+      "sig_text": "Metoprolol 100 mg orally twice daily",
+      "evidence_text": "Metoprolol 100 mg orally twice daily",
+      "char_start": 1216,
+      "char_end": 1252,
+      "bbox": [
+        46.0,
+        301.04,
+        535.35,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0019_narr_med_2",
+      "medication_name": "Amlodipine",
+      "dose": 2.5,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": null,
+      "sig_text": "Amlodipine 2.5 mg PO every morning",
+      "evidence_text": "Amlodipine 2.5 mg PO every morning",
+      "char_start": 1265,
+      "char_end": 1299,
+      "bbox": [
+        46.0,
+        314.54,
+        546.56,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "fd58c2fb-15a8-4713-97dd-ee5dee718ea3",
+      "group_id": "NARRATIVE_0019_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Potassium: 4.01 mmol/L",
+      "canonical_value": 4.01,
+      "unit": "mmol/L",
+      "evidence_id": "841365f4-a7b0-4f47-8872-a5b00549bb9e",
+      "evidence_text": "interval laboratory check showed potassium of 4.01 mmol/L",
+      "char_start": 598,
+      "char_end": 655,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "12c58220-5100-44ce-b0e7-9382f91588de",
+      "group_id": "NARRATIVE_0019_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Potassium flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "841365f4-a7b0-4f47-8872-a5b00549bb9e",
+      "evidence_text": "interval laboratory check showed potassium of 4.01 mmol/L",
+      "char_start": 598,
+      "char_end": 655,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "85a1cd66-2eeb-4913-8879-686c95e7ea37",
+      "group_id": "NARRATIVE_0019_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "841365f4-a7b0-4f47-8872-a5b00549bb9e",
+      "evidence_text": "interval laboratory check showed potassium of 4.01 mmol/L",
+      "char_start": 598,
+      "char_end": 655,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2cb23372-6002-4369-9019-6d9437a05b58",
+      "group_id": "NARRATIVE_0019_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "3.5 - 5.1",
+      "canonical_value": "3.5 - 5.1",
+      "unit": null,
+      "evidence_id": "841365f4-a7b0-4f47-8872-a5b00549bb9e",
+      "evidence_text": "interval laboratory check showed potassium of 4.01 mmol/L",
+      "char_start": 598,
+      "char_end": 655,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ec0ebae8-aa4b-4752-ac19-0d20ce54673f",
+      "group_id": "NARRATIVE_0019_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "canonical_value": "Potassium",
+      "unit": null,
+      "evidence_id": "841365f4-a7b0-4f47-8872-a5b00549bb9e",
+      "evidence_text": "interval laboratory check showed potassium of 4.01 mmol/L",
+      "char_start": 598,
+      "char_end": 655,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fe3343fd-0778-417d-9647-85e78587d0b3",
+      "group_id": "NARRATIVE_0019_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Calcium: 8.98 mg/dL",
+      "canonical_value": 8.98,
+      "unit": "mg/dL",
+      "evidence_id": "4f869a0c-fb60-4ec2-935a-111816e9ac64",
+      "evidence_text": "fasting\ncalcium was 8.98 mg/dL",
+      "char_start": 687,
+      "char_end": 717,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "609c3546-18d6-44f0-8737-c53f71b8e52a",
+      "group_id": "NARRATIVE_0019_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Calcium flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "4f869a0c-fb60-4ec2-935a-111816e9ac64",
+      "evidence_text": "fasting\ncalcium was 8.98 mg/dL",
+      "char_start": 687,
+      "char_end": 717,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "4a32a45c-4092-422a-8c23-ad042c6f4d4c",
+      "group_id": "NARRATIVE_0019_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "4f869a0c-fb60-4ec2-935a-111816e9ac64",
+      "evidence_text": "fasting\ncalcium was 8.98 mg/dL",
+      "char_start": 687,
+      "char_end": 717,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6914b9a9-e0c2-4f53-ac32-1d5535b08ce5",
+      "group_id": "NARRATIVE_0019_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "8.5 - 10.2",
+      "canonical_value": "8.5 - 10.2",
+      "unit": null,
+      "evidence_id": "4f869a0c-fb60-4ec2-935a-111816e9ac64",
+      "evidence_text": "fasting\ncalcium was 8.98 mg/dL",
+      "char_start": 687,
+      "char_end": 717,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "eb4305ed-f94e-407b-b9f2-2a2af92bf4d8",
+      "group_id": "NARRATIVE_0019_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Calcium",
+      "canonical_value": "Calcium",
+      "unit": null,
+      "evidence_id": "4f869a0c-fb60-4ec2-935a-111816e9ac64",
+      "evidence_text": "fasting\ncalcium was 8.98 mg/dL",
+      "char_start": 687,
+      "char_end": 717,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        538.13,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7af8dcd8-f33d-4071-abe4-ad49ea5b5242",
+      "group_id": "NARRATIVE_0019_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Glucose: 88.2 mg/dL",
+      "canonical_value": 88.2,
+      "unit": "mg/dL",
+      "evidence_id": "6cb77d69-0775-4f96-86fa-c449b4760c17",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 967,
+      "char_end": 1003,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        551.28,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "14012a65-6aad-474b-a52a-56bea246faf7",
+      "group_id": "NARRATIVE_0019_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Glucose flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "6cb77d69-0775-4f96-86fa-c449b4760c17",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 967,
+      "char_end": 1003,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        551.28,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "147bc9c8-8fd1-414b-8912-70e9f4829f77",
+      "group_id": "NARRATIVE_0019_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "6cb77d69-0775-4f96-86fa-c449b4760c17",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 967,
+      "char_end": 1003,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        551.28,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e47bcbae-9d97-4e34-873d-a7906cef5944",
+      "group_id": "NARRATIVE_0019_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "70.0 - 99.0",
+      "canonical_value": "70.0 - 99.0",
+      "unit": null,
+      "evidence_id": "6cb77d69-0775-4f96-86fa-c449b4760c17",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 967,
+      "char_end": 1003,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        551.28,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f6827323-3dbe-4e94-876a-00e028823fdf",
+      "group_id": "NARRATIVE_0019_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "canonical_value": "Glucose",
+      "unit": null,
+      "evidence_id": "6cb77d69-0775-4f96-86fa-c449b4760c17",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 967,
+      "char_end": 1003,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        551.28,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8339daba-2b97-4250-a729-086302e157ad",
+      "group_id": "NARRATIVE_0019_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Azithromycin",
+      "canonical_value": "Azithromycin",
+      "unit": null,
+      "evidence_id": "3cb56a20-f903-435c-8176-f594464f2623",
+      "evidence_text": "Azithromycin at 250 mg orally once daily\nfor 5 days",
+      "char_start": 889,
+      "char_end": 940,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.34,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "db556725-5631-4c5d-97d4-c8e5d17e294d",
+      "group_id": "NARRATIVE_0019_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Azithromycin dose: 250 mg",
+      "canonical_value": 250.0,
+      "unit": "mg",
+      "evidence_id": "3cb56a20-f903-435c-8176-f594464f2623",
+      "evidence_text": "Azithromycin at 250 mg orally once daily\nfor 5 days",
+      "char_start": 889,
+      "char_end": 940,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.34,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b15d1ffa-2ab4-4c41-8506-64567585678a",
+      "group_id": "NARRATIVE_0019_narr_med_0",
+      "field_type": "med.route",
+      "value": "Azithromycin route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "3cb56a20-f903-435c-8176-f594464f2623",
+      "evidence_text": "Azithromycin at 250 mg orally once daily\nfor 5 days",
+      "char_start": 889,
+      "char_end": 940,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.34,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6a6b9162-33be-414a-a307-1be6d81c47e8",
+      "group_id": "NARRATIVE_0019_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Azithromycin frequency: once daily",
+      "canonical_value": "once daily",
+      "unit": null,
+      "evidence_id": "3cb56a20-f903-435c-8176-f594464f2623",
+      "evidence_text": "Azithromycin at 250 mg orally once daily\nfor 5 days",
+      "char_start": 889,
+      "char_end": 940,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.34,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "85b72f22-51e1-4730-a9aa-b17dd1473b45",
+      "group_id": "NARRATIVE_0019_narr_med_0",
+      "field_type": "med.duration",
+      "value": "for 5 days",
+      "canonical_value": "for 5 days",
+      "unit": null,
+      "evidence_id": "3cb56a20-f903-435c-8176-f594464f2623",
+      "evidence_text": "Azithromycin at 250 mg orally once daily\nfor 5 days",
+      "char_start": 889,
+      "char_end": 940,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.34,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "046d97c6-0f75-473b-9c73-1b25deee69be",
+      "group_id": "NARRATIVE_0019_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Metoprolol",
+      "canonical_value": "Metoprolol",
+      "unit": null,
+      "evidence_id": "26daced0-f5ba-4e58-8943-e0dc643b5d2e",
+      "evidence_text": "Metoprolol 100 mg orally twice daily",
+      "char_start": 1216,
+      "char_end": 1252,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        535.35,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c4f76c2a-05cc-47e7-a9cf-4efb92c4e6ef",
+      "group_id": "NARRATIVE_0019_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Metoprolol dose: 100 mg",
+      "canonical_value": 100.0,
+      "unit": "mg",
+      "evidence_id": "26daced0-f5ba-4e58-8943-e0dc643b5d2e",
+      "evidence_text": "Metoprolol 100 mg orally twice daily",
+      "char_start": 1216,
+      "char_end": 1252,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        535.35,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "07afc4b2-90e6-4d14-94fd-09af8b7edd8f",
+      "group_id": "NARRATIVE_0019_narr_med_1",
+      "field_type": "med.route",
+      "value": "Metoprolol route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "26daced0-f5ba-4e58-8943-e0dc643b5d2e",
+      "evidence_text": "Metoprolol 100 mg orally twice daily",
+      "char_start": 1216,
+      "char_end": 1252,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        535.35,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "549224e2-b1ed-4896-b258-758a920d86ad",
+      "group_id": "NARRATIVE_0019_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Metoprolol frequency: twice daily",
+      "canonical_value": "twice daily",
+      "unit": null,
+      "evidence_id": "26daced0-f5ba-4e58-8943-e0dc643b5d2e",
+      "evidence_text": "Metoprolol 100 mg orally twice daily",
+      "char_start": 1216,
+      "char_end": 1252,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        535.35,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d7e2aa29-b307-4d5a-a5d3-f2632f6f9936",
+      "group_id": "NARRATIVE_0019_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Amlodipine",
+      "canonical_value": "Amlodipine",
+      "unit": null,
+      "evidence_id": "d95db231-dfa6-4d2a-bbe3-44e3f8fef516",
+      "evidence_text": "Amlodipine 2.5 mg PO every morning",
+      "char_start": 1265,
+      "char_end": 1299,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        546.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a3ebd908-f19c-4ac9-b61c-1417a95f81b6",
+      "group_id": "NARRATIVE_0019_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Amlodipine dose: 2.5 mg",
+      "canonical_value": 2.5,
+      "unit": "mg",
+      "evidence_id": "d95db231-dfa6-4d2a-bbe3-44e3f8fef516",
+      "evidence_text": "Amlodipine 2.5 mg PO every morning",
+      "char_start": 1265,
+      "char_end": 1299,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        546.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3cb39301-a9d9-433a-beeb-635c5da36238",
+      "group_id": "NARRATIVE_0019_narr_med_2",
+      "field_type": "med.route",
+      "value": "Amlodipine route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "d95db231-dfa6-4d2a-bbe3-44e3f8fef516",
+      "evidence_text": "Amlodipine 2.5 mg PO every morning",
+      "char_start": 1265,
+      "char_end": 1299,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        546.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d8ca6290-b2c8-47a3-a933-e31d080ed6a5",
+      "group_id": "NARRATIVE_0019_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Amlodipine frequency: every morning",
+      "canonical_value": "every morning",
+      "unit": null,
+      "evidence_id": "d95db231-dfa6-4d2a-bbe3-44e3f8fef516",
+      "evidence_text": "Amlodipine 2.5 mg PO every morning",
+      "char_start": 1265,
+      "char_end": 1299,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        546.56,
+        327.59
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

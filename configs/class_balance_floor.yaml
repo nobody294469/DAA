@@ -1,0 +1,42 @@
+# Class Balance Floor Configuration (DR-11, DEC-011)
+# Status: LOCKED ARCHITECTURAL POLICY
+# Enforced by: assert_class_balance() in CI dataset generation pipeline
+
+policy:
+  version: "1.0"
+  status: "LOCKED"
+  description: "Mandatory class balance floors for dataset generation to prevent single-class representation flaws."
+
+formula:
+  supported: "count(SUPPORTED) >= max(supported_ratio * N_field, supported_min_count)"
+  discrepancy: "count(DISCREPANCY) >= max(discrepancy_ratio * N_field, discrepancy_min_count)"
+  insufficient_evidence: "count(INSUFFICIENT_EVIDENCE) >= insufficient_evidence_min_count (where semantically applicable)"
+
+floors:
+  supported_ratio: 0.10
+  supported_min_count: 30
+  discrepancy_ratio: 0.10
+  discrepancy_min_count: 30
+  insufficient_evidence_min_count: 15
+
+active_fields:
+  tier_1_learned_fields:
+    - "lab.value"
+    - "lab.flag"
+    - "med.name"
+    - "med.dose"
+    - "med.frequency"
+    - "med.route"
+  tier_2_deterministic_fields:
+    - "lab.unit"
+    - "lab.reference_range"
+    - "lab.test_name"
+    - "med.duration"
+
+insufficient_evidence_applicability:
+  lab.value: true
+  lab.flag: false  # Closed categorical flag; unobserved test collapses to lab.value INSUFFICIENT_EVIDENCE
+  med.name: true
+  med.dose: true
+  med.frequency: true
+  med.route: true

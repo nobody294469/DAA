@@ -1,0 +1,747 @@
+{
+  "doc_id": "NARRATIVE_0012",
+  "template_id": "narrative_surgical_discharge_summary_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60012",
+    "name": "Barbara Wilson",
+    "dob": "1982-01-04",
+    "gender": "F"
+  },
+  "facility_name": "Valley Regional Hospital - Department of Clinical Services",
+  "attending_physician": "Dr. Emily Chen, MD",
+  "admission_date": "2025-04-30",
+  "discharge_date": "2025-05-03",
+  "sections": [
+    {
+      "title": "PREOPERATIVE DIAGNOSIS & PROCEDURE",
+      "text": "The patient underwent uncomplicated open inguinal hernia repair with polypropylene mesh under general endotracheal anesthesia."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient is an adult who presented electively for surgical intervention following conservative management failure. Pre-admission testing confirmed that preoperative white blood cell count was 7 10*3/uL. Preoperative metabolic screening showed a baseline potassium of 6.87 mmol/L (HIGH). The patient was cleared from a cardiopulmonary standpoint and taken to the operative suite."
+    },
+    {
+      "title": "POSTOPERATIVE HOSPITAL COURSE",
+      "text": "The patient was extubated in the operating room and transferred to the post-anesthesia care unit in stable condition. Postoperative recovery was uneventful. For pain and infection prophylaxis, the patient was prescribed Metformin 850 mg orally twice daily with meals. On postoperative day one, postoperative bun remained stable at 13.7 mg/dL. Surgical incisions were clean, intact, and without erythema or purulent drainage."
+    },
+    {
+      "title": "POST-DISCHARGE MEDICATIONS",
+      "text": "Discharge medications: The patient will take Cephalexin 500 mg orally QID for 7 days, and continue baseline Azithromycin 500 mg PO once daily for 5 days. All prescriptions were transmitted electronically to the patient's pharmacy."
+    },
+    {
+      "title": "ACTIVITY & WOUND CARE PLAN",
+      "text": "Keep dressing clean and dry. No heavy lifting greater than 10 pounds for two weeks. Surgical clinic follow-up scheduled in 10 days."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0012_narr_lab_0",
+      "test_name": "White Blood Cell Count",
+      "loinc_code": "6690-2",
+      "value": 7.0,
+      "unit": "10*3/uL",
+      "ref_range_low": 4.5,
+      "ref_range_high": 11.0,
+      "ref_range_text": "4.5 - 11.0",
+      "flag": "NORMAL",
+      "evidence_text": "preoperative white blood cell count was 7 10*3/uL",
+      "char_start": 661,
+      "char_end": 710,
+      "bbox": [
+        46.0,
+        212.04,
+        558.16,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0012_narr_lab_1",
+      "test_name": "Potassium",
+      "loinc_code": "2823-3",
+      "value": 6.87,
+      "unit": "mmol/L",
+      "ref_range_low": 3.5,
+      "ref_range_high": 5.1,
+      "ref_range_text": "3.5 - 5.1",
+      "flag": "HIGH",
+      "evidence_text": "baseline potassium of 6.87 mmol/L (HIGH)",
+      "char_start": 754,
+      "char_end": 794,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0012_narr_lab_2",
+      "test_name": "BUN",
+      "loinc_code": "3094-0",
+      "value": 13.7,
+      "unit": "mg/dL",
+      "ref_range_low": 7.0,
+      "ref_range_high": 20.0,
+      "ref_range_text": "7.0 - 20.0",
+      "flag": "NORMAL",
+      "evidence_text": "postoperative bun remained stable at 13.7 mg/dL",
+      "char_start": 1212,
+      "char_end": 1259,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0012_narr_med_0",
+      "medication_name": "Metformin",
+      "dose": 850.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "twice daily with meals",
+      "duration": null,
+      "sig_text": "prescribed Metformin 850 mg orally twice daily with meals",
+      "evidence_text": "prescribed Metformin 850 mg\norally twice daily with meals",
+      "char_start": 1127,
+      "char_end": 1184,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0012_narr_med_1",
+      "medication_name": "Cephalexin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "QID",
+      "duration": "for 7 days",
+      "sig_text": "Cephalexin 500 mg orally QID for 7 days",
+      "evidence_text": "Cephalexin 500 mg orally QID for 7 days",
+      "char_start": 1415,
+      "char_end": 1454,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        389.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0012_narr_med_2",
+      "medication_name": "Azithromycin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "once daily",
+      "duration": "for 5 days",
+      "sig_text": "Azithromycin 500 mg PO once daily for 5 days",
+      "evidence_text": "Azithromycin\n500 mg PO once daily for 5 days",
+      "char_start": 1478,
+      "char_end": 1522,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "f5ee87c6-d9ef-40c7-8f98-8f4f0e350a4c",
+      "group_id": "NARRATIVE_0012_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "White Blood Cell Count: 7 10*3/uL",
+      "canonical_value": 7.0,
+      "unit": "10*3/uL",
+      "evidence_id": "77caf780-d3e8-4a86-ad54-1036dd981251",
+      "evidence_text": "preoperative white blood cell count was 7 10*3/uL",
+      "char_start": 661,
+      "char_end": 710,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        558.16,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3ea50a9f-3b2d-4189-8888-f54053d0a26c",
+      "group_id": "NARRATIVE_0012_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "White Blood Cell Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "77caf780-d3e8-4a86-ad54-1036dd981251",
+      "evidence_text": "preoperative white blood cell count was 7 10*3/uL",
+      "char_start": 661,
+      "char_end": 710,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        558.16,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b5cb46cd-8642-4ce4-8000-77eb20447fec",
+      "group_id": "NARRATIVE_0012_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "77caf780-d3e8-4a86-ad54-1036dd981251",
+      "evidence_text": "preoperative white blood cell count was 7 10*3/uL",
+      "char_start": 661,
+      "char_end": 710,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        558.16,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "253d9999-f967-4900-9009-616e543b9ca9",
+      "group_id": "NARRATIVE_0012_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "4.5 - 11.0",
+      "canonical_value": "4.5 - 11.0",
+      "unit": null,
+      "evidence_id": "77caf780-d3e8-4a86-ad54-1036dd981251",
+      "evidence_text": "preoperative white blood cell count was 7 10*3/uL",
+      "char_start": 661,
+      "char_end": 710,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        558.16,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "286ddf90-3d84-46d2-a902-225fa9a53b2b",
+      "group_id": "NARRATIVE_0012_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "canonical_value": "White Blood Cell Count",
+      "unit": null,
+      "evidence_id": "77caf780-d3e8-4a86-ad54-1036dd981251",
+      "evidence_text": "preoperative white blood cell count was 7 10*3/uL",
+      "char_start": 661,
+      "char_end": 710,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        558.16,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0e897e66-dd61-4ef5-a8e8-6ea71fbe12fe",
+      "group_id": "NARRATIVE_0012_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Potassium: 6.87 mmol/L",
+      "canonical_value": 6.87,
+      "unit": "mmol/L",
+      "evidence_id": "62db6894-6a2a-42db-a736-9077c6f4f79b",
+      "evidence_text": "baseline potassium of 6.87 mmol/L (HIGH)",
+      "char_start": 754,
+      "char_end": 794,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8b64abae-21fe-4dc0-9f67-376b3165d1dc",
+      "group_id": "NARRATIVE_0012_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Potassium flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "62db6894-6a2a-42db-a736-9077c6f4f79b",
+      "evidence_text": "baseline potassium of 6.87 mmol/L (HIGH)",
+      "char_start": 754,
+      "char_end": 794,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7dac049c-b32f-4723-8ada-b343bdf6a299",
+      "group_id": "NARRATIVE_0012_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "62db6894-6a2a-42db-a736-9077c6f4f79b",
+      "evidence_text": "baseline potassium of 6.87 mmol/L (HIGH)",
+      "char_start": 754,
+      "char_end": 794,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "463b7704-cf84-46bd-acc6-de914e1f7ea1",
+      "group_id": "NARRATIVE_0012_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "3.5 - 5.1",
+      "canonical_value": "3.5 - 5.1",
+      "unit": null,
+      "evidence_id": "62db6894-6a2a-42db-a736-9077c6f4f79b",
+      "evidence_text": "baseline potassium of 6.87 mmol/L (HIGH)",
+      "char_start": 754,
+      "char_end": 794,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a27152be-1003-4771-a526-64d77e135474",
+      "group_id": "NARRATIVE_0012_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "canonical_value": "Potassium",
+      "unit": null,
+      "evidence_id": "62db6894-6a2a-42db-a736-9077c6f4f79b",
+      "evidence_text": "baseline potassium of 6.87 mmol/L (HIGH)",
+      "char_start": 754,
+      "char_end": 794,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ca0ba990-cfe0-4aeb-b8d1-36a0c978dcad",
+      "group_id": "NARRATIVE_0012_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "BUN: 13.7 mg/dL",
+      "canonical_value": 13.7,
+      "unit": "mg/dL",
+      "evidence_id": "155914b6-128e-4a85-8d14-de7c4b8d5177",
+      "evidence_text": "postoperative bun remained stable at 13.7 mg/dL",
+      "char_start": 1212,
+      "char_end": 1259,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ccde9a60-242a-4681-9db1-e5837a7bb372",
+      "group_id": "NARRATIVE_0012_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "BUN flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "155914b6-128e-4a85-8d14-de7c4b8d5177",
+      "evidence_text": "postoperative bun remained stable at 13.7 mg/dL",
+      "char_start": 1212,
+      "char_end": 1259,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9473d279-2661-4c56-8306-fa7f8250ad2c",
+      "group_id": "NARRATIVE_0012_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "155914b6-128e-4a85-8d14-de7c4b8d5177",
+      "evidence_text": "postoperative bun remained stable at 13.7 mg/dL",
+      "char_start": 1212,
+      "char_end": 1259,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "16dab377-5217-4123-9da3-54675999bf32",
+      "group_id": "NARRATIVE_0012_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "7.0 - 20.0",
+      "canonical_value": "7.0 - 20.0",
+      "unit": null,
+      "evidence_id": "155914b6-128e-4a85-8d14-de7c4b8d5177",
+      "evidence_text": "postoperative bun remained stable at 13.7 mg/dL",
+      "char_start": 1212,
+      "char_end": 1259,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "eee5308e-f76f-49a1-a94a-fd0127b51363",
+      "group_id": "NARRATIVE_0012_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "canonical_value": "BUN",
+      "unit": null,
+      "evidence_id": "155914b6-128e-4a85-8d14-de7c4b8d5177",
+      "evidence_text": "postoperative bun remained stable at 13.7 mg/dL",
+      "char_start": 1212,
+      "char_end": 1259,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a774d7d6-d1ab-4f18-8101-060746b66711",
+      "group_id": "NARRATIVE_0012_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Metformin",
+      "canonical_value": "Metformin",
+      "unit": null,
+      "evidence_id": "1e6696f3-1cdb-497c-82da-38095890c3ac",
+      "evidence_text": "prescribed Metformin 850 mg\norally twice daily with meals",
+      "char_start": 1127,
+      "char_end": 1184,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "02c36513-2566-4da1-8fe6-c8372f5e3d01",
+      "group_id": "NARRATIVE_0012_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Metformin dose: 850 mg",
+      "canonical_value": 850.0,
+      "unit": "mg",
+      "evidence_id": "1e6696f3-1cdb-497c-82da-38095890c3ac",
+      "evidence_text": "prescribed Metformin 850 mg\norally twice daily with meals",
+      "char_start": 1127,
+      "char_end": 1184,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d457ac60-b55a-4dff-8b51-fbc8b346a5fe",
+      "group_id": "NARRATIVE_0012_narr_med_0",
+      "field_type": "med.route",
+      "value": "Metformin route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "1e6696f3-1cdb-497c-82da-38095890c3ac",
+      "evidence_text": "prescribed Metformin 850 mg\norally twice daily with meals",
+      "char_start": 1127,
+      "char_end": 1184,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "aa68d3d1-69c8-4a1d-a685-7cd9049115d7",
+      "group_id": "NARRATIVE_0012_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Metformin frequency: twice daily with meals",
+      "canonical_value": "twice daily with meals",
+      "unit": null,
+      "evidence_id": "1e6696f3-1cdb-497c-82da-38095890c3ac",
+      "evidence_text": "prescribed Metformin 850 mg\norally twice daily with meals",
+      "char_start": 1127,
+      "char_end": 1184,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2f3d1ed8-1d9b-48a9-87ee-099ca632dcc4",
+      "group_id": "NARRATIVE_0012_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Cephalexin",
+      "canonical_value": "Cephalexin",
+      "unit": null,
+      "evidence_id": "517d03d8-04c7-4888-ac01-193bb8229e86",
+      "evidence_text": "Cephalexin 500 mg orally QID for 7 days",
+      "char_start": 1415,
+      "char_end": 1454,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d27741ea-e782-4e7e-acf7-f293ad784668",
+      "group_id": "NARRATIVE_0012_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Cephalexin dose: 500 mg",
+      "canonical_value": 500.0,
+      "unit": "mg",
+      "evidence_id": "517d03d8-04c7-4888-ac01-193bb8229e86",
+      "evidence_text": "Cephalexin 500 mg orally QID for 7 days",
+      "char_start": 1415,
+      "char_end": 1454,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "cec32ea2-a7dd-4522-b5b7-7451f1a2036d",
+      "group_id": "NARRATIVE_0012_narr_med_1",
+      "field_type": "med.route",
+      "value": "Cephalexin route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "517d03d8-04c7-4888-ac01-193bb8229e86",
+      "evidence_text": "Cephalexin 500 mg orally QID for 7 days",
+      "char_start": 1415,
+      "char_end": 1454,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f9f27191-b5b8-4949-87b3-5c28d6deb78d",
+      "group_id": "NARRATIVE_0012_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Cephalexin frequency: QID",
+      "canonical_value": "QID",
+      "unit": null,
+      "evidence_id": "517d03d8-04c7-4888-ac01-193bb8229e86",
+      "evidence_text": "Cephalexin 500 mg orally QID for 7 days",
+      "char_start": 1415,
+      "char_end": 1454,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "074bc545-1cf1-4f95-aea1-3613ecb8c7d9",
+      "group_id": "NARRATIVE_0012_narr_med_1",
+      "field_type": "med.duration",
+      "value": "for 7 days",
+      "canonical_value": "for 7 days",
+      "unit": null,
+      "evidence_id": "517d03d8-04c7-4888-ac01-193bb8229e86",
+      "evidence_text": "Cephalexin 500 mg orally QID for 7 days",
+      "char_start": 1415,
+      "char_end": 1454,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "563ef914-a00c-439d-9c90-05c84179db6a",
+      "group_id": "NARRATIVE_0012_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Azithromycin",
+      "canonical_value": "Azithromycin",
+      "unit": null,
+      "evidence_id": "889594ff-7bdd-44fa-b421-53809c8db4df",
+      "evidence_text": "Azithromycin\n500 mg PO once daily for 5 days",
+      "char_start": 1478,
+      "char_end": 1522,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "36c44b25-84f7-426c-a912-5c098e946be2",
+      "group_id": "NARRATIVE_0012_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Azithromycin dose: 500 mg",
+      "canonical_value": 500.0,
+      "unit": "mg",
+      "evidence_id": "889594ff-7bdd-44fa-b421-53809c8db4df",
+      "evidence_text": "Azithromycin\n500 mg PO once daily for 5 days",
+      "char_start": 1478,
+      "char_end": 1522,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "274a5c31-d149-4fe8-a5e7-b7ebc7241206",
+      "group_id": "NARRATIVE_0012_narr_med_2",
+      "field_type": "med.route",
+      "value": "Azithromycin route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "889594ff-7bdd-44fa-b421-53809c8db4df",
+      "evidence_text": "Azithromycin\n500 mg PO once daily for 5 days",
+      "char_start": 1478,
+      "char_end": 1522,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "be8cf969-c77f-4124-94e0-1b40102c11ce",
+      "group_id": "NARRATIVE_0012_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Azithromycin frequency: once daily",
+      "canonical_value": "once daily",
+      "unit": null,
+      "evidence_id": "889594ff-7bdd-44fa-b421-53809c8db4df",
+      "evidence_text": "Azithromycin\n500 mg PO once daily for 5 days",
+      "char_start": 1478,
+      "char_end": 1522,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "70a7517d-70c9-43f3-87b0-768623292201",
+      "group_id": "NARRATIVE_0012_narr_med_2",
+      "field_type": "med.duration",
+      "value": "for 5 days",
+      "canonical_value": "for 5 days",
+      "unit": null,
+      "evidence_id": "889594ff-7bdd-44fa-b421-53809c8db4df",
+      "evidence_text": "Azithromycin\n500 mg PO once daily for 5 days",
+      "char_start": 1478,
+      "char_end": 1522,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.73,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

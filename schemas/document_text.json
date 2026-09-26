@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clindoc.project/schemas/document_text.json",
+  "title": "DocumentText",
+  "description": "Output schema for Document Ingestion and OCR processing (§7.1)",
+  "type": "object",
+  "required": [
+    "document_id",
+    "source_type",
+    "pages"
+  ],
+  "properties": {
+    "document_id": {
+      "type": "string",
+      "description": "Unique identifier for the document (UUID or string ID)"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "born_digital",
+        "scanned_image"
+      ],
+      "description": "Source modality of the ingested document"
+    },
+    "pages": {
+      "type": "array",
+      "description": "List of document pages in order",
+      "items": {
+        "type": "object",
+        "required": [
+          "page_number",
+          "width_px",
+          "height_px",
+          "tokens"
+        ],
+        "properties": {
+          "page_number": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "1-indexed page number"
+          },
+          "width_px": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Page width in pixels"
+          },
+          "height_px": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Page height in pixels"
+          },
+          "tokens": {
+            "type": "array",
+            "description": "Ordered sequence of OCR / layout tokens for this page",
+            "items": {
+              "type": "object",
+              "required": [
+                "text",
+                "bbox",
+                "confidence",
+                "line_id"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "description": "Raw string text content of the token"
+                },
+                "bbox": {
+                  "type": "object",
+                  "required": [
+                    "x0",
+                    "y0",
+                    "x1",
+                    "y1"
+                  ],
+                  "properties": {
+                    "x0": { "type": "number" },
+                    "y0": { "type": "number" },
+                    "x1": { "type": "number" },
+                    "y1": { "type": "number" }
+                  },
+                  "additionalProperties": false
+                },
+                "confidence": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0.0,
+                  "maximum": 1.0,
+                  "description": "OCR engine confidence in [0, 1]; null for born-digital extraction"
+                },
+                "line_id": {
+                  "type": "string",
+                  "description": "Identifier associating token with a logical line"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "degradation_metadata": {
+      "type": "object",
+      "description": "Synthetic degradation parameters applied during benchmark generation (§18.2)",
+      "required": [
+        "applied",
+        "types"
+      ],
+      "properties": {
+        "applied": {
+          "type": "boolean"
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "blur",
+              "jpeg_compression",
+              "resolution_reduction",
+              "rotation_skew",
+              "contrast_brightness",
+              "local_artifact",
+              "combined"
+            ]
+          }
+        },
+        "params": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

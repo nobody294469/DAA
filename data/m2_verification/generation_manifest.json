@@ -1,0 +1,69 @@
+{
+  "dataset_version": "2.0-phase1-canonical",
+  "generated_at": "2026-09-26T07:23:58.979321+00:00",
+  "seed": 42,
+  "total_documents": 120,
+  "cv_documents": 86,
+  "ood_documents": 34,
+  "total_examples": 9168,
+  "total_groups": 3473,
+  "by_field_type": {
+    "med.name": {
+      "DISCREPANCY": 142,
+      "SUPPORTED": 142,
+      "INSUFFICIENT_EVIDENCE": 70
+    },
+    "lab.value": {
+      "DISCREPANCY": 2728,
+      "SUPPORTED": 2728,
+      "INSUFFICIENT_EVIDENCE": 272
+    },
+    "lab.flag": {
+      "SUPPORTED": 765,
+      "DISCREPANCY": 765
+    },
+    "med.dose": {
+      "SUPPORTED": 375,
+      "DISCREPANCY": 375,
+      "INSUFFICIENT_EVIDENCE": 98
+    },
+    "med.frequency": {
+      "SUPPORTED": 142,
+      "INSUFFICIENT_EVIDENCE": 70,
+      "DISCREPANCY": 142
+    },
+    "med.route": {
+      "SUPPORTED": 142,
+      "DISCREPANCY": 142,
+      "INSUFFICIENT_EVIDENCE": 70
+    }
+  },
+  "by_class": {
+    "DISCREPANCY": 4294,
+    "SUPPORTED": 4294,
+    "INSUFFICIENT_EVIDENCE": 580
+  },
+  "by_contradiction_type": {
+    "wrong_entity": 284,
+    "value_mismatch": 3493,
+    "dose_mismatch": 375,
+    "temporal_mismatch": 142
+  },
+  "class_balance_status": "PASSED_DEC_011",
+  "context_window_config": {
+    "status": "EMPIRICALLY OPEN",
+    "development_default": true,
+    "final_value_requires_experiment": "Phase 1 context window mini-ablation on negation/temporal subsets",
+    "window_policy": {
+      "primary_strategy": "paragraph_bounded",
+      "max_characters": 500,
+      "fallback_strategy": "fixed_symmetric_window",
+      "fallback_characters": 250
+    },
+    "dense_tabular_override": {
+      "enabled": true,
+      "strategy": "fixed_symmetric_window",
+      "window_characters": 250
+    }
+  }
+}

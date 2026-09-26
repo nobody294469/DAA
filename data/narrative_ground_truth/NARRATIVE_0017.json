@@ -1,0 +1,727 @@
+{
+  "doc_id": "NARRATIVE_0017",
+  "template_id": "narrative_specialty_consult_note_v1",
+  "template_version": "1.0",
+  "split": "OOD",
+  "patient": {
+    "patient_id": "PAT-60017",
+    "name": "Jessica White",
+    "dob": "1986-08-15",
+    "gender": "F"
+  },
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "attending_physician": "Dr. Sarah Jenkins, MD",
+  "admission_date": "2025-06-09",
+  "discharge_date": "2025-06-12",
+  "sections": [
+    {
+      "title": "REASON FOR CONSULTATION",
+      "text": "Consult requested by primary medical team regarding refractory clinical optimization and therapeutic titration. Consultant team: Cardiovascular Medicine Consult Service."
+    },
+    {
+      "title": "CHRONOLOGICAL CLINICAL NARRATIVE",
+      "text": "CHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient Jessica White, who was admitted three days ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed white blood cell count of 14.9 10*3/uL (HIGH). Subsequent evaluation demonstrated that serum platelet count was 244.9 10*3/uL. Prior outpatient regimens had proven insufficient to achieve therapeutic stability."
+    },
+    {
+      "title": "HOSPITAL COURSE & TRAJECTORY",
+      "text": "HOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological therapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory assessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in objective metabolic parameters."
+    },
+    {
+      "title": "FOCUSED PHARMACOTHERAPY RECOMMENDATIONS",
+      "text": "FOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance regimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic exposures."
+    },
+    {
+      "title": "CONSULTANT ASSESSMENT & SPECIALTY PLAN",
+      "text": "The patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48 hours. Thank you for this interesting consultation."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0017_narr_lab_0",
+      "test_name": "White Blood Cell Count",
+      "loinc_code": "6690-2",
+      "value": 14.9,
+      "unit": "10*3/uL",
+      "ref_range_low": 4.5,
+      "ref_range_high": 11.0,
+      "ref_range_text": "4.5 - 11.0",
+      "flag": "HIGH",
+      "evidence_text": "initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH)",
+      "char_start": 725,
+      "char_end": 807,
+      "bbox": [
+        46.0,
+        212.04,
+        561.91,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0017_narr_lab_1",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 244.9,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "NORMAL",
+      "evidence_text": "serum platelet count was 244.9 10*3/uL",
+      "char_start": 849,
+      "char_end": 887,
+      "bbox": [
+        46.0,
+        225.54,
+        561.91,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0017_narr_lab_2",
+      "test_name": "Calcium",
+      "loinc_code": "17861-6",
+      "value": 7.1,
+      "unit": "mg/dL",
+      "ref_range_low": 8.5,
+      "ref_range_high": 10.2,
+      "ref_range_text": "8.5 - 10.2",
+      "flag": "LOW",
+      "evidence_text": "trajectory\nassessment showed calcium of 7.1 mg/dL (LOW)",
+      "char_start": 1227,
+      "char_end": 1282,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0017_narr_med_0",
+      "medication_name": "Cephalexin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "route": "by mouth",
+      "frequency": "QID",
+      "duration": "for 10 days",
+      "sig_text": "initiated on Cephalexin 250 mg by mouth QID for 10 days",
+      "evidence_text": "initiated on Cephalexin 250 mg by mouth QID for 10 days",
+      "char_start": 1141,
+      "char_end": 1196,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0017_narr_med_1",
+      "medication_name": "Metoprolol",
+      "dose": 25.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "BID",
+      "duration": null,
+      "sig_text": "Metoprolol 25 mg oral BID",
+      "evidence_text": "Metoprolol 25 mg oral BID",
+      "char_start": 1535,
+      "char_end": 1560,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0017_narr_med_2",
+      "medication_name": "Lisinopril",
+      "dose": 5.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "every morning",
+      "duration": null,
+      "sig_text": "Lisinopril 5 mg oral every morning",
+      "evidence_text": "Lisinopril 5 mg oral every morning",
+      "char_start": 1574,
+      "char_end": 1608,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "36790313-5717-4c40-8379-5945c9a9a0aa",
+      "group_id": "NARRATIVE_0017_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "White Blood Cell Count: 14.9 10*3/uL",
+      "canonical_value": 14.9,
+      "unit": "10*3/uL",
+      "evidence_id": "824695e4-1c70-4c62-bfeb-ffe9ef2d6441",
+      "evidence_text": "initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH)",
+      "char_start": 725,
+      "char_end": 807,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c8b0a354-8bbc-4b91-8b9d-2da4b94cb1bc",
+      "group_id": "NARRATIVE_0017_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "White Blood Cell Count flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "824695e4-1c70-4c62-bfeb-ffe9ef2d6441",
+      "evidence_text": "initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH)",
+      "char_start": 725,
+      "char_end": 807,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8b4e1fa2-eea6-432d-88e4-19a809b0b201",
+      "group_id": "NARRATIVE_0017_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "824695e4-1c70-4c62-bfeb-ffe9ef2d6441",
+      "evidence_text": "initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH)",
+      "char_start": 725,
+      "char_end": 807,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d02d3609-58df-4a34-9d9e-f1bef46e219c",
+      "group_id": "NARRATIVE_0017_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "4.5 - 11.0",
+      "canonical_value": "4.5 - 11.0",
+      "unit": null,
+      "evidence_id": "824695e4-1c70-4c62-bfeb-ffe9ef2d6441",
+      "evidence_text": "initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH)",
+      "char_start": 725,
+      "char_end": 807,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "bf396afe-031a-48d2-a495-9c7eaeadf22f",
+      "group_id": "NARRATIVE_0017_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "canonical_value": "White Blood Cell Count",
+      "unit": null,
+      "evidence_id": "824695e4-1c70-4c62-bfeb-ffe9ef2d6441",
+      "evidence_text": "initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH)",
+      "char_start": 725,
+      "char_end": 807,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "4f9820cf-6147-41a7-aeed-2376416b09d9",
+      "group_id": "NARRATIVE_0017_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 244.9 10*3/uL",
+      "canonical_value": 244.9,
+      "unit": "10*3/uL",
+      "evidence_id": "30840fa6-dc54-4124-9cb3-b931cf5ec458",
+      "evidence_text": "serum platelet count was 244.9 10*3/uL",
+      "char_start": 849,
+      "char_end": 887,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "eaac88f8-9456-481f-bf1e-2bfc69ba9bce",
+      "group_id": "NARRATIVE_0017_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "30840fa6-dc54-4124-9cb3-b931cf5ec458",
+      "evidence_text": "serum platelet count was 244.9 10*3/uL",
+      "char_start": 849,
+      "char_end": 887,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "06be9526-0172-4707-abee-2f1ef16a6e29",
+      "group_id": "NARRATIVE_0017_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "30840fa6-dc54-4124-9cb3-b931cf5ec458",
+      "evidence_text": "serum platelet count was 244.9 10*3/uL",
+      "char_start": 849,
+      "char_end": 887,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6fa11a67-045d-4376-adc7-b045a2f0de7d",
+      "group_id": "NARRATIVE_0017_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "30840fa6-dc54-4124-9cb3-b931cf5ec458",
+      "evidence_text": "serum platelet count was 244.9 10*3/uL",
+      "char_start": 849,
+      "char_end": 887,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2fd6cf18-07ca-470e-a06a-08b3fcfa25e3",
+      "group_id": "NARRATIVE_0017_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "30840fa6-dc54-4124-9cb3-b931cf5ec458",
+      "evidence_text": "serum platelet count was 244.9 10*3/uL",
+      "char_start": 849,
+      "char_end": 887,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.91,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "810c4a29-f55a-459e-a823-9bf323431f59",
+      "group_id": "NARRATIVE_0017_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Calcium: 7.1 mg/dL",
+      "canonical_value": 7.1,
+      "unit": "mg/dL",
+      "evidence_id": "3bd32972-101a-49b7-8dd6-a9aaf1265bb0",
+      "evidence_text": "trajectory\nassessment showed calcium of 7.1 mg/dL (LOW)",
+      "char_start": 1227,
+      "char_end": 1282,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "903bb97b-9262-48e0-8fe0-0771895ccce1",
+      "group_id": "NARRATIVE_0017_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Calcium flag: LOW",
+      "canonical_value": "LOW",
+      "unit": null,
+      "evidence_id": "3bd32972-101a-49b7-8dd6-a9aaf1265bb0",
+      "evidence_text": "trajectory\nassessment showed calcium of 7.1 mg/dL (LOW)",
+      "char_start": 1227,
+      "char_end": 1282,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "477d73db-e19e-4be7-b9a3-5e54153fb447",
+      "group_id": "NARRATIVE_0017_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "3bd32972-101a-49b7-8dd6-a9aaf1265bb0",
+      "evidence_text": "trajectory\nassessment showed calcium of 7.1 mg/dL (LOW)",
+      "char_start": 1227,
+      "char_end": 1282,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "843be3e4-5584-425a-a88c-0589083723f0",
+      "group_id": "NARRATIVE_0017_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "8.5 - 10.2",
+      "canonical_value": "8.5 - 10.2",
+      "unit": null,
+      "evidence_id": "3bd32972-101a-49b7-8dd6-a9aaf1265bb0",
+      "evidence_text": "trajectory\nassessment showed calcium of 7.1 mg/dL (LOW)",
+      "char_start": 1227,
+      "char_end": 1282,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f1421473-fe7b-4cb8-83e5-4d6776a62017",
+      "group_id": "NARRATIVE_0017_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Calcium",
+      "canonical_value": "Calcium",
+      "unit": null,
+      "evidence_id": "3bd32972-101a-49b7-8dd6-a9aaf1265bb0",
+      "evidence_text": "trajectory\nassessment showed calcium of 7.1 mg/dL (LOW)",
+      "char_start": 1227,
+      "char_end": 1282,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9ad39fb3-86dc-417b-9be0-1f5cf8c64e64",
+      "group_id": "NARRATIVE_0017_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Cephalexin",
+      "canonical_value": "Cephalexin",
+      "unit": null,
+      "evidence_id": "6ff72acb-99b7-47f9-8584-8e924913a135",
+      "evidence_text": "initiated on Cephalexin 250 mg by mouth QID for 10 days",
+      "char_start": 1141,
+      "char_end": 1196,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f552ed65-8348-4fca-b27d-79fa2f6b2117",
+      "group_id": "NARRATIVE_0017_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Cephalexin dose: 250 mg",
+      "canonical_value": 250.0,
+      "unit": "mg",
+      "evidence_id": "6ff72acb-99b7-47f9-8584-8e924913a135",
+      "evidence_text": "initiated on Cephalexin 250 mg by mouth QID for 10 days",
+      "char_start": 1141,
+      "char_end": 1196,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "394fb1f2-49f4-4383-80e2-b58cd839bf76",
+      "group_id": "NARRATIVE_0017_narr_med_0",
+      "field_type": "med.route",
+      "value": "Cephalexin route: by mouth",
+      "canonical_value": "by mouth",
+      "unit": null,
+      "evidence_id": "6ff72acb-99b7-47f9-8584-8e924913a135",
+      "evidence_text": "initiated on Cephalexin 250 mg by mouth QID for 10 days",
+      "char_start": 1141,
+      "char_end": 1196,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "847bf15c-7200-4cdd-aaad-239cbabb9803",
+      "group_id": "NARRATIVE_0017_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Cephalexin frequency: QID",
+      "canonical_value": "QID",
+      "unit": null,
+      "evidence_id": "6ff72acb-99b7-47f9-8584-8e924913a135",
+      "evidence_text": "initiated on Cephalexin 250 mg by mouth QID for 10 days",
+      "char_start": 1141,
+      "char_end": 1196,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "262d5d50-69ce-4571-8efc-bec4db9e6c0b",
+      "group_id": "NARRATIVE_0017_narr_med_0",
+      "field_type": "med.duration",
+      "value": "for 10 days",
+      "canonical_value": "for 10 days",
+      "unit": null,
+      "evidence_id": "6ff72acb-99b7-47f9-8584-8e924913a135",
+      "evidence_text": "initiated on Cephalexin 250 mg by mouth QID for 10 days",
+      "char_start": 1141,
+      "char_end": 1196,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        552.89,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9d0d94c6-23ba-45fb-9baa-e323a7a09cf8",
+      "group_id": "NARRATIVE_0017_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Metoprolol",
+      "canonical_value": "Metoprolol",
+      "unit": null,
+      "evidence_id": "5b4fcd78-96ee-47af-8796-cfd17b6db37d",
+      "evidence_text": "Metoprolol 25 mg oral BID",
+      "char_start": 1535,
+      "char_end": 1560,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1b40399f-722b-4531-a99a-53a90e359e50",
+      "group_id": "NARRATIVE_0017_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Metoprolol dose: 25 mg",
+      "canonical_value": 25.0,
+      "unit": "mg",
+      "evidence_id": "5b4fcd78-96ee-47af-8796-cfd17b6db37d",
+      "evidence_text": "Metoprolol 25 mg oral BID",
+      "char_start": 1535,
+      "char_end": 1560,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "eff69afd-d2b2-44b8-8975-672d8192374e",
+      "group_id": "NARRATIVE_0017_narr_med_1",
+      "field_type": "med.route",
+      "value": "Metoprolol route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "5b4fcd78-96ee-47af-8796-cfd17b6db37d",
+      "evidence_text": "Metoprolol 25 mg oral BID",
+      "char_start": 1535,
+      "char_end": 1560,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7af873d9-d555-46fd-b7b1-8af6c8061887",
+      "group_id": "NARRATIVE_0017_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Metoprolol frequency: BID",
+      "canonical_value": "BID",
+      "unit": null,
+      "evidence_id": "5b4fcd78-96ee-47af-8796-cfd17b6db37d",
+      "evidence_text": "Metoprolol 25 mg oral BID",
+      "char_start": 1535,
+      "char_end": 1560,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a325634d-9476-4c37-86da-e813d91f0b9e",
+      "group_id": "NARRATIVE_0017_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Lisinopril",
+      "canonical_value": "Lisinopril",
+      "unit": null,
+      "evidence_id": "f664d8f3-b5b7-4821-a3dd-fb8413c46c4c",
+      "evidence_text": "Lisinopril 5 mg oral every morning",
+      "char_start": 1574,
+      "char_end": 1608,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7a8fdfaf-9a62-4604-8fe5-14065ac110b7",
+      "group_id": "NARRATIVE_0017_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Lisinopril dose: 5 mg",
+      "canonical_value": 5.0,
+      "unit": "mg",
+      "evidence_id": "f664d8f3-b5b7-4821-a3dd-fb8413c46c4c",
+      "evidence_text": "Lisinopril 5 mg oral every morning",
+      "char_start": 1574,
+      "char_end": 1608,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "577bdc1c-9847-4c85-a3a2-8d0ca80f3ad4",
+      "group_id": "NARRATIVE_0017_narr_med_2",
+      "field_type": "med.route",
+      "value": "Lisinopril route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "f664d8f3-b5b7-4821-a3dd-fb8413c46c4c",
+      "evidence_text": "Lisinopril 5 mg oral every morning",
+      "char_start": 1574,
+      "char_end": 1608,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3baf8264-51fd-4619-be27-cc3d60b8846d",
+      "group_id": "NARRATIVE_0017_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Lisinopril frequency: every morning",
+      "canonical_value": "every morning",
+      "unit": null,
+      "evidence_id": "f664d8f3-b5b7-4821-a3dd-fb8413c46c4c",
+      "evidence_text": "Lisinopril 5 mg oral every morning",
+      "char_start": 1574,
+      "char_end": 1608,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        562.9,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

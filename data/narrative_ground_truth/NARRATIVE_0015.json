@@ -1,0 +1,747 @@
+{
+  "doc_id": "NARRATIVE_0015",
+  "template_id": "narrative_surgical_discharge_summary_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60015",
+    "name": "Joseph Taylor",
+    "dob": "1964-12-07",
+    "gender": "M"
+  },
+  "facility_name": "St. Jude Academic Health Center - Division of Hospital Medicine",
+  "attending_physician": "Dr. Lisa Cuddy, MD",
+  "admission_date": "2025-05-24",
+  "discharge_date": "2025-05-29",
+  "sections": [
+    {
+      "title": "PREOPERATIVE DIAGNOSIS & PROCEDURE",
+      "text": "The patient underwent uncomplicated arthroscopic knee meniscectomy and chondroplasty under general endotracheal anesthesia."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient is an adult who presented electively for surgical intervention following conservative management failure. Pre-admission testing confirmed that preoperative total cholesterol was 235.6 mg/dL (HIGH). Preoperative metabolic screening showed a baseline platelet count of 521 10*3/uL (HIGH). The patient was cleared from a cardiopulmonary standpoint and taken to the operative suite."
+    },
+    {
+      "title": "POSTOPERATIVE HOSPITAL COURSE",
+      "text": "The patient was extubated in the operating room and transferred to the post-anesthesia care unit in stable condition. Postoperative recovery was uneventful. For pain and infection prophylaxis, the patient was prescribed Amlodipine 5 mg orally once daily. On postoperative day one, postoperative creatinine remained stable at 0.92 mg/dL. Surgical incisions were clean, intact, and without erythema or purulent drainage."
+    },
+    {
+      "title": "POST-DISCHARGE MEDICATIONS",
+      "text": "Discharge medications: The patient will take Amoxicillin 250 mg by mouth three times daily for 7 days, and continue baseline Omeprazole 40 mg orally once daily in the morning for 30 days. All prescriptions were transmitted electronically to the patient's pharmacy."
+    },
+    {
+      "title": "ACTIVITY & WOUND CARE PLAN",
+      "text": "Keep dressing clean and dry. No heavy lifting greater than 10 pounds for two weeks. Surgical clinic follow-up scheduled in 10 days."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0015_narr_lab_0",
+      "test_name": "Total Cholesterol",
+      "loinc_code": "2093-3",
+      "value": 235.6,
+      "unit": "mg/dL",
+      "ref_range_low": 125.0,
+      "ref_range_high": 200.0,
+      "ref_range_text": "125.0 - 200.0",
+      "flag": "HIGH",
+      "evidence_text": "preoperative total cholesterol was 235.6 mg/dL (HIGH)",
+      "char_start": 660,
+      "char_end": 713,
+      "bbox": [
+        46.0,
+        212.04,
+        534.91,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0015_narr_lab_1",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 521.0,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "HIGH",
+      "evidence_text": "baseline platelet count of 521 10*3/uL (HIGH)",
+      "char_start": 757,
+      "char_end": 802,
+      "bbox": [
+        46.0,
+        225.54,
+        533.36,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0015_narr_lab_2",
+      "test_name": "Creatinine",
+      "loinc_code": "2160-0",
+      "value": 0.92,
+      "unit": "mg/dL",
+      "ref_range_low": 0.6,
+      "ref_range_high": 1.3,
+      "ref_range_text": "0.6 - 1.3",
+      "flag": "NORMAL",
+      "evidence_text": "postoperative creatinine remained stable at 0.92 mg/dL",
+      "char_start": 1207,
+      "char_end": 1261,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0015_narr_med_0",
+      "medication_name": "Amlodipine",
+      "dose": 5.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "once daily",
+      "duration": null,
+      "sig_text": "prescribed Amlodipine 5 mg orally once daily",
+      "evidence_text": "prescribed Amlodipine 5 mg\norally once daily",
+      "char_start": 1135,
+      "char_end": 1179,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0015_narr_med_1",
+      "medication_name": "Amoxicillin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "route": "by mouth",
+      "frequency": "three times daily",
+      "duration": "for 7 days",
+      "sig_text": "Amoxicillin 250 mg by mouth three times daily for 7 days",
+      "evidence_text": "Amoxicillin 250 mg by mouth three times daily for 7 days",
+      "char_start": 1417,
+      "char_end": 1473,
+      "bbox": [
+        46.0,
+        376.54,
+        530.69,
+        389.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0015_narr_med_2",
+      "medication_name": "Omeprazole",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "once daily in the morning",
+      "duration": "for 30 days",
+      "sig_text": "Omeprazole 40 mg orally once daily in the morning for 30 days",
+      "evidence_text": "Omeprazole 40 mg orally once daily in the morning for 30 days",
+      "char_start": 1497,
+      "char_end": 1558,
+      "bbox": [
+        46.0,
+        390.04,
+        561.3,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "cb03d131-d30d-4384-be88-d98872b075c4",
+      "group_id": "NARRATIVE_0015_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Total Cholesterol: 235.6 mg/dL",
+      "canonical_value": 235.6,
+      "unit": "mg/dL",
+      "evidence_id": "0e7f59d9-1089-4983-bddc-300ccdb6707a",
+      "evidence_text": "preoperative total cholesterol was 235.6 mg/dL (HIGH)",
+      "char_start": 660,
+      "char_end": 713,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        534.91,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "bfea7a12-1624-4454-85a6-360097e8ed46",
+      "group_id": "NARRATIVE_0015_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Total Cholesterol flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "0e7f59d9-1089-4983-bddc-300ccdb6707a",
+      "evidence_text": "preoperative total cholesterol was 235.6 mg/dL (HIGH)",
+      "char_start": 660,
+      "char_end": 713,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        534.91,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "77980179-640d-4fd3-8ecd-98031e9e652d",
+      "group_id": "NARRATIVE_0015_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "0e7f59d9-1089-4983-bddc-300ccdb6707a",
+      "evidence_text": "preoperative total cholesterol was 235.6 mg/dL (HIGH)",
+      "char_start": 660,
+      "char_end": 713,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        534.91,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ef7866de-f8fe-4117-b115-e08c6e3d9159",
+      "group_id": "NARRATIVE_0015_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "125.0 - 200.0",
+      "canonical_value": "125.0 - 200.0",
+      "unit": null,
+      "evidence_id": "0e7f59d9-1089-4983-bddc-300ccdb6707a",
+      "evidence_text": "preoperative total cholesterol was 235.6 mg/dL (HIGH)",
+      "char_start": 660,
+      "char_end": 713,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        534.91,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e96001a7-7d2b-4bf7-927d-1788f355dcb2",
+      "group_id": "NARRATIVE_0015_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Total Cholesterol",
+      "canonical_value": "Total Cholesterol",
+      "unit": null,
+      "evidence_id": "0e7f59d9-1089-4983-bddc-300ccdb6707a",
+      "evidence_text": "preoperative total cholesterol was 235.6 mg/dL (HIGH)",
+      "char_start": 660,
+      "char_end": 713,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        534.91,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a77f8c45-0e76-475e-816b-97a7360809c3",
+      "group_id": "NARRATIVE_0015_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 521 10*3/uL",
+      "canonical_value": 521.0,
+      "unit": "10*3/uL",
+      "evidence_id": "cd2f74a6-d28d-4a13-a8e8-206ebf8c2527",
+      "evidence_text": "baseline platelet count of 521 10*3/uL (HIGH)",
+      "char_start": 757,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        533.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ea1eda27-f840-4b14-9575-5831f6d99c08",
+      "group_id": "NARRATIVE_0015_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "cd2f74a6-d28d-4a13-a8e8-206ebf8c2527",
+      "evidence_text": "baseline platelet count of 521 10*3/uL (HIGH)",
+      "char_start": 757,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        533.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "52f4d72f-e789-43ab-bd3d-8bedbc77bf29",
+      "group_id": "NARRATIVE_0015_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "cd2f74a6-d28d-4a13-a8e8-206ebf8c2527",
+      "evidence_text": "baseline platelet count of 521 10*3/uL (HIGH)",
+      "char_start": 757,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        533.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "4660ba5c-ca9f-4eec-9535-7f44d1952d31",
+      "group_id": "NARRATIVE_0015_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "cd2f74a6-d28d-4a13-a8e8-206ebf8c2527",
+      "evidence_text": "baseline platelet count of 521 10*3/uL (HIGH)",
+      "char_start": 757,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        533.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "25979da5-6d8b-430a-a656-cd8a624afca2",
+      "group_id": "NARRATIVE_0015_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "cd2f74a6-d28d-4a13-a8e8-206ebf8c2527",
+      "evidence_text": "baseline platelet count of 521 10*3/uL (HIGH)",
+      "char_start": 757,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        533.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "abff9529-24aa-41e6-acd6-77a2916017df",
+      "group_id": "NARRATIVE_0015_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Creatinine: 0.92 mg/dL",
+      "canonical_value": 0.92,
+      "unit": "mg/dL",
+      "evidence_id": "d49464ba-a656-46ea-940c-88171b87ac73",
+      "evidence_text": "postoperative creatinine remained stable at 0.92 mg/dL",
+      "char_start": 1207,
+      "char_end": 1261,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5c3136a1-efe3-4731-bce4-6fd2257e6677",
+      "group_id": "NARRATIVE_0015_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Creatinine flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "d49464ba-a656-46ea-940c-88171b87ac73",
+      "evidence_text": "postoperative creatinine remained stable at 0.92 mg/dL",
+      "char_start": 1207,
+      "char_end": 1261,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "95ed0988-0c39-454c-93ad-04fa8bf304d5",
+      "group_id": "NARRATIVE_0015_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "d49464ba-a656-46ea-940c-88171b87ac73",
+      "evidence_text": "postoperative creatinine remained stable at 0.92 mg/dL",
+      "char_start": 1207,
+      "char_end": 1261,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "179ebec1-748c-455c-afd1-2e73e9aca94a",
+      "group_id": "NARRATIVE_0015_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "0.6 - 1.3",
+      "canonical_value": "0.6 - 1.3",
+      "unit": null,
+      "evidence_id": "d49464ba-a656-46ea-940c-88171b87ac73",
+      "evidence_text": "postoperative creatinine remained stable at 0.92 mg/dL",
+      "char_start": 1207,
+      "char_end": 1261,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fbdda0bf-d210-43d5-9e89-33eb48238404",
+      "group_id": "NARRATIVE_0015_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "canonical_value": "Creatinine",
+      "unit": null,
+      "evidence_id": "d49464ba-a656-46ea-940c-88171b87ac73",
+      "evidence_text": "postoperative creatinine remained stable at 0.92 mg/dL",
+      "char_start": 1207,
+      "char_end": 1261,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b9ae2fcc-f21d-474e-86af-cbc5178ae39a",
+      "group_id": "NARRATIVE_0015_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Amlodipine",
+      "canonical_value": "Amlodipine",
+      "unit": null,
+      "evidence_id": "7fe0598c-42fd-4569-8dba-ff8dfdf43d23",
+      "evidence_text": "prescribed Amlodipine 5 mg\norally once daily",
+      "char_start": 1135,
+      "char_end": 1179,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "74bcb3b1-f27c-47d0-b458-f54adb83b526",
+      "group_id": "NARRATIVE_0015_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Amlodipine dose: 5 mg",
+      "canonical_value": 5.0,
+      "unit": "mg",
+      "evidence_id": "7fe0598c-42fd-4569-8dba-ff8dfdf43d23",
+      "evidence_text": "prescribed Amlodipine 5 mg\norally once daily",
+      "char_start": 1135,
+      "char_end": 1179,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3dbbc849-26a5-4680-ada3-02fad1b3927b",
+      "group_id": "NARRATIVE_0015_narr_med_0",
+      "field_type": "med.route",
+      "value": "Amlodipine route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "7fe0598c-42fd-4569-8dba-ff8dfdf43d23",
+      "evidence_text": "prescribed Amlodipine 5 mg\norally once daily",
+      "char_start": 1135,
+      "char_end": 1179,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e953d953-f2f9-41a1-86c3-7c8781ce8ecc",
+      "group_id": "NARRATIVE_0015_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Amlodipine frequency: once daily",
+      "canonical_value": "once daily",
+      "unit": null,
+      "evidence_id": "7fe0598c-42fd-4569-8dba-ff8dfdf43d23",
+      "evidence_text": "prescribed Amlodipine 5 mg\norally once daily",
+      "char_start": 1135,
+      "char_end": 1179,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ec2c88b7-da92-4784-9214-a763d8332738",
+      "group_id": "NARRATIVE_0015_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Amoxicillin",
+      "canonical_value": "Amoxicillin",
+      "unit": null,
+      "evidence_id": "53b2039f-218c-4cae-9e83-1a95e55639e4",
+      "evidence_text": "Amoxicillin 250 mg by mouth three times daily for 7 days",
+      "char_start": 1417,
+      "char_end": 1473,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        530.69,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7c771061-f85f-46c7-a1e7-a34f869d9989",
+      "group_id": "NARRATIVE_0015_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Amoxicillin dose: 250 mg",
+      "canonical_value": 250.0,
+      "unit": "mg",
+      "evidence_id": "53b2039f-218c-4cae-9e83-1a95e55639e4",
+      "evidence_text": "Amoxicillin 250 mg by mouth three times daily for 7 days",
+      "char_start": 1417,
+      "char_end": 1473,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        530.69,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "697773d9-bccd-4250-b94e-66d0b1237e26",
+      "group_id": "NARRATIVE_0015_narr_med_1",
+      "field_type": "med.route",
+      "value": "Amoxicillin route: by mouth",
+      "canonical_value": "by mouth",
+      "unit": null,
+      "evidence_id": "53b2039f-218c-4cae-9e83-1a95e55639e4",
+      "evidence_text": "Amoxicillin 250 mg by mouth three times daily for 7 days",
+      "char_start": 1417,
+      "char_end": 1473,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        530.69,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "57e3f1de-a9a0-4d84-8c6c-48ca79bfa6a6",
+      "group_id": "NARRATIVE_0015_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Amoxicillin frequency: three times daily",
+      "canonical_value": "three times daily",
+      "unit": null,
+      "evidence_id": "53b2039f-218c-4cae-9e83-1a95e55639e4",
+      "evidence_text": "Amoxicillin 250 mg by mouth three times daily for 7 days",
+      "char_start": 1417,
+      "char_end": 1473,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        530.69,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "08964f62-06df-457b-9d03-047f54ec79bc",
+      "group_id": "NARRATIVE_0015_narr_med_1",
+      "field_type": "med.duration",
+      "value": "for 7 days",
+      "canonical_value": "for 7 days",
+      "unit": null,
+      "evidence_id": "53b2039f-218c-4cae-9e83-1a95e55639e4",
+      "evidence_text": "Amoxicillin 250 mg by mouth three times daily for 7 days",
+      "char_start": 1417,
+      "char_end": 1473,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        530.69,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "220055d3-0d74-4d7a-9e0b-6585d6223723",
+      "group_id": "NARRATIVE_0015_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Omeprazole",
+      "canonical_value": "Omeprazole",
+      "unit": null,
+      "evidence_id": "785bdd74-0855-488c-8f78-72a128d0d107",
+      "evidence_text": "Omeprazole 40 mg orally once daily in the morning for 30 days",
+      "char_start": 1497,
+      "char_end": 1558,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        561.3,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9e7bef7b-f397-48b0-857f-b6b38cd90f11",
+      "group_id": "NARRATIVE_0015_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Omeprazole dose: 40 mg",
+      "canonical_value": 40.0,
+      "unit": "mg",
+      "evidence_id": "785bdd74-0855-488c-8f78-72a128d0d107",
+      "evidence_text": "Omeprazole 40 mg orally once daily in the morning for 30 days",
+      "char_start": 1497,
+      "char_end": 1558,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        561.3,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f50ae9cf-40c6-434d-b665-20b03bcc56b5",
+      "group_id": "NARRATIVE_0015_narr_med_2",
+      "field_type": "med.route",
+      "value": "Omeprazole route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "785bdd74-0855-488c-8f78-72a128d0d107",
+      "evidence_text": "Omeprazole 40 mg orally once daily in the morning for 30 days",
+      "char_start": 1497,
+      "char_end": 1558,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        561.3,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "45bd66ba-9d4f-484e-9871-33a00ad2432c",
+      "group_id": "NARRATIVE_0015_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Omeprazole frequency: once daily in the morning",
+      "canonical_value": "once daily in the morning",
+      "unit": null,
+      "evidence_id": "785bdd74-0855-488c-8f78-72a128d0d107",
+      "evidence_text": "Omeprazole 40 mg orally once daily in the morning for 30 days",
+      "char_start": 1497,
+      "char_end": 1558,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        561.3,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9b968ddc-2dae-4c34-a19a-95536627fceb",
+      "group_id": "NARRATIVE_0015_narr_med_2",
+      "field_type": "med.duration",
+      "value": "for 30 days",
+      "canonical_value": "for 30 days",
+      "unit": null,
+      "evidence_id": "785bdd74-0855-488c-8f78-72a128d0d107",
+      "evidence_text": "Omeprazole 40 mg orally once daily in the morning for 30 days",
+      "char_start": 1497,
+      "char_end": 1558,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        561.3,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

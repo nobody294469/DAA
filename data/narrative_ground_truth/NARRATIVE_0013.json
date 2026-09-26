@@ -1,0 +1,707 @@
+{
+  "doc_id": "NARRATIVE_0013",
+  "template_id": "narrative_surgical_discharge_summary_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60013",
+    "name": "Charles Anderson",
+    "dob": "1959-09-28",
+    "gender": "M"
+  },
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "attending_physician": "Dr. Allison Cameron, MD",
+  "admission_date": "2025-05-08",
+  "discharge_date": "2025-05-12",
+  "sections": [
+    {
+      "title": "PREOPERATIVE DIAGNOSIS & PROCEDURE",
+      "text": "The patient underwent uncomplicated arthroscopic knee meniscectomy and chondroplasty under general endotracheal anesthesia."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient is an adult who presented electively for surgical intervention following conservative management failure. Pre-admission testing confirmed that preoperative total cholesterol was 168.2 mg/dL. Preoperative metabolic screening showed a baseline platelet count of 244.9 10*3/uL. The patient was cleared from a cardiopulmonary standpoint and taken to the operative suite."
+    },
+    {
+      "title": "POSTOPERATIVE HOSPITAL COURSE",
+      "text": "The patient was extubated in the operating room and transferred to the post-anesthesia care unit in stable condition. Postoperative recovery was uneventful. For pain and infection prophylaxis, the patient was prescribed Lisinopril 40 mg PO every morning. On postoperative day one, postoperative alanine aminotransferase (alt) remained stable at 79.3 U/L (HIGH). Surgical incisions were clean, intact, and without erythema or purulent drainage."
+    },
+    {
+      "title": "POST-DISCHARGE MEDICATIONS",
+      "text": "Discharge medications: The patient will take Metformin 500 mg PO twice daily with meals, and continue baseline Atorvastatin 80 mg orally every evening. All prescriptions were transmitted electronically to the patient's pharmacy."
+    },
+    {
+      "title": "ACTIVITY & WOUND CARE PLAN",
+      "text": "Keep dressing clean and dry. No heavy lifting greater than 10 pounds for two weeks. Surgical clinic follow-up scheduled in 10 days."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0013_narr_lab_0",
+      "test_name": "Total Cholesterol",
+      "loinc_code": "2093-3",
+      "value": 168.2,
+      "unit": "mg/dL",
+      "ref_range_low": 125.0,
+      "ref_range_high": 200.0,
+      "ref_range_text": "125.0 - 200.0",
+      "flag": "NORMAL",
+      "evidence_text": "preoperative total cholesterol was 168.2 mg/dL",
+      "char_start": 665,
+      "char_end": 711,
+      "bbox": [
+        46.0,
+        212.04,
+        546.01,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0013_narr_lab_1",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 244.9,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "NORMAL",
+      "evidence_text": "baseline platelet count of 244.9 10*3/uL",
+      "char_start": 755,
+      "char_end": 795,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0013_narr_lab_2",
+      "test_name": "Alanine Aminotransferase (ALT)",
+      "loinc_code": "1742-6",
+      "value": 79.3,
+      "unit": "U/L",
+      "ref_range_low": 7.0,
+      "ref_range_high": 56.0,
+      "ref_range_text": "7.0 - 56.0",
+      "flag": "HIGH",
+      "evidence_text": "postoperative alanine aminotransferase (alt) remained stable at 79.3 U/L (HIGH)",
+      "char_start": 1200,
+      "char_end": 1279,
+      "bbox": [
+        46.0,
+        314.54,
+        565.56,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0013_narr_med_0",
+      "medication_name": "Lisinopril",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": null,
+      "sig_text": "prescribed Lisinopril 40 mg PO every morning",
+      "evidence_text": "prescribed Lisinopril 40 mg PO\nevery morning",
+      "char_start": 1128,
+      "char_end": 1172,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0013_narr_med_1",
+      "medication_name": "Metformin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "twice daily with meals",
+      "duration": null,
+      "sig_text": "Metformin 500 mg PO twice daily with meals",
+      "evidence_text": "Metformin 500 mg PO twice daily with meals",
+      "char_start": 1435,
+      "char_end": 1477,
+      "bbox": [
+        46.0,
+        376.54,
+        518.54,
+        389.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0013_narr_med_2",
+      "medication_name": "Atorvastatin",
+      "dose": 80.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "every evening",
+      "duration": null,
+      "sig_text": "Atorvastatin 80 mg orally every evening",
+      "evidence_text": "Atorvastatin 80 mg orally every evening",
+      "char_start": 1501,
+      "char_end": 1540,
+      "bbox": [
+        46.0,
+        390.04,
+        526.16,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "55b9f078-801e-42b5-b104-4bdad56ea760",
+      "group_id": "NARRATIVE_0013_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Total Cholesterol: 168.2 mg/dL",
+      "canonical_value": 168.2,
+      "unit": "mg/dL",
+      "evidence_id": "0eb18cbe-4269-4d01-b781-629ecfbb44e4",
+      "evidence_text": "preoperative total cholesterol was 168.2 mg/dL",
+      "char_start": 665,
+      "char_end": 711,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        546.01,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b3ae07c1-ae26-4b1e-8286-bec3a4cad27a",
+      "group_id": "NARRATIVE_0013_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Total Cholesterol flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "0eb18cbe-4269-4d01-b781-629ecfbb44e4",
+      "evidence_text": "preoperative total cholesterol was 168.2 mg/dL",
+      "char_start": 665,
+      "char_end": 711,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        546.01,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "473d8eee-412f-49f6-b2b2-0a1ccbe46dcc",
+      "group_id": "NARRATIVE_0013_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "0eb18cbe-4269-4d01-b781-629ecfbb44e4",
+      "evidence_text": "preoperative total cholesterol was 168.2 mg/dL",
+      "char_start": 665,
+      "char_end": 711,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        546.01,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0c05aded-dc02-4668-9a33-a37560121e3c",
+      "group_id": "NARRATIVE_0013_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "125.0 - 200.0",
+      "canonical_value": "125.0 - 200.0",
+      "unit": null,
+      "evidence_id": "0eb18cbe-4269-4d01-b781-629ecfbb44e4",
+      "evidence_text": "preoperative total cholesterol was 168.2 mg/dL",
+      "char_start": 665,
+      "char_end": 711,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        546.01,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3e2fe8a4-c088-4821-aaaa-635e05bc26f9",
+      "group_id": "NARRATIVE_0013_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Total Cholesterol",
+      "canonical_value": "Total Cholesterol",
+      "unit": null,
+      "evidence_id": "0eb18cbe-4269-4d01-b781-629ecfbb44e4",
+      "evidence_text": "preoperative total cholesterol was 168.2 mg/dL",
+      "char_start": 665,
+      "char_end": 711,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        546.01,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "48b66f41-6e76-4676-a2ad-8e95bd494f15",
+      "group_id": "NARRATIVE_0013_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 244.9 10*3/uL",
+      "canonical_value": 244.9,
+      "unit": "10*3/uL",
+      "evidence_id": "be7212ba-c90d-4a23-93a2-21afe559d295",
+      "evidence_text": "baseline platelet count of 244.9 10*3/uL",
+      "char_start": 755,
+      "char_end": 795,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "16ab10f9-22a2-46b3-af16-7ea495afcf00",
+      "group_id": "NARRATIVE_0013_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "be7212ba-c90d-4a23-93a2-21afe559d295",
+      "evidence_text": "baseline platelet count of 244.9 10*3/uL",
+      "char_start": 755,
+      "char_end": 795,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f7af0a45-afba-48c5-bd4c-e58b6599e3dd",
+      "group_id": "NARRATIVE_0013_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "be7212ba-c90d-4a23-93a2-21afe559d295",
+      "evidence_text": "baseline platelet count of 244.9 10*3/uL",
+      "char_start": 755,
+      "char_end": 795,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "42374103-792d-476d-abf7-c7ac7bb741ab",
+      "group_id": "NARRATIVE_0013_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "be7212ba-c90d-4a23-93a2-21afe559d295",
+      "evidence_text": "baseline platelet count of 244.9 10*3/uL",
+      "char_start": 755,
+      "char_end": 795,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "cbd3eed4-7354-4cd5-a57e-b9955e518c21",
+      "group_id": "NARRATIVE_0013_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "be7212ba-c90d-4a23-93a2-21afe559d295",
+      "evidence_text": "baseline platelet count of 244.9 10*3/uL",
+      "char_start": 755,
+      "char_end": 795,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        566.0,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fd94c693-296b-4ac8-9b8d-b17cfa407783",
+      "group_id": "NARRATIVE_0013_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Alanine Aminotransferase (ALT): 79.3 U/L",
+      "canonical_value": 79.3,
+      "unit": "U/L",
+      "evidence_id": "694ee97a-2031-4d7c-ae7f-38418c8105bf",
+      "evidence_text": "postoperative alanine aminotransferase (alt) remained stable at 79.3 U/L (HIGH)",
+      "char_start": 1200,
+      "char_end": 1279,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8b95764c-18ab-4c57-8e93-bc34f5c0f878",
+      "group_id": "NARRATIVE_0013_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Alanine Aminotransferase (ALT) flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "694ee97a-2031-4d7c-ae7f-38418c8105bf",
+      "evidence_text": "postoperative alanine aminotransferase (alt) remained stable at 79.3 U/L (HIGH)",
+      "char_start": 1200,
+      "char_end": 1279,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ea9c26d5-1f5c-479b-875f-44b5eef64f32",
+      "group_id": "NARRATIVE_0013_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "canonical_value": "U/L",
+      "unit": null,
+      "evidence_id": "694ee97a-2031-4d7c-ae7f-38418c8105bf",
+      "evidence_text": "postoperative alanine aminotransferase (alt) remained stable at 79.3 U/L (HIGH)",
+      "char_start": 1200,
+      "char_end": 1279,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "58f9ee9e-88b3-4d15-b62e-46b1cf5f7b4c",
+      "group_id": "NARRATIVE_0013_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "7.0 - 56.0",
+      "canonical_value": "7.0 - 56.0",
+      "unit": null,
+      "evidence_id": "694ee97a-2031-4d7c-ae7f-38418c8105bf",
+      "evidence_text": "postoperative alanine aminotransferase (alt) remained stable at 79.3 U/L (HIGH)",
+      "char_start": 1200,
+      "char_end": 1279,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "47b78433-af42-45fe-9faf-48abf8f4eb6e",
+      "group_id": "NARRATIVE_0013_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Alanine Aminotransferase (ALT)",
+      "canonical_value": "Alanine Aminotransferase (ALT)",
+      "unit": null,
+      "evidence_id": "694ee97a-2031-4d7c-ae7f-38418c8105bf",
+      "evidence_text": "postoperative alanine aminotransferase (alt) remained stable at 79.3 U/L (HIGH)",
+      "char_start": 1200,
+      "char_end": 1279,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "68214226-40f2-488d-8884-8fd98f892eca",
+      "group_id": "NARRATIVE_0013_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Lisinopril",
+      "canonical_value": "Lisinopril",
+      "unit": null,
+      "evidence_id": "c68fc657-6227-4a86-9d68-a97c9559ecde",
+      "evidence_text": "prescribed Lisinopril 40 mg PO\nevery morning",
+      "char_start": 1128,
+      "char_end": 1172,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1fd22d98-c5fd-43fb-b1e8-0ec110118f3d",
+      "group_id": "NARRATIVE_0013_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Lisinopril dose: 40 mg",
+      "canonical_value": 40.0,
+      "unit": "mg",
+      "evidence_id": "c68fc657-6227-4a86-9d68-a97c9559ecde",
+      "evidence_text": "prescribed Lisinopril 40 mg PO\nevery morning",
+      "char_start": 1128,
+      "char_end": 1172,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c6f77f96-7344-4bba-9539-1543b7dbc98c",
+      "group_id": "NARRATIVE_0013_narr_med_0",
+      "field_type": "med.route",
+      "value": "Lisinopril route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "c68fc657-6227-4a86-9d68-a97c9559ecde",
+      "evidence_text": "prescribed Lisinopril 40 mg PO\nevery morning",
+      "char_start": 1128,
+      "char_end": 1172,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c988bb47-3438-42d2-a591-fd8fcc15c7a4",
+      "group_id": "NARRATIVE_0013_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Lisinopril frequency: every morning",
+      "canonical_value": "every morning",
+      "unit": null,
+      "evidence_id": "c68fc657-6227-4a86-9d68-a97c9559ecde",
+      "evidence_text": "prescribed Lisinopril 40 mg PO\nevery morning",
+      "char_start": 1128,
+      "char_end": 1172,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "cdde9849-dfd0-4af5-af9d-6e12a47a6ff0",
+      "group_id": "NARRATIVE_0013_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Metformin",
+      "canonical_value": "Metformin",
+      "unit": null,
+      "evidence_id": "d88f9d3a-2816-4e13-aafb-8b2e21a0a34b",
+      "evidence_text": "Metformin 500 mg PO twice daily with meals",
+      "char_start": 1435,
+      "char_end": 1477,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        518.54,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "36bc9e9f-a1fb-495c-a8ab-01f83c095219",
+      "group_id": "NARRATIVE_0013_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Metformin dose: 500 mg",
+      "canonical_value": 500.0,
+      "unit": "mg",
+      "evidence_id": "d88f9d3a-2816-4e13-aafb-8b2e21a0a34b",
+      "evidence_text": "Metformin 500 mg PO twice daily with meals",
+      "char_start": 1435,
+      "char_end": 1477,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        518.54,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2a191f09-6295-4d98-864c-083db038982c",
+      "group_id": "NARRATIVE_0013_narr_med_1",
+      "field_type": "med.route",
+      "value": "Metformin route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "d88f9d3a-2816-4e13-aafb-8b2e21a0a34b",
+      "evidence_text": "Metformin 500 mg PO twice daily with meals",
+      "char_start": 1435,
+      "char_end": 1477,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        518.54,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "56f5f70a-fc3a-444a-95ab-505da45df345",
+      "group_id": "NARRATIVE_0013_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Metformin frequency: twice daily with meals",
+      "canonical_value": "twice daily with meals",
+      "unit": null,
+      "evidence_id": "d88f9d3a-2816-4e13-aafb-8b2e21a0a34b",
+      "evidence_text": "Metformin 500 mg PO twice daily with meals",
+      "char_start": 1435,
+      "char_end": 1477,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        518.54,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1b448658-453b-44f2-81d9-46d56452ddfd",
+      "group_id": "NARRATIVE_0013_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Atorvastatin",
+      "canonical_value": "Atorvastatin",
+      "unit": null,
+      "evidence_id": "cc29f72b-ccff-4909-a122-d00b51675cb9",
+      "evidence_text": "Atorvastatin 80 mg orally every evening",
+      "char_start": 1501,
+      "char_end": 1540,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        526.16,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "cca2e336-8555-4517-a067-77bcad2b1af9",
+      "group_id": "NARRATIVE_0013_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Atorvastatin dose: 80 mg",
+      "canonical_value": 80.0,
+      "unit": "mg",
+      "evidence_id": "cc29f72b-ccff-4909-a122-d00b51675cb9",
+      "evidence_text": "Atorvastatin 80 mg orally every evening",
+      "char_start": 1501,
+      "char_end": 1540,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        526.16,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "02369c02-868c-4585-ba15-b749c130fb48",
+      "group_id": "NARRATIVE_0013_narr_med_2",
+      "field_type": "med.route",
+      "value": "Atorvastatin route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "cc29f72b-ccff-4909-a122-d00b51675cb9",
+      "evidence_text": "Atorvastatin 80 mg orally every evening",
+      "char_start": 1501,
+      "char_end": 1540,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        526.16,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ecfcac21-cf01-4e7d-bd1a-28ef8a5e8ba2",
+      "group_id": "NARRATIVE_0013_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Atorvastatin frequency: every evening",
+      "canonical_value": "every evening",
+      "unit": null,
+      "evidence_id": "cc29f72b-ccff-4909-a122-d00b51675cb9",
+      "evidence_text": "Atorvastatin 80 mg orally every evening",
+      "char_start": 1501,
+      "char_end": 1540,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        526.16,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

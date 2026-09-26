@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clindoc.project/schemas/verification_result.json",
+  "title": "VerificationResult",
+  "description": "Schema for atomic verification results produced by the verification cascade (§10, DEC-018, DEC-019)",
+  "type": "object",
+  "required": [
+    "verification_id",
+    "claim_id",
+    "label",
+    "confidence",
+    "stage_reached",
+    "stage_a_label",
+    "stage_b_label",
+    "stage_b_raw_confidence",
+    "contradiction_type",
+    "normalized_code_agreement",
+    "rationale",
+    "evidence_id",
+    "escalated"
+  ],
+  "properties": {
+    "verification_id": {
+      "type": "string",
+      "description": "Globally unique identifier for this verification verdict (UUID)"
+    },
+    "claim_id": {
+      "type": "string",
+      "description": "Foreign key to the verified Claim"
+    },
+    "label": {
+      "type": "string",
+      "enum": [
+        "SUPPORTED",
+        "DISCREPANCY",
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "description": "Final verification label assigned to the claim"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Final CALIBRATED confidence score in [0, 1] (§17)"
+    },
+    "stage_reached": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C"
+      ],
+      "description": "Final cascade stage that assigned the verdict (A: Deterministic, B: ModernBERT/NLI, C: LLM Judge)"
+    },
+    "stage_a_label": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "SUPPORTED",
+        "DISCREPANCY",
+        "INSUFFICIENT_EVIDENCE",
+        null
+      ],
+      "description": "Verdict from Stage A deterministic rules; null if Stage A not applicable"
+    },
+    "stage_b_label": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "SUPPORTED",
+        "DISCREPANCY",
+        "INSUFFICIENT_EVIDENCE",
+        null
+      ],
+      "description": "Verdict from Stage B learned NLI classifier; null if bypassed or not reached"
+    },
+    "stage_b_raw_confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Uncalibrated raw softmax probability from Stage B classifier"
+    },
+    "contradiction_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "unit_mismatch",
+        "value_mismatch",
+        "dose_mismatch",
+        "negation_mismatch",
+        "temporal_mismatch",
+        "wrong_entity",
+        "code_mismatch",
+        null
+      ],
+      "description": "Specific discrepancy taxonomy (§20.1); required when label is DISCREPANCY, null otherwise"
+    },
+    "normalized_code_agreement": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "True if claim code matches evidence code; null if either lacks a resolvable standard code"
+    },
+    "rationale": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Natural language justification from LLM Judge; populated ONLY when stage_reached is C"
+    },
+    "evidence_id": {
+      "type": "string",
+      "description": "Foreign key to Evidence; must match claim.evidence_id"
+    },
+    "escalated": {
+      "type": "boolean",
+      "description": "True if Stage B escalated this claim to Stage C (due to disagreement or low confidence)"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+# Canonical 3-Way CV Split Configuration (Phase 1 Task 4, AUDIT-05)
+# Status: IMPLEMENTATION DEFAULT (Configurable)
+# Description: Defines split proportions and seed for partitioning the 86-document CV pool
+# into Train, Calibration, and Validation sets while keeping the 34-document OOD pool held out.
+
+split_policy:
+  version: "1.0-canonical-3way"
+  status: "IMPLEMENTATION_DEFAULT"
+  notes: >
+    Per AUDIT-05 and Phase 0 resolution, the 86-document CV pool is divided into
+    ~60% Train, ~20% Calibration, and ~20% Validation. The 34-document OOD pool
+    is architecturally locked and held out completely.
+
+proportions:
+  train: 0.60
+  calibration: 0.20
+  validation: 0.20
+
+random_seed: 42
+
+cv_pool:
+  total_documents: 86
+  expected_train_documents: 52
+  expected_calibration_documents: 17
+  expected_validation_documents: 17
+
+ood_pool:
+  total_documents: 34
+  status: "LOCKED_IMMUTABLE"
+  composition:
+    lab: 17
+    medication: 12
+    narrative: 5
+
+stratification:
+  unit: "document"
+  patient_grouped: true
+  template_stratified: true
+  narrative_per_split_target:
+    train: 3
+    calibration: 1
+    validation: 1

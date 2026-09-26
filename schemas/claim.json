@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clindoc.project/schemas/claim.json",
+  "title": "Claim",
+  "description": "Schema for an atomic extracted clinical claim (§8, DEC-015, DEC-017)",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "document_id",
+    "group_id",
+    "field_type",
+    "value",
+    "value_numeric",
+    "unit_raw",
+    "extraction_method",
+    "extraction_confidence",
+    "evidence_id",
+    "normalized_code",
+    "code_system",
+    "code_confidence",
+    "negated",
+    "temporal_status",
+    "region_id"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "description": "Globally unique identifier for the claim (UUID)"
+    },
+    "document_id": {
+      "type": "string",
+      "description": "Identifier of the source document"
+    },
+    "group_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Links atomic claims belonging to the same clinical entity instance (e.g. multi-order medication line, lab test row; DEC-015)"
+    },
+    "field_type": {
+      "type": "string",
+      "enum": [
+        "lab.value",
+        "lab.unit",
+        "lab.flag",
+        "lab.reference_range",
+        "lab.test_name",
+        "med.name",
+        "med.dose",
+        "med.route",
+        "med.frequency",
+        "med.duration"
+      ],
+      "description": "Canonical 10-field controlled vocabulary (§8.2, DEC-017)"
+    },
+    "value": {
+      "type": "string",
+      "description": "Extracted raw value as string"
+    },
+    "value_numeric": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Parsed numeric value if field_type is numeric (lab.value, med.dose), else null"
+    },
+    "unit_raw": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Unnormalized unit string from source text"
+    },
+    "extraction_method": {
+      "type": "string",
+      "enum": [
+        "deterministic",
+        "gliner",
+        "llm_narrative"
+      ],
+      "description": "Pipeline method that extracted the claim"
+    },
+    "extraction_confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Extraction confidence score in [0, 1]"
+    },
+    "evidence_id": {
+      "type": "string",
+      "description": "Foreign key into Evidence store (§9)"
+    },
+    "normalized_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Standardized clinical code (LOINC, RxNorm, UCUM), or null if unnormalized/below threshold"
+    },
+    "code_system": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "LOINC",
+        "RxNorm",
+        "UCUM",
+        null
+      ],
+      "description": "Standard coding system or null"
+    },
+    "code_confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Confidence of terminology retrieval/normalization match in [0, 1]"
+    },
+    "negated": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if finding or medication is negated in clinical context"
+    },
+    "temporal_status": {
+      "type": "string",
+      "enum": [
+        "current",
+        "historical",
+        "discontinued",
+        "planned",
+        "unspecified"
+      ],
+      "description": "Clinical temporal qualification"
+    },
+    "region_id": {
+      "type": "string",
+      "description": "Links back to originating RoutingDecision.region_id"
+    }
+  },
+  "additionalProperties": false
+}

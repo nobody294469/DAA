@@ -7,8 +7,8 @@ from typing import Any
 
 from clindoc.m2.schema import M2Example, M2EvalResult, PerClassMetrics, LABEL_ORDER
 from clindoc.m2.metrics import (
-    per_class_metrics, macro_f1 as _macro_f1, discrepancy_recall as _disc_recall,
-    auroc_binary, brier_score, ece, _confusion,
+    per_class_metrics, macro_f1 as _macro_f1, slice_macro_f1 as _slice_macro_f1,
+    discrepancy_recall as _disc_recall, auroc_binary, brier_score, ece, _confusion,
 )
 
 LABEL_TO_INT = {l: i for i, l in enumerate(LABEL_ORDER)}
@@ -39,7 +39,7 @@ def _build_eval_result(
         ece_val = ece(y_true, y_probs)
 
     # Breakdowns
-    def _breakdown(key_fn):
+    def _breakdown(key_fn, metric_fn=_macro_f1):
         groups: dict[str, tuple[list[int], list[int]]] = {}
         for ex, yt, yp in zip(examples, y_true, y_pred):
             k = key_fn(ex)
@@ -47,7 +47,7 @@ def _build_eval_result(
                 groups[k] = ([], [])
             groups[k][0].append(yt)
             groups[k][1].append(yp)
-        return {k: {"macro_f1": round(_macro_f1(v[0], v[1]), 4), "n": len(v[0])} for k, v in groups.items()}
+        return {k: {"macro_f1": round(metric_fn(v[0], v[1]), 4), "n": len(v[0])} for k, v in groups.items()}
 
     return M2EvalResult(
         model_name=model_name,
@@ -62,7 +62,7 @@ def _build_eval_result(
         brier_score=bs,
         ece=ece_val,
         by_severity=_breakdown(lambda e: e.severity),
-        by_field_type=_breakdown(lambda e: e.field_type),
+        by_field_type=_breakdown(lambda e: e.field_type, metric_fn=_slice_macro_f1),
         by_claim_type=_breakdown(lambda e: e.claim_type),
     )
 

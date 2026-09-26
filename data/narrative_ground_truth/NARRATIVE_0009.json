@@ -1,0 +1,647 @@
+{
+  "doc_id": "NARRATIVE_0009",
+  "template_id": "narrative_emergency_observation_note_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60009",
+    "name": "Richard Martinez",
+    "dob": "1955-05-17",
+    "gender": "M"
+  },
+  "facility_name": "Memorial General Hospital - Department of Inpatient Medicine",
+  "attending_physician": "Dr. Robert Evans, MD",
+  "admission_date": "2025-04-06",
+  "discharge_date": "2025-04-09",
+  "sections": [
+    {
+      "title": "EMERGENCY DEPARTMENT PRESENTATION",
+      "text": "Patient Richard Martinez was triaged in the emergency department following acute onset of lightheadedness and palpitations earlier this morning. Initial hemodynamic parameters were reviewed and patient was placed on telemetry."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient describes experiencing recurrent lightheadedness over the preceding 48 hours without syncope. Initial emergency workup revealed that initial platelet count was measured at 245.4 10*3/uL. Point-of-care laboratory screening additionally noted sodium resulted at 129.8 mmol/L (LOW). Given these findings, the patient was transitioned to the Clinical Decision Unit for 24-hour observation."
+    },
+    {
+      "title": "OBSERVATION UNIT CLINICAL COURSE",
+      "text": "Throughout the observation unit stay, continuous telemetry showed normal sinus rhythm without pause or tachyarrhythmia. The patient was administered Omeprazole at a dose of 20 mg oral once daily before breakfast for 14 days, which promptly alleviated acute symptoms. Follow-up protocol monitoring of glucose demonstrated 88.1 mg/dL. Orthostatic blood pressures were negative upon ambulation."
+    },
+    {
+      "title": "DISCHARGE REGIMEN",
+      "text": "Patient was deemed safe for outpatient discharge. The ongoing regimen includes Cephalexin 500 mg by mouth QID for 10 days as prescribed. Prescription counseling was performed by nursing prior to release."
+    },
+    {
+      "title": "PLAN & PRECAUTIONS",
+      "text": "Resume normal daily activities as tolerated. Avoid strenuous exercise until cardiology follow-up in 1 to 2 weeks. Immediate emergency precautions detailed."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0009_narr_lab_0",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 245.4,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "NORMAL",
+      "evidence_text": "initial platelet count was measured at 245.4 10*3/uL",
+      "char_start": 754,
+      "char_end": 806,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0009_narr_lab_1",
+      "test_name": "Sodium",
+      "loinc_code": "2951-2",
+      "value": 129.8,
+      "unit": "mmol/L",
+      "ref_range_low": 135.0,
+      "ref_range_high": 145.0,
+      "ref_range_text": "135.0 - 145.0",
+      "flag": "LOW",
+      "evidence_text": "sodium resulted at 129.8 mmol/L (LOW)",
+      "char_start": 862,
+      "char_end": 899,
+      "bbox": [
+        46.0,
+        225.54,
+        562.92,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0009_narr_lab_2",
+      "test_name": "Glucose",
+      "loinc_code": "2345-7",
+      "value": 88.1,
+      "unit": "mg/dL",
+      "ref_range_low": 70.0,
+      "ref_range_high": 99.0,
+      "ref_range_text": "70.0 - 99.0",
+      "flag": "NORMAL",
+      "evidence_text": "monitoring of glucose demonstrated 88.1 mg/dL",
+      "char_start": 1326,
+      "char_end": 1371,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0009_narr_med_0",
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "once daily before breakfast",
+      "duration": "for 14 days",
+      "sig_text": "Omeprazole at a dose of 20 mg oral once daily before breakfast for 14 days",
+      "evidence_text": "Omeprazole at a dose of 20 mg oral once daily before breakfast for 14 days",
+      "char_start": 1189,
+      "char_end": 1263,
+      "bbox": [
+        46.0,
+        301.04,
+        559.23,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0009_narr_med_1",
+      "medication_name": "Cephalexin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "route": "by mouth",
+      "frequency": "QID",
+      "duration": "for 10 days",
+      "sig_text": "Cephalexin 500 mg by mouth QID for 10 days",
+      "evidence_text": "Cephalexin 500 mg by mouth QID for 10\ndays",
+      "char_start": 1529,
+      "char_end": 1571,
+      "bbox": [
+        46.0,
+        376.54,
+        559.78,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "fd81348b-4885-4455-948a-b8b2a39cee2f",
+      "group_id": "NARRATIVE_0009_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 245.4 10*3/uL",
+      "canonical_value": 245.4,
+      "unit": "10*3/uL",
+      "evidence_id": "4ac66872-d4a4-4a83-81f6-87f798967c32",
+      "evidence_text": "initial platelet count was measured at 245.4 10*3/uL",
+      "char_start": 754,
+      "char_end": 806,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "77a21f55-419b-466d-bb6a-3bc24ef8fdd0",
+      "group_id": "NARRATIVE_0009_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "4ac66872-d4a4-4a83-81f6-87f798967c32",
+      "evidence_text": "initial platelet count was measured at 245.4 10*3/uL",
+      "char_start": 754,
+      "char_end": 806,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6977b9c4-c581-49f0-94f1-3ff161341b19",
+      "group_id": "NARRATIVE_0009_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "4ac66872-d4a4-4a83-81f6-87f798967c32",
+      "evidence_text": "initial platelet count was measured at 245.4 10*3/uL",
+      "char_start": 754,
+      "char_end": 806,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3766278b-c2d0-47a3-8d05-9e9fded358c9",
+      "group_id": "NARRATIVE_0009_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "4ac66872-d4a4-4a83-81f6-87f798967c32",
+      "evidence_text": "initial platelet count was measured at 245.4 10*3/uL",
+      "char_start": 754,
+      "char_end": 806,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "41cdae68-e4ce-4afe-b1f9-feebe84dbac3",
+      "group_id": "NARRATIVE_0009_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "4ac66872-d4a4-4a83-81f6-87f798967c32",
+      "evidence_text": "initial platelet count was measured at 245.4 10*3/uL",
+      "char_start": 754,
+      "char_end": 806,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0bb4237e-2e76-46a0-9f9f-c999d42b1d0a",
+      "group_id": "NARRATIVE_0009_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Sodium: 129.8 mmol/L",
+      "canonical_value": 129.8,
+      "unit": "mmol/L",
+      "evidence_id": "aa87bdd1-6072-4807-b944-69189c84fcb2",
+      "evidence_text": "sodium resulted at 129.8 mmol/L (LOW)",
+      "char_start": 862,
+      "char_end": 899,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.92,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "962621a2-b8c9-489d-b0ca-13685de41756",
+      "group_id": "NARRATIVE_0009_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Sodium flag: LOW",
+      "canonical_value": "LOW",
+      "unit": null,
+      "evidence_id": "aa87bdd1-6072-4807-b944-69189c84fcb2",
+      "evidence_text": "sodium resulted at 129.8 mmol/L (LOW)",
+      "char_start": 862,
+      "char_end": 899,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.92,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1619c3b3-c8ac-4ab4-9cb6-dd6545f034e1",
+      "group_id": "NARRATIVE_0009_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "aa87bdd1-6072-4807-b944-69189c84fcb2",
+      "evidence_text": "sodium resulted at 129.8 mmol/L (LOW)",
+      "char_start": 862,
+      "char_end": 899,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.92,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "dc1627dd-5d16-4b50-b7e7-36585f43af06",
+      "group_id": "NARRATIVE_0009_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "135.0 - 145.0",
+      "canonical_value": "135.0 - 145.0",
+      "unit": null,
+      "evidence_id": "aa87bdd1-6072-4807-b944-69189c84fcb2",
+      "evidence_text": "sodium resulted at 129.8 mmol/L (LOW)",
+      "char_start": 862,
+      "char_end": 899,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.92,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7759602d-1cf7-4546-9890-0a7c6f59caca",
+      "group_id": "NARRATIVE_0009_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Sodium",
+      "canonical_value": "Sodium",
+      "unit": null,
+      "evidence_id": "aa87bdd1-6072-4807-b944-69189c84fcb2",
+      "evidence_text": "sodium resulted at 129.8 mmol/L (LOW)",
+      "char_start": 862,
+      "char_end": 899,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        562.92,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "dbcf5e2f-6518-4dd5-9ce4-5cc2ee4b0d92",
+      "group_id": "NARRATIVE_0009_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Glucose: 88.1 mg/dL",
+      "canonical_value": 88.1,
+      "unit": "mg/dL",
+      "evidence_id": "e8a34663-8afc-4b85-80cf-991d27b12e30",
+      "evidence_text": "monitoring of glucose demonstrated 88.1 mg/dL",
+      "char_start": 1326,
+      "char_end": 1371,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "dddba287-babe-4543-9d9c-93432f059886",
+      "group_id": "NARRATIVE_0009_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Glucose flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "e8a34663-8afc-4b85-80cf-991d27b12e30",
+      "evidence_text": "monitoring of glucose demonstrated 88.1 mg/dL",
+      "char_start": 1326,
+      "char_end": 1371,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "305ffc88-e657-4014-91c5-00c3f111ca7e",
+      "group_id": "NARRATIVE_0009_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "e8a34663-8afc-4b85-80cf-991d27b12e30",
+      "evidence_text": "monitoring of glucose demonstrated 88.1 mg/dL",
+      "char_start": 1326,
+      "char_end": 1371,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3bc172d1-1a28-4fd3-9917-53db2e198c77",
+      "group_id": "NARRATIVE_0009_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "70.0 - 99.0",
+      "canonical_value": "70.0 - 99.0",
+      "unit": null,
+      "evidence_id": "e8a34663-8afc-4b85-80cf-991d27b12e30",
+      "evidence_text": "monitoring of glucose demonstrated 88.1 mg/dL",
+      "char_start": 1326,
+      "char_end": 1371,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2ff000d4-6a2f-4cbe-a8fa-a9eda5464df6",
+      "group_id": "NARRATIVE_0009_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "canonical_value": "Glucose",
+      "unit": null,
+      "evidence_id": "e8a34663-8afc-4b85-80cf-991d27b12e30",
+      "evidence_text": "monitoring of glucose demonstrated 88.1 mg/dL",
+      "char_start": 1326,
+      "char_end": 1371,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d2a0d1dd-9e7e-4be7-8593-a4e7a1c18850",
+      "group_id": "NARRATIVE_0009_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Omeprazole",
+      "canonical_value": "Omeprazole",
+      "unit": null,
+      "evidence_id": "94dc3097-b462-447c-90fb-a8dfe53b0c21",
+      "evidence_text": "Omeprazole at a dose of 20 mg oral once daily before breakfast for 14 days",
+      "char_start": 1189,
+      "char_end": 1263,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.23,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "27d29001-578d-4589-8a6f-f71f54dc3595",
+      "group_id": "NARRATIVE_0009_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Omeprazole dose: 20 mg",
+      "canonical_value": 20.0,
+      "unit": "mg",
+      "evidence_id": "94dc3097-b462-447c-90fb-a8dfe53b0c21",
+      "evidence_text": "Omeprazole at a dose of 20 mg oral once daily before breakfast for 14 days",
+      "char_start": 1189,
+      "char_end": 1263,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.23,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2ffa5531-a728-4de3-b848-26ea80734342",
+      "group_id": "NARRATIVE_0009_narr_med_0",
+      "field_type": "med.route",
+      "value": "Omeprazole route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "94dc3097-b462-447c-90fb-a8dfe53b0c21",
+      "evidence_text": "Omeprazole at a dose of 20 mg oral once daily before breakfast for 14 days",
+      "char_start": 1189,
+      "char_end": 1263,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.23,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "74c8aec5-cff7-4691-897b-d78f006ca17e",
+      "group_id": "NARRATIVE_0009_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Omeprazole frequency: once daily before breakfast",
+      "canonical_value": "once daily before breakfast",
+      "unit": null,
+      "evidence_id": "94dc3097-b462-447c-90fb-a8dfe53b0c21",
+      "evidence_text": "Omeprazole at a dose of 20 mg oral once daily before breakfast for 14 days",
+      "char_start": 1189,
+      "char_end": 1263,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.23,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "101d2ed0-f79b-4dc5-b836-c19376ee1682",
+      "group_id": "NARRATIVE_0009_narr_med_0",
+      "field_type": "med.duration",
+      "value": "for 14 days",
+      "canonical_value": "for 14 days",
+      "unit": null,
+      "evidence_id": "94dc3097-b462-447c-90fb-a8dfe53b0c21",
+      "evidence_text": "Omeprazole at a dose of 20 mg oral once daily before breakfast for 14 days",
+      "char_start": 1189,
+      "char_end": 1263,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.23,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f5dd684b-e3ed-456a-901d-78b86d1e7b9e",
+      "group_id": "NARRATIVE_0009_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Cephalexin",
+      "canonical_value": "Cephalexin",
+      "unit": null,
+      "evidence_id": "e4158a1c-3267-4d53-9a91-b9ae8ea3aa6f",
+      "evidence_text": "Cephalexin 500 mg by mouth QID for 10\ndays",
+      "char_start": 1529,
+      "char_end": 1571,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.78,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "95732785-b9f4-4b49-92a4-b6ef82aad21e",
+      "group_id": "NARRATIVE_0009_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Cephalexin dose: 500 mg",
+      "canonical_value": 500.0,
+      "unit": "mg",
+      "evidence_id": "e4158a1c-3267-4d53-9a91-b9ae8ea3aa6f",
+      "evidence_text": "Cephalexin 500 mg by mouth QID for 10\ndays",
+      "char_start": 1529,
+      "char_end": 1571,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.78,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "dc41d033-54d5-447c-a6e2-9ed4cfc74963",
+      "group_id": "NARRATIVE_0009_narr_med_1",
+      "field_type": "med.route",
+      "value": "Cephalexin route: by mouth",
+      "canonical_value": "by mouth",
+      "unit": null,
+      "evidence_id": "e4158a1c-3267-4d53-9a91-b9ae8ea3aa6f",
+      "evidence_text": "Cephalexin 500 mg by mouth QID for 10\ndays",
+      "char_start": 1529,
+      "char_end": 1571,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.78,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b067e61f-ef11-4d0d-968c-a67d1f6f6748",
+      "group_id": "NARRATIVE_0009_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Cephalexin frequency: QID",
+      "canonical_value": "QID",
+      "unit": null,
+      "evidence_id": "e4158a1c-3267-4d53-9a91-b9ae8ea3aa6f",
+      "evidence_text": "Cephalexin 500 mg by mouth QID for 10\ndays",
+      "char_start": 1529,
+      "char_end": 1571,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.78,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "29a55521-a187-4cf9-a774-7ddfe3b6d231",
+      "group_id": "NARRATIVE_0009_narr_med_1",
+      "field_type": "med.duration",
+      "value": "for 10 days",
+      "canonical_value": "for 10 days",
+      "unit": null,
+      "evidence_id": "e4158a1c-3267-4d53-9a91-b9ae8ea3aa6f",
+      "evidence_text": "Cephalexin 500 mg by mouth QID for 10\ndays",
+      "char_start": 1529,
+      "char_end": 1571,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.78,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

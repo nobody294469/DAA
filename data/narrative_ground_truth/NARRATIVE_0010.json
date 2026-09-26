@@ -1,0 +1,627 @@
+{
+  "doc_id": "NARRATIVE_0010",
+  "template_id": "narrative_emergency_observation_note_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60010",
+    "name": "Elizabeth Rodriguez",
+    "dob": "1978-10-25",
+    "gender": "F"
+  },
+  "facility_name": "Metro Health Medical Center - Acute Care Pavilion",
+  "attending_physician": "Dr. Sarah Jenkins, MD",
+  "admission_date": "2025-04-14",
+  "discharge_date": "2025-04-19",
+  "sections": [
+    {
+      "title": "EMERGENCY DEPARTMENT PRESENTATION",
+      "text": "Patient Elizabeth Rodriguez was triaged in the emergency department following acute onset of lightheadedness and palpitations earlier this morning. Initial hemodynamic parameters were reviewed and patient was placed on telemetry."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient describes experiencing recurrent lightheadedness over the preceding 48 hours without syncope. Initial emergency workup revealed that initial platelet count was measured at 245 10*3/uL. Point-of-care laboratory screening additionally noted white blood cell count resulted at 14.7 10*3/uL (HIGH). Given these findings, the patient was transitioned to the Clinical Decision Unit for 24-hour observation."
+    },
+    {
+      "title": "OBSERVATION UNIT CLINICAL COURSE",
+      "text": "Throughout the observation unit stay, continuous telemetry showed normal sinus rhythm without pause or tachyarrhythmia. The patient was administered Amlodipine at a dose of 2.5 mg orally once daily, which promptly alleviated acute symptoms. Follow-up protocol monitoring of calcium demonstrated 7.65 mg/dL (LOW). Orthostatic blood pressures were negative upon ambulation."
+    },
+    {
+      "title": "DISCHARGE REGIMEN",
+      "text": "Patient was deemed safe for outpatient discharge. The ongoing regimen includes Omeprazole 40 mg PO once daily in the morning for 14 days as prescribed. Prescription counseling was performed by nursing prior to release."
+    },
+    {
+      "title": "PLAN & PRECAUTIONS",
+      "text": "Resume normal daily activities as tolerated. Avoid strenuous exercise until cardiology follow-up in 1 to 2 weeks. Immediate emergency precautions detailed."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0010_narr_lab_0",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 245.0,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "NORMAL",
+      "evidence_text": "initial platelet count was measured at 245 10*3/uL",
+      "char_start": 752,
+      "char_end": 802,
+      "bbox": [
+        46.0,
+        212.04,
+        544.45,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0010_narr_lab_1",
+      "test_name": "White Blood Cell Count",
+      "loinc_code": "6690-2",
+      "value": 14.7,
+      "unit": "10*3/uL",
+      "ref_range_low": 4.5,
+      "ref_range_high": 11.0,
+      "ref_range_text": "4.5 - 11.0",
+      "flag": "HIGH",
+      "evidence_text": "white blood cell count resulted at 14.7 10*3/uL (HIGH)",
+      "char_start": 858,
+      "char_end": 912,
+      "bbox": [
+        46.0,
+        225.54,
+        561.9,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0010_narr_lab_2",
+      "test_name": "Calcium",
+      "loinc_code": "17861-6",
+      "value": 7.65,
+      "unit": "mg/dL",
+      "ref_range_low": 8.5,
+      "ref_range_high": 10.2,
+      "ref_range_text": "8.5 - 10.2",
+      "flag": "LOW",
+      "evidence_text": "monitoring of calcium demonstrated 7.65 mg/dL (LOW)",
+      "char_start": 1313,
+      "char_end": 1364,
+      "bbox": [
+        46.0,
+        314.54,
+        564.48,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0010_narr_med_0",
+      "medication_name": "Amlodipine",
+      "dose": 2.5,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "once daily",
+      "duration": null,
+      "sig_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1202,
+      "char_end": 1250,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0010_narr_med_1",
+      "medication_name": "Omeprazole",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "once daily in the morning",
+      "duration": "for 14 days",
+      "sig_text": "Omeprazole 40 mg PO once daily in the morning for 14 days",
+      "evidence_text": "Omeprazole 40 mg PO once daily in the\nmorning for 14 days",
+      "char_start": 1522,
+      "char_end": 1579,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "ef5782bf-ade5-412c-abba-0a9571f5aad1",
+      "group_id": "NARRATIVE_0010_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 245 10*3/uL",
+      "canonical_value": 245.0,
+      "unit": "10*3/uL",
+      "evidence_id": "3c6f63d9-9e15-49a8-b27f-787fb6b75a29",
+      "evidence_text": "initial platelet count was measured at 245 10*3/uL",
+      "char_start": 752,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        544.45,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9afac9ce-7ec2-4708-a25c-c86db712e743",
+      "group_id": "NARRATIVE_0010_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "3c6f63d9-9e15-49a8-b27f-787fb6b75a29",
+      "evidence_text": "initial platelet count was measured at 245 10*3/uL",
+      "char_start": 752,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        544.45,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "12dd4606-b393-4286-a690-f07df4a3527d",
+      "group_id": "NARRATIVE_0010_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "3c6f63d9-9e15-49a8-b27f-787fb6b75a29",
+      "evidence_text": "initial platelet count was measured at 245 10*3/uL",
+      "char_start": 752,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        544.45,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d704ed33-a0b7-44b0-b218-6b502edcf1e8",
+      "group_id": "NARRATIVE_0010_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "3c6f63d9-9e15-49a8-b27f-787fb6b75a29",
+      "evidence_text": "initial platelet count was measured at 245 10*3/uL",
+      "char_start": 752,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        544.45,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5ef4c6d2-03c2-473e-841f-52e2b48efbff",
+      "group_id": "NARRATIVE_0010_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "3c6f63d9-9e15-49a8-b27f-787fb6b75a29",
+      "evidence_text": "initial platelet count was measured at 245 10*3/uL",
+      "char_start": 752,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        544.45,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9565470e-050e-4bea-8ad8-ec01dbc7a914",
+      "group_id": "NARRATIVE_0010_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "White Blood Cell Count: 14.7 10*3/uL",
+      "canonical_value": 14.7,
+      "unit": "10*3/uL",
+      "evidence_id": "0c5899d6-9492-49b3-822f-70f379aca041",
+      "evidence_text": "white blood cell count resulted at 14.7 10*3/uL (HIGH)",
+      "char_start": 858,
+      "char_end": 912,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.9,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1c424a8d-7d80-4b26-a6ec-d55b15828d2b",
+      "group_id": "NARRATIVE_0010_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "White Blood Cell Count flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "0c5899d6-9492-49b3-822f-70f379aca041",
+      "evidence_text": "white blood cell count resulted at 14.7 10*3/uL (HIGH)",
+      "char_start": 858,
+      "char_end": 912,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.9,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "948aa5ce-c46f-48ce-81e0-10e918336e5c",
+      "group_id": "NARRATIVE_0010_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "0c5899d6-9492-49b3-822f-70f379aca041",
+      "evidence_text": "white blood cell count resulted at 14.7 10*3/uL (HIGH)",
+      "char_start": 858,
+      "char_end": 912,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.9,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ec7e7281-8119-481e-99b1-bce42840a82e",
+      "group_id": "NARRATIVE_0010_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "4.5 - 11.0",
+      "canonical_value": "4.5 - 11.0",
+      "unit": null,
+      "evidence_id": "0c5899d6-9492-49b3-822f-70f379aca041",
+      "evidence_text": "white blood cell count resulted at 14.7 10*3/uL (HIGH)",
+      "char_start": 858,
+      "char_end": 912,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.9,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b75ba494-2535-43b6-9c75-bd232de136b8",
+      "group_id": "NARRATIVE_0010_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "canonical_value": "White Blood Cell Count",
+      "unit": null,
+      "evidence_id": "0c5899d6-9492-49b3-822f-70f379aca041",
+      "evidence_text": "white blood cell count resulted at 14.7 10*3/uL (HIGH)",
+      "char_start": 858,
+      "char_end": 912,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        561.9,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "209a4c36-41bf-44da-9e97-1abbf4262194",
+      "group_id": "NARRATIVE_0010_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Calcium: 7.65 mg/dL",
+      "canonical_value": 7.65,
+      "unit": "mg/dL",
+      "evidence_id": "e88aae6d-fab8-4164-8e34-c38855f1f410",
+      "evidence_text": "monitoring of calcium demonstrated 7.65 mg/dL (LOW)",
+      "char_start": 1313,
+      "char_end": 1364,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        564.48,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "bfab0e34-2d04-4f5e-bf62-ef8ee5086406",
+      "group_id": "NARRATIVE_0010_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Calcium flag: LOW",
+      "canonical_value": "LOW",
+      "unit": null,
+      "evidence_id": "e88aae6d-fab8-4164-8e34-c38855f1f410",
+      "evidence_text": "monitoring of calcium demonstrated 7.65 mg/dL (LOW)",
+      "char_start": 1313,
+      "char_end": 1364,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        564.48,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d3be818e-23d7-4530-829e-0d2556d0c126",
+      "group_id": "NARRATIVE_0010_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "e88aae6d-fab8-4164-8e34-c38855f1f410",
+      "evidence_text": "monitoring of calcium demonstrated 7.65 mg/dL (LOW)",
+      "char_start": 1313,
+      "char_end": 1364,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        564.48,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "07e573a3-ea51-4b3a-af11-4d32b59c2391",
+      "group_id": "NARRATIVE_0010_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "8.5 - 10.2",
+      "canonical_value": "8.5 - 10.2",
+      "unit": null,
+      "evidence_id": "e88aae6d-fab8-4164-8e34-c38855f1f410",
+      "evidence_text": "monitoring of calcium demonstrated 7.65 mg/dL (LOW)",
+      "char_start": 1313,
+      "char_end": 1364,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        564.48,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "87a3ec34-6f6d-43bf-81f6-ca88d47dc635",
+      "group_id": "NARRATIVE_0010_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Calcium",
+      "canonical_value": "Calcium",
+      "unit": null,
+      "evidence_id": "e88aae6d-fab8-4164-8e34-c38855f1f410",
+      "evidence_text": "monitoring of calcium demonstrated 7.65 mg/dL (LOW)",
+      "char_start": 1313,
+      "char_end": 1364,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        564.48,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7aaeaa9a-8107-4be0-b65d-ed482cebc563",
+      "group_id": "NARRATIVE_0010_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Amlodipine",
+      "canonical_value": "Amlodipine",
+      "unit": null,
+      "evidence_id": "964e5c01-3754-41cd-91e5-6c9daab46084",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1202,
+      "char_end": 1250,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9d9ae0fa-2b5e-45a4-9667-4def688fb1fd",
+      "group_id": "NARRATIVE_0010_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Amlodipine dose: 2.5 mg",
+      "canonical_value": 2.5,
+      "unit": "mg",
+      "evidence_id": "964e5c01-3754-41cd-91e5-6c9daab46084",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1202,
+      "char_end": 1250,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1a2e21b6-a591-495b-bebf-fd9fcfc105ed",
+      "group_id": "NARRATIVE_0010_narr_med_0",
+      "field_type": "med.route",
+      "value": "Amlodipine route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "964e5c01-3754-41cd-91e5-6c9daab46084",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1202,
+      "char_end": 1250,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fec11bec-6135-4b5d-9cf6-20588f98262d",
+      "group_id": "NARRATIVE_0010_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Amlodipine frequency: once daily",
+      "canonical_value": "once daily",
+      "unit": null,
+      "evidence_id": "964e5c01-3754-41cd-91e5-6c9daab46084",
+      "evidence_text": "Amlodipine at a dose of 2.5 mg orally once daily",
+      "char_start": 1202,
+      "char_end": 1250,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        560.26,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3c9ad92f-430f-45d1-9ac9-49d9583f335f",
+      "group_id": "NARRATIVE_0010_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Omeprazole",
+      "canonical_value": "Omeprazole",
+      "unit": null,
+      "evidence_id": "4ad6f296-8061-45ce-b94b-233513f914e0",
+      "evidence_text": "Omeprazole 40 mg PO once daily in the\nmorning for 14 days",
+      "char_start": 1522,
+      "char_end": 1579,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2b26339b-4d45-486d-8422-f5b074af2bdd",
+      "group_id": "NARRATIVE_0010_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Omeprazole dose: 40 mg",
+      "canonical_value": 40.0,
+      "unit": "mg",
+      "evidence_id": "4ad6f296-8061-45ce-b94b-233513f914e0",
+      "evidence_text": "Omeprazole 40 mg PO once daily in the\nmorning for 14 days",
+      "char_start": 1522,
+      "char_end": 1579,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "12028534-3b63-4e12-9661-8636b8c7dc5e",
+      "group_id": "NARRATIVE_0010_narr_med_1",
+      "field_type": "med.route",
+      "value": "Omeprazole route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "4ad6f296-8061-45ce-b94b-233513f914e0",
+      "evidence_text": "Omeprazole 40 mg PO once daily in the\nmorning for 14 days",
+      "char_start": 1522,
+      "char_end": 1579,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "98c15e61-8507-4002-8dc0-cf73370ef772",
+      "group_id": "NARRATIVE_0010_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Omeprazole frequency: once daily in the morning",
+      "canonical_value": "once daily in the morning",
+      "unit": null,
+      "evidence_id": "4ad6f296-8061-45ce-b94b-233513f914e0",
+      "evidence_text": "Omeprazole 40 mg PO once daily in the\nmorning for 14 days",
+      "char_start": 1522,
+      "char_end": 1579,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e6781327-83fb-4193-99db-a6717434f1d4",
+      "group_id": "NARRATIVE_0010_narr_med_1",
+      "field_type": "med.duration",
+      "value": "for 14 days",
+      "canonical_value": "for 14 days",
+      "unit": null,
+      "evidence_id": "4ad6f296-8061-45ce-b94b-233513f914e0",
+      "evidence_text": "Omeprazole 40 mg PO once daily in the\nmorning for 14 days",
+      "char_start": 1522,
+      "char_end": 1579,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "total_errors": 0,
+  "total_examples": 752,
+  "error_rate": 0.0,
+  "by_severity": {
+    "clean": {
+      "correct": 664,
+      "total": 664,
+      "error_types": {}
+    },
+    "high": {
+      "correct": 47,
+      "total": 47,
+      "error_types": {}
+    },
+    "medium": {
+      "correct": 25,
+      "total": 25,
+      "error_types": {}
+    },
+    "low": {
+      "correct": 16,
+      "total": 16,
+      "error_types": {}
+    }
+  },
+  "by_field_type": {
+    "lab.unit": {
+      "correct": 176,
+      "total": 176,
+      "error_types": {}
+    },
+    "lab.value": {
+      "correct": 220,
+      "total": 220,
+      "error_types": {}
+    },
+    "med.frequency": {
+      "correct": 34,
+      "total": 34,
+      "error_types": {}
+    },
+    "med.dose": {
+      "correct": 53,
+      "total": 53,
+      "error_types": {}
+    },
+    "lab.flag": {
+      "correct": 176,
+      "total": 176,
+      "error_types": {}
+    },
+    "med.route": {
+      "correct": 34,
+      "total": 34,
+      "error_types": {}
+    },
+    "med.dose_unit": {
+      "correct": 17,
+      "total": 17,
+      "error_types": {}
+    },
+    "med.name": {
+      "correct": 42,
+      "total": 42,
+      "error_types": {}
+    }
+  },
+  "by_claim_type": {
+    "lab": {
+      "correct": 572,
+      "total": 572,
+      "error_types": {}
+    },
+    "med": {
+      "correct": 180,
+      "total": 180,
+      "error_types": {}
+    }
+  },
+  "by_doc_template": {
+    "template_b": {
+      "correct": 391,
+      "total": 391,
+      "error_types": {}
+    },
+    "template_a": {
+      "correct": 181,
+      "total": 181,
+      "error_types": {}
+    },
+    "discharge_summary": {
+      "correct": 169,
+      "total": 169,
+      "error_types": {}
+    },
+    "clinic_rx_pad": {
+      "correct": 11,
+      "total": 11,
+      "error_types": {}
+    }
+  },
+  "failure_examples": []
+}

@@ -1,0 +1,707 @@
+{
+  "doc_id": "NARRATIVE_0004",
+  "template_id": "narrative_inpatient_discharge_summary_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60004",
+    "name": "Patricia Williams",
+    "dob": "1980-02-19",
+    "gender": "F"
+  },
+  "facility_name": "Valley Regional Hospital - Department of Clinical Services",
+  "attending_physician": "Dr. Marcus Vance, DO",
+  "admission_date": "2025-02-25",
+  "discharge_date": "2025-02-27",
+  "sections": [
+    {
+      "title": "CHIEF COMPLAINT",
+      "text": "The patient presented with epigastric abdominal pain, nausea, and poor oral intake."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient is a 78-year-old female with a medical history pertinent for hypertension and dyslipidemia who presented for evaluation of epigastric abdominal pain, nausea, and poor oral intake. Symptoms began approximately four days prior to admission and escalated in severity. On presentation to the emergency department, initial diagnostic evaluation demonstrated that sodium was 140.2 mmol/L. Concurrently, serum chemistry was notable for a glucose of 87.8 mg/dL. Vital signs upon arrival were stable, and the patient was admitted to the inpatient general medicine service."
+    },
+    {
+      "title": "HOSPITAL COURSE",
+      "text": "During the hospital course, the inpatient team initiated targeted management. The patient received Amlodipine 2.5 mg by mouth once daily with good clinical tolerance. Serial assessments revealed gradual resolution of presenting symptoms. Prior to planned discharge, repeat laboratory testing confirmed that bun stabilized at 13.7 mg/dL. The patient was ambulating without assistance and tolerating a regular diet."
+    },
+    {
+      "title": "DISCHARGE MEDICATIONS",
+      "text": "The patient was discharged home in stable clinical condition with instructions to take Lisinopril 40 mg PO every morning, and Atorvastatin 10 mg orally once daily at bedtime. Medication reconciliation was completed and all questions regarding dosing schedules were answered."
+    },
+    {
+      "title": "DISCHARGE INSTRUCTIONS & FOLLOW-UP",
+      "text": "The patient was advised to follow up with their primary care physician within 7 to 10 days. Return precautions for chest pain, recurrent shortness of breath, or fever were provided and understood."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0004_narr_lab_0",
+      "test_name": "Sodium",
+      "loinc_code": "2951-2",
+      "value": 140.2,
+      "unit": "mmol/L",
+      "ref_range_low": 135.0,
+      "ref_range_high": 145.0,
+      "ref_range_text": "135.0 - 145.0",
+      "flag": "NORMAL",
+      "evidence_text": "sodium was 140.2 mmol/L",
+      "char_start": 820,
+      "char_end": 843,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0004_narr_lab_1",
+      "test_name": "Glucose",
+      "loinc_code": "2345-7",
+      "value": 87.8,
+      "unit": "mg/dL",
+      "ref_range_low": 70.0,
+      "ref_range_high": 99.0,
+      "ref_range_text": "70.0 - 99.0",
+      "flag": "NORMAL",
+      "evidence_text": "glucose of 87.8 mg/dL",
+      "char_start": 893,
+      "char_end": 914,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0004_narr_lab_2",
+      "test_name": "BUN",
+      "loinc_code": "3094-0",
+      "value": 13.7,
+      "unit": "mg/dL",
+      "ref_range_low": 7.0,
+      "ref_range_high": 20.0,
+      "ref_range_text": "7.0 - 20.0",
+      "flag": "NORMAL",
+      "evidence_text": "bun stabilized at 13.7 mg/dL",
+      "char_start": 1349,
+      "char_end": 1377,
+      "bbox": [
+        46.0,
+        314.54,
+        547.65,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0004_narr_med_0",
+      "medication_name": "Amlodipine",
+      "dose": 2.5,
+      "dose_unit": "mg",
+      "route": "by mouth",
+      "frequency": "once daily",
+      "duration": null,
+      "sig_text": "Amlodipine 2.5 mg by mouth once daily",
+      "evidence_text": "Amlodipine 2.5 mg by\nmouth once daily",
+      "char_start": 1141,
+      "char_end": 1178,
+      "bbox": [
+        46.0,
+        287.54,
+        566.0,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0004_narr_med_1",
+      "medication_name": "Lisinopril",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": null,
+      "sig_text": "Lisinopril 40 mg PO every morning",
+      "evidence_text": "Lisinopril 40 mg PO every morning",
+      "char_start": 1565,
+      "char_end": 1598,
+      "bbox": [
+        46.0,
+        376.54,
+        550.75,
+        389.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0004_narr_med_2",
+      "medication_name": "Atorvastatin",
+      "dose": 10.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "once daily at bedtime",
+      "duration": null,
+      "sig_text": "Atorvastatin 10 mg orally once daily at bedtime",
+      "evidence_text": "Atorvastatin 10 mg orally once daily at bedtime",
+      "char_start": 1604,
+      "char_end": 1651,
+      "bbox": [
+        46.0,
+        390.04,
+        553.41,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "08956056-2d7c-4497-9bfb-9bb26507ae57",
+      "group_id": "NARRATIVE_0004_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Sodium: 140.2 mmol/L",
+      "canonical_value": 140.2,
+      "unit": "mmol/L",
+      "evidence_id": "73275c30-b756-4618-88ed-cbdb1921b934",
+      "evidence_text": "sodium was 140.2 mmol/L",
+      "char_start": 820,
+      "char_end": 843,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "bad76d0b-7354-4e03-a0c4-0b2f93278691",
+      "group_id": "NARRATIVE_0004_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Sodium flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "73275c30-b756-4618-88ed-cbdb1921b934",
+      "evidence_text": "sodium was 140.2 mmol/L",
+      "char_start": 820,
+      "char_end": 843,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "27c0eb72-4590-4134-9cee-b5f483d7adf1",
+      "group_id": "NARRATIVE_0004_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "73275c30-b756-4618-88ed-cbdb1921b934",
+      "evidence_text": "sodium was 140.2 mmol/L",
+      "char_start": 820,
+      "char_end": 843,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e7161321-ea00-4ed5-ae26-4e0e9639d78a",
+      "group_id": "NARRATIVE_0004_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "135.0 - 145.0",
+      "canonical_value": "135.0 - 145.0",
+      "unit": null,
+      "evidence_id": "73275c30-b756-4618-88ed-cbdb1921b934",
+      "evidence_text": "sodium was 140.2 mmol/L",
+      "char_start": 820,
+      "char_end": 843,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2525c0fa-9a71-4406-ac90-ccd515b069f4",
+      "group_id": "NARRATIVE_0004_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Sodium",
+      "canonical_value": "Sodium",
+      "unit": null,
+      "evidence_id": "73275c30-b756-4618-88ed-cbdb1921b934",
+      "evidence_text": "sodium was 140.2 mmol/L",
+      "char_start": 820,
+      "char_end": 843,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ee6f1335-7797-4880-b5db-237d843b7846",
+      "group_id": "NARRATIVE_0004_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Glucose: 87.8 mg/dL",
+      "canonical_value": 87.8,
+      "unit": "mg/dL",
+      "evidence_id": "1154875c-703b-4a77-b0ce-36d27c7e823e",
+      "evidence_text": "glucose of 87.8 mg/dL",
+      "char_start": 893,
+      "char_end": 914,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9ec3970f-228c-4aba-9a57-2df3de255095",
+      "group_id": "NARRATIVE_0004_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Glucose flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "1154875c-703b-4a77-b0ce-36d27c7e823e",
+      "evidence_text": "glucose of 87.8 mg/dL",
+      "char_start": 893,
+      "char_end": 914,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f9a5295d-4963-48cb-af35-f2b8d87925be",
+      "group_id": "NARRATIVE_0004_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "1154875c-703b-4a77-b0ce-36d27c7e823e",
+      "evidence_text": "glucose of 87.8 mg/dL",
+      "char_start": 893,
+      "char_end": 914,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "98a430b9-61e8-4c09-b1fc-7ae3b15ec2a5",
+      "group_id": "NARRATIVE_0004_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "70.0 - 99.0",
+      "canonical_value": "70.0 - 99.0",
+      "unit": null,
+      "evidence_id": "1154875c-703b-4a77-b0ce-36d27c7e823e",
+      "evidence_text": "glucose of 87.8 mg/dL",
+      "char_start": 893,
+      "char_end": 914,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ae281d5b-7fa7-4aa7-a718-15b825b2899e",
+      "group_id": "NARRATIVE_0004_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "canonical_value": "Glucose",
+      "unit": null,
+      "evidence_id": "1154875c-703b-4a77-b0ce-36d27c7e823e",
+      "evidence_text": "glucose of 87.8 mg/dL",
+      "char_start": 893,
+      "char_end": 914,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        564.49,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e3dcecb3-1e0f-431f-aa2f-729a331da9b9",
+      "group_id": "NARRATIVE_0004_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "BUN: 13.7 mg/dL",
+      "canonical_value": 13.7,
+      "unit": "mg/dL",
+      "evidence_id": "64e79145-3720-4f4c-b9f6-12739515a026",
+      "evidence_text": "bun stabilized at 13.7 mg/dL",
+      "char_start": 1349,
+      "char_end": 1377,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.65,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "822ba034-0336-4a27-a8a0-b0efbf10ba50",
+      "group_id": "NARRATIVE_0004_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "BUN flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "64e79145-3720-4f4c-b9f6-12739515a026",
+      "evidence_text": "bun stabilized at 13.7 mg/dL",
+      "char_start": 1349,
+      "char_end": 1377,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.65,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7c0789d3-7985-4307-aa28-a879a97e35c3",
+      "group_id": "NARRATIVE_0004_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "64e79145-3720-4f4c-b9f6-12739515a026",
+      "evidence_text": "bun stabilized at 13.7 mg/dL",
+      "char_start": 1349,
+      "char_end": 1377,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.65,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "15499b87-46e2-4b37-a957-d04f6ec49c90",
+      "group_id": "NARRATIVE_0004_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "7.0 - 20.0",
+      "canonical_value": "7.0 - 20.0",
+      "unit": null,
+      "evidence_id": "64e79145-3720-4f4c-b9f6-12739515a026",
+      "evidence_text": "bun stabilized at 13.7 mg/dL",
+      "char_start": 1349,
+      "char_end": 1377,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.65,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "38ce11df-d13f-4494-837f-2be7e15a39d1",
+      "group_id": "NARRATIVE_0004_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "canonical_value": "BUN",
+      "unit": null,
+      "evidence_id": "64e79145-3720-4f4c-b9f6-12739515a026",
+      "evidence_text": "bun stabilized at 13.7 mg/dL",
+      "char_start": 1349,
+      "char_end": 1377,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.65,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c0e93449-b313-469b-950f-cc6516748c00",
+      "group_id": "NARRATIVE_0004_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Amlodipine",
+      "canonical_value": "Amlodipine",
+      "unit": null,
+      "evidence_id": "b4e38db5-3b04-4148-8bc0-0fba5c717bfc",
+      "evidence_text": "Amlodipine 2.5 mg by\nmouth once daily",
+      "char_start": 1141,
+      "char_end": 1178,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        566.0,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9408bad3-141e-4f4d-8373-20de011415d3",
+      "group_id": "NARRATIVE_0004_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Amlodipine dose: 2.5 mg",
+      "canonical_value": 2.5,
+      "unit": "mg",
+      "evidence_id": "b4e38db5-3b04-4148-8bc0-0fba5c717bfc",
+      "evidence_text": "Amlodipine 2.5 mg by\nmouth once daily",
+      "char_start": 1141,
+      "char_end": 1178,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        566.0,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a13e13d4-0220-4e3b-9dbb-43af70c0f149",
+      "group_id": "NARRATIVE_0004_narr_med_0",
+      "field_type": "med.route",
+      "value": "Amlodipine route: by mouth",
+      "canonical_value": "by mouth",
+      "unit": null,
+      "evidence_id": "b4e38db5-3b04-4148-8bc0-0fba5c717bfc",
+      "evidence_text": "Amlodipine 2.5 mg by\nmouth once daily",
+      "char_start": 1141,
+      "char_end": 1178,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        566.0,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9b1c7b3e-c1b1-4c1f-979f-4418c9ac2c04",
+      "group_id": "NARRATIVE_0004_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Amlodipine frequency: once daily",
+      "canonical_value": "once daily",
+      "unit": null,
+      "evidence_id": "b4e38db5-3b04-4148-8bc0-0fba5c717bfc",
+      "evidence_text": "Amlodipine 2.5 mg by\nmouth once daily",
+      "char_start": 1141,
+      "char_end": 1178,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        566.0,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "19532897-788a-4729-a17c-a18b7a98e9a1",
+      "group_id": "NARRATIVE_0004_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Lisinopril",
+      "canonical_value": "Lisinopril",
+      "unit": null,
+      "evidence_id": "cea742c8-6a01-481b-8093-8b0bcb0a95eb",
+      "evidence_text": "Lisinopril 40 mg PO every morning",
+      "char_start": 1565,
+      "char_end": 1598,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        550.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1183e38b-3d31-47ed-98a0-78f4215cc74d",
+      "group_id": "NARRATIVE_0004_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Lisinopril dose: 40 mg",
+      "canonical_value": 40.0,
+      "unit": "mg",
+      "evidence_id": "cea742c8-6a01-481b-8093-8b0bcb0a95eb",
+      "evidence_text": "Lisinopril 40 mg PO every morning",
+      "char_start": 1565,
+      "char_end": 1598,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        550.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0dc41955-4868-441f-90b2-ba36db76397e",
+      "group_id": "NARRATIVE_0004_narr_med_1",
+      "field_type": "med.route",
+      "value": "Lisinopril route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "cea742c8-6a01-481b-8093-8b0bcb0a95eb",
+      "evidence_text": "Lisinopril 40 mg PO every morning",
+      "char_start": 1565,
+      "char_end": 1598,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        550.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c14767de-0569-412e-916e-abbb9a1161e2",
+      "group_id": "NARRATIVE_0004_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Lisinopril frequency: every morning",
+      "canonical_value": "every morning",
+      "unit": null,
+      "evidence_id": "cea742c8-6a01-481b-8093-8b0bcb0a95eb",
+      "evidence_text": "Lisinopril 40 mg PO every morning",
+      "char_start": 1565,
+      "char_end": 1598,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        550.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7ce92eef-ff5a-4329-98b8-8f583e657a83",
+      "group_id": "NARRATIVE_0004_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Atorvastatin",
+      "canonical_value": "Atorvastatin",
+      "unit": null,
+      "evidence_id": "0676b1b8-d879-4d17-ab44-9d9d076077f7",
+      "evidence_text": "Atorvastatin 10 mg orally once daily at bedtime",
+      "char_start": 1604,
+      "char_end": 1651,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        553.41,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "af2c16c3-526c-4efc-8a75-9bbaf2eb772e",
+      "group_id": "NARRATIVE_0004_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Atorvastatin dose: 10 mg",
+      "canonical_value": 10.0,
+      "unit": "mg",
+      "evidence_id": "0676b1b8-d879-4d17-ab44-9d9d076077f7",
+      "evidence_text": "Atorvastatin 10 mg orally once daily at bedtime",
+      "char_start": 1604,
+      "char_end": 1651,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        553.41,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3e06e6b6-338e-4ea0-bd68-6eba7b78f294",
+      "group_id": "NARRATIVE_0004_narr_med_2",
+      "field_type": "med.route",
+      "value": "Atorvastatin route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "0676b1b8-d879-4d17-ab44-9d9d076077f7",
+      "evidence_text": "Atorvastatin 10 mg orally once daily at bedtime",
+      "char_start": 1604,
+      "char_end": 1651,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        553.41,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fde9aa48-7b9c-4732-8927-fa6213bf9ea1",
+      "group_id": "NARRATIVE_0004_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Atorvastatin frequency: once daily at bedtime",
+      "canonical_value": "once daily at bedtime",
+      "unit": null,
+      "evidence_id": "0676b1b8-d879-4d17-ab44-9d9d076077f7",
+      "evidence_text": "Atorvastatin 10 mg orally once daily at bedtime",
+      "char_start": 1604,
+      "char_end": 1651,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        553.41,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

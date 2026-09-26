@@ -1,0 +1,2454 @@
+{
+  "cv_results": [
+    {
+      "model_name": "deterministic_verifier",
+      "split": "cv",
+      "fold": 0,
+      "seed": null,
+      "macro_f1": 0.3556,
+      "discrepancy_recall": 0.998,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.9893617021276596,
+          "recall": 0.21184510250569477,
+          "f1": 0.34896810506566606,
+          "support": 439
+        },
+        "DISCREPANCY": {
+          "precision": 0.5605726872246696,
+          "recall": 0.9980392156862745,
+          "f1": 0.7179125528913963,
+          "support": 510
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 53
+        }
+      },
+      "confusion_matrix": [
+        [
+          93,
+          346,
+          0
+        ],
+        [
+          1,
+          509,
+          0
+        ],
+        [
+          0,
+          53,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "medium": {
+          "macro_f1": 0.2926,
+          "n": 203
+        },
+        "clean": {
+          "macro_f1": 0.4164,
+          "n": 404
+        },
+        "low": {
+          "macro_f1": 0.3921,
+          "n": 208
+        },
+        "high": {
+          "macro_f1": 0.2373,
+          "n": 187
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3732,
+          "n": 691
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 88
+        },
+        "med.dose": {
+          "macro_f1": 0.209,
+          "n": 138
+        },
+        "med.route": {
+          "macro_f1": 0.2222,
+          "n": 34
+        },
+        "med.name": {
+          "macro_f1": 0.0,
+          "n": 17
+        },
+        "med.frequency": {
+          "macro_f1": 0.4258,
+          "n": 34
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3892,
+          "n": 779
+        },
+        "med": {
+          "macro_f1": 0.2393,
+          "n": 223
+        }
+      }
+    },
+    {
+      "model_name": "levenshtein_threshold",
+      "split": "cv",
+      "fold": 0,
+      "seed": null,
+      "macro_f1": 0.3238,
+      "discrepancy_recall": 0.5784,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.4613466334164589,
+          "recall": 0.4214123006833713,
+          "f1": 0.4404761904761905,
+          "support": 439
+        },
+        "DISCREPANCY": {
+          "precision": 0.4908485856905158,
+          "recall": 0.5784313725490197,
+          "f1": 0.5310531053105311,
+          "support": 510
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 53
+        }
+      },
+      "confusion_matrix": [
+        [
+          185,
+          254,
+          0
+        ],
+        [
+          215,
+          295,
+          0
+        ],
+        [
+          1,
+          52,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "medium": {
+          "macro_f1": 0.3356,
+          "n": 203
+        },
+        "clean": {
+          "macro_f1": 0.3136,
+          "n": 404
+        },
+        "low": {
+          "macro_f1": 0.3435,
+          "n": 208
+        },
+        "high": {
+          "macro_f1": 0.2821,
+          "n": 187
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3351,
+          "n": 691
+        },
+        "lab.flag": {
+          "macro_f1": 0.2083,
+          "n": 88
+        },
+        "med.dose": {
+          "macro_f1": 0.2263,
+          "n": 138
+        },
+        "med.route": {
+          "macro_f1": 0.3015,
+          "n": 34
+        },
+        "med.name": {
+          "macro_f1": 0.0,
+          "n": 17
+        },
+        "med.frequency": {
+          "macro_f1": 0.3681,
+          "n": 34
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3313,
+          "n": 779
+        },
+        "med": {
+          "macro_f1": 0.2473,
+          "n": 223
+        }
+      }
+    },
+    {
+      "model_name": "tfidf_logreg",
+      "split": "cv",
+      "fold": 0,
+      "seed": null,
+      "macro_f1": 0.6666,
+      "discrepancy_recall": 0.8373,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.718475073313783,
+          "recall": 0.5580865603644647,
+          "f1": 0.6282051282051282,
+          "support": 439
+        },
+        "DISCREPANCY": {
+          "precision": 0.6735015772870663,
+          "recall": 0.8372549019607843,
+          "f1": 0.7465034965034966,
+          "support": 510
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.9259259259259259,
+          "recall": 0.4716981132075472,
+          "f1": 0.625,
+          "support": 53
+        }
+      },
+      "confusion_matrix": [
+        [
+          245,
+          193,
+          1
+        ],
+        [
+          82,
+          427,
+          1
+        ],
+        [
+          14,
+          14,
+          25
+        ]
+      ],
+      "auroc_discrepancy": 0.7939,
+      "brier_score": 0.4073,
+      "ece": 0.0546,
+      "by_severity": {
+        "medium": {
+          "macro_f1": 0.445,
+          "n": 203
+        },
+        "clean": {
+          "macro_f1": 0.829,
+          "n": 404
+        },
+        "low": {
+          "macro_f1": 0.4289,
+          "n": 208
+        },
+        "high": {
+          "macro_f1": 0.5149,
+          "n": 187
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.6638,
+          "n": 691
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 88
+        },
+        "med.dose": {
+          "macro_f1": 0.5423,
+          "n": 138
+        },
+        "med.route": {
+          "macro_f1": 0.3088,
+          "n": 34
+        },
+        "med.name": {
+          "macro_f1": 0.3232,
+          "n": 17
+        },
+        "med.frequency": {
+          "macro_f1": 0.5452,
+          "n": 34
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.6804,
+          "n": 779
+        },
+        "med": {
+          "macro_f1": 0.6137,
+          "n": 223
+        }
+      }
+    },
+    {
+      "model_name": "frozen_modernbert_probe",
+      "split": "cv",
+      "fold": 0,
+      "seed": null,
+      "macro_f1": 0.7432,
+      "discrepancy_recall": 0.8686,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.8214285714285714,
+          "recall": 0.7334851936218679,
+          "f1": 0.7749699157641395,
+          "support": 439
+        },
+        "DISCREPANCY": {
+          "precision": 0.7896613190730838,
+          "recall": 0.8686274509803922,
+          "f1": 0.827264239028945,
+          "support": 510
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.6530612244897959,
+          "recall": 0.6037735849056604,
+          "f1": 0.6274509803921567,
+          "support": 53
+        }
+      },
+      "confusion_matrix": [
+        [
+          322,
+          108,
+          9
+        ],
+        [
+          59,
+          443,
+          8
+        ],
+        [
+          11,
+          10,
+          32
+        ]
+      ],
+      "auroc_discrepancy": 0.9019,
+      "brier_score": 0.2859,
+      "ece": 0.0439,
+      "by_severity": {
+        "medium": {
+          "macro_f1": 0.7169,
+          "n": 203
+        },
+        "clean": {
+          "macro_f1": 0.9342,
+          "n": 404
+        },
+        "low": {
+          "macro_f1": 0.5435,
+          "n": 208
+        },
+        "high": {
+          "macro_f1": 0.4995,
+          "n": 187
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.7802,
+          "n": 691
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 88
+        },
+        "med.dose": {
+          "macro_f1": 0.5253,
+          "n": 138
+        },
+        "med.route": {
+          "macro_f1": 0.3883,
+          "n": 34
+        },
+        "med.name": {
+          "macro_f1": 0.3333,
+          "n": 17
+        },
+        "med.frequency": {
+          "macro_f1": 0.4824,
+          "n": 34
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.7912,
+          "n": 779
+        },
+        "med": {
+          "macro_f1": 0.5846,
+          "n": 223
+        }
+      }
+    },
+    {
+      "model_name": "deterministic_verifier",
+      "split": "cv",
+      "fold": 1,
+      "seed": null,
+      "macro_f1": 0.3712,
+      "discrepancy_recall": 1.0,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 1.0,
+          "recall": 0.24128686327077747,
+          "f1": 0.38876889848812096,
+          "support": 373
+        },
+        "DISCREPANCY": {
+          "precision": 0.5685279187817259,
+          "recall": 1.0,
+          "f1": 0.7249190938511327,
+          "support": 448
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 57
+        }
+      },
+      "confusion_matrix": [
+        [
+          90,
+          283,
+          0
+        ],
+        [
+          0,
+          448,
+          0
+        ],
+        [
+          0,
+          57,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "high": {
+          "macro_f1": 0.2381,
+          "n": 165
+        },
+        "medium": {
+          "macro_f1": 0.3064,
+          "n": 179
+        },
+        "clean": {
+          "macro_f1": 0.4431,
+          "n": 345
+        },
+        "low": {
+          "macro_f1": 0.4039,
+          "n": 189
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3782,
+          "n": 661
+        },
+        "med.name": {
+          "macro_f1": 0.1538,
+          "n": 10
+        },
+        "med.frequency": {
+          "macro_f1": 0.2905,
+          "n": 20
+        },
+        "med.dose": {
+          "macro_f1": 0.1954,
+          "n": 82
+        },
+        "med.route": {
+          "macro_f1": 0.2222,
+          "n": 20
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 85
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3944,
+          "n": 746
+        },
+        "med": {
+          "macro_f1": 0.237,
+          "n": 132
+        }
+      }
+    },
+    {
+      "model_name": "levenshtein_threshold",
+      "split": "cv",
+      "fold": 1,
+      "seed": null,
+      "macro_f1": 0.3364,
+      "discrepancy_recall": 0.5714,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.4756756756756757,
+          "recall": 0.4718498659517426,
+          "f1": 0.4737550471063257,
+          "support": 373
+        },
+        "DISCREPANCY": {
+          "precision": 0.5039370078740157,
+          "recall": 0.5714285714285714,
+          "f1": 0.5355648535564853,
+          "support": 448
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 57
+        }
+      },
+      "confusion_matrix": [
+        [
+          176,
+          197,
+          0
+        ],
+        [
+          192,
+          256,
+          0
+        ],
+        [
+          2,
+          55,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "high": {
+          "macro_f1": 0.2853,
+          "n": 165
+        },
+        "medium": {
+          "macro_f1": 0.3285,
+          "n": 179
+        },
+        "clean": {
+          "macro_f1": 0.3295,
+          "n": 345
+        },
+        "low": {
+          "macro_f1": 0.3644,
+          "n": 189
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3422,
+          "n": 661
+        },
+        "med.name": {
+          "macro_f1": 0.1111,
+          "n": 10
+        },
+        "med.frequency": {
+          "macro_f1": 0.3492,
+          "n": 20
+        },
+        "med.dose": {
+          "macro_f1": 0.2359,
+          "n": 82
+        },
+        "med.route": {
+          "macro_f1": 0.3004,
+          "n": 20
+        },
+        "lab.flag": {
+          "macro_f1": 0.2274,
+          "n": 85
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3418,
+          "n": 746
+        },
+        "med": {
+          "macro_f1": 0.269,
+          "n": 132
+        }
+      }
+    },
+    {
+      "model_name": "tfidf_logreg",
+      "split": "cv",
+      "fold": 1,
+      "seed": null,
+      "macro_f1": 0.656,
+      "discrepancy_recall": 0.8036,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.6961325966850829,
+          "recall": 0.675603217158177,
+          "f1": 0.6857142857142857,
+          "support": 373
+        },
+        "DISCREPANCY": {
+          "precision": 0.7258064516129032,
+          "recall": 0.8035714285714286,
+          "f1": 0.7627118644067797,
+          "support": 448
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 1.0,
+          "recall": 0.3508771929824561,
+          "f1": 0.5194805194805194,
+          "support": 57
+        }
+      },
+      "confusion_matrix": [
+        [
+          252,
+          121,
+          0
+        ],
+        [
+          88,
+          360,
+          0
+        ],
+        [
+          22,
+          15,
+          20
+        ]
+      ],
+      "auroc_discrepancy": 0.8153,
+      "brier_score": 0.3973,
+      "ece": 0.0658,
+      "by_severity": {
+        "high": {
+          "macro_f1": 0.4361,
+          "n": 165
+        },
+        "medium": {
+          "macro_f1": 0.4607,
+          "n": 179
+        },
+        "clean": {
+          "macro_f1": 0.8571,
+          "n": 345
+        },
+        "low": {
+          "macro_f1": 0.4666,
+          "n": 189
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.6021,
+          "n": 661
+        },
+        "med.name": {
+          "macro_f1": 0.3333,
+          "n": 10
+        },
+        "med.frequency": {
+          "macro_f1": 0.6332,
+          "n": 20
+        },
+        "med.dose": {
+          "macro_f1": 0.6981,
+          "n": 82
+        },
+        "med.route": {
+          "macro_f1": 0.4646,
+          "n": 20
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 85
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.6215,
+          "n": 746
+        },
+        "med": {
+          "macro_f1": 0.7444,
+          "n": 132
+        }
+      }
+    },
+    {
+      "model_name": "frozen_modernbert_probe",
+      "split": "cv",
+      "fold": 1,
+      "seed": null,
+      "macro_f1": 0.7432,
+      "discrepancy_recall": 0.8415,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.7708333333333334,
+          "recall": 0.7935656836461126,
+          "f1": 0.7820343461030383,
+          "support": 373
+        },
+        "DISCREPANCY": {
+          "precision": 0.8125,
+          "recall": 0.8415178571428571,
+          "f1": 0.8267543859649122,
+          "support": 448
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.9,
+          "recall": 0.47368421052631576,
+          "f1": 0.6206896551724138,
+          "support": 57
+        }
+      },
+      "confusion_matrix": [
+        [
+          296,
+          75,
+          2
+        ],
+        [
+          70,
+          377,
+          1
+        ],
+        [
+          18,
+          12,
+          27
+        ]
+      ],
+      "auroc_discrepancy": 0.9142,
+      "brier_score": 0.2689,
+      "ece": 0.0489,
+      "by_severity": {
+        "high": {
+          "macro_f1": 0.537,
+          "n": 165
+        },
+        "medium": {
+          "macro_f1": 0.5257,
+          "n": 179
+        },
+        "clean": {
+          "macro_f1": 0.954,
+          "n": 345
+        },
+        "low": {
+          "macro_f1": 0.5446,
+          "n": 189
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.7369,
+          "n": 661
+        },
+        "med.name": {
+          "macro_f1": 0.3333,
+          "n": 10
+        },
+        "med.frequency": {
+          "macro_f1": 0.4178,
+          "n": 20
+        },
+        "med.dose": {
+          "macro_f1": 0.6366,
+          "n": 82
+        },
+        "med.route": {
+          "macro_f1": 0.3973,
+          "n": 20
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 85
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.75,
+          "n": 746
+        },
+        "med": {
+          "macro_f1": 0.6667,
+          "n": 132
+        }
+      }
+    },
+    {
+      "model_name": "deterministic_verifier",
+      "split": "cv",
+      "fold": 2,
+      "seed": null,
+      "macro_f1": 0.3569,
+      "discrepancy_recall": 0.9958,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.9764705882352941,
+          "recall": 0.20854271356783918,
+          "f1": 0.34368530020703936,
+          "support": 398
+        },
+        "DISCREPANCY": {
+          "precision": 0.5726495726495726,
+          "recall": 0.9957537154989384,
+          "f1": 0.7271317829457364,
+          "support": 471
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 35
+        }
+      },
+      "confusion_matrix": [
+        [
+          83,
+          315,
+          0
+        ],
+        [
+          2,
+          469,
+          0
+        ],
+        [
+          0,
+          35,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.3883,
+          "n": 189
+        },
+        "clean": {
+          "macro_f1": 0.4233,
+          "n": 349
+        },
+        "medium": {
+          "macro_f1": 0.3043,
+          "n": 187
+        },
+        "high": {
+          "macro_f1": 0.2465,
+          "n": 179
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3661,
+          "n": 673
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 84
+        },
+        "med.dose": {
+          "macro_f1": 0.202,
+          "n": 92
+        },
+        "med.route": {
+          "macro_f1": 0.2222,
+          "n": 22
+        },
+        "med.frequency": {
+          "macro_f1": 0.3873,
+          "n": 22
+        },
+        "med.name": {
+          "macro_f1": 0.0,
+          "n": 11
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3813,
+          "n": 757
+        },
+        "med": {
+          "macro_f1": 0.227,
+          "n": 147
+        }
+      }
+    },
+    {
+      "model_name": "levenshtein_threshold",
+      "split": "cv",
+      "fold": 2,
+      "seed": null,
+      "macro_f1": 0.3319,
+      "discrepancy_recall": 0.6008,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.46629213483146065,
+          "recall": 0.41708542713567837,
+          "f1": 0.4403183023872679,
+          "support": 398
+        },
+        "DISCREPANCY": {
+          "precision": 0.5164233576642335,
+          "recall": 0.6008492569002123,
+          "f1": 0.5554465161923454,
+          "support": 471
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 35
+        }
+      },
+      "confusion_matrix": [
+        [
+          166,
+          232,
+          0
+        ],
+        [
+          188,
+          283,
+          0
+        ],
+        [
+          2,
+          33,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.3492,
+          "n": 189
+        },
+        "clean": {
+          "macro_f1": 0.3258,
+          "n": 349
+        },
+        "medium": {
+          "macro_f1": 0.3293,
+          "n": 187
+        },
+        "high": {
+          "macro_f1": 0.2813,
+          "n": 179
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3404,
+          "n": 673
+        },
+        "lab.flag": {
+          "macro_f1": 0.2292,
+          "n": 84
+        },
+        "med.dose": {
+          "macro_f1": 0.2198,
+          "n": 92
+        },
+        "med.route": {
+          "macro_f1": 0.3632,
+          "n": 22
+        },
+        "med.frequency": {
+          "macro_f1": 0.3791,
+          "n": 22
+        },
+        "med.name": {
+          "macro_f1": 0.0,
+          "n": 11
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3391,
+          "n": 757
+        },
+        "med": {
+          "macro_f1": 0.2621,
+          "n": 147
+        }
+      }
+    },
+    {
+      "model_name": "tfidf_logreg",
+      "split": "cv",
+      "fold": 2,
+      "seed": null,
+      "macro_f1": 0.7407,
+      "discrepancy_recall": 0.8684,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.7795527156549521,
+          "recall": 0.6130653266331658,
+          "f1": 0.6863572433192685,
+          "support": 398
+        },
+        "DISCREPANCY": {
+          "precision": 0.7175438596491228,
+          "recall": 0.8683651804670913,
+          "f1": 0.7857829010566763,
+          "support": 471
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.7499999999999999,
+          "support": 35
+        }
+      },
+      "confusion_matrix": [
+        [
+          244,
+          154,
+          0
+        ],
+        [
+          62,
+          409,
+          0
+        ],
+        [
+          7,
+          7,
+          21
+        ]
+      ],
+      "auroc_discrepancy": 0.8226,
+      "brier_score": 0.3742,
+      "ece": 0.1009,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.4657,
+          "n": 189
+        },
+        "clean": {
+          "macro_f1": 0.8683,
+          "n": 349
+        },
+        "medium": {
+          "macro_f1": 0.4554,
+          "n": 187
+        },
+        "high": {
+          "macro_f1": 0.5259,
+          "n": 179
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.7205,
+          "n": 673
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 84
+        },
+        "med.dose": {
+          "macro_f1": 0.6894,
+          "n": 92
+        },
+        "med.route": {
+          "macro_f1": 0.3611,
+          "n": 22
+        },
+        "med.frequency": {
+          "macro_f1": 0.5756,
+          "n": 22
+        },
+        "med.name": {
+          "macro_f1": 0.3333,
+          "n": 11
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.7353,
+          "n": 757
+        },
+        "med": {
+          "macro_f1": 0.7229,
+          "n": 147
+        }
+      }
+    },
+    {
+      "model_name": "frozen_modernbert_probe",
+      "split": "cv",
+      "fold": 2,
+      "seed": null,
+      "macro_f1": 0.7568,
+      "discrepancy_recall": 0.8132,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.7745803357314148,
+          "recall": 0.8115577889447236,
+          "f1": 0.792638036809816,
+          "support": 398
+        },
+        "DISCREPANCY": {
+          "precision": 0.8308026030368764,
+          "recall": 0.8131634819532909,
+          "f1": 0.8218884120171674,
+          "support": 471
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.7692307692307693,
+          "recall": 0.5714285714285714,
+          "f1": 0.6557377049180327,
+          "support": 35
+        }
+      },
+      "confusion_matrix": [
+        [
+          323,
+          71,
+          4
+        ],
+        [
+          86,
+          383,
+          2
+        ],
+        [
+          8,
+          7,
+          20
+        ]
+      ],
+      "auroc_discrepancy": 0.9066,
+      "brier_score": 0.2698,
+      "ece": 0.0435,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.5531,
+          "n": 189
+        },
+        "clean": {
+          "macro_f1": 0.9559,
+          "n": 349
+        },
+        "medium": {
+          "macro_f1": 0.4674,
+          "n": 187
+        },
+        "high": {
+          "macro_f1": 0.4365,
+          "n": 179
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.7539,
+          "n": 673
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 84
+        },
+        "med.dose": {
+          "macro_f1": 0.6201,
+          "n": 92
+        },
+        "med.route": {
+          "macro_f1": 0.443,
+          "n": 22
+        },
+        "med.frequency": {
+          "macro_f1": 0.4833,
+          "n": 22
+        },
+        "med.name": {
+          "macro_f1": 0.3333,
+          "n": 11
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.7664,
+          "n": 757
+        },
+        "med": {
+          "macro_f1": 0.6631,
+          "n": 147
+        }
+      }
+    },
+    {
+      "model_name": "deterministic_verifier",
+      "split": "cv",
+      "fold": 3,
+      "seed": null,
+      "macro_f1": 0.3375,
+      "discrepancy_recall": 1.0,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 1.0,
+          "recall": 0.1826086956521739,
+          "f1": 0.3088235294117647,
+          "support": 230
+        },
+        "DISCREPANCY": {
+          "precision": 0.5427350427350427,
+          "recall": 1.0,
+          "f1": 0.703601108033241,
+          "support": 254
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 26
+        }
+      },
+      "confusion_matrix": [
+        [
+          42,
+          188,
+          0
+        ],
+        [
+          0,
+          254,
+          0
+        ],
+        [
+          0,
+          26,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.3385,
+          "n": 99
+        },
+        "clean": {
+          "macro_f1": 0.4125,
+          "n": 219
+        },
+        "medium": {
+          "macro_f1": 0.263,
+          "n": 98
+        },
+        "high": {
+          "macro_f1": 0.2289,
+          "n": 94
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3404,
+          "n": 298
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 37
+        },
+        "med.dose": {
+          "macro_f1": 0.1996,
+          "n": 110
+        },
+        "med.name": {
+          "macro_f1": 0.254,
+          "n": 13
+        },
+        "med.frequency": {
+          "macro_f1": 0.4732,
+          "n": 26
+        },
+        "med.route": {
+          "macro_f1": 0.2222,
+          "n": 26
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3558,
+          "n": 335
+        },
+        "med": {
+          "macro_f1": 0.3013,
+          "n": 175
+        }
+      }
+    },
+    {
+      "model_name": "levenshtein_threshold",
+      "split": "cv",
+      "fold": 3,
+      "seed": null,
+      "macro_f1": 0.3248,
+      "discrepancy_recall": 0.6378,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.48044692737430167,
+          "recall": 0.3739130434782609,
+          "f1": 0.42053789731051344,
+          "support": 230
+        },
+        "DISCREPANCY": {
+          "precision": 0.48942598187311176,
+          "recall": 0.6377952755905512,
+          "f1": 0.5538461538461539,
+          "support": 254
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 26
+        }
+      },
+      "confusion_matrix": [
+        [
+          86,
+          144,
+          0
+        ],
+        [
+          92,
+          162,
+          0
+        ],
+        [
+          1,
+          25,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.3574,
+          "n": 99
+        },
+        "clean": {
+          "macro_f1": 0.3233,
+          "n": 219
+        },
+        "medium": {
+          "macro_f1": 0.294,
+          "n": 98
+        },
+        "high": {
+          "macro_f1": 0.2968,
+          "n": 94
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3414,
+          "n": 298
+        },
+        "lab.flag": {
+          "macro_f1": 0.2182,
+          "n": 37
+        },
+        "med.dose": {
+          "macro_f1": 0.2115,
+          "n": 110
+        },
+        "med.name": {
+          "macro_f1": 0.0476,
+          "n": 13
+        },
+        "med.frequency": {
+          "macro_f1": 0.4848,
+          "n": 26
+        },
+        "med.route": {
+          "macro_f1": 0.2607,
+          "n": 26
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3385,
+          "n": 335
+        },
+        "med": {
+          "macro_f1": 0.27,
+          "n": 175
+        }
+      }
+    },
+    {
+      "model_name": "tfidf_logreg",
+      "split": "cv",
+      "fold": 3,
+      "seed": null,
+      "macro_f1": 0.7415,
+      "discrepancy_recall": 0.8189,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.7487179487179487,
+          "recall": 0.6347826086956522,
+          "f1": 0.6870588235294118,
+          "support": 230
+        },
+        "DISCREPANCY": {
+          "precision": 0.7123287671232876,
+          "recall": 0.8188976377952756,
+          "f1": 0.7619047619047619,
+          "support": 254
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.8260869565217391,
+          "recall": 0.7307692307692307,
+          "f1": 0.7755102040816326,
+          "support": 26
+        }
+      },
+      "confusion_matrix": [
+        [
+          146,
+          82,
+          2
+        ],
+        [
+          44,
+          208,
+          2
+        ],
+        [
+          5,
+          2,
+          19
+        ]
+      ],
+      "auroc_discrepancy": 0.8383,
+      "brier_score": 0.3728,
+      "ece": 0.1001,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.4507,
+          "n": 99
+        },
+        "clean": {
+          "macro_f1": 0.8537,
+          "n": 219
+        },
+        "medium": {
+          "macro_f1": 0.4701,
+          "n": 98
+        },
+        "high": {
+          "macro_f1": 0.5817,
+          "n": 94
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.7179,
+          "n": 298
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 37
+        },
+        "med.dose": {
+          "macro_f1": 0.7,
+          "n": 110
+        },
+        "med.name": {
+          "macro_f1": 0.3333,
+          "n": 13
+        },
+        "med.frequency": {
+          "macro_f1": 0.5335,
+          "n": 26
+        },
+        "med.route": {
+          "macro_f1": 0.3808,
+          "n": 26
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.7335,
+          "n": 335
+        },
+        "med": {
+          "macro_f1": 0.729,
+          "n": 175
+        }
+      }
+    },
+    {
+      "model_name": "frozen_modernbert_probe",
+      "split": "cv",
+      "fold": 3,
+      "seed": null,
+      "macro_f1": 0.7187,
+      "discrepancy_recall": 0.8228,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.7989690721649485,
+          "recall": 0.6739130434782609,
+          "f1": 0.731132075471698,
+          "support": 230
+        },
+        "DISCREPANCY": {
+          "precision": 0.7572463768115942,
+          "recall": 0.8228346456692913,
+          "f1": 0.7886792452830189,
+          "support": 254
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.525,
+          "recall": 0.8076923076923077,
+          "f1": 0.6363636363636364,
+          "support": 26
+        }
+      },
+      "confusion_matrix": [
+        [
+          155,
+          65,
+          10
+        ],
+        [
+          36,
+          209,
+          9
+        ],
+        [
+          3,
+          2,
+          21
+        ]
+      ],
+      "auroc_discrepancy": 0.8749,
+      "brier_score": 0.3201,
+      "ece": 0.0603,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.5141,
+          "n": 99
+        },
+        "clean": {
+          "macro_f1": 0.901,
+          "n": 219
+        },
+        "medium": {
+          "macro_f1": 0.5583,
+          "n": 98
+        },
+        "high": {
+          "macro_f1": 0.4663,
+          "n": 94
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.7078,
+          "n": 298
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 37
+        },
+        "med.dose": {
+          "macro_f1": 0.6571,
+          "n": 110
+        },
+        "med.name": {
+          "macro_f1": 0.3056,
+          "n": 13
+        },
+        "med.frequency": {
+          "macro_f1": 0.45,
+          "n": 26
+        },
+        "med.route": {
+          "macro_f1": 0.404,
+          "n": 26
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.7212,
+          "n": 335
+        },
+        "med": {
+          "macro_f1": 0.6807,
+          "n": 175
+        }
+      }
+    },
+    {
+      "model_name": "deterministic_verifier",
+      "split": "cv",
+      "fold": 4,
+      "seed": null,
+      "macro_f1": 0.3761,
+      "discrepancy_recall": 0.9849,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.9301075268817204,
+          "recall": 0.24679029957203993,
+          "f1": 0.39007891770011266,
+          "support": 701
+        },
+        "DISCREPANCY": {
+          "precision": 0.5902439024390244,
+          "recall": 0.9848837209302326,
+          "f1": 0.7381263616557734,
+          "support": 860
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 60
+        }
+      },
+      "confusion_matrix": [
+        [
+          173,
+          528,
+          0
+        ],
+        [
+          13,
+          847,
+          0
+        ],
+        [
+          0,
+          60,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.4268,
+          "n": 353
+        },
+        "clean": {
+          "macro_f1": 0.4484,
+          "n": 593
+        },
+        "medium": {
+          "macro_f1": 0.3132,
+          "n": 344
+        },
+        "high": {
+          "macro_f1": 0.2459,
+          "n": 331
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3719,
+          "n": 1334
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 168
+        },
+        "med.dose": {
+          "macro_f1": 0.2099,
+          "n": 74
+        },
+        "med.route": {
+          "macro_f1": 0.2222,
+          "n": 18
+        },
+        "med.frequency": {
+          "macro_f1": 0.2974,
+          "n": 18
+        },
+        "med.name": {
+          "macro_f1": 0.0667,
+          "n": 9
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3876,
+          "n": 1502
+        },
+        "med": {
+          "macro_f1": 0.2263,
+          "n": 119
+        }
+      }
+    },
+    {
+      "model_name": "levenshtein_threshold",
+      "split": "cv",
+      "fold": 4,
+      "seed": null,
+      "macro_f1": 0.3318,
+      "discrepancy_recall": 0.5767,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.4541420118343195,
+          "recall": 0.43794579172610554,
+          "f1": 0.44589687726942623,
+          "support": 701
+        },
+        "DISCREPANCY": {
+          "precision": 0.5248677248677248,
+          "recall": 0.5767441860465117,
+          "f1": 0.549584487534626,
+          "support": 860
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 60
+        }
+      },
+      "confusion_matrix": [
+        [
+          307,
+          394,
+          0
+        ],
+        [
+          364,
+          496,
+          0
+        ],
+        [
+          5,
+          55,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.3547,
+          "n": 353
+        },
+        "clean": {
+          "macro_f1": 0.3171,
+          "n": 593
+        },
+        "medium": {
+          "macro_f1": 0.3262,
+          "n": 344
+        },
+        "high": {
+          "macro_f1": 0.2738,
+          "n": 331
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3386,
+          "n": 1334
+        },
+        "lab.flag": {
+          "macro_f1": 0.2222,
+          "n": 168
+        },
+        "med.dose": {
+          "macro_f1": 0.2509,
+          "n": 74
+        },
+        "med.route": {
+          "macro_f1": 0.2739,
+          "n": 18
+        },
+        "med.frequency": {
+          "macro_f1": 0.2739,
+          "n": 18
+        },
+        "med.name": {
+          "macro_f1": 0.0,
+          "n": 9
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3355,
+          "n": 1502
+        },
+        "med": {
+          "macro_f1": 0.2418,
+          "n": 119
+        }
+      }
+    },
+    {
+      "model_name": "tfidf_logreg",
+      "split": "cv",
+      "fold": 4,
+      "seed": null,
+      "macro_f1": 0.6844,
+      "discrepancy_recall": 0.7791,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.6864951768488746,
+          "recall": 0.609129814550642,
+          "f1": 0.6455026455026456,
+          "support": 701
+        },
+        "DISCREPANCY": {
+          "precision": 0.7067510548523207,
+          "recall": 0.7790697674418605,
+          "f1": 0.7411504424778762,
+          "support": 860
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.7254901960784313,
+          "recall": 0.6166666666666667,
+          "f1": 0.6666666666666666,
+          "support": 60
+        }
+      },
+      "confusion_matrix": [
+        [
+          427,
+          268,
+          6
+        ],
+        [
+          182,
+          670,
+          8
+        ],
+        [
+          13,
+          10,
+          37
+        ]
+      ],
+      "auroc_discrepancy": 0.8008,
+      "brier_score": 0.3908,
+      "ece": 0.0708,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.4514,
+          "n": 353
+        },
+        "clean": {
+          "macro_f1": 0.8402,
+          "n": 593
+        },
+        "medium": {
+          "macro_f1": 0.4292,
+          "n": 344
+        },
+        "high": {
+          "macro_f1": 0.5717,
+          "n": 331
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.663,
+          "n": 1334
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 168
+        },
+        "med.dose": {
+          "macro_f1": 0.6043,
+          "n": 74
+        },
+        "med.route": {
+          "macro_f1": 0.4066,
+          "n": 18
+        },
+        "med.frequency": {
+          "macro_f1": 0.5524,
+          "n": 18
+        },
+        "med.name": {
+          "macro_f1": 0.3333,
+          "n": 9
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.6834,
+          "n": 1502
+        },
+        "med": {
+          "macro_f1": 0.6742,
+          "n": 119
+        }
+      }
+    },
+    {
+      "model_name": "frozen_modernbert_probe",
+      "split": "cv",
+      "fold": 4,
+      "seed": null,
+      "macro_f1": 0.7782,
+      "discrepancy_recall": 0.8442,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.8157142857142857,
+          "recall": 0.8145506419400856,
+          "f1": 0.8151320485367595,
+          "support": 701
+        },
+        "DISCREPANCY": {
+          "precision": 0.8511137162954279,
+          "recall": 0.8441860465116279,
+          "f1": 0.8476357267950964,
+          "support": 860
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.6323529411764706,
+          "recall": 0.7166666666666667,
+          "f1": 0.671875,
+          "support": 60
+        }
+      },
+      "confusion_matrix": [
+        [
+          571,
+          119,
+          11
+        ],
+        [
+          120,
+          726,
+          14
+        ],
+        [
+          9,
+          8,
+          43
+        ]
+      ],
+      "auroc_discrepancy": 0.9226,
+      "brier_score": 0.2417,
+      "ece": 0.0197,
+      "by_severity": {
+        "low": {
+          "macro_f1": 0.5617,
+          "n": 353
+        },
+        "clean": {
+          "macro_f1": 0.9821,
+          "n": 593
+        },
+        "medium": {
+          "macro_f1": 0.5742,
+          "n": 344
+        },
+        "high": {
+          "macro_f1": 0.6254,
+          "n": 331
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.7688,
+          "n": 1334
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 168
+        },
+        "med.dose": {
+          "macro_f1": 0.6669,
+          "n": 74
+        },
+        "med.route": {
+          "macro_f1": 0.5185,
+          "n": 18
+        },
+        "med.frequency": {
+          "macro_f1": 0.5524,
+          "n": 18
+        },
+        "med.name": {
+          "macro_f1": 0.3333,
+          "n": 9
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.7811,
+          "n": 1502
+        },
+        "med": {
+          "macro_f1": 0.7305,
+          "n": 119
+        }
+      }
+    }
+  ],
+  "ood_results": [
+    {
+      "model_name": "deterministic_verifier",
+      "split": "ood",
+      "fold": null,
+      "seed": null,
+      "macro_f1": 0.3713,
+      "discrepancy_recall": 0.9932,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.966789667896679,
+          "recall": 0.2364620938628159,
+          "f1": 0.3799854967367658,
+          "support": 1108
+        },
+        "DISCREPANCY": {
+          "precision": 0.581858407079646,
+          "recall": 0.993202416918429,
+          "f1": 0.7338169642857143,
+          "support": 1324
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 99
+        }
+      },
+      "confusion_matrix": [
+        [
+          262,
+          846,
+          0
+        ],
+        [
+          9,
+          1315,
+          0
+        ],
+        [
+          0,
+          99,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "high": {
+          "macro_f1": 0.2439,
+          "n": 501
+        },
+        "medium": {
+          "macro_f1": 0.353,
+          "n": 526
+        },
+        "low": {
+          "macro_f1": 0.388,
+          "n": 540
+        },
+        "clean": {
+          "macro_f1": 0.4346,
+          "n": 964
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3791,
+          "n": 1931
+        },
+        "med.dose": {
+          "macro_f1": 0.2099,
+          "n": 222
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 243
+        },
+        "med.route": {
+          "macro_f1": 0.2222,
+          "n": 54
+        },
+        "med.frequency": {
+          "macro_f1": 0.3612,
+          "n": 54
+        },
+        "med.name": {
+          "macro_f1": 0.0,
+          "n": 27
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3945,
+          "n": 2174
+        },
+        "med": {
+          "macro_f1": 0.2263,
+          "n": 357
+        }
+      }
+    },
+    {
+      "model_name": "levenshtein_threshold",
+      "split": "ood",
+      "fold": null,
+      "seed": null,
+      "macro_f1": 0.3397,
+      "discrepancy_recall": 0.605,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.4786917740336967,
+          "recall": 0.4359205776173285,
+          "f1": 0.45630609352857815,
+          "support": 1108
+        },
+        "DISCREPANCY": {
+          "precision": 0.526281208935611,
+          "recall": 0.6049848942598187,
+          "f1": 0.5628952916373858,
+          "support": 1324
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 99
+        }
+      },
+      "confusion_matrix": [
+        [
+          483,
+          625,
+          0
+        ],
+        [
+          523,
+          801,
+          0
+        ],
+        [
+          3,
+          96,
+          0
+        ]
+      ],
+      "auroc_discrepancy": null,
+      "brier_score": null,
+      "ece": null,
+      "by_severity": {
+        "high": {
+          "macro_f1": 0.2855,
+          "n": 501
+        },
+        "medium": {
+          "macro_f1": 0.3318,
+          "n": 526
+        },
+        "low": {
+          "macro_f1": 0.3627,
+          "n": 540
+        },
+        "clean": {
+          "macro_f1": 0.3273,
+          "n": 964
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.3477,
+          "n": 1931
+        },
+        "med.dose": {
+          "macro_f1": 0.2155,
+          "n": 222
+        },
+        "lab.flag": {
+          "macro_f1": 0.2228,
+          "n": 243
+        },
+        "med.route": {
+          "macro_f1": 0.4589,
+          "n": 54
+        },
+        "med.frequency": {
+          "macro_f1": 0.4301,
+          "n": 54
+        },
+        "med.name": {
+          "macro_f1": 0.0,
+          "n": 27
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.3438,
+          "n": 2174
+        },
+        "med": {
+          "macro_f1": 0.2924,
+          "n": 357
+        }
+      }
+    },
+    {
+      "model_name": "tfidf_logreg",
+      "split": "ood",
+      "fold": null,
+      "seed": null,
+      "macro_f1": 0.5309,
+      "discrepancy_recall": 0.8104,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.6744432661717922,
+          "recall": 0.5740072202166066,
+          "f1": 0.6201852754753778,
+          "support": 1108
+        },
+        "DISCREPANCY": {
+          "precision": 0.6812698412698412,
+          "recall": 0.8104229607250756,
+          "f1": 0.7402552604346327,
+          "support": 1324
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 1.0,
+          "recall": 0.13131313131313133,
+          "f1": 0.23214285714285718,
+          "support": 99
+        }
+      },
+      "confusion_matrix": [
+        [
+          636,
+          472,
+          0
+        ],
+        [
+          251,
+          1073,
+          0
+        ],
+        [
+          56,
+          30,
+          13
+        ]
+      ],
+      "auroc_discrepancy": 0.7892,
+      "brier_score": 0.4097,
+      "ece": 0.0313,
+      "by_severity": {
+        "high": {
+          "macro_f1": 0.4419,
+          "n": 501
+        },
+        "medium": {
+          "macro_f1": 0.4318,
+          "n": 526
+        },
+        "low": {
+          "macro_f1": 0.4428,
+          "n": 540
+        },
+        "clean": {
+          "macro_f1": 0.6211,
+          "n": 964
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.4426,
+          "n": 1931
+        },
+        "med.dose": {
+          "macro_f1": 0.6846,
+          "n": 222
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 243
+        },
+        "med.route": {
+          "macro_f1": 0.3452,
+          "n": 54
+        },
+        "med.frequency": {
+          "macro_f1": 0.5108,
+          "n": 54
+        },
+        "med.name": {
+          "macro_f1": 0.3333,
+          "n": 27
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.462,
+          "n": 2174
+        },
+        "med": {
+          "macro_f1": 0.7092,
+          "n": 357
+        }
+      }
+    },
+    {
+      "model_name": "frozen_modernbert_probe",
+      "split": "ood",
+      "fold": null,
+      "seed": null,
+      "macro_f1": 0.6694,
+      "discrepancy_recall": 0.8384,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.8042430086788814,
+          "recall": 0.7527075812274369,
+          "f1": 0.7776223776223777,
+          "support": 1108
+        },
+        "DISCREPANCY": {
+          "precision": 0.7956989247311828,
+          "recall": 0.8383685800604229,
+          "f1": 0.816476645825671,
+          "support": 1324
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.41414141414141414,
+          "recall": 0.41414141414141414,
+          "f1": 0.41414141414141414,
+          "support": 99
+        }
+      },
+      "confusion_matrix": [
+        [
+          834,
+          243,
+          31
+        ],
+        [
+          187,
+          1110,
+          27
+        ],
+        [
+          16,
+          42,
+          41
+        ]
+      ],
+      "auroc_discrepancy": 0.8838,
+      "brier_score": 0.3118,
+      "ece": 0.0616,
+      "by_severity": {
+        "high": {
+          "macro_f1": 0.4906,
+          "n": 501
+        },
+        "medium": {
+          "macro_f1": 0.4941,
+          "n": 526
+        },
+        "low": {
+          "macro_f1": 0.541,
+          "n": 540
+        },
+        "clean": {
+          "macro_f1": 0.8766,
+          "n": 964
+        }
+      },
+      "by_field_type": {
+        "lab.value": {
+          "macro_f1": 0.6479,
+          "n": 1931
+        },
+        "med.dose": {
+          "macro_f1": 0.672,
+          "n": 222
+        },
+        "lab.flag": {
+          "macro_f1": 0.3333,
+          "n": 243
+        },
+        "med.route": {
+          "macro_f1": 0.3746,
+          "n": 54
+        },
+        "med.frequency": {
+          "macro_f1": 0.4589,
+          "n": 54
+        },
+        "med.name": {
+          "macro_f1": 0.327,
+          "n": 27
+        }
+      },
+      "by_claim_type": {
+        "lab": {
+          "macro_f1": 0.6612,
+          "n": 2174
+        },
+        "med": {
+          "macro_f1": 0.6955,
+          "n": 357
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,5791 @@
+{
+  "doc_id": "NARRATIVE_0009",
+  "source_path": "data\\narrative_rendered\\NARRATIVE_0009.pdf",
+  "engine": "pymupdf_digital",
+  "device": "cpu",
+  "num_pages": 1,
+  "lines": [
+    {
+      "text": "Memorial General Hospital - Department of Inpatient Medicine",
+      "bbox": [
+        46.0,
+        41.09,
+        426.69,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Memorial",
+          "bbox": [
+            46.0,
+            41.09,
+            103.07,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "General",
+          "bbox": [
+            106.68,
+            41.09,
+            155.1,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Hospital",
+          "bbox": [
+            158.71,
+            41.09,
+            209.99,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "-",
+          "bbox": [
+            213.61,
+            41.09,
+            217.94,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Department",
+          "bbox": [
+            221.55,
+            41.09,
+            293.78,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "of",
+          "bbox": [
+            297.39,
+            41.09,
+            309.67,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Inpatient",
+          "bbox": [
+            313.28,
+            41.09,
+            367.45,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Medicine",
+          "bbox": [
+            371.07,
+            41.09,
+            426.69,
+            58.99
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "CLINICAL DOCUMENTATION \u2014 NARRATIVE EMERGENCY OBSERVATION NOTE V1",
+      "bbox": [
+        46.0,
+        57.23,
+        487.24,
+        72.38
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "CLINICAL",
+          "bbox": [
+            46.0,
+            57.23,
+            97.33,
+            72.38
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "DOCUMENTATION",
+          "bbox": [
+            100.38,
+            57.23,
+            198.15,
+            72.38
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "\u2014",
+          "bbox": [
+            201.21,
+            57.23,
+            212.21,
+            72.38
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "NARRATIVE",
+          "bbox": [
+            215.27,
+            57.23,
+            279.43,
+            72.38
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "EMERGENCY",
+          "bbox": [
+            282.49,
+            57.23,
+            353.38,
+            72.38
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "OBSERVATION",
+          "bbox": [
+            356.44,
+            57.23,
+            437.12,
+            72.38
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "NOTE",
+          "bbox": [
+            440.17,
+            57.23,
+            470.73,
+            72.38
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "V1",
+          "bbox": [
+            473.79,
+            57.23,
+            487.24,
+            72.38
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Patient: Richard Martinez | MRN: PAT-60009 | DOB: 1955-05-17 | Gender: Male | Doc ID: NARRATIVE_0009",
+      "bbox": [
+        46.0,
+        82.82,
+        508.99,
+        95.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Patient:",
+          "bbox": [
+            46.0,
+            82.87,
+            79.0,
+            95.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Richard",
+          "bbox": [
+            81.51,
+            82.82,
+            112.51,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Martinez",
+          "bbox": [
+            115.01,
+            82.82,
+            149.52,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            154.52,
+            82.82,
+            156.86,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MRN:",
+          "bbox": [
+            161.87,
+            82.87,
+            185.36,
+            95.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PAT-60009",
+          "bbox": [
+            187.86,
+            82.82,
+            233.38,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            238.38,
+            82.82,
+            240.72,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "DOB:",
+          "bbox": [
+            245.73,
+            82.87,
+            268.72,
+            95.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1955-05-17",
+          "bbox": [
+            271.22,
+            82.82,
+            317.25,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            322.25,
+            82.82,
+            324.59,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Gender:",
+          "bbox": [
+            329.6,
+            82.87,
+            364.11,
+            95.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Male",
+          "bbox": [
+            366.61,
+            82.82,
+            386.11,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            391.11,
+            82.82,
+            393.45,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Doc",
+          "bbox": [
+            398.46,
+            82.87,
+            415.46,
+            95.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "ID:",
+          "bbox": [
+            417.96,
+            82.87,
+            429.96,
+            95.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "NARRATIVE_0009",
+          "bbox": [
+            432.46,
+            82.82,
+            508.99,
+            95.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Encounter Date: 2025-04-06 | Discharge/Note Date: 2025-04-09 | Provider: Dr. Robert Evans, MD",
+      "bbox": [
+        46.0,
+        94.82,
+        458.31,
+        107.26
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Encounter",
+          "bbox": [
+            46.0,
+            94.87,
+            90.51,
+            107.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Date:",
+          "bbox": [
+            93.01,
+            94.87,
+            115.51,
+            107.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "2025-04-06",
+          "bbox": [
+            118.01,
+            94.82,
+            164.04,
+            107.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            169.04,
+            94.82,
+            171.38,
+            107.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Discharge/Note",
+          "bbox": [
+            176.38,
+            94.87,
+            242.4,
+            107.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Date:",
+          "bbox": [
+            244.9,
+            94.87,
+            267.4,
+            107.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "2025-04-09",
+          "bbox": [
+            269.9,
+            94.82,
+            315.93,
+            107.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "|",
+          "bbox": [
+            320.93,
+            94.82,
+            323.27,
+            107.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Provider:",
+          "bbox": [
+            328.28,
+            94.87,
+            367.79,
+            107.26
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Dr.",
+          "bbox": [
+            370.29,
+            94.82,
+            382.29,
+            107.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Robert",
+          "bbox": [
+            384.79,
+            94.82,
+            411.8,
+            107.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Evans,",
+          "bbox": [
+            414.3,
+            94.82,
+            441.81,
+            107.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "MD",
+          "bbox": [
+            444.31,
+            94.82,
+            458.31,
+            107.19
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "EMERGENCY DEPARTMENT PRESENTATION",
+      "bbox": [
+        46.0,
+        119.55,
+        263.79,
+        133.32
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "EMERGENCY",
+          "bbox": [
+            46.0,
+            119.55,
+            110.45,
+            133.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "DEPARTMENT",
+          "bbox": [
+            113.23,
+            119.55,
+            182.67,
+            133.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PRESENTATION",
+          "bbox": [
+            185.45,
+            119.55,
+            263.79,
+            133.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Patient Richard Martinez was triaged in the emergency department following acute onset of lightheadedness and",
+      "bbox": [
+        46.0,
+        136.54,
+        519.64,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Patient",
+          "bbox": [
+            46.0,
+            136.54,
+            75.57,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Richard",
+          "bbox": [
+            78.21,
+            136.54,
+            110.94,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Martinez",
+          "bbox": [
+            113.58,
+            136.54,
+            150.01,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "was",
+          "bbox": [
+            152.65,
+            136.54,
+            169.54,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "triaged",
+          "bbox": [
+            172.18,
+            136.54,
+            201.22,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "in",
+          "bbox": [
+            203.86,
+            136.54,
+            211.25,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "the",
+          "bbox": [
+            213.89,
+            136.54,
+            227.1,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "emergency",
+          "bbox": [
+            229.74,
+            136.54,
+            276.73,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "department",
+          "bbox": [
+            279.37,
+            136.54,
+            327.42,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "following",
+          "bbox": [
+            330.06,
+            136.54,
+            367.01,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "acute",
+          "bbox": [
+            369.66,
+            136.54,
+            392.89,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "onset",
+          "bbox": [
+            395.53,
+            136.54,
+            418.77,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "of",
+          "bbox": [
+            421.41,
+            136.54,
+            429.33,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "lightheadedness",
+          "bbox": [
+            431.98,
+            136.54,
+            501.15,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "and",
+          "bbox": [
+            503.8,
+            136.54,
+            519.64,
+            149.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "palpitations earlier this morning. Initial hemodynamic parameters were reviewed and patient was placed on telemetry.",
+      "bbox": [
+        46.0,
+        150.04,
+        538.6,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "palpitations",
+          "bbox": [
+            46.0,
+            150.04,
+            94.05,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "earlier",
+          "bbox": [
+            96.69,
+            150.04,
+            123.08,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "this",
+          "bbox": [
+            125.72,
+            150.04,
+            140.51,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "morning.",
+          "bbox": [
+            143.15,
+            150.04,
+            180.1,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Initial",
+          "bbox": [
+            182.74,
+            150.04,
+            204.92,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "hemodynamic",
+          "bbox": [
+            207.56,
+            150.04,
+            266.68,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "parameters",
+          "bbox": [
+            269.33,
+            150.04,
+            317.37,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "were",
+          "bbox": [
+            320.01,
+            150.04,
+            340.6,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "reviewed",
+          "bbox": [
+            343.24,
+            150.04,
+            381.25,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "and",
+          "bbox": [
+            383.89,
+            150.04,
+            399.73,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "patient",
+          "bbox": [
+            402.37,
+            150.04,
+            430.89,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "was",
+          "bbox": [
+            433.53,
+            150.04,
+            450.42,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "placed",
+          "bbox": [
+            453.07,
+            150.04,
+            481.05,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "on",
+          "bbox": [
+            483.69,
+            150.04,
+            494.26,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "telemetry.",
+          "bbox": [
+            496.9,
+            150.04,
+            538.6,
+            163.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "HISTORY OF PRESENT ILLNESS",
+      "bbox": [
+        46.0,
+        181.55,
+        202.14,
+        195.32
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "HISTORY",
+          "bbox": [
+            46.0,
+            181.55,
+            90.45,
+            195.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "OF",
+          "bbox": [
+            93.23,
+            181.55,
+            107.12,
+            195.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PRESENT",
+          "bbox": [
+            109.9,
+            181.55,
+            157.13,
+            195.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "ILLNESS",
+          "bbox": [
+            159.91,
+            181.55,
+            202.14,
+            195.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "The patient describes experiencing recurrent lightheadedness over the preceding 48 hours without syncope. Initial",
+      "bbox": [
+        46.0,
+        198.54,
+        524.92,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "The",
+          "bbox": [
+            46.0,
+            198.54,
+            62.37,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "patient",
+          "bbox": [
+            65.01,
+            198.54,
+            93.53,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "describes",
+          "bbox": [
+            96.17,
+            198.54,
+            136.82,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "experiencing",
+          "bbox": [
+            139.46,
+            198.54,
+            193.32,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "recurrent",
+          "bbox": [
+            195.96,
+            198.54,
+            233.97,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "lightheadedness",
+          "bbox": [
+            236.61,
+            198.54,
+            305.79,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "over",
+          "bbox": [
+            308.43,
+            198.54,
+            326.91,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "the",
+          "bbox": [
+            329.55,
+            198.54,
+            342.75,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "preceding",
+          "bbox": [
+            345.39,
+            198.54,
+            387.11,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "48",
+          "bbox": [
+            389.75,
+            198.54,
+            400.31,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "hours",
+          "bbox": [
+            402.95,
+            198.54,
+            426.71,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "without",
+          "bbox": [
+            429.35,
+            198.54,
+            459.45,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "syncope.",
+          "bbox": [
+            462.09,
+            198.54,
+            500.11,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Initial",
+          "bbox": [
+            502.75,
+            198.54,
+            524.92,
+            211.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "emergency workup revealed that initial platelet count was measured at 245.4 10*3/uL. Point-of-care laboratory screening",
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "emergency",
+          "bbox": [
+            46.0,
+            212.04,
+            92.99,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "workup",
+          "bbox": [
+            95.63,
+            212.04,
+            126.25,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "revealed",
+          "bbox": [
+            128.89,
+            212.04,
+            165.32,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "that",
+          "bbox": [
+            167.96,
+            212.04,
+            183.81,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "initial",
+          "bbox": [
+            186.45,
+            212.04,
+            208.09,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "platelet",
+          "bbox": [
+            210.73,
+            212.04,
+            241.36,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "count",
+          "bbox": [
+            244.0,
+            212.04,
+            267.24,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "was",
+          "bbox": [
+            269.88,
+            212.04,
+            286.77,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "measured",
+          "bbox": [
+            289.41,
+            212.04,
+            331.65,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "at",
+          "bbox": [
+            334.29,
+            212.04,
+            342.21,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "245.4",
+          "bbox": [
+            344.85,
+            212.04,
+            368.62,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "10*3/uL.",
+          "bbox": [
+            371.26,
+            212.04,
+            406.65,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Point-of-care",
+          "bbox": [
+            409.29,
+            212.04,
+            463.67,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "laboratory",
+          "bbox": [
+            466.31,
+            212.04,
+            508.55,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "screening",
+          "bbox": [
+            511.19,
+            212.04,
+            552.37,
+            225.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "additionally noted sodium resulted at 129.8 mmol/L (LOW). Given these findings, the patient was transitioned to the Clinical",
+      "bbox": [
+        46.0,
+        225.54,
+        562.92,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "additionally",
+          "bbox": [
+            46.0,
+            225.54,
+            93.52,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "noted",
+          "bbox": [
+            96.16,
+            225.54,
+            119.93,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "sodium",
+          "bbox": [
+            122.57,
+            225.54,
+            153.19,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "resulted",
+          "bbox": [
+            155.83,
+            225.54,
+            189.62,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "at",
+          "bbox": [
+            192.26,
+            225.54,
+            200.18,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "129.8",
+          "bbox": [
+            202.83,
+            225.54,
+            226.6,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mmol/L",
+          "bbox": [
+            229.24,
+            225.54,
+            260.38,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "(LOW).",
+          "bbox": [
+            263.02,
+            225.54,
+            293.63,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Given",
+          "bbox": [
+            296.27,
+            225.54,
+            321.08,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "these",
+          "bbox": [
+            323.72,
+            225.54,
+            346.96,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "findings,",
+          "bbox": [
+            349.6,
+            225.54,
+            384.98,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "the",
+          "bbox": [
+            387.62,
+            225.54,
+            400.83,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "patient",
+          "bbox": [
+            403.47,
+            225.54,
+            431.99,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "was",
+          "bbox": [
+            434.63,
+            225.54,
+            451.52,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "transitioned",
+          "bbox": [
+            454.16,
+            225.54,
+            503.26,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "to",
+          "bbox": [
+            505.9,
+            225.54,
+            513.83,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "the",
+          "bbox": [
+            516.47,
+            225.54,
+            529.67,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Clinical",
+          "bbox": [
+            532.31,
+            225.54,
+            562.92,
+            238.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Decision Unit for 24-hour observation.",
+      "bbox": [
+        46.0,
+        239.04,
+        205.45,
+        252.09
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Decision",
+          "bbox": [
+            46.0,
+            239.04,
+            82.42,
+            252.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Unit",
+          "bbox": [
+            85.06,
+            239.04,
+            101.96,
+            252.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "for",
+          "bbox": [
+            104.6,
+            239.04,
+            115.68,
+            252.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "24-hour",
+          "bbox": [
+            118.32,
+            239.04,
+            151.06,
+            252.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "observation.",
+          "bbox": [
+            153.7,
+            239.04,
+            205.45,
+            252.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "OBSERVATION UNIT CLINICAL COURSE",
+      "bbox": [
+        46.0,
+        270.55,
+        240.45,
+        284.32
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "OBSERVATION",
+          "bbox": [
+            46.0,
+            270.55,
+            119.34,
+            284.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "UNIT",
+          "bbox": [
+            122.12,
+            270.55,
+            145.45,
+            284.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "CLINICAL",
+          "bbox": [
+            148.23,
+            270.55,
+            194.89,
+            284.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "COURSE",
+          "bbox": [
+            197.67,
+            270.55,
+            240.45,
+            284.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Throughout the observation unit stay, continuous telemetry showed normal sinus rhythm without pause or tachyarrhythmia.",
+      "bbox": [
+        46.0,
+        287.54,
+        561.86,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Throughout",
+          "bbox": [
+            46.0,
+            287.54,
+            94.58,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "the",
+          "bbox": [
+            97.22,
+            287.54,
+            110.43,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "observation",
+          "bbox": [
+            113.07,
+            287.54,
+            162.18,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "unit",
+          "bbox": [
+            164.82,
+            287.54,
+            180.13,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "stay,",
+          "bbox": [
+            182.77,
+            287.54,
+            202.84,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "continuous",
+          "bbox": [
+            205.48,
+            287.54,
+            251.42,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "telemetry",
+          "bbox": [
+            254.06,
+            287.54,
+            293.12,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "showed",
+          "bbox": [
+            295.76,
+            287.54,
+            328.5,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "normal",
+          "bbox": [
+            331.14,
+            287.54,
+            360.17,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "sinus",
+          "bbox": [
+            362.82,
+            287.54,
+            384.99,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "rhythm",
+          "bbox": [
+            387.63,
+            287.54,
+            416.66,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "without",
+          "bbox": [
+            419.3,
+            287.54,
+            449.4,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "pause",
+          "bbox": [
+            452.04,
+            287.54,
+            477.92,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "or",
+          "bbox": [
+            480.56,
+            287.54,
+            489.0,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "tachyarrhythmia.",
+          "bbox": [
+            491.65,
+            287.54,
+            561.86,
+            300.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "The patient was administered Omeprazole at a dose of 20 mg oral once daily before breakfast for 14 days, which promptly",
+      "bbox": [
+        46.0,
+        301.04,
+        559.23,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "The",
+          "bbox": [
+            46.0,
+            301.04,
+            62.37,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "patient",
+          "bbox": [
+            65.01,
+            301.04,
+            93.53,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "was",
+          "bbox": [
+            96.17,
+            301.04,
+            113.06,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "administered",
+          "bbox": [
+            115.7,
+            301.04,
+            170.08,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Omeprazole",
+          "bbox": [
+            172.72,
+            301.04,
+            224.46,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "at",
+          "bbox": [
+            227.1,
+            301.04,
+            235.02,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "a",
+          "bbox": [
+            237.66,
+            301.04,
+            242.94,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "dose",
+          "bbox": [
+            245.59,
+            301.04,
+            266.18,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "of",
+          "bbox": [
+            268.82,
+            301.04,
+            276.75,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "20",
+          "bbox": [
+            279.39,
+            301.04,
+            289.95,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mg",
+          "bbox": [
+            292.59,
+            301.04,
+            305.79,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "oral",
+          "bbox": [
+            308.43,
+            301.04,
+            324.26,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "once",
+          "bbox": [
+            326.91,
+            301.04,
+            347.5,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "daily",
+          "bbox": [
+            350.14,
+            301.04,
+            369.67,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "before",
+          "bbox": [
+            372.32,
+            301.04,
+            399.25,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "breakfast",
+          "bbox": [
+            401.89,
+            301.04,
+            440.96,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "for",
+          "bbox": [
+            443.6,
+            301.04,
+            454.69,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "14",
+          "bbox": [
+            457.33,
+            301.04,
+            467.9,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "days,",
+          "bbox": [
+            470.54,
+            301.04,
+            493.24,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "which",
+          "bbox": [
+            495.88,
+            301.04,
+            520.16,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "promptly",
+          "bbox": [
+            522.81,
+            301.04,
+            559.23,
+            314.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "alleviated acute symptoms. Follow-up protocol monitoring of glucose demonstrated 88.1 mg/dL. Orthostatic blood pressures",
+      "bbox": [
+        46.0,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "alleviated",
+          "bbox": [
+            46.0,
+            314.54,
+            86.13,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "acute",
+          "bbox": [
+            88.76,
+            314.54,
+            112.0,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "symptoms.",
+          "bbox": [
+            114.64,
+            314.54,
+            160.56,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Follow-up",
+          "bbox": [
+            163.19,
+            314.54,
+            204.37,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "protocol",
+          "bbox": [
+            207.0,
+            314.54,
+            240.79,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "monitoring",
+          "bbox": [
+            243.43,
+            314.54,
+            287.77,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "of",
+          "bbox": [
+            290.41,
+            314.54,
+            298.33,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "glucose",
+          "bbox": [
+            300.97,
+            314.54,
+            333.7,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "demonstrated",
+          "bbox": [
+            336.34,
+            314.54,
+            394.42,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "88.1",
+          "bbox": [
+            397.06,
+            314.54,
+            415.54,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mg/dL.",
+          "bbox": [
+            418.18,
+            314.54,
+            447.22,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Orthostatic",
+          "bbox": [
+            449.86,
+            314.54,
+            495.79,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "blood",
+          "bbox": [
+            498.42,
+            314.54,
+            521.66,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "pressures",
+          "bbox": [
+            524.3,
+            314.54,
+            566.0,
+            327.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "were negative upon ambulation.",
+      "bbox": [
+        46.0,
+        328.04,
+        180.65,
+        341.09
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "were",
+          "bbox": [
+            46.0,
+            328.04,
+            66.59,
+            341.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "negative",
+          "bbox": [
+            69.23,
+            328.04,
+            105.14,
+            341.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "upon",
+          "bbox": [
+            107.78,
+            328.04,
+            128.91,
+            341.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "ambulation.",
+          "bbox": [
+            131.55,
+            328.04,
+            180.65,
+            341.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "DISCHARGE REGIMEN",
+      "bbox": [
+        46.0,
+        359.55,
+        155.45,
+        373.32
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "DISCHARGE",
+          "bbox": [
+            46.0,
+            359.55,
+            106.0,
+            373.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "REGIMEN",
+          "bbox": [
+            108.78,
+            359.55,
+            155.45,
+            373.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Patient was deemed safe for outpatient discharge. The ongoing regimen includes Cephalexin 500 mg by mouth QID for 10",
+      "bbox": [
+        46.0,
+        376.54,
+        559.78,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Patient",
+          "bbox": [
+            46.0,
+            376.54,
+            75.57,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "was",
+          "bbox": [
+            78.21,
+            376.54,
+            95.11,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "deemed",
+          "bbox": [
+            97.75,
+            376.54,
+            132.07,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "safe",
+          "bbox": [
+            134.71,
+            376.54,
+            152.67,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "for",
+          "bbox": [
+            155.31,
+            376.54,
+            166.39,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "outpatient",
+          "bbox": [
+            169.03,
+            376.54,
+            210.76,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "discharge.",
+          "bbox": [
+            213.4,
+            376.54,
+            257.22,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "The",
+          "bbox": [
+            259.86,
+            376.54,
+            276.23,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "ongoing",
+          "bbox": [
+            278.87,
+            376.54,
+            312.67,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "regimen",
+          "bbox": [
+            315.32,
+            376.54,
+            349.63,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "includes",
+          "bbox": [
+            352.27,
+            376.54,
+            387.12,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Cephalexin",
+          "bbox": [
+            389.76,
+            376.54,
+            437.28,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "500",
+          "bbox": [
+            439.92,
+            376.54,
+            455.76,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mg",
+          "bbox": [
+            458.4,
+            376.54,
+            471.6,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "by",
+          "bbox": [
+            474.24,
+            376.54,
+            484.27,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "mouth",
+          "bbox": [
+            486.91,
+            376.54,
+            513.31,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "QID",
+          "bbox": [
+            515.96,
+            376.54,
+            532.85,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "for",
+          "bbox": [
+            535.49,
+            376.54,
+            546.57,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "10",
+          "bbox": [
+            549.22,
+            376.54,
+            559.78,
+            389.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "days as prescribed. Prescription counseling was performed by nursing prior to release.",
+      "bbox": [
+        46.0,
+        390.04,
+        409.77,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "days",
+          "bbox": [
+            46.0,
+            390.04,
+            66.06,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "as",
+          "bbox": [
+            68.71,
+            390.04,
+            78.74,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "prescribed.",
+          "bbox": [
+            81.38,
+            390.04,
+            128.37,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Prescription",
+          "bbox": [
+            131.01,
+            390.04,
+            181.16,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "counseling",
+          "bbox": [
+            183.8,
+            390.04,
+            229.21,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "was",
+          "bbox": [
+            231.85,
+            390.04,
+            248.74,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "performed",
+          "bbox": [
+            251.38,
+            390.04,
+            294.67,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "by",
+          "bbox": [
+            297.31,
+            390.04,
+            307.34,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "nursing",
+          "bbox": [
+            309.99,
+            390.04,
+            341.14,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "prior",
+          "bbox": [
+            343.78,
+            390.04,
+            362.78,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "to",
+          "bbox": [
+            365.42,
+            390.04,
+            373.34,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "release.",
+          "bbox": [
+            375.98,
+            390.04,
+            409.77,
+            403.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "PLAN & PRECAUTIONS",
+      "bbox": [
+        46.0,
+        421.55,
+        158.78,
+        435.32
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "PLAN",
+          "bbox": [
+            46.0,
+            421.55,
+            73.22,
+            435.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "&",
+          "bbox": [
+            76.0,
+            421.55,
+            83.22,
+            435.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "PRECAUTIONS",
+          "bbox": [
+            86.0,
+            421.55,
+            158.78,
+            435.32
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "Resume normal daily activities as tolerated. Avoid strenuous exercise until cardiology follow-up in 1 to 2 weeks. Immediate",
+      "bbox": [
+        46.0,
+        438.54,
+        560.24,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "Resume",
+          "bbox": [
+            46.0,
+            438.54,
+            81.37,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "normal",
+          "bbox": [
+            84.01,
+            438.54,
+            113.04,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "daily",
+          "bbox": [
+            115.68,
+            438.54,
+            135.21,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "activities",
+          "bbox": [
+            137.86,
+            438.54,
+            174.28,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "as",
+          "bbox": [
+            176.92,
+            438.54,
+            186.95,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "tolerated.",
+          "bbox": [
+            189.59,
+            438.54,
+            229.2,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Avoid",
+          "bbox": [
+            231.84,
+            438.54,
+            255.6,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "strenuous",
+          "bbox": [
+            258.24,
+            438.54,
+            299.95,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "exercise",
+          "bbox": [
+            302.6,
+            438.54,
+            337.96,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "until",
+          "bbox": [
+            340.6,
+            438.54,
+            358.03,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "cardiology",
+          "bbox": [
+            360.67,
+            438.54,
+            403.96,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "follow-up",
+          "bbox": [
+            406.6,
+            438.54,
+            444.61,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "in",
+          "bbox": [
+            447.25,
+            438.54,
+            454.64,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "1",
+          "bbox": [
+            457.28,
+            438.54,
+            462.57,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "to",
+          "bbox": [
+            465.21,
+            438.54,
+            473.13,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "2",
+          "bbox": [
+            475.77,
+            438.54,
+            481.05,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "weeks.",
+          "bbox": [
+            483.69,
+            438.54,
+            513.26,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "Immediate",
+          "bbox": [
+            515.9,
+            438.54,
+            560.24,
+            451.59
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    },
+    {
+      "text": "emergency precautions detailed.",
+      "bbox": [
+        46.0,
+        452.04,
+        183.28,
+        465.09
+      ],
+      "confidence": 1.0,
+      "page": 1,
+      "words": [
+        {
+          "text": "emergency",
+          "bbox": [
+            46.0,
+            452.04,
+            92.99,
+            465.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "precautions",
+          "bbox": [
+            95.63,
+            452.04,
+            144.73,
+            465.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        },
+        {
+          "text": "detailed.",
+          "bbox": [
+            147.37,
+            452.04,
+            183.28,
+            465.09
+          ],
+          "confidence": 1.0,
+          "page": 1
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "text": "Memorial",
+      "bbox": [
+        46.0,
+        41.09,
+        103.07,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "General",
+      "bbox": [
+        106.68,
+        41.09,
+        155.1,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Hospital",
+      "bbox": [
+        158.71,
+        41.09,
+        209.99,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "-",
+      "bbox": [
+        213.61,
+        41.09,
+        217.94,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Department",
+      "bbox": [
+        221.55,
+        41.09,
+        293.78,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "of",
+      "bbox": [
+        297.39,
+        41.09,
+        309.67,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Inpatient",
+      "bbox": [
+        313.28,
+        41.09,
+        367.45,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Medicine",
+      "bbox": [
+        371.07,
+        41.09,
+        426.69,
+        58.99
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "CLINICAL",
+      "bbox": [
+        46.0,
+        57.23,
+        97.33,
+        72.38
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "DOCUMENTATION",
+      "bbox": [
+        100.38,
+        57.23,
+        198.15,
+        72.38
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "\u2014",
+      "bbox": [
+        201.21,
+        57.23,
+        212.21,
+        72.38
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "NARRATIVE",
+      "bbox": [
+        215.27,
+        57.23,
+        279.43,
+        72.38
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "EMERGENCY",
+      "bbox": [
+        282.49,
+        57.23,
+        353.38,
+        72.38
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "OBSERVATION",
+      "bbox": [
+        356.44,
+        57.23,
+        437.12,
+        72.38
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "NOTE",
+      "bbox": [
+        440.17,
+        57.23,
+        470.73,
+        72.38
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "V1",
+      "bbox": [
+        473.79,
+        57.23,
+        487.24,
+        72.38
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Patient:",
+      "bbox": [
+        46.0,
+        82.87,
+        79.0,
+        95.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Richard",
+      "bbox": [
+        81.51,
+        82.82,
+        112.51,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Martinez",
+      "bbox": [
+        115.01,
+        82.82,
+        149.52,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        154.52,
+        82.82,
+        156.86,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MRN:",
+      "bbox": [
+        161.87,
+        82.87,
+        185.36,
+        95.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PAT-60009",
+      "bbox": [
+        187.86,
+        82.82,
+        233.38,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        238.38,
+        82.82,
+        240.72,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "DOB:",
+      "bbox": [
+        245.73,
+        82.87,
+        268.72,
+        95.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1955-05-17",
+      "bbox": [
+        271.22,
+        82.82,
+        317.25,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        322.25,
+        82.82,
+        324.59,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Gender:",
+      "bbox": [
+        329.6,
+        82.87,
+        364.11,
+        95.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Male",
+      "bbox": [
+        366.61,
+        82.82,
+        386.11,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        391.11,
+        82.82,
+        393.45,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Doc",
+      "bbox": [
+        398.46,
+        82.87,
+        415.46,
+        95.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "ID:",
+      "bbox": [
+        417.96,
+        82.87,
+        429.96,
+        95.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "NARRATIVE_0009",
+      "bbox": [
+        432.46,
+        82.82,
+        508.99,
+        95.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Encounter",
+      "bbox": [
+        46.0,
+        94.87,
+        90.51,
+        107.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Date:",
+      "bbox": [
+        93.01,
+        94.87,
+        115.51,
+        107.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "2025-04-06",
+      "bbox": [
+        118.01,
+        94.82,
+        164.04,
+        107.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        169.04,
+        94.82,
+        171.38,
+        107.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Discharge/Note",
+      "bbox": [
+        176.38,
+        94.87,
+        242.4,
+        107.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Date:",
+      "bbox": [
+        244.9,
+        94.87,
+        267.4,
+        107.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "2025-04-09",
+      "bbox": [
+        269.9,
+        94.82,
+        315.93,
+        107.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "|",
+      "bbox": [
+        320.93,
+        94.82,
+        323.27,
+        107.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Provider:",
+      "bbox": [
+        328.28,
+        94.87,
+        367.79,
+        107.26
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Dr.",
+      "bbox": [
+        370.29,
+        94.82,
+        382.29,
+        107.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Robert",
+      "bbox": [
+        384.79,
+        94.82,
+        411.8,
+        107.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Evans,",
+      "bbox": [
+        414.3,
+        94.82,
+        441.81,
+        107.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "MD",
+      "bbox": [
+        444.31,
+        94.82,
+        458.31,
+        107.19
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "EMERGENCY",
+      "bbox": [
+        46.0,
+        119.55,
+        110.45,
+        133.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "DEPARTMENT",
+      "bbox": [
+        113.23,
+        119.55,
+        182.67,
+        133.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PRESENTATION",
+      "bbox": [
+        185.45,
+        119.55,
+        263.79,
+        133.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Patient",
+      "bbox": [
+        46.0,
+        136.54,
+        75.57,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Richard",
+      "bbox": [
+        78.21,
+        136.54,
+        110.94,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Martinez",
+      "bbox": [
+        113.58,
+        136.54,
+        150.01,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "was",
+      "bbox": [
+        152.65,
+        136.54,
+        169.54,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "triaged",
+      "bbox": [
+        172.18,
+        136.54,
+        201.22,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "in",
+      "bbox": [
+        203.86,
+        136.54,
+        211.25,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "the",
+      "bbox": [
+        213.89,
+        136.54,
+        227.1,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "emergency",
+      "bbox": [
+        229.74,
+        136.54,
+        276.73,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "department",
+      "bbox": [
+        279.37,
+        136.54,
+        327.42,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "following",
+      "bbox": [
+        330.06,
+        136.54,
+        367.01,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "acute",
+      "bbox": [
+        369.66,
+        136.54,
+        392.89,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "onset",
+      "bbox": [
+        395.53,
+        136.54,
+        418.77,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "of",
+      "bbox": [
+        421.41,
+        136.54,
+        429.33,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "lightheadedness",
+      "bbox": [
+        431.98,
+        136.54,
+        501.15,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "and",
+      "bbox": [
+        503.8,
+        136.54,
+        519.64,
+        149.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "palpitations",
+      "bbox": [
+        46.0,
+        150.04,
+        94.05,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "earlier",
+      "bbox": [
+        96.69,
+        150.04,
+        123.08,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "this",
+      "bbox": [
+        125.72,
+        150.04,
+        140.51,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "morning.",
+      "bbox": [
+        143.15,
+        150.04,
+        180.1,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Initial",
+      "bbox": [
+        182.74,
+        150.04,
+        204.92,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "hemodynamic",
+      "bbox": [
+        207.56,
+        150.04,
+        266.68,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "parameters",
+      "bbox": [
+        269.33,
+        150.04,
+        317.37,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "were",
+      "bbox": [
+        320.01,
+        150.04,
+        340.6,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "reviewed",
+      "bbox": [
+        343.24,
+        150.04,
+        381.25,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "and",
+      "bbox": [
+        383.89,
+        150.04,
+        399.73,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "patient",
+      "bbox": [
+        402.37,
+        150.04,
+        430.89,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "was",
+      "bbox": [
+        433.53,
+        150.04,
+        450.42,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "placed",
+      "bbox": [
+        453.07,
+        150.04,
+        481.05,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "on",
+      "bbox": [
+        483.69,
+        150.04,
+        494.26,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "telemetry.",
+      "bbox": [
+        496.9,
+        150.04,
+        538.6,
+        163.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "HISTORY",
+      "bbox": [
+        46.0,
+        181.55,
+        90.45,
+        195.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "OF",
+      "bbox": [
+        93.23,
+        181.55,
+        107.12,
+        195.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PRESENT",
+      "bbox": [
+        109.9,
+        181.55,
+        157.13,
+        195.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "ILLNESS",
+      "bbox": [
+        159.91,
+        181.55,
+        202.14,
+        195.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "The",
+      "bbox": [
+        46.0,
+        198.54,
+        62.37,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "patient",
+      "bbox": [
+        65.01,
+        198.54,
+        93.53,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "describes",
+      "bbox": [
+        96.17,
+        198.54,
+        136.82,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "experiencing",
+      "bbox": [
+        139.46,
+        198.54,
+        193.32,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "recurrent",
+      "bbox": [
+        195.96,
+        198.54,
+        233.97,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "lightheadedness",
+      "bbox": [
+        236.61,
+        198.54,
+        305.79,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "over",
+      "bbox": [
+        308.43,
+        198.54,
+        326.91,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "the",
+      "bbox": [
+        329.55,
+        198.54,
+        342.75,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "preceding",
+      "bbox": [
+        345.39,
+        198.54,
+        387.11,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "48",
+      "bbox": [
+        389.75,
+        198.54,
+        400.31,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "hours",
+      "bbox": [
+        402.95,
+        198.54,
+        426.71,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "without",
+      "bbox": [
+        429.35,
+        198.54,
+        459.45,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "syncope.",
+      "bbox": [
+        462.09,
+        198.54,
+        500.11,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Initial",
+      "bbox": [
+        502.75,
+        198.54,
+        524.92,
+        211.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "emergency",
+      "bbox": [
+        46.0,
+        212.04,
+        92.99,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "workup",
+      "bbox": [
+        95.63,
+        212.04,
+        126.25,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "revealed",
+      "bbox": [
+        128.89,
+        212.04,
+        165.32,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "that",
+      "bbox": [
+        167.96,
+        212.04,
+        183.81,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "initial",
+      "bbox": [
+        186.45,
+        212.04,
+        208.09,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "platelet",
+      "bbox": [
+        210.73,
+        212.04,
+        241.36,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "count",
+      "bbox": [
+        244.0,
+        212.04,
+        267.24,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "was",
+      "bbox": [
+        269.88,
+        212.04,
+        286.77,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "measured",
+      "bbox": [
+        289.41,
+        212.04,
+        331.65,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "at",
+      "bbox": [
+        334.29,
+        212.04,
+        342.21,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "245.4",
+      "bbox": [
+        344.85,
+        212.04,
+        368.62,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "10*3/uL.",
+      "bbox": [
+        371.26,
+        212.04,
+        406.65,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Point-of-care",
+      "bbox": [
+        409.29,
+        212.04,
+        463.67,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "laboratory",
+      "bbox": [
+        466.31,
+        212.04,
+        508.55,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "screening",
+      "bbox": [
+        511.19,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "additionally",
+      "bbox": [
+        46.0,
+        225.54,
+        93.52,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "noted",
+      "bbox": [
+        96.16,
+        225.54,
+        119.93,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "sodium",
+      "bbox": [
+        122.57,
+        225.54,
+        153.19,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "resulted",
+      "bbox": [
+        155.83,
+        225.54,
+        189.62,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "at",
+      "bbox": [
+        192.26,
+        225.54,
+        200.18,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "129.8",
+      "bbox": [
+        202.83,
+        225.54,
+        226.6,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mmol/L",
+      "bbox": [
+        229.24,
+        225.54,
+        260.38,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "(LOW).",
+      "bbox": [
+        263.02,
+        225.54,
+        293.63,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Given",
+      "bbox": [
+        296.27,
+        225.54,
+        321.08,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "these",
+      "bbox": [
+        323.72,
+        225.54,
+        346.96,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "findings,",
+      "bbox": [
+        349.6,
+        225.54,
+        384.98,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "the",
+      "bbox": [
+        387.62,
+        225.54,
+        400.83,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "patient",
+      "bbox": [
+        403.47,
+        225.54,
+        431.99,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "was",
+      "bbox": [
+        434.63,
+        225.54,
+        451.52,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "transitioned",
+      "bbox": [
+        454.16,
+        225.54,
+        503.26,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "to",
+      "bbox": [
+        505.9,
+        225.54,
+        513.83,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "the",
+      "bbox": [
+        516.47,
+        225.54,
+        529.67,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Clinical",
+      "bbox": [
+        532.31,
+        225.54,
+        562.92,
+        238.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Decision",
+      "bbox": [
+        46.0,
+        239.04,
+        82.42,
+        252.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Unit",
+      "bbox": [
+        85.06,
+        239.04,
+        101.96,
+        252.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "for",
+      "bbox": [
+        104.6,
+        239.04,
+        115.68,
+        252.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "24-hour",
+      "bbox": [
+        118.32,
+        239.04,
+        151.06,
+        252.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "observation.",
+      "bbox": [
+        153.7,
+        239.04,
+        205.45,
+        252.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "OBSERVATION",
+      "bbox": [
+        46.0,
+        270.55,
+        119.34,
+        284.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "UNIT",
+      "bbox": [
+        122.12,
+        270.55,
+        145.45,
+        284.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "CLINICAL",
+      "bbox": [
+        148.23,
+        270.55,
+        194.89,
+        284.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "COURSE",
+      "bbox": [
+        197.67,
+        270.55,
+        240.45,
+        284.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Throughout",
+      "bbox": [
+        46.0,
+        287.54,
+        94.58,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "the",
+      "bbox": [
+        97.22,
+        287.54,
+        110.43,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "observation",
+      "bbox": [
+        113.07,
+        287.54,
+        162.18,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "unit",
+      "bbox": [
+        164.82,
+        287.54,
+        180.13,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "stay,",
+      "bbox": [
+        182.77,
+        287.54,
+        202.84,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "continuous",
+      "bbox": [
+        205.48,
+        287.54,
+        251.42,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "telemetry",
+      "bbox": [
+        254.06,
+        287.54,
+        293.12,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "showed",
+      "bbox": [
+        295.76,
+        287.54,
+        328.5,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "normal",
+      "bbox": [
+        331.14,
+        287.54,
+        360.17,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "sinus",
+      "bbox": [
+        362.82,
+        287.54,
+        384.99,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "rhythm",
+      "bbox": [
+        387.63,
+        287.54,
+        416.66,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "without",
+      "bbox": [
+        419.3,
+        287.54,
+        449.4,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "pause",
+      "bbox": [
+        452.04,
+        287.54,
+        477.92,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "or",
+      "bbox": [
+        480.56,
+        287.54,
+        489.0,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "tachyarrhythmia.",
+      "bbox": [
+        491.65,
+        287.54,
+        561.86,
+        300.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "The",
+      "bbox": [
+        46.0,
+        301.04,
+        62.37,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "patient",
+      "bbox": [
+        65.01,
+        301.04,
+        93.53,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "was",
+      "bbox": [
+        96.17,
+        301.04,
+        113.06,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "administered",
+      "bbox": [
+        115.7,
+        301.04,
+        170.08,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Omeprazole",
+      "bbox": [
+        172.72,
+        301.04,
+        224.46,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "at",
+      "bbox": [
+        227.1,
+        301.04,
+        235.02,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "a",
+      "bbox": [
+        237.66,
+        301.04,
+        242.94,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "dose",
+      "bbox": [
+        245.59,
+        301.04,
+        266.18,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "of",
+      "bbox": [
+        268.82,
+        301.04,
+        276.75,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "20",
+      "bbox": [
+        279.39,
+        301.04,
+        289.95,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mg",
+      "bbox": [
+        292.59,
+        301.04,
+        305.79,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "oral",
+      "bbox": [
+        308.43,
+        301.04,
+        324.26,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "once",
+      "bbox": [
+        326.91,
+        301.04,
+        347.5,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "daily",
+      "bbox": [
+        350.14,
+        301.04,
+        369.67,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "before",
+      "bbox": [
+        372.32,
+        301.04,
+        399.25,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "breakfast",
+      "bbox": [
+        401.89,
+        301.04,
+        440.96,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "for",
+      "bbox": [
+        443.6,
+        301.04,
+        454.69,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "14",
+      "bbox": [
+        457.33,
+        301.04,
+        467.9,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "days,",
+      "bbox": [
+        470.54,
+        301.04,
+        493.24,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "which",
+      "bbox": [
+        495.88,
+        301.04,
+        520.16,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "promptly",
+      "bbox": [
+        522.81,
+        301.04,
+        559.23,
+        314.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "alleviated",
+      "bbox": [
+        46.0,
+        314.54,
+        86.13,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "acute",
+      "bbox": [
+        88.76,
+        314.54,
+        112.0,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "symptoms.",
+      "bbox": [
+        114.64,
+        314.54,
+        160.56,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Follow-up",
+      "bbox": [
+        163.19,
+        314.54,
+        204.37,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "protocol",
+      "bbox": [
+        207.0,
+        314.54,
+        240.79,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "monitoring",
+      "bbox": [
+        243.43,
+        314.54,
+        287.77,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "of",
+      "bbox": [
+        290.41,
+        314.54,
+        298.33,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "glucose",
+      "bbox": [
+        300.97,
+        314.54,
+        333.7,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "demonstrated",
+      "bbox": [
+        336.34,
+        314.54,
+        394.42,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "88.1",
+      "bbox": [
+        397.06,
+        314.54,
+        415.54,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mg/dL.",
+      "bbox": [
+        418.18,
+        314.54,
+        447.22,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Orthostatic",
+      "bbox": [
+        449.86,
+        314.54,
+        495.79,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "blood",
+      "bbox": [
+        498.42,
+        314.54,
+        521.66,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "pressures",
+      "bbox": [
+        524.3,
+        314.54,
+        566.0,
+        327.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "were",
+      "bbox": [
+        46.0,
+        328.04,
+        66.59,
+        341.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "negative",
+      "bbox": [
+        69.23,
+        328.04,
+        105.14,
+        341.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "upon",
+      "bbox": [
+        107.78,
+        328.04,
+        128.91,
+        341.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "ambulation.",
+      "bbox": [
+        131.55,
+        328.04,
+        180.65,
+        341.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "DISCHARGE",
+      "bbox": [
+        46.0,
+        359.55,
+        106.0,
+        373.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "REGIMEN",
+      "bbox": [
+        108.78,
+        359.55,
+        155.45,
+        373.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Patient",
+      "bbox": [
+        46.0,
+        376.54,
+        75.57,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "was",
+      "bbox": [
+        78.21,
+        376.54,
+        95.11,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "deemed",
+      "bbox": [
+        97.75,
+        376.54,
+        132.07,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "safe",
+      "bbox": [
+        134.71,
+        376.54,
+        152.67,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "for",
+      "bbox": [
+        155.31,
+        376.54,
+        166.39,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "outpatient",
+      "bbox": [
+        169.03,
+        376.54,
+        210.76,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "discharge.",
+      "bbox": [
+        213.4,
+        376.54,
+        257.22,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "The",
+      "bbox": [
+        259.86,
+        376.54,
+        276.23,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "ongoing",
+      "bbox": [
+        278.87,
+        376.54,
+        312.67,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "regimen",
+      "bbox": [
+        315.32,
+        376.54,
+        349.63,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "includes",
+      "bbox": [
+        352.27,
+        376.54,
+        387.12,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Cephalexin",
+      "bbox": [
+        389.76,
+        376.54,
+        437.28,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "500",
+      "bbox": [
+        439.92,
+        376.54,
+        455.76,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mg",
+      "bbox": [
+        458.4,
+        376.54,
+        471.6,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "by",
+      "bbox": [
+        474.24,
+        376.54,
+        484.27,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "mouth",
+      "bbox": [
+        486.91,
+        376.54,
+        513.31,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "QID",
+      "bbox": [
+        515.96,
+        376.54,
+        532.85,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "for",
+      "bbox": [
+        535.49,
+        376.54,
+        546.57,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "10",
+      "bbox": [
+        549.22,
+        376.54,
+        559.78,
+        389.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "days",
+      "bbox": [
+        46.0,
+        390.04,
+        66.06,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "as",
+      "bbox": [
+        68.71,
+        390.04,
+        78.74,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "prescribed.",
+      "bbox": [
+        81.38,
+        390.04,
+        128.37,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Prescription",
+      "bbox": [
+        131.01,
+        390.04,
+        181.16,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "counseling",
+      "bbox": [
+        183.8,
+        390.04,
+        229.21,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "was",
+      "bbox": [
+        231.85,
+        390.04,
+        248.74,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "performed",
+      "bbox": [
+        251.38,
+        390.04,
+        294.67,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "by",
+      "bbox": [
+        297.31,
+        390.04,
+        307.34,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "nursing",
+      "bbox": [
+        309.99,
+        390.04,
+        341.14,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "prior",
+      "bbox": [
+        343.78,
+        390.04,
+        362.78,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "to",
+      "bbox": [
+        365.42,
+        390.04,
+        373.34,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "release.",
+      "bbox": [
+        375.98,
+        390.04,
+        409.77,
+        403.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PLAN",
+      "bbox": [
+        46.0,
+        421.55,
+        73.22,
+        435.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "&",
+      "bbox": [
+        76.0,
+        421.55,
+        83.22,
+        435.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "PRECAUTIONS",
+      "bbox": [
+        86.0,
+        421.55,
+        158.78,
+        435.32
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Resume",
+      "bbox": [
+        46.0,
+        438.54,
+        81.37,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "normal",
+      "bbox": [
+        84.01,
+        438.54,
+        113.04,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "daily",
+      "bbox": [
+        115.68,
+        438.54,
+        135.21,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "activities",
+      "bbox": [
+        137.86,
+        438.54,
+        174.28,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "as",
+      "bbox": [
+        176.92,
+        438.54,
+        186.95,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "tolerated.",
+      "bbox": [
+        189.59,
+        438.54,
+        229.2,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Avoid",
+      "bbox": [
+        231.84,
+        438.54,
+        255.6,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "strenuous",
+      "bbox": [
+        258.24,
+        438.54,
+        299.95,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "exercise",
+      "bbox": [
+        302.6,
+        438.54,
+        337.96,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "until",
+      "bbox": [
+        340.6,
+        438.54,
+        358.03,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "cardiology",
+      "bbox": [
+        360.67,
+        438.54,
+        403.96,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "follow-up",
+      "bbox": [
+        406.6,
+        438.54,
+        444.61,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "in",
+      "bbox": [
+        447.25,
+        438.54,
+        454.64,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "1",
+      "bbox": [
+        457.28,
+        438.54,
+        462.57,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "to",
+      "bbox": [
+        465.21,
+        438.54,
+        473.13,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "2",
+      "bbox": [
+        475.77,
+        438.54,
+        481.05,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "weeks.",
+      "bbox": [
+        483.69,
+        438.54,
+        513.26,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "Immediate",
+      "bbox": [
+        515.9,
+        438.54,
+        560.24,
+        451.59
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "emergency",
+      "bbox": [
+        46.0,
+        452.04,
+        92.99,
+        465.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "precautions",
+      "bbox": [
+        95.63,
+        452.04,
+        144.73,
+        465.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    },
+    {
+      "text": "detailed.",
+      "bbox": [
+        147.37,
+        452.04,
+        183.28,
+        465.09
+      ],
+      "confidence": 1.0,
+      "page": 1
+    }
+  ],
+  "metadata": {
+    "processing_time_ms": 25.71
+  }
+}

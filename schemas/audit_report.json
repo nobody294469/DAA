@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clindoc.project/schemas/audit_report.json",
+  "title": "AuditReport",
+  "description": "Comprehensive document-level verification and audit artifact (§7.8)",
+  "type": "object",
+  "required": [
+    "document_id",
+    "generated_at",
+    "fhir_bundle_id",
+    "claims",
+    "evidence",
+    "verifications",
+    "summary"
+  ],
+  "properties": {
+    "document_id": {
+      "type": "string",
+      "description": "Identifier of the audited document"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO8601 timestamp of audit report generation"
+    },
+    "fhir_bundle_id": {
+      "type": "string",
+      "description": "Identifier of the corresponding exported FHIR R4B Bundle"
+    },
+    "claims": {
+      "type": "array",
+      "description": "All structured claims extracted from the document",
+      "items": {
+        "$ref": "claim.json"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "description": "Deduplicated repository of source evidence spans",
+      "items": {
+        "$ref": "evidence.json"
+      }
+    },
+    "verifications": {
+      "type": "array",
+      "description": "Atomic verification verdicts for all extracted claims",
+      "items": {
+        "$ref": "verification_result.json"
+      }
+    },
+    "summary": {
+      "type": "object",
+      "description": "Aggregated verification counts and escalation metrics",
+      "required": [
+        "n_claims",
+        "n_supported",
+        "n_discrepancy",
+        "n_insufficient_evidence",
+        "n_escalated_to_llm"
+      ],
+      "properties": {
+        "n_claims": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of extracted claims"
+        },
+        "n_supported": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of claims verified as SUPPORTED"
+        },
+        "n_discrepancy": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of claims verified as DISCREPANCY"
+        },
+        "n_insufficient_evidence": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of claims categorized as INSUFFICIENT_EVIDENCE"
+        },
+        "n_escalated_to_llm": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of claims escalated to Stage C LLM Judge"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

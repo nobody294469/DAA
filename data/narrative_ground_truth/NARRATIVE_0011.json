@@ -1,0 +1,747 @@
+{
+  "doc_id": "NARRATIVE_0011",
+  "template_id": "narrative_surgical_discharge_summary_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60011",
+    "name": "Thomas Hernandez",
+    "dob": "1967-06-11",
+    "gender": "M"
+  },
+  "facility_name": "St. Jude Academic Health Center - Division of Hospital Medicine",
+  "attending_physician": "Dr. Marcus Vance, DO",
+  "admission_date": "2025-04-22",
+  "discharge_date": "2025-04-25",
+  "sections": [
+    {
+      "title": "PREOPERATIVE DIAGNOSIS & PROCEDURE",
+      "text": "The patient underwent uncomplicated laparoscopic cholecystectomy for symptomatic cholelithiasis under general endotracheal anesthesia."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient is an adult who presented electively for surgical intervention following conservative management failure. Pre-admission testing confirmed that preoperative bun was 14.3 mg/dL. Preoperative metabolic screening showed a baseline potassium of 4.12 mmol/L. The patient was cleared from a cardiopulmonary standpoint and taken to the operative suite."
+    },
+    {
+      "title": "POSTOPERATIVE HOSPITAL COURSE",
+      "text": "The patient was extubated in the operating room and transferred to the post-anesthesia care unit in stable condition. Postoperative recovery was uneventful. For pain and infection prophylaxis, the patient was prescribed Amlodipine 5 mg PO every morning. On postoperative day one, postoperative white blood cell count remained stable at 7.1 10*3/uL. Surgical incisions were clean, intact, and without erythema or purulent drainage."
+    },
+    {
+      "title": "POST-DISCHARGE MEDICATIONS",
+      "text": "Discharge medications: The patient will take Cephalexin 500 mg orally QID for 10 days, and continue baseline Amoxicillin 250 mg PO TID for 7 days. All prescriptions were transmitted electronically to the patient's pharmacy."
+    },
+    {
+      "title": "ACTIVITY & WOUND CARE PLAN",
+      "text": "Keep dressing clean and dry. No heavy lifting greater than 10 pounds for two weeks. Surgical clinic follow-up scheduled in 10 days."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0011_narr_lab_0",
+      "test_name": "BUN",
+      "loinc_code": "3094-0",
+      "value": 14.3,
+      "unit": "mg/dL",
+      "ref_range_low": 7.0,
+      "ref_range_high": 20.0,
+      "ref_range_text": "7.0 - 20.0",
+      "flag": "NORMAL",
+      "evidence_text": "preoperative bun was 14.3 mg/dL",
+      "char_start": 676,
+      "char_end": 707,
+      "bbox": [
+        46.0,
+        212.04,
+        533.35,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0011_narr_lab_1",
+      "test_name": "Potassium",
+      "loinc_code": "2823-3",
+      "value": 4.12,
+      "unit": "mmol/L",
+      "ref_range_low": 3.5,
+      "ref_range_high": 5.1,
+      "ref_range_text": "3.5 - 5.1",
+      "flag": "NORMAL",
+      "evidence_text": "baseline potassium of 4.12 mmol/L",
+      "char_start": 751,
+      "char_end": 784,
+      "bbox": [
+        46.0,
+        225.54,
+        560.3,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0011_narr_lab_2",
+      "test_name": "White Blood Cell Count",
+      "loinc_code": "6690-2",
+      "value": 7.1,
+      "unit": "10*3/uL",
+      "ref_range_low": 4.5,
+      "ref_range_high": 11.0,
+      "ref_range_text": "4.5 - 11.0",
+      "flag": "NORMAL",
+      "evidence_text": "postoperative white blood cell count remained stable at 7.1 10*3/uL",
+      "char_start": 1188,
+      "char_end": 1255,
+      "bbox": [
+        46.0,
+        314.54,
+        547.64,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0011_narr_med_0",
+      "medication_name": "Amlodipine",
+      "dose": 5.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every morning",
+      "duration": null,
+      "sig_text": "prescribed Amlodipine 5 mg PO every morning",
+      "evidence_text": "prescribed Amlodipine 5 mg PO\nevery morning",
+      "char_start": 1117,
+      "char_end": 1160,
+      "bbox": [
+        46.0,
+        301.04,
+        562.39,
+        327.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0011_narr_med_1",
+      "medication_name": "Cephalexin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "QID",
+      "duration": "for 10 days",
+      "sig_text": "Cephalexin 500 mg orally QID for 10 days",
+      "evidence_text": "Cephalexin 500 mg orally QID for 10 days",
+      "char_start": 1411,
+      "char_end": 1451,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        389.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0011_narr_med_2",
+      "medication_name": "Amoxicillin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "TID",
+      "duration": "for 7 days",
+      "sig_text": "Amoxicillin 250 mg PO TID for 7 days",
+      "evidence_text": "Amoxicillin\n250 mg PO TID for 7 days",
+      "char_start": 1475,
+      "char_end": 1511,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "ea7e402c-e783-465f-a307-e935b354dd81",
+      "group_id": "NARRATIVE_0011_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "BUN: 14.3 mg/dL",
+      "canonical_value": 14.3,
+      "unit": "mg/dL",
+      "evidence_id": "00b5f0b3-e1f3-4caf-ab81-bafc2795fc1c",
+      "evidence_text": "preoperative bun was 14.3 mg/dL",
+      "char_start": 676,
+      "char_end": 707,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        533.35,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "31ef328f-5368-405b-85a7-214acb8d503a",
+      "group_id": "NARRATIVE_0011_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "BUN flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "00b5f0b3-e1f3-4caf-ab81-bafc2795fc1c",
+      "evidence_text": "preoperative bun was 14.3 mg/dL",
+      "char_start": 676,
+      "char_end": 707,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        533.35,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fdbae1c7-65cf-42d0-8d45-f489c5e80c24",
+      "group_id": "NARRATIVE_0011_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "00b5f0b3-e1f3-4caf-ab81-bafc2795fc1c",
+      "evidence_text": "preoperative bun was 14.3 mg/dL",
+      "char_start": 676,
+      "char_end": 707,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        533.35,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5f659790-e3a5-4080-b852-71a8be70d5af",
+      "group_id": "NARRATIVE_0011_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "7.0 - 20.0",
+      "canonical_value": "7.0 - 20.0",
+      "unit": null,
+      "evidence_id": "00b5f0b3-e1f3-4caf-ab81-bafc2795fc1c",
+      "evidence_text": "preoperative bun was 14.3 mg/dL",
+      "char_start": 676,
+      "char_end": 707,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        533.35,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3c9d2196-3ecb-4e42-9751-bf96f10c2984",
+      "group_id": "NARRATIVE_0011_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "canonical_value": "BUN",
+      "unit": null,
+      "evidence_id": "00b5f0b3-e1f3-4caf-ab81-bafc2795fc1c",
+      "evidence_text": "preoperative bun was 14.3 mg/dL",
+      "char_start": 676,
+      "char_end": 707,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        533.35,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "81be2248-f0a9-4110-a9a9-c2a8f59810e2",
+      "group_id": "NARRATIVE_0011_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Potassium: 4.12 mmol/L",
+      "canonical_value": 4.12,
+      "unit": "mmol/L",
+      "evidence_id": "4413e6a2-a33c-490b-8564-8c10f7dcd82a",
+      "evidence_text": "baseline potassium of 4.12 mmol/L",
+      "char_start": 751,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        560.3,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1e8ada0a-7b37-41ea-8185-c81f4edf2e68",
+      "group_id": "NARRATIVE_0011_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Potassium flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "4413e6a2-a33c-490b-8564-8c10f7dcd82a",
+      "evidence_text": "baseline potassium of 4.12 mmol/L",
+      "char_start": 751,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        560.3,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f5b6b583-e356-40c8-ab54-9872b0b5aa5c",
+      "group_id": "NARRATIVE_0011_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "4413e6a2-a33c-490b-8564-8c10f7dcd82a",
+      "evidence_text": "baseline potassium of 4.12 mmol/L",
+      "char_start": 751,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        560.3,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "60160772-3180-4bc8-9f29-1dc91b66239e",
+      "group_id": "NARRATIVE_0011_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "3.5 - 5.1",
+      "canonical_value": "3.5 - 5.1",
+      "unit": null,
+      "evidence_id": "4413e6a2-a33c-490b-8564-8c10f7dcd82a",
+      "evidence_text": "baseline potassium of 4.12 mmol/L",
+      "char_start": 751,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        560.3,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "63de706d-e52f-4df8-9865-ca1e6ffc8e0e",
+      "group_id": "NARRATIVE_0011_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "canonical_value": "Potassium",
+      "unit": null,
+      "evidence_id": "4413e6a2-a33c-490b-8564-8c10f7dcd82a",
+      "evidence_text": "baseline potassium of 4.12 mmol/L",
+      "char_start": 751,
+      "char_end": 784,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        560.3,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "914943d2-80a6-4519-9dce-b847f273791d",
+      "group_id": "NARRATIVE_0011_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "White Blood Cell Count: 7.1 10*3/uL",
+      "canonical_value": 7.1,
+      "unit": "10*3/uL",
+      "evidence_id": "1f33bf79-0acf-4899-b6c2-ff4eaff2d6b7",
+      "evidence_text": "postoperative white blood cell count remained stable at 7.1 10*3/uL",
+      "char_start": 1188,
+      "char_end": 1255,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.64,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ea53d7c5-c237-45e6-acd3-b67e78e4dcab",
+      "group_id": "NARRATIVE_0011_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "White Blood Cell Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "1f33bf79-0acf-4899-b6c2-ff4eaff2d6b7",
+      "evidence_text": "postoperative white blood cell count remained stable at 7.1 10*3/uL",
+      "char_start": 1188,
+      "char_end": 1255,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.64,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "42675520-0002-4894-b18b-da2e54a74e93",
+      "group_id": "NARRATIVE_0011_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "1f33bf79-0acf-4899-b6c2-ff4eaff2d6b7",
+      "evidence_text": "postoperative white blood cell count remained stable at 7.1 10*3/uL",
+      "char_start": 1188,
+      "char_end": 1255,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.64,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "61b597e6-73af-46be-a875-ff8aa9b51ec5",
+      "group_id": "NARRATIVE_0011_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "4.5 - 11.0",
+      "canonical_value": "4.5 - 11.0",
+      "unit": null,
+      "evidence_id": "1f33bf79-0acf-4899-b6c2-ff4eaff2d6b7",
+      "evidence_text": "postoperative white blood cell count remained stable at 7.1 10*3/uL",
+      "char_start": 1188,
+      "char_end": 1255,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.64,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "34f0015e-795c-4634-806b-001b6c548ad2",
+      "group_id": "NARRATIVE_0011_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "canonical_value": "White Blood Cell Count",
+      "unit": null,
+      "evidence_id": "1f33bf79-0acf-4899-b6c2-ff4eaff2d6b7",
+      "evidence_text": "postoperative white blood cell count remained stable at 7.1 10*3/uL",
+      "char_start": 1188,
+      "char_end": 1255,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        547.64,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8b129741-7f27-4b59-835b-133a60a7032f",
+      "group_id": "NARRATIVE_0011_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Amlodipine",
+      "canonical_value": "Amlodipine",
+      "unit": null,
+      "evidence_id": "813dfe85-91e4-4af3-a8fe-cd58fa221af0",
+      "evidence_text": "prescribed Amlodipine 5 mg PO\nevery morning",
+      "char_start": 1117,
+      "char_end": 1160,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        562.39,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a06bfa8d-9c91-4151-923a-b423f8b462da",
+      "group_id": "NARRATIVE_0011_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Amlodipine dose: 5 mg",
+      "canonical_value": 5.0,
+      "unit": "mg",
+      "evidence_id": "813dfe85-91e4-4af3-a8fe-cd58fa221af0",
+      "evidence_text": "prescribed Amlodipine 5 mg PO\nevery morning",
+      "char_start": 1117,
+      "char_end": 1160,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        562.39,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0b4dd585-b195-437e-8b81-2a835c8dff82",
+      "group_id": "NARRATIVE_0011_narr_med_0",
+      "field_type": "med.route",
+      "value": "Amlodipine route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "813dfe85-91e4-4af3-a8fe-cd58fa221af0",
+      "evidence_text": "prescribed Amlodipine 5 mg PO\nevery morning",
+      "char_start": 1117,
+      "char_end": 1160,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        562.39,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "324dac8b-94f2-4c60-9e54-d01c0c12f4d5",
+      "group_id": "NARRATIVE_0011_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Amlodipine frequency: every morning",
+      "canonical_value": "every morning",
+      "unit": null,
+      "evidence_id": "813dfe85-91e4-4af3-a8fe-cd58fa221af0",
+      "evidence_text": "prescribed Amlodipine 5 mg PO\nevery morning",
+      "char_start": 1117,
+      "char_end": 1160,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        562.39,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "4f5555bc-d7d9-4e2d-918c-1dd7cdca75e4",
+      "group_id": "NARRATIVE_0011_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Cephalexin",
+      "canonical_value": "Cephalexin",
+      "unit": null,
+      "evidence_id": "ddb18b85-9f89-4dee-b9a6-e2bc83c21cbd",
+      "evidence_text": "Cephalexin 500 mg orally QID for 10 days",
+      "char_start": 1411,
+      "char_end": 1451,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3ab15166-d2d3-4581-bb83-460fbca10592",
+      "group_id": "NARRATIVE_0011_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Cephalexin dose: 500 mg",
+      "canonical_value": 500.0,
+      "unit": "mg",
+      "evidence_id": "ddb18b85-9f89-4dee-b9a6-e2bc83c21cbd",
+      "evidence_text": "Cephalexin 500 mg orally QID for 10 days",
+      "char_start": 1411,
+      "char_end": 1451,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ecf09a00-ce8d-46c3-9a2f-40586c2ff5eb",
+      "group_id": "NARRATIVE_0011_narr_med_1",
+      "field_type": "med.route",
+      "value": "Cephalexin route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "ddb18b85-9f89-4dee-b9a6-e2bc83c21cbd",
+      "evidence_text": "Cephalexin 500 mg orally QID for 10 days",
+      "char_start": 1411,
+      "char_end": 1451,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f8f2892e-3ad0-412e-9b99-3db5f0569ace",
+      "group_id": "NARRATIVE_0011_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Cephalexin frequency: QID",
+      "canonical_value": "QID",
+      "unit": null,
+      "evidence_id": "ddb18b85-9f89-4dee-b9a6-e2bc83c21cbd",
+      "evidence_text": "Cephalexin 500 mg orally QID for 10 days",
+      "char_start": 1411,
+      "char_end": 1451,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "daa0e966-c018-489d-bf5f-1e0459e03701",
+      "group_id": "NARRATIVE_0011_narr_med_1",
+      "field_type": "med.duration",
+      "value": "for 10 days",
+      "canonical_value": "for 10 days",
+      "unit": null,
+      "evidence_id": "ddb18b85-9f89-4dee-b9a6-e2bc83c21cbd",
+      "evidence_text": "Cephalexin 500 mg orally QID for 10 days",
+      "char_start": 1411,
+      "char_end": 1451,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9ef50d65-382d-4660-9bf4-2d1a105ea127",
+      "group_id": "NARRATIVE_0011_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Amoxicillin",
+      "canonical_value": "Amoxicillin",
+      "unit": null,
+      "evidence_id": "569f5d13-5b13-4839-8e82-4300815d65d2",
+      "evidence_text": "Amoxicillin\n250 mg PO TID for 7 days",
+      "char_start": 1475,
+      "char_end": 1511,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "332fcb3e-8a8f-46bb-ac6e-272ccaf16657",
+      "group_id": "NARRATIVE_0011_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Amoxicillin dose: 250 mg",
+      "canonical_value": 250.0,
+      "unit": "mg",
+      "evidence_id": "569f5d13-5b13-4839-8e82-4300815d65d2",
+      "evidence_text": "Amoxicillin\n250 mg PO TID for 7 days",
+      "char_start": 1475,
+      "char_end": 1511,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2c418f28-1d75-4ac6-8be5-e9f78b523f35",
+      "group_id": "NARRATIVE_0011_narr_med_2",
+      "field_type": "med.route",
+      "value": "Amoxicillin route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "569f5d13-5b13-4839-8e82-4300815d65d2",
+      "evidence_text": "Amoxicillin\n250 mg PO TID for 7 days",
+      "char_start": 1475,
+      "char_end": 1511,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "eeae7c83-ef69-4103-9df3-7612495d0b6d",
+      "group_id": "NARRATIVE_0011_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Amoxicillin frequency: TID",
+      "canonical_value": "TID",
+      "unit": null,
+      "evidence_id": "569f5d13-5b13-4839-8e82-4300815d65d2",
+      "evidence_text": "Amoxicillin\n250 mg PO TID for 7 days",
+      "char_start": 1475,
+      "char_end": 1511,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c3757b7c-249f-4161-a393-97eefe831929",
+      "group_id": "NARRATIVE_0011_narr_med_2",
+      "field_type": "med.duration",
+      "value": "for 7 days",
+      "canonical_value": "for 7 days",
+      "unit": null,
+      "evidence_id": "569f5d13-5b13-4839-8e82-4300815d65d2",
+      "evidence_text": "Amoxicillin\n250 mg PO TID for 7 days",
+      "char_start": 1475,
+      "char_end": 1511,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        555.5,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

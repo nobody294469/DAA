@@ -1,0 +1,707 @@
+{
+  "doc_id": "NARRATIVE_0016",
+  "template_id": "narrative_specialty_consult_note_v1",
+  "template_version": "1.0",
+  "split": "OOD",
+  "patient": {
+    "patient_id": "PAT-60016",
+    "name": "William Jackson",
+    "dob": "1953-06-22",
+    "gender": "M"
+  },
+  "facility_name": "Valley Regional Hospital - Department of Clinical Services",
+  "attending_physician": "Dr. Robert Evans, MD",
+  "admission_date": "2025-06-01",
+  "discharge_date": "2025-06-03",
+  "sections": [
+    {
+      "title": "REASON FOR CONSULTATION",
+      "text": "Consult requested by primary medical team regarding refractory clinical optimization and therapeutic titration. Consultant team: Cardiovascular Medicine Consult Service."
+    },
+    {
+      "title": "CHRONOLOGICAL CLINICAL NARRATIVE",
+      "text": "CHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient William Jackson, who was admitted three days ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed hemoglobin of 9.82 g/dL (LOW). Subsequent evaluation demonstrated that serum sodium was 149.2 mmol/L (HIGH). Prior outpatient regimens had proven insufficient to achieve therapeutic stability."
+    },
+    {
+      "title": "HOSPITAL COURSE & TRAJECTORY",
+      "text": "HOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological therapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment showed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective metabolic parameters."
+    },
+    {
+      "title": "FOCUSED PHARMACOTHERAPY RECOMMENDATIONS",
+      "text": "FOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance regimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid NSAIDs and nephrotoxic exposures."
+    },
+    {
+      "title": "CONSULTANT ASSESSMENT & SPECIALTY PLAN",
+      "text": "The patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48 hours. Thank you for this interesting consultation."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0016_narr_lab_0",
+      "test_name": "Hemoglobin",
+      "loinc_code": "718-7",
+      "value": 9.82,
+      "unit": "g/dL",
+      "ref_range_low": 12.0,
+      "ref_range_high": 16.0,
+      "ref_range_text": "12.0 - 16.0",
+      "flag": "LOW",
+      "evidence_text": "initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW)",
+      "char_start": 724,
+      "char_end": 790,
+      "bbox": [
+        46.0,
+        212.04,
+        562.89,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0016_narr_lab_1",
+      "test_name": "Sodium",
+      "loinc_code": "2951-2",
+      "value": 149.2,
+      "unit": "mmol/L",
+      "ref_range_low": 135.0,
+      "ref_range_high": 145.0,
+      "ref_range_text": "135.0 - 145.0",
+      "flag": "HIGH",
+      "evidence_text": "serum sodium was 149.2 mmol/L (HIGH)",
+      "char_start": 832,
+      "char_end": 868,
+      "bbox": [
+        46.0,
+        225.54,
+        552.36,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0016_narr_lab_2",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 520.9,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "HIGH",
+      "evidence_text": "trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH)",
+      "char_start": 1199,
+      "char_end": 1266,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0016_narr_med_0",
+      "medication_name": "Metformin",
+      "dose": 850.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "twice daily",
+      "duration": null,
+      "sig_text": "initiated on Metformin 850 mg oral twice daily",
+      "evidence_text": "initiated on Metformin 850 mg oral twice daily",
+      "char_start": 1122,
+      "char_end": 1168,
+      "bbox": [
+        46.0,
+        301.04,
+        554.97,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0016_narr_med_1",
+      "medication_name": "Metoprolol",
+      "dose": 25.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "twice daily",
+      "duration": null,
+      "sig_text": "Metoprolol 25 mg PO twice daily",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1519,
+      "char_end": 1550,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0016_narr_med_2",
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "sig_text": "Omeprazole 20 mg PO once daily in the morning",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the morning",
+      "char_start": 1564,
+      "char_end": 1609,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "164e099c-58d9-4ced-9731-1739bcf83685",
+      "group_id": "NARRATIVE_0016_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Hemoglobin: 9.82 g/dL",
+      "canonical_value": 9.82,
+      "unit": "g/dL",
+      "evidence_id": "bdaedb4e-2a55-404d-8d40-5a41a4814d90",
+      "evidence_text": "initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW)",
+      "char_start": 724,
+      "char_end": 790,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        562.89,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "413b4557-8dac-46c6-ad2c-e546bb2275a6",
+      "group_id": "NARRATIVE_0016_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Hemoglobin flag: LOW",
+      "canonical_value": "LOW",
+      "unit": null,
+      "evidence_id": "bdaedb4e-2a55-404d-8d40-5a41a4814d90",
+      "evidence_text": "initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW)",
+      "char_start": 724,
+      "char_end": 790,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        562.89,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "dc9e316a-1502-4cd7-98e6-9a4904a8e9b6",
+      "group_id": "NARRATIVE_0016_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "canonical_value": "g/dL",
+      "unit": null,
+      "evidence_id": "bdaedb4e-2a55-404d-8d40-5a41a4814d90",
+      "evidence_text": "initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW)",
+      "char_start": 724,
+      "char_end": 790,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        562.89,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c5f7b756-7eea-4bf4-96d3-17efa1c7e3b7",
+      "group_id": "NARRATIVE_0016_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "12.0 - 16.0",
+      "canonical_value": "12.0 - 16.0",
+      "unit": null,
+      "evidence_id": "bdaedb4e-2a55-404d-8d40-5a41a4814d90",
+      "evidence_text": "initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW)",
+      "char_start": 724,
+      "char_end": 790,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        562.89,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7c890648-a6d3-401f-9b89-48b9fe2f033a",
+      "group_id": "NARRATIVE_0016_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "canonical_value": "Hemoglobin",
+      "unit": null,
+      "evidence_id": "bdaedb4e-2a55-404d-8d40-5a41a4814d90",
+      "evidence_text": "initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW)",
+      "char_start": 724,
+      "char_end": 790,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        562.89,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "4aca017e-575e-4008-b938-869b190cc08b",
+      "group_id": "NARRATIVE_0016_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Sodium: 149.2 mmol/L",
+      "canonical_value": 149.2,
+      "unit": "mmol/L",
+      "evidence_id": "f5af8b77-8921-4c86-ac6b-6da243be6b9d",
+      "evidence_text": "serum sodium was 149.2 mmol/L (HIGH)",
+      "char_start": 832,
+      "char_end": 868,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        552.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "20d63131-e110-494e-a04c-55406eca1853",
+      "group_id": "NARRATIVE_0016_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Sodium flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "f5af8b77-8921-4c86-ac6b-6da243be6b9d",
+      "evidence_text": "serum sodium was 149.2 mmol/L (HIGH)",
+      "char_start": 832,
+      "char_end": 868,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        552.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "687b269a-e7bd-46e3-8d2f-ce00168b0bde",
+      "group_id": "NARRATIVE_0016_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "f5af8b77-8921-4c86-ac6b-6da243be6b9d",
+      "evidence_text": "serum sodium was 149.2 mmol/L (HIGH)",
+      "char_start": 832,
+      "char_end": 868,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        552.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e45283a0-3a2b-4d8c-b737-26cd40b3b6c1",
+      "group_id": "NARRATIVE_0016_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "135.0 - 145.0",
+      "canonical_value": "135.0 - 145.0",
+      "unit": null,
+      "evidence_id": "f5af8b77-8921-4c86-ac6b-6da243be6b9d",
+      "evidence_text": "serum sodium was 149.2 mmol/L (HIGH)",
+      "char_start": 832,
+      "char_end": 868,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        552.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b98680d2-be00-4681-bd1b-cae679379897",
+      "group_id": "NARRATIVE_0016_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Sodium",
+      "canonical_value": "Sodium",
+      "unit": null,
+      "evidence_id": "f5af8b77-8921-4c86-ac6b-6da243be6b9d",
+      "evidence_text": "serum sodium was 149.2 mmol/L (HIGH)",
+      "char_start": 832,
+      "char_end": 868,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        552.36,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "51390ffe-1003-4e17-a836-681225cca84d",
+      "group_id": "NARRATIVE_0016_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 520.9 10*3/uL",
+      "canonical_value": 520.9,
+      "unit": "10*3/uL",
+      "evidence_id": "1440326d-f53e-4129-97c1-9b28a17550fc",
+      "evidence_text": "trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH)",
+      "char_start": 1199,
+      "char_end": 1266,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "06990d5d-66bb-429d-be17-5cf1e4d8c9cc",
+      "group_id": "NARRATIVE_0016_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "1440326d-f53e-4129-97c1-9b28a17550fc",
+      "evidence_text": "trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH)",
+      "char_start": 1199,
+      "char_end": 1266,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "193e1a98-3dd5-4ec7-bd5c-315e7a20e3f3",
+      "group_id": "NARRATIVE_0016_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "1440326d-f53e-4129-97c1-9b28a17550fc",
+      "evidence_text": "trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH)",
+      "char_start": 1199,
+      "char_end": 1266,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "efc4e600-b82b-4971-8b30-ca5777e2c1e3",
+      "group_id": "NARRATIVE_0016_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "1440326d-f53e-4129-97c1-9b28a17550fc",
+      "evidence_text": "trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH)",
+      "char_start": 1199,
+      "char_end": 1266,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a6365026-1237-48ee-802c-b75815cf9b69",
+      "group_id": "NARRATIVE_0016_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "1440326d-f53e-4129-97c1-9b28a17550fc",
+      "evidence_text": "trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH)",
+      "char_start": 1199,
+      "char_end": 1266,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        565.56,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0e445ab9-7eff-4608-8fdc-4186fb6c0351",
+      "group_id": "NARRATIVE_0016_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Metformin",
+      "canonical_value": "Metformin",
+      "unit": null,
+      "evidence_id": "36751dbf-dac6-4581-9a99-a5ce2bfa3fae",
+      "evidence_text": "initiated on Metformin 850 mg oral twice daily",
+      "char_start": 1122,
+      "char_end": 1168,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        554.97,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "4c802555-8365-436e-968c-c23a8f3323e9",
+      "group_id": "NARRATIVE_0016_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Metformin dose: 850 mg",
+      "canonical_value": 850.0,
+      "unit": "mg",
+      "evidence_id": "36751dbf-dac6-4581-9a99-a5ce2bfa3fae",
+      "evidence_text": "initiated on Metformin 850 mg oral twice daily",
+      "char_start": 1122,
+      "char_end": 1168,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        554.97,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "280b292a-84a0-48d2-b16c-f49cd678d562",
+      "group_id": "NARRATIVE_0016_narr_med_0",
+      "field_type": "med.route",
+      "value": "Metformin route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "36751dbf-dac6-4581-9a99-a5ce2bfa3fae",
+      "evidence_text": "initiated on Metformin 850 mg oral twice daily",
+      "char_start": 1122,
+      "char_end": 1168,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        554.97,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "4c924a7b-5c98-4bcc-935c-6d6799809b26",
+      "group_id": "NARRATIVE_0016_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Metformin frequency: twice daily",
+      "canonical_value": "twice daily",
+      "unit": null,
+      "evidence_id": "36751dbf-dac6-4581-9a99-a5ce2bfa3fae",
+      "evidence_text": "initiated on Metformin 850 mg oral twice daily",
+      "char_start": 1122,
+      "char_end": 1168,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        554.97,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "71b977d1-2c67-467f-8fc3-b6e61f23f32b",
+      "group_id": "NARRATIVE_0016_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Metoprolol",
+      "canonical_value": "Metoprolol",
+      "unit": null,
+      "evidence_id": "9d0a181a-d8d7-4640-9b6a-e643c006bb9d",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1519,
+      "char_end": 1550,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9fe5474e-c37e-468f-a1f1-13cb52878ad4",
+      "group_id": "NARRATIVE_0016_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Metoprolol dose: 25 mg",
+      "canonical_value": 25.0,
+      "unit": "mg",
+      "evidence_id": "9d0a181a-d8d7-4640-9b6a-e643c006bb9d",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1519,
+      "char_end": 1550,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ae854f0f-4ce5-4495-a11b-8d4163d3f3f3",
+      "group_id": "NARRATIVE_0016_narr_med_1",
+      "field_type": "med.route",
+      "value": "Metoprolol route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "9d0a181a-d8d7-4640-9b6a-e643c006bb9d",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1519,
+      "char_end": 1550,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "647e8085-e90c-4f64-a0d8-bba8c582176f",
+      "group_id": "NARRATIVE_0016_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Metoprolol frequency: twice daily",
+      "canonical_value": "twice daily",
+      "unit": null,
+      "evidence_id": "9d0a181a-d8d7-4640-9b6a-e643c006bb9d",
+      "evidence_text": "Metoprolol 25 mg PO twice daily",
+      "char_start": 1519,
+      "char_end": 1550,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "c8147580-cf0a-4a1f-98dc-e3d9c919da1e",
+      "group_id": "NARRATIVE_0016_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Omeprazole",
+      "canonical_value": "Omeprazole",
+      "unit": null,
+      "evidence_id": "e0adeaa7-3cde-4e78-94af-ab3e61e26b4d",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the morning",
+      "char_start": 1564,
+      "char_end": 1609,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "15a5507c-f8cd-4e48-88ef-beb8a94abcd8",
+      "group_id": "NARRATIVE_0016_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Omeprazole dose: 20 mg",
+      "canonical_value": 20.0,
+      "unit": "mg",
+      "evidence_id": "e0adeaa7-3cde-4e78-94af-ab3e61e26b4d",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the morning",
+      "char_start": 1564,
+      "char_end": 1609,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1b49e837-9b34-4831-8008-8cf8bb06c8fc",
+      "group_id": "NARRATIVE_0016_narr_med_2",
+      "field_type": "med.route",
+      "value": "Omeprazole route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "e0adeaa7-3cde-4e78-94af-ab3e61e26b4d",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the morning",
+      "char_start": 1564,
+      "char_end": 1609,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8625aa3f-30f0-4e3e-9c6a-6cb8543f628a",
+      "group_id": "NARRATIVE_0016_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Omeprazole frequency: once daily in the morning",
+      "canonical_value": "once daily in the morning",
+      "unit": null,
+      "evidence_id": "e0adeaa7-3cde-4e78-94af-ab3e61e26b4d",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the morning",
+      "char_start": 1564,
+      "char_end": 1609,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        544.96,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

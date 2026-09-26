@@ -1,0 +1,723 @@
+{
+  "doc_id": "NARRATIVE_0020",
+  "template_id": "narrative_ambulatory_progress_note_v1",
+  "template_version": "1.0",
+  "split": "OOD",
+  "patient": {
+    "patient_id": "PAT-60020",
+    "name": "Matthew Thompson",
+    "dob": "1968-05-14",
+    "gender": "M"
+  },
+  "facility_name": "Valley Regional Hospital - Department of Clinical Services",
+  "attending_physician": "Dr. Allison Cameron, MD",
+  "admission_date": "2025-07-03",
+  "discharge_date": "2025-07-06",
+  "sections": [
+    {
+      "title": "SUBJECTIVE INTERVAL HISTORY",
+      "text": "SUBJECTIVE INTERVAL HISTORY: Patient Matthew Thompson presents for longitudinal chronic disease management. Since the last comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations. Recent outpatient send-out interval laboratory check showed potassium of 4.46 mmol/L. Concurrent testing noted that fasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes."
+    },
+    {
+      "title": "CLINICAL COURSE & PROGRESSION",
+      "text": "CLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and sensory examinations of bilateral feet were normal without neuropathy."
+    },
+    {
+      "title": "UPDATED CHRONIC MEDICATION PLAN",
+      "text": "UPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as well as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning versus evening administration."
+    },
+    {
+      "title": "FOLLOW-UP & COORDINATION",
+      "text": "Return to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine health maintenance screenings were reviewed and scheduled."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0020_narr_lab_0",
+      "test_name": "Potassium",
+      "loinc_code": "2823-3",
+      "value": 4.46,
+      "unit": "mmol/L",
+      "ref_range_low": 3.5,
+      "ref_range_high": 5.1,
+      "ref_range_text": "3.5 - 5.1",
+      "flag": "NORMAL",
+      "evidence_text": "interval laboratory check showed potassium of 4.46 mmol/L",
+      "char_start": 604,
+      "char_end": 661,
+      "bbox": [
+        46.0,
+        163.54,
+        540.24,
+        176.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0020_narr_lab_1",
+      "test_name": "Alanine Aminotransferase (ALT)",
+      "loinc_code": "1742-6",
+      "value": 28.0,
+      "unit": "U/L",
+      "ref_range_low": 7.0,
+      "ref_range_high": 56.0,
+      "ref_range_text": "7.0 - 56.0",
+      "flag": "NORMAL",
+      "evidence_text": "fasting alanine aminotransferase (alt) was 28 U/L",
+      "char_start": 693,
+      "char_end": 742,
+      "bbox": [
+        46.0,
+        177.04,
+        544.98,
+        190.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0020_narr_lab_2",
+      "test_name": "Glucose",
+      "loinc_code": "2345-7",
+      "value": 88.2,
+      "unit": "mg/dL",
+      "ref_range_low": 70.0,
+      "ref_range_high": 99.0,
+      "ref_range_text": "70.0 - 99.0",
+      "flag": "NORMAL",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 986,
+      "char_end": 1022,
+      "bbox": [
+        46.0,
+        239.04,
+        556.04,
+        252.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0020_narr_med_0",
+      "medication_name": "Azithromycin",
+      "dose": 500.0,
+      "dose_unit": "mg",
+      "route": "by mouth",
+      "frequency": "QD",
+      "duration": "for 5 days",
+      "sig_text": "Azithromycin at 500 mg by mouth QD for 5 days",
+      "evidence_text": "Azithromycin at 500 mg by mouth QD for\n5 days",
+      "char_start": 914,
+      "char_end": 959,
+      "bbox": [
+        46.0,
+        225.54,
+        563.93,
+        252.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0020_narr_med_1",
+      "medication_name": "Atorvastatin",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "route": "by mouth",
+      "frequency": "once daily at bedtime",
+      "duration": null,
+      "sig_text": "Atorvastatin 20 mg by mouth once daily at bedtime",
+      "evidence_text": "Atorvastatin 20 mg by mouth once daily at bedtime",
+      "char_start": 1235,
+      "char_end": 1284,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0020_narr_med_2",
+      "medication_name": "Metformin",
+      "dose": 850.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "twice daily",
+      "duration": null,
+      "sig_text": "Metformin 850 mg oral twice daily",
+      "evidence_text": "Metformin 850 mg oral twice daily",
+      "char_start": 1297,
+      "char_end": 1330,
+      "bbox": [
+        46.0,
+        314.54,
+        561.86,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "14b79298-3074-4e3d-918b-dae34a5eb122",
+      "group_id": "NARRATIVE_0020_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Potassium: 4.46 mmol/L",
+      "canonical_value": 4.46,
+      "unit": "mmol/L",
+      "evidence_id": "298adcc1-4c73-4284-8fe6-a57093fadc53",
+      "evidence_text": "interval laboratory check showed potassium of 4.46 mmol/L",
+      "char_start": 604,
+      "char_end": 661,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        540.24,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "175def4e-9315-4274-9fef-220258823642",
+      "group_id": "NARRATIVE_0020_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Potassium flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "298adcc1-4c73-4284-8fe6-a57093fadc53",
+      "evidence_text": "interval laboratory check showed potassium of 4.46 mmol/L",
+      "char_start": 604,
+      "char_end": 661,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        540.24,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "182316e7-9c84-4a07-be65-ec445f08ce71",
+      "group_id": "NARRATIVE_0020_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "298adcc1-4c73-4284-8fe6-a57093fadc53",
+      "evidence_text": "interval laboratory check showed potassium of 4.46 mmol/L",
+      "char_start": 604,
+      "char_end": 661,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        540.24,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6ff33602-46b7-4d9f-8bd8-7eb51ef4e681",
+      "group_id": "NARRATIVE_0020_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "3.5 - 5.1",
+      "canonical_value": "3.5 - 5.1",
+      "unit": null,
+      "evidence_id": "298adcc1-4c73-4284-8fe6-a57093fadc53",
+      "evidence_text": "interval laboratory check showed potassium of 4.46 mmol/L",
+      "char_start": 604,
+      "char_end": 661,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        540.24,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0a612919-e2e5-4986-9135-537e0a95fe64",
+      "group_id": "NARRATIVE_0020_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "canonical_value": "Potassium",
+      "unit": null,
+      "evidence_id": "298adcc1-4c73-4284-8fe6-a57093fadc53",
+      "evidence_text": "interval laboratory check showed potassium of 4.46 mmol/L",
+      "char_start": 604,
+      "char_end": 661,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        163.54,
+        540.24,
+        176.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0d6fc272-d376-4071-aef8-eb6f767c1e7b",
+      "group_id": "NARRATIVE_0020_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Alanine Aminotransferase (ALT): 28 U/L",
+      "canonical_value": 28.0,
+      "unit": "U/L",
+      "evidence_id": "ce9ae7e7-812d-4d65-8701-bf3fbc3d6672",
+      "evidence_text": "fasting alanine aminotransferase (alt) was 28 U/L",
+      "char_start": 693,
+      "char_end": 742,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        177.04,
+        544.98,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "20dda79f-dd9a-4221-8439-ae11a83b82de",
+      "group_id": "NARRATIVE_0020_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Alanine Aminotransferase (ALT) flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "ce9ae7e7-812d-4d65-8701-bf3fbc3d6672",
+      "evidence_text": "fasting alanine aminotransferase (alt) was 28 U/L",
+      "char_start": 693,
+      "char_end": 742,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        177.04,
+        544.98,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "431615f7-6768-4162-91eb-36b6f8724c4b",
+      "group_id": "NARRATIVE_0020_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "canonical_value": "U/L",
+      "unit": null,
+      "evidence_id": "ce9ae7e7-812d-4d65-8701-bf3fbc3d6672",
+      "evidence_text": "fasting alanine aminotransferase (alt) was 28 U/L",
+      "char_start": 693,
+      "char_end": 742,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        177.04,
+        544.98,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "708d3429-7632-43e6-b78b-f48f35c63600",
+      "group_id": "NARRATIVE_0020_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "7.0 - 56.0",
+      "canonical_value": "7.0 - 56.0",
+      "unit": null,
+      "evidence_id": "ce9ae7e7-812d-4d65-8701-bf3fbc3d6672",
+      "evidence_text": "fasting alanine aminotransferase (alt) was 28 U/L",
+      "char_start": 693,
+      "char_end": 742,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        177.04,
+        544.98,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ce403de1-3161-4f1c-b182-409aef64323c",
+      "group_id": "NARRATIVE_0020_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Alanine Aminotransferase (ALT)",
+      "canonical_value": "Alanine Aminotransferase (ALT)",
+      "unit": null,
+      "evidence_id": "ce9ae7e7-812d-4d65-8701-bf3fbc3d6672",
+      "evidence_text": "fasting alanine aminotransferase (alt) was 28 U/L",
+      "char_start": 693,
+      "char_end": 742,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        177.04,
+        544.98,
+        190.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "50bf6c76-3672-4253-b45b-4b469a74f61c",
+      "group_id": "NARRATIVE_0020_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Glucose: 88.2 mg/dL",
+      "canonical_value": 88.2,
+      "unit": "mg/dL",
+      "evidence_id": "dc578797-0b89-4b00-a1b5-06657db1198a",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 986,
+      "char_end": 1022,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8d0d29b1-c596-4b4e-b2fc-ebbf490c1aa7",
+      "group_id": "NARRATIVE_0020_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Glucose flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "dc578797-0b89-4b00-a1b5-06657db1198a",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 986,
+      "char_end": 1022,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "aa69da1f-6bc5-4a8c-aba8-b6d51f115b97",
+      "group_id": "NARRATIVE_0020_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "dc578797-0b89-4b00-a1b5-06657db1198a",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 986,
+      "char_end": 1022,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "145ae586-e9d3-4e3e-94a8-dfd8186e154e",
+      "group_id": "NARRATIVE_0020_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "70.0 - 99.0",
+      "canonical_value": "70.0 - 99.0",
+      "unit": null,
+      "evidence_id": "dc578797-0b89-4b00-a1b5-06657db1198a",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 986,
+      "char_end": 1022,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "28d867df-87b3-4b7b-b0d7-7da25397c5ec",
+      "group_id": "NARRATIVE_0020_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "canonical_value": "Glucose",
+      "unit": null,
+      "evidence_id": "dc578797-0b89-4b00-a1b5-06657db1198a",
+      "evidence_text": "point-of-care glucose was 88.2 mg/dL",
+      "char_start": 986,
+      "char_end": 1022,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        239.04,
+        556.04,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ccdfb1ff-f482-4f59-a999-c9d863c20803",
+      "group_id": "NARRATIVE_0020_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Azithromycin",
+      "canonical_value": "Azithromycin",
+      "unit": null,
+      "evidence_id": "3be0bdcf-0fc1-4cff-bb56-41b9704a6a09",
+      "evidence_text": "Azithromycin at 500 mg by mouth QD for\n5 days",
+      "char_start": 914,
+      "char_end": 959,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        563.93,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "28dd0062-7fd1-4ceb-ad31-dcb46b9f679f",
+      "group_id": "NARRATIVE_0020_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Azithromycin dose: 500 mg",
+      "canonical_value": 500.0,
+      "unit": "mg",
+      "evidence_id": "3be0bdcf-0fc1-4cff-bb56-41b9704a6a09",
+      "evidence_text": "Azithromycin at 500 mg by mouth QD for\n5 days",
+      "char_start": 914,
+      "char_end": 959,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        563.93,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "27630001-177e-4e68-86f8-3ccf20d8d9f5",
+      "group_id": "NARRATIVE_0020_narr_med_0",
+      "field_type": "med.route",
+      "value": "Azithromycin route: by mouth",
+      "canonical_value": "by mouth",
+      "unit": null,
+      "evidence_id": "3be0bdcf-0fc1-4cff-bb56-41b9704a6a09",
+      "evidence_text": "Azithromycin at 500 mg by mouth QD for\n5 days",
+      "char_start": 914,
+      "char_end": 959,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        563.93,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3f559b35-3d9a-470f-a994-7817ca7af190",
+      "group_id": "NARRATIVE_0020_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Azithromycin frequency: QD",
+      "canonical_value": "QD",
+      "unit": null,
+      "evidence_id": "3be0bdcf-0fc1-4cff-bb56-41b9704a6a09",
+      "evidence_text": "Azithromycin at 500 mg by mouth QD for\n5 days",
+      "char_start": 914,
+      "char_end": 959,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        563.93,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8de16156-9a5e-4789-a645-c312206f5fbe",
+      "group_id": "NARRATIVE_0020_narr_med_0",
+      "field_type": "med.duration",
+      "value": "for 5 days",
+      "canonical_value": "for 5 days",
+      "unit": null,
+      "evidence_id": "3be0bdcf-0fc1-4cff-bb56-41b9704a6a09",
+      "evidence_text": "Azithromycin at 500 mg by mouth QD for\n5 days",
+      "char_start": 914,
+      "char_end": 959,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        563.93,
+        252.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a668e8da-9c07-4bff-a703-3556c11f0b93",
+      "group_id": "NARRATIVE_0020_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Atorvastatin",
+      "canonical_value": "Atorvastatin",
+      "unit": null,
+      "evidence_id": "7047d428-5373-4a32-99eb-67a0cb888b5a",
+      "evidence_text": "Atorvastatin 20 mg by mouth once daily at bedtime",
+      "char_start": 1235,
+      "char_end": 1284,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d0b01d3d-cb32-4a87-9a80-3c6f795dd1e1",
+      "group_id": "NARRATIVE_0020_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Atorvastatin dose: 20 mg",
+      "canonical_value": 20.0,
+      "unit": "mg",
+      "evidence_id": "7047d428-5373-4a32-99eb-67a0cb888b5a",
+      "evidence_text": "Atorvastatin 20 mg by mouth once daily at bedtime",
+      "char_start": 1235,
+      "char_end": 1284,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1119a65b-216c-4c53-b27d-d50a68036d02",
+      "group_id": "NARRATIVE_0020_narr_med_1",
+      "field_type": "med.route",
+      "value": "Atorvastatin route: by mouth",
+      "canonical_value": "by mouth",
+      "unit": null,
+      "evidence_id": "7047d428-5373-4a32-99eb-67a0cb888b5a",
+      "evidence_text": "Atorvastatin 20 mg by mouth once daily at bedtime",
+      "char_start": 1235,
+      "char_end": 1284,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "bab35915-0a23-4234-9496-0e2dc3da9a32",
+      "group_id": "NARRATIVE_0020_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Atorvastatin frequency: once daily at bedtime",
+      "canonical_value": "once daily at bedtime",
+      "unit": null,
+      "evidence_id": "7047d428-5373-4a32-99eb-67a0cb888b5a",
+      "evidence_text": "Atorvastatin 20 mg by mouth once daily at bedtime",
+      "char_start": 1235,
+      "char_end": 1284,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        566.0,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2efb0fdb-6261-49cb-be95-1881a18ed24d",
+      "group_id": "NARRATIVE_0020_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Metformin",
+      "canonical_value": "Metformin",
+      "unit": null,
+      "evidence_id": "6caa4569-65d9-477c-acff-061d874f00f8",
+      "evidence_text": "Metformin 850 mg oral twice daily",
+      "char_start": 1297,
+      "char_end": 1330,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        561.86,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f1295805-08bd-4102-a594-b1cddbe1b8df",
+      "group_id": "NARRATIVE_0020_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Metformin dose: 850 mg",
+      "canonical_value": 850.0,
+      "unit": "mg",
+      "evidence_id": "6caa4569-65d9-477c-acff-061d874f00f8",
+      "evidence_text": "Metformin 850 mg oral twice daily",
+      "char_start": 1297,
+      "char_end": 1330,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        561.86,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "263d6e18-e20e-4d7a-92c0-51f45c697437",
+      "group_id": "NARRATIVE_0020_narr_med_2",
+      "field_type": "med.route",
+      "value": "Metformin route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "6caa4569-65d9-477c-acff-061d874f00f8",
+      "evidence_text": "Metformin 850 mg oral twice daily",
+      "char_start": 1297,
+      "char_end": 1330,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        561.86,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "04b62e9c-24a8-4909-90a8-cf4a4ef0bef1",
+      "group_id": "NARRATIVE_0020_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Metformin frequency: twice daily",
+      "canonical_value": "twice daily",
+      "unit": null,
+      "evidence_id": "6caa4569-65d9-477c-acff-061d874f00f8",
+      "evidence_text": "Metformin 850 mg oral twice daily",
+      "char_start": 1297,
+      "char_end": 1330,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        561.86,
+        327.59
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clindoc.project/schemas/evidence.json",
+  "title": "Evidence",
+  "description": "Schema for source evidence grounding a clinical claim (§9)",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "document_id",
+    "page_number",
+    "text",
+    "char_start",
+    "char_end",
+    "bbox",
+    "ocr_confidence"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "description": "Globally unique identifier for the evidence span (UUID)"
+    },
+    "document_id": {
+      "type": "string",
+      "description": "Identifier of the source document"
+    },
+    "page_number": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "1-indexed page number containing the evidence"
+    },
+    "text": {
+      "type": "string",
+      "description": "Exact verbatim source text span"
+    },
+    "char_start": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Starting character offset within the page's OCR / text representation"
+    },
+    "char_end": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Ending character offset within the page's OCR / text representation"
+    },
+    "bbox": {
+      "type": "object",
+      "description": "Bounding box enclosing the evidence span on the page",
+      "required": [
+        "x0",
+        "y0",
+        "x1",
+        "y1"
+      ],
+      "properties": {
+        "x0": { "type": "number" },
+        "y0": { "type": "number" },
+        "x1": { "type": "number" },
+        "y1": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "ocr_confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Aggregated OCR engine confidence for the span tokens in [0, 1]; null for born-digital documents"
+    }
+  },
+  "additionalProperties": false
+}

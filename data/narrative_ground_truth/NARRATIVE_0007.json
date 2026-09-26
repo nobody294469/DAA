@@ -1,0 +1,627 @@
+{
+  "doc_id": "NARRATIVE_0007",
+  "template_id": "narrative_emergency_observation_note_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60007",
+    "name": "David Miller",
+    "dob": "1962-03-08",
+    "gender": "M"
+  },
+  "facility_name": "St. Jude Academic Health Center - Division of Hospital Medicine",
+  "attending_physician": "Dr. Gregory House, MD",
+  "admission_date": "2025-03-21",
+  "discharge_date": "2025-03-26",
+  "sections": [
+    {
+      "title": "EMERGENCY DEPARTMENT PRESENTATION",
+      "text": "Patient David Miller was triaged in the emergency department following acute onset of lightheadedness and palpitations earlier this morning. Initial hemodynamic parameters were reviewed and patient was placed on telemetry."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient describes experiencing recurrent lightheadedness over the preceding 48 hours without syncope. Initial emergency workup revealed that initial platelet count was measured at 245.5 10*3/uL. Point-of-care laboratory screening additionally noted potassium resulted at 6.03 mmol/L (HIGH). Given these findings, the patient was transitioned to the Clinical Decision Unit for 24-hour observation."
+    },
+    {
+      "title": "OBSERVATION UNIT CLINICAL COURSE",
+      "text": "Throughout the observation unit stay, continuous telemetry showed normal sinus rhythm without pause or tachyarrhythmia. The patient was administered Ciprofloxacin at a dose of 250 mg PO every 12 hours for 7 days, which promptly alleviated acute symptoms. Follow-up protocol monitoring of hemoglobin demonstrated 13.5 g/dL. Orthostatic blood pressures were negative upon ambulation."
+    },
+    {
+      "title": "DISCHARGE REGIMEN",
+      "text": "Patient was deemed safe for outpatient discharge. The ongoing regimen includes Metoprolol 25 mg oral twice daily as prescribed. Prescription counseling was performed by nursing prior to release."
+    },
+    {
+      "title": "PLAN & PRECAUTIONS",
+      "text": "Resume normal daily activities as tolerated. Avoid strenuous exercise until cardiology follow-up in 1 to 2 weeks. Immediate emergency precautions detailed."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0007_narr_lab_0",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 245.5,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "NORMAL",
+      "evidence_text": "initial platelet count was measured at 245.5 10*3/uL",
+      "char_start": 750,
+      "char_end": 802,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0007_narr_lab_1",
+      "test_name": "Potassium",
+      "loinc_code": "2823-3",
+      "value": 6.03,
+      "unit": "mmol/L",
+      "ref_range_low": 3.5,
+      "ref_range_high": 5.1,
+      "ref_range_text": "3.5 - 5.1",
+      "flag": "HIGH",
+      "evidence_text": "potassium resulted at 6.03 mmol/L (HIGH)",
+      "char_start": 858,
+      "char_end": 898,
+      "bbox": [
+        46.0,
+        225.54,
+        539.17,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0007_narr_lab_2",
+      "test_name": "Hemoglobin",
+      "loinc_code": "718-7",
+      "value": 13.5,
+      "unit": "g/dL",
+      "ref_range_low": 12.0,
+      "ref_range_high": 16.0,
+      "ref_range_text": "12.0 - 16.0",
+      "flag": "NORMAL",
+      "evidence_text": "monitoring of hemoglobin demonstrated 13.5 g/dL",
+      "char_start": 1313,
+      "char_end": 1360,
+      "bbox": [
+        46.0,
+        314.54,
+        554.99,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0007_narr_med_0",
+      "medication_name": "Ciprofloxacin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every 12 hours",
+      "duration": "for 7 days",
+      "sig_text": "Ciprofloxacin at a dose of 250 mg PO every 12 hours for 7 days",
+      "evidence_text": "Ciprofloxacin at a dose of 250 mg PO every 12 hours for 7 days",
+      "char_start": 1188,
+      "char_end": 1250,
+      "bbox": [
+        46.0,
+        301.04,
+        551.83,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0007_narr_med_1",
+      "medication_name": "Metoprolol",
+      "dose": 25.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "twice daily",
+      "duration": null,
+      "sig_text": "Metoprolol 25 mg oral twice daily",
+      "evidence_text": "Metoprolol 25 mg oral twice daily",
+      "char_start": 1518,
+      "char_end": 1551,
+      "bbox": [
+        46.0,
+        376.54,
+        540.75,
+        389.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "d124f719-bf64-4158-985a-eadffd1d82c9",
+      "group_id": "NARRATIVE_0007_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 245.5 10*3/uL",
+      "canonical_value": 245.5,
+      "unit": "10*3/uL",
+      "evidence_id": "060df230-a898-42c5-bf1f-a93d2f69e73b",
+      "evidence_text": "initial platelet count was measured at 245.5 10*3/uL",
+      "char_start": 750,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a8c037f5-1e94-4811-8464-daf91acd658f",
+      "group_id": "NARRATIVE_0007_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "060df230-a898-42c5-bf1f-a93d2f69e73b",
+      "evidence_text": "initial platelet count was measured at 245.5 10*3/uL",
+      "char_start": 750,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "135809a7-91db-4ef2-acbf-e7bb1b0b7e72",
+      "group_id": "NARRATIVE_0007_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "060df230-a898-42c5-bf1f-a93d2f69e73b",
+      "evidence_text": "initial platelet count was measured at 245.5 10*3/uL",
+      "char_start": 750,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "47617da6-ac0a-4228-bae3-8c46d4ad42e7",
+      "group_id": "NARRATIVE_0007_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "060df230-a898-42c5-bf1f-a93d2f69e73b",
+      "evidence_text": "initial platelet count was measured at 245.5 10*3/uL",
+      "char_start": 750,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7db5504b-f69b-4f6d-bb33-38347cf078ba",
+      "group_id": "NARRATIVE_0007_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "060df230-a898-42c5-bf1f-a93d2f69e73b",
+      "evidence_text": "initial platelet count was measured at 245.5 10*3/uL",
+      "char_start": 750,
+      "char_end": 802,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        552.37,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d36d2e2d-ab36-4c67-9749-e383d80111ca",
+      "group_id": "NARRATIVE_0007_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Potassium: 6.03 mmol/L",
+      "canonical_value": 6.03,
+      "unit": "mmol/L",
+      "evidence_id": "ab6b9ac6-4bef-46e2-a5dd-4c8f507cc618",
+      "evidence_text": "potassium resulted at 6.03 mmol/L (HIGH)",
+      "char_start": 858,
+      "char_end": 898,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        539.17,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1182d1f5-3cc2-451a-95ab-f44dbd44a812",
+      "group_id": "NARRATIVE_0007_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Potassium flag: HIGH",
+      "canonical_value": "HIGH",
+      "unit": null,
+      "evidence_id": "ab6b9ac6-4bef-46e2-a5dd-4c8f507cc618",
+      "evidence_text": "potassium resulted at 6.03 mmol/L (HIGH)",
+      "char_start": 858,
+      "char_end": 898,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        539.17,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e8319c86-e297-4147-80ac-00ad50b707a5",
+      "group_id": "NARRATIVE_0007_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "ab6b9ac6-4bef-46e2-a5dd-4c8f507cc618",
+      "evidence_text": "potassium resulted at 6.03 mmol/L (HIGH)",
+      "char_start": 858,
+      "char_end": 898,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        539.17,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "3ce51fe4-f2ae-4d97-a95d-1e277440ceb7",
+      "group_id": "NARRATIVE_0007_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "3.5 - 5.1",
+      "canonical_value": "3.5 - 5.1",
+      "unit": null,
+      "evidence_id": "ab6b9ac6-4bef-46e2-a5dd-4c8f507cc618",
+      "evidence_text": "potassium resulted at 6.03 mmol/L (HIGH)",
+      "char_start": 858,
+      "char_end": 898,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        539.17,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "51cfb8aa-0d6c-477e-bb2d-20ddd23f408a",
+      "group_id": "NARRATIVE_0007_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "canonical_value": "Potassium",
+      "unit": null,
+      "evidence_id": "ab6b9ac6-4bef-46e2-a5dd-4c8f507cc618",
+      "evidence_text": "potassium resulted at 6.03 mmol/L (HIGH)",
+      "char_start": 858,
+      "char_end": 898,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        539.17,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d188cb10-c79a-4b23-8d08-e3c4b99e74e9",
+      "group_id": "NARRATIVE_0007_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Hemoglobin: 13.5 g/dL",
+      "canonical_value": 13.5,
+      "unit": "g/dL",
+      "evidence_id": "d36e721e-94d7-4a71-8f7d-106cae1e7b98",
+      "evidence_text": "monitoring of hemoglobin demonstrated 13.5 g/dL",
+      "char_start": 1313,
+      "char_end": 1360,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        554.99,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "aad28254-597c-444a-8f5e-be20de618a29",
+      "group_id": "NARRATIVE_0007_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Hemoglobin flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "d36e721e-94d7-4a71-8f7d-106cae1e7b98",
+      "evidence_text": "monitoring of hemoglobin demonstrated 13.5 g/dL",
+      "char_start": 1313,
+      "char_end": 1360,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        554.99,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fdd16883-58fa-4617-aa2c-19991173571b",
+      "group_id": "NARRATIVE_0007_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "canonical_value": "g/dL",
+      "unit": null,
+      "evidence_id": "d36e721e-94d7-4a71-8f7d-106cae1e7b98",
+      "evidence_text": "monitoring of hemoglobin demonstrated 13.5 g/dL",
+      "char_start": 1313,
+      "char_end": 1360,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        554.99,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "dd6ee375-8207-49d5-830d-082569829cea",
+      "group_id": "NARRATIVE_0007_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "12.0 - 16.0",
+      "canonical_value": "12.0 - 16.0",
+      "unit": null,
+      "evidence_id": "d36e721e-94d7-4a71-8f7d-106cae1e7b98",
+      "evidence_text": "monitoring of hemoglobin demonstrated 13.5 g/dL",
+      "char_start": 1313,
+      "char_end": 1360,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        554.99,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b1bc2964-ba27-4ead-8488-0e5c9c707956",
+      "group_id": "NARRATIVE_0007_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "canonical_value": "Hemoglobin",
+      "unit": null,
+      "evidence_id": "d36e721e-94d7-4a71-8f7d-106cae1e7b98",
+      "evidence_text": "monitoring of hemoglobin demonstrated 13.5 g/dL",
+      "char_start": 1313,
+      "char_end": 1360,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        554.99,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "30e1e7a2-28c2-4b46-ace3-b18c8ccfbd89",
+      "group_id": "NARRATIVE_0007_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Ciprofloxacin",
+      "canonical_value": "Ciprofloxacin",
+      "unit": null,
+      "evidence_id": "1c4c7391-3199-45c0-8270-10c09692971b",
+      "evidence_text": "Ciprofloxacin at a dose of 250 mg PO every 12 hours for 7 days",
+      "char_start": 1188,
+      "char_end": 1250,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        551.83,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a751d5ba-79b4-4c90-8628-8c1083e808af",
+      "group_id": "NARRATIVE_0007_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Ciprofloxacin dose: 250 mg",
+      "canonical_value": 250.0,
+      "unit": "mg",
+      "evidence_id": "1c4c7391-3199-45c0-8270-10c09692971b",
+      "evidence_text": "Ciprofloxacin at a dose of 250 mg PO every 12 hours for 7 days",
+      "char_start": 1188,
+      "char_end": 1250,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        551.83,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9e0b77f0-01b7-4c79-8c93-70e94479187a",
+      "group_id": "NARRATIVE_0007_narr_med_0",
+      "field_type": "med.route",
+      "value": "Ciprofloxacin route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "1c4c7391-3199-45c0-8270-10c09692971b",
+      "evidence_text": "Ciprofloxacin at a dose of 250 mg PO every 12 hours for 7 days",
+      "char_start": 1188,
+      "char_end": 1250,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        551.83,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "84aa7cb0-c769-4c0a-a55c-201dfe57fc5f",
+      "group_id": "NARRATIVE_0007_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Ciprofloxacin frequency: every 12 hours",
+      "canonical_value": "every 12 hours",
+      "unit": null,
+      "evidence_id": "1c4c7391-3199-45c0-8270-10c09692971b",
+      "evidence_text": "Ciprofloxacin at a dose of 250 mg PO every 12 hours for 7 days",
+      "char_start": 1188,
+      "char_end": 1250,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        551.83,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "522be8e6-b47f-4d3a-b367-0689a134dc02",
+      "group_id": "NARRATIVE_0007_narr_med_0",
+      "field_type": "med.duration",
+      "value": "for 7 days",
+      "canonical_value": "for 7 days",
+      "unit": null,
+      "evidence_id": "1c4c7391-3199-45c0-8270-10c09692971b",
+      "evidence_text": "Ciprofloxacin at a dose of 250 mg PO every 12 hours for 7 days",
+      "char_start": 1188,
+      "char_end": 1250,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        551.83,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7b5a978e-e60c-41ff-aee5-eb58c791ba42",
+      "group_id": "NARRATIVE_0007_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Metoprolol",
+      "canonical_value": "Metoprolol",
+      "unit": null,
+      "evidence_id": "05d13797-aa05-4675-a58d-204257f867d7",
+      "evidence_text": "Metoprolol 25 mg oral twice daily",
+      "char_start": 1518,
+      "char_end": 1551,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        540.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "dd6ee15f-3088-4128-b6ed-90debb1e8502",
+      "group_id": "NARRATIVE_0007_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Metoprolol dose: 25 mg",
+      "canonical_value": 25.0,
+      "unit": "mg",
+      "evidence_id": "05d13797-aa05-4675-a58d-204257f867d7",
+      "evidence_text": "Metoprolol 25 mg oral twice daily",
+      "char_start": 1518,
+      "char_end": 1551,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        540.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7aa03639-b6f7-452a-81a0-c15799df117d",
+      "group_id": "NARRATIVE_0007_narr_med_1",
+      "field_type": "med.route",
+      "value": "Metoprolol route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "05d13797-aa05-4675-a58d-204257f867d7",
+      "evidence_text": "Metoprolol 25 mg oral twice daily",
+      "char_start": 1518,
+      "char_end": 1551,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        540.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "310fc7af-356c-4174-9401-a6d3d864cbc2",
+      "group_id": "NARRATIVE_0007_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Metoprolol frequency: twice daily",
+      "canonical_value": "twice daily",
+      "unit": null,
+      "evidence_id": "05d13797-aa05-4675-a58d-204257f867d7",
+      "evidence_text": "Metoprolol 25 mg oral twice daily",
+      "char_start": 1518,
+      "char_end": 1551,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        540.75,
+        389.59
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

@@ -1,0 +1,647 @@
+{
+  "doc_id": "NARRATIVE_0008",
+  "template_id": "narrative_emergency_observation_note_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60008",
+    "name": "Linda Davis",
+    "dob": "1984-12-01",
+    "gender": "F"
+  },
+  "facility_name": "Valley Regional Hospital - Department of Clinical Services",
+  "attending_physician": "Dr. Lisa Cuddy, MD",
+  "admission_date": "2025-03-29",
+  "discharge_date": "2025-04-03",
+  "sections": [
+    {
+      "title": "EMERGENCY DEPARTMENT PRESENTATION",
+      "text": "Patient Linda Davis was triaged in the emergency department following acute onset of lightheadedness and palpitations earlier this morning. Initial hemodynamic parameters were reviewed and patient was placed on telemetry."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient describes experiencing recurrent lightheadedness over the preceding 48 hours without syncope. Initial emergency workup revealed that initial potassium was measured at 3.71 mmol/L. Point-of-care laboratory screening additionally noted alanine aminotransferase (alt) resulted at 27.7 U/L. Given these findings, the patient was transitioned to the Clinical Decision Unit for 24-hour observation."
+    },
+    {
+      "title": "OBSERVATION UNIT CLINICAL COURSE",
+      "text": "Throughout the observation unit stay, continuous telemetry showed normal sinus rhythm without pause or tachyarrhythmia. The patient was administered Azithromycin at a dose of 250 mg oral once daily for 5 days, which promptly alleviated acute symptoms. Follow-up protocol monitoring of platelet count demonstrated 109.4 10*3/uL (LOW). Orthostatic blood pressures were negative upon ambulation."
+    },
+    {
+      "title": "DISCHARGE REGIMEN",
+      "text": "Patient was deemed safe for outpatient discharge. The ongoing regimen includes Omeprazole 20 mg PO once daily in the morning for 30 days as prescribed. Prescription counseling was performed by nursing prior to release."
+    },
+    {
+      "title": "PLAN & PRECAUTIONS",
+      "text": "Resume normal daily activities as tolerated. Avoid strenuous exercise until cardiology follow-up in 1 to 2 weeks. Immediate emergency precautions detailed."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0008_narr_lab_0",
+      "test_name": "Potassium",
+      "loinc_code": "2823-3",
+      "value": 3.71,
+      "unit": "mmol/L",
+      "ref_range_low": 3.5,
+      "ref_range_high": 5.1,
+      "ref_range_text": "3.5 - 5.1",
+      "flag": "NORMAL",
+      "evidence_text": "initial potassium was measured at 3.71 mmol/L",
+      "char_start": 742,
+      "char_end": 787,
+      "bbox": [
+        46.0,
+        212.04,
+        532.27,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0008_narr_lab_1",
+      "test_name": "Alanine Aminotransferase (ALT)",
+      "loinc_code": "1742-6",
+      "value": 27.7,
+      "unit": "U/L",
+      "ref_range_low": 7.0,
+      "ref_range_high": 56.0,
+      "ref_range_text": "7.0 - 56.0",
+      "flag": "NORMAL",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.7 U/L",
+      "char_start": 843,
+      "char_end": 894,
+      "bbox": [
+        46.0,
+        225.54,
+        556.62,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0008_narr_lab_2",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 109.4,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "LOW",
+      "evidence_text": "monitoring of platelet count demonstrated 109.4 10*3/uL (LOW)",
+      "char_start": 1306,
+      "char_end": 1367,
+      "bbox": [
+        46.0,
+        314.54,
+        563.44,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0008_narr_med_0",
+      "medication_name": "Azithromycin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "once daily",
+      "duration": "for 5 days",
+      "sig_text": "Azithromycin at a dose of 250 mg oral once daily for 5 days",
+      "evidence_text": "Azithromycin at a dose of 250 mg oral once daily for 5 days",
+      "char_start": 1184,
+      "char_end": 1243,
+      "bbox": [
+        46.0,
+        301.04,
+        559.22,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0008_narr_med_1",
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "once daily in the morning",
+      "duration": "for 30 days",
+      "sig_text": "Omeprazole 20 mg PO once daily in the morning for 30 days",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the\nmorning for 30 days",
+      "char_start": 1525,
+      "char_end": 1582,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "79926940-f390-46ea-bf97-d68673d70d37",
+      "group_id": "NARRATIVE_0008_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Potassium: 3.71 mmol/L",
+      "canonical_value": 3.71,
+      "unit": "mmol/L",
+      "evidence_id": "81d897ab-78b0-466a-9535-83715915ced7",
+      "evidence_text": "initial potassium was measured at 3.71 mmol/L",
+      "char_start": 742,
+      "char_end": 787,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        532.27,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a3a70a1a-a6da-4837-8361-ea2c410ed694",
+      "group_id": "NARRATIVE_0008_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Potassium flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "81d897ab-78b0-466a-9535-83715915ced7",
+      "evidence_text": "initial potassium was measured at 3.71 mmol/L",
+      "char_start": 742,
+      "char_end": 787,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        532.27,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "88f6a3eb-f101-4df4-96d2-835d9c8a4c57",
+      "group_id": "NARRATIVE_0008_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "81d897ab-78b0-466a-9535-83715915ced7",
+      "evidence_text": "initial potassium was measured at 3.71 mmol/L",
+      "char_start": 742,
+      "char_end": 787,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        532.27,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "bf343235-1369-45a8-a9bb-f302d3c2cae5",
+      "group_id": "NARRATIVE_0008_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "3.5 - 5.1",
+      "canonical_value": "3.5 - 5.1",
+      "unit": null,
+      "evidence_id": "81d897ab-78b0-466a-9535-83715915ced7",
+      "evidence_text": "initial potassium was measured at 3.71 mmol/L",
+      "char_start": 742,
+      "char_end": 787,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        532.27,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7adc807a-f14e-4d00-a274-586f16dd55af",
+      "group_id": "NARRATIVE_0008_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "canonical_value": "Potassium",
+      "unit": null,
+      "evidence_id": "81d897ab-78b0-466a-9535-83715915ced7",
+      "evidence_text": "initial potassium was measured at 3.71 mmol/L",
+      "char_start": 742,
+      "char_end": 787,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        532.27,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "afdefb75-3af0-4070-87b0-b7b66a8b8641",
+      "group_id": "NARRATIVE_0008_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Alanine Aminotransferase (ALT): 27.7 U/L",
+      "canonical_value": 27.7,
+      "unit": "U/L",
+      "evidence_id": "d25b3ad8-9df9-4c3b-9625-142b3f37206c",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.7 U/L",
+      "char_start": 843,
+      "char_end": 894,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.62,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a342f54d-68e7-450c-9b97-29bdbc15ae6b",
+      "group_id": "NARRATIVE_0008_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Alanine Aminotransferase (ALT) flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "d25b3ad8-9df9-4c3b-9625-142b3f37206c",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.7 U/L",
+      "char_start": 843,
+      "char_end": 894,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.62,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "acbebc04-f574-48bf-bd7e-2dd9b39abdbe",
+      "group_id": "NARRATIVE_0008_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "canonical_value": "U/L",
+      "unit": null,
+      "evidence_id": "d25b3ad8-9df9-4c3b-9625-142b3f37206c",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.7 U/L",
+      "char_start": 843,
+      "char_end": 894,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.62,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "57fa5878-20b6-437e-8525-be6bbbfd170b",
+      "group_id": "NARRATIVE_0008_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "7.0 - 56.0",
+      "canonical_value": "7.0 - 56.0",
+      "unit": null,
+      "evidence_id": "d25b3ad8-9df9-4c3b-9625-142b3f37206c",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.7 U/L",
+      "char_start": 843,
+      "char_end": 894,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.62,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a673e1fa-0cc6-42c8-acb7-48e636bfe3bd",
+      "group_id": "NARRATIVE_0008_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Alanine Aminotransferase (ALT)",
+      "canonical_value": "Alanine Aminotransferase (ALT)",
+      "unit": null,
+      "evidence_id": "d25b3ad8-9df9-4c3b-9625-142b3f37206c",
+      "evidence_text": "alanine aminotransferase (alt) resulted at 27.7 U/L",
+      "char_start": 843,
+      "char_end": 894,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        556.62,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "95fc834a-7c80-42e0-bb54-9d2d06ce0325",
+      "group_id": "NARRATIVE_0008_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 109.4 10*3/uL",
+      "canonical_value": 109.4,
+      "unit": "10*3/uL",
+      "evidence_id": "38262b81-3b81-4939-98bd-d9d82274f117",
+      "evidence_text": "monitoring of platelet count demonstrated 109.4 10*3/uL (LOW)",
+      "char_start": 1306,
+      "char_end": 1367,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        563.44,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "52939004-7b6f-49be-92a1-16cdb707b1ee",
+      "group_id": "NARRATIVE_0008_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: LOW",
+      "canonical_value": "LOW",
+      "unit": null,
+      "evidence_id": "38262b81-3b81-4939-98bd-d9d82274f117",
+      "evidence_text": "monitoring of platelet count demonstrated 109.4 10*3/uL (LOW)",
+      "char_start": 1306,
+      "char_end": 1367,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        563.44,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5da437ab-7114-4466-9861-73f7c41dac8a",
+      "group_id": "NARRATIVE_0008_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "38262b81-3b81-4939-98bd-d9d82274f117",
+      "evidence_text": "monitoring of platelet count demonstrated 109.4 10*3/uL (LOW)",
+      "char_start": 1306,
+      "char_end": 1367,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        563.44,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f50e1ca6-8833-4eac-bfbb-a3aed2b36b4c",
+      "group_id": "NARRATIVE_0008_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "38262b81-3b81-4939-98bd-d9d82274f117",
+      "evidence_text": "monitoring of platelet count demonstrated 109.4 10*3/uL (LOW)",
+      "char_start": 1306,
+      "char_end": 1367,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        563.44,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9d47cbe2-483f-41c6-8628-bebdc49b8b39",
+      "group_id": "NARRATIVE_0008_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "38262b81-3b81-4939-98bd-d9d82274f117",
+      "evidence_text": "monitoring of platelet count demonstrated 109.4 10*3/uL (LOW)",
+      "char_start": 1306,
+      "char_end": 1367,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        563.44,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5f4e1bb3-97e9-4978-9076-e82be7b13a27",
+      "group_id": "NARRATIVE_0008_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Azithromycin",
+      "canonical_value": "Azithromycin",
+      "unit": null,
+      "evidence_id": "1ca49b41-ed59-4367-964a-73aa7479e0eb",
+      "evidence_text": "Azithromycin at a dose of 250 mg oral once daily for 5 days",
+      "char_start": 1184,
+      "char_end": 1243,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.22,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "22ae9cb4-e53a-4bb8-a7fd-7aa8d1cc66cb",
+      "group_id": "NARRATIVE_0008_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Azithromycin dose: 250 mg",
+      "canonical_value": 250.0,
+      "unit": "mg",
+      "evidence_id": "1ca49b41-ed59-4367-964a-73aa7479e0eb",
+      "evidence_text": "Azithromycin at a dose of 250 mg oral once daily for 5 days",
+      "char_start": 1184,
+      "char_end": 1243,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.22,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "76532e81-1572-4986-8730-83b58604726b",
+      "group_id": "NARRATIVE_0008_narr_med_0",
+      "field_type": "med.route",
+      "value": "Azithromycin route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "1ca49b41-ed59-4367-964a-73aa7479e0eb",
+      "evidence_text": "Azithromycin at a dose of 250 mg oral once daily for 5 days",
+      "char_start": 1184,
+      "char_end": 1243,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.22,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "cb4703d6-5fa6-4a12-9f6f-5a309fa4640f",
+      "group_id": "NARRATIVE_0008_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Azithromycin frequency: once daily",
+      "canonical_value": "once daily",
+      "unit": null,
+      "evidence_id": "1ca49b41-ed59-4367-964a-73aa7479e0eb",
+      "evidence_text": "Azithromycin at a dose of 250 mg oral once daily for 5 days",
+      "char_start": 1184,
+      "char_end": 1243,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.22,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "64d0d5d5-98d0-45c6-a07c-37221d43db36",
+      "group_id": "NARRATIVE_0008_narr_med_0",
+      "field_type": "med.duration",
+      "value": "for 5 days",
+      "canonical_value": "for 5 days",
+      "unit": null,
+      "evidence_id": "1ca49b41-ed59-4367-964a-73aa7479e0eb",
+      "evidence_text": "Azithromycin at a dose of 250 mg oral once daily for 5 days",
+      "char_start": 1184,
+      "char_end": 1243,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        559.22,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "a72f47d7-d7a1-4c77-9faf-97aca79b35ef",
+      "group_id": "NARRATIVE_0008_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Omeprazole",
+      "canonical_value": "Omeprazole",
+      "unit": null,
+      "evidence_id": "47ed1cfd-a328-4a1d-931d-694d15422033",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the\nmorning for 30 days",
+      "char_start": 1525,
+      "char_end": 1582,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6a22a715-1f9c-4162-a0a0-0b6bbff2672e",
+      "group_id": "NARRATIVE_0008_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Omeprazole dose: 20 mg",
+      "canonical_value": 20.0,
+      "unit": "mg",
+      "evidence_id": "47ed1cfd-a328-4a1d-931d-694d15422033",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the\nmorning for 30 days",
+      "char_start": 1525,
+      "char_end": 1582,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "00b9307e-6554-47ad-8a43-5af5dc10495f",
+      "group_id": "NARRATIVE_0008_narr_med_1",
+      "field_type": "med.route",
+      "value": "Omeprazole route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "47ed1cfd-a328-4a1d-931d-694d15422033",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the\nmorning for 30 days",
+      "char_start": 1525,
+      "char_end": 1582,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8805f010-b2a5-4914-bcfc-a3eb8fdf6d19",
+      "group_id": "NARRATIVE_0008_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Omeprazole frequency: once daily in the morning",
+      "canonical_value": "once daily in the morning",
+      "unit": null,
+      "evidence_id": "47ed1cfd-a328-4a1d-931d-694d15422033",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the\nmorning for 30 days",
+      "char_start": 1525,
+      "char_end": 1582,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6fadea2f-0872-49ce-b049-aa55105c8d8a",
+      "group_id": "NARRATIVE_0008_narr_med_1",
+      "field_type": "med.duration",
+      "value": "for 30 days",
+      "canonical_value": "for 30 days",
+      "unit": null,
+      "evidence_id": "47ed1cfd-a328-4a1d-931d-694d15422033",
+      "evidence_text": "Omeprazole 20 mg PO once daily in the\nmorning for 30 days",
+      "char_start": 1525,
+      "char_end": 1582,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        558.19,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

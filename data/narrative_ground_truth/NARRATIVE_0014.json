@@ -1,0 +1,707 @@
+{
+  "doc_id": "NARRATIVE_0014",
+  "template_id": "narrative_surgical_discharge_summary_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60014",
+    "name": "Susan Jones",
+    "dob": "1973-04-16",
+    "gender": "F"
+  },
+  "facility_name": "Metro Health Medical Center - Acute Care Pavilion",
+  "attending_physician": "Dr. Gregory House, MD",
+  "admission_date": "2025-05-16",
+  "discharge_date": "2025-05-18",
+  "sections": [
+    {
+      "title": "PREOPERATIVE DIAGNOSIS & PROCEDURE",
+      "text": "The patient underwent uncomplicated laparoscopic cholecystectomy for symptomatic cholelithiasis under general endotracheal anesthesia."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient is an adult who presented electively for surgical intervention following conservative management failure. Pre-admission testing confirmed that preoperative platelet count was 245.5 10*3/uL. Preoperative metabolic screening showed a baseline creatinine of 0.09 mg/dL (LOW). The patient was cleared from a cardiopulmonary standpoint and taken to the operative suite."
+    },
+    {
+      "title": "POSTOPERATIVE HOSPITAL COURSE",
+      "text": "The patient was extubated in the operating room and transferred to the post-anesthesia care unit in stable condition. Postoperative recovery was uneventful. For pain and infection prophylaxis, the patient was prescribed Amlodipine 2.5 mg orally every morning. On postoperative day one, postoperative glucose remained stable at 87.6 mg/dL. Surgical incisions were clean, intact, and without erythema or purulent drainage."
+    },
+    {
+      "title": "POST-DISCHARGE MEDICATIONS",
+      "text": "Discharge medications: The patient will take Atorvastatin 40 mg PO once daily at bedtime, and continue baseline Lisinopril 20 mg orally once daily. All prescriptions were transmitted electronically to the patient's pharmacy."
+    },
+    {
+      "title": "ACTIVITY & WOUND CARE PLAN",
+      "text": "Keep dressing clean and dry. No heavy lifting greater than 10 pounds for two weeks. Surgical clinic follow-up scheduled in 10 days."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0014_narr_lab_0",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 245.5,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "NORMAL",
+      "evidence_text": "preoperative platelet count was 245.5 10*3/uL",
+      "char_start": 660,
+      "char_end": 705,
+      "bbox": [
+        46.0,
+        212.04,
+        542.34,
+        225.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0014_narr_lab_1",
+      "test_name": "Creatinine",
+      "loinc_code": "2160-0",
+      "value": 0.09,
+      "unit": "mg/dL",
+      "ref_range_low": 0.6,
+      "ref_range_high": 1.3,
+      "ref_range_text": "0.6 - 1.3",
+      "flag": "LOW",
+      "evidence_text": "baseline creatinine of 0.09 mg/dL (LOW)",
+      "char_start": 749,
+      "char_end": 788,
+      "bbox": [
+        46.0,
+        225.54,
+        559.24,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0014_narr_lab_2",
+      "test_name": "Glucose",
+      "loinc_code": "2345-7",
+      "value": 87.6,
+      "unit": "mg/dL",
+      "ref_range_low": 70.0,
+      "ref_range_high": 99.0,
+      "ref_range_text": "70.0 - 99.0",
+      "flag": "NORMAL",
+      "evidence_text": "postoperative glucose remained stable at 87.6 mg/dL",
+      "char_start": 1198,
+      "char_end": 1249,
+      "bbox": [
+        46.0,
+        314.54,
+        552.89,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0014_narr_med_0",
+      "medication_name": "Amlodipine",
+      "dose": 2.5,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "every morning",
+      "duration": null,
+      "sig_text": "prescribed Amlodipine 2.5 mg orally every morning",
+      "evidence_text": "prescribed Amlodipine 2.5 mg\norally every morning",
+      "char_start": 1121,
+      "char_end": 1170,
+      "bbox": [
+        46.0,
+        301.04,
+        553.95,
+        327.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0014_narr_med_1",
+      "medication_name": "Atorvastatin",
+      "dose": 40.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "once daily at bedtime",
+      "duration": null,
+      "sig_text": "Atorvastatin 40 mg PO once daily at bedtime",
+      "evidence_text": "Atorvastatin 40 mg PO once daily at bedtime",
+      "char_start": 1405,
+      "char_end": 1448,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        389.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0014_narr_med_2",
+      "medication_name": "Lisinopril",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "route": "orally",
+      "frequency": "once daily",
+      "duration": null,
+      "sig_text": "Lisinopril 20 mg orally once daily",
+      "evidence_text": "Lisinopril\n20 mg orally once daily",
+      "char_start": 1472,
+      "char_end": 1506,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "c371c236-59d1-4ec1-9ba3-a162c6cd11ed",
+      "group_id": "NARRATIVE_0014_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 245.5 10*3/uL",
+      "canonical_value": 245.5,
+      "unit": "10*3/uL",
+      "evidence_id": "982b6126-8d50-455c-a4b7-36a93456eea1",
+      "evidence_text": "preoperative platelet count was 245.5 10*3/uL",
+      "char_start": 660,
+      "char_end": 705,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        542.34,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fa7e9a11-f362-42cb-a041-c0d4f41d373e",
+      "group_id": "NARRATIVE_0014_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "982b6126-8d50-455c-a4b7-36a93456eea1",
+      "evidence_text": "preoperative platelet count was 245.5 10*3/uL",
+      "char_start": 660,
+      "char_end": 705,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        542.34,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "23c00f9d-02bf-4bec-89cc-ab4d261507c0",
+      "group_id": "NARRATIVE_0014_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "982b6126-8d50-455c-a4b7-36a93456eea1",
+      "evidence_text": "preoperative platelet count was 245.5 10*3/uL",
+      "char_start": 660,
+      "char_end": 705,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        542.34,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "969615b0-97e0-404c-ba25-4e09756da296",
+      "group_id": "NARRATIVE_0014_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "982b6126-8d50-455c-a4b7-36a93456eea1",
+      "evidence_text": "preoperative platelet count was 245.5 10*3/uL",
+      "char_start": 660,
+      "char_end": 705,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        542.34,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2d86c079-5574-4eec-b167-0880ee226ee1",
+      "group_id": "NARRATIVE_0014_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "982b6126-8d50-455c-a4b7-36a93456eea1",
+      "evidence_text": "preoperative platelet count was 245.5 10*3/uL",
+      "char_start": 660,
+      "char_end": 705,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        212.04,
+        542.34,
+        225.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "57f26473-7d3a-432a-9663-1bac087c2d54",
+      "group_id": "NARRATIVE_0014_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Creatinine: 0.09 mg/dL",
+      "canonical_value": 0.09,
+      "unit": "mg/dL",
+      "evidence_id": "1e605796-e8f7-48af-82ef-e73cab1d2b41",
+      "evidence_text": "baseline creatinine of 0.09 mg/dL (LOW)",
+      "char_start": 749,
+      "char_end": 788,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        559.24,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "210077bb-c0f2-4f24-a57c-de707483d662",
+      "group_id": "NARRATIVE_0014_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Creatinine flag: LOW",
+      "canonical_value": "LOW",
+      "unit": null,
+      "evidence_id": "1e605796-e8f7-48af-82ef-e73cab1d2b41",
+      "evidence_text": "baseline creatinine of 0.09 mg/dL (LOW)",
+      "char_start": 749,
+      "char_end": 788,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        559.24,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "18d2ddb9-16ec-4e54-8373-605efab88e83",
+      "group_id": "NARRATIVE_0014_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "1e605796-e8f7-48af-82ef-e73cab1d2b41",
+      "evidence_text": "baseline creatinine of 0.09 mg/dL (LOW)",
+      "char_start": 749,
+      "char_end": 788,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        559.24,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "89c404ad-63ea-4e52-89fb-c5a3770ba626",
+      "group_id": "NARRATIVE_0014_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "0.6 - 1.3",
+      "canonical_value": "0.6 - 1.3",
+      "unit": null,
+      "evidence_id": "1e605796-e8f7-48af-82ef-e73cab1d2b41",
+      "evidence_text": "baseline creatinine of 0.09 mg/dL (LOW)",
+      "char_start": 749,
+      "char_end": 788,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        559.24,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "87f6d198-13b1-48cb-ba2b-18a393ecee57",
+      "group_id": "NARRATIVE_0014_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "canonical_value": "Creatinine",
+      "unit": null,
+      "evidence_id": "1e605796-e8f7-48af-82ef-e73cab1d2b41",
+      "evidence_text": "baseline creatinine of 0.09 mg/dL (LOW)",
+      "char_start": 749,
+      "char_end": 788,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        559.24,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "71f39363-6398-4fdb-9812-2ee261740ed3",
+      "group_id": "NARRATIVE_0014_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Glucose: 87.6 mg/dL",
+      "canonical_value": 87.6,
+      "unit": "mg/dL",
+      "evidence_id": "2a57252f-2097-4c65-b714-7c6b5886fee3",
+      "evidence_text": "postoperative glucose remained stable at 87.6 mg/dL",
+      "char_start": 1198,
+      "char_end": 1249,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "9868e3d0-7c6c-45b5-bc00-85fe568c61ab",
+      "group_id": "NARRATIVE_0014_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Glucose flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "2a57252f-2097-4c65-b714-7c6b5886fee3",
+      "evidence_text": "postoperative glucose remained stable at 87.6 mg/dL",
+      "char_start": 1198,
+      "char_end": 1249,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "4bdad00d-0c98-40ef-88d2-b22a778c5d48",
+      "group_id": "NARRATIVE_0014_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "2a57252f-2097-4c65-b714-7c6b5886fee3",
+      "evidence_text": "postoperative glucose remained stable at 87.6 mg/dL",
+      "char_start": 1198,
+      "char_end": 1249,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "d5e2447f-076c-427a-99a3-cc5035a83e7f",
+      "group_id": "NARRATIVE_0014_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "70.0 - 99.0",
+      "canonical_value": "70.0 - 99.0",
+      "unit": null,
+      "evidence_id": "2a57252f-2097-4c65-b714-7c6b5886fee3",
+      "evidence_text": "postoperative glucose remained stable at 87.6 mg/dL",
+      "char_start": 1198,
+      "char_end": 1249,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "374605db-098f-4548-84cf-40c8bcfe1f24",
+      "group_id": "NARRATIVE_0014_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "canonical_value": "Glucose",
+      "unit": null,
+      "evidence_id": "2a57252f-2097-4c65-b714-7c6b5886fee3",
+      "evidence_text": "postoperative glucose remained stable at 87.6 mg/dL",
+      "char_start": 1198,
+      "char_end": 1249,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.89,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5c72bf88-f512-4292-9caa-55282d4c0624",
+      "group_id": "NARRATIVE_0014_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Amlodipine",
+      "canonical_value": "Amlodipine",
+      "unit": null,
+      "evidence_id": "4981bd06-6cdc-4ad6-9112-261b051ccae1",
+      "evidence_text": "prescribed Amlodipine 2.5 mg\norally every morning",
+      "char_start": 1121,
+      "char_end": 1170,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        553.95,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "82bf22f4-9973-48ac-9a61-5d4f15912572",
+      "group_id": "NARRATIVE_0014_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Amlodipine dose: 2.5 mg",
+      "canonical_value": 2.5,
+      "unit": "mg",
+      "evidence_id": "4981bd06-6cdc-4ad6-9112-261b051ccae1",
+      "evidence_text": "prescribed Amlodipine 2.5 mg\norally every morning",
+      "char_start": 1121,
+      "char_end": 1170,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        553.95,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f8824254-e62a-4336-abce-3a0762469a24",
+      "group_id": "NARRATIVE_0014_narr_med_0",
+      "field_type": "med.route",
+      "value": "Amlodipine route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "4981bd06-6cdc-4ad6-9112-261b051ccae1",
+      "evidence_text": "prescribed Amlodipine 2.5 mg\norally every morning",
+      "char_start": 1121,
+      "char_end": 1170,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        553.95,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ee26ba5d-d03d-4b70-9d61-c858e5a867cb",
+      "group_id": "NARRATIVE_0014_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Amlodipine frequency: every morning",
+      "canonical_value": "every morning",
+      "unit": null,
+      "evidence_id": "4981bd06-6cdc-4ad6-9112-261b051ccae1",
+      "evidence_text": "prescribed Amlodipine 2.5 mg\norally every morning",
+      "char_start": 1121,
+      "char_end": 1170,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        301.04,
+        553.95,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "145e8ebb-32c9-46af-b6a5-2f173bc7b334",
+      "group_id": "NARRATIVE_0014_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Atorvastatin",
+      "canonical_value": "Atorvastatin",
+      "unit": null,
+      "evidence_id": "2d90e717-848e-4c47-a8a2-232de55eb958",
+      "evidence_text": "Atorvastatin 40 mg PO once daily at bedtime",
+      "char_start": 1405,
+      "char_end": 1448,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2eed81af-ecc1-4f6d-b336-9ec8d412e5f9",
+      "group_id": "NARRATIVE_0014_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Atorvastatin dose: 40 mg",
+      "canonical_value": 40.0,
+      "unit": "mg",
+      "evidence_id": "2d90e717-848e-4c47-a8a2-232de55eb958",
+      "evidence_text": "Atorvastatin 40 mg PO once daily at bedtime",
+      "char_start": 1405,
+      "char_end": 1448,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "fb8db312-6655-4844-8438-bda8a9cf255c",
+      "group_id": "NARRATIVE_0014_narr_med_1",
+      "field_type": "med.route",
+      "value": "Atorvastatin route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "2d90e717-848e-4c47-a8a2-232de55eb958",
+      "evidence_text": "Atorvastatin 40 mg PO once daily at bedtime",
+      "char_start": 1405,
+      "char_end": 1448,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f5b08646-5cc4-41f9-97c1-9ecc7d92e440",
+      "group_id": "NARRATIVE_0014_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Atorvastatin frequency: once daily at bedtime",
+      "canonical_value": "once daily at bedtime",
+      "unit": null,
+      "evidence_id": "2d90e717-848e-4c47-a8a2-232de55eb958",
+      "evidence_text": "Atorvastatin 40 mg PO once daily at bedtime",
+      "char_start": 1405,
+      "char_end": 1448,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        389.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "b07fb26f-fa9f-4b10-ae55-7aa0b8bad911",
+      "group_id": "NARRATIVE_0014_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Lisinopril",
+      "canonical_value": "Lisinopril",
+      "unit": null,
+      "evidence_id": "2116eeec-f17d-4651-b7f6-f8de36b47c27",
+      "evidence_text": "Lisinopril\n20 mg orally once daily",
+      "char_start": 1472,
+      "char_end": 1506,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "80cd44f2-2fe6-40ec-9bf9-0b3bfbabe081",
+      "group_id": "NARRATIVE_0014_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Lisinopril dose: 20 mg",
+      "canonical_value": 20.0,
+      "unit": "mg",
+      "evidence_id": "2116eeec-f17d-4651-b7f6-f8de36b47c27",
+      "evidence_text": "Lisinopril\n20 mg orally once daily",
+      "char_start": 1472,
+      "char_end": 1506,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "097ec319-1443-4a74-a838-9fd908a0dda2",
+      "group_id": "NARRATIVE_0014_narr_med_2",
+      "field_type": "med.route",
+      "value": "Lisinopril route: orally",
+      "canonical_value": "orally",
+      "unit": null,
+      "evidence_id": "2116eeec-f17d-4651-b7f6-f8de36b47c27",
+      "evidence_text": "Lisinopril\n20 mg orally once daily",
+      "char_start": 1472,
+      "char_end": 1506,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "753ba2b6-31d5-47f9-b90f-65a8586feb3c",
+      "group_id": "NARRATIVE_0014_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Lisinopril frequency: once daily",
+      "canonical_value": "once daily",
+      "unit": null,
+      "evidence_id": "2116eeec-f17d-4651-b7f6-f8de36b47c27",
+      "evidence_text": "Lisinopril\n20 mg orally once daily",
+      "char_start": 1472,
+      "char_end": 1506,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        559.75,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

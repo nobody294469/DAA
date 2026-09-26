@@ -1,0 +1,747 @@
+{
+  "doc_id": "NARRATIVE_0002",
+  "template_id": "narrative_inpatient_discharge_summary_v1",
+  "template_version": "1.0",
+  "split": "CV",
+  "patient": {
+    "patient_id": "PAT-60002",
+    "name": "Mary Johnson",
+    "dob": "1972-11-12",
+    "gender": "F"
+  },
+  "facility_name": "Metro Health Medical Center - Acute Care Pavilion",
+  "attending_physician": "Dr. Robert Evans, MD",
+  "admission_date": "2025-02-09",
+  "discharge_date": "2025-02-13",
+  "sections": [
+    {
+      "title": "CHIEF COMPLAINT",
+      "text": "The patient presented with progressive shortness of breath and pleuritic chest discomfort."
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "text": "The patient is a 45-year-old female with a medical history pertinent for hypertension and dyslipidemia who presented for evaluation of progressive shortness of breath and pleuritic chest discomfort. Symptoms began approximately four days prior to admission and escalated in severity. On presentation to the emergency department, initial diagnostic evaluation demonstrated that glucose was 88.3 mg/dL. Concurrently, serum chemistry was notable for a potassium of 4.08 mmol/L. Vital signs upon arrival were stable, and the patient was admitted to the inpatient general medicine service."
+    },
+    {
+      "title": "HOSPITAL COURSE",
+      "text": "During the hospital course, the inpatient team initiated targeted management. The patient received Omeprazole 20 mg oral once daily in the morning with good clinical tolerance. Serial assessments revealed gradual resolution of presenting symptoms. Prior to planned discharge, repeat laboratory testing confirmed that platelet count stabilized at 244.6 10*3/uL. The patient was ambulating without assistance and tolerating a regular diet."
+    },
+    {
+      "title": "DISCHARGE MEDICATIONS",
+      "text": "The patient was discharged home in stable clinical condition with instructions to take Amoxicillin 875 mg oral every 8 hours for 10 days, and Cephalexin 250 mg PO QID for 7 days. Medication reconciliation was completed and all questions regarding dosing schedules were answered."
+    },
+    {
+      "title": "DISCHARGE INSTRUCTIONS & FOLLOW-UP",
+      "text": "The patient was advised to follow up with their primary care physician within 7 to 10 days. Return precautions for chest pain, recurrent shortness of breath, or fever were provided and understood."
+    }
+  ],
+  "lab_entities": [
+    {
+      "group_id": "NARRATIVE_0002_narr_lab_0",
+      "test_name": "Glucose",
+      "loinc_code": "2345-7",
+      "value": 88.3,
+      "unit": "mg/dL",
+      "ref_range_low": 70.0,
+      "ref_range_high": 99.0,
+      "ref_range_text": "70.0 - 99.0",
+      "flag": "NORMAL",
+      "evidence_text": "glucose was 88.3 mg/dL",
+      "char_start": 820,
+      "char_end": 842,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0002_narr_lab_1",
+      "test_name": "Potassium",
+      "loinc_code": "2823-3",
+      "value": 4.08,
+      "unit": "mmol/L",
+      "ref_range_low": 3.5,
+      "ref_range_high": 5.1,
+      "ref_range_text": "3.5 - 5.1",
+      "flag": "NORMAL",
+      "evidence_text": "potassium of 4.08 mmol/L",
+      "char_start": 892,
+      "char_end": 916,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0002_narr_lab_2",
+      "test_name": "Platelet Count",
+      "loinc_code": "777-3",
+      "value": 244.6,
+      "unit": "10*3/uL",
+      "ref_range_low": 150.0,
+      "ref_range_high": 450.0,
+      "ref_range_text": "150.0 - 450.0",
+      "flag": "NORMAL",
+      "evidence_text": "platelet count stabilized at 244.6 10*3/uL",
+      "char_start": 1361,
+      "char_end": 1403,
+      "bbox": [
+        46.0,
+        314.54,
+        552.39,
+        327.59
+      ],
+      "page_number": 1
+    }
+  ],
+  "med_entities": [
+    {
+      "group_id": "NARRATIVE_0002_narr_med_0",
+      "medication_name": "Omeprazole",
+      "dose": 20.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "once daily in the morning",
+      "duration": null,
+      "sig_text": "Omeprazole 20 mg oral once daily in the morning",
+      "evidence_text": "Omeprazole 20 mg oral\nonce daily in the morning",
+      "char_start": 1143,
+      "char_end": 1190,
+      "bbox": [
+        46.0,
+        287.54,
+        561.36,
+        314.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0002_narr_med_1",
+      "medication_name": "Amoxicillin",
+      "dose": 875.0,
+      "dose_unit": "mg",
+      "route": "oral",
+      "frequency": "every 8 hours",
+      "duration": "for 10 days",
+      "sig_text": "Amoxicillin 875 mg oral every 8 hours for 10 days",
+      "evidence_text": "Amoxicillin 875 mg oral every 8 hours\nfor 10 days",
+      "char_start": 1591,
+      "char_end": 1640,
+      "bbox": [
+        46.0,
+        376.54,
+        560.25,
+        403.09
+      ],
+      "page_number": 1
+    },
+    {
+      "group_id": "NARRATIVE_0002_narr_med_2",
+      "medication_name": "Cephalexin",
+      "dose": 250.0,
+      "dose_unit": "mg",
+      "route": "PO",
+      "frequency": "QID",
+      "duration": "for 7 days",
+      "sig_text": "Cephalexin 250 mg PO QID for 7 days",
+      "evidence_text": "Cephalexin 250 mg PO QID for 7 days",
+      "char_start": 1646,
+      "char_end": 1681,
+      "bbox": [
+        46.0,
+        390.04,
+        528.08,
+        403.09
+      ],
+      "page_number": 1
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "69f4ea3e-02b0-4b7f-801f-f52ec6e01ea8",
+      "group_id": "NARRATIVE_0002_narr_lab_0",
+      "field_type": "lab.value",
+      "value": "Glucose: 88.3 mg/dL",
+      "canonical_value": 88.3,
+      "unit": "mg/dL",
+      "evidence_id": "e333476e-336c-47f7-8082-ccd7faab6205",
+      "evidence_text": "glucose was 88.3 mg/dL",
+      "char_start": 820,
+      "char_end": 842,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "38ddbaf1-1ea9-44e6-967e-10172907f5ec",
+      "group_id": "NARRATIVE_0002_narr_lab_0",
+      "field_type": "lab.flag",
+      "value": "Glucose flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "e333476e-336c-47f7-8082-ccd7faab6205",
+      "evidence_text": "glucose was 88.3 mg/dL",
+      "char_start": 820,
+      "char_end": 842,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "02917e36-c0b8-4829-819e-634382fc2d78",
+      "group_id": "NARRATIVE_0002_narr_lab_0",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "canonical_value": "mg/dL",
+      "unit": null,
+      "evidence_id": "e333476e-336c-47f7-8082-ccd7faab6205",
+      "evidence_text": "glucose was 88.3 mg/dL",
+      "char_start": 820,
+      "char_end": 842,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "7a37c7a0-5cb2-4c86-99b1-c94ed041f362",
+      "group_id": "NARRATIVE_0002_narr_lab_0",
+      "field_type": "lab.reference_range",
+      "value": "70.0 - 99.0",
+      "canonical_value": "70.0 - 99.0",
+      "unit": null,
+      "evidence_id": "e333476e-336c-47f7-8082-ccd7faab6205",
+      "evidence_text": "glucose was 88.3 mg/dL",
+      "char_start": 820,
+      "char_end": 842,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "93425e6c-ac77-49b7-af43-487c291c5600",
+      "group_id": "NARRATIVE_0002_narr_lab_0",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "canonical_value": "Glucose",
+      "unit": null,
+      "evidence_id": "e333476e-336c-47f7-8082-ccd7faab6205",
+      "evidence_text": "glucose was 88.3 mg/dL",
+      "char_start": 820,
+      "char_end": 842,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e713cddd-1eea-41fc-85ae-a32bd90d4fc5",
+      "group_id": "NARRATIVE_0002_narr_lab_1",
+      "field_type": "lab.value",
+      "value": "Potassium: 4.08 mmol/L",
+      "canonical_value": 4.08,
+      "unit": "mmol/L",
+      "evidence_id": "d8c9afc3-7cb5-4894-9a44-28ee9822b6c5",
+      "evidence_text": "potassium of 4.08 mmol/L",
+      "char_start": 892,
+      "char_end": 916,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "35194112-a5ad-40b5-8092-ba7562b4e75a",
+      "group_id": "NARRATIVE_0002_narr_lab_1",
+      "field_type": "lab.flag",
+      "value": "Potassium flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "d8c9afc3-7cb5-4894-9a44-28ee9822b6c5",
+      "evidence_text": "potassium of 4.08 mmol/L",
+      "char_start": 892,
+      "char_end": 916,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "5b50148d-03ec-45f3-aff8-f886ce180c2d",
+      "group_id": "NARRATIVE_0002_narr_lab_1",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "canonical_value": "mmol/L",
+      "unit": null,
+      "evidence_id": "d8c9afc3-7cb5-4894-9a44-28ee9822b6c5",
+      "evidence_text": "potassium of 4.08 mmol/L",
+      "char_start": 892,
+      "char_end": 916,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "443b091e-de8f-453c-8b2c-32ebdb0c5e7f",
+      "group_id": "NARRATIVE_0002_narr_lab_1",
+      "field_type": "lab.reference_range",
+      "value": "3.5 - 5.1",
+      "canonical_value": "3.5 - 5.1",
+      "unit": null,
+      "evidence_id": "d8c9afc3-7cb5-4894-9a44-28ee9822b6c5",
+      "evidence_text": "potassium of 4.08 mmol/L",
+      "char_start": 892,
+      "char_end": 916,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "98b1ebe6-591e-4e0a-840f-964a70455451",
+      "group_id": "NARRATIVE_0002_narr_lab_1",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "canonical_value": "Potassium",
+      "unit": null,
+      "evidence_id": "d8c9afc3-7cb5-4894-9a44-28ee9822b6c5",
+      "evidence_text": "potassium of 4.08 mmol/L",
+      "char_start": 892,
+      "char_end": 916,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        225.54,
+        550.76,
+        238.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "19b93244-b15c-44da-b5c8-8e165370c0ab",
+      "group_id": "NARRATIVE_0002_narr_lab_2",
+      "field_type": "lab.value",
+      "value": "Platelet Count: 244.6 10*3/uL",
+      "canonical_value": 244.6,
+      "unit": "10*3/uL",
+      "evidence_id": "90f24812-3dd4-4fad-8b18-0efb3f383f1e",
+      "evidence_text": "platelet count stabilized at 244.6 10*3/uL",
+      "char_start": 1361,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.39,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f78d9d27-47f3-485e-a310-3de73365228a",
+      "group_id": "NARRATIVE_0002_narr_lab_2",
+      "field_type": "lab.flag",
+      "value": "Platelet Count flag: NORMAL",
+      "canonical_value": "NORMAL",
+      "unit": null,
+      "evidence_id": "90f24812-3dd4-4fad-8b18-0efb3f383f1e",
+      "evidence_text": "platelet count stabilized at 244.6 10*3/uL",
+      "char_start": 1361,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.39,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "35aa70c4-4a28-452c-8361-b854eafbd336",
+      "group_id": "NARRATIVE_0002_narr_lab_2",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "canonical_value": "10*3/uL",
+      "unit": null,
+      "evidence_id": "90f24812-3dd4-4fad-8b18-0efb3f383f1e",
+      "evidence_text": "platelet count stabilized at 244.6 10*3/uL",
+      "char_start": 1361,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.39,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "86e41f9b-440a-43c9-b2b4-039563caa567",
+      "group_id": "NARRATIVE_0002_narr_lab_2",
+      "field_type": "lab.reference_range",
+      "value": "150.0 - 450.0",
+      "canonical_value": "150.0 - 450.0",
+      "unit": null,
+      "evidence_id": "90f24812-3dd4-4fad-8b18-0efb3f383f1e",
+      "evidence_text": "platelet count stabilized at 244.6 10*3/uL",
+      "char_start": 1361,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.39,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f8d8d269-1727-4e8d-ba78-6731f7b69503",
+      "group_id": "NARRATIVE_0002_narr_lab_2",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "canonical_value": "Platelet Count",
+      "unit": null,
+      "evidence_id": "90f24812-3dd4-4fad-8b18-0efb3f383f1e",
+      "evidence_text": "platelet count stabilized at 244.6 10*3/uL",
+      "char_start": 1361,
+      "char_end": 1403,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        314.54,
+        552.39,
+        327.59
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "e5d85ef9-a01f-43c1-860b-1a8043edd4b3",
+      "group_id": "NARRATIVE_0002_narr_med_0",
+      "field_type": "med.name",
+      "value": "Medication: Omeprazole",
+      "canonical_value": "Omeprazole",
+      "unit": null,
+      "evidence_id": "fbb23002-80ed-4e73-9d3f-1cec21983b96",
+      "evidence_text": "Omeprazole 20 mg oral\nonce daily in the morning",
+      "char_start": 1143,
+      "char_end": 1190,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        561.36,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "eee2bd53-862c-4a00-b565-3ab8e2521857",
+      "group_id": "NARRATIVE_0002_narr_med_0",
+      "field_type": "med.dose",
+      "value": "Omeprazole dose: 20 mg",
+      "canonical_value": 20.0,
+      "unit": "mg",
+      "evidence_id": "fbb23002-80ed-4e73-9d3f-1cec21983b96",
+      "evidence_text": "Omeprazole 20 mg oral\nonce daily in the morning",
+      "char_start": 1143,
+      "char_end": 1190,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        561.36,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "aef3876e-709f-4357-ba53-f791b070e646",
+      "group_id": "NARRATIVE_0002_narr_med_0",
+      "field_type": "med.route",
+      "value": "Omeprazole route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "fbb23002-80ed-4e73-9d3f-1cec21983b96",
+      "evidence_text": "Omeprazole 20 mg oral\nonce daily in the morning",
+      "char_start": 1143,
+      "char_end": 1190,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        561.36,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ece594b6-a484-49fb-a324-eb051665703f",
+      "group_id": "NARRATIVE_0002_narr_med_0",
+      "field_type": "med.frequency",
+      "value": "Omeprazole frequency: once daily in the morning",
+      "canonical_value": "once daily in the morning",
+      "unit": null,
+      "evidence_id": "fbb23002-80ed-4e73-9d3f-1cec21983b96",
+      "evidence_text": "Omeprazole 20 mg oral\nonce daily in the morning",
+      "char_start": 1143,
+      "char_end": 1190,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        287.54,
+        561.36,
+        314.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "ca4ede96-af1d-44a4-9744-78c263036a14",
+      "group_id": "NARRATIVE_0002_narr_med_1",
+      "field_type": "med.name",
+      "value": "Medication: Amoxicillin",
+      "canonical_value": "Amoxicillin",
+      "unit": null,
+      "evidence_id": "6567b9aa-4c99-4610-93ce-201befc5489e",
+      "evidence_text": "Amoxicillin 875 mg oral every 8 hours\nfor 10 days",
+      "char_start": 1591,
+      "char_end": 1640,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        560.25,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "13fbcf28-3047-4a21-bf07-7ed41b93ad5b",
+      "group_id": "NARRATIVE_0002_narr_med_1",
+      "field_type": "med.dose",
+      "value": "Amoxicillin dose: 875 mg",
+      "canonical_value": 875.0,
+      "unit": "mg",
+      "evidence_id": "6567b9aa-4c99-4610-93ce-201befc5489e",
+      "evidence_text": "Amoxicillin 875 mg oral every 8 hours\nfor 10 days",
+      "char_start": 1591,
+      "char_end": 1640,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        560.25,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "042ba6c2-ea42-4a31-b46e-969e791de1b8",
+      "group_id": "NARRATIVE_0002_narr_med_1",
+      "field_type": "med.route",
+      "value": "Amoxicillin route: oral",
+      "canonical_value": "oral",
+      "unit": null,
+      "evidence_id": "6567b9aa-4c99-4610-93ce-201befc5489e",
+      "evidence_text": "Amoxicillin 875 mg oral every 8 hours\nfor 10 days",
+      "char_start": 1591,
+      "char_end": 1640,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        560.25,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "1859d064-abd8-4b6c-a1e5-d2d5be1d9dba",
+      "group_id": "NARRATIVE_0002_narr_med_1",
+      "field_type": "med.frequency",
+      "value": "Amoxicillin frequency: every 8 hours",
+      "canonical_value": "every 8 hours",
+      "unit": null,
+      "evidence_id": "6567b9aa-4c99-4610-93ce-201befc5489e",
+      "evidence_text": "Amoxicillin 875 mg oral every 8 hours\nfor 10 days",
+      "char_start": 1591,
+      "char_end": 1640,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        560.25,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "6053600a-778a-4a30-adab-67120b537e49",
+      "group_id": "NARRATIVE_0002_narr_med_1",
+      "field_type": "med.duration",
+      "value": "for 10 days",
+      "canonical_value": "for 10 days",
+      "unit": null,
+      "evidence_id": "6567b9aa-4c99-4610-93ce-201befc5489e",
+      "evidence_text": "Amoxicillin 875 mg oral every 8 hours\nfor 10 days",
+      "char_start": 1591,
+      "char_end": 1640,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        376.54,
+        560.25,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0ede92d0-de54-40bb-aded-6b3cb85d3699",
+      "group_id": "NARRATIVE_0002_narr_med_2",
+      "field_type": "med.name",
+      "value": "Medication: Cephalexin",
+      "canonical_value": "Cephalexin",
+      "unit": null,
+      "evidence_id": "2e191072-a7a0-447b-9188-a500a1deeef1",
+      "evidence_text": "Cephalexin 250 mg PO QID for 7 days",
+      "char_start": 1646,
+      "char_end": 1681,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        528.08,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "8470c7b1-10b3-457f-8514-9a45f051489f",
+      "group_id": "NARRATIVE_0002_narr_med_2",
+      "field_type": "med.dose",
+      "value": "Cephalexin dose: 250 mg",
+      "canonical_value": 250.0,
+      "unit": "mg",
+      "evidence_id": "2e191072-a7a0-447b-9188-a500a1deeef1",
+      "evidence_text": "Cephalexin 250 mg PO QID for 7 days",
+      "char_start": 1646,
+      "char_end": 1681,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        528.08,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "0489bd3b-d337-4d36-8887-629949732b63",
+      "group_id": "NARRATIVE_0002_narr_med_2",
+      "field_type": "med.route",
+      "value": "Cephalexin route: PO",
+      "canonical_value": "PO",
+      "unit": null,
+      "evidence_id": "2e191072-a7a0-447b-9188-a500a1deeef1",
+      "evidence_text": "Cephalexin 250 mg PO QID for 7 days",
+      "char_start": 1646,
+      "char_end": 1681,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        528.08,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "2a0452cb-469b-46de-ab02-48ed70613e01",
+      "group_id": "NARRATIVE_0002_narr_med_2",
+      "field_type": "med.frequency",
+      "value": "Cephalexin frequency: QID",
+      "canonical_value": "QID",
+      "unit": null,
+      "evidence_id": "2e191072-a7a0-447b-9188-a500a1deeef1",
+      "evidence_text": "Cephalexin 250 mg PO QID for 7 days",
+      "char_start": 1646,
+      "char_end": 1681,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        528.08,
+        403.09
+      ],
+      "contradiction_type": null
+    },
+    {
+      "claim_id": "f7d84101-1bc8-4c8e-8f4d-a7e45e271525",
+      "group_id": "NARRATIVE_0002_narr_med_2",
+      "field_type": "med.duration",
+      "value": "for 7 days",
+      "canonical_value": "for 7 days",
+      "unit": null,
+      "evidence_id": "2e191072-a7a0-447b-9188-a500a1deeef1",
+      "evidence_text": "Cephalexin 250 mg PO QID for 7 days",
+      "char_start": 1646,
+      "char_end": 1681,
+      "page_number": 1,
+      "bbox": [
+        46.0,
+        390.04,
+        528.08,
+        403.09
+      ],
+      "contradiction_type": null
+    }
+  ]
+}

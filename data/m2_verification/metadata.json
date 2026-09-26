@@ -1,148 +1,178 @@
 {
-  "total_examples": 7446,
+  "total_examples": 9168,
   "label_counts": {
-    "DISCREPANCY": 3867,
-    "SUPPORTED": 3249,
-    "INSUFFICIENT_EVIDENCE": 330
+    "DISCREPANCY": 4294,
+    "SUPPORTED": 4294,
+    "INSUFFICIENT_EVIDENCE": 580
   },
   "label_percentages": {
-    "DISCREPANCY": 51.93,
-    "SUPPORTED": 43.63,
-    "INSUFFICIENT_EVIDENCE": 4.43
+    "DISCREPANCY": 46.84,
+    "SUPPORTED": 46.84,
+    "INSUFFICIENT_EVIDENCE": 6.33
   },
   "by_severity": {
+    "clean": {
+      "DISCREPANCY": 2098,
+      "SUPPORTED": 2098,
+      "INSUFFICIENT_EVIDENCE": 400
+    },
     "low": {
       "DISCREPANCY": 786,
       "SUPPORTED": 786,
       "INSUFFICIENT_EVIDENCE": 6
     },
     "high": {
-      "SUPPORTED": 665,
       "DISCREPANCY": 665,
+      "SUPPORTED": 665,
       "INSUFFICIENT_EVIDENCE": 127
     },
     "medium": {
       "DISCREPANCY": 745,
-      "INSUFFICIENT_EVIDENCE": 47,
-      "SUPPORTED": 745
-    },
-    "clean": {
-      "DISCREPANCY": 1671,
-      "SUPPORTED": 1053,
-      "INSUFFICIENT_EVIDENCE": 150
+      "SUPPORTED": 745,
+      "INSUFFICIENT_EVIDENCE": 47
     }
   },
   "by_field_type": {
-    "lab.value": {
-      "DISCREPANCY": 2668,
-      "SUPPORTED": 2668,
-      "INSUFFICIENT_EVIDENCE": 252
+    "med.name": {
+      "DISCREPANCY": 142,
+      "SUPPORTED": 142,
+      "INSUFFICIENT_EVIDENCE": 70
     },
-    "med.dose": {
-      "DISCREPANCY": 320,
-      "SUPPORTED": 320,
-      "INSUFFICIENT_EVIDENCE": 78
+    "lab.value": {
+      "DISCREPANCY": 2728,
+      "SUPPORTED": 2728,
+      "INSUFFICIENT_EVIDENCE": 272
     },
     "lab.flag": {
-      "DISCREPANCY": 705
+      "SUPPORTED": 765,
+      "DISCREPANCY": 765
     },
-    "med.name": {
-      "SUPPORTED": 87
+    "med.dose": {
+      "SUPPORTED": 375,
+      "DISCREPANCY": 375,
+      "INSUFFICIENT_EVIDENCE": 98
     },
     "med.frequency": {
-      "DISCREPANCY": 87,
-      "SUPPORTED": 87
+      "SUPPORTED": 142,
+      "INSUFFICIENT_EVIDENCE": 70,
+      "DISCREPANCY": 142
     },
     "med.route": {
-      "DISCREPANCY": 87,
-      "SUPPORTED": 87
+      "SUPPORTED": 142,
+      "DISCREPANCY": 142,
+      "INSUFFICIENT_EVIDENCE": 70
     }
   },
   "by_doc_template": {
+    "clinic_rx_pad": {
+      "DISCREPANCY": 85,
+      "SUPPORTED": 85,
+      "INSUFFICIENT_EVIDENCE": 58
+    },
     "template_a": {
       "DISCREPANCY": 1068,
-      "SUPPORTED": 844,
+      "SUPPORTED": 1068,
       "INSUFFICIENT_EVIDENCE": 84
     },
-    "template_c": {
-      "SUPPORTED": 925,
-      "DISCREPANCY": 1168,
-      "INSUFFICIENT_EVIDENCE": 81
-    },
     "template_b": {
-      "SUPPORTED": 899,
-      "INSUFFICIENT_EVIDENCE": 87,
-      "DISCREPANCY": 1137
+      "SUPPORTED": 1137,
+      "DISCREPANCY": 1137,
+      "INSUFFICIENT_EVIDENCE": 87
     },
-    "mar_order_sheet": {
-      "DISCREPANCY": 156,
-      "SUPPORTED": 183,
-      "INSUFFICIENT_EVIDENCE": 18
+    "template_c": {
+      "DISCREPANCY": 1168,
+      "SUPPORTED": 1168,
+      "INSUFFICIENT_EVIDENCE": 81
     },
     "discharge_summary": {
       "SUPPORTED": 234,
-      "DISCREPANCY": 199,
-      "INSUFFICIENT_EVIDENCE": 24
-    },
-    "clinic_rx_pad": {
-      "SUPPORTED": 85,
-      "DISCREPANCY": 72,
-      "INSUFFICIENT_EVIDENCE": 19
+      "INSUFFICIENT_EVIDENCE": 63,
+      "DISCREPANCY": 234
     },
     "pharmacy_label": {
       "SUPPORTED": 79,
-      "DISCREPANCY": 67,
-      "INSUFFICIENT_EVIDENCE": 17
+      "INSUFFICIENT_EVIDENCE": 53,
+      "DISCREPANCY": 79
+    },
+    "mar_order_sheet": {
+      "SUPPORTED": 183,
+      "DISCREPANCY": 183,
+      "INSUFFICIENT_EVIDENCE": 54
+    },
+    "narrative_inpatient_discharge_summary_v1": {
+      "SUPPORTED": 90,
+      "DISCREPANCY": 90,
+      "INSUFFICIENT_EVIDENCE": 25
+    },
+    "narrative_emergency_observation_note_v1": {
+      "SUPPORTED": 70,
+      "DISCREPANCY": 70,
+      "INSUFFICIENT_EVIDENCE": 25
+    },
+    "narrative_surgical_discharge_summary_v1": {
+      "SUPPORTED": 90,
+      "DISCREPANCY": 90,
+      "INSUFFICIENT_EVIDENCE": 25
+    },
+    "narrative_specialty_consult_note_v1": {
+      "SUPPORTED": 54,
+      "DISCREPANCY": 54,
+      "INSUFFICIENT_EVIDENCE": 15
+    },
+    "narrative_ambulatory_progress_note_v1": {
+      "SUPPORTED": 36,
+      "DISCREPANCY": 36,
+      "INSUFFICIENT_EVIDENCE": 10
     }
   },
   "by_generation_method": {
+    "vocab_substitution_discrepancy": {
+      "DISCREPANCY": 2098
+    },
+    "clean_extraction_supported": {
+      "SUPPORTED": 2098
+    },
     "m1_track_b_low_readable_discrepancy": {
       "DISCREPANCY": 786
-    },
-    "m1_track_b_high_readable_supported": {
-      "SUPPORTED": 665
-    },
-    "m1_track_b_low_readable_supported": {
-      "SUPPORTED": 786
-    },
-    "m1_track_b_medium_readable_discrepancy": {
-      "DISCREPANCY": 745
-    },
-    "m1_track_b_medium_ocr_failure": {
-      "INSUFFICIENT_EVIDENCE": 47
-    },
-    "m1_track_b_medium_readable_supported": {
-      "SUPPORTED": 745
-    },
-    "vocab_substitution_discrepancy": {
-      "DISCREPANCY": 1671
     },
     "m1_track_b_high_readable_discrepancy": {
       "DISCREPANCY": 665
     },
-    "clean_extraction_supported": {
-      "SUPPORTED": 1053
+    "m1_track_b_high_readable_supported": {
+      "SUPPORTED": 665
     },
-    "clean_unobserved_claim_insufficient_evidence": {
-      "INSUFFICIENT_EVIDENCE": 150
+    "m1_track_b_medium_readable_discrepancy": {
+      "DISCREPANCY": 745
     },
     "m1_track_b_high_ocr_failure": {
       "INSUFFICIENT_EVIDENCE": 127
+    },
+    "m1_track_b_medium_readable_supported": {
+      "SUPPORTED": 745
+    },
+    "clean_unobserved_claim_insufficient_evidence": {
+      "INSUFFICIENT_EVIDENCE": 400
+    },
+    "m1_track_b_low_readable_supported": {
+      "SUPPORTED": 786
+    },
+    "m1_track_b_medium_ocr_failure": {
+      "INSUFFICIENT_EVIDENCE": 47
     },
     "m1_track_b_low_ocr_failure": {
       "INSUFFICIENT_EVIDENCE": 6
     }
   },
   "by_claim_type": {
-    "lab": {
-      "DISCREPANCY": 3373,
-      "SUPPORTED": 2668,
-      "INSUFFICIENT_EVIDENCE": 252
-    },
     "med": {
-      "DISCREPANCY": 494,
-      "SUPPORTED": 581,
-      "INSUFFICIENT_EVIDENCE": 78
+      "DISCREPANCY": 801,
+      "SUPPORTED": 801,
+      "INSUFFICIENT_EVIDENCE": 308
+    },
+    "lab": {
+      "DISCREPANCY": 3493,
+      "SUPPORTED": 3493,
+      "INSUFFICIENT_EVIDENCE": 272
     }
   },
   "ood_doc_ids": [
@@ -174,7 +204,12 @@
     "MED_0036",
     "MED_0040",
     "MED_0044",
-    "MED_0048"
+    "MED_0048",
+    "NARRATIVE_0016",
+    "NARRATIVE_0017",
+    "NARRATIVE_0018",
+    "NARRATIVE_0019",
+    "NARRATIVE_0020"
   ],
   "cv_doc_ids": [
     "LAB_0001",
@@ -247,10 +282,50 @@
     "MED_0046",
     "MED_0047",
     "MED_0049",
-    "MED_0050"
+    "MED_0050",
+    "NARRATIVE_0001",
+    "NARRATIVE_0002",
+    "NARRATIVE_0003",
+    "NARRATIVE_0004",
+    "NARRATIVE_0005",
+    "NARRATIVE_0006",
+    "NARRATIVE_0007",
+    "NARRATIVE_0008",
+    "NARRATIVE_0009",
+    "NARRATIVE_0010",
+    "NARRATIVE_0011",
+    "NARRATIVE_0012",
+    "NARRATIVE_0013",
+    "NARRATIVE_0014",
+    "NARRATIVE_0015"
   ],
+  "dataset_version": "2.0-phase1-canonical",
+  "total_groups": 3473,
+  "by_contradiction_type": {
+    "wrong_entity": 284,
+    "value_mismatch": 3493,
+    "dose_mismatch": 375,
+    "temporal_mismatch": 142
+  },
+  "context_window_config": {
+    "status": "EMPIRICALLY OPEN",
+    "development_default": true,
+    "final_value_requires_experiment": "Phase 1 context window mini-ablation on negation/temporal subsets",
+    "window_policy": {
+      "primary_strategy": "paragraph_bounded",
+      "max_characters": 500,
+      "fallback_strategy": "fixed_symmetric_window",
+      "fallback_characters": 250
+    },
+    "dense_tabular_override": {
+      "enabled": true,
+      "strategy": "fixed_symmetric_window",
+      "window_characters": 250
+    }
+  },
   "generation_stats": {
-    "total_generated": 7446,
-    "excluded_ungrounded_med_claims": 62
+    "total_generated": 9168,
+    "excluded_ungrounded_med_claims": 62,
+    "narrative_examples": 780
   }
 }

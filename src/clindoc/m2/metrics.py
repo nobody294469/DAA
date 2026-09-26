@@ -36,6 +36,15 @@ def macro_f1(y_true: list[int], y_pred: list[int]) -> float:
     return sum(v["f1"] for v in pc.values()) / len(LABEL_ORDER)
 
 
+def slice_macro_f1(y_true: list[int], y_pred: list[int]) -> float:
+    """Macro-F1 averaged only over classes represented in either y_true or y_pred."""
+    present_classes = sorted(set(y_true) | set(y_pred))
+    if not present_classes:
+        return 0.0
+    pc = per_class_metrics(y_true, y_pred)
+    return sum(pc[LABEL_ORDER[c]]["f1"] for c in present_classes) / len(present_classes)
+
+
 def discrepancy_recall(y_true: list[int], y_pred: list[int]) -> float:
     disc_idx = LABEL_ORDER.index("DISCREPANCY")
     tp = sum(1 for t, p in zip(y_true, y_pred) if t == disc_idx and p == disc_idx)
