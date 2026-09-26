@@ -138,5 +138,19 @@
     "drug_class": "Cephalosporin antibiotic",
     "default_route": "oral",
     "common_forms": ["capsule", "suspension"]
+  },
+  "amoxicillin-clavulanate": {
+    "canonical_name": "Amoxicillin-clavulanate",
+    "rxcui": "617314",
+    "drug_class": "Penicillin / Beta-lactamase inhibitor combination",
+    "default_route": "oral",
+    "common_forms": ["tablet", "suspension"]
+  },
+  "amoxicillin/clavulanate": {
+    "canonical_name": "Amoxicillin-clavulanate",
+    "rxcui": "617314",
+    "drug_class": "Penicillin / Beta-lactamase inhibitor combination",
+    "default_route": "oral",
+    "common_forms": ["tablet", "suspension"]
   }
 }

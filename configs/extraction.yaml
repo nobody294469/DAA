@@ -1,0 +1,79 @@
+# Extraction Subsystem Configuration
+# Authority: DEC-001, DEC-004, DEC-006, DEC-013, DEC-017, DEC-019
+# Status: PROVISIONAL DEFAULTS (DEC-004 threshold empirically open, DEC-006 model open)
+
+policy:
+  version: "1.0"
+  status: "PROVISIONAL"
+
+# ─── REGION CLASSIFICATION (DEC-001) ──────────────────────────────────────────
+# Rule-based heuristic classifier; no custom-trained layout model.
+region_classification:
+  # Minimum fraction of lines matching med-regimen grammar to declare structured_med
+  med_line_fraction_threshold: 0.4
+  # Minimum fraction of lines matching lab table column pattern to declare structured_lab
+  lab_line_fraction_threshold: 0.3
+  # Default route when no pattern matches
+  default_route: "llm_narrative"
+
+# ─── DETERMINISTIC EXTRACTION (DEC-004) ────────────────────────────────────────
+# Provisional re-routing threshold: 0.75 (sweep {0.5..0.9} in DR4 experiment)
+deterministic_extraction:
+  confidence_threshold: 0.75  # Below this → GLiNER fallback
+  escalation_rate_cap: 0.30   # Sanity cap: ≤30% re-routed per document type
+  # Tier 2 fields always resolved deterministically (DEC-019)
+  tier_2_fields:
+    - "lab.unit"
+    - "lab.reference_range"
+    - "lab.test_name"
+    - "med.duration"
+
+# ─── GLINER FALLBACK ──────────────────────────────────────────────────────────
+# GLiNER-BioMed subprocess bridge; lazy loading
+gliner:
+  model_name: "Ihor/gliner-biomed-base-v1.0"
+  venv_python: ".venv_ner/Scripts/python.exe"  # Windows relative path
+  prediction_threshold: 0.30
+  # Canonical labels mapped from GLiNER output to field_type
+  label_map:
+    "medication": "med.name"
+    "dosage": "med.dose"
+    "route": "med.route"
+    "frequency": "med.frequency"
+    "lab_value": "lab.value"
+    "lab_flag": "lab.flag"
+  # Tier 1 fields routed to GLiNER for structured fallback (DEC-019)
+  tier_1_fields:
+    - "lab.value"
+    - "lab.flag"
+    - "med.name"
+    - "med.dose"
+    - "med.route"
+    - "med.frequency"
+
+# ─── LLM NARRATIVE EXTRACTION (DEC-006, DEC-013) ──────────────────────────────
+# Provisional: 7-8B instruction model; final selection via DR6 experiment
+llm_narrative:
+  # Primary provider: local vLLM (grammar-constrained, DEC-013)
+  provider: "mock"  # "vllm" in production; "mock" for tests
+  model_name: "Qwen/Qwen2.5-7B-Instruct"  # Provisional candidate (DR6)
+  base_url: "http://localhost:8000/v1"     # vLLM API endpoint
+  api_key_env: "VLLM_API_KEY"             # Env var for API key (no hard-coded secrets)
+  max_retries: 2                           # Bounded retry (DEC-013)
+  timeout_seconds: 60
+  temperature: 0.0                         # Deterministic for reproducibility
+  # Fields permitted for narrative extraction (DEC-020 / AUDIT-20 scope boundary)
+  permitted_field_types:
+    - "lab.value"
+    - "lab.flag"
+    - "med.name"
+    - "med.dose"
+    - "med.route"
+    - "med.frequency"
+
+# ─── EXTRACTION THRESHOLDS ────────────────────────────────────────────────────
+extraction_confidence:
+  # Minimum confidence to emit a claim; below → flag as low_confidence
+  min_emit_confidence: 0.30
+  # Minimum acceptable OCR confidence in evidence span
+  min_ocr_confidence: 0.50

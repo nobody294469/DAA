@@ -89,6 +89,7 @@
     },
     "evidence_id": {
       "type": "string",
+      "minLength": 1,
       "description": "Foreign key into Evidence store (§9)"
     },
     "normalized_code": {

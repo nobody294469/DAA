@@ -15,7 +15,8 @@ LABELS = [
     "dosage form",
     "route",
     "frequency",
-    "duration",
+    "lab value",
+    "lab flag",
 ]
 
 
