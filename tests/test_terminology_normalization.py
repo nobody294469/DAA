@@ -7,7 +7,7 @@ Authority:
 """
 import pytest
 
-from clindoc.extract.contracts import Claim
+from clindoc.extract.contracts import Claim, FieldType
 from clindoc.normalize import (
     CandidateMatch,
     HybridTerminologyRetriever,
@@ -18,7 +18,7 @@ from clindoc.normalize import (
 
 
 def _make_claim(
-    field_type: str,
+    field_type: FieldType,
     value: str,
     unit_raw: str | None = None,
     claim_id: str = "test-claim-1",

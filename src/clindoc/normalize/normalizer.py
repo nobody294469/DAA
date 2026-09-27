@@ -17,7 +17,7 @@ import json
 from pathlib import Path
 from typing import Any, Optional
 
-from clindoc.extract.contracts import Claim
+from clindoc.extract.contracts import Claim, CodeSystem
 from clindoc.normalize.hybrid import CandidateMatch, HybridTerminologyRetriever
 from clindoc.normalize.ucum import UCUMNormalizer
 
@@ -108,7 +108,7 @@ class TerminologyNormalizer:
 
         candidates: list[CandidateMatch] = []
         best_code: Optional[str] = None
-        best_system: Optional[str] = None
+        best_system: CodeSystem = None
         best_conf: float = 0.0
 
         if claim.field_type == "lab.test_name":
