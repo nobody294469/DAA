@@ -5,6 +5,13 @@ from clindoc.schema.lab import ExtractedLabReport, ExtractedObservation, Extract
 from clindoc.schema.medication import ExtractedMedication, ExtractedPrescriptionDocument
 from clindoc.ocr.document_text import DocumentText, DocumentPage, Token
 
+from clindoc.schema.verification import (
+    VerificationResult,
+    VerificationLabel,
+    StageReached,
+    ContradictionType,
+)
+
 __all__ = [
     "DocumentText",
     "DocumentPage",
@@ -15,4 +22,8 @@ __all__ = [
     "ExtractedPatientInfo",
     "ExtractedMedication",
     "ExtractedPrescriptionDocument",
+    "VerificationResult",
+    "VerificationLabel",
+    "StageReached",
+    "ContradictionType",
 ]
