@@ -82,6 +82,22 @@ def evaluate_embedding_similarity(
                               y_true, y_pred, None, examples)
 
 
+def evaluate_zeroshot_nli(
+    examples: list[M2Example],
+    predictor: Any | None = None,
+    split: str = "cv",
+    fold_idx: int | None = None,
+    scaler: Any | None = None,
+) -> M2EvalResult:
+    """Evaluate V5 off-the-shelf NLI baseline on a given split."""
+    from clindoc.m2.baselines import predict_zeroshot_nli, predict_zeroshot_nli_proba
+    y_true = [LABEL_TO_INT[ex.label.value] for ex in examples]
+    y_pred = predict_zeroshot_nli(examples, predictor=predictor)
+    y_probs = predict_zeroshot_nli_proba(examples, predictor=predictor, scaler=scaler)
+    return _build_eval_result("zeroshot_nli", split, fold_idx, None,
+                              y_true, y_pred, y_probs, examples)
+
+
 def evaluate_baselines(
     train_examples: list[M2Example],
     val_examples: list[M2Example],
@@ -91,6 +107,8 @@ def evaluate_baselines(
     embedder: Any | None = None,
     v4_threshold: float | None = None,
     return_v4_params: bool = False,
+    nli_predictor: Any | None = None,
+    calib_examples: list[M2Example] | None = None,
 ) -> tuple[list[M2EvalResult], dict, object, object | None] | tuple[list[M2EvalResult], dict, object, object | None, dict | None]:
     from clindoc.m2.baselines import (
         predict_deterministic, train_levenshtein, predict_levenshtein,
@@ -98,6 +116,8 @@ def evaluate_baselines(
         train_frozen_modernbert_probe, predict_frozen_modernbert_probe,
         predict_frozen_modernbert_probe_proba,
         train_embedding_similarity, predict_embedding_similarity,
+        predict_zeroshot_nli, predict_zeroshot_nli_proba,
+        calibrate_v5_temperature,
     )
     results = []
     y_true = [LABEL_TO_INT[ex.label.value] for ex in val_examples]
@@ -128,7 +148,17 @@ def evaluate_baselines(
         results.append(_build_eval_result("embedding_similarity", "cv", fold_idx, None,
                                            y_true, y_pred, None, val_examples))
 
-    # B5: Frozen ModernBERT probe
+    # V5: Off-the-shelf NLI baseline
+    if nli_predictor is not None:
+        nli_scaler = None
+        if calib_examples is not None:
+            nli_scaler = calibrate_v5_temperature(calib_examples, predictor=nli_predictor)
+        y_pred_nli = predict_zeroshot_nli(val_examples, predictor=nli_predictor)
+        y_probs_nli = predict_zeroshot_nli_proba(val_examples, predictor=nli_predictor, scaler=nli_scaler)
+        results.append(_build_eval_result("zeroshot_nli", "cv", fold_idx, None,
+                                           y_true, y_pred_nli, y_probs_nli, val_examples))
+
+    # B6: Frozen ModernBERT probe
     probe_clf = None
     if train_embs is not None and val_embs is not None:
         y_train = [LABEL_TO_INT[ex.label.value] for ex in train_examples]
@@ -152,12 +182,15 @@ def evaluate_baselines_on_test(
     split: str = "ood",
     v4_params: dict | float | None = None,
     embedder: Any | None = None,
+    nli_predictor: Any | None = None,
+    nli_scaler: Any | None = None,
 ) -> list[M2EvalResult]:
     from clindoc.m2.baselines import (
         predict_deterministic, predict_levenshtein,
         predict_tfidf_lr, predict_tfidf_lr_proba,
         predict_frozen_modernbert_probe, predict_frozen_modernbert_probe_proba,
         predict_embedding_similarity,
+        predict_zeroshot_nli, predict_zeroshot_nli_proba,
     )
     results = []
     y_true = [LABEL_TO_INT[ex.label.value] for ex in test_examples]
@@ -184,7 +217,14 @@ def evaluate_baselines_on_test(
         results.append(_build_eval_result("embedding_similarity", split, None, None,
                                            y_true, y_pred, None, test_examples))
 
-    # B5: Frozen ModernBERT probe
+    # V5: Off-the-shelf NLI baseline
+    if nli_predictor is not None:
+        y_pred_nli = predict_zeroshot_nli(test_examples, predictor=nli_predictor)
+        y_probs_nli = predict_zeroshot_nli_proba(test_examples, predictor=nli_predictor, scaler=nli_scaler)
+        results.append(_build_eval_result("zeroshot_nli", split, None, None,
+                                           y_true, y_pred_nli, y_probs_nli, test_examples))
+
+    # B6: Frozen ModernBERT probe
     if probe_clf is not None and test_embs is not None:
         y_pred = predict_frozen_modernbert_probe(probe_clf, test_embs)
         y_probs = predict_frozen_modernbert_probe_proba(probe_clf, test_embs)

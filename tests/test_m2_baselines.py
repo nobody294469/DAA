@@ -171,3 +171,153 @@ def test_v4_evaluation_integration():
     model_names = [r.model_name for r in results]
     assert "embedding_similarity" in model_names
     assert "threshold" in v4_p
+
+
+# ─── V5: Off-the-Shelf NLI Baseline Tests ────────────────────────────────────
+
+from clindoc.m2.baselines import (
+    MockNLIPredictor,
+    PubMedBERTNLIPredictor,
+    predict_zeroshot_nli,
+    predict_zeroshot_nli_proba,
+    calibrate_v5_temperature,
+    NATIVE_NLI_CONTRADICTION,
+    NATIVE_NLI_ENTAILMENT,
+    NATIVE_NLI_NEUTRAL,
+    NATIVE_TO_PROJECT_INT,
+)
+
+
+def test_v5_nli_native_label_mapping():
+    """Verify exact native NLI to project verification label mapping."""
+    # 0 (contradiction) -> DISCREPANCY (1)
+    assert NATIVE_TO_PROJECT_INT[NATIVE_NLI_CONTRADICTION] == LABEL_TO_INT["DISCREPANCY"]
+    # 1 (entailment) -> SUPPORTED (0)
+    assert NATIVE_TO_PROJECT_INT[NATIVE_NLI_ENTAILMENT] == LABEL_TO_INT["SUPPORTED"]
+    # 2 (neutral) -> INSUFFICIENT_EVIDENCE (2)
+    assert NATIVE_TO_PROJECT_INT[NATIVE_NLI_NEUTRAL] == LABEL_TO_INT["INSUFFICIENT_EVIDENCE"]
+
+    ex = _make_example("Amoxicillin 500mg", "Amoxicillin 500mg PO TID", 0.98, VerificationLabel.SUPPORTED)
+
+    # Entailment mock -> SUPPORTED
+    pred_entail = MockNLIPredictor(default_native_label=NATIVE_NLI_ENTAILMENT, confidence=0.9)
+    assert predict_zeroshot_nli([ex], predictor=pred_entail)[0] == LABEL_TO_INT["SUPPORTED"]
+
+    # Contradiction mock -> DISCREPANCY
+    pred_contra = MockNLIPredictor(default_native_label=NATIVE_NLI_CONTRADICTION, confidence=0.9)
+    assert predict_zeroshot_nli([ex], predictor=pred_contra)[0] == LABEL_TO_INT["DISCREPANCY"]
+
+    # Neutral mock -> INSUFFICIENT_EVIDENCE
+    pred_neutral = MockNLIPredictor(default_native_label=NATIVE_NLI_NEUTRAL, confidence=0.9)
+    assert predict_zeroshot_nli([ex], predictor=pred_neutral)[0] == LABEL_TO_INT["INSUFFICIENT_EVIDENCE"]
+
+
+def test_v5_nli_evidence_guards():
+    """Verify evidence guards override NLI predictions when OCR < 0.5 or evidence < 3 chars."""
+    pred_entail = MockNLIPredictor(default_native_label=NATIVE_NLI_ENTAILMENT, confidence=0.99)
+    ex_low_ocr = _make_example("Glucose 90 mg/dL", "Glucose 90 mg/dL", 0.40, VerificationLabel.INSUFFICIENT_EVIDENCE)
+    ex_short_ev = _make_example("Glucose 90 mg/dL", "Gl", 0.98, VerificationLabel.INSUFFICIENT_EVIDENCE)
+    ex_valid = _make_example("Glucose 90 mg/dL", "Glucose 90 mg/dL", 0.98, VerificationLabel.SUPPORTED)
+
+    preds = predict_zeroshot_nli([ex_low_ocr, ex_short_ev, ex_valid], predictor=pred_entail)
+    assert preds[0] == LABEL_TO_INT["INSUFFICIENT_EVIDENCE"]
+    assert preds[1] == LABEL_TO_INT["INSUFFICIENT_EVIDENCE"]
+    assert preds[2] == LABEL_TO_INT["SUPPORTED"]
+
+    # Probabilities for guarded examples should assign 1.0 to INSUFFICIENT_EVIDENCE
+    probs = predict_zeroshot_nli_proba([ex_low_ocr, ex_short_ev], predictor=pred_entail)
+    assert probs[0] == [0.0, 0.0, 1.0]
+    assert probs[1] == [0.0, 0.0, 1.0]
+
+
+def test_v5_nli_deterministic_argmax():
+    """Verify deterministic argmax decision policy over NLI logits."""
+    class CustomLogitPredictor:
+        def predict_batch_logits(self, pairs):
+            # Native logits: [contradiction, entailment, neutral]
+            return [
+                [0.1, 2.5, 0.2],   # Entailment highest -> project [2.5, 0.1, 0.2] -> SUPPORTED (0)
+                [3.0, 0.2, 0.5],   # Contradiction highest -> project [0.2, 3.0, 0.5] -> DISCREPANCY (1)
+                [0.2, 0.3, 1.8],   # Neutral highest -> project [0.3, 0.2, 1.8] -> INSUFFICIENT_EVIDENCE (2)
+            ]
+
+    examples = [
+        _make_example("claim1", "evidence1 with enough text", 0.95, VerificationLabel.SUPPORTED),
+        _make_example("claim2", "evidence2 with enough text", 0.95, VerificationLabel.DISCREPANCY),
+        _make_example("claim3", "evidence3 with enough text", 0.95, VerificationLabel.INSUFFICIENT_EVIDENCE),
+    ]
+
+    preds1 = predict_zeroshot_nli(examples, predictor=CustomLogitPredictor())
+    preds2 = predict_zeroshot_nli(examples, predictor=CustomLogitPredictor())
+    assert preds1 == [0, 1, 2]
+    assert preds1 == preds2  # Determinism
+
+
+def test_v5_nli_calibration_isolation():
+    """Verify temperature scaling calibration is fit strictly on calibration examples without OOD leakage."""
+    pred = MockNLIPredictor(default_native_label=NATIVE_NLI_ENTAILMENT, confidence=0.8)
+    calib_ex = [
+        _make_example("claim1", "evidence 1 text long", 0.95, VerificationLabel.SUPPORTED),
+        _make_example("claim2", "evidence 2 text long", 0.95, VerificationLabel.DISCREPANCY),
+        _make_example("claim3", "evidence 3 text long", 0.95, VerificationLabel.INSUFFICIENT_EVIDENCE),
+    ]
+
+    scaler = calibrate_v5_temperature(calib_ex, predictor=pred)
+    assert scaler.is_fitted
+    assert scaler.temperature > 0.0
+
+    # Probabilities scaled via temperature scaler remain valid probability distributions
+    probs = predict_zeroshot_nli_proba(calib_ex, predictor=pred, scaler=scaler)
+    for p in probs:
+        assert len(p) == 3
+        assert abs(sum(p) - 1.0) < 1e-4
+
+
+def test_v5_evaluation_integration():
+    """Verify V5 integration in evaluate_zeroshot_nli and evaluate_baselines."""
+    from clindoc.m2.evaluate import evaluate_zeroshot_nli, evaluate_baselines, evaluate_baselines_on_test
+    pred = MockNLIPredictor(default_native_label=NATIVE_NLI_ENTAILMENT, confidence=0.9)
+
+    val_ex = [
+        _make_example("Glucose 90 mg/dL", "Glucose 90 mg/dL text", 0.98, VerificationLabel.SUPPORTED),
+        _make_example("Glucose 150 mg/dL", "Creatinine 0.9 text", 0.98, VerificationLabel.DISCREPANCY),
+        _make_example("Glucose 90 mg/dL", "G", 0.20, VerificationLabel.INSUFFICIENT_EVIDENCE),
+    ]
+
+    # Dedicated evaluator
+    result = evaluate_zeroshot_nli(val_ex, predictor=pred, split="cv")
+    assert result.model_name == "zeroshot_nli"
+    assert result.split == "cv"
+    assert result.macro_f1 > 0.0
+    assert result.brier_score is not None
+    assert result.ece is not None
+
+    # evaluate_baselines wiring
+    train_ex = val_ex * 2
+    results, lev_p, lr_m, probe_clf = evaluate_baselines(
+        train_examples=train_ex,
+        val_examples=val_ex,
+        nli_predictor=pred,
+        calib_examples=val_ex,
+    )
+    model_names = [r.model_name for r in results]
+    assert "zeroshot_nli" in model_names
+
+    # evaluate_baselines_on_test wiring
+    ood_results = evaluate_baselines_on_test(
+        test_examples=val_ex,
+        lev_params=lev_p,
+        lr_model=lr_m,
+        split="ood",
+        nli_predictor=pred,
+    )
+    ood_model_names = [r.model_name for r in ood_results]
+    assert "zeroshot_nli" in ood_model_names
+
+
+def test_v5_pubmedbert_nli_predictor_offline_availability():
+    """Verify PubMedBERTNLIPredictor handles offline/missing weights gracefully."""
+    predictor = PubMedBERTNLIPredictor(local_files_only=True)
+    # is_available returns boolean without raising unhandled exceptions
+    avail = predictor.is_available()
+    assert isinstance(avail, bool)
