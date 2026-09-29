@@ -13,6 +13,6 @@
   "freeze_lower_n_layers": 0,
   "frozen_variant_n_layers": 8,
   "use_aux": true,
-  "aux_dim": 21,
+  "aux_dim": 18,
   "aux_proj_dim": 64
 }

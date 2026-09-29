@@ -114,12 +114,30 @@ def train_one_fold(
     freeze_lower_n_layers: int = 0,
     model_name: str = "modernbert_full",
     ood_examples: list[M2Example] | None = None,
+    calib_examples: list[M2Example] | None = None,
 ) -> dict:
-    """Train ClinicalVerifier on one fold. Returns dict with val_eval, ood_eval, history."""
+    """Train ClinicalVerifier on one fold with post-hoc calibration (DEC-009).
+
+    After the best model checkpoint is selected via early stopping on the validation
+    split, temperature scaling is fitted on the dedicated calibration partition
+    (calib_examples from manifest['calibration_doc_ids']). The fitted temperature
+    is persisted in the checkpoint under key 'temperature'.
+
+    Args:
+        train_examples: Training examples for this fold.
+        val_examples: Validation examples for this fold (model selection only).
+        calib_examples: Calibration examples from manifest calibration_doc_ids.
+            Used exclusively for TemperatureScaler fitting (DEC-009). If None,
+            temperature defaults to 1.0 (identity — no calibration).
+
+    Returns:
+        dict with val_eval, ood_eval, history, calibration_temperature.
+    """
     set_seed(seed)
     device = get_device()
+    n_calib = len(calib_examples) if calib_examples else 0
     print(f"\n  [{model_name} | fold={fold_idx}, seed={seed}] Device: {device} | aux_mode={aux_mode} | freeze={freeze_lower_n_layers}")
-    print(f"  Train: {len(train_examples)} | Val: {len(val_examples)}")
+    print(f"  Train: {len(train_examples)} | Val: {len(val_examples)} | Calib: {n_calib}")
 
     tokenizer = load_tokenizer(config.model_id)
     model = ClinicalVerifier(
@@ -239,7 +257,43 @@ def train_one_fold(
     if best_state is not None:
         model.load_state_dict(best_state)
 
-    # Save checkpoint
+    # --- DEC-009: Temperature scaling calibration on dedicated calibration split ---
+    calibration_temperature = 1.0
+    if calib_examples and best_state is not None:
+        from clindoc.m2.calibration import TemperatureScaler
+        calib_ex = calib_examples[:24] if debug else calib_examples  # limit in debug
+        print(f"  Fitting TemperatureScaler on {len(calib_ex)} calibration examples...")
+        model.eval()
+        calib_logits_list = []
+        calib_labels_list = []
+        eval_batch_size = 64 if not debug else 4
+        with torch.no_grad():
+            for start in range(0, len(calib_ex), eval_batch_size):
+                batch = calib_ex[start: start + eval_batch_size]
+                if not batch:
+                    continue
+                input_ids, attn_mask, aux_feat, labels = collate(batch)
+                if device == "cuda":
+                    with torch.amp.autocast("cuda", dtype=torch.float16):
+                        logits = model(input_ids, attn_mask, aux_features=aux_feat)
+                else:
+                    logits = model(input_ids, attn_mask, aux_features=aux_feat)
+                calib_logits_list.append(logits.cpu().float())
+                calib_labels_list.append(labels.cpu())
+        if calib_logits_list:
+            import torch as _torch
+            all_logits = _torch.cat(calib_logits_list, dim=0)
+            all_labels = _torch.cat(calib_labels_list, dim=0)
+            ts = TemperatureScaler()
+            ts.fit(all_logits, all_labels)
+            calibration_temperature = ts.temperature
+            print(f"  TemperatureScaler fitted: T={calibration_temperature:.6f}")
+        else:
+            print("  Warning: No calibration logits collected; temperature defaults to 1.0")
+    elif calib_examples is None:
+        print("  No calibration examples provided; temperature defaults to 1.0 (identity)")
+
+    # Save checkpoint (includes calibration temperature per DEC-009)
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
     ckpt_name = f"{model_name}_fold{fold_idx}_seed{seed}.pt"
     ckpt_path = checkpoint_dir / ckpt_name
@@ -253,6 +307,7 @@ def train_one_fold(
             "seed": seed,
             "best_val_macro_f1": best_val_f1,
             "model_name": model_name,
+            "temperature": calibration_temperature,  # DEC-009: fitted TemperatureScaler
         }, ckpt_path)
 
     # Comprehensive evaluation using evaluate_model_on_split
@@ -286,6 +341,7 @@ def train_one_fold(
         "fold": fold_idx,
         "seed": seed,
         "best_val_macro_f1": best_val_f1,
+        "calibration_temperature": calibration_temperature,  # DEC-009
         "val_eval": val_eval.model_dump(),
         "ood_eval": ood_eval.model_dump() if ood_eval else None,
         "history": history,
@@ -355,8 +411,11 @@ def run_training(
     if debug:
         variants = [variants[2]]  # Only full model in debug
 
-    from clindoc.m2.splits import get_fold_examples
+    from clindoc.m2.splits import get_fold_examples, load_calibration_examples
     ood_set = set(manifest["ood_doc_ids"])
+    # Load calibration examples once (DEC-009: dedicated post-hoc temperature scaling partition)
+    calib_ex = load_calibration_examples(examples, manifest)
+    print(f"Calibration partition loaded: {len(calib_ex)} examples for TemperatureScaler fitting")
     tokenizer = None
 
     for var in variants:
@@ -404,7 +463,7 @@ def run_training(
                     save_incremental_results(results_file, results, persist_dir=persist_dir)
                     continue
 
-                # 3. Train normally
+                # 4. Train normally (with calibration)
                 res = train_one_fold(
                     train_examples=train_ex,
                     val_examples=val_ex,
@@ -417,6 +476,7 @@ def run_training(
                     freeze_lower_n_layers=var["freeze"],
                     model_name=var["name"],
                     ood_examples=ood_examples,
+                    calib_examples=calib_ex,  # DEC-009: temperature scaling on calib partition
                 )
                 results.append(res)
                 save_incremental_results(results_file, results, persist_dir=persist_dir)

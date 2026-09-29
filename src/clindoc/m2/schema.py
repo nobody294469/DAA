@@ -22,20 +22,22 @@ LABEL_ORDER: list[str] = [
 
 
 class FieldType(str, Enum):
-    """Enumeration of clinical field types used as auxiliary features."""
+    """Enumeration of canonical clinical field types (DEC-017: 10 canonical fields).
+
+    LOCKED per DEC-017. Do NOT add fields without updating DEC-017.
+    Deprecated entries removed: lab.loinc_code, med.dose_unit, med.quantity.
+    Renamed: lab.ref_range -> lab.reference_range.
+    """
     LAB_VALUE = "lab.value"
     LAB_UNIT = "lab.unit"
     LAB_TEST_NAME = "lab.test_name"
-    LAB_REF_RANGE = "lab.ref_range"
+    LAB_REFERENCE_RANGE = "lab.reference_range"
     LAB_FLAG = "lab.flag"
-    LAB_LOINC_CODE = "lab.loinc_code"
     MED_NAME = "med.name"
     MED_DOSE = "med.dose"
-    MED_DOSE_UNIT = "med.dose_unit"
     MED_ROUTE = "med.route"
     MED_FREQUENCY = "med.frequency"
     MED_DURATION = "med.duration"
-    MED_QUANTITY = "med.quantity"
 
 
 FIELD_TYPE_ORDER: list[str] = [f.value for f in FieldType]
@@ -53,7 +55,7 @@ OOD_NARRATIVE_TEMPLATES: list[str] = [
 ]
 
 
-AUX_DIM = 1 + len(FIELD_TYPE_ORDER) + len(DOC_TEMPLATE_ORDER)  # 21
+AUX_DIM = 1 + len(FIELD_TYPE_ORDER) + len(DOC_TEMPLATE_ORDER)  # 18 = 1 (OCR) + 10 (field types) + 7 (doc templates) per DEC-017
 HIDDEN_DIM = 768
 AUX_PROJ_DIM = 64
 FUSION_DIM = HIDDEN_DIM + AUX_PROJ_DIM  # 832

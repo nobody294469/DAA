@@ -15,14 +15,15 @@ def test_aux_feature_encoding():
         field_type="lab.value",
         doc_template="template_a",
     )
-    assert len(feat) == AUX_DIM
+    assert len(feat) == AUX_DIM  # 18 = 1 OCR + 10 fields + 7 templates (DEC-017)
     assert feat[0] == 0.95
-    # lab.value is at index 1
+    # lab.value is at index 1 (first field type)
     assert feat[1] == 1.0
-    # template_a is at index 1 + 13 = 14
-    assert feat[14] == 1.0
-    assert sum(feat[1:14]) == 1.0  # Exactly one field type active
-    assert sum(feat[14:21]) == 1.0  # Exactly one template active
+    # template_a is at index 1 + 10 = 11 (first doc template)
+    assert feat[11] == 1.0
+    assert sum(feat[1:11]) == 1.0  # Exactly one field type active (10 canonical fields)
+    assert sum(feat[11:18]) == 1.0  # Exactly one template active (7 templates)
+
 
 
 def test_aux_batch_tensor():

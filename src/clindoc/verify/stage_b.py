@@ -120,6 +120,13 @@ class LearnedVerifier:
                     self._model.load_state_dict(ckpt["model_state"])
                 elif isinstance(ckpt, dict):
                     self._model.load_state_dict(ckpt)
+                # DEC-009: load fitted temperature from checkpoint if present
+                if isinstance(ckpt, dict) and "temperature" in ckpt:
+                    fitted_temp = float(ckpt["temperature"])
+                    if fitted_temp > 0:
+                        self.scaler = TemperatureScaler(init_temperature=fitted_temp)
+                        self.scaler.is_fitted = True
+
             self._model.eval()
             return True
         except Exception:
