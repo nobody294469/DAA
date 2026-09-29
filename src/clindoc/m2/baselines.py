@@ -1,17 +1,15 @@
-"""All 7 M2 baselines for clinical claim/evidence verification.
+"""All M2 baselines for clinical claim/evidence verification.
 
-1. Deterministic verifier (M0 wrapper)
-2. Levenshtein/lexical threshold (threshold selected from training data)
-3. TF-IDF + LogisticRegression
-4. Frozen ModernBERT + linear head
-5. Fine-tuned ModernBERT text-only
-6. Fine-tuned + OCR confidence
-7. Full model (text + OCR confidence + field_type + doc_template)
+1. Deterministic verifier (M0 wrapper) - V1
+2. Levenshtein/lexical threshold (threshold selected from training data) - V2
+3. TF-IDF + LogisticRegression - V3
+4. Embedding-similarity baseline (SapBERT/BioLORD cosine, zero training) - V4
+5. Frozen ModernBERT + linear probe (auxiliary baseline)
 """
 from __future__ import annotations
 import json
 from pathlib import Path
-from typing import Callable
+from typing import Any, Callable, Optional
 
 from clindoc.m2.schema import M2Example, VerificationLabel, LABEL_ORDER
 
@@ -145,7 +143,118 @@ def predict_tfidf_lr_proba(model: object, examples: list[M2Example]) -> list[lis
     return [list(row) for row in proba]
 
 
-# ─── Baseline 4: Frozen BioClinical ModernBERT Embeddings + Linear Probe ───────
+# ─── Baseline 4 (V4): Embedding Similarity Baseline (SapBERT/BioLORD) ────────
+
+def _compute_pair_similarity(embedder: Any, s1: str, s2: str) -> float:
+    """Compute similarity between two strings using a SemanticEmbedder."""
+    if hasattr(embedder, "similarity"):
+        return float(embedder.similarity(s1, s2))
+    scores = embedder.similarity_scores(s1, [s2])
+    return float(scores[0]) if scores else 0.0
+
+
+def get_default_embedder(embedder: Optional[Any] = None) -> Any:
+    """Return the specified embedder, or SapBERT if available, falling back to NGramProxyEmbedder."""
+    if embedder is not None:
+        return embedder
+    from clindoc.normalize.hybrid import SapBERTEmbedder, NGramProxyEmbedder
+    sapbert = SapBERTEmbedder()
+    if sapbert.is_available():
+        return sapbert
+    return NGramProxyEmbedder()
+
+
+def train_embedding_similarity(
+    train_examples: list[M2Example],
+    embedder: Optional[Any] = None,
+    threshold: Optional[float] = None,
+) -> dict:
+    """Fit/select optimal similarity threshold from training data or lock specified threshold.
+
+    Authority: PROJECT_SPEC §22.2 (V4), DEC-007.
+    'Zero training' means no embedding model parameters are tuned.
+    Like Baseline 2 (Levenshtein), the decision threshold is selected on the
+    training fold to maximize macro-F1, or fixed to a preset value if provided.
+    Never tuned on OOD or test splits.
+    """
+    if threshold is not None:
+        return {"threshold": float(threshold), "train_macro_f1": None}
+
+    embedder = get_default_embedder(embedder)
+    y_true = [LABEL_TO_INT[ex.label.value] for ex in train_examples]
+
+    # Precompute similarities to avoid re-embedding per threshold step
+    sims = []
+    guarded = []
+    for ex in train_examples:
+        ev = ex.evidence.strip()
+        if ex.ocr_confidence < 0.5 or len(ev) < 3:
+            guarded.append(True)
+            sims.append(0.0)
+        else:
+            guarded.append(False)
+            sims.append(_compute_pair_similarity(embedder, ex.claim.strip(), ev))
+
+    best_f1, best_thr = 0.0, 0.75
+    from clindoc.m2.metrics import macro_f1
+    for thr in [i / 20.0 for i in range(1, 20)]:
+        preds = []
+        for is_g, s in zip(guarded, sims):
+            if is_g:
+                preds.append(LABEL_TO_INT["INSUFFICIENT_EVIDENCE"])
+            elif s >= thr:
+                preds.append(LABEL_TO_INT["SUPPORTED"])
+            else:
+                preds.append(LABEL_TO_INT["DISCREPANCY"])
+        f1 = macro_f1(y_true, preds)
+        if f1 > best_f1:
+            best_f1, best_thr = f1, thr
+
+    return {"threshold": best_thr, "train_macro_f1": best_f1}
+
+
+def predict_embedding_similarity(
+    examples: list[M2Example],
+    params: dict | float = 0.75,
+    embedder: Optional[Any] = None,
+) -> list[int]:
+    """Predict verification labels using embedding cosine similarity.
+
+    Authority: PROJECT_SPEC §22.2 (V4), DEC-007.
+    - If OCR confidence < 0.5 or evidence length < 3 -> INSUFFICIENT_EVIDENCE
+    - Else compute cosine similarity between claim and evidence:
+        similarity >= threshold -> SUPPORTED
+        otherwise -> DISCREPANCY
+
+    Args:
+        examples: List of M2Examples.
+        params: Dict containing "threshold" key, or float threshold.
+        embedder: SemanticEmbedder instance (default: SapBERT with NGram fallback).
+
+    Returns:
+        List of integer label predictions adhering to LABEL_ORDER.
+    """
+    if isinstance(params, dict):
+        thr = float(params.get("threshold", 0.75))
+    else:
+        thr = float(params)
+
+    embedder = get_default_embedder(embedder)
+    preds = []
+    for ex in examples:
+        ev = ex.evidence.strip()
+        if ex.ocr_confidence < 0.5 or len(ev) < 3:
+            preds.append(LABEL_TO_INT["INSUFFICIENT_EVIDENCE"])
+        else:
+            sim = _compute_pair_similarity(embedder, ex.claim.strip(), ev)
+            if sim >= thr:
+                preds.append(LABEL_TO_INT["SUPPORTED"])
+            else:
+                preds.append(LABEL_TO_INT["DISCREPANCY"])
+    return preds
+
+
+# ─── Baseline 5: Frozen BioClinical ModernBERT Embeddings + Linear Probe ───────
 
 def extract_frozen_embeddings(
     examples: list[M2Example],

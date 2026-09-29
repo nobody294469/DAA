@@ -67,18 +67,37 @@ def _build_eval_result(
     )
 
 
+def evaluate_embedding_similarity(
+    examples: list[M2Example],
+    params: dict | float = 0.75,
+    embedder: Any | None = None,
+    split: str = "cv",
+    fold_idx: int | None = None,
+) -> M2EvalResult:
+    """Evaluate V4 embedding similarity baseline on a given split."""
+    from clindoc.m2.baselines import predict_embedding_similarity
+    y_true = [LABEL_TO_INT[ex.label.value] for ex in examples]
+    y_pred = predict_embedding_similarity(examples, params=params, embedder=embedder)
+    return _build_eval_result("embedding_similarity", split, fold_idx, None,
+                              y_true, y_pred, None, examples)
+
+
 def evaluate_baselines(
     train_examples: list[M2Example],
     val_examples: list[M2Example],
     fold_idx: int = 0,
     train_embs: list[list[float]] | None = None,
     val_embs: list[list[float]] | None = None,
-) -> tuple[list[M2EvalResult], dict, object, object | None]:
+    embedder: Any | None = None,
+    v4_threshold: float | None = None,
+    return_v4_params: bool = False,
+) -> tuple[list[M2EvalResult], dict, object, object | None] | tuple[list[M2EvalResult], dict, object, object | None, dict | None]:
     from clindoc.m2.baselines import (
         predict_deterministic, train_levenshtein, predict_levenshtein,
         train_tfidf_lr, predict_tfidf_lr, predict_tfidf_lr_proba,
         train_frozen_modernbert_probe, predict_frozen_modernbert_probe,
         predict_frozen_modernbert_probe_proba,
+        train_embedding_similarity, predict_embedding_similarity,
     )
     results = []
     y_true = [LABEL_TO_INT[ex.label.value] for ex in val_examples]
@@ -101,7 +120,15 @@ def evaluate_baselines(
     results.append(_build_eval_result("tfidf_logreg", "cv", fold_idx, None,
                                        y_true, y_pred, y_probs, val_examples))
 
-    # B4: Frozen ModernBERT probe
+    # V4: Embedding similarity baseline
+    v4_params = None
+    if embedder is not None:
+        v4_params = train_embedding_similarity(train_examples, embedder=embedder, threshold=v4_threshold)
+        y_pred = predict_embedding_similarity(val_examples, params=v4_params, embedder=embedder)
+        results.append(_build_eval_result("embedding_similarity", "cv", fold_idx, None,
+                                           y_true, y_pred, None, val_examples))
+
+    # B5: Frozen ModernBERT probe
     probe_clf = None
     if train_embs is not None and val_embs is not None:
         y_train = [LABEL_TO_INT[ex.label.value] for ex in train_examples]
@@ -111,6 +138,8 @@ def evaluate_baselines(
         results.append(_build_eval_result("frozen_modernbert_probe", "cv", fold_idx, None,
                                            y_true, y_pred, y_probs, val_examples))
 
+    if return_v4_params:
+        return results, lev_params, lr_model, probe_clf, v4_params
     return results, lev_params, lr_model, probe_clf
 
 
@@ -121,11 +150,14 @@ def evaluate_baselines_on_test(
     probe_clf: object | None = None,
     test_embs: list[list[float]] | None = None,
     split: str = "ood",
+    v4_params: dict | float | None = None,
+    embedder: Any | None = None,
 ) -> list[M2EvalResult]:
     from clindoc.m2.baselines import (
         predict_deterministic, predict_levenshtein,
         predict_tfidf_lr, predict_tfidf_lr_proba,
         predict_frozen_modernbert_probe, predict_frozen_modernbert_probe_proba,
+        predict_embedding_similarity,
     )
     results = []
     y_true = [LABEL_TO_INT[ex.label.value] for ex in test_examples]
@@ -146,7 +178,13 @@ def evaluate_baselines_on_test(
     results.append(_build_eval_result("tfidf_logreg", split, None, None,
                                        y_true, y_pred, y_probs, test_examples))
 
-    # B4: Frozen ModernBERT probe
+    # V4: Embedding similarity baseline
+    if v4_params is not None:
+        y_pred = predict_embedding_similarity(test_examples, params=v4_params, embedder=embedder)
+        results.append(_build_eval_result("embedding_similarity", split, None, None,
+                                           y_true, y_pred, None, test_examples))
+
+    # B5: Frozen ModernBERT probe
     if probe_clf is not None and test_embs is not None:
         y_pred = predict_frozen_modernbert_probe(probe_clf, test_embs)
         y_probs = predict_frozen_modernbert_probe_proba(probe_clf, test_embs)
