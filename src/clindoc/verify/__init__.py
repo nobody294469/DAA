@@ -9,6 +9,10 @@ from clindoc.verify.schema import (
 )
 from clindoc.verify.verifier import verify_observation_against_evidence, verify_report
 from clindoc.verify.error_injection import ERROR_TYPES, inject_single_error, generate_corrupted_dataset
+from clindoc.verify.stage_a import DeterministicVerifier, StageAResult
+from clindoc.verify.stage_b import LearnedVerifier, StageBResult, MockModelPredictor
+from clindoc.verify.stage_c import StageCJudge, StageCResult, StageCJudgeOutput, DefaultMockLLMJudge
+from clindoc.verify.cascade import VerificationCascade
 
 __all__ = [
     "VerificationStatus",
@@ -21,4 +25,15 @@ __all__ = [
     "ERROR_TYPES",
     "inject_single_error",
     "generate_corrupted_dataset",
+    # Task 7 Cascade Components
+    "VerificationCascade",
+    "DeterministicVerifier",
+    "LearnedVerifier",
+    "StageCJudge",
+    "StageAResult",
+    "StageBResult",
+    "StageCResult",
+    "StageCJudgeOutput",
+    "MockModelPredictor",
+    "DefaultMockLLMJudge",
 ]
