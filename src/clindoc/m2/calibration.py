@@ -94,23 +94,23 @@ class TemperatureScaler:
 
     def calibrate_confidence(
         self,
-        predicted_class_prob: float,
-        raw_logits: Optional[Union[np.ndarray, torch.Tensor]] = None,
+        raw_logits: Union[np.ndarray, torch.Tensor],
     ) -> float:
-        """Calibrate a single scalar confidence score given raw logits or probability."""
-        if raw_logits is not None:
-            probs = self.predict_proba(raw_logits)
-            return float(np.max(probs))
-        # Fallback power scaling approximation if raw logits not provided
-        if not self.is_fitted or self.temperature == 1.0:
-            return float(predicted_class_prob)
-        # Power scaling mapping: p^(1/T) / (p^(1/T) + (1-p)^(1/T))
-        p = np.clip(predicted_class_prob, 1e-6, 1.0 - 1e-6)
-        inv_t = 1.0 / self.temperature
-        p_pow = p ** inv_t
-        q_pow = (1.0 - p) ** inv_t
-        calibrated = p_pow / (p_pow + q_pow)
-        return float(np.clip(calibrated, 0.0, 1.0))
+        """Calibrate confidence for a multi-class logit vector via softmax(logits / T).
+
+        Authority: DEC-009.
+        Note: For Stage C LLM self-reported scalar confidences, use IsotonicConfidenceCalibrator (DEC-018).
+        """
+        if not self.is_fitted:
+            raise RuntimeError("TemperatureScaler must be fit before calling calibrate_confidence")
+        if isinstance(raw_logits, (int, float)):
+            raise ValueError(
+                "Multi-class TemperatureScaler operates on logits vectors. "
+                "For Stage C scalar self-reported confidence calibration, use "
+                "IsotonicConfidenceCalibrator per DEC-018."
+            )
+        probs = self.predict_proba(raw_logits)
+        return float(np.max(probs))
 
     def evaluate(
         self,
@@ -158,4 +158,94 @@ class TemperatureScaler:
         }
 
 
-__all__ = ["TemperatureScaler", "ece", "reliability_data"]
+class IsotonicConfidenceCalibrator:
+    """1D post-hoc confidence calibrator for Stage C LLM self-reported scalar confidence.
+
+    Authority: DEC-018, PROJECT_SPEC §12.2 (Stage C), §17.1.
+    Maps uncalibrated scalar confidence c in [0, 1] to empirical probability
+    of correctness using a non-decreasing isotonic regression model fit on
+    the held-out calibration split (DEC-009, DEC-018).
+    """
+
+    def __init__(self, y_min: float = 0.0, y_max: float = 1.0, out_of_bounds: str = "clip") -> None:
+        self.y_min = float(y_min)
+        self.y_max = float(y_max)
+        self.out_of_bounds = out_of_bounds
+        self.is_fitted: bool = False
+        from sklearn.isotonic import IsotonicRegression
+        self._regressor = IsotonicRegression(
+            y_min=self.y_min,
+            y_max=self.y_max,
+            increasing=True,
+            out_of_bounds=self.out_of_bounds,
+        )
+
+    def fit(
+        self,
+        confidences: Union[Sequence[float], np.ndarray],
+        binary_labels: Union[Sequence[int], np.ndarray],
+    ) -> "IsotonicConfidenceCalibrator":
+        """Fit isotonic calibration mapping on held-out calibration split (DEC-018).
+
+        Args:
+            confidences: 1D array of predicted scalar confidences in [0, 1].
+            binary_labels: 1D array of binary ground-truth correctness indicators (1 = correct, 0 = incorrect).
+
+        Returns:
+            self
+        """
+        x = np.asarray(confidences, dtype=np.float64)
+        y = np.asarray(binary_labels, dtype=np.float64)
+
+        if x.ndim != 1:
+            raise ValueError(f"Confidences must be 1-dimensional, got shape {x.shape}")
+        if y.ndim != 1:
+            raise ValueError(f"Binary labels must be 1-dimensional, got shape {y.shape}")
+        if len(x) == 0:
+            raise ValueError("Cannot fit calibrator on empty dataset")
+        if len(x) != len(y):
+            raise ValueError(f"Length mismatch: {len(x)} confidences vs {len(y)} labels")
+        if np.any((x < 0.0) | (x > 1.0)):
+            raise ValueError("All confidences must be in range [0.0, 1.0]")
+        if not np.all(np.isin(y, [0, 1])):
+            raise ValueError("Binary labels must only contain 0 or 1")
+        if len(np.unique(y)) < 2:
+            raise ValueError(
+                "Insufficient class diversity: binary_labels must contain both positive (1) "
+                "and negative (0) examples to fit a calibration curve"
+            )
+
+        self._regressor.fit(x, y)
+        self.is_fitted = True
+        return self
+
+    def predict(
+        self,
+        confidences: Union[float, Sequence[float], np.ndarray],
+    ) -> Union[float, np.ndarray]:
+        """Calibrate raw confidence score(s).
+
+        Args:
+            confidences: scalar float or 1D array of confidences in [0, 1].
+
+        Returns:
+            Calibrated confidence float or 1D numpy array in [0, 1].
+        """
+        if not self.is_fitted:
+            raise RuntimeError("IsotonicConfidenceCalibrator must be fit before predict()")
+
+        is_scalar = isinstance(confidences, (int, float, np.floating))
+        x = np.atleast_1d(np.asarray(confidences, dtype=np.float64))
+
+        if np.any((x < 0.0) | (x > 1.0)):
+            raise ValueError("All input confidences must be in range [0.0, 1.0]")
+
+        calibrated = self._regressor.predict(x)
+        calibrated = np.clip(calibrated, self.y_min, self.y_max)
+
+        if is_scalar:
+            return float(calibrated[0])
+        return calibrated
+
+
+__all__ = ["TemperatureScaler", "IsotonicConfidenceCalibrator", "ece", "reliability_data"]

@@ -2,7 +2,13 @@
 
 Authority: PROJECT_SPEC §5 #6, §7.5, §14, DEC-002, DEC-007, AUDIT-14
 """
-from clindoc.normalize.hybrid import CandidateMatch, HybridTerminologyRetriever
+from clindoc.normalize.hybrid import (
+    CandidateMatch,
+    HybridTerminologyRetriever,
+    NGramProxyEmbedder,
+    SapBERTEmbedder,
+    SemanticEmbedder,
+)
 from clindoc.normalize.normalizer import TerminologyNormalizer
 from clindoc.normalize.ucum import UCUMNormalizer, normalize_ucum
 
@@ -10,6 +16,9 @@ __all__ = [
     "TerminologyNormalizer",
     "HybridTerminologyRetriever",
     "CandidateMatch",
+    "SemanticEmbedder",
+    "SapBERTEmbedder",
+    "NGramProxyEmbedder",
     "UCUMNormalizer",
     "normalize_ucum",
 ]
