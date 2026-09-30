@@ -360,6 +360,7 @@ def run_training(
     recovered_file: Path | None = None,
     headline_file: Path | None = None,
     persist_dir: Path | str | None = None,
+    variants_filter: list[str] | str | None = None,
 ) -> list[dict]:
     """Run full CV training for all 4 neural variants across 5 folds x 3 seeds with resumability and persistent backup."""
     from clindoc.m2.recovery import (
@@ -410,6 +411,12 @@ def run_training(
     ]
     if debug:
         variants = [variants[2]]  # Only full model in debug
+    elif variants_filter:
+        if isinstance(variants_filter, str):
+            filter_set = {variants_filter}
+        else:
+            filter_set = set(variants_filter)
+        variants = [v for v in variants if v["name"] in filter_set]
 
     from clindoc.m2.splits import get_fold_examples, load_calibration_examples
     ood_set = set(manifest["ood_doc_ids"])

@@ -251,9 +251,11 @@ def step_train(
     results_dir: Path = RESULTS_DIR,
     debug: bool = False,
     persist_dir: Path | str | None = None,
+    variants: list[str] | None = None,
 ):
     print("\n" + "=" * 60)
-    mode = "DEBUG (1 fold, 1 epoch, subset)" if debug else "FULL TRAINING (4 variants x 5 folds x 3 seeds)"
+    var_str = f" [{', '.join(variants)}]" if variants else " (4 variants)"
+    mode = "DEBUG (1 fold, 1 epoch, subset)" if debug else f"FULL TRAINING{var_str} x 5 folds x 3 seeds"
     print(f"STEP 3: Training BioClinical ModernBERT Models [{mode}]")
     print("=" * 60)
     config = load_config()
@@ -268,6 +270,7 @@ def step_train(
         examples, manifest, config, ckpt_dir,
         debug=debug, ood_examples=ood_ex, results_file=res_file,
         persist_dir=persist_dir,
+        variants_filter=variants,
     )
 
     print(f"\nTraining run complete. Results saved to {res_file}")
@@ -636,6 +639,7 @@ def main():
     parser.add_argument("--smoke-test-recovery", action="store_true", help="Smoke test recovery on a single checkpoint")
     parser.add_argument("--plan", action="store_true", help="Display planned training/recovery run counts without training")
     parser.add_argument("--persist-dir", type=str, default=None, help="Directory to persistently backup completed result records (e.g. Google Drive)")
+    parser.add_argument("--variants", nargs="+", default=None, help="Specific neural variant(s) to train or plan (e.g. modernbert_ocr_only)")
     parser.add_argument("--all", action="store_true", help="Run full pipeline: baselines, training, and evaluation")
 
     args = parser.parse_args()
@@ -656,7 +660,12 @@ def main():
         config = load_config()
         with open(DATA_DIR / "split_manifest.json", "r", encoding="utf-8") as f:
             manifest = json.load(f)
-        plan = get_training_plan(manifest, config, debug=args.debug, persist_dir=args.persist_dir)
+        plan = get_training_plan(
+            manifest, config,
+            debug=args.debug,
+            persist_dir=args.persist_dir,
+            variants_filter=args.variants,
+        )
         print("\n" + "=" * 80)
         print("M2 TRAINING PLAN (DRY RUN)")
         print("=" * 80)
@@ -697,7 +706,11 @@ def main():
         from clindoc.m2.recovery import recover_checkpoints
         recover_checkpoints(max_recoveries=1)
     if args.train or args.all:
-        step_train(debug=args.debug, persist_dir=args.persist_dir)
+        step_train(
+            debug=args.debug,
+            persist_dir=args.persist_dir,
+            variants=args.variants,
+        )
     if args.evaluate or args.all:
         step_evaluate()
 

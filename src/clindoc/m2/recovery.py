@@ -157,14 +157,17 @@ def load_existing_results_map(
             print(f"Warning: Could not read recovered results from {recovered_file}: {e}")
 
     # 2. Check persistent directory backup if local results_file is missing
+    p_dir = persist_dir if persist_dir is not None else get_persist_dir()
+    p_dir_path = Path(p_dir) if (p_dir is not None and str(p_dir).strip()) else None
+
     target_results_file = results_file
     if target_results_file and not target_results_file.exists():
-        p_dir = persist_dir if persist_dir is not None else get_persist_dir()
-        if p_dir:
-            p_dir_path = Path(p_dir) if isinstance(p_dir, str) else p_dir
+        if p_dir_path:
             candidate = p_dir_path / target_results_file.name
             if candidate.exists():
                 target_results_file = candidate
+            elif (p_dir_path / "m2_train_results.json").exists():
+                target_results_file = p_dir_path / "m2_train_results.json"
 
     # 3. Load official results file (takes precedence over recovered)
     if target_results_file and target_results_file.exists():
@@ -182,6 +185,49 @@ def load_existing_results_map(
                         merged[(mname, fold, seed)] = item
         except Exception as e:
             print(f"Warning: Could not read official results from {target_results_file}: {e}")
+
+    # 4. If a persistent directory exists, merge any records from persistent m2_train_results.json
+    if p_dir_path:
+        for fname in ([results_file.name] if results_file else []) + ["m2_train_results.json"]:
+            persist_results_file = p_dir_path / fname
+            if persist_results_file.exists() and persist_results_file != target_results_file:
+                try:
+                    with open(persist_results_file, "r", encoding="utf-8") as f:
+                        p_res_data = json.load(f)
+                    if isinstance(p_res_data, list):
+                        for item in p_res_data:
+                            if is_quarantined_result(item, debug=debug):
+                                continue
+                            mname = item.get("model_name")
+                            fold = item.get("fold")
+                            seed = item.get("seed")
+                            if mname is not None and fold is not None and seed is not None:
+                                key = (mname, fold, seed)
+                                if key not in merged:
+                                    merged[key] = item
+                except Exception as e:
+                    print(f"Warning: Could not read persistent results from {persist_results_file}: {e}")
+
+    # 5. Check persist_dir/runs/*.json for any individual persisted run records
+    if p_dir_path:
+        runs_dir = p_dir_path / "runs"
+        if runs_dir.is_dir():
+            for single_path in sorted(runs_dir.glob("*.json")):
+                try:
+                    with open(single_path, "r", encoding="utf-8") as f:
+                        item = json.load(f)
+                    if isinstance(item, dict):
+                        if is_quarantined_result(item, debug=debug):
+                            continue
+                        mname = item.get("model_name")
+                        fold = item.get("fold")
+                        seed = item.get("seed")
+                        if mname is not None and fold is not None and seed is not None:
+                            key = (mname, fold, seed)
+                            if key not in merged:
+                                merged[key] = item
+                except Exception as e:
+                    print(f"Warning: Could not read individual run result from {single_path}: {e}")
 
     return merged
 
@@ -404,6 +450,7 @@ def get_training_plan(
     recovered_file: Path | None = None,
     headline_file: Path | None = None,
     persist_dir: Path | str | None = None,
+    variants_filter: list[str] | str | None = None,
 ) -> dict:
     """Compute the planned run counts broken down by variant without running training."""
     if results_file is None:
@@ -441,6 +488,12 @@ def get_training_plan(
     ]
     if debug:
         variants = [variants[2]]
+    elif variants_filter:
+        if isinstance(variants_filter, str):
+            filter_set = {variants_filter}
+        else:
+            filter_set = set(variants_filter)
+        variants = [v for v in variants if v["name"] in filter_set]
 
     plan_by_variant = {}
     total_training = 0
