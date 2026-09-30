@@ -321,3 +321,70 @@ def test_v5_pubmedbert_nli_predictor_offline_availability():
     # is_available returns boolean without raising unhandled exceptions
     avail = predictor.is_available()
     assert isinstance(avail, bool)
+
+
+def test_step_run_baselines_wiring(tmp_path):
+    """Verify step_run_baselines correctly wires V4 and V5 when predictors are provided."""
+    import json
+    import torch
+    from clindoc.m2.run import step_run_baselines
+    from clindoc.m2.dataset import save_examples
+    from clindoc.m2.splits import build_splits, save_split_manifest
+
+    # Create synthetic dataset with CV and OOD documents
+    examples = [
+        _make_example("Glucose 90 mg/dL", "Glucose 90 mg/dL", 0.98, VerificationLabel.SUPPORTED),
+        _make_example("Glucose 150 mg/dL", "Creatinine 0.9", 0.98, VerificationLabel.DISCREPANCY),
+        _make_example("Glucose 90 mg/dL", "G", 0.20, VerificationLabel.INSUFFICIENT_EVIDENCE),
+    ]
+    # Replicate across dummy doc IDs
+    all_ex = []
+    for doc_idx in range(6):
+        doc_id = f"DOC_{doc_idx}"
+        for ex in examples:
+            copy_ex = ex.model_copy()
+            copy_ex.source_doc_id = doc_id
+            copy_ex.example_id = f"{doc_id}_{copy_ex.label.value}"
+            if doc_idx >= 4:
+                copy_ex.doc_template = "mar_order_sheet"
+                copy_ex.split = "ood"
+            else:
+                copy_ex.doc_template = "template_a"
+                copy_ex.split = "cv"
+            all_ex.append(copy_ex)
+
+    data_dir = tmp_path / "data"
+    results_dir = tmp_path / "results"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    results_dir.mkdir(parents=True, exist_ok=True)
+
+    save_examples(all_ex, data_dir / "all_examples.jsonl")
+    manifest = build_splits(all_ex, n_splits=2, seed=42)
+    save_split_manifest(manifest, data_dir / "split_manifest.json")
+
+    # Create dummy frozen embeddings cache
+    torch.save([[0.1] * 768 for _ in all_ex], data_dir / "frozen_embeddings.pt")
+
+    embedder = NGramProxyEmbedder()
+    nli_pred = MockNLIPredictor(default_native_label=NATIVE_NLI_ENTAILMENT, confidence=0.9)
+
+    res = step_run_baselines(
+        data_dir=data_dir,
+        results_dir=results_dir,
+        embedder=embedder,
+        nli_predictor=nli_pred,
+    )
+
+    cv_models = {r["model_name"] for r in res["cv_results"]}
+    ood_models = {r["model_name"] for r in res["ood_results"]}
+
+    assert "deterministic_verifier" in cv_models
+    assert "levenshtein_threshold" in cv_models
+    assert "tfidf_logreg" in cv_models
+    assert "frozen_modernbert_probe" in cv_models
+    assert "embedding_similarity" in cv_models
+    assert "zeroshot_nli" in cv_models
+
+    assert "deterministic_verifier" in ood_models
+    assert "embedding_similarity" in ood_models
+    assert "zeroshot_nli" in ood_models

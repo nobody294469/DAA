@@ -20,7 +20,10 @@ import torch
 
 from clindoc.m2.schema import M2ModelConfig, M2DatasetMetadata, M2EvalResult, LABEL_ORDER
 from clindoc.m2.generation import generate_m2_dataset
-from clindoc.m2.splits import build_splits, save_split_manifest, validate_no_leakage, get_fold_examples, get_ood_examples
+from clindoc.m2.splits import (
+    build_splits, save_split_manifest, validate_no_leakage,
+    get_fold_examples, get_ood_examples, load_calibration_examples,
+)
 from clindoc.m2.dataset import save_examples, load_examples, compute_metadata, print_dataset_summary
 from clindoc.m2.evaluate import evaluate_baselines, evaluate_baselines_on_test
 from clindoc.m2.baselines import extract_frozen_embeddings
@@ -99,13 +102,20 @@ def step_generate_dataset(data_dir: Path = DATA_DIR) -> tuple[list, dict, M2Data
     return examples, manifest, metadata
 
 
-def step_run_baselines(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR) -> dict:
+def step_run_baselines(
+    data_dir: Path = DATA_DIR,
+    results_dir: Path = RESULTS_DIR,
+    embedder: Any | None = None,
+    nli_predictor: Any | None = None,
+) -> dict:
     print("\n" + "=" * 60)
     print("STEP 2: Running Deterministic, Lexical, and Learned Baselines")
-    print("  1. Deterministic verifier")
-    print("  2. Levenshtein threshold")
-    print("  3. TF-IDF + Logistic Regression")
-    print("  4. Frozen BioClinical ModernBERT embeddings + linear probe")
+    print("  1. Deterministic verifier (V1)")
+    print("  2. Levenshtein threshold (V2)")
+    print("  3. TF-IDF + Logistic Regression (V3)")
+    print("  4. Frozen BioClinical ModernBERT embeddings + linear probe (B4/B6)")
+    print("  5. Embedding similarity baseline (V4)")
+    print("  6. Off-the-shelf NLI baseline (V5)")
     print("=" * 60)
     results_dir.mkdir(parents=True, exist_ok=True)
 
@@ -126,9 +136,37 @@ def step_run_baselines(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DI
 
     id_to_emb = {ex.example_id: emb for ex, emb in zip(examples, all_embs)}
 
+    # 2. Check and initialize V4 embedder (SapBERT)
+    if embedder is None:
+        from clindoc.normalize.hybrid import SapBERTEmbedder
+        v4_embedder = SapBERTEmbedder()
+        if not v4_embedder.is_available():
+            v4_embedder = None
+            print("  [V4] SapBERT embedder not available in local cache; skipping V4")
+        else:
+            print("  [V4] SapBERT embedder initialized and ready")
+    else:
+        v4_embedder = embedder
+
+    # 3. Check and initialize V5 NLI predictor (PubMedBERT NLI)
+    if nli_predictor is None:
+        from clindoc.m2.baselines import PubMedBERTNLIPredictor
+        v5_predictor = PubMedBERTNLIPredictor(local_files_only=True)
+        if not v5_predictor.is_available():
+            v5_predictor = None
+            print("  [V5] PubMedBERT NLI model not available in local cache; skipping V5")
+        else:
+            print("  [V5] PubMedBERT NLI model initialized and ready")
+    else:
+        v5_predictor = nli_predictor
+
+    # 4. Calibration partition for V5 temperature scaling (DEC-009)
+    calib_ex = load_calibration_examples(examples, manifest) if v5_predictor is not None else None
+
     all_cv_results = []
     ood_results = []
     lev_params_last, lr_model_last, probe_clf_last = None, None, None
+    v4_params_last = None
 
     for fold_idx in range(manifest["n_splits"]):
         train_ex, val_ex = get_fold_examples(examples, manifest, fold_idx)
@@ -139,20 +177,34 @@ def step_run_baselines(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DI
         train_embs = [id_to_emb[e.example_id] for e in train_ex]
         val_embs = [id_to_emb[e.example_id] for e in val_ex]
 
-        res, lev_p, lr_m, probe_clf = evaluate_baselines(
+        res, lev_p, lr_m, probe_clf, v4_p = evaluate_baselines(
             train_ex, val_ex, fold_idx=fold_idx,
             train_embs=train_embs, val_embs=val_embs,
+            embedder=v4_embedder,
+            return_v4_params=True,
+            nli_predictor=v5_predictor,
+            calib_examples=calib_ex,
         )
         all_cv_results.extend(res)
         lev_params_last, lr_model_last, probe_clf_last = lev_p, lr_m, probe_clf
+        v4_params_last = v4_p
 
     # OOD evaluation for all baselines
     ood_ex = get_ood_examples(examples, manifest)
     if ood_ex and lev_params_last and lr_model_last:
         ood_embs = [id_to_emb[e.example_id] for e in ood_ex]
+        nli_scaler_ood = None
+        if v5_predictor is not None and calib_ex is not None:
+            from clindoc.m2.baselines import calibrate_v5_temperature
+            nli_scaler_ood = calibrate_v5_temperature(calib_ex, predictor=v5_predictor)
+
         ood_res = evaluate_baselines_on_test(
             ood_ex, lev_params_last, lr_model_last,
             probe_clf=probe_clf_last, test_embs=ood_embs, split="ood",
+            v4_params=v4_params_last,
+            embedder=v4_embedder,
+            nli_predictor=v5_predictor,
+            nli_scaler=nli_scaler_ood,
         )
         ood_results.extend(ood_res)
 
@@ -169,7 +221,14 @@ def step_run_baselines(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DI
     for r in all_cv_results:
         by_model[r.model_name].append(r)
 
-    for mname in ["deterministic_verifier", "levenshtein_threshold", "tfidf_logreg", "frozen_modernbert_probe"]:
+    for mname in [
+        "deterministic_verifier",
+        "levenshtein_threshold",
+        "tfidf_logreg",
+        "frozen_modernbert_probe",
+        "embedding_similarity",
+        "zeroshot_nli",
+    ]:
         res_list = by_model.get(mname, [])
         if res_list:
             avg_f1 = sum(r.macro_f1 for r in res_list) / len(res_list)
@@ -302,6 +361,8 @@ def step_evaluate(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR):
         "levenshtein_threshold",
         "tfidf_logreg",
         "frozen_modernbert_probe",
+        "embedding_similarity",
+        "zeroshot_nli",
         "modernbert_text_only",
         "modernbert_ocr_only",
         "modernbert_full",
@@ -317,7 +378,14 @@ def step_evaluate(data_dir: Path = DATA_DIR, results_dir: Path = RESULTS_DIR):
         headline_list = headline_runs_by_model.get(mname, [])
 
         # Determine result provenance type
-        if mname.startswith("deterministic") or mname.startswith("levenshtein") or mname.startswith("tfidf") or mname.startswith("frozen_modernbert"):
+        if (
+            mname.startswith("deterministic")
+            or mname.startswith("levenshtein")
+            or mname.startswith("tfidf")
+            or mname.startswith("frozen_modernbert")
+            or mname.startswith("embedding_similarity")
+            or mname.startswith("zeroshot_nli")
+        ):
             result_type = "baseline_full"
             detailed_metrics_available = True
             checkpoint_available = False
