@@ -2,7 +2,7 @@
 confusion matrix, AUROC, Brier score, ECE."""
 from __future__ import annotations
 import math
-from typing import Sequence
+from typing import Sequence, Any
 
 
 LABEL_ORDER = ["SUPPORTED", "DISCREPANCY", "INSUFFICIENT_EVIDENCE"]
@@ -119,3 +119,158 @@ def reliability_data(y_true: list[int], y_probs: list[list[float]], n_bins: int 
         avg_acc  = sum(1 for i in idxs if predictions[i] == y_true[i]) / len(idxs)
         bins.append({"lo": lo, "hi": hi, "count": len(idxs), "avg_conf": avg_conf, "avg_acc": avg_acc})
     return {"bins": bins}
+
+
+def compute_risk_coverage(
+    y_true: Sequence[Any],
+    y_pred: Sequence[Any],
+    confidences: Sequence[float],
+) -> dict[str, list[float]]:
+    """Compute selective-prediction risk-coverage curve.
+
+    Coverage represents the fraction of examples retained at or above
+    a confidence threshold.
+    Risk represents the error rate among retained examples.
+
+    Handles tied confidences by grouping examples with identical confidence
+    into the same threshold step.
+    """
+    if y_true is None or y_pred is None or confidences is None:
+        raise ValueError("y_true, y_pred, and confidences cannot be None")
+    if len(y_true) != len(y_pred) or len(y_true) != len(confidences):
+        raise ValueError(
+            f"Length mismatch: len(y_true)={len(y_true)}, len(y_pred)={len(y_pred)}, len(confidences)={len(confidences)}"
+        )
+
+    n_total = len(y_true)
+    if n_total == 0:
+        return {
+            "coverages": [],
+            "risks": [],
+            "thresholds": [],
+            "coverage": [],
+            "risk": [],
+        }
+
+    # Validate confidences
+    float_confidences: list[float] = []
+    for idx, c in enumerate(confidences):
+        if c is None:
+            raise ValueError(f"Confidence at index {idx} is None")
+        c_float = float(c)
+        if math.isnan(c_float):
+            raise ValueError(f"Confidence at index {idx} is NaN")
+        float_confidences.append(c_float)
+
+    # Sort indices by confidence descending
+    sorted_indices = sorted(range(n_total), key=lambda i: float_confidences[i], reverse=True)
+
+    coverages: list[float] = []
+    risks: list[float] = []
+    thresholds: list[float] = []
+
+    cum_count = 0
+    cum_errors = 0
+
+    idx = 0
+    while idx < n_total:
+        current_conf = float_confidences[sorted_indices[idx]]
+        # Group all examples with identical confidence (tied confidences)
+        group_count = 0
+        group_errors = 0
+        while idx < n_total and (
+            float_confidences[sorted_indices[idx]] == current_conf
+            or math.isclose(float_confidences[sorted_indices[idx]], current_conf, rel_tol=1e-9, abs_tol=1e-12)
+        ):
+            i = sorted_indices[idx]
+            group_count += 1
+            if y_true[i] != y_pred[i]:
+                group_errors += 1
+            idx += 1
+
+        cum_count += group_count
+        cum_errors += group_errors
+
+        cov = cum_count / n_total
+        risk = cum_errors / cum_count
+
+        coverages.append(cov)
+        risks.append(risk)
+        thresholds.append(current_conf)
+
+    return {
+        "coverages": coverages,
+        "risks": risks,
+        "thresholds": thresholds,
+        "coverage": coverages,
+        "risk": risks,
+    }
+
+
+def compute_aurc(
+    risk_coverage_or_coverages: dict[str, list[float]] | Sequence[tuple[float, float]] | Sequence[float],
+    risks: Sequence[float] | None = None,
+    round_digits: int | None = 4,
+) -> float:
+    """Compute Area Under the Risk-Coverage Curve (AURC) using trapezoidal integration.
+
+    Accepts:
+    1. A dictionary returned by compute_risk_coverage()
+    2. Parallel sequences of (coverages, risks)
+    3. A sequence of (coverage, risk) tuples
+    """
+    if risk_coverage_or_coverages is None:
+        raise ValueError("risk_coverage_or_coverages cannot be None")
+
+    covs: list[float] = []
+    r_list: list[float] = []
+
+    if isinstance(risk_coverage_or_coverages, dict):
+        cov_data = risk_coverage_or_coverages.get("coverages", risk_coverage_or_coverages.get("coverage", []))
+        risk_data = risk_coverage_or_coverages.get("risks", risk_coverage_or_coverages.get("risk", []))
+        covs = [float(c) for c in cov_data]
+        r_list = [float(r) for r in risk_data]
+    elif risks is not None:
+        covs = [float(c) for c in risk_coverage_or_coverages]
+        r_list = [float(r) for r in risks]
+    else:
+        for item in risk_coverage_or_coverages:
+            if isinstance(item, (tuple, list)) and len(item) == 2:
+                covs.append(float(item[0]))
+                r_list.append(float(item[1]))
+            else:
+                raise ValueError("Must provide risks sequence or sequence of (coverage, risk) pairs")
+
+    if len(covs) != len(r_list):
+        raise ValueError(f"Length mismatch: len(coverages)={len(covs)}, len(risks)={len(r_list)}")
+
+    if len(covs) == 0:
+        return 0.0
+
+    for c in covs:
+        if c < 0.0 or c > 1.0:
+            raise ValueError(f"Coverage value must be in [0, 1], got {c}")
+    for r_val in r_list:
+        if r_val < 0.0 or r_val > 1.0:
+            raise ValueError(f"Risk value must be in [0, 1], got {r_val}")
+
+    # Sort pairs by coverage ascending
+    pairs = sorted(zip(covs, r_list), key=lambda p: p[0])
+    sorted_covs = [p[0] for p in pairs]
+    sorted_r = [p[1] for p in pairs]
+
+    # Integrate from coverage 0.0 to 1.0
+    # For coverage in [0, sorted_covs[0]], risk is constant at sorted_r[0]
+    area = sorted_covs[0] * sorted_r[0]
+
+    for i in range(1, len(sorted_covs)):
+        dx = sorted_covs[i] - sorted_covs[i - 1]
+        if dx > 0:
+            area += dx * (sorted_r[i - 1] + sorted_r[i]) / 2.0
+
+    if sorted_covs[-1] < 1.0:
+        area += (1.0 - sorted_covs[-1]) * sorted_r[-1]
+
+    if round_digits is not None:
+        return round(area, round_digits)
+    return area

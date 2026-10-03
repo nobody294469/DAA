@@ -7,9 +7,13 @@ OBS_CATEGORY_SYSTEM = "http://terminology.hl7.org/CodeSystem/observation-categor
 OBS_INTERPRETATION_SYSTEM = "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"
 DIAG_CATEGORY_SYSTEM = "http://terminology.hl7.org/CodeSystem/v2-0074"
 
-# Local Custom Extensions for Clinical Document Extraction & Verification
-# Note: These URLs are project-local custom extensions for the research prototype (http://clindoc.local/...)
-# and should not be confused with official HL7 published extensions (http://hl7.org/fhir/StructureDefinition/...).
+# Official Terminology for Medications (PROJECT_SPEC §14, §15)
+RXNORM_SYSTEM = "http://www.nlm.nih.gov/research/umls/rxnorm"
+
+# Canonical Two-Tier Provenance Extension URI (DEC-016, PROJECT_SPEC §16)
+EXT_CLAIM_PROVENANCE = "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+
+# Local Custom Extensions for Clinical Document Extraction & Verification (Legacy Phase 0)
 EXT_VERIFICATION_STATUS = "http://clindoc.local/fhir/StructureDefinition/verification-status"
 EXT_VERIFICATION_DISCREPANCY = "http://clindoc.local/fhir/StructureDefinition/verification-discrepancy"
 EXT_SOURCE_EVIDENCE = "http://clindoc.local/fhir/StructureDefinition/source-evidence"

@@ -71,9 +71,61 @@ def extract_context_window(
     char_end = max(char_start, min(char_end, len(page_text)))
 
     if is_tabular and dense_override.get("enabled", True):
-        # Fixed symmetric window for tabular data
-        start = max(0, char_start - tabular_chars)
-        end = min(len(page_text), char_end + tabular_chars)
+        # Fixed symmetric window for tabular data snapped to row boundaries
+        raw_start = max(0, char_start - tabular_chars)
+        raw_end = min(len(page_text), char_end + tabular_chars)
+
+        # Snap start backward to preceding newline
+        prev_nl = page_text.rfind("\n", 0, raw_start)
+        start = (prev_nl + 1) if prev_nl != -1 else 0
+
+        # Snap end forward to succeeding newline
+        next_nl = page_text.find("\n", raw_end)
+        end = next_nl if next_nl != -1 else len(page_text)
+
+        # Invariant: preserve atomic target span
+        start = min(start, char_start)
+        end = max(end, char_end)
+
+        # Enforce maximum context size (max_chars) by pruning outermost rows
+        while (end - start) > max_chars:
+            left_slack = char_start - start
+            right_slack = end - char_end
+
+            if left_slack >= right_slack and left_slack > 0:
+                next_start_nl = page_text.find("\n", start, char_start)
+                if next_start_nl != -1 and (next_start_nl + 1) <= char_start:
+                    start = next_start_nl + 1
+                elif right_slack > 0:
+                    prev_end_nl = page_text.rfind("\n", char_end, end)
+                    if prev_end_nl != -1 and prev_end_nl >= char_end:
+                        end = prev_end_nl
+                    else:
+                        break
+                else:
+                    break
+            elif right_slack > 0:
+                prev_end_nl = page_text.rfind("\n", char_end, end)
+                if prev_end_nl != -1 and prev_end_nl >= char_end:
+                    end = prev_end_nl
+                elif left_slack > 0:
+                    next_start_nl = page_text.find("\n", start, char_start)
+                    if next_start_nl != -1 and (next_start_nl + 1) <= char_start:
+                        start = next_start_nl + 1
+                    else:
+                        break
+                else:
+                    break
+            else:
+                break
+
+        # Fallback hard cap if a single row still exceeds max_chars
+        if (end - start) > max_chars:
+            excess = (end - start) - max_chars
+            trim_left = min(char_start - start, excess // 2)
+            start += trim_left
+            end = min(len(page_text), start + max_chars)
+
         return page_text[start:end], start, end
 
     # Paragraph-bounded extraction

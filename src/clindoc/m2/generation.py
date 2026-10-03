@@ -15,13 +15,35 @@ import json
 import re
 import uuid
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional, Sequence
 
 from clindoc.m2.schema import (
     M2Example, VerificationLabel, DOC_TEMPLATE_ORDER,
     OOD_MED_TEMPLATE, OOD_LAB_TEMPLATE,
 )
 from clindoc.m2.context import extract_context_window, reconstruct_canonical_page_text
+from clindoc.m2.validation_gate import PreSerializationValidationGate, GenerationDiagnostics
+
+
+def _safe_add_example(
+    cand: M2Example,
+    canonical_page_text: Optional[str],
+    examples: list[M2Example],
+    gate: PreSerializationValidationGate,
+    diagnostics: Optional[GenerationDiagnostics] = None,
+) -> bool:
+    """Validate candidate example against canonical text and integrity gate before appending."""
+    is_valid, reason = gate.validate(cand, canonical_page_text)
+    if is_valid:
+        if diagnostics:
+            diagnostics.record_acceptance()
+        examples.append(cand)
+        return True
+    else:
+        if diagnostics:
+            diagnostics.record_rejection(reason or "pre_serialization_validation_failed")
+        return False
+
 
 # ─── Vocabularies for semantic negatives ──────────────────────────────────────
 FREQ_VOCAB = [
@@ -143,12 +165,18 @@ def generate_clean_lab_examples(
     extracted_dir: Path,
     gt_dir: Path,
     ocr_cache_dir: Path = Path("data/ocr_cache"),
+    diagnostics: Optional[GenerationDiagnostics] = None,
+    validation_gate: Optional[PreSerializationValidationGate] = None,
+    doc_id_filter: Optional[Sequence[str]] = None,
 ) -> list[M2Example]:
+    gate = validation_gate or PreSerializationValidationGate()
     examples = []
     for ext_path in sorted(extracted_dir.glob("LAB_*.json")):
         with open(ext_path, "r", encoding="utf-8") as f:
             ext = json.load(f)
         doc_id = ext["doc_id"]
+        if doc_id_filter and doc_id not in doc_id_filter:
+            continue
         gt_path = gt_dir / f"{doc_id}.json"
         if not gt_path.exists():
             continue
@@ -177,23 +205,30 @@ def generate_clean_lab_examples(
                 continue
 
             # Determine character offsets within canonical page text
-            char_start = page_text.find(ev_text) if page_text else 0
-            if char_start >= 0 and page_text:
-                char_end = char_start + len(ev_text)
-                context_snip, _, _ = extract_context_window(
-                    page_text, char_start, char_end, is_tabular=True
-                )
-            else:
-                char_start = 0
-                char_end = len(ev_text)
-                context_snip = ev_text
+            char_start = page_text.find(ev_text) if page_text else -1
+            if char_start < 0 and page_text and obs.get("test_name"):
+                t_idx = page_text.find(obs["test_name"])
+                if t_idx >= 0:
+                    nl_after = page_text.find("\n", t_idx)
+                    char_start = t_idx
+                    ev_text = page_text[t_idx:nl_after] if nl_after != -1 else obs["test_name"]
+
+            if char_start < 0 or not page_text:
+                if diagnostics:
+                    diagnostics.record_rejection("missing_target_entity")
+                continue
+
+            char_end = char_start + len(ev_text)
+            context_snip, _, _ = extract_context_window(
+                page_text, char_start, char_end, is_tabular=True
+            )
 
             group_id = f"{doc_id}_obs_{idx}"
             evidence_id = str(uuid.uuid4())
 
             # Supported value
             v_str = _format_num(obs["value"])
-            examples.append(M2Example(
+            cand_sup = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{obs['test_name']}: {v_str} {obs['unit']}",
                 evidence=context_snip,
@@ -212,11 +247,12 @@ def generate_clean_lab_examples(
                 char_end=char_end,
                 page_number=page_num,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_sup, page_text, examples, gate, diagnostics)
 
             # Discrepancy value
             alt_val = _alter_numeric(obs["value"], idx)
-            examples.append(M2Example(
+            cand_disc = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{obs['test_name']}: {_format_num(alt_val)} {obs['unit']}",
                 evidence=context_snip,
@@ -235,12 +271,13 @@ def generate_clean_lab_examples(
                 char_end=char_end,
                 page_number=page_num,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_disc, page_text, examples, gate, diagnostics)
 
             # Flag claims (both SUPPORTED and DISCREPANCY)
             if obs.get("abnormal_flag"):
                 # Supported flag
-                examples.append(M2Example(
+                cand_flag_sup = M2Example(
                     example_id=str(uuid.uuid4()),
                     claim=f"{obs['test_name']} flag: {obs['abnormal_flag']}",
                     evidence=context_snip,
@@ -259,11 +296,12 @@ def generate_clean_lab_examples(
                     char_end=char_end,
                     page_number=page_num,
                     bbox=bbox,
-                ))
+                )
+                _safe_add_example(cand_flag_sup, page_text, examples, gate, diagnostics)
 
                 # Discrepancy flag
                 alt_flag = "HIGH" if obs["abnormal_flag"] == "NORMAL" else "NORMAL"
-                examples.append(M2Example(
+                cand_flag_disc = M2Example(
                     example_id=str(uuid.uuid4()),
                     claim=f"{obs['test_name']} flag: {alt_flag}",
                     evidence=context_snip,
@@ -282,31 +320,18 @@ def generate_clean_lab_examples(
                     char_end=char_end,
                     page_number=page_num,
                     bbox=bbox,
-                ))
+                )
+                _safe_add_example(cand_flag_disc, page_text, examples, gate, diagnostics)
 
         # Clean Lab INSUFFICIENT_EVIDENCE (unobserved test claims)
-        header_ev = "Clinical Pathology Diagnostic Report"
-        header_bbox = [42.0, 40.95, 265.36, 61.6]
-        header_start = 0
-        header_end = len(header_ev)
-        if page_text:
-            first_lines = page_text.split("\n")[:4]
-            header_ev = " | ".join(first_lines)
-            header_end = len(header_ev)
-            context_header, _, _ = extract_context_window(
-                page_text, 0, header_end, is_tabular=True
-            )
-        else:
-            context_header = header_ev
-
         unobserved = [c for c in UNOBSERVED_LAB_CANDIDATES if c[0] not in gt_test_names]
         for c_idx, c in enumerate(unobserved[:2]):  # 2 unobserved tests per clean lab doc
             unobs_group_id = f"{doc_id}_unobs_lab_{c_idx}"
             unobs_ev_id = str(uuid.uuid4())
-            examples.append(M2Example(
+            cand_unobs = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{c[0]}: {c[1]} {c[2]}",
-                evidence=context_header,
+                evidence="Document-level absence: Target analyte not observed in report.",
                 field_type="lab.value",
                 doc_template=template,
                 ocr_confidence=1.0,
@@ -318,11 +343,12 @@ def generate_clean_lab_examples(
                 group_id=unobs_group_id,
                 contradiction_type=None,
                 evidence_id=unobs_ev_id,
-                char_start=header_start,
-                char_end=header_end,
+                char_start=None,
+                char_end=None,
                 page_number=1,
-                bbox=header_bbox,
-            ))
+                bbox=None,
+            )
+            _safe_add_example(cand_unobs, page_text, examples, gate, diagnostics)
     return examples
 
 
@@ -332,7 +358,11 @@ def generate_clean_med_examples(
     med_extracted_dir: Path,
     med_gt_dir: Path,
     med_ocr_cache_dir: Path = Path("data/med_ocr_cache"),
+    diagnostics: Optional[GenerationDiagnostics] = None,
+    validation_gate: Optional[PreSerializationValidationGate] = None,
+    doc_id_filter: Optional[Sequence[str]] = None,
 ) -> tuple[list[M2Example], int]:
+    gate = validation_gate or PreSerializationValidationGate()
     examples = []
     excluded_count = 0
 
@@ -340,6 +370,8 @@ def generate_clean_med_examples(
         with open(ext_path, "r", encoding="utf-8") as f:
             ext = json.load(f)
         doc_id = ext["doc_id"]
+        if doc_id_filter and doc_id not in doc_id_filter:
+            continue
         gt_path = med_gt_dir / f"{doc_id}.json"
         if not gt_path.exists():
             continue
@@ -392,14 +424,21 @@ def generate_clean_med_examples(
                     char_start = page_text.find(ev_text)
                     char_end = char_start + len(ev_text) if char_start >= 0 else len(ev_text)
 
-            if char_start < 0:
-                char_start = 0
-                char_end = len(ev_text)
-                context_snip = ev_text
-            else:
-                context_snip, _, _ = extract_context_window(
-                    page_text, char_start, char_end, is_tabular=False
-                )
+            if char_start < 0 and page_text and name:
+                n_idx = page_text.find(name)
+                if n_idx >= 0:
+                    char_start = n_idx
+                    char_end = n_idx + len(name)
+
+            if char_start < 0 or not page_text:
+                if diagnostics:
+                    diagnostics.record_rejection("missing_target_entity")
+                excluded_count += 1
+                continue
+
+            context_snip, _, _ = extract_context_window(
+                page_text, char_start, char_end, is_tabular=False
+            )
 
             ev_lower = ev_text.lower()
             context_lower = context_snip.lower()
@@ -408,7 +447,7 @@ def generate_clean_med_examples(
 
             # Name claim
             if name and name.lower() in ev_lower:
-                examples.append(M2Example(
+                cand_name_sup = M2Example(
                     example_id=str(uuid.uuid4()),
                     claim=f"Medication: {name}",
                     evidence=context_snip,
@@ -427,10 +466,10 @@ def generate_clean_med_examples(
                     char_end=char_end,
                     page_number=page_num,
                     bbox=bbox,
-                ))
+                )
+                _safe_add_example(cand_name_sup, page_text, examples, gate, diagnostics)
 
                 # Discrepancy name using alternative canonical medication name
-                # Safeguard: alternative must NOT appear in evidence or surrounding context
                 valid_alternatives = [
                     m for m in CANONICAL_MEDICATIONS
                     if m.lower() != name.lower()
@@ -443,7 +482,7 @@ def generate_clean_med_examples(
                         if m.lower() != name.lower() and m.lower() not in ev_lower
                     ]
                 alt_name = valid_alternatives[idx % len(valid_alternatives)]
-                examples.append(M2Example(
+                cand_name_disc = M2Example(
                     example_id=str(uuid.uuid4()),
                     claim=f"Medication: {alt_name}",
                     evidence=context_snip,
@@ -462,7 +501,8 @@ def generate_clean_med_examples(
                     char_end=char_end,
                     page_number=page_num,
                     bbox=bbox,
-                ))
+                )
+                _safe_add_example(cand_name_disc, page_text, examples, gate, diagnostics)
             else:
                 excluded_count += 1
 
@@ -472,7 +512,7 @@ def generate_clean_med_examples(
             if dose is not None:
                 d_str = _format_num(dose)
                 if d_str in ev_lower:
-                    examples.append(M2Example(
+                    cand_dose_sup = M2Example(
                         example_id=str(uuid.uuid4()),
                         claim=f"{name} dose: {d_str} {unit}",
                         evidence=context_snip,
@@ -491,9 +531,11 @@ def generate_clean_med_examples(
                         char_end=char_end,
                         page_number=page_num,
                         bbox=bbox,
-                    ))
+                    )
+                    _safe_add_example(cand_dose_sup, page_text, examples, gate, diagnostics)
+
                     alt_d = float(dose) * 2.0 if float(dose) < 100 else float(dose) / 2.0
-                    examples.append(M2Example(
+                    cand_dose_disc = M2Example(
                         example_id=str(uuid.uuid4()),
                         claim=f"{name} dose: {_format_num(alt_d)} {unit}",
                         evidence=context_snip,
@@ -512,7 +554,8 @@ def generate_clean_med_examples(
                         char_end=char_end,
                         page_number=page_num,
                         bbox=bbox,
-                    ))
+                    )
+                    _safe_add_example(cand_dose_disc, page_text, examples, gate, diagnostics)
                 else:
                     excluded_count += 1
 
@@ -520,7 +563,7 @@ def generate_clean_med_examples(
             freq = med.get("frequency")
             if freq:
                 if freq.lower() in ev_lower:
-                    examples.append(M2Example(
+                    cand_freq_sup = M2Example(
                         example_id=str(uuid.uuid4()),
                         claim=f"{name} frequency: {freq}",
                         evidence=context_snip,
@@ -539,9 +582,11 @@ def generate_clean_med_examples(
                         char_end=char_end,
                         page_number=page_num,
                         bbox=bbox,
-                    ))
+                    )
+                    _safe_add_example(cand_freq_sup, page_text, examples, gate, diagnostics)
+
                     alt_freq = _alt_from_vocab(freq, FREQ_VOCAB, idx)
-                    examples.append(M2Example(
+                    cand_freq_disc = M2Example(
                         example_id=str(uuid.uuid4()),
                         claim=f"{name} frequency: {alt_freq}",
                         evidence=context_snip,
@@ -560,7 +605,8 @@ def generate_clean_med_examples(
                         char_end=char_end,
                         page_number=page_num,
                         bbox=bbox,
-                    ))
+                    )
+                    _safe_add_example(cand_freq_disc, page_text, examples, gate, diagnostics)
                 else:
                     excluded_count += 1
 
@@ -568,7 +614,7 @@ def generate_clean_med_examples(
             route = med.get("route")
             if route:
                 if route.lower() in ev_lower:
-                    examples.append(M2Example(
+                    cand_route_sup = M2Example(
                         example_id=str(uuid.uuid4()),
                         claim=f"{name} route: {route}",
                         evidence=context_snip,
@@ -587,9 +633,11 @@ def generate_clean_med_examples(
                         char_end=char_end,
                         page_number=page_num,
                         bbox=bbox,
-                    ))
+                    )
+                    _safe_add_example(cand_route_sup, page_text, examples, gate, diagnostics)
+
                     alt_route = _alt_from_vocab(route, ROUTE_VOCAB, idx)
-                    examples.append(M2Example(
+                    cand_route_disc = M2Example(
                         example_id=str(uuid.uuid4()),
                         claim=f"{name} route: {alt_route}",
                         evidence=context_snip,
@@ -608,7 +656,8 @@ def generate_clean_med_examples(
                         char_end=char_end,
                         page_number=page_num,
                         bbox=bbox,
-                    ))
+                    )
+                    _safe_add_example(cand_route_disc, page_text, examples, gate, diagnostics)
                 else:
                     excluded_count += 1
 
@@ -621,112 +670,40 @@ def generate_clean_med_examples(
                 excluded_count += 1
 
         # Clean Med INSUFFICIENT_EVIDENCE (unobserved medication claims)
-        header_med_ev = "Medical Center Prescription"
-        header_bbox = [42.0, 40.95, 372.94, 61.6]
-        header_start = 0
-        header_end = len(header_med_ev)
-        if page_text:
-            first_lines = page_text.split("\n")[:3]
-            header_med_ev = " | ".join(first_lines)
-            header_end = len(header_med_ev)
-            context_header, _, _ = extract_context_window(
-                page_text, 0, header_end, is_tabular=False
-            )
-        else:
-            context_header = header_med_ev
-
         unobserved_meds = [c for c in UNOBSERVED_MED_CANDIDATES if c[0].split()[0].lower() not in gt_med_names]
         for c_idx, c in enumerate(unobserved_meds[:1]):
             unobs_group_id = f"{doc_id}_unobs_med_{c_idx}"
             unobs_ev_id = str(uuid.uuid4())
+            doc_absence_msg = "Document-level absence: Target medication not observed in record."
 
-            # 1. med.name INSUFFICIENT_EVIDENCE
-            examples.append(M2Example(
-                example_id=str(uuid.uuid4()),
-                claim=f"Medication: {c[0]}",
-                evidence=context_header,
-                field_type="med.name",
-                doc_template=template,
-                ocr_confidence=1.0,
-                severity="clean",
-                label=VerificationLabel.INSUFFICIENT_EVIDENCE,
-                source_doc_id=doc_id,
-                generation_method="clean_unobserved_claim_insufficient_evidence",
-                claim_type="med",
-                group_id=unobs_group_id,
-                contradiction_type=None,
-                evidence_id=unobs_ev_id,
-                char_start=header_start,
-                char_end=header_end,
-                page_number=1,
-                bbox=header_bbox,
-            ))
-
-            # 2. med.dose INSUFFICIENT_EVIDENCE
-            examples.append(M2Example(
-                example_id=str(uuid.uuid4()),
-                claim=f"{c[0]} dose: {c[1]}",
-                evidence=context_header,
-                field_type="med.dose",
-                doc_template=template,
-                ocr_confidence=1.0,
-                severity="clean",
-                label=VerificationLabel.INSUFFICIENT_EVIDENCE,
-                source_doc_id=doc_id,
-                generation_method="clean_unobserved_claim_insufficient_evidence",
-                claim_type="med",
-                group_id=unobs_group_id,
-                contradiction_type=None,
-                evidence_id=unobs_ev_id,
-                char_start=header_start,
-                char_end=header_end,
-                page_number=1,
-                bbox=header_bbox,
-            ))
-
-            # 3. med.route INSUFFICIENT_EVIDENCE
-            examples.append(M2Example(
-                example_id=str(uuid.uuid4()),
-                claim=f"{c[0]} route: {c[2]}",
-                evidence=context_header,
-                field_type="med.route",
-                doc_template=template,
-                ocr_confidence=1.0,
-                severity="clean",
-                label=VerificationLabel.INSUFFICIENT_EVIDENCE,
-                source_doc_id=doc_id,
-                generation_method="clean_unobserved_claim_insufficient_evidence",
-                claim_type="med",
-                group_id=unobs_group_id,
-                contradiction_type=None,
-                evidence_id=unobs_ev_id,
-                char_start=header_start,
-                char_end=header_end,
-                page_number=1,
-                bbox=header_bbox,
-            ))
-
-            # 4. med.frequency INSUFFICIENT_EVIDENCE
-            examples.append(M2Example(
-                example_id=str(uuid.uuid4()),
-                claim=f"{c[0]} frequency: {c[3]}",
-                evidence=context_header,
-                field_type="med.frequency",
-                doc_template=template,
-                ocr_confidence=1.0,
-                severity="clean",
-                label=VerificationLabel.INSUFFICIENT_EVIDENCE,
-                source_doc_id=doc_id,
-                generation_method="clean_unobserved_claim_insufficient_evidence",
-                claim_type="med",
-                group_id=unobs_group_id,
-                contradiction_type=None,
-                evidence_id=unobs_ev_id,
-                char_start=header_start,
-                char_end=header_end,
-                page_number=1,
-                bbox=header_bbox,
-            ))
+            claims = [
+                ("med.name", f"Medication: {c[0]}"),
+                ("med.dose", f"{c[0]} dose: {c[1]}"),
+                ("med.route", f"{c[0]} route: {c[2]}"),
+                ("med.frequency", f"{c[0]} frequency: {c[3]}"),
+            ]
+            for fld, clm_str in claims:
+                cand_unobs = M2Example(
+                    example_id=str(uuid.uuid4()),
+                    claim=clm_str,
+                    evidence=doc_absence_msg,
+                    field_type=fld,
+                    doc_template=template,
+                    ocr_confidence=1.0,
+                    severity="clean",
+                    label=VerificationLabel.INSUFFICIENT_EVIDENCE,
+                    source_doc_id=doc_id,
+                    generation_method="clean_unobserved_claim_insufficient_evidence",
+                    claim_type="med",
+                    group_id=unobs_group_id,
+                    contradiction_type=None,
+                    evidence_id=unobs_ev_id,
+                    char_start=None,
+                    char_end=None,
+                    page_number=1,
+                    bbox=None,
+                )
+                _safe_add_example(cand_unobs, page_text, examples, gate, diagnostics)
 
     return examples, excluded_count
 
@@ -736,7 +713,12 @@ def generate_clean_med_examples(
 def generate_degraded_lab_examples(
     gt_dir: Path,
     corrupt_lab_dir: Path,
+    ocr_cache_dir: Path = Path("data/ocr_cache"),
+    diagnostics: Optional[GenerationDiagnostics] = None,
+    validation_gate: Optional[PreSerializationValidationGate] = None,
+    doc_id_filter: Optional[Sequence[str]] = None,
 ) -> list[M2Example]:
+    gate = validation_gate or PreSerializationValidationGate()
     examples = []
     if not corrupt_lab_dir.exists():
         return examples
@@ -747,11 +729,25 @@ def generate_degraded_lab_examples(
         if not m:
             continue
         doc_id, severity = m.group(1), m.group(2)
+        if doc_id_filter and doc_id not in doc_id_filter:
+            continue
         gt_path = gt_dir / f"{doc_id}.json"
         if not gt_path.exists():
             continue
         gt = json.load(open(gt_path, encoding="utf-8"))
         template = _lab_template_for_doc(gt)
+
+        # Load clean canonical page text for coordinate re-anchoring
+        clean_ocr_path = ocr_cache_dir / f"{doc_id}.json"
+        if not clean_ocr_path.exists():
+            if diagnostics:
+                diagnostics.record_rejection("missing_canonical_ocr")
+            continue
+        with open(clean_ocr_path, "r", encoding="utf-8") as f:
+            clean_ocr_data = json.load(f)
+        clean_page_text, _ = reconstruct_canonical_page_text(
+            clean_ocr_data.get("lines", []), is_tabular=True, page_number=1
+        )
 
         corrupt_ocr = json.load(open(corrupt_path, encoding="utf-8"))
         lines = corrupt_ocr.get("lines", [])
@@ -764,36 +760,51 @@ def generate_degraded_lab_examples(
             unit = gt_test.get("unit", "")
             v_str = _format_num(val)
 
-            is_readable = _token_present_in_text(v_str, page_text)
-
-            # Build localized snippet around the test
+            # Strict entity matching: target analyte must be present in line
             target_line_idx = -1
             for li, line_obj in enumerate(lines):
                 ltxt = line_obj.get("text", "")
-                if tname.lower() in ltxt.lower() or v_str in ltxt:
+                if tname.lower() in ltxt.lower():
                     target_line_idx = li
                     break
 
-            if target_line_idx >= 0:
-                t_line = lines[target_line_idx]
-                target_text = t_line.get("text", "")
-                char_start = page_text.find(target_text)
-                char_end = char_start + len(target_text) if char_start >= 0 else len(target_text)
-                char_start = max(0, char_start)
-                bbox = t_line.get("bbox", [52.0, 193.32, 517.01, 205.76])
-                snip, _, _ = extract_context_window(page_text, char_start, char_end, is_tabular=True)
-            else:
-                char_start = 0
-                char_end = min(len(page_text), 100)
-                bbox = [52.0, 193.32, 517.01, 205.76]
-                snip, _, _ = extract_context_window(page_text, 0, char_end, is_tabular=True)
+            if target_line_idx < 0:
+                if diagnostics:
+                    diagnostics.record_rejection("missing_target_entity")
+                continue
+
+            t_line = lines[target_line_idx]
+            target_text = t_line.get("text", "")
+            bbox = t_line.get("bbox", [52.0, 193.32, 517.01, 205.76])
+
+            # Degraded-to-canonical coordinate mapping
+            c_idx = clean_page_text.find(tname)
+            if c_idx < 0:
+                if diagnostics:
+                    diagnostics.record_rejection("failed_degraded_alignment")
+                continue
+
+            canon_char_start = c_idx
+            canon_char_end = c_idx + len(tname)
+
+            if not (0 <= canon_char_start < canon_char_end <= len(clean_page_text)):
+                if diagnostics:
+                    diagnostics.record_rejection("invalid_canonical_offset")
+                continue
+
+            # Context window extracted from degraded text around target line
+            deg_cs = page_text.find(target_text)
+            deg_ce = deg_cs + len(target_text) if deg_cs >= 0 else len(target_text)
+            deg_cs = max(0, deg_cs)
+            snip, _, _ = extract_context_window(page_text, deg_cs, deg_ce, is_tabular=True)
+
+            is_readable = _token_present_in_text(v_str, target_text) or _token_present_in_text(v_str, page_text)
 
             group_id = f"{doc_id}_{severity}_obs_{idx}"
             evidence_id = str(uuid.uuid4())
 
             if not is_readable:
-                # Genuinely destroyed/absent token -> INSUFFICIENT_EVIDENCE
-                examples.append(M2Example(
+                cand_ie = M2Example(
                     example_id=str(uuid.uuid4()),
                     claim=f"{tname}: {v_str} {unit}",
                     evidence=snip,
@@ -808,14 +819,14 @@ def generate_degraded_lab_examples(
                     group_id=group_id,
                     contradiction_type=None,
                     evidence_id=evidence_id,
-                    char_start=char_start,
-                    char_end=char_end,
+                    char_start=canon_char_start,
+                    char_end=canon_char_end,
                     page_number=1,
                     bbox=bbox,
-                ))
+                )
+                _safe_add_example(cand_ie, clean_page_text, examples, gate, diagnostics)
             else:
-                # Readable token -> legitimate SUPPORTED and DISCREPANCY under noise
-                examples.append(M2Example(
+                cand_sup = M2Example(
                     example_id=str(uuid.uuid4()),
                     claim=f"{tname}: {v_str} {unit}",
                     evidence=snip,
@@ -830,13 +841,15 @@ def generate_degraded_lab_examples(
                     group_id=group_id,
                     contradiction_type=None,
                     evidence_id=evidence_id,
-                    char_start=char_start,
-                    char_end=char_end,
+                    char_start=canon_char_start,
+                    char_end=canon_char_end,
                     page_number=1,
                     bbox=bbox,
-                ))
+                )
+                _safe_add_example(cand_sup, clean_page_text, examples, gate, diagnostics)
+
                 alt_v = _alter_numeric(val, idx)
-                examples.append(M2Example(
+                cand_disc = M2Example(
                     example_id=str(uuid.uuid4()),
                     claim=f"{tname}: {_format_num(alt_v)} {unit}",
                     evidence=snip,
@@ -851,11 +864,12 @@ def generate_degraded_lab_examples(
                     group_id=group_id,
                     contradiction_type="value_mismatch",
                     evidence_id=evidence_id,
-                    char_start=char_start,
-                    char_end=char_end,
+                    char_start=canon_char_start,
+                    char_end=canon_char_end,
                     page_number=1,
                     bbox=bbox,
-                ))
+                )
+                _safe_add_example(cand_disc, clean_page_text, examples, gate, diagnostics)
     return examples
 
 
@@ -864,7 +878,12 @@ def generate_degraded_lab_examples(
 def generate_degraded_med_examples(
     med_gt_dir: Path,
     corrupt_med_dir: Path,
+    med_ocr_cache_dir: Path = Path("data/med_ocr_cache"),
+    diagnostics: Optional[GenerationDiagnostics] = None,
+    validation_gate: Optional[PreSerializationValidationGate] = None,
+    doc_id_filter: Optional[Sequence[str]] = None,
 ) -> list[M2Example]:
+    gate = validation_gate or PreSerializationValidationGate()
     examples = []
     if not corrupt_med_dir.exists():
         return examples
@@ -875,11 +894,25 @@ def generate_degraded_med_examples(
         if not m:
             continue
         doc_id, severity = m.group(1), m.group(2)
+        if doc_id_filter and doc_id not in doc_id_filter:
+            continue
         gt_path = med_gt_dir / f"{doc_id}.json"
         if not gt_path.exists():
             continue
         gt = json.load(open(gt_path, encoding="utf-8"))
         template = gt.get("template_type", "clinic_rx_pad")
+
+        # Load clean canonical page text for coordinate re-anchoring
+        clean_ocr_path = med_ocr_cache_dir / f"{doc_id}.json"
+        if not clean_ocr_path.exists():
+            if diagnostics:
+                diagnostics.record_rejection("missing_canonical_ocr")
+            continue
+        with open(clean_ocr_path, "r", encoding="utf-8") as f:
+            clean_ocr_data = json.load(f)
+        clean_page_text, _ = reconstruct_canonical_page_text(
+            clean_ocr_data.get("lines", []), is_tabular=False, page_number=1
+        )
 
         corrupt_ocr = json.load(open(corrupt_path, encoding="utf-8"))
         lines = corrupt_ocr.get("lines", [])
@@ -891,36 +924,57 @@ def generate_degraded_med_examples(
             dose = med.get("dose")
             unit = med.get("dose_unit", "mg")
 
-            # Localize snippet
+            # Strict entity matching: target medication must be present
             target_line_idx = -1
+            name_token = name.split()[0].lower()
             for li, line_obj in enumerate(lines):
                 ltxt = line_obj.get("text", "")
-                if name.split()[0].lower() in ltxt.lower():
+                if name.lower() in ltxt.lower() or name_token in ltxt.lower():
                     target_line_idx = li
                     break
 
-            if target_line_idx >= 0:
-                t_line = lines[target_line_idx]
-                target_text = t_line.get("text", "")
-                char_start = page_text.find(target_text)
-                char_end = char_start + len(target_text) if char_start >= 0 else len(target_text)
-                char_start = max(0, char_start)
-                bbox = t_line.get("bbox", [42.0, 192.73, 173.42, 207.88])
-                snip, _, _ = extract_context_window(page_text, char_start, char_end, is_tabular=False)
-            else:
-                char_start = 0
-                char_end = min(len(page_text), 100)
-                bbox = [42.0, 192.73, 173.42, 207.88]
-                snip, _, _ = extract_context_window(page_text, 0, char_end, is_tabular=False)
+            if target_line_idx < 0:
+                if diagnostics:
+                    diagnostics.record_rejection("missing_target_entity")
+                continue
+
+            t_line = lines[target_line_idx]
+            target_text = t_line.get("text", "")
+            bbox = t_line.get("bbox", [42.0, 192.73, 173.42, 207.88])
+
+            # Degraded-to-canonical coordinate mapping
+            c_idx = clean_page_text.find(name)
+            matched_name = name
+            if c_idx < 0:
+                c_idx = clean_page_text.find(name.split()[0])
+                matched_name = name.split()[0]
+            if c_idx < 0:
+                if diagnostics:
+                    diagnostics.record_rejection("failed_degraded_alignment")
+                continue
+
+            canon_char_start = c_idx
+            canon_char_end = c_idx + len(matched_name)
+
+            if not (0 <= canon_char_start < canon_char_end <= len(clean_page_text)):
+                if diagnostics:
+                    diagnostics.record_rejection("invalid_canonical_offset")
+                continue
+
+            # Context window extracted from degraded text around target line
+            deg_cs = page_text.find(target_text)
+            deg_ce = deg_cs + len(target_text) if deg_cs >= 0 else len(target_text)
+            deg_cs = max(0, deg_cs)
+            snip, _, _ = extract_context_window(page_text, deg_cs, deg_ce, is_tabular=False)
 
             group_id = f"{doc_id}_{severity}_med_{idx}"
             evidence_id = str(uuid.uuid4())
 
             if dose is not None:
                 d_str = _format_num(dose)
-                has_dose = d_str in page_text
+                has_dose = d_str in target_text or d_str in page_text
                 if not has_dose:
-                    examples.append(M2Example(
+                    cand_ie = M2Example(
                         example_id=str(uuid.uuid4()),
                         claim=f"{name} dose: {d_str} {unit}",
                         evidence=snip,
@@ -935,13 +989,14 @@ def generate_degraded_med_examples(
                         group_id=group_id,
                         contradiction_type=None,
                         evidence_id=evidence_id,
-                        char_start=char_start,
-                        char_end=char_end,
+                        char_start=canon_char_start,
+                        char_end=canon_char_end,
                         page_number=1,
                         bbox=bbox,
-                    ))
+                    )
+                    _safe_add_example(cand_ie, clean_page_text, examples, gate, diagnostics)
                 else:
-                    examples.append(M2Example(
+                    cand_sup = M2Example(
                         example_id=str(uuid.uuid4()),
                         claim=f"{name} dose: {d_str} {unit}",
                         evidence=snip,
@@ -956,13 +1011,15 @@ def generate_degraded_med_examples(
                         group_id=group_id,
                         contradiction_type=None,
                         evidence_id=evidence_id,
-                        char_start=char_start,
-                        char_end=char_end,
+                        char_start=canon_char_start,
+                        char_end=canon_char_end,
                         page_number=1,
                         bbox=bbox,
-                    ))
+                    )
+                    _safe_add_example(cand_sup, clean_page_text, examples, gate, diagnostics)
+
                     alt_d = float(dose) * 2.0 if float(dose) < 100 else float(dose) / 2.0
-                    examples.append(M2Example(
+                    cand_disc = M2Example(
                         example_id=str(uuid.uuid4()),
                         claim=f"{name} dose: {_format_num(alt_d)} {unit}",
                         evidence=snip,
@@ -977,11 +1034,12 @@ def generate_degraded_med_examples(
                         group_id=group_id,
                         contradiction_type="dose_mismatch",
                         evidence_id=evidence_id,
-                        char_start=char_start,
-                        char_end=char_end,
+                        char_start=canon_char_start,
+                        char_end=canon_char_end,
                         page_number=1,
                         bbox=bbox,
-                    ))
+                    )
+                    _safe_add_example(cand_disc, clean_page_text, examples, gate, diagnostics)
     return examples
 
 
@@ -994,6 +1052,12 @@ def generate_m2_dataset(
     med_gt_dir: Path = Path("data/med_ground_truth"),
     corrupt_lab_dir: Path = Path("data/degraded/ocr_cache/corrupt_lab"),
     corrupt_med_dir: Path = Path("data/degraded/ocr_cache/corrupt_med"),
+    narrative_gt_dir: Optional[Path] = Path("data/narrative_ground_truth"),
+    narrative_ocr_dir: Optional[Path] = Path("data/narrative_ocr_cache"),
+    ocr_cache_dir: Path = Path("data/ocr_cache"),
+    med_ocr_cache_dir: Path = Path("data/med_ocr_cache"),
+    doc_id_filter: Optional[Sequence[str]] = None,
+    include_narrative: bool = False,
     seed: int = 42,
 ) -> tuple[list[M2Example], dict]:
     """Generate the canonical M2 verification dataset with Phase 1 contracts.
@@ -1003,33 +1067,76 @@ def generate_m2_dataset(
     """
     import random
     rng = random.Random(seed)
+    diagnostics = GenerationDiagnostics()
+    gate = PreSerializationValidationGate()
     examples: list[M2Example] = []
 
     print("Generating clean lab observations...")
-    clean_lab = generate_clean_lab_examples(extracted_dir, gt_dir)
+    clean_lab = generate_clean_lab_examples(
+        extracted_dir,
+        gt_dir,
+        ocr_cache_dir=ocr_cache_dir,
+        diagnostics=diagnostics,
+        validation_gate=gate,
+        doc_id_filter=doc_id_filter,
+    )
     print(f"  -> {len(clean_lab)} clean lab examples")
     examples.extend(clean_lab)
 
     print("Generating clean medication observations (with strict grounding & IE balance)...")
-    clean_med, excluded_med = generate_clean_med_examples(med_extracted_dir, med_gt_dir)
+    clean_med, excluded_med = generate_clean_med_examples(
+        med_extracted_dir,
+        med_gt_dir,
+        med_ocr_cache_dir=med_ocr_cache_dir,
+        diagnostics=diagnostics,
+        validation_gate=gate,
+        doc_id_filter=doc_id_filter,
+    )
     print(f"  -> {len(clean_med)} clean med examples (excluded {excluded_med} ungrounded claims)")
     examples.extend(clean_med)
 
     print("Generating degraded lab observations (independent severity)...")
-    deg_lab = generate_degraded_lab_examples(gt_dir, corrupt_lab_dir)
+    deg_lab = generate_degraded_lab_examples(
+        gt_dir,
+        corrupt_lab_dir,
+        ocr_cache_dir=ocr_cache_dir,
+        diagnostics=diagnostics,
+        validation_gate=gate,
+        doc_id_filter=doc_id_filter,
+    )
     print(f"  -> {len(deg_lab)} degraded lab examples")
     examples.extend(deg_lab)
 
     print("Generating degraded medication observations (independent severity)...")
-    deg_med = generate_degraded_med_examples(med_gt_dir, corrupt_med_dir)
+    deg_med = generate_degraded_med_examples(
+        med_gt_dir,
+        corrupt_med_dir,
+        med_ocr_cache_dir=med_ocr_cache_dir,
+        diagnostics=diagnostics,
+        validation_gate=gate,
+        doc_id_filter=doc_id_filter,
+    )
     print(f"  -> {len(deg_med)} degraded med examples")
     examples.extend(deg_med)
+
+    if include_narrative and narrative_gt_dir and narrative_ocr_dir and narrative_gt_dir.exists():
+        print("Generating narrative verification examples...")
+        narr_ex = generate_narrative_m2_examples(
+            narrative_gt_dir=narrative_gt_dir,
+            narrative_ocr_dir=narrative_ocr_dir,
+            diagnostics=diagnostics,
+            validation_gate=gate,
+            doc_id_filter=doc_id_filter,
+        )
+        print(f"  -> {len(narr_ex)} narrative examples")
+        examples.extend(narr_ex)
 
     rng.shuffle(examples)
     print(f"\nTotal M2 verification examples generated: {len(examples)}")
     stats = {
         "total_generated": len(examples),
         "excluded_ungrounded_med_claims": excluded_med,
+        "diagnostics": diagnostics.get_counts(),
     }
     return examples, stats
 
@@ -1039,6 +1146,9 @@ def generate_m2_dataset(
 def generate_narrative_m2_examples(
     narrative_gt_dir: Path = Path("data/narrative_ground_truth"),
     narrative_ocr_dir: Path = Path("data/narrative_ocr_cache"),
+    diagnostics: Optional[GenerationDiagnostics] = None,
+    validation_gate: Optional[PreSerializationValidationGate] = None,
+    doc_id_filter: Optional[Sequence[str]] = None,
 ) -> list[M2Example]:
     """Generate M2 verification examples from synthetic narrative documents.
 
@@ -1050,6 +1160,7 @@ def generate_narrative_m2_examples(
     - DEC-003: DR-3 paragraph-bounded context window (max 500 characters)
     - DEC-011: Balanced classes across supported, discrepancy, and insufficient-evidence
     """
+    gate = validation_gate or PreSerializationValidationGate()
     examples: list[M2Example] = []
 
     for gt_path in sorted(narrative_gt_dir.glob("NARRATIVE_*.json")):
@@ -1057,6 +1168,8 @@ def generate_narrative_m2_examples(
             gt = json.load(f)
 
         doc_id = gt["doc_id"]
+        if doc_id_filter and doc_id not in doc_id_filter:
+            continue
         template = gt["template_id"]
         split = gt["split"].lower()
         ocr_path = narrative_ocr_dir / f"{doc_id}.json"
@@ -1082,7 +1195,7 @@ def generate_narrative_m2_examples(
             context_snip, _, _ = extract_context_window(page_text, cs, ce, is_tabular=False)
 
             # A. lab.value SUPPORTED
-            examples.append(M2Example(
+            cand_val_sup = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{tname}: {val_str} {unit}",
                 evidence=context_snip,
@@ -1102,11 +1215,12 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_val_sup, page_text, examples, gate, diagnostics)
 
             # B. lab.value DISCREPANCY
             alt_val = _alter_numeric(val, l_idx)
-            examples.append(M2Example(
+            cand_val_disc = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{tname}: {_format_num(alt_val)} {unit}",
                 evidence=context_snip,
@@ -1126,10 +1240,11 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_val_disc, page_text, examples, gate, diagnostics)
 
             # C. lab.flag SUPPORTED
-            examples.append(M2Example(
+            cand_flag_sup = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{tname} flag: {flag}",
                 evidence=context_snip,
@@ -1149,11 +1264,12 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_flag_sup, page_text, examples, gate, diagnostics)
 
             # D. lab.flag DISCREPANCY
             alt_flag = "HIGH" if flag == "NORMAL" else "NORMAL"
-            examples.append(M2Example(
+            cand_flag_disc = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{tname} flag: {alt_flag}",
                 evidence=context_snip,
@@ -1173,7 +1289,8 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_flag_disc, page_text, examples, gate, diagnostics)
 
         # 2. Med Entities -> med.name, med.dose, med.route, med.frequency
         for m_idx, med in enumerate(gt.get("med_entities", [])):
@@ -1193,7 +1310,7 @@ def generate_narrative_m2_examples(
             context_lower = context_snip.lower()
 
             # A. med.name SUPPORTED
-            examples.append(M2Example(
+            cand_mname_sup = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"Medication: {mname}",
                 evidence=context_snip,
@@ -1213,7 +1330,8 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_mname_sup, page_text, examples, gate, diagnostics)
 
             # med.name DISCREPANCY
             val_alts = [
@@ -1221,7 +1339,7 @@ def generate_narrative_m2_examples(
                 if m.lower() != mname.lower() and m.lower() not in ev_lower and m.lower() not in context_lower
             ]
             alt_mname = val_alts[m_idx % len(val_alts)] if val_alts else "Albuterol"
-            examples.append(M2Example(
+            cand_mname_disc = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"Medication: {alt_mname}",
                 evidence=context_snip,
@@ -1241,10 +1359,11 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_mname_disc, page_text, examples, gate, diagnostics)
 
             # B. med.dose SUPPORTED & DISCREPANCY
-            examples.append(M2Example(
+            cand_mdose_sup = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{mname} dose: {dose_str} {dunit}",
                 evidence=context_snip,
@@ -1264,9 +1383,11 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_mdose_sup, page_text, examples, gate, diagnostics)
+
             alt_d = float(dose) * 2.0 if float(dose) < 100 else float(dose) / 2.0
-            examples.append(M2Example(
+            cand_mdose_disc = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{mname} dose: {_format_num(alt_d)} {dunit}",
                 evidence=context_snip,
@@ -1286,10 +1407,11 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_mdose_disc, page_text, examples, gate, diagnostics)
 
             # C. med.route SUPPORTED & DISCREPANCY
-            examples.append(M2Example(
+            cand_mroute_sup = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{mname} route: {route}",
                 evidence=context_snip,
@@ -1309,10 +1431,12 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_mroute_sup, page_text, examples, gate, diagnostics)
+
             alt_routes = [r for r in ["intravenously", "by inhalation", "topically", "subcutaneously"] if r.lower() not in ev_lower]
             alt_route = alt_routes[m_idx % len(alt_routes)]
-            examples.append(M2Example(
+            cand_mroute_disc = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{mname} route: {alt_route}",
                 evidence=context_snip,
@@ -1332,10 +1456,11 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_mroute_disc, page_text, examples, gate, diagnostics)
 
             # D. med.frequency SUPPORTED & DISCREPANCY
-            examples.append(M2Example(
+            cand_mfreq_sup = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{mname} frequency: {freq}",
                 evidence=context_snip,
@@ -1355,10 +1480,12 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_mfreq_sup, page_text, examples, gate, diagnostics)
+
             alt_freqs = [f for f in ["four times daily", "every other day", "once weekly", "every 4 hours"] if f.lower() not in ev_lower]
             alt_freq = alt_freqs[m_idx % len(alt_freqs)]
-            examples.append(M2Example(
+            cand_mfreq_disc = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{mname} frequency: {alt_freq}",
                 evidence=context_snip,
@@ -1378,17 +1505,16 @@ def generate_narrative_m2_examples(
                 char_end=ce,
                 page_number=1,
                 bbox=bbox,
-            ))
+            )
+            _safe_add_example(cand_mfreq_disc, page_text, examples, gate, diagnostics)
 
         # 3. Clean INSUFFICIENT_EVIDENCE (Unobserved Lab & Med Claims)
-        ctx_snip, _, _ = extract_context_window(page_text, 0, min(len(page_text), 200), is_tabular=False)
-
         unobs_lab = [c for c in UNOBSERVED_LAB_CANDIDATES if c[0].lower() not in page_text.lower()][:1]
         for c in unobs_lab:
-            examples.append(M2Example(
+            cand_unobs_lab = M2Example(
                 example_id=str(uuid.uuid4()),
                 claim=f"{c[0]}: {c[1]} {c[2]}",
-                evidence=ctx_snip,
+                evidence=f"Document-level absence: Target entity '{c[0]}' not observed in clinical narrative.",
                 field_type="lab.value",
                 doc_template=template,
                 ocr_confidence=1.0,
@@ -1401,11 +1527,12 @@ def generate_narrative_m2_examples(
                 group_id=f"{doc_id}_unobs_lab_0",
                 contradiction_type=None,
                 evidence_id=str(uuid.uuid4()),
-                char_start=0,
-                char_end=min(len(page_text), 200),
+                char_start=None,
+                char_end=None,
                 page_number=1,
-                bbox=[40.0, 40.0, 500.0, 100.0],
-            ))
+                bbox=None,
+            )
+            _safe_add_example(cand_unobs_lab, page_text, examples, gate, diagnostics)
 
         unobs_med = [m for m in UNOBSERVED_MED_CANDIDATES if m[0].lower() not in page_text.lower()][:1]
         for m in unobs_med:
@@ -1415,10 +1542,10 @@ def generate_narrative_m2_examples(
                 ("med.route", f"{m[0]} route: {m[2]}"),
                 ("med.frequency", f"{m[0]} frequency: {m[3]}"),
             ]:
-                examples.append(M2Example(
+                cand_unobs_med = M2Example(
                     example_id=str(uuid.uuid4()),
                     claim=claim_txt,
-                    evidence=ctx_snip,
+                    evidence=f"Document-level absence: Target entity '{m[0]}' not observed in clinical narrative.",
                     field_type=field,
                     doc_template=template,
                     ocr_confidence=1.0,
@@ -1431,11 +1558,12 @@ def generate_narrative_m2_examples(
                     group_id=f"{doc_id}_unobs_med_0",
                     contradiction_type=None,
                     evidence_id=str(uuid.uuid4()),
-                    char_start=0,
-                    char_end=min(len(page_text), 200),
+                    char_start=None,
+                    char_end=None,
                     page_number=1,
-                    bbox=[40.0, 40.0, 500.0, 100.0],
-                ))
+                    bbox=None,
+                )
+                _safe_add_example(cand_unobs_med, page_text, examples, gate, diagnostics)
 
     return examples
 

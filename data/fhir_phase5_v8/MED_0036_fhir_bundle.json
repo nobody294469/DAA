@@ -1,0 +1,1185 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0036",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0036",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0036",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0036"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0036",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0036",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0036",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0036",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0036-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0036-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d2182b02-0611-4b77-a58f-68ed713e04bf"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "93a0bbac-f2ab-4a7e-8596-360a851acb02"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9958
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "tory Infuion & SpeCialty Clinic\nPHYS ICIAN MEDICATION ORDERS1 & CLINICAL ADMINISTrATIO'N ReCORD\nPatient: ElizabethJones | DOB: 196 1-04-04 | MRN: P1A-30036 | Oder Date: 2025-02-19\nOrderingProvider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrdr '#1: Atorvastatin 20 mg\nRoute: PO | Frm: tab1et\nSchedule/Frequ.ency: every vn'ing\nDuration- 90 days | DisPense: #50\nInstructions: Take 1 tablet PO every evening\nRefillS: 2\nOrder #: Amlodpine 5 mg\nRoute:y mouth | Form: tablet\nSchedule/Freqency: QD\nDuration:310"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,196.26,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.68
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0036"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Atorvastatin dose: 20 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "d2182b02-0611-4b77-a58f-68ed713e04bf"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "93a0bbac-f2ab-4a7e-8596-360a851acb02"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9958
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "tory Infuion & SpeCialty Clinic\nPHYS ICIAN MEDICATION ORDERS1 & CLINICAL ADMINISTrATIO'N ReCORD\nPatient: ElizabethJones | DOB: 196 1-04-04 | MRN: P1A-30036 | Oder Date: 2025-02-19\nOrderingProvider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrdr '#1: Atorvastatin 20 mg\nRoute: PO | Frm: tab1et\nSchedule/Frequ.ency: every vn'ing\nDuration- 90 days | DisPense: #50\nInstructions: Take 1 tablet PO every evening\nRefillS: 2\nOrder #: Amlodpine 5 mg\nRoute:y mouth | Form: tablet\nSchedule/Freqency: QD\nDuration:310"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0036-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0036-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7b849703-4e8f-421d-beca-665a69cc5c82"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "d47136ab-fcb9-4056-9c22-3474983d1748"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9914
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuratio"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,186.81,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "7b849703-4e8f-421d-beca-665a69cc5c82"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "d47136ab-fcb9-4056-9c22-3474983d1748"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9914
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuratio"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Amlodipine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0036"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amlodipine Amlodipine dose: 10 mg mg Amlodipine route: by mouth Amlodipine frequency: QD",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "61d5ca87-994e-4204-8e29-01d8ad31fc00"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "968cb499-1878-44ab-8346-dcb94e5f3ad4"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9945
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuratio"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Amlodipine frequency: QD"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "0a9854bf-d5a4-4b67-855d-d48c26439de6"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "cb4a7117-c32a-4fb9-be3d-d283151a9e30"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9855
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuratio"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Amlodipine route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "020fe55f-385d-45f0-a269-42251ca6bf35"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "7def11bd-1544-430d-9aa2-b0781c243e37"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9936
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuratio"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 10.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0036-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0036-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ae902f94-1c21-4271-8af8-8ed761b64956"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "20345b83-535e-4110-bc53-70c083234b4f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.6628
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ion: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth twice daily\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,263.8,189.03,277.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ae902f94-1c21-4271-8af8-8ed761b64956"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "20345b83-535e-4110-bc53-70c083234b4f"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.6628
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ion: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth twice daily\nRefills: 2"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Metformin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0036"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Metformin Metoprolol dose: 50 mg mg Metoprolol route: by mouth Metoprolol frequency: twice daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "ea299b68-3ed5-4a7c-a183-2d408571e75c"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "2afb9314-9f9a-4466-a1ca-f6acb3e91423"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9921
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ion: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth twice daily\nRefills: 2"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metoprolol frequency: twice daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "e42f8fb7-3ca6-49b2-ad06-31722cebac79"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "34f5ce61-6b0f-4fd5-a9c9-0d726bfded82"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9618
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ion: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth twice daily\nRefills: 2"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metoprolol route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "03411c5c-c6ee-4015-8e3b-cade19f0595d"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "f0ca8d92-ebc5-49f0-93cf-faf388e8bd11"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9942
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ion: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth twice daily\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0036-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0036-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "2c6f8784-28c6-4d71-8e24-4a7ad1b64993"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "5d749298-3bc7-4348-9c78-1f6a3f26c842"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9959
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Elizabeth Jones | DOB: 1961-04-04 | MRN: PAT-30036 | Order Date: 2025-02-19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDurati"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,196.26,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "2c6f8784-28c6-4d71-8e24-4a7ad1b64993"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "5d749298-3bc7-4348-9c78-1f6a3f26c842"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9959
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Elizabeth Jones | DOB: 1961-04-04 | MRN: PAT-30036 | Order Date: 2025-02-19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDurati"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0036"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amoxicillin Atorvastatin dose: 20 mg mg Atorvastatin route: PO Atorvastatin frequency: every evening",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "db65f866-8c8a-4379-b2d6-f6d45210de35"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "0d89f6c7-4818-4e9c-b477-4c9d5b1a0eb8"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9938
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Elizabeth Jones | DOB: 1961-04-04 | MRN: PAT-30036 | Order Date: 2025-02-19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDurati"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Atorvastatin frequency: every evening"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "13efba36-ab00-47c3-9953-4e665c1f7ff7"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "a7d68f80-29c0-4440-b72c-5e32c7a069f6"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9935
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Elizabeth Jones | DOB: 1961-04-04 | MRN: PAT-30036 | Order Date: 2025-02-19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDurati"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Atorvastatin route: PO"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "6e935b50-03d4-4d93-b2f2-089c695628fd"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "f59fc8cc-7f89-4fb7-9c2d-cae2ac0fe853"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9969
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Elizabeth Jones | DOB: 1961-04-04 | MRN: PAT-30036 | Order Date: 2025-02-19\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: every evening\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDurati"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0036-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0036-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "da2c6bba-0209-4a17-acb2-781a9dc86026"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "b77ee1e2-edf2-4d74-b7f4-8caa3ec1f7d9"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.997
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "-02-19\nOrdering Proider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: talet\nchedule Frequency: every evening\nDuration: 90 days | Dispens: #90\nINstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by moth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by rnouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDurtion"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,186.81,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.818
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0036"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Amlodipine dose: 5 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "da2c6bba-0209-4a17-acb2-781a9dc86026"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "b77ee1e2-edf2-4d74-b7f4-8caa3ec1f7d9"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.997
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "-02-19\nOrdering Proider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: talet\nchedule Frequency: every evening\nDuration: 90 days | Dispens: #90\nINstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by moth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by rnouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDurtion"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 5.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0036-6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0036-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "57c06a33-9ad0-446e-805f-709865165f8f"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8785c558-7a9e-487c-bfc8-08c4d9dcec4c"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "57c06a33-9ad0-446e-805f-709865165f8f"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "8785c558-7a9e-487c-bfc8-08c4d9dcec4c"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0036"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "b901a488-28e3-41a8-8266-c281aa38d935"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "b0801a71-dceb-4f53-b378-c997b3fcb10e"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "e32fa396-92fd-4a08-b77d-898d825f6119"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "e77dfc24-fcca-4346-8a2b-6f788ec10ef3"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "cea22e1e-ac43-402a-b41b-f96ca69b9424"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "e7425054-8d11-4d49-a8ac-1f9847e91af0"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0036-7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0036-7",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7430de38-a96f-4849-b957-a6baf95f2455"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "06ae56ff-b3c7-4297-9efe-ca53dbad5aa8"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9966
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "y Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Elizabeth Jones | DOB: 1961-04-04 | MRN: PAT -30036 | Order Date: 2025-02-19\nOrdering Proider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: talet\nchedule Frequency: every evening\nDuration: 90 days | Dispens: #90\nINstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by moth | Form: tablet\nSchedule/Frequency: QD\nDuration: "
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,196.26,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.818
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0036"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Atorvastatin dose: 40 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "7430de38-a96f-4849-b957-a6baf95f2455"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "06ae56ff-b3c7-4297-9efe-ca53dbad5aa8"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9966
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "y Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Elizabeth Jones | DOB: 1961-04-04 | MRN: PAT -30036 | Order Date: 2025-02-19\nOrdering Proider: Dr. Lisa Cuddy, MD | Doc ID: MED_0036\nOrder #1: Atorvastatin 20 mg\nRoute: PO | Form: talet\nchedule Frequency: every evening\nDuration: 90 days | Dispens: #90\nINstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by moth | Form: tablet\nSchedule/Frequency: QD\nDuration: "
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 40.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0036-8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0036-8",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4681e6b4-7e3c-4c3a-beef-e2e36d7dfd94"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "552ea3ac-bca6-4631-898f-4c8334b64cbd"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9946
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "tion: 90 days | Dispens: #90\nINstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by moth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by rnouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDurtion: Ongoing | Dispense: #180\nInStructions: 1 tableT by mouth twice. dily\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,263.8,189.03,277.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.818
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0036"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Metoprolol dose: 50 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "4681e6b4-7e3c-4c3a-beef-e2e36d7dfd94"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "552ea3ac-bca6-4631-898f-4c8334b64cbd"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9946
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "tion: 90 days | Dispens: #90\nINstructions: Take 1 tablet PO every evening\nRefills: 2\nOrder #2: Amlodipine 5 mg\nRoute: by moth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by rnouth QD\nRefills: 1\nOrder #3: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice daily\nDurtion: Ongoing | Dispense: #180\nInStructions: 1 tableT by mouth twice. dily\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

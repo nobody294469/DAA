@@ -1,0 +1,802 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0044",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0044",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0044",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0044"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0044",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0044",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0044",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0044",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0044-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0044-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "daf38531-e02e-40bb-a0c9-ca9de439c6b6"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "22ba0de1-6690-4c9a-8896-67a1c27c65e3"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9933
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #90\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,211.83,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "daf38531-e02e-40bb-a0c9-ca9de439c6b6"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "22ba0de1-6690-4c9a-8896-67a1c27c65e3"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9933
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": " 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #90\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Levothyroxine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0044"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Levothyroxine Levothyroxine dose: 100 mcg mcg Levothyroxine route: oral Levothyroxine frequency: twice daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "e3d2e481-bd88-44ce-b630-c126bd25d6a7"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "481a6dd0-b13a-44c1-b6c7-478c802275b2"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9807
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": " 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #90\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Levothyroxine frequency: twice daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "bc6676b9-af57-4340-9cde-b22bfe21e614"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "8455dcd0-6801-488c-be37-b81782d7eff3"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9939
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": " 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #90\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Levothyroxine route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "9a4cc2da-958a-4978-a160-4f895311a902"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "73caf520-d824-4ddd-a6c8-850cbdbc7eea"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9863
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #90\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 100.0,
+                  "unit": "mcg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0044-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0044-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "5781c02e-6ba7-4659-ae05-6b8fbd2d9781"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "495b6bfe-b4af-459e-9e00-301d0bd8d4b5"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9948
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "latory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Wilson | DOB: 1976-11-15 | MRN: PAT-30044 | Order Date: 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once d"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,180.15,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "5781c02e-6ba7-4659-ae05-6b8fbd2d9781"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "495b6bfe-b4af-459e-9e00-301d0bd8d4b5"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9948
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "latory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Wilson | DOB: 1976-11-15 | MRN: PAT-30044 | Order Date: 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once d"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0044"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amoxicillin Losartan dose: 50 mg mg Losartan route: oral Losartan frequency: once daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "fdd7b80e-0f16-4d4a-b059-6c6ba42329b4"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "037d1caa-549e-4bcf-9d7e-e6bc5594988d"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "latory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Wilson | DOB: 1976-11-15 | MRN: PAT-30044 | Order Date: 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once d"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Losartan frequency: once daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "2422e3f6-78f4-47cb-9912-ef7cd29912eb"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "2fdad1c3-c80d-447b-bbee-932181c0d09a"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9944
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "latory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Wilson | DOB: 1976-11-15 | MRN: PAT-30044 | Order Date: 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once d"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Losartan route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "4fbc518e-e4ef-42c0-ad0f-5d74ee9c097a"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "4eabcef9-8600-4eb3-87a9-991d08aeab52"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9975
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "latory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Wilson | DOB: 1976-11-15 | MRN: PAT-30044 | Order Date: 2025-01-14\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every morning\nDuration: 90 days | Dispense: #30\nInstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Frequency: once d"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0044-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0044-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "8f38b604-2548-48a6-8251-520700cfdb50"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8860a2a8-a97c-4f9f-b71e-cbce177ac101"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9931
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "te: 2025-01-14\nOrdering Provider:Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nScedule/FRequency: every morning\nDuration: 90 days | Dispense #30\nlnstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Freque'ncy: once  daily in the morning\nDuation: Ongoing | Dispense: #90\nInstructions: Take 1 table  orAl once daily in the morning\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,211.83,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.8
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0044"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Levothyroxine dose: 100 mcg mcg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "8f38b604-2548-48a6-8251-520700cfdb50"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "8860a2a8-a97c-4f9f-b71e-cbce177ac101"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9931
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "te: 2025-01-14\nOrdering Provider:Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nScedule/FRequency: every morning\nDuration: 90 days | Dispense #30\nlnstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Freque'ncy: once  daily in the morning\nDuation: Ongoing | Dispense: #90\nInstructions: Take 1 table  orAl once daily in the morning\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 100.0,
+                  "unit": "mcg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0044-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0044-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "27f54f9f-6873-4cff-914b-0b2764191199"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "42b5d062-c9c8-4106-ac1a-6f1b6272d107"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "27f54f9f-6873-4cff-914b-0b2764191199"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "42b5d062-c9c8-4106-ac1a-6f1b6272d107"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0044"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "d09c2f76-1e53-4869-bbdf-42620eba2206"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "780477ad-e700-4170-abaf-803a39023cc7"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "44b4daf8-dd01-49b5-bb9b-e63fa16221d8"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "63030881-4dcb-4ebb-914b-b8d4e32f46e0"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "c5b177e4-0aa3-45fd-badf-f07c5848ad4d"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "a62533c3-1f43-4d85-99eb-6f3c5c3436ce"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0044-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0044-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "b565a34d-e2a7-4af0-957d-1bcb041f8810"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "c56c8f1f-914d-4e02-97b3-fc27a61f905d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9974
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Karen Wilson | DOB: 1976-11-15 | MRN: PAT-30 044 | Order Date: 2025-01-14\nOrdering Provider:Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nScedule/FRequency: every morning\nDuration: 90 days | Dispense #30\nlnstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Freque'ncy: once  d"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,180.15,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.8
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0044"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Losartan dose: 50 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "b565a34d-e2a7-4af0-957d-1bcb041f8810"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "c56c8f1f-914d-4e02-97b3-fc27a61f905d"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9974
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Karen Wilson | DOB: 1976-11-15 | MRN: PAT-30 044 | Order Date: 2025-01-14\nOrdering Provider:Dr. Sarah Jenkins, MD | Doc ID: MED_0044\nOrder #1: Losartan 50 mg\nRoute: oral | Form: tablet\nScedule/FRequency: every morning\nDuration: 90 days | Dispense #30\nlnstructions: Take 1 tablet oral every morning\nRefills: 1\nOrder #2: Levothyroxine 50 mcg\nRoute: oral | Form: tablet\nSchedule/Freque'ncy: once  d"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

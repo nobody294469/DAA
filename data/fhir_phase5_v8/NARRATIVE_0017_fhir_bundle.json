@@ -1,0 +1,1349 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-narrative-0017",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-narrative-0017",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-narrative-0017",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-NARRATIVE-00"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-narrative-0017",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-narrative-0017",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-narrative-0017",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-narrative-0017",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-narrative-0017",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-narrative-0017",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "713f1b73-ccbb-49b9-88c7-d51db02873b5"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "cd7dabd1-667d-4986-a7e1-ea871a8131f4"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9867
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "SPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory\nassessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,301.04,552.89,327.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0017"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-narrative-0017"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-narrative-0017-1"
+          },
+          {
+            "reference": "Observation/obs-narrative-0017-2"
+          },
+          {
+            "reference": "Observation/obs-narrative-0017-3"
+          },
+          {
+            "reference": "Observation/obs-narrative-0017-4"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0017-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0017-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "713f1b73-ccbb-49b9-88c7-d51db02873b5"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "cd7dabd1-667d-4986-a7e1-ea871a8131f4"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9867
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "SPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory\nassessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,301.04,552.89,327.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0017"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "713f1b73-ccbb-49b9-88c7-d51db02873b5"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "cd7dabd1-667d-4986-a7e1-ea871a8131f4"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9867
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "SPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory\nassessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 1.77,
+          "unit": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "e625c930-6121-4eb5-bb26-2780128bc29f"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "583c2fc2-7ac2-4bc7-9979-37b1be9d2d35"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "SUPPORTED"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "SPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory\nassessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "CALCIUM FLAG: LOW",
+                "display": "Calcium flag: LOW"
+              }
+            ],
+            "text": "Calcium flag: LOW"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0017-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0017-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "1e19c528-fe06-4915-b200-2bdb5542cede"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "60e16d08-4b83-4ab1-8e65-bf219bb98dc8"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0017"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "1e19c528-fe06-4915-b200-2bdb5542cede"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "60e16d08-4b83-4ab1-8e65-bf219bb98dc8"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0017-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0017-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "81bc5f92-a95e-484b-9be2-a8852d6ab8ea"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "907314be-be60-4ed8-850b-eac981880662"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9846
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "a White, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH). Subsequent evaluation demonstrated that serum platelet count was 244.9 10*3/uL. Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\nth"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,225.54,561.91,238.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0017"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "81bc5f92-a95e-484b-9be2-a8852d6ab8ea"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "907314be-be60-4ed8-850b-eac981880662"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9846
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "a White, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH). Subsequent evaluation demonstrated that serum platelet count was 244.9 10*3/uL. Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\nth"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 489.8
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0017-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0017-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f907e6a7-0fb5-4f87-97af-53f89adb8050"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "90217034-f698-4e59-84e3-e7e776872d5d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.995
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "OLOGICAL CLINICAL NARRATIVE\nCHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient Jessica White, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH). Subsequent evaluation demonstrated that serum platelet count was 244.9 10*3/uL. Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURS"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,212.04,561.91,238.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0017"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "f907e6a7-0fb5-4f87-97af-53f89adb8050"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "90217034-f698-4e59-84e3-e7e776872d5d"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.995
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "OLOGICAL CLINICAL NARRATIVE\nCHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient Jessica White, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH). Subsequent evaluation demonstrated that serum platelet count was 244.9 10*3/uL. Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURS"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 14.9
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "ac9c6c8d-004c-40c6-b72a-d45ef393acf2"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "1d8afcc9-5e10-41a7-818e-fa8b82c059ec"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.986
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "OLOGICAL CLINICAL NARRATIVE\nCHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient Jessica White, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed white blood\ncell count of 14.9 10*3/uL (HIGH). Subsequent evaluation demonstrated that serum platelet count was 244.9 10*3/uL. Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURS"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "WHITE BLOOD CELL COUNT FLAG: NORMAL",
+                "display": "White Blood Cell Count flag: NORMAL"
+              }
+            ],
+            "text": "White Blood Cell Count flag: NORMAL"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0017-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0017-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "9cb7a216-75e6-4efb-96ad-4d674614b510"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "793af6ba-e08b-441c-b042-0eab8a9888fd"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "9cb7a216-75e6-4efb-96ad-4d674614b510"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "793af6ba-e08b-441c-b042-0eab8a9888fd"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0017"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "38cfe4be-7422-4c14-9e24-93a5fb941bad"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "50bd70bb-c3eb-4a6b-b87f-6199ac87e254"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "440abdd3-8890-4fc4-b44f-c60cbca4f808"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "b4f214e1-8ccf-4f7d-8e47-11d93ce5dd60"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "c3b0c859-09c4-4aa6-9eca-a8d12b86e21a"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "a92505f0-8974-4c06-a4cc-fa73b3468b31"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0017-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0017-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "3300ea54-2f46-4014-b153-975b40685538"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "89e3f641-a767-4ac1-8490-0f37e6e4ff6b"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9528
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ent in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for this in"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,390.04,562.9,403.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "3300ea54-2f46-4014-b153-975b40685538"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "89e3f641-a767-4ac1-8490-0f37e6e4ff6b"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9528
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ent in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for this in"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Lisinopril"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0017"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Lisinopril Lisinopril dose: 5 mg mg Lisinopril route: topically Lisinopril frequency: every morning",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "4eb4d7f9-96fa-49b3-848d-6788f30aed7f"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "e57a5f99-9464-4ffa-b3cc-3ef74fe34037"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9856
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ent in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for this in"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Lisinopril frequency: every morning"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "9d0bb897-163b-4c37-ad85-d7280929798d"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "b0ac9180-382c-4953-bced-e151a12bfae3"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9886
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ent in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for this in"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Lisinopril route: topically"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "51351456-e95e-47d5-8047-679d399e1f5c"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "94b54d7e-6572-410c-9d43-621fd4125ca6"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9919
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ent in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for this in"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 5.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0017-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0017-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "16d213f3-e126-44b8-b9a8-e847ac41592c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "172f15df-85a0-4bd1-b688-d98d63e27871"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9779
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory\nassessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATION"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,301.04,552.89,314.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "16d213f3-e126-44b8-b9a8-e847ac41592c"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "172f15df-85a0-4bd1-b688-d98d63e27871"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9779
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": " proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory\nassessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATION"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0017"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Amoxicillin Cephalexin dose: 250 mg mg Cephalexin route: intravenously Cephalexin frequency: QID",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "eba94ec8-7a24-4393-b0ce-e1f83718cf48"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "7c2ea6a9-19cd-495c-ad7d-2cf7a51f7ee9"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.981
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": " proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory\nassessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATION"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Cephalexin frequency: QID"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "ba78e2f2-053a-4604-a0da-50762d42fe4e"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "2a79cf61-9e41-467c-8554-eaa727b49ae4"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": " proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory\nassessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATION"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Cephalexin route: intravenously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "9b7fc99a-1cab-4dbb-b52d-4a953637eb00"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "43dbb76c-6fef-40cb-b29c-56c987e1c3c6"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9877
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Cephalexin 250 mg by mouth QID for 10 days. Following this intervention, trajectory\nassessment showed calcium of 7.1 mg/dL (LOW). Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATION"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 250.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0017-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0017-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "91defb8e-dd2d-45c1-899c-d407db7b8fc3"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7995d072-5cf2-4ad9-bdc1-e280d9b1bb72"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9892
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "onse has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laborator"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,390.04,562.9,403.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "91defb8e-dd2d-45c1-899c-d407db7b8fc3"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7995d072-5cf2-4ad9-bdc1-e280d9b1bb72"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9892
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "onse has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laborator"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Metformin"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0017"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Metformin Metoprolol dose: 50 mg mg Metoprolol route: by inhalation Metoprolol frequency: every other day",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "c69c560d-91a8-48ac-9c4d-a475f8b103de"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "417e5934-0dd3-4085-8664-346067c74803"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9891
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "onse has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laborator"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metoprolol frequency: every other day"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "e9b4319a-4dcb-4084-93d1-cf755cdb5770"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "9a6bcafb-0816-43d0-a99f-b8a13c90deac"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9902
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "onse has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laborator"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metoprolol route: by inhalation"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "751a5b07-4fa2-494b-b399-63f94406868d"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "c4542d7f-6901-4afa-9179-f2c9a992f2f7"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9948
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "onse has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg oral BID; and titrate Lisinopril 5 mg oral every morning. Avoid NSAIDs and nephrotoxic\nexposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laborator"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

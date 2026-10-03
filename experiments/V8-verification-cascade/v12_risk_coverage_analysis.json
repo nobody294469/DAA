@@ -1,0 +1,260 @@
+{
+  "experiment_id": "V12-selective-prediction-risk-coverage",
+  "dataset": "data/m2_verification_v3",
+  "split": "ood",
+  "total_examples": 1826,
+  "production_operating_point": {
+    "description": "V8 Verification Cascade with Stage A precheck agreement and Stage B escalation threshold tau=0.60",
+    "stage_b_resolved_count": 1445,
+    "stage_b_resolved_coverage": 0.791347,
+    "stage_b_resolved_accuracy": 0.99308,
+    "stage_b_resolved_risk": 0.00692,
+    "stage_b_resolved_errors": 10,
+    "stage_c_escalated_count": 381,
+    "stage_c_escalation_rate": 0.208653,
+    "stage_c_escalated_accuracy": 0.905512,
+    "stage_c_escalated_risk": 0.094488,
+    "stage_c_escalated_errors": 36,
+    "counterfactual_stage_b_on_escalated_accuracy": 0.811024,
+    "counterfactual_stage_b_on_escalated_errors": 72,
+    "overall_cascade_accuracy": 0.974808,
+    "overall_cascade_errors": 46,
+    "overall_stage_b_accuracy": 0.955093,
+    "overall_stage_b_errors": 82,
+    "net_error_reduction": 36,
+    "relative_error_reduction": 0.439024
+  },
+  "aurc_summary": {
+    "aurc_stage_b_calibrated": 0.0346,
+    "aurc_stage_b_raw": 0.0347,
+    "aurc_cascade_joint": 0.0543
+  },
+  "stage_b_risk_coverage_representative_points": [
+    {
+      "target_coverage": 0.1,
+      "actual_coverage": 0.103,
+      "rejection_rate": 0.897,
+      "risk": 0.005319,
+      "selective_accuracy": 0.994681,
+      "confidence_threshold": 0.998386
+    },
+    {
+      "target_coverage": 0.2,
+      "actual_coverage": 0.2004,
+      "rejection_rate": 0.7996,
+      "risk": 0.013661,
+      "selective_accuracy": 0.986339,
+      "confidence_threshold": 0.998154
+    },
+    {
+      "target_coverage": 0.3,
+      "actual_coverage": 0.3001,
+      "rejection_rate": 0.6999,
+      "risk": 0.025547,
+      "selective_accuracy": 0.974453,
+      "confidence_threshold": 0.997899
+    },
+    {
+      "target_coverage": 0.4,
+      "actual_coverage": 0.4003,
+      "rejection_rate": 0.5997,
+      "risk": 0.04104,
+      "selective_accuracy": 0.95896,
+      "confidence_threshold": 0.997637
+    },
+    {
+      "target_coverage": 0.5,
+      "actual_coverage": 0.5,
+      "rejection_rate": 0.5,
+      "risk": 0.051479,
+      "selective_accuracy": 0.948521,
+      "confidence_threshold": 0.997342
+    },
+    {
+      "target_coverage": 0.6,
+      "actual_coverage": 0.6002,
+      "rejection_rate": 0.3998,
+      "risk": 0.050182,
+      "selective_accuracy": 0.949818,
+      "confidence_threshold": 0.996885
+    },
+    {
+      "target_coverage": 0.7,
+      "actual_coverage": 0.7004,
+      "rejection_rate": 0.2996,
+      "risk": 0.045348,
+      "selective_accuracy": 0.954652,
+      "confidence_threshold": 0.996229
+    },
+    {
+      "target_coverage": 0.7913,
+      "actual_coverage": 0.7913,
+      "rejection_rate": 0.2087,
+      "risk": 0.042215,
+      "selective_accuracy": 0.957785,
+      "confidence_threshold": 0.99502
+    },
+    {
+      "target_coverage": 0.8,
+      "actual_coverage": 0.8001,
+      "rejection_rate": 0.1999,
+      "risk": 0.041752,
+      "selective_accuracy": 0.958248,
+      "confidence_threshold": 0.994858
+    },
+    {
+      "target_coverage": 0.85,
+      "actual_coverage": 0.8505,
+      "rejection_rate": 0.1495,
+      "risk": 0.041211,
+      "selective_accuracy": 0.958789,
+      "confidence_threshold": 0.993322
+    },
+    {
+      "target_coverage": 0.9,
+      "actual_coverage": 0.9003,
+      "rejection_rate": 0.0997,
+      "risk": 0.040146,
+      "selective_accuracy": 0.959854,
+      "confidence_threshold": 0.988237
+    },
+    {
+      "target_coverage": 0.95,
+      "actual_coverage": 0.9502,
+      "rejection_rate": 0.0498,
+      "risk": 0.039193,
+      "selective_accuracy": 0.960807,
+      "confidence_threshold": 0.979505
+    },
+    {
+      "target_coverage": 0.98,
+      "actual_coverage": 0.9803,
+      "rejection_rate": 0.0197,
+      "risk": 0.039106,
+      "selective_accuracy": 0.960894,
+      "confidence_threshold": 0.947714
+    },
+    {
+      "target_coverage": 1.0,
+      "actual_coverage": 1.0,
+      "rejection_rate": 0.0,
+      "risk": 0.044907,
+      "selective_accuracy": 0.955093,
+      "confidence_threshold": 0.4986
+    }
+  ],
+  "cascade_risk_coverage_representative_points": [
+    {
+      "target_coverage": 0.1,
+      "actual_coverage": 0.2087,
+      "rejection_rate": 0.7913,
+      "risk": 0.094488,
+      "selective_accuracy": 0.905512,
+      "confidence_threshold": 1.0
+    },
+    {
+      "target_coverage": 0.2,
+      "actual_coverage": 0.2087,
+      "rejection_rate": 0.7913,
+      "risk": 0.094488,
+      "selective_accuracy": 0.905512,
+      "confidence_threshold": 1.0
+    },
+    {
+      "target_coverage": 0.3,
+      "actual_coverage": 0.3001,
+      "rejection_rate": 0.6999,
+      "risk": 0.067518,
+      "selective_accuracy": 0.932482,
+      "confidence_threshold": 0.998312
+    },
+    {
+      "target_coverage": 0.4,
+      "actual_coverage": 0.4009,
+      "rejection_rate": 0.5991,
+      "risk": 0.054645,
+      "selective_accuracy": 0.945355,
+      "confidence_threshold": 0.998029
+    },
+    {
+      "target_coverage": 0.5,
+      "actual_coverage": 0.5,
+      "rejection_rate": 0.5,
+      "risk": 0.046002,
+      "selective_accuracy": 0.953998,
+      "confidence_threshold": 0.997647
+    },
+    {
+      "target_coverage": 0.6,
+      "actual_coverage": 0.6002,
+      "rejection_rate": 0.3998,
+      "risk": 0.038321,
+      "selective_accuracy": 0.961679,
+      "confidence_threshold": 0.99713
+    },
+    {
+      "target_coverage": 0.7,
+      "actual_coverage": 0.7004,
+      "rejection_rate": 0.2996,
+      "risk": 0.032838,
+      "selective_accuracy": 0.967162,
+      "confidence_threshold": 0.996492
+    },
+    {
+      "target_coverage": 0.7913,
+      "actual_coverage": 0.7913,
+      "rejection_rate": 0.2087,
+      "risk": 0.029066,
+      "selective_accuracy": 0.970934,
+      "confidence_threshold": 0.995489
+    },
+    {
+      "target_coverage": 0.8,
+      "actual_coverage": 0.8001,
+      "rejection_rate": 0.1999,
+      "risk": 0.028747,
+      "selective_accuracy": 0.971253,
+      "confidence_threshold": 0.995285
+    },
+    {
+      "target_coverage": 0.85,
+      "actual_coverage": 0.8505,
+      "rejection_rate": 0.1495,
+      "risk": 0.027688,
+      "selective_accuracy": 0.972312,
+      "confidence_threshold": 0.994052
+    },
+    {
+      "target_coverage": 0.9,
+      "actual_coverage": 0.9003,
+      "rejection_rate": 0.0997,
+      "risk": 0.026156,
+      "selective_accuracy": 0.973844,
+      "confidence_threshold": 0.990214
+    },
+    {
+      "target_coverage": 0.95,
+      "actual_coverage": 0.9502,
+      "rejection_rate": 0.0498,
+      "risk": 0.02536,
+      "selective_accuracy": 0.97464,
+      "confidence_threshold": 0.982901
+    },
+    {
+      "target_coverage": 0.98,
+      "actual_coverage": 0.9803,
+      "rejection_rate": 0.0197,
+      "risk": 0.024581,
+      "selective_accuracy": 0.975419,
+      "confidence_threshold": 0.962299
+    },
+    {
+      "target_coverage": 1.0,
+      "actual_coverage": 1.0,
+      "rejection_rate": 0.0,
+      "risk": 0.025192,
+      "selective_accuracy": 0.974808,
+      "confidence_threshold": 0.617685
+    }
+  ]
+}

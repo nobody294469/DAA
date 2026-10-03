@@ -1,0 +1,847 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0048",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0048",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0048",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0048"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0048",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0048",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0048",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0048",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0048-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0048-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "16b55caf-9d46-47e8-9a3b-ab014040be15"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "e1a918ca-6ef6-469a-a3aa-3c27942e811f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9951
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet oral daily for 3 days\nRefills: 0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,206.82,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "16b55caf-9d46-47e8-9a3b-ab014040be15"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "e1a918ca-6ef6-469a-a3aa-3c27942e811f"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9951
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet oral daily for 3 days\nRefills: 0"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "18631",
+              "display": "Medication: Azithromycin"
+            }
+          ],
+          "text": "Medication: Azithromycin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0048"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Azithromycin Azithromycin dose: 500 mg mg Azithromycin route: oral Azithromycin frequency: daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "e086d79a-3db1-417f-9100-7357fd12937d"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "8b472e42-79e4-4a52-928d-f589b59cc72a"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9931
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet oral daily for 3 days\nRefills: 0"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Azithromycin frequency: daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "1d524eb1-598f-4b98-9976-03457c919ccb"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "93177883-7218-4983-89e7-485300b21940"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.994
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet oral daily for 3 days\nRefills: 0"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Azithromycin route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "ace819b7-efb8-4b96-bc07-79de9aa3d439"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "3db28c14-9ef9-4001-b0cf-4e09c39036ae"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9965
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet oral daily for 3 days\nRefills: 0"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 500.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0048-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0048-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "81635223-a4c9-4608-84d4-762d3dbcd961"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "c08c052e-6eda-435e-b7ba-26aaa8571e37"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9958
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Mary Lopez | DOB: 1954-07-28 | MRN: PAT-30048 | Order Date: 2025-06-17\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Fre"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,191.81,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "81635223-a4c9-4608-84d4-762d3dbcd961"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "c08c052e-6eda-435e-b7ba-26aaa8571e37"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9958
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Mary Lopez | DOB: 1954-07-28 | MRN: PAT-30048 | Order Date: 2025-06-17\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Fre"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6809",
+              "display": "Medication: Metformin"
+            }
+          ],
+          "text": "Medication: Metformin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0048"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Metformin Metformin dose: 425 mg mg Metformin route: oral Metformin frequency: every 12 hours",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "bf8ab554-4b62-42a3-a9db-8301ea6134c1"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "7508b313-9748-4b84-b8d6-ab7b3974141a"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9956
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Mary Lopez | DOB: 1954-07-28 | MRN: PAT-30048 | Order Date: 2025-06-17\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Fre"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metformin frequency: every 12 hours"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "9e35e9e1-6cb9-4142-909d-4c302fcb8d35"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "04253eee-a07e-4e08-af63-4dd0dc898c67"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9956
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Mary Lopez | DOB: 1954-07-28 | MRN: PAT-30048 | Order Date: 2025-06-17\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Fre"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metformin route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "c28acb1d-78e4-4a15-b41d-0426786ea78e"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "250c5771-973b-4112-b3b9-ab14486b6b35"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9965
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Mary Lopez | DOB: 1954-07-28 | MRN: PAT-30048 | Order Date: 2025-06-17\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: every 12 hours\nDuration: Ongoing | Dispense: #60\nInstructions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Fre"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 425.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0048-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0048-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "00d15e07-eaad-471f-ada7-666bbef9f98e"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "4da6b4b0-e4ff-4eb7-b30f-019c6709e59b"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "00d15e07-eaad-471f-ada7-666bbef9f98e"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "4da6b4b0-e4ff-4eb7-b30f-019c6709e59b"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0048"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "97d74993-3422-4cae-b175-c582b8745c1c"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "dac3f1cc-1da6-48a1-9557-3490a7b7ac53"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "482dffed-4bfa-44e8-b07f-e221e2fe8587"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "9f76c17e-6fbd-427a-88b3-381b67020d76"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "4e41c9cc-a9a5-419e-a6b5-e79ac13c3247"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "e2173749-fcf2-48ac-b74f-a4a2fcc7f92d"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0048-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0048-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d63f2d11-f4d8-4a2a-8fbc-90d07ef447d2"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7aa4fc22-d61f-42fb-90d2-ba7ebe46c109"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9898
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "r.dering Provider: Dr.Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedle/FreqUency: every 12 hours\nDuration: Ongoing | Dispense: #6\nInstrUctions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedu'le/Freque ncy: daily\nDuration:  days | DisPense: #6\nInstructions: Take 1 tablet oral daily for 3 days\nRefills: 0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,206.82,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.819
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "18631",
+              "display": "Azithromycin"
+            }
+          ],
+          "text": "Azithromycin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0048"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Azithromycin dose: 250 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "d63f2d11-f4d8-4a2a-8fbc-90d07ef447d2"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "7aa4fc22-d61f-42fb-90d2-ba7ebe46c109"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9898
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "r.dering Provider: Dr.Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedle/FreqUency: every 12 hours\nDuration: Ongoing | Dispense: #6\nInstrUctions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedu'le/Freque ncy: daily\nDuration:  days | DisPense: #6\nInstructions: Take 1 tablet oral daily for 3 days\nRefills: 0"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 250.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0048-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0048-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "71699400-a59d-4282-8f29-39c87c31d1bc"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "d97e2f94-d816-4523-8e13-5162d4c421da"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9965
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Mary Lopez | DOB: 1954-07-28 | MRN: PAT-3004 8 | Order Date: 2025-06-17\nOr.dering Provider: Dr.Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedle/FreqUency: every 12 hours\nDuration: Ongoing | Dispense: #6\nInstrUctions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedu'le/Freq"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,191.81,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.819
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6809",
+              "display": "Metformin"
+            }
+          ],
+          "text": "Metformin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0048"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Metformin dose: 425 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "71699400-a59d-4282-8f29-39c87c31d1bc"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "d97e2f94-d816-4523-8e13-5162d4c421da"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9965
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Mary Lopez | DOB: 1954-07-28 | MRN: PAT-3004 8 | Order Date: 2025-06-17\nOr.dering Provider: Dr.Robert Evans, MD | Doc ID: MED_0048\nOrder #1: Metformin 850 mg\nRoute: oral | Form: tablet\nSchedle/FreqUency: every 12 hours\nDuration: Ongoing | Dispense: #6\nInstrUctions: Take one tablet oral every 12 hours with food\nRefills: 2\nOrder #2: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedu'le/Freq"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 425.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

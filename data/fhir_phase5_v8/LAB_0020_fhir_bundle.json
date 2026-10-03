@@ -1,0 +1,1736 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-lab-0020",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-lab-0020",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-lab-0020",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-LAB-0020"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-lab-0020",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-lab-0020",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-lab-0020",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-lab-0020",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-lab-0020",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-lab-0020",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "886c0408-14dd-419e-bc0e-f1a0de10ae43"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "dddb13a9-5d27-425b-a1d4-d005284fac1a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9968
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Report Date:\nP AT-68028\nDr. Gregory House, MD\nPatient ID:\nPhsician:\n1969-10-14 (F)\nLAB_0020\nDOB / Gender:\nDocument ID:\nSECTION: 1COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nRference Range\nAbnoRmal\nHemoglobin\n14..4\ng/dL\n12.0 - 16.0\nHematocit\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n197.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 - 5.80\n5. 93\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,145.03,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.93
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0020"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-lab-0020-1"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-2"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-3"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-4"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-5"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-6"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-7"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-8"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-9"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-10"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-11"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-12"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-13"
+          },
+          {
+            "reference": "Observation/obs-lab-0020-14"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "886c0408-14dd-419e-bc0e-f1a0de10ae43"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "dddb13a9-5d27-425b-a1d4-d005284fac1a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9968
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Report Date:\nP AT-68028\nDr. Gregory House, MD\nPatient ID:\nPhsician:\n1969-10-14 (F)\nLAB_0020\nDOB / Gender:\nDocument ID:\nSECTION: 1COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nRference Range\nAbnoRmal\nHemoglobin\n14..4\ng/dL\n12.0 - 16.0\nHematocit\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n197.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 - 5.80\n5. 93\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,145.03,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.93
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "886c0408-14dd-419e-bc0e-f1a0de10ae43"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "dddb13a9-5d27-425b-a1d4-d005284fac1a"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9968
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Report Date:\nP AT-68028\nDr. Gregory House, MD\nPatient ID:\nPhsician:\n1969-10-14 (F)\nLAB_0020\nDOB / Gender:\nDocument ID:\nSECTION: 1COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nRference Range\nAbnoRmal\nHemoglobin\n14..4\ng/dL\n12.0 - 16.0\nHematocit\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n197.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 - 5.80\n5. 93\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 5.9
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f6811f46-0593-4d07-a87c-75f0714701ab"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0cd2f892-b0cf-461d-aa17-f85042361f55"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.996
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID:.\nPhysician:\n1969-10-14(F)\nLAB_0020\nDOB / Gender:\nDoc1ument ID:\nSECTION: COMPLETE LO'OD cOUNT\nAn lyte\nResult\nUits\nReference Range\nAbnormal.\nHeol'obin\n1'4.4\ng/L\n12.0 - 13.0\nhematocrIt\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 1l.0\nPlatelet Count\n197.0\n110*3/uL\n1 - 450\nRed Blood Cell C'ount\n10*6/uL\n4.20 - .80\n5.93\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,108.53,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.87
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "f6811f46-0593-4d07-a87c-75f0714701ab"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "0cd2f892-b0cf-461d-aa17-f85042361f55"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.996
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID:.\nPhysician:\n1969-10-14(F)\nLAB_0020\nDOB / Gender:\nDoc1ument ID:\nSECTION: COMPLETE LO'OD cOUNT\nAn lyte\nResult\nUits\nReference Range\nAbnormal.\nHeol'obin\n1'4.4\ng/L\n12.0 - 13.0\nhematocrIt\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 1l.0\nPlatelet Count\n197.0\n110*3/uL\n1 - 450\nRed Blood Cell C'ount\n10*6/uL\n4.20 - .80\n5.93\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 197.0
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "9dadc443-f1d5-4837-bbb8-16c4e4a6ef3a"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "03b2205c-f5e9-4b1d-95c2-b7db39645c22"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Jessica Anderson Report Date: 2025-06-06\nPatient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,435.03,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "9dadc443-f1d5-4837-bbb8-16c4e4a6ef3a"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "03b2205c-f5e9-4b1d-95c2-b7db39645c22"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name: Jessica Anderson Report Date: 2025-06-06\nPatient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 94.8,
+          "unit": "%"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "7dd82d8e-0ec4-4946-9dd6-bb6e0c92af2a"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "a88dcea4-00ee-4a7e-b89c-4068df01e3b7"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient Name: Jessica Anderson Report Date: 2025-06-06\nPatient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "HEMATOCRIT FLAG: HIGH",
+                "display": "Hematocrit flag: HIGH"
+              }
+            ],
+            "text": "Hematocrit flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "b81856ea-736d-4349-97ba-730d31f4deee"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "76f1df31-bd8d-408d-9f26-464099d4d70d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9961
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID:\nPhsician:\n1969-10-14 (F)\nLAB_0020\nDOB / Gender:\nDocument ID:\nSECTION: 1COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nRference Range\nAbnoRmal\nHemoglobin\n14..4\ng/dL\n12.0 - 16.0\nHematocit\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n197.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 - 5.80\n5. 93\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,108.53,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.93
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "b81856ea-736d-4349-97ba-730d31f4deee"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "76f1df31-bd8d-408d-9f26-464099d4d70d"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9961
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID:\nPhsician:\n1969-10-14 (F)\nLAB_0020\nDOB / Gender:\nDocument ID:\nSECTION: 1COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nRference Range\nAbnoRmal\nHemoglobin\n14..4\ng/dL\n12.0 - 16.0\nHematocit\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n197.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 - 5.80\n5. 93\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 197.0
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "1ed40997-30c2-4c92-83e1-fdf49d9cab29"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "839d06cd-d2dd-493c-b81f-cdafede4182e"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9971
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Jessica Anderson Report Date: 2025-06-06\nPatient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,430.02,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "1ed40997-30c2-4c92-83e1-fdf49d9cab29"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "839d06cd-d2dd-493c-b81f-cdafede4182e"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9971
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name: Jessica Anderson Report Date: 2025-06-06\nPatient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 1.48
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "f7f5c4f4-d1cd-401f-ad3e-f0c7c6fcdb6e"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "ebaf8d48-14dc-4816-ab84-c087e45565e3"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient Name: Jessica Anderson Report Date: 2025-06-06\nPatient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "WHITE BLOOD CELL COUNT FLAG: HIGH",
+                "display": "White Blood Cell Count flag: HIGH"
+              }
+            ],
+            "text": "White Blood Cell Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "1c2db61d-8ee7-445e-a1a9-dd8dd6ac0b0e"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "f68af95a-7b5b-4998-96f1-327ba4d868b0"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9974
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "DOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,262.33,508.5,274.76"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "1c2db61d-8ee7-445e-a1a9-dd8dd6ac0b0e"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "f68af95a-7b5b-4998-96f1-327ba4d868b0"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9974
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "DOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.59
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "10711a89-5cb7-41ff-9f15-780e6bbd5999"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "2f3a3a7f-4508-48f6-ac9c-e753a164deb9"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "SUPPORTED"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "DOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "RED BLOOD CELL COUNT FLAG: HIGH",
+                "display": "Red Blood Cell Count flag: HIGH"
+              }
+            ],
+            "text": "Red Blood Cell Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-7",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "eccb1d68-a86b-4b4e-89cb-7ee8de5fd38e"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0a933e14-52f9-4567-b2b6-c1f68fa31db8"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "eccb1d68-a86b-4b4e-89cb-7ee8de5fd38e"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "0a933e14-52f9-4567-b2b6-c1f68fa31db8"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 45.0,
+          "unit": "U/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-8",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f1d180f8-2f64-4475-b38a-55e4ffeda526"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "a7198396-5d07-4c20-940c-4f2d821b245d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.996
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "JeSsica Andeso'n\n2025-06-6\nP aTien Name:\nREort Dat1e:\nPT-6802B\nD.1 Greg.ory. H oue, MD\nPatIent ID:\nPhysiciAn:\n1969-10-1 (F)\nLAB_0020\nDOB / nder:\nD0c'ument' d:\nSEC1TI N COMPLETE BLOODCOUN\nAnalyte\nResulT\nUnits\neference Range\nAbnormal\nHemog|obin\n13.4\ng/dL\n12.0 - 16..0\nHematocrit\n47.4\n%\n36 .0 - 48.\nWHite 8looD Ce1ll Count\n5.9\n101*3/uL\n4.5 -11.0\nplatelet 'Count\n1970\n10*3/uL\nl0 .-. 450\nrd B1ood Cel.l  Cont\n10*6/uL\n4.0 - .80\n5 93\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,95.51,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.811
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "f1d180f8-2f64-4475-b38a-55e4ffeda526"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "a7198396-5d07-4c20-940c-4f2d821b245d"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.996
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "JeSsica Andeso'n\n2025-06-6\nP aTien Name:\nREort Dat1e:\nPT-6802B\nD.1 Greg.ory. H oue, MD\nPatIent ID:\nPhysiciAn:\n1969-10-1 (F)\nLAB_0020\nDOB / nder:\nD0c'ument' d:\nSEC1TI N COMPLETE BLOODCOUN\nAnalyte\nResulT\nUnits\neference Range\nAbnormal\nHemog|obin\n13.4\ng/dL\n12.0 - 16..0\nHematocrit\n47.4\n%\n36 .0 - 48.\nWHite 8looD Ce1ll Count\n5.9\n101*3/uL\n4.5 -11.0\nplatelet 'Count\n1970\n10*3/uL\nl0 .-. 450\nrd B1ood Cel.l  Cont\n10*6/uL\n4.0 - .80\n5 93\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 47.4,
+          "unit": "%"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-9",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "8f8be2b3-bfa0-4809-8b7d-00e1517ec30d"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0092c6eb-181a-485a-b6b8-2c7ecd4588b4"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "8f8be2b3-bfa0-4809-8b7d-00e1517ec30d"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "0092c6eb-181a-485a-b6b8-2c7ecd4588b4"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-10",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "46b368af-dafc-4ca5-8978-50a3c021f260"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "9db5c0f8-a1b3-4cba-8546-f2c091a0fb97"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9983
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Division of Laboratory Medicine | Clin ical Report\nJessica Anderson\n2025-06-06\nPatient Name:\nReport Date:\nP AT-68028\nDr. Gregory House, MD\nPatient ID:\nPhsician:\n1969-10-14 (F)\nLAB_0020\nDOB / Gender:\nDocument ID:\nSECTION: 1COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nRference Range\nAbnoRmal\nHemoglobin\n14..4\ng/dL\n12.0 - 16.0\nHematocit\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n197.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 - 5.80\n5. 93\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,100.02,202.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.93
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "46b368af-dafc-4ca5-8978-50a3c021f260"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "9db5c0f8-a1b3-4cba-8546-f2c091a0fb97"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9983
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Division of Laboratory Medicine | Clin ical Report\nJessica Anderson\n2025-06-06\nPatient Name:\nReport Date:\nP AT-68028\nDr. Gregory House, MD\nPatient ID:\nPhsician:\n1969-10-14 (F)\nLAB_0020\nDOB / Gender:\nDocument ID:\nSECTION: 1COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nRference Range\nAbnoRmal\nHemoglobin\n14..4\ng/dL\n12.0 - 16.0\nHematocit\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n197.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 - 5.80\n5. 93\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 7.2,
+          "unit": "g/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-11",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "e7e619ec-11d9-409e-932e-53cd7c5820d6"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2868061d-17ad-43db-9a54-271bef8fdcb4"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9974
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,430.02,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "e7e619ec-11d9-409e-932e-53cd7c5820d6"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "2868061d-17ad-43db-9a54-271bef8fdcb4"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9974
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 788.0
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "36a8221b-9615-464c-91ed-d5f7f1ada066"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "c84fe0b3-3806-4dd3-b5ae-c3629b2c5f42"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "PLATELET COUNT FLAG: HIGH",
+                "display": "Platelet Count flag: HIGH"
+              }
+            ],
+            "text": "Platelet Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-12",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "5d5401a3-25de-446d-928c-abc9f358332b"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "40c223c7-3f71-4937-8b85-312bad6f6a99"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9979
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Repor t Date:\nPAT-68O28\nDr. Gregory  House, M\nPatient ID:.\nPhysician:\n1969-10-14(F)\nLAB_0020\nDOB / Gender:\nDoc1ument ID:\nSECTION: COMPLETE LO'OD cOUNT\nAn lyte\nResult\nUits\nReference Range\nAbnormal.\nHeol'obin\n1'4.4\ng/L\n12.0 - 13.0\nhematocrIt\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 1l.0\nPlatelet Count\n197.0\n110*3/uL\n1 - 450\nRed Blood Cell C'ount\n10*6/uL\n4.20 - .80\n5.93\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,145.03,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.87
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "5d5401a3-25de-446d-928c-abc9f358332b"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "40c223c7-3f71-4937-8b85-312bad6f6a99"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9979
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Repor t Date:\nPAT-68O28\nDr. Gregory  House, M\nPatient ID:.\nPhysician:\n1969-10-14(F)\nLAB_0020\nDOB / Gender:\nDoc1ument ID:\nSECTION: COMPLETE LO'OD cOUNT\nAn lyte\nResult\nUits\nReference Range\nAbnormal.\nHeol'obin\n1'4.4\ng/L\n12.0 - 13.0\nhematocrIt\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 1l.0\nPlatelet Count\n197.0\n110*3/uL\n1 - 450\nRed Blood Cell C'ount\n10*6/uL\n4.20 - .80\n5.93\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 1.48
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-13",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7acd0791-a28d-443e-849c-7365de4d55a8"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "46f9bec9-ac70-46ab-a509-2ddb19c29aaf"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "DOB / Gender:\nDocument ID:\nSECTION: 1COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nRference Range\nAbnoRmal\nHemoglobin\n14..4\ng/dL\n12.0 - 16.0\nHematocit\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n197.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 - 5.80\n5. 93\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,262.33,138.54,274.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.93
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "7acd0791-a28d-443e-849c-7365de4d55a8"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "46f9bec9-ac70-46ab-a509-2ddb19c29aaf"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "DOB / Gender:\nDocument ID:\nSECTION: 1COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nRference Range\nAbnoRmal\nHemoglobin\n14..4\ng/dL\n12.0 - 16.0\nHematocit\n47.4\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.9\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n197.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 - 5.80\n5. 93\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.59
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0020-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0020-14",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d28be348-e611-4d62-aa95-9683d54b3bc6"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2a4ed8d1-cc87-4a23-a231-4ec385f12f55"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Jessica Anderson Report Date: 2025-06-06\nPatient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,435.03,202.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "d28be348-e611-4d62-aa95-9683d54b3bc6"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "2a4ed8d1-cc87-4a23-a231-4ec385f12f55"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Jessica Anderson Report Date: 2025-06-06\nPatient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 7.2,
+          "unit": "g/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "6203dcf2-3eb6-4858-b5bd-f0db20ccd41e"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "92bf27a3-a4d0-4404-80a2-7f5edbbbb272"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Jessica Anderson Report Date: 2025-06-06\nPatient ID: PAT-68028 Physician: Dr. Gregory House, MD\nDOB / Gender: 1969-10-14 (F) Document ID: LAB_0020\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.4 g/dL 12.0 - 16.0\nHematocrit 47.4 % 36.0 - 48.0\nWhite Blood Cell Count 5.9 10*3/uL 4.5 - 11.0\nPlatelet Count 197.0 10*3/uL 150 - 450\nRed Blood Cell Count 5.93 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "HEMOGLOBIN FLAG: HIGH",
+                "display": "Hemoglobin flag: HIGH"
+              }
+            ],
+            "text": "Hemoglobin flag: HIGH"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,954 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0020",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0020",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0020",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0020"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0020",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0020",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0020",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0020",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0020-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0020-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "26e5b4a6-a1ae-439f-86ae-37ee231be96e"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "876cc3cd-f3e9-4f91-81d9-055d641fd52a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9477
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet oral QD\nRefills: 1"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,186.81,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "26e5b4a6-a1ae-439f-86ae-37ee231be96e"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "876cc3cd-f3e9-4f91-81d9-055d641fd52a"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9477
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet oral QD\nRefills: 1"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "Medication: Lisinopril"
+            }
+          ],
+          "text": "Medication: Lisinopril"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0020"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Lisinopril Amlodipine dose: 10 mg mg Amlodipine route: oral Amlodipine frequency: QD",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "222dea85-31f1-4f62-a21e-06cc13e45b2c"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "cf995180-5642-42c8-bc4f-8ac951a8201a"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9956
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet oral QD\nRefills: 1"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Amlodipine frequency: QD"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "27c622ee-8cdb-4d4c-b7c9-0b7f9c02ffbd"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "26a3bf96-9e05-4673-b7a8-9078a6545100"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9945
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet oral QD\nRefills: 1"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Amlodipine route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "2a4326c0-a720-49f3-86cf-33f8fde6122f"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "d0fe08e8-6f05-4c76-b21f-7959365f15f5"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9929
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet oral QD\nRefills: 1"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 10.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0020-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0020-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "fa968ef5-cb02-44fd-9aae-73318caea05c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "66e61c8c-0c5e-4de6-9b12-ed45dbc943bf"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9943
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Richard Smith | DOB: 1956-12-11 | MRN: PAT-30020 | Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | D"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,185.71,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "fa968ef5-cb02-44fd-9aae-73318caea05c"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "66e61c8c-0c5e-4de6-9b12-ed45dbc943bf"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9943
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Richard Smith | DOB: 1956-12-11 | MRN: PAT-30020 | Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | D"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Medication: Amoxicillin"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0020"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amoxicillin Losartan dose: 100 mg mg Losartan route: by mouth Losartan frequency: QD",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "5898fb08-d8cc-402c-82b6-7e256e4a97c2"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "fddc7acb-ecbe-47a7-bcc3-da4ce419c24f"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.996
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Richard Smith | DOB: 1956-12-11 | MRN: PAT-30020 | Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | D"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Losartan frequency: QD"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "ae1d8905-2735-4f72-9172-5fed0d8e539f"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "255cddb2-ba8f-40e1-adb4-f82d4e368d3c"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9916
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Richard Smith | DOB: 1956-12-11 | MRN: PAT-30020 | Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | D"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Losartan route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "da8ac1c0-9b56-42b8-9bf6-71953b96ac8f"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "95eeb491-9aac-42e9-be56-787095577d2a"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.997
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Richard Smith | DOB: 1956-12-11 | MRN: PAT-30020 | Order Date: 2025-04-16\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 30 days | D"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 100.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0020-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0020-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4cf97cf2-67d5-4fc2-b6a7-dfed4c745416"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "c05f60db-7f91-41a9-a046-7d52060cbc47"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "4cf97cf2-67d5-4fc2-b6a7-dfed4c745416"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "c05f60db-7f91-41a9-a046-7d52060cbc47"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0020"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "f7745f76-8059-4d89-9abc-8dcd21a02daf"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "b9e0a5a6-920e-4a08-9fab-9a2419f49ea8"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "22024b7d-9073-47b9-b75e-a41e6cd68b35"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "92aa4b12-ecec-40de-af7b-4c1248cfa579"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "7f1f551f-921f-474f-aa7a-ae093712d9cd"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "27598deb-1282-48e6-adc9-ed2bb50d3269"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0020-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0020-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "60a5f613-4776-4656-b13c-8853c0d12e0d"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2efd2c89-a3a9-40ca-8592-9367bc2768ba"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9969
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Richard Smith | DOB: 1956-12-11 | MRN: PAT- 30020 | Order Date: 2025-04-16\nOrdering Provder: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth  Form: tablet\nchedule/Frequency: QD\nDuration: 30 days | Dispense: #9\nInstrUctions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: table\nSchedule/Frequency: QD\nDuratio'n: 30 day s | Dis"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,185.71,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.791
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "5224",
+              "display": "Losartan"
+            }
+          ],
+          "text": "Losartan"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0020"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Losartan dose: 50 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "60a5f613-4776-4656-b13c-8853c0d12e0d"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "2efd2c89-a3a9-40ca-8592-9367bc2768ba"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9969
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Richard Smith | DOB: 1956-12-11 | MRN: PAT- 30020 | Order Date: 2025-04-16\nOrdering Provder: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth  Form: tablet\nchedule/Frequency: QD\nDuration: 30 days | Dispense: #9\nInstrUctions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: table\nSchedule/Frequency: QD\nDuratio'n: 30 day s | Dis"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0020-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0020-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "fbac0a5d-e2f7-4fa0-85cd-426412c40454"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "ab08dd12-e6d3-4378-bbb4-9d7f73b7aa57"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9949
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "0 | Order Date: 2025-04-16\nOrdering Provder: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth  Form: tablet\nchedule/Frequency: QD\nDuration: 30 days | Dispense: #9\nInstrUctions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: table\nSchedule/Frequency: QD\nDuratio'n: 30 day s | Dispense: #30\nInstructionS: Take 1 ablet oral QD\nRefills: 1"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,186.81,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.791
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "17767",
+              "display": "Amlodipine"
+            }
+          ],
+          "text": "Amlodipine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0020"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Amlodipine dose: 5 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "fbac0a5d-e2f7-4fa0-85cd-426412c40454"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "ab08dd12-e6d3-4378-bbb4-9d7f73b7aa57"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9949
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "0 | Order Date: 2025-04-16\nOrdering Provder: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 mg\nRoute: by mouth  Form: tablet\nchedule/Frequency: QD\nDuration: 30 days | Dispense: #9\nInstrUctions: Take 1 tablet by mouth QD\nRefills: 1\nOrder #2: Amlodipine 5 mg\nRoute: oral | Form: table\nSchedule/Frequency: QD\nDuratio'n: 30 day s | Dispense: #30\nInstructionS: Take 1 ablet oral QD\nRefills: 1"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 5.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0020-6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0020-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "896a98fc-f827-461b-b600-b3ed590dd68c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "9f67023a-3919-43f0-80c8-c9a4839947da"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ry Infuion & SpeCialty Clinic\nPHYS ICIAN MEDICATION ORDERS1 & CLINICAL ADMINISTrATIO'N ReCORD\nPatient: Richard mith | dOB: 1956 -12-11 | MRN: PA1T30020 | Orer Date: 2025-04-16\nOrdering rovider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 rng\nRoute: b mouth | Form: tablet\nSchedule/Feu'ency: QD\nDuration: 30 Days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nORder #2: Amldipine 5mg\nRoute: 1oral | Form: tlet\nSch'edule/Fre quncy: QD\nDurtion: 3 day.s | Dispen"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,185.71,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.716
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "5224",
+              "display": "Losartan"
+            }
+          ],
+          "text": "Losartan"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0020"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Losartan dose: 100 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "896a98fc-f827-461b-b600-b3ed590dd68c"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "9f67023a-3919-43f0-80c8-c9a4839947da"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ry Infuion & SpeCialty Clinic\nPHYS ICIAN MEDICATION ORDERS1 & CLINICAL ADMINISTrATIO'N ReCORD\nPatient: Richard mith | dOB: 1956 -12-11 | MRN: PA1T30020 | Orer Date: 2025-04-16\nOrdering rovider: Dr. Allison Cameron, MD | Doc ID: MED_0020\nOrder #1: Losartan 100 rng\nRoute: b mouth | Form: tablet\nSchedule/Feu'ency: QD\nDuration: 30 Days | Dispense: #90\nInstructions: Take 1 tablet by mouth QD\nRefills: 1\nORder #2: Amldipine 5mg\nRoute: 1oral | Form: tlet\nSch'edule/Fre quncy: QD\nDurtion: 3 day.s | Dispen"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 100.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

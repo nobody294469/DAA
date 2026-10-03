@@ -223,6 +223,8 @@ def train_one_fold(
         # Validation pass
         model.eval()
         y_true, y_pred = [], []
+        val_loss_total = 0.0
+        n_val_batches = 0
         eval_batch_size = 64 if not debug else 4
         with torch.no_grad():
             for start in range(0, len(val_examples), eval_batch_size):
@@ -233,15 +235,20 @@ def train_one_fold(
                 if device == "cuda":
                     with torch.amp.autocast("cuda", dtype=torch.float16):
                         logits = model(input_ids, attn_mask, aux_features=aux_feat)
+                        v_loss = criterion(logits, labels)
                 else:
                     logits = model(input_ids, attn_mask, aux_features=aux_feat)
+                    v_loss = criterion(logits, labels)
+                val_loss_total += v_loss.item()
+                n_val_batches += 1
                 preds = logits.argmax(dim=-1).cpu().tolist()
                 y_true.extend(labels.cpu().tolist())
                 y_pred.extend(preds)
 
+        avg_val_loss = val_loss_total / max(n_val_batches, 1)
         val_f1 = macro_f1(y_true, y_pred)
-        print(f"    Epoch {epoch+1:2d}/{max_epochs}: loss={avg_loss:.4f} | val_macro_f1={val_f1:.4f}")
-        history.append({"epoch": epoch + 1, "loss": avg_loss, "val_macro_f1": val_f1})
+        print(f"    Epoch {epoch+1:2d}/{max_epochs}: train_loss={avg_loss:.4f} | val_loss={avg_val_loss:.4f} | val_macro_f1={val_f1:.4f}")
+        history.append({"epoch": epoch + 1, "loss": avg_loss, "val_loss": avg_val_loss, "val_macro_f1": val_f1})
 
         if val_f1 > best_val_f1:
             best_val_f1 = val_f1
@@ -259,6 +266,7 @@ def train_one_fold(
 
     # --- DEC-009: Temperature scaling calibration on dedicated calibration split ---
     calibration_temperature = 1.0
+    calib_metrics = None
     if calib_examples and best_state is not None:
         from clindoc.m2.calibration import TemperatureScaler
         calib_ex = calib_examples[:24] if debug else calib_examples  # limit in debug
@@ -287,7 +295,8 @@ def train_one_fold(
             ts = TemperatureScaler()
             ts.fit(all_logits, all_labels)
             calibration_temperature = ts.temperature
-            print(f"  TemperatureScaler fitted: T={calibration_temperature:.6f}")
+            calib_metrics = ts.evaluate(all_logits, all_labels)
+            print(f"  TemperatureScaler fitted: T={calibration_temperature:.6f} | ECE: {calib_metrics['ece_before']:.4f} -> {calib_metrics['ece_after']:.4f}")
         else:
             print("  Warning: No calibration logits collected; temperature defaults to 1.0")
     elif calib_examples is None:
@@ -316,6 +325,7 @@ def train_one_fold(
         model_name=model_name, split="cv",
         fold=fold_idx, seed=seed, config=config,
         device=device, aux_mode=aux_mode,
+        temperature=calibration_temperature,
     )
     print(f"  * [{model_name} F{fold_idx} S{seed}] Val Macro-F1: {val_eval.macro_f1:.4f} | Disc Recall: {val_eval.discrepancy_recall:.4f}")
 
@@ -326,6 +336,7 @@ def train_one_fold(
             model_name=model_name, split="ood",
             fold=fold_idx, seed=seed, config=config,
             device=device, aux_mode=aux_mode,
+            temperature=calibration_temperature,
         )
         print(f"    OOD Macro-F1: {ood_eval.macro_f1:.4f} | Disc Recall: {ood_eval.discrepancy_recall:.4f}")
 
@@ -342,6 +353,7 @@ def train_one_fold(
         "seed": seed,
         "best_val_macro_f1": best_val_f1,
         "calibration_temperature": calibration_temperature,  # DEC-009
+        "calib_metrics": calib_metrics,
         "val_eval": val_eval.model_dump(),
         "ood_eval": ood_eval.model_dump() if ood_eval else None,
         "history": history,
@@ -399,7 +411,9 @@ def run_training(
     if headline_results_map:
         print(f"Loaded {len(headline_results_map)} historical headline-recovered result(s) (checkpoints/detailed metrics not available)")
 
-    results = []
+    # Seed results with all existing valid completed/recovered full results
+    # so incremental saves never discard previously completed/recovered runs
+    results = list(existing_results_map.values())
     n_folds = 1 if debug else manifest["n_splits"]
     seeds = [config.seeds[0]] if debug else config.seeds
 
@@ -441,10 +455,9 @@ def run_training(
                 ckpt_name = f"{var['name']}_fold{fold_idx}_seed{seed}.pt"
                 ckpt_path = var_dir / ckpt_name
 
-                # 1. Result already recorded in official existing_results_map
-                if run_key in existing_results_map and run_key not in headline_results_map:
+                # 1. Result already recorded in official existing_results_map with full evaluation
+                if run_key in existing_results_map and existing_results_map[run_key].get("val_eval") is not None:
                     print(f"  [SKIP] Full result already recorded for {var['name']} fold={fold_idx} seed={seed}")
-                    results.append(existing_results_map[run_key])
                     save_incremental_results(results_file, results, persist_dir=persist_dir)
                     continue
 

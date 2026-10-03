@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-10-03T19:12:00Z",
+  "total_documents": 34,
+  "document_breakdown": {
+    "lab": 17,
+    "med": 12,
+    "narrative": 5
+  },
+  "total_claims": 1826,
+  "supported": 725,
+  "discrepancy": 987,
+  "insufficient_evidence": 114,
+  "escalated_to_stage_c": 381,
+  "real_bboxes_recovered": 1719,
+  "unmapped_bboxes": 107,
+  "validation_failures": 0,
+  "failure_details": []
+}

@@ -1,0 +1,1648 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-lab-0032",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-lab-0032",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-lab-0032",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-LAB-0032"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-lab-0032",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-lab-0032",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-lab-0032",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-lab-0032",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-lab-0032",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-lab-0032",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "a21e4e31-c90e-4171-b9d5-423fc566318c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "dec40cb7-2f6d-4f7a-93fc-986c503dfb97"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9975
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,430.02,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0032"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-lab-0032-1"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-2"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-3"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-4"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-5"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-6"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-7"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-8"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-9"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-10"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-11"
+          },
+          {
+            "reference": "Observation/obs-lab-0032-12"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "a21e4e31-c90e-4171-b9d5-423fc566318c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "dec40cb7-2f6d-4f7a-93fc-986c503dfb97"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9975
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,430.02,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "White Blood Cell Count"
+            }
+          ],
+          "text": "White Blood Cell Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "a21e4e31-c90e-4171-b9d5-423fc566318c"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "dec40cb7-2f6d-4f7a-93fc-986c503dfb97"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9975
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 1.38,
+          "unit": "10*3/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*3/uL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "68de6aec-4e6d-4668-9e4c-d48ea225f3b9"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "6954862f-a160-41eb-8744-8162775c125e"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "WHITE BLOOD CELL COUNT FLAG: HIGH",
+                "display": "White Blood Cell Count flag: HIGH"
+              }
+            ],
+            "text": "White Blood Cell Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d9a81e77-dc1d-4a2e-8d8d-db6cd6f4f732"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "23d4a83d-2377-4e98-bf32-c51e1b5dabc6"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9981
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "2025-08-21\nPatient Name:\nReport Date:\nPAT-399 49\nDr. Emily Chen, MD\nPatient ID:\nPhysician:\n1976-06.-27 (M)\nAB_0032\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE B1LOOD COUNT\nAnalyte\nResult\nUnits\nReference Rnge\nAbnorml\nHemolobin\n12.4\ng/d.L\n12.0 - 16.0\nHematocrit\n44.0\n%\n36.0 - 48.0\nWh ite Blood Cell Count\n5.5\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n170.0\n10*3/uL\n150 - 450\nRe Blood Cell Count\n4.35\n10*6/uL\n4.20 - 5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,95.51,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.91
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4544-3",
+              "display": "Hematocrit"
+            }
+          ],
+          "text": "Hematocrit"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "d9a81e77-dc1d-4a2e-8d8d-db6cd6f4f732"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "23d4a83d-2377-4e98-bf32-c51e1b5dabc6"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9981
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "2025-08-21\nPatient Name:\nReport Date:\nPAT-399 49\nDr. Emily Chen, MD\nPatient ID:\nPhysician:\n1976-06.-27 (M)\nAB_0032\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE B1LOOD COUNT\nAnalyte\nResult\nUnits\nReference Rnge\nAbnorml\nHemolobin\n12.4\ng/d.L\n12.0 - 16.0\nHematocrit\n44.0\n%\n36.0 - 48.0\nWh ite Blood Cell Count\n5.5\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n170.0\n10*3/uL\n150 - 450\nRe Blood Cell Count\n4.35\n10*6/uL\n4.20 - 5.80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 88.0,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "985258dd-02ab-455a-b395-003d999defac"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "a7fb486a-df10-41a1-9af1-6ec21d410a83"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3040-3",
+              "display": "Lipase"
+            }
+          ],
+          "text": "Lipase"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "985258dd-02ab-455a-b395-003d999defac"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "a7fb486a-df10-41a1-9af1-6ec21d410a83"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 45.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7c77e487-8ecd-4176-aab5-c9b80adcf4d5"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "dc1a46a8-d544-41d6-a56a-3ee1ed1db409"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9979
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,435.03,202.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin"
+            }
+          ],
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "7c77e487-8ecd-4176-aab5-c9b80adcf4d5"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "dc1a46a8-d544-41d6-a56a-3ee1ed1db409"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9979
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 12.4,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "73721934-f72d-4692-833f-e63ce7c04347"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "79a49e88-0024-40e5-8ca6-2ade10b36a26"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "HEMOGLOBIN FLAG: HIGH",
+                "display": "Hemoglobin flag: HIGH"
+              }
+            ],
+            "text": "Hemoglobin flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "3dd3e7ae-38bd-4118-83ff-e50f53788ef5"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "cab8a7b2-d19f-428b-a1d6-30ee95a13477"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9969
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,430.02,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelet Count"
+            }
+          ],
+          "text": "Platelet Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "3dd3e7ae-38bd-4118-83ff-e50f53788ef5"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "cab8a7b2-d19f-428b-a1d6-30ee95a13477"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9969
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 170.0,
+          "unit": "10*3/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*3/uL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "46780705-2d9b-427c-9658-a7ec8f725d77"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "df56712f-389f-47a4-825d-e261eb02cd1a"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "PLATELET COUNT FLAG: HIGH",
+                "display": "Platelet Count flag: HIGH"
+              }
+            ],
+            "text": "Platelet Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "aff51371-ed2e-4c59-987f-190002867e68"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "e43c62ff-dc89-4051-96ad-3d2c61e25907"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10839-9",
+              "display": "Troponin I"
+            }
+          ],
+          "text": "Troponin I"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "aff51371-ed2e-4c59-987f-190002867e68"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "e43c62ff-dc89-4051-96ad-3d2c61e25907"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-7",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "14b7f801-f152-4e8e-a103-7097a45f1122"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "a42d8993-7664-4da3-b471-4931d63f37a4"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,435.03,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4544-3",
+              "display": "Hematocrit"
+            }
+          ],
+          "text": "Hematocrit"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "14b7f801-f152-4e8e-a103-7097a45f1122"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "a42d8993-7664-4da3-b471-4931d63f37a4"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 88.0,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "a480ea59-c9bf-434c-81db-dd2ef21f5e17"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "6a4343a4-20fe-4286-8a3c-5988dc9da1dc"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient Name: Richard Davis Report Date: 2025-08-21\nPatient ID: PAT-39949 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "HEMATOCRIT FLAG: HIGH",
+                "display": "Hematocrit flag: HIGH"
+              }
+            ],
+            "text": "Hematocrit flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-8",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "71d9e26c-9d82-4726-a827-4893ddf11e11"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "df25fb89-0902-44f2-86ea-abd1ad6a8e70"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9983
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "2025-08-21\nPatient Name:\nREport Dat e:\nPAT1-9949\nDr. Emily Chen, MD \nPtientID:\nP.hy sician:\n1976-06-27 (M)\nLAB_0032\nDOB / Gender:\nDocument D:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nReerence range\nAbnormal\nH.emoglobin\n12.4\ng/d'L\nI2.0 - 16.0\nHematocrit\n44.0\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.5\n10*13/uL\n4.5 - 11.0\nPlatelet Cunt\n1700\n10*3/uL\n1510 - 450\nd Blood Cell Count\n4. 35\n10*6/uL\n4.20  5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,95.51,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.869
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4544-3",
+              "display": "Hematocrit"
+            }
+          ],
+          "text": "Hematocrit"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "71d9e26c-9d82-4726-a827-4893ddf11e11"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "df25fb89-0902-44f2-86ea-abd1ad6a8e70"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9983
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "2025-08-21\nPatient Name:\nREport Dat e:\nPAT1-9949\nDr. Emily Chen, MD \nPtientID:\nP.hy sician:\n1976-06-27 (M)\nLAB_0032\nDOB / Gender:\nDocument D:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nReerence range\nAbnormal\nH.emoglobin\n12.4\ng/d'L\nI2.0 - 16.0\nHematocrit\n44.0\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.5\n10*13/uL\n4.5 - 11.0\nPlatelet Cunt\n1700\n10*3/uL\n1510 - 450\nd Blood Cell Count\n4. 35\n10*6/uL\n4.20  5.80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 88.0,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-9",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "65176b90-632a-4398-b9b5-da479cd9fdca"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "771e96b2-3ed4-4ed4-8cf2-498460e0fc38"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9921
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "DOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,262.33,435.03,274.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "789-8",
+              "display": "Red Blood Cell Count"
+            }
+          ],
+          "text": "Red Blood Cell Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "65176b90-632a-4398-b9b5-da479cd9fdca"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "771e96b2-3ed4-4ed4-8cf2-498460e0fc38"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9921
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "DOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 4.35,
+          "unit": "10*6/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*6/uL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "64216e0b-8f10-4cf0-a63b-7007774c19f6"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "3bafd39a-c3dd-49b6-9fee-c35198dc5d1f"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "DOB / Gender: 1976-06-27 (M) Document ID: LAB_0032\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 12.4 g/dL 12.0 - 16.0\nHematocrit 44.0 % 36.0 - 48.0\nWhite Blood Cell Count 5.5 10*3/uL 4.5 - 11.0\nPlatelet Count 170.0 10*3/uL 150 - 450\nRed Blood Cell Count 4.35 10*6/uL 4.20 - 5.80"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "RED BLOOD CELL COUNT FLAG: HIGH",
+                "display": "Red Blood Cell Count flag: HIGH"
+              }
+            ],
+            "text": "Red Blood Cell Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-10",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "1a39f9d1-0a19-436f-bea8-237e22fe8fb5"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "e81d6314-4cf2-4a8a-98d1-791600b1297f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9983
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "REport Dat e:\nPAT1-9949\nDr. Emily Chen, MD \nPtientID:\nP.hy sician:\n1976-06-27 (M)\nLAB_0032\nDOB / Gender:\nDocument D:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nReerence range\nAbnormal\nH.emoglobin\n12.4\ng/d'L\nI2.0 - 16.0\nHematocrit\n44.0\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.5\n10*13/uL\n4.5 - 11.0\nPlatelet Cunt\n1700\n10*3/uL\n1510 - 450\nd Blood Cell Count\n4. 35\n10*6/uL\n4.20  5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,145.03,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.869
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "White Blood Cell Count"
+            }
+          ],
+          "text": "White Blood Cell Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "1a39f9d1-0a19-436f-bea8-237e22fe8fb5"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "e81d6314-4cf2-4a8a-98d1-791600b1297f"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9983
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "REport Dat e:\nPAT1-9949\nDr. Emily Chen, MD \nPtientID:\nP.hy sician:\n1976-06-27 (M)\nLAB_0032\nDOB / Gender:\nDocument D:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnits\nReerence range\nAbnormal\nH.emoglobin\n12.4\ng/d'L\nI2.0 - 16.0\nHematocrit\n44.0\n%\n36.0 - 48.0\nWhite Blood Cell Count\n5.5\n10*13/uL\n4.5 - 11.0\nPlatelet Cunt\n1700\n10*3/uL\n1510 - 450\nd Blood Cell Count\n4. 35\n10*6/uL\n4.20  5.80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 1.38,
+          "unit": "10*3/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*3/uL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-11",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "1ebb5b65-6ae4-4672-b652-c4d529dbf8b8"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "dda65d0d-9f94-447c-aadd-f74d1a9c435b"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9963
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "DiviSi0n of Labo rat0ry M edici'ne| Cl'nica1l 1Report\nRiChard Davi\n2D25-08-21 \nPat iEnt ame:\nrep0rTDate:\nPAT-'3949\n.1 Emil.y C.he n,MD\nPatient 1D:\nP'hysician:\n1976-06-27 (M\nL1AB_0032\nDOB / Genr:\nDocurNenT ID:\nSECTION: 1CO PETE BLOOD COUNT\nAnalyte\nResult\nUniS\nref'e Rnce Range\nAbnormal\nHemoglobin\n12.4\ng/dL\n12.0 - 16.0\nHernatocrit\n440\n%\n316.0 - 48 .0\nWhite BlooD Cel| couNt\n5.5\n0*3/uL\n4.5 - 11.0\nPlatelet c0unt\n170.0\n10*3/uL\n150 - 40\nRed Blood cll cunt\n4.35\n10*6/uL\n4.0 - .80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,100.02,202.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.829
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin"
+            }
+          ],
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "1ebb5b65-6ae4-4672-b652-c4d529dbf8b8"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "dda65d0d-9f94-447c-aadd-f74d1a9c435b"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9963
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "DiviSi0n of Labo rat0ry M edici'ne| Cl'nica1l 1Report\nRiChard Davi\n2D25-08-21 \nPat iEnt ame:\nrep0rTDate:\nPAT-'3949\n.1 Emil.y C.he n,MD\nPatient 1D:\nP'hysician:\n1976-06-27 (M\nL1AB_0032\nDOB / Genr:\nDocurNenT ID:\nSECTION: 1CO PETE BLOOD COUNT\nAnalyte\nResult\nUniS\nref'e Rnce Range\nAbnormal\nHemoglobin\n12.4\ng/dL\n12.0 - 16.0\nHernatocrit\n440\n%\n316.0 - 48 .0\nWhite BlooD Cel| couNt\n5.5\n0*3/uL\n4.5 - 11.0\nPlatelet c0unt\n170.0\n10*3/uL\n150 - 40\nRed Blood cll cunt\n4.35\n10*6/uL\n4.0 - .80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 12.4,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0032-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0032-12",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "bf791e2b-3016-40b1-966e-cb41edea17b8"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7b087640-b601-40fd-b799-07c674ac6cc4"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9979
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID:\nPhysician:\n1976-06.-27 (M)\nAB_0032\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE B1LOOD COUNT\nAnalyte\nResult\nUnits\nReference Rnge\nAbnorml\nHemolobin\n12.4\ng/d.L\n12.0 - 16.0\nHematocrit\n44.0\n%\n36.0 - 48.0\nWh ite Blood Cell Count\n5.5\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n170.0\n10*3/uL\n150 - 450\nRe Blood Cell Count\n4.35\n10*6/uL\n4.20 - 5.80"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,108.53,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.91
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelet Count"
+            }
+          ],
+          "text": "Platelet Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0032"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "bf791e2b-3016-40b1-966e-cb41edea17b8"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7b087640-b601-40fd-b799-07c674ac6cc4"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9979
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID:\nPhysician:\n1976-06.-27 (M)\nAB_0032\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE B1LOOD COUNT\nAnalyte\nResult\nUnits\nReference Rnge\nAbnorml\nHemolobin\n12.4\ng/d.L\n12.0 - 16.0\nHematocrit\n44.0\n%\n36.0 - 48.0\nWh ite Blood Cell Count\n5.5\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n170.0\n10*3/uL\n150 - 450\nRe Blood Cell Count\n4.35\n10*6/uL\n4.20 - 5.80"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 680.0,
+          "unit": "10*3/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*3/uL"
+        }
+      }
+    }
+  ]
+}

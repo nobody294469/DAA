@@ -1,0 +1,85 @@
+{
+  "dataset_version": "3.0-corrected-canonical",
+  "generated_at": "2026-10-02T17:03:20.290779+00:00",
+  "seed": 42,
+  "total_documents": 120,
+  "cv_documents": 86,
+  "ood_documents": 34,
+  "total_examples": 5629,
+  "total_groups": 2078,
+  "by_field_type": {
+    "lab.flag": {
+      "SUPPORTED": 345,
+      "DISCREPANCY": 763
+    },
+    "lab.value": {
+      "DISCREPANCY": 1619,
+      "SUPPORTED": 1418,
+      "INSUFFICIENT_EVIDENCE": 150
+    },
+    "med.frequency": {
+      "SUPPORTED": 100,
+      "INSUFFICIENT_EVIDENCE": 70,
+      "DISCREPANCY": 103
+    },
+    "med.name": {
+      "DISCREPANCY": 142,
+      "SUPPORTED": 106,
+      "INSUFFICIENT_EVIDENCE": 70
+    },
+    "med.route": {
+      "DISCREPANCY": 78,
+      "INSUFFICIENT_EVIDENCE": 70,
+      "SUPPORTED": 104
+    },
+    "med.dose": {
+      "DISCREPANCY": 220,
+      "SUPPORTED": 197,
+      "INSUFFICIENT_EVIDENCE": 74
+    }
+  },
+  "by_class": {
+    "SUPPORTED": 2270,
+    "DISCREPANCY": 2925,
+    "INSUFFICIENT_EVIDENCE": 434
+  },
+  "by_contradiction_type": {
+    "value_mismatch": 2382,
+    "wrong_entity": 220,
+    "dose_mismatch": 220,
+    "temporal_mismatch": 103
+  },
+  "class_balance_status": "PASSED_DEC_011",
+  "context_window_config": {
+    "status": "EMPIRICALLY OPEN",
+    "development_default": true,
+    "final_value_requires_experiment": "Phase 1 context window mini-ablation on negation/temporal subsets",
+    "window_policy": {
+      "primary_strategy": "paragraph_bounded",
+      "max_characters": 500,
+      "fallback_strategy": "fixed_symmetric_window",
+      "fallback_characters": 250
+    },
+    "dense_tabular_override": {
+      "enabled": true,
+      "strategy": "fixed_symmetric_window",
+      "window_characters": 250
+    }
+  },
+  "rejection_diagnostics": {
+    "deterministic_label_mismatch (expected SUPPORTED, verifier found INSUFFICIENT_EVIDENCE)": 376,
+    "deterministic_label_mismatch (expected DISCREPANCY, verifier found SUPPORTED)": 134,
+    "deterministic_label_mismatch (expected SUPPORTED, verifier found DISCREPANCY)": 417,
+    "missing_target_entity": 1174,
+    "slice_evidence_mismatch": 322,
+    "context_window_bisected_row": 24,
+    "failed_degraded_alignment": 25
+  },
+  "accounting": {
+    "clean_lab": 2723,
+    "clean_med": 784,
+    "degraded_lab": 1572,
+    "degraded_med": 179,
+    "narrative": 544
+  }
+}

@@ -1,0 +1,954 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0016",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0016",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0016",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0016"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0016",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0016",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0016",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0016",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0016-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0016-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "270ac3dc-5b2d-40b7-852c-9a5926eef14b"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8b8d66dd-1a95-4df3-a081-707644e1e165"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "270ac3dc-5b2d-40b7-852c-9a5926eef14b"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "8b8d66dd-1a95-4df3-a081-707644e1e165"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0016"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "45e01f55-8ba4-4144-a42e-2751d3350be2"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "921d9607-caa2-4037-aa4c-97df9d35a4c1"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "79c6861c-8c29-4bf9-80fb-064b146e4390"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "0b57b96f-5a10-4e87-9b5e-cfbb863487fc"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "7a7d1869-4847-419d-99a0-53492ac0f181"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "956f9205-f52f-4fd2-8998-86cbd6bd1b3f"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0016-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0016-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f7b65de0-267c-4139-8139-0b7f9f2db755"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "a052d7c8-10ac-4cd1-9911-c82fcc7307fa"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9968
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Jessica Garcia | DOB: 2004-02-01 | MRN: PAT- 30016 | Order Date: 2025-04-28\nOrdering Provier: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | For: tablet\nSChedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: l tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoin'g | Dispe"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,197.37,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.819
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6809",
+              "display": "Metformin"
+            }
+          ],
+          "text": "Metformin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0016"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Metformin dose: 500 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "f7b65de0-267c-4139-8139-0b7f9f2db755"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "a052d7c8-10ac-4cd1-9911-c82fcc7307fa"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9968
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Jessica Garcia | DOB: 2004-02-01 | MRN: PAT- 30016 | Order Date: 2025-04-28\nOrdering Provier: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | For: tablet\nSChedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: l tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoin'g | Dispe"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 500.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0016-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0016-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "3a03ca92-b914-47ad-964d-99ccb194cce6"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "4347e094-7aac-49ba-8a40-cb6bce36370f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9963
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "A1T30016 | Orer Date: 2025-04-28\nOrdering Povider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOr'der #1: Metforrnin 1000 mg\nRoute: orl | Forrn: table\nSchedu.le/Frequency I'D\nduraion: 90 days | Dispense: #60\n1nstruc1tions: 1 tablet oral BID\nRefills: 11\nOrder #2: Metoprolol 50 mg\nRoute: by rnouth | Form: 1tablet\nSchedule/Fr'equency:  BI\nuration:Ongoing| Di.spense: #180\nInstructions: 1 tablet by mout h BID\nRefills  2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,189.03,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.675
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6918",
+              "display": "Metoprolol"
+            }
+          ],
+          "text": "Metoprolol"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0016"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Metoprolol dose: 50 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "3a03ca92-b914-47ad-964d-99ccb194cce6"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "4347e094-7aac-49ba-8a40-cb6bce36370f"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9963
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "A1T30016 | Orer Date: 2025-04-28\nOrdering Povider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOr'der #1: Metforrnin 1000 mg\nRoute: orl | Forrn: table\nSchedu.le/Frequency I'D\nduraion: 90 days | Dispense: #60\n1nstruc1tions: 1 tablet oral BID\nRefills: 11\nOrder #2: Metoprolol 50 mg\nRoute: by rnouth | Form: 1tablet\nSchedule/Fr'equency:  BI\nuration:Ongoing| Di.spense: #180\nInstructions: 1 tablet by mout h BID\nRefills  2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0016-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0016-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "e6bfc5da-2454-460a-9e73-c59b21962832"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "23099948-c834-44a3-bc49-df8325a3af63"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9821
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "AT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth BID\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,189.03,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "e6bfc5da-2454-460a-9e73-c59b21962832"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "23099948-c834-44a3-bc49-df8325a3af63"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9821
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "AT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth BID\nRefills: 2"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "Medication: Lisinopril"
+            }
+          ],
+          "text": "Medication: Lisinopril"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0016"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Lisinopril Metoprolol dose: 50 mg mg Metoprolol route: by mouth Metoprolol frequency: BID",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "7992603f-46d8-410c-87d5-fee99e84780b"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "0e9c75d7-05d3-4de0-bfd8-8d6c6c9b05da"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9936
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "AT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth BID\nRefills: 2"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metoprolol frequency: BID"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "7f97e8c7-1d71-4827-97a3-31af309b227e"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "09a2f295-61f6-440a-8277-b84ba4363520"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9821
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "AT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth BID\nRefills: 2"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metoprolol route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "19683fb0-ddbb-4649-b12d-ffc6415d250e"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "028f6c6d-c7c6-4df1-91e2-963bcabba4b7"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.996
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "AT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispense: #180\nInstructions: 1 tablet by mouth BID\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0016-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0016-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c41121c6-f536-4238-a59f-9da9b4f30299"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "c34ed3d0-1b99-4471-98be-6ce8bd84b5a3"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9963
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "PAT- 30016 | Order Date: 2025-04-28\nOrdering Provier: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | For: tablet\nSChedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: l tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoin'g | Dispe nse: #180\nInstuctions: 1 Tablet by outh BID\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,189.03,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.819
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6918",
+              "display": "Metoprolol"
+            }
+          ],
+          "text": "Metoprolol"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0016"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Metoprolol dose: 50 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "c41121c6-f536-4238-a59f-9da9b4f30299"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "c34ed3d0-1b99-4471-98be-6ce8bd84b5a3"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9963
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "PAT- 30016 | Order Date: 2025-04-28\nOrdering Provier: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | For: tablet\nSChedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: l tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoin'g | Dispe nse: #180\nInstuctions: 1 Tablet by outh BID\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0016-6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0016-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "b9eb9f56-f25f-4dd2-92fe-10e85dd566b0"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "ce98b88b-640e-42fd-a854-e5ef9b0e643a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9955
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Jessica Garcia | DOB: 2004-02-01 | MRN: PAT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispe"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,197.37,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "b9eb9f56-f25f-4dd2-92fe-10e85dd566b0"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "ce98b88b-640e-42fd-a854-e5ef9b0e643a"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9955
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Jessica Garcia | DOB: 2004-02-01 | MRN: PAT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispe"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Medication: Amoxicillin"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0016"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amoxicillin Metformin dose: 1000 mg mg Metformin route: oral Metformin frequency: BID",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "ae91a30a-85d5-4b3f-8cf1-92e88f19de65"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "2ac56151-678f-4e00-9020-fbab59feddf6"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9935
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Jessica Garcia | DOB: 2004-02-01 | MRN: PAT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispe"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metformin frequency: BID"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "95647155-104f-4ca9-be26-e410850b9acf"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "ccd8260e-c7e4-4e4a-8b4d-4e783ae25d48"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9949
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Jessica Garcia | DOB: 2004-02-01 | MRN: PAT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispe"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metformin route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "b70a8731-0b01-447e-ad38-71ae9e30be20"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "51a5e1c2-1c19-4838-b6d2-0771abbda1f8"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9964
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Jessica Garcia | DOB: 2004-02-01 | MRN: PAT-30016 | Order Date: 2025-04-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0016\nOrder #1: Metformin 1000 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: BID\nDuration: 90 days | Dispense: #60\nInstructions: 1 tablet oral BID\nRefills: 1\nOrder #2: Metoprolol 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: BID\nDuration: Ongoing | Dispe"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 1000.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "authority": "PROJECT_SPEC.md \u00a721.7",
+    "benchmark_scope": "Canonical V3 Out-Of-Distribution (OOD) Split",
+    "document_count": 34,
+    "document_breakdown": {
+      "laboratory": 17,
+      "medication": 12,
+      "narrative": 5
+    },
+    "total_claims_evaluated": 1826,
+    "join_keys": {
+      "v3_dataset_key": "example_id",
+      "diagnostics_key": "example_id / claim.claim_id",
+      "audit_report_key": "claim_id",
+      "fhir_provenance_key": "extension[url=.../claim-provenance].extension[url=claimId].valueString"
+    }
+  },
+  "component_metrics": {
+    "claims_in_audit_report": {
+      "count": 1826,
+      "rate": 1.0
+    },
+    "claims_in_fhir_bundle_provenance": {
+      "count": 1130,
+      "rate": 0.6188,
+      "shadowed_unmapped_group_claims": 696
+    },
+    "correct_verification_label": {
+      "count": 1780,
+      "rate_overall": 0.9748,
+      "count_in_bundle": 1093,
+      "rate_in_bundle": 0.9673
+    },
+    "correct_value_representation": {
+      "count_in_bundle": 1130,
+      "rate_in_bundle": 1.0
+    },
+    "normalized_code_representation": {
+      "in_fhir_bundle_coding": {
+        "count": 256,
+        "rate_in_bundle": 0.2265,
+        "evidence_gap_note": "Phase 5 batch generation serialized CodeableConcept.text fallbacks per \u00a715.3 because normalized_code was omitted during Claim reconstruction in generate_phase5_v8.py."
+      },
+      "upstream_extraction_available": {
+        "count": 1556,
+        "rate_overall": 0.8521
+      }
+    }
+  },
+  "compound_metrics": {
+    "strict_fhir_bundle_accuracy": {
+      "numerator": 236,
+      "denominator": 1826,
+      "rate": 0.1292,
+      "interpretation": "Strict \u00a721.7 compound metric requiring all 3 elements (value, code, verification label) present inside the serialized FHIR bundle resources. Yields 0.0% due to the Phase 5 code serialization gap."
+    },
+    "in_bundle_verified_value_accuracy": {
+      "numerator": 1093,
+      "denominator": 1826,
+      "rate": 0.5986,
+      "rate_conditioned_on_bundle": 0.9673,
+      "interpretation": "Fraction of ground-truth claims successfully represented in FHIR resources with correct value and correct verification label (1,093 / 1,130 in-bundle claims = 96.73%; 1,093 / 1,826 overall = 59.86%)."
+    },
+    "upstream_code_compound_accuracy": {
+      "numerator": 995,
+      "denominator": 1826,
+      "rate": 0.5449,
+      "interpretation": "Compound pipeline metric crediting upstream extraction LOINC/RxNorm availability for represented claims with correct value and correct verification label."
+    }
+  },
+  "per_document_type_breakdown": {
+    "Laboratory": {
+      "total": 1364,
+      "in_fhir": 827,
+      "correct_ver": 1325,
+      "correct_val": 827,
+      "has_code_fhir": 243,
+      "compound_strict": 223
+    },
+    "Medication": {
+      "total": 301,
+      "in_fhir": 191,
+      "correct_ver": 295,
+      "correct_val": 191,
+      "has_code_fhir": 0,
+      "compound_strict": 0
+    },
+    "Narrative": {
+      "total": 161,
+      "in_fhir": 112,
+      "correct_ver": 160,
+      "correct_val": 112,
+      "has_code_fhir": 13,
+      "compound_strict": 13
+    }
+  },
+  "unjoinable_cases_count": 0,
+  "unjoinable_cases": []
+}

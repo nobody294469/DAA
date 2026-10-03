@@ -1,0 +1,1462 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-narrative-0019",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-narrative-0019",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-narrative-0019",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-NARRATIVE-00"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-narrative-0019",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-narrative-0019",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-narrative-0019",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-narrative-0019",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-narrative-0019",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-narrative-0019",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "2e19e9ce-88d4-4294-b07c-29ebce19e419"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0545154e-d88e-4f6c-8209-27b2261e7a52"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9922
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "nce the\nlast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations. Recent\noutpatient send-out interval laboratory check showed potassium of 4.01 mmol/L. Concurrent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintai"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,163.54,538.13,190.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0019"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-narrative-0019"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-narrative-0019-1"
+          },
+          {
+            "reference": "Observation/obs-narrative-0019-2"
+          },
+          {
+            "reference": "Observation/obs-narrative-0019-3"
+          },
+          {
+            "reference": "Observation/obs-narrative-0019-4"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0019-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0019-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "2e19e9ce-88d4-4294-b07c-29ebce19e419"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0545154e-d88e-4f6c-8209-27b2261e7a52"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9922
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "nce the\nlast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations. Recent\noutpatient send-out interval laboratory check showed potassium of 4.01 mmol/L. Concurrent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintai"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,163.54,538.13,190.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "17861-6",
+              "display": "Calcium"
+            }
+          ],
+          "text": "Calcium"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0019"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "2e19e9ce-88d4-4294-b07c-29ebce19e419"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "0545154e-d88e-4f6c-8209-27b2261e7a52"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9922
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "nce the\nlast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations. Recent\noutpatient send-out interval laboratory check showed potassium of 4.01 mmol/L. Concurrent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintai"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 17.96,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "5f5b1580-3214-407c-be06-4dbe1ac8d6e2"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "e8cd53d6-cec1-482d-9c59-75ea16b3c484"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9888
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "nce the\nlast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations. Recent\noutpatient send-out interval laboratory check showed potassium of 4.01 mmol/L. Concurrent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintai"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "CALCIUM FLAG: HIGH",
+                "display": "Calcium flag: HIGH"
+              }
+            ],
+            "text": "Calcium flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0019-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0019-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "e6dcfaf4-0c15-49a6-8674-bf2efa4c2b00"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "589fd4d2-affb-49a5-ac9d-8dbcb246c920"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9877
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "es any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg o"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,239.04,551.28,252.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2345-7",
+              "display": "Glucose"
+            }
+          ],
+          "text": "Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0019"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "e6dcfaf4-0c15-49a6-8674-bf2efa4c2b00"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "589fd4d2-affb-49a5-ac9d-8dbcb246c920"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9877
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "es any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg o"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 22.05,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "26dc1833-5ee0-4ddb-adfc-bc5cc4a03b12"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "29ae9d7d-0cc5-486e-8c70-16f27aa9dddd"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9823
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "es any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg o"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "GLUCOSE FLAG: HIGH",
+                "display": "Glucose flag: HIGH"
+              }
+            ],
+            "text": "Glucose flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0019-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0019-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "fd75ad40-83dc-4e69-98d9-2058536b1cc6"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0873b4db-9d6b-4e2d-8ce1-12fff01fe6ec"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.99
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "atient Sarah Martin presents for longitudinal chronic disease management. Since the\nlast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations. Recent\noutpatient send-out interval laboratory check showed potassium of 4.01 mmol/L. Concurrent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, "
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,163.54,538.13,176.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium"
+            }
+          ],
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0019"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "fd75ad40-83dc-4e69-98d9-2058536b1cc6"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "0873b4db-9d6b-4e2d-8ce1-12fff01fe6ec"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.99
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "atient Sarah Martin presents for longitudinal chronic disease management. Since the\nlast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations. Recent\noutpatient send-out interval laboratory check showed potassium of 4.01 mmol/L. Concurrent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, "
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 2.0,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "e3ed50ef-c11c-4ccf-812e-17599e63e51d"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "0e58a2f6-6f30-4185-8915-279647de481f"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.985
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "atient Sarah Martin presents for longitudinal chronic disease management. Since the\nlast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations. Recent\noutpatient send-out interval laboratory check showed potassium of 4.01 mmol/L. Concurrent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, "
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "POTASSIUM FLAG: HIGH",
+                "display": "Potassium flag: HIGH"
+              }
+            ],
+            "text": "Potassium flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0019-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0019-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4e8caf36-8bc9-4faf-bf36-123ff6256ff5"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7bf57fbd-1130-408d-9cf0-29c6a9859418"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10839-9",
+              "display": "Troponin I"
+            }
+          ],
+          "text": "Troponin I"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0019"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "4e8caf36-8bc9-4faf-bf36-123ff6256ff5"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7bf57fbd-1130-408d-9cf0-29c6a9859418"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0019-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0019-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "5a26fdad-b65f-4f71-b81d-d425ce19c8ef"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "9fd09c74-7a9e-42fc-957f-94cacfff7df3"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "5a26fdad-b65f-4f71-b81d-d425ce19c8ef"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "9fd09c74-7a9e-42fc-957f-94cacfff7df3"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0019"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "1edd1c2f-15f5-4882-a733-8b1a1cf6faf4"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "56bb726c-b9af-4bc4-ba41-a991dd837ae5"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "b0e0fe90-3d73-4056-a762-eb69019098f5"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "52867465-0846-462a-ae0f-6f5c50e67e4f"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "b1fc4e17-5b58-4a0e-8023-d82eddf6ecdd"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "c2d9d20e-256a-497c-a127-6cab9c54e6cd"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0019-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0019-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c5db9794-c426-469d-85a9-6627782b5653"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "a1d73d24-f628-4ede-ba2a-f58ab0c995b9"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9836
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATE"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,225.54,562.34,252.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "c5db9794-c426-469d-85a9-6627782b5653"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "a1d73d24-f628-4ede-ba2a-f58ab0c995b9"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9836
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATE"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Medication: Amoxicillin"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0019"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Amoxicillin Azithromycin dose: 125 mg mg Azithromycin route: intravenously Azithromycin frequency: four times daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "8a1b80a1-f681-4cef-b944-655c73f32fc5"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "868350d7-213f-46b5-af3a-1612b782c2a2"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9834
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATE"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Azithromycin frequency: four times daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "b38597f5-9e46-44f3-b1b8-298a9cdd0c75"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "46bb726a-5bfa-42b7-a4c2-78dc36fe6d5d"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9778
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATE"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Azithromycin route: intravenously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "d98d743b-fa38-41ca-9c68-ad1c0bd9ffc8"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "f75f97a1-0501-4d62-afe7-250b2fd61ee8"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9905
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ent testing noted that fasting\ncalcium was 8.98 mg/dL. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 250 mg orally once daily\nfor 5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATE"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 125.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0019-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0019-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4a12e1f7-aa62-43e0-a704-baa0e0f04b12"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "c6d1aa13-798f-487e-8043-8c2a8a8f6f1a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9784
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "cose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehe"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,301.04,535.35,314.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "4a12e1f7-aa62-43e0-a704-baa0e0f04b12"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "c6d1aa13-798f-487e-8043-8c2a8a8f6f1a"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9784
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "cose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehe"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "Medication: Lisinopril"
+            }
+          ],
+          "text": "Medication: Lisinopril"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0019"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Lisinopril Metoprolol dose: 50 mg mg Metoprolol route: by inhalation Metoprolol frequency: every other day",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "0883edad-67c6-4863-98a2-077114e87bdd"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "01d528af-708c-4b86-9192-69366be42b1f"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9775
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "cose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehe"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metoprolol frequency: every other day"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "b6c9f467-4d72-4436-8966-ed15c6eeb964"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "0441a999-e1b0-4332-a6cc-421b56cc215d"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9781
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "cose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehe"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metoprolol route: by inhalation"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "7e72d152-07d7-46ca-a7b5-db96059273cb"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "49d7b353-e1e4-456d-8e6e-88797c996156"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.986
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "cose was 88.2 mg/dL, confirming steady metabolic control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehe"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0019-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0019-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "de1db784-a0e9-4fa0-9268-0a8e2b8ff7e4"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "e7002654-b644-4c6c-b765-54fd5fd55a36"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.7244
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,314.54,546.56,327.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "de1db784-a0e9-4fa0-9268-0a8e2b8ff7e4"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "e7002654-b644-4c6c-b765-54fd5fd55a36"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.7244
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": " control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6809",
+              "display": "Medication: Metformin"
+            }
+          ],
+          "text": "Medication: Metformin"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0019"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Metformin Amlodipine dose: 5 mg mg Amlodipine route: topically Amlodipine frequency: once weekly",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "d1ff6501-10d9-4826-8314-754dcd12e62f"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "bd75939c-8d33-4097-ba99-df832aa121a9"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9623
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": " control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Amlodipine frequency: once weekly"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "c0a6259c-10f4-4c8f-8c40-d43871c6cb2d"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "c51538bf-6351-4ef5-92f0-6f3996f4fc11"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9517
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": " control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Amlodipine route: topically"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "cf2e6e0f-9bd2-4b6f-93e4-54e5d6dd3213"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "e194c7f8-c3ed-4811-a08d-40871aaa3dda"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9827
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " control. Vascular\nand sensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Metoprolol 100 mg orally twice daily, as well as\nAmlodipine 2.5 mg PO every morning. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 5.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

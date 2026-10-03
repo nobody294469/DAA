@@ -1,0 +1,194 @@
+{
+  "status": "COMPLETED",
+  "experiment_id": "V8-verification-cascade",
+  "data_dir": "data\\m2_verification_v3",
+  "total_examples": 5629,
+  "checkpoint_path": "data\\m2_results_v3\\checkpoints\\modernbert_text_only_v3_fold0_seed42.pt",
+  "escalation_threshold": 0.6,
+  "always_stage_c": false,
+  "stage_c_client": "vllm",
+  "vllm_model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+  "results": {
+    "ood": {
+      "split": "ood_heldout",
+      "n_examples": 1826,
+      "elapsed_seconds": 1598.59,
+      "stage_c_mode": "CLINICAL_LLM",
+      "stage_c_notice": "Evaluated with clinical LLM backend.",
+      "overall": {
+        "macro_f1": 0.9538,
+        "discrepancy_recall": 0.9826,
+        "auroc_macro": 0.9732,
+        "auroc_discrepancy": 0.967,
+        "brier_score": 0.0858,
+        "ece": 0.0372,
+        "stage_b_probabilities": {
+          "n_examples": 1826,
+          "auroc_macro": 0.9732,
+          "auroc_discrepancy": 0.967,
+          "brier_score": 0.0858,
+          "ece": 0.0372,
+          "source": "genuine_stage_b_calibrated_logits"
+        },
+        "stage_b_resolved_subset": {
+          "n_examples": 1445,
+          "macro_f1": 0.664,
+          "discrepancy_recall": 0.9974,
+          "auroc_macro": 0.9462,
+          "auroc_discrepancy": 0.9935,
+          "brier_score": 0.0139,
+          "ece": 0.0022
+        },
+        "probability_instrumentation_policy": "AUROC, Brier, and ECE are computed strictly from genuine Stage B calibrated probability distributions. No synthetic distributions are fabricated for Stage C scalar confidence outputs."
+      },
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.9848275862068966,
+          "recall": 0.9794238683127572,
+          "f1": 0.982118294360385,
+          "support": 729
+        },
+        "DISCREPANCY": {
+          "precision": 0.9736575481256332,
+          "recall": 0.9826175869120655,
+          "f1": 0.9781170483460561,
+          "support": 978
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "precision": 0.9210526315789473,
+          "recall": 0.8823529411764706,
+          "f1": 0.9012875536480687,
+          "support": 119
+        }
+      },
+      "cascade_behavior": {
+        "stage_a_resolved": 0,
+        "stage_a_resolution_rate": 0.0,
+        "stage_b_invoked": 1826,
+        "stage_b_resolved": 1445,
+        "stage_c_invoked": 381,
+        "stage_c_escalation_rate": 0.2087,
+        "conditional_accuracy": {
+          "accuracy_stage_A": 0.0,
+          "accuracy_stage_B": 0.9931,
+          "accuracy_stage_C": 0.9055
+        },
+        "escalation_reasons": {
+          "stage_a_disagreement (A=DISCREPANCY, B=INSUFFICIENT_EVIDENCE)": 107,
+          "stage_a_disagreement (A=INSUFFICIENT_EVIDENCE, B=DISCREPANCY)": 192,
+          "stage_a_disagreement (A=SUPPORTED, B=DISCREPANCY)": 58,
+          "stage_a_disagreement (A=DISCREPANCY, B=SUPPORTED)": 20,
+          "low_confidence (0.4986 < 0.60)": 1,
+          "low_confidence (0.5387 < 0.60)": 1,
+          "stage_a_disagreement (A=INSUFFICIENT_EVIDENCE, B=SUPPORTED)": 1,
+          "low_confidence (0.5734 < 0.60)": 1
+        },
+        "predicted_labels": {
+          "SUPPORTED": 725,
+          "DISCREPANCY": 987,
+          "INSUFFICIENT_EVIDENCE": 114
+        },
+        "predicted_contradiction_types": {
+          "value_mismatch": 794,
+          "negation_mismatch": 36,
+          "dose_mismatch": 70,
+          "wrong_entity": 71,
+          "unit_mismatch": 16
+        }
+      },
+      "by_field_type": {
+        "lab.flag": {
+          "n_examples": 317,
+          "macro_f1": 0.5921,
+          "discrepancy_recall": 0.9531,
+          "accuracy": 0.9148,
+          "stage_distribution": {
+            "A": 0,
+            "B": 70,
+            "C": 247
+          },
+          "escalation_rate": 0.7792
+        },
+        "lab.value": {
+          "n_examples": 1093,
+          "macro_f1": 0.9518,
+          "discrepancy_recall": 1.0,
+          "accuracy": 0.989,
+          "stage_distribution": {
+            "A": 0,
+            "B": 1038,
+            "C": 55
+          },
+          "escalation_rate": 0.0503
+        },
+        "med.dose": {
+          "n_examples": 163,
+          "macro_f1": 1.0,
+          "discrepancy_recall": 1.0,
+          "accuracy": 1.0,
+          "stage_distribution": {
+            "A": 0,
+            "B": 145,
+            "C": 18
+          },
+          "escalation_rate": 0.1104
+        },
+        "med.frequency": {
+          "n_examples": 85,
+          "macro_f1": 0.9852,
+          "discrepancy_recall": 0.9688,
+          "accuracy": 0.9882,
+          "stage_distribution": {
+            "A": 0,
+            "B": 64,
+            "C": 21
+          },
+          "escalation_rate": 0.2471
+        },
+        "med.name": {
+          "n_examples": 95,
+          "macro_f1": 0.9543,
+          "discrepancy_recall": 0.9524,
+          "accuracy": 0.9579,
+          "stage_distribution": {
+            "A": 0,
+            "B": 77,
+            "C": 18
+          },
+          "escalation_rate": 0.1895
+        },
+        "med.route": {
+          "n_examples": 73,
+          "macro_f1": 0.9734,
+          "discrepancy_recall": 0.9,
+          "accuracy": 0.9726,
+          "stage_distribution": {
+            "A": 0,
+            "B": 51,
+            "C": 22
+          },
+          "escalation_rate": 0.3014
+        }
+      },
+      "by_contradiction_type": {
+        "dose_mismatch": {
+          "n_examples": 76,
+          "discrepancy_recall": 1.0
+        },
+        "temporal_mismatch": {
+          "n_examples": 32,
+          "discrepancy_recall": 0.9688
+        },
+        "value_mismatch": {
+          "n_examples": 808,
+          "discrepancy_recall": 0.9851
+        },
+        "wrong_entity": {
+          "n_examples": 62,
+          "discrepancy_recall": 0.9355
+        }
+      }
+    }
+  },
+  "diagnostics_file": "experiments\\V8-verification-cascade\\phase4_cascade_diagnostics.json"
+}

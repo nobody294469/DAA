@@ -11,7 +11,13 @@ from clindoc.verify.verifier import verify_observation_against_evidence, verify_
 from clindoc.verify.error_injection import ERROR_TYPES, inject_single_error, generate_corrupted_dataset
 from clindoc.verify.stage_a import DeterministicVerifier, StageAResult
 from clindoc.verify.stage_b import LearnedVerifier, StageBResult, MockModelPredictor
-from clindoc.verify.stage_c import StageCJudge, StageCResult, StageCJudgeOutput, DefaultMockLLMJudge
+from clindoc.verify.stage_c import (
+    StageCJudge,
+    StageCResult,
+    StageCJudgeOutput,
+    DefaultMockLLMJudge,
+    VLLMJudgeClient,
+)
 from clindoc.verify.cascade import VerificationCascade
 
 __all__ = [
@@ -36,4 +42,5 @@ __all__ = [
     "StageCJudgeOutput",
     "MockModelPredictor",
     "DefaultMockLLMJudge",
+    "VLLMJudgeClient",
 ]

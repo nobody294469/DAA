@@ -1,0 +1,954 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0004",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0004",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0004",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0004"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0004",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0004",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0004",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0004",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0004-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0004-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "83d9d04f-80a0-4b97-97d7-eec25fd21eaf"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "1162b6aa-cf2a-497f-9156-8dd1fd4bf225"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9883
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDuration: 10 days | Dispense: #40\nInstructions: 1 capsule by mouth QID x 10 days\nRefills: 0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,196.83,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "83d9d04f-80a0-4b97-97d7-eec25fd21eaf"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "1162b6aa-cf2a-497f-9156-8dd1fd4bf225"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9883
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDuration: 10 days | Dispense: #40\nInstructions: 1 capsule by mouth QID x 10 days\nRefills: 0"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "2231",
+              "display": "Medication: Cephalexin"
+            }
+          ],
+          "text": "Medication: Cephalexin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0004"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Cephalexin Cephalexin dose: 125 mg mg Cephalexin route: by mouth Cephalexin frequency: twice daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "cd050f2e-dc7d-45d2-93eb-0d2dbecd8dda"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "1c3e2cea-087f-41f2-bbd4-97d2cb3b3635"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9915
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDuration: 10 days | Dispense: #40\nInstructions: 1 capsule by mouth QID x 10 days\nRefills: 0"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Cephalexin frequency: twice daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "913cee3e-f14d-44c0-90e3-23210221dede"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "fa5c00cc-63b0-43e3-9b91-28030d952af2"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9925
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDuration: 10 days | Dispense: #40\nInstructions: 1 capsule by mouth QID x 10 days\nRefills: 0"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Cephalexin route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "7042351c-68c9-45b1-9902-4af525352bd8"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "f3b3906e-2149-49cb-bb93-8b52ed122277"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9952
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDuration: 10 days | Dispense: #40\nInstructions: 1 capsule by mouth QID x 10 days\nRefills: 0"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 125.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0004-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0004-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "bb8ca841-4455-4927-87f6-a017bdf493b3"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "3caacdad-71ab-4ff3-b3b5-b5eba9d0bee3"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9963
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "25-04-04\nOrdering Providr: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form:tablet\nSchedule/Frequenc.y: once daily\nDuraion: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSc'hedule/Fr equency: QID\nDuration: 0 days | DiSpense: #4\nInstructions: 1 capsule by mouth QID x 10 days\nRefills: 0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,196.83,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.778
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "2231",
+              "display": "Cephalexin"
+            }
+          ],
+          "text": "Cephalexin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0004"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Cephalexin dose: 125 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "bb8ca841-4455-4927-87f6-a017bdf493b3"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "3caacdad-71ab-4ff3-b3b5-b5eba9d0bee3"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9963
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "25-04-04\nOrdering Providr: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form:tablet\nSchedule/Frequenc.y: once daily\nDuraion: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSc'hedule/Fr equency: QID\nDuration: 0 days | DiSpense: #4\nInstructions: 1 capsule by mouth QID x 10 days\nRefills: 0"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 125.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0004-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0004-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "b17392cc-bd78-4e28-b90e-21d2a3e6fc04"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "f82952de-083e-45fa-bf5e-5ab90ff963ee"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "b17392cc-bd78-4e28-b90e-21d2a3e6fc04"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "f82952de-083e-45fa-bf5e-5ab90ff963ee"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0004"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "4f1507cc-9fa8-44ec-9ed5-2543cec80e89"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "68e2ef21-e597-475d-9a0a-17e6773cf9f4"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "e125474f-c46b-469f-83b7-b6f9165444a4"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "a2777fd6-5c71-40de-b68d-01ad5435adaa"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "eebb18ba-0e6b-4f42-a095-b79ba4e80c43"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "f3ed9ad8-ef74-480c-8cb9-2918569bf282"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0004-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0004-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7a2a715a-1e5b-40ed-84ef-191daa6b9c64"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7f36fec4-47d2-47cd-a77e-30f3b13ec84e"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9958
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "fusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Robert Miller | DOB: 1962-08-21 | MRN: PAT-30004 | Order Date: 2025-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDur"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,242.94,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "7a2a715a-1e5b-40ed-84ef-191daa6b9c64"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7f36fec4-47d2-47cd-a77e-30f3b13ec84e"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9958
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "fusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Robert Miller | DOB: 1962-08-21 | MRN: PAT-30004 | Order Date: 2025-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDur"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Medication: Amoxicillin"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0004"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amoxicillin Hydrochlorothiazide dose: 25 mg mg Hydrochlorothiazide route: PO Hydrochlorothiazide frequency: twice daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "f113c105-beeb-4a54-aa1d-a1c489ce10e3"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "64fa35bf-e560-4eff-8e61-7f6776d337eb"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9936
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "fusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Robert Miller | DOB: 1962-08-21 | MRN: PAT-30004 | Order Date: 2025-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDur"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Hydrochlorothiazide frequency: twice daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "10f50598-2958-4604-9a37-d806b1fccdc7"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "9495422a-7f84-4009-9d5b-f1d264506abd"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9926
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "fusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Robert Miller | DOB: 1962-08-21 | MRN: PAT-30004 | Order Date: 2025-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDur"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Hydrochlorothiazide route: PO"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "6dcda849-0ea0-429f-b864-eb53a574e9b1"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "6aa95947-d3df-4092-bf7c-055603f3cdad"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9961
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "fusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Robert Miller | DOB: 1962-08-21 | MRN: PAT-30004 | Order Date: 2025-04-04\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: QID\nDur"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 25.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0004-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0004-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "fe4d0642-fa61-41e6-a727-7573103d41c0"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "c4ab6341-7041-4852-85c4-b9c86d14dd5d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9964
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Robert Miller | DOB: 1962-08-21 | MRN: PAT-3 0004 | Order Date: 2025-04-04\nOrdering Providr: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form:tablet\nSchedule/Frequenc.y: once daily\nDuraion: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSc'hedule/Fr equency: QID\nDu"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,242.94,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.778
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "5487",
+              "display": "Hydrochlorothiazide"
+            }
+          ],
+          "text": "Hydrochlorothiazide"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0004"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Hydrochlorothiazide dose: 25 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "fe4d0642-fa61-41e6-a727-7573103d41c0"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "c4ab6341-7041-4852-85c4-b9c86d14dd5d"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9964
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Robert Miller | DOB: 1962-08-21 | MRN: PAT-3 0004 | Order Date: 2025-04-04\nOrdering Providr: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrochlorothiazide 12.5 mg\nRoute: PO | Form:tablet\nSchedule/Frequenc.y: once daily\nDuraion: Ongoing | Dispense: #30\nInstructions: Take 1 tablet PO once daily\nRefills: 3\nOrder #2: Cephalexin 250 mg\nRoute: by mouth | Form: capsule\nSc'hedule/Fr equency: QID\nDu"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 25.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0004-6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0004-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "3f2547e9-1a98-422f-9633-4f378a257ee8"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "d115eeff-6262-433c-a055-cab06d1ba2f2"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9971
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "025-04-04\nOrdering Povider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrchlorothiazide 112  mg\nRute: PO | Form: tablet\nc'hedule/Frequency:' once Dail\nDuRation: Qngoing | Dispense  #30\nInstructions: Take 1 tablet PO once1 daily\nRfills: 3\nOrder #2: Cephalexin 2501 mg\nRoute: by mouth |' Form: ca psle\nShedule/requ.ency: QID\nDuration: 10 days | Dispense: #40\nInstr cti0n's: 1 capsule by mouth QIDx 10 day1s\nRef1ills: 0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,196.83,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.659
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "2231",
+              "display": "Cephalexin"
+            }
+          ],
+          "text": "Cephalexin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0004"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Cephalexin dose: 125 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "3f2547e9-1a98-422f-9633-4f378a257ee8"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "d115eeff-6262-433c-a055-cab06d1ba2f2"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9971
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "025-04-04\nOrdering Povider: Dr. Allison Cameron, MD | Doc ID: MED_0004\nOrder #1: Hydrchlorothiazide 112  mg\nRute: PO | Form: tablet\nc'hedule/Frequency:' once Dail\nDuRation: Qngoing | Dispense  #30\nInstructions: Take 1 tablet PO once1 daily\nRfills: 3\nOrder #2: Cephalexin 2501 mg\nRoute: by mouth |' Form: ca psle\nShedule/requ.ency: QID\nDuration: 10 days | Dispense: #40\nInstr cti0n's: 1 capsule by mouth QIDx 10 day1s\nRef1ills: 0"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 125.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

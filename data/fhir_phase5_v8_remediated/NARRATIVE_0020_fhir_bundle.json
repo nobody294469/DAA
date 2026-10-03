@@ -1,0 +1,1462 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-narrative-0020",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-narrative-0020",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-narrative-0020",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-NARRATIVE-00"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-narrative-0020",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-narrative-0020",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-narrative-0020",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-narrative-0020",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-narrative-0020",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-narrative-0020",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "51b4e9e3-8d9a-4e4a-abc0-363fa751e6f9"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "90212521-9ec0-47af-b726-989ae8e371db"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9853
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "nt Matthew Thompson presents for longitudinal chronic disease management.\nSince the last comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations.\nRecent outpatient send-out interval laboratory check showed potassium of 4.46 mmol/L. Concurrent testing noted that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the "
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,163.54,540.24,176.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0020"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-narrative-0020"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-narrative-0020-1"
+          },
+          {
+            "reference": "Observation/obs-narrative-0020-2"
+          },
+          {
+            "reference": "Observation/obs-narrative-0020-3"
+          },
+          {
+            "reference": "Observation/obs-narrative-0020-4"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0020-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0020-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "51b4e9e3-8d9a-4e4a-abc0-363fa751e6f9"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "90212521-9ec0-47af-b726-989ae8e371db"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9853
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "nt Matthew Thompson presents for longitudinal chronic disease management.\nSince the last comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations.\nRecent outpatient send-out interval laboratory check showed potassium of 4.46 mmol/L. Concurrent testing noted that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the "
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,163.54,540.24,176.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium"
+            }
+          ],
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "51b4e9e3-8d9a-4e4a-abc0-363fa751e6f9"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "90212521-9ec0-47af-b726-989ae8e371db"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9853
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "nt Matthew Thompson presents for longitudinal chronic disease management.\nSince the last comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations.\nRecent outpatient send-out interval laboratory check showed potassium of 4.46 mmol/L. Concurrent testing noted that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the "
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 2.23,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "a86c1c0c-7dcb-47e4-9c78-8233f7c083a6"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "44724bc0-781e-46cf-a451-cea0010a895d"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9804
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "nt Matthew Thompson presents for longitudinal chronic disease management.\nSince the last comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations.\nRecent outpatient send-out interval laboratory check showed potassium of 4.46 mmol/L. Concurrent testing noted that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the "
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "POTASSIUM FLAG: HIGH",
+                "display": "Potassium flag: HIGH"
+              }
+            ],
+            "text": "Potassium flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0020-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0020-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "886d4f6f-ee19-44b9-81d5-b64bfc647484"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "1a6bfbc1-4814-424c-868c-01d8cd30b6e7"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9911
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "t denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg "
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,239.04,556.04,252.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2345-7",
+              "display": "Glucose"
+            }
+          ],
+          "text": "Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "886d4f6f-ee19-44b9-81d5-b64bfc647484"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "1a6bfbc1-4814-424c-868c-01d8cd30b6e7"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9911
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "t denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg "
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 22.05,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "c0953935-5203-488a-b9ce-1dc02d1827f4"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "751fb6d8-9d83-43c9-b48f-ca2cd6253ebd"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9863
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "t denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg "
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "GLUCOSE FLAG: HIGH",
+                "display": "Glucose flag: HIGH"
+              }
+            ],
+            "text": "Glucose flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0020-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0020-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "40dc43b4-88ec-4c44-9d27-3323decb791b"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "b1af0137-210f-4941-9af4-4191124b1b35"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9867
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations.\nRecent outpatient send-out interval laboratory check showed potassium of 4.46 mmol/L. Concurrent testing noted that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was mai"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,177.04,544.98,190.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1742-6",
+              "display": "Alanine Aminotransferase (ALT)"
+            }
+          ],
+          "text": "Alanine Aminotransferase (ALT)"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "40dc43b4-88ec-4c44-9d27-3323decb791b"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "b1af0137-210f-4941-9af4-4191124b1b35"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9867
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations.\nRecent outpatient send-out interval laboratory check showed potassium of 4.46 mmol/L. Concurrent testing noted that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was mai"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 56.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "c34bf949-65c8-4ed0-a7b7-355d5bffc2c8"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "2b8ca3a3-4081-4160-8a50-7bba400110d4"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9838
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "ast comprehensive visit three months ago, the patient reports adherence to diet and exercise recommendations.\nRecent outpatient send-out interval laboratory check showed potassium of 4.46 mmol/L. Concurrent testing noted that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was mai"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "ALANINE AMINOTRANSFERASE (ALT) FLAG: HIGH",
+                "display": "Alanine Aminotransferase (ALT) flag: HIGH"
+              }
+            ],
+            "text": "Alanine Aminotransferase (ALT) flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0020-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0020-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f7bc7b2d-37e8-4781-b52d-11adb7e6d6d7"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2a7ce185-0304-4eef-b207-3515070f5537"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10839-9",
+              "display": "Troponin I"
+            }
+          ],
+          "text": "Troponin I"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0020"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "f7bc7b2d-37e8-4781-b52d-11adb7e6d6d7"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "2a7ce185-0304-4eef-b207-3515070f5537"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0020-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0020-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "50d86c2b-1705-4c98-952c-87b1c53be6e9"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "41dc92e1-0e03-434e-9c51-ea1dc7ac947a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9869
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "d that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED C"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,225.54,563.93,252.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "50d86c2b-1705-4c98-952c-87b1c53be6e9"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "41dc92e1-0e03-434e-9c51-ea1dc7ac947a"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9869
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "d that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED C"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Medication: Amoxicillin"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0020"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Amoxicillin Azithromycin dose: 250 mg mg Azithromycin route: intravenously Azithromycin frequency: four times daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "d55b3757-147d-4015-b62f-7a002ff3796a"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "501dc057-a5a7-4305-91cc-dfba5a321436"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.989
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "d that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED C"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Azithromycin frequency: four times daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "9da58757-1688-45b8-b294-57e34dfe343c"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "f38d36ff-dba3-476b-a71d-65c5e8e4476d"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9829
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "d that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED C"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Azithromycin route: intravenously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "d3e4ee60-0a6d-4ae7-a62e-f49fd6a7e501"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "6acbd8ee-352f-4114-aa1f-afe578193927"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9935
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "d that\nfasting alanine aminotransferase (alt) was 28 U/L. The patient denies any acute side effects or hypoglycemic episodes.\nCLINICAL COURSE & PROGRESSION\nCLINICAL COURSE & PROGRESSION: Over the preceding quarter, therapy with Azithromycin at 500 mg by mouth QD for\n5 days was maintained. In-clinic point-of-care glucose was 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED C"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 250.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0020-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0020-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4ecc105a-4b10-437f-b4cd-f868b287db2b"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "263886bc-43c6-4571-b87a-0616607e8910"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9754
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "as 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat co"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,301.04,566.0,314.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "4ecc105a-4b10-437f-b4cd-f868b287db2b"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "263886bc-43c6-4571-b87a-0616607e8910"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9754
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "as 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat co"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "Medication: Lisinopril"
+            }
+          ],
+          "text": "Medication: Lisinopril"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0020"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Lisinopril Atorvastatin dose: 40 mg mg Atorvastatin route: by inhalation Atorvastatin frequency: every other day",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "cebf8422-3af1-4157-b67f-b513e8596c91"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "24bd343e-c691-46c6-9201-c9a64983d330"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9743
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "as 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat co"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Atorvastatin frequency: every other day"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "5a24ab50-5028-4862-ba64-112126edb970"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "d78fadf7-83ce-40dd-98fb-aa192b775f51"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9732
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "as 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat co"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Atorvastatin route: by inhalation"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "1c08e775-1f2c-4776-ac94-148ad6864d92"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "143eecc4-a709-4630-b8ec-443987561e89"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9781
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "as 88.2 mg/dL, confirming steady metabolic control. Vascular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat co"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 40.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0020-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0020-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "167ff7d3-e940-4bbb-a6a3-957917c0edc7"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "e18e8958-1644-40f1-b1c6-73e351d01c1a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "167ff7d3-e940-4bbb-a6a3-957917c0edc7"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "e18e8958-1644-40f1-b1c6-73e351d01c1a"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0020"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "14e5a4a4-39af-4b4d-a665-f632489c532e"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "9dd59047-a9f1-4a0d-b1a5-aa21572e4237"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "c26f5e44-8336-41a5-a4d2-df95aa8251b0"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "4450fdc3-fea9-4d64-9a80-2e9ed8f95ac6"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "20a9e7be-acd0-45f7-b775-bd30871c48a8"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "3e10cb84-4720-42cc-9494-245ae3a33153"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0020-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0020-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "b054f447-7026-4420-b36e-63d2386b469b"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7b094c20-57a4-4fe4-945d-3d881b34462c"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9759
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "scular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,314.54,561.86,327.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "b054f447-7026-4420-b36e-63d2386b469b"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7b094c20-57a4-4fe4-945d-3d881b34462c"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9759
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "scular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "10582",
+              "display": "Medication: Levothyroxine"
+            }
+          ],
+          "text": "Medication: Levothyroxine"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0020"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Levothyroxine Metformin dose: 425 mg mg Metformin route: topically Metformin frequency: once weekly",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "233faf5d-98b0-4216-8bba-78b9fd178400"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "e24fae16-0f60-41ce-8e38-8794c179bd2c"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9672
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "scular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metformin frequency: once weekly"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "e70c2925-023b-4112-92e2-76548c0a2027"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "eefa4e91-e701-446e-aa06-bd203df28595"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9673
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "scular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metformin route: topically"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "17343750-dee4-4682-9dab-598a59aac8a9"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "7763b6b3-b5b2-4abe-a2d9-842d10af9c0e"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.977
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "scular and\nsensory examinations of bilateral feet were normal without neuropathy.\nUPDATED CHRONIC MEDICATION PLAN\nUPDATED CHRONIC MEDICATION PLAN: Refills were renewed for Atorvastatin 20 mg by mouth once daily at bedtime, as\nwell as Metformin 850 mg oral twice daily. Patient demonstrated proper technique and confirmed understanding of morning\nversus evening administration.\nFOLLOW-UP & COORDINATION\nReturn to clinic in six months for repeat comprehensive metabolic panel and lipid panel. Routine h"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 425.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

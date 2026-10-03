@@ -1,0 +1,108 @@
+{
+  "baseline_id": "V3-PHASE4-BASELINE-FREEZE",
+  "status": "FROZEN_PRE_IMPROVEMENT_BASELINE",
+  "experiment_id": "V8-verification-cascade",
+  "dataset": {
+    "path": "data/m2_verification_v3",
+    "total_examples": 5629,
+    "total_documents": 120,
+    "splits": {
+      "train": 2242,
+      "calibration": 678,
+      "validation": 883,
+      "ood_holdout": 1826
+    }
+  },
+  "models": {
+    "stage_a": "DeterministicVerifier",
+    "stage_b": {
+      "model": "thomas-sounack/BioClinical-ModernBERT-base",
+      "checkpoint": "data/m2_results_v3/checkpoints/modernbert_text_only_v3_fold0_seed42.pt",
+      "calibrated_temperature": 1.146522
+    },
+    "stage_c": {
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "serving": "vLLM",
+      "temperature": 0.0,
+      "seed": 42,
+      "max_tokens": 256
+    }
+  },
+  "cascade_parameters": {
+    "escalation_threshold": 0.60,
+    "context_window_bounding": "DEC-003",
+    "schema_constrained_output": "DEC-013"
+  },
+  "results": {
+    "validation": {
+      "n_examples": 883,
+      "cascade": {
+        "macro_f1": 0.9801,
+        "discrepancy_recall": 0.9978,
+        "accuracy": 0.9921
+      },
+      "stage_b": {
+        "resolved_count": 775,
+        "resolved_rate": 0.8777,
+        "resolved_accuracy": 0.9935,
+        "auroc_macro": 0.9939,
+        "auroc_discrepancy": 0.9922,
+        "brier_score": 0.0189,
+        "ece": 0.0049
+      },
+      "stage_c": {
+        "escalated_count": 108,
+        "escalation_rate": 0.1223,
+        "accuracy": 0.9815,
+        "errors": 2,
+        "fallbacks": 0
+      }
+    },
+    "ood": {
+      "n_examples": 1826,
+      "cascade": {
+        "macro_f1": 0.9422,
+        "discrepancy_recall": 0.9806,
+        "accuracy": 0.9595
+      },
+      "stage_b": {
+        "resolved_count": 1445,
+        "resolved_rate": 0.7913,
+        "resolved_accuracy": 0.9931,
+        "auroc_macro": 0.9732,
+        "auroc_discrepancy": 0.9670,
+        "brier_score": 0.0858,
+        "ece": 0.0372
+      },
+      "stage_c": {
+        "escalated_count": 381,
+        "escalation_rate": 0.2087,
+        "accuracy": 0.8294,
+        "errors": 65,
+        "fallbacks": 0,
+        "error_distribution": {
+          "supported_to_discrepancy": 42,
+          "discrepancy_to_insufficient": 9,
+          "discrepancy_to_supported": 8,
+          "insufficient_to_supported": 3,
+          "insufficient_to_discrepancy": 3,
+          "supported_to_insufficient": 0
+        },
+        "errors_by_field": {
+          "lab.flag": 56,
+          "lab.value": 4,
+          "med.name": 2,
+          "med.route": 2,
+          "med.frequency": 1,
+          "med.dose": 0
+        },
+        "errors_by_template": {
+          "template_c": 60,
+          "mar_order_sheet": 4,
+          "narrative_specialty_consult_note_v1": 1,
+          "narrative_ambulatory_progress_note_v1": 0
+        }
+      }
+    }
+  }
+}

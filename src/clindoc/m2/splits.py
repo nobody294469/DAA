@@ -486,7 +486,8 @@ def validate_3way_split(
     # 7. Examples audit if examples provided
     if examples:
         total_examples = len(examples)
-        assert total_examples == 9168, f"Expected 9168 canonical examples, got {total_examples}"
+        manifest_total = manifest.get("example_counts", {}).get("total", total_examples)
+        assert total_examples == manifest_total, f"Expected {manifest_total} examples from manifest, got {total_examples}"
 
         doc_to_part = {}
         for d in train_docs:

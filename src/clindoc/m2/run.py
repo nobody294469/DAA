@@ -34,7 +34,7 @@ from clindoc.m2.plots import (
     plot_reliability_diagram, plot_learning_curve, plot_severity_discrepancy_recall,
 )
 
-DATA_DIR = Path("data/m2_verification")
+DATA_DIR = Path("data/m2_verification_v3")
 RESULTS_DIR = Path("data/m2_results")
 PLOTS_DIR = RESULTS_DIR / "plots"
 CONFIG_PATH = Path("configs/m2_train_config.json")
@@ -638,11 +638,13 @@ def main():
     parser.add_argument("--recover-checkpoints", action="store_true", help="Recover evaluations for existing checkpoints without retraining")
     parser.add_argument("--smoke-test-recovery", action="store_true", help="Smoke test recovery on a single checkpoint")
     parser.add_argument("--plan", action="store_true", help="Display planned training/recovery run counts without training")
+    parser.add_argument("--data-dir", type=str, default=str(DATA_DIR), help="Path to M2 verification dataset directory (defaults to data/m2_verification_v3)")
     parser.add_argument("--persist-dir", type=str, default=None, help="Directory to persistently backup completed result records (e.g. Google Drive)")
     parser.add_argument("--variants", nargs="+", default=None, help="Specific neural variant(s) to train or plan (e.g. modernbert_ocr_only)")
     parser.add_argument("--all", action="store_true", help="Run full pipeline: baselines, training, and evaluation")
 
     args = parser.parse_args()
+    data_dir = Path(args.data_dir)
 
     if args.persist_dir:
         import os
@@ -658,7 +660,7 @@ def main():
     if args.plan:
         from clindoc.m2.recovery import get_training_plan
         config = load_config()
-        with open(DATA_DIR / "split_manifest.json", "r", encoding="utf-8") as f:
+        with open(data_dir / "split_manifest.json", "r", encoding="utf-8") as f:
             manifest = json.load(f)
         plan = get_training_plan(
             manifest, config,
@@ -696,23 +698,24 @@ def main():
         return
 
     if args.generate_dataset:
-        step_generate_dataset()
+        step_generate_dataset(data_dir=data_dir)
     if args.run_baselines or args.all:
-        step_run_baselines()
+        step_run_baselines(data_dir=data_dir)
     if args.recover_checkpoints:
         from clindoc.m2.recovery import recover_checkpoints
-        recover_checkpoints()
+        recover_checkpoints(data_dir=data_dir)
     if args.smoke_test_recovery:
         from clindoc.m2.recovery import recover_checkpoints
-        recover_checkpoints(max_recoveries=1)
+        recover_checkpoints(data_dir=data_dir, max_recoveries=1)
     if args.train or args.all:
         step_train(
+            data_dir=data_dir,
             debug=args.debug,
             persist_dir=args.persist_dir,
             variants=args.variants,
         )
     if args.evaluate or args.all:
-        step_evaluate()
+        step_evaluate(data_dir=data_dir)
 
 
 if __name__ == "__main__":

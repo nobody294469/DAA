@@ -1,0 +1,4330 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-lab-0029",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-lab-0029",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-lab-0029",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-LAB-0029"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-lab-0029",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-lab-0029",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-lab-0029",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-lab-0029",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-lab-0029",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-lab-0029",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ce5f286f-06a6-4b11-ab7d-bec1cf2c89e4"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "767ab1f0-3d55-481e-8982-a6ae0bc1da44"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0029"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-lab-0029-1"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-2"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-3"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-4"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-5"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-6"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-7"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-8"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-9"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-10"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-11"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-12"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-13"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-14"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-15"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-16"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-17"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-18"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-19"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-20"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-21"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-22"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-23"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-24"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-25"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-26"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-27"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-28"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-29"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-30"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-31"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-32"
+          },
+          {
+            "reference": "Observation/obs-lab-0029-33"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ce5f286f-06a6-4b11-ab7d-bec1cf2c89e4"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "767ab1f0-3d55-481e-8982-a6ae0bc1da44"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3040-3",
+              "display": "Lipase"
+            }
+          ],
+          "text": "Lipase"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ce5f286f-06a6-4b11-ab7d-bec1cf2c89e4"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "767ab1f0-3d55-481e-8982-a6ae0bc1da44"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 45.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7ea3b535-68e7-42f3-aaf5-066b3f38e17b"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "982c08b3-6a9d-45c9-9579-555f0a075e34"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9973
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Potassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,406.33,415.01,418.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1742-6",
+              "display": "Alanine Aminotransferase (ALT)"
+            }
+          ],
+          "text": "Alanine Aminotransferase (ALT)"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "7ea3b535-68e7-42f3-aaf5-066b3f38e17b"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "982c08b3-6a9d-45c9-9579-555f0a075e34"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9973
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Potassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 6.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "495deac2-bd32-4780-9373-90ac2dd367de"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "e8b38827-1925-42db-a5d3-c26b32d49163"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Potassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "ALANINE AMINOTRANSFERASE (ALT) FLAG: HIGH",
+                "display": "Alanine Aminotransferase (ALT) flag: HIGH"
+              }
+            ],
+            "text": "Alanine Aminotransferase (ALT) flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "b718744c-993e-4610-8531-7e306a638d95"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "5dca89fe-0794-4288-92b4-f16f2774ee9a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9968
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "PAT-93165\nDr. Emily Chen, MD\npatent I:\nPhy.si cian:\n1973-02-22 (F)\nLAB_0029\nDOB / Gender:\nDocument ID\nSECTION: COMPREHENSIVE METABOLI P'ANEl\nAnalyte\nResult\nUnitS\nReference Range\nAbn.ormal\nl'ucose\nmg/d'L\n70  99\n61.0\nL\nBUN\n19.0\nrng/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodiurn\n144.0\nmm0l/L\n135 - 145\nPotasium\n42\nmmol/L\n3.- 5.1\nChloride\nmmol/L\n96 - 106\n1100\nH\nCarbon ioxi.de\n2.10\nmm olL\n22 - 29\nCalcium\nrng/dL\n8.5 - 10.2\n8.D\nL\nTotal ProtEin\nG/dL\n6.0 -' 83\n8.8\nH\nAlbumin\n4.6\ng/dL\n35 - 5.0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,93.01,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.901
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine"
+            }
+          ],
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "b718744c-993e-4610-8531-7e306a638d95"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "5dca89fe-0794-4288-92b4-f16f2774ee9a"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9968
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "PAT-93165\nDr. Emily Chen, MD\npatent I:\nPhy.si cian:\n1973-02-22 (F)\nLAB_0029\nDOB / Gender:\nDocument ID\nSECTION: COMPREHENSIVE METABOLI P'ANEl\nAnalyte\nResult\nUnitS\nReference Range\nAbn.ormal\nl'ucose\nmg/d'L\n70  99\n61.0\nL\nBUN\n19.0\nrng/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodiurn\n144.0\nmm0l/L\n135 - 145\nPotasium\n42\nmmol/L\n3.- 5.1\nChloride\nmmol/L\n96 - 106\n1100\nH\nCarbon ioxi.de\n2.10\nmm olL\n22 - 29\nCalcium\nrng/dL\n8.5 - 10.2\n8.D\nL\nTotal ProtEin\nG/dL\n6.0 -' 83\n8.8\nH\nAlbumin\n4.6\ng/dL\n35 - 5.0"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.64,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4c68375d-1410-4a73-90c7-87dcb9f4d0fe"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "75834ddf-3c85-4fae-883f-16280190e0f1"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.996
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "BUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,352.33,84.51,364.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1751-7",
+              "display": "Albumin"
+            }
+          ],
+          "text": "Albumin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "4c68375d-1410-4a73-90c7-87dcb9f4d0fe"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "75834ddf-3c85-4fae-883f-16280190e0f1"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.996
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "BUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 4.6,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ea5051b5-296c-4c0a-ac13-0c97f602a9fc"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "1b4053dd-9c16-4f71-ae9f-669ddbb43d2d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9846
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "SECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,280.33,508.5,292.76"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2075-0",
+              "display": "Chloride"
+            }
+          ],
+          "text": "Chloride"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ea5051b5-296c-4c0a-ac13-0c97f602a9fc"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "1b4053dd-9c16-4f71-ae9f-669ddbb43d2d"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9846
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "SECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 1100.0,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "ae2754d8-73b4-43f6-8b6a-8d5ba66bf66e"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "6a920276-295a-4fd9-981c-8731fb1770d6"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9982
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "SECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "CHLORIDE FLAG: NORMAL",
+                "display": "Chloride flag: NORMAL"
+              }
+            ],
+            "text": "Chloride flag: NORMAL"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "00fa643d-c9d0-4b17-b2ca-9b2e6764ee96"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "3c9a4712-919e-4453-92ed-0f0b98e466b6"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9967
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Creatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,370.33,425.02,382.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1975-2",
+              "display": "Total Bilirubin"
+            }
+          ],
+          "text": "Total Bilirubin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "00fa643d-c9d0-4b17-b2ca-9b2e6764ee96"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "3c9a4712-919e-4453-92ed-0f0b98e466b6"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9967
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Creatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.06,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "7ea25adb-2d11-4d8a-a3d3-cfa3ab79ef8e"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "fd448238-40fb-4c55-8294-684dd4ba4e2a"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Creatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "TOTAL BILIRUBIN FLAG: HIGH",
+                "display": "Total Bilirubin flag: HIGH"
+              }
+            ],
+            "text": "Total Bilirubin flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-7",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "a1675a66-0f46-48b2-8b2e-c91e40ad414a"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "eead3ee6-8dd0-450d-860a-1bb8cb82c9bd"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9984
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Sodiurn\n144.0\nmm0l/L\n135 - 145\nPotasium\n42\nmmol/L\n3.- 5.1\nChloride\nmmol/L\n96 - 106\n1100\nH\nCarbon ioxi.de\n2.10\nmm olL\n22 - 29\nCalcium\nrng/dL\n8.5 - 10.2\n8.D\nL\nTotal ProtEin\nG/dL\n6.0 -' 83\n8.8\nH\nAlbumin\n4.6\ng/dL\n35 - 5.0\nTo1tal Bilir Ubin\n0.6\nm/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.\nU/L\n44- 47.\nA'laninE Arnino transfeASe (ALT).\n12.0\nU/L\n7 - 56\nAspartate Aminotransfer ase (AST)\n22.0\nU/L\n10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,388.33,138.54,400.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.901
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6768-6",
+              "display": "Alkaline Phosphatase"
+            }
+          ],
+          "text": "Alkaline Phosphatase"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "a1675a66-0f46-48b2-8b2e-c91e40ad414a"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "eead3ee6-8dd0-450d-860a-1bb8cb82c9bd"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9984
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Sodiurn\n144.0\nmm0l/L\n135 - 145\nPotasium\n42\nmmol/L\n3.- 5.1\nChloride\nmmol/L\n96 - 106\n1100\nH\nCarbon ioxi.de\n2.10\nmm olL\n22 - 29\nCalcium\nrng/dL\n8.5 - 10.2\n8.D\nL\nTotal ProtEin\nG/dL\n6.0 -' 83\n8.8\nH\nAlbumin\n4.6\ng/dL\n35 - 5.0\nTo1tal Bilir Ubin\n0.6\nm/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.\nU/L\n44- 47.\nA'laninE Arnino transfeASe (ALT).\n12.0\nU/L\n7 - 56\nAspartate Aminotransfer ase (AST)\n22.0\nU/L\n10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 600.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-8",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "cb7ae132-7527-46eb-a411-0f66a63faea1"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "538c9166-24a5-4b23-b57f-7c43cabd27b7"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9974
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Carbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,424.33,420.02,436.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1920-8",
+              "display": "Aspartate Aminotransferase (AST)"
+            }
+          ],
+          "text": "Aspartate Aminotransferase (AST)"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "cb7ae132-7527-46eb-a411-0f66a63faea1"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "538c9166-24a5-4b23-b57f-7c43cabd27b7"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9974
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Carbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 44.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "bdabf710-18ad-41a2-92b3-230df9e8132c"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "502b325c-d505-4da7-b225-a925747252b4"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Carbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "ASPARTATE AMINOTRANSFERASE (AST) FLAG: HIGH",
+                "display": "Aspartate Aminotransferase (AST) flag: HIGH"
+              }
+            ],
+            "text": "Aspartate Aminotransferase (AST) flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-9",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "12d7b515-f2d6-4250-a992-641f19b4fa5c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "f2e5561a-cc91-48ce-bad4-75ddd9c7d169"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9979
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Abnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,334.33,103.02,346.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2885-2",
+              "display": "Total Protein"
+            }
+          ],
+          "text": "Total Protein"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "12d7b515-f2d6-4250-a992-641f19b4fa5c"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "f2e5561a-cc91-48ce-bad4-75ddd9c7d169"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9979
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Abnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 2.2,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-10",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "34c80375-5687-4f7f-b157-d56061428c0a"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "545b63a9-0858-46df-bff5-7c75baeb064f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9985
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "LA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,262.33,94.01,274.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium"
+            }
+          ],
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "34c80375-5687-4f7f-b157-d56061428c0a"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "545b63a9-0858-46df-bff5-7c75baeb064f"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9985
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "LA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.42,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-11",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ef24f385-0336-448c-ae09-b5ed323608a5"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "e02c4fed-84c8-4ec4-abf9-9201973395d6"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9974
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name:\nReport Date:\nPAT-93695 \nDr. Emily Chen, MD\nPatient ID:\nPhysician:\n1973-02-2.2 (F)\nLA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,71.0,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3094-0",
+              "display": "BUN"
+            }
+          ],
+          "text": "BUN"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ef24f385-0336-448c-ae09-b5ed323608a5"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "e02c4fed-84c8-4ec4-abf9-9201973395d6"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9974
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name:\nReport Date:\nPAT-93695 \nDr. Emily Chen, MD\nPatient ID:\nPhysician:\n1973-02-2.2 (F)\nLA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 19.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-12",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "fa835cf5-1381-4ade-ad9b-9ca7792d4b7f"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0c40b4da-df4b-4f00-b13c-ee5e09e173f4"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9982
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "DOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,430.02,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2951-2",
+              "display": "Sodium"
+            }
+          ],
+          "text": "Sodium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "fa835cf5-1381-4ade-ad9b-9ca7792d4b7f"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "0c40b4da-df4b-4f00-b13c-ee5e09e173f4"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9982
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "DOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 576.0,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "0c7ef1ed-9361-42d2-a4fe-7148ba365a69"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "1f858062-be61-4f2c-a5be-7253ad29742f"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "DOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "SODIUM FLAG: HIGH",
+                "display": "Sodium flag: HIGH"
+              }
+            ],
+            "text": "Sodium flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-13",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "25a257c9-e706-4331-bdb6-b2320626c870"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "08ff663e-b698-4254-87be-931173604eb5"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9889
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,388.33,138.54,400.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6768-6",
+              "display": "Alkaline Phosphatase"
+            }
+          ],
+          "text": "Alkaline Phosphatase"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "25a257c9-e706-4331-bdb6-b2320626c870"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "08ff663e-b698-4254-87be-931173604eb5"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9889
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 60.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-14",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7414afe6-c054-44d7-8f46-231b8dbcf170"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "1e28f10a-70a9-4b4f-8e1d-9e494e6bc6c5"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9982
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Analyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,298.33,420.02,310.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2028-9",
+              "display": "Carbon Dioxide"
+            }
+          ],
+          "text": "Carbon Dioxide"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "7414afe6-c054-44d7-8f46-231b8dbcf170"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "1e28f10a-70a9-4b4f-8e1d-9e494e6bc6c5"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9982
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Analyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 12.5,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "3f9176ad-4902-4279-8751-8e0b637b40b0"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "d701fe82-291b-4dbb-a8c6-5d2423d91dfe"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Analyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "CARBON DIOXIDE FLAG: HIGH",
+                "display": "Carbon Dioxide flag: HIGH"
+              }
+            ],
+            "text": "Carbon Dioxide flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-15",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "a693310a-faf1-481f-9b85-1e3203ec1ea9"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "05a7aab1-cbd5-4910-84a9-e2449e67a7b2"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9972
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID: PAT-93695 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,415.01,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3094-0",
+              "display": "BUN"
+            }
+          ],
+          "text": "BUN"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "a693310a-faf1-481f-9b85-1e3203ec1ea9"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "05a7aab1-cbd5-4910-84a9-e2449e67a7b2"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9972
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID: PAT-93695 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 19.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "ae2afd18-e8ae-4e9b-9e07-dc61fd3bb0b7"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "4be7f204-90c0-4071-8d7f-990ed3a4e10c"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient ID: PAT-93695 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "BUN FLAG: HIGH",
+                "display": "BUN flag: HIGH"
+              }
+            ],
+            "text": "BUN flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-16",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "72f1f3d0-2376-432a-8b2c-0e5647273d5c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "d134aa2d-bb01-49f2-ada5-112057e2f263"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9906
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,280.33,85.51,292.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2075-0",
+              "display": "Chloride"
+            }
+          ],
+          "text": "Chloride"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "72f1f3d0-2376-432a-8b2c-0e5647273d5c"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "d134aa2d-bb01-49f2-ada5-112057e2f263"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9906
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 110.0,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-17",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d63ebccb-0822-417c-8448-dcb98bc72402"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "e9a8a0a5-cdfb-46c3-ad8f-f30a5eddf8f7"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID: PAT-93695 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,435.03,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine"
+            }
+          ],
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "d63ebccb-0822-417c-8448-dcb98bc72402"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "e9a8a0a5-cdfb-46c3-ad8f-f30a5eddf8f7"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID: PAT-93695 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.16,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "253538df-a885-4734-9745-8e6eeaf81f6c"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "af00eb15-a1cb-42c5-a736-a49975feb530"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient ID: PAT-93695 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "CREATININE FLAG: HIGH",
+                "display": "Creatinine flag: HIGH"
+              }
+            ],
+            "text": "Creatinine flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-18",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f2293954-ab6f-43fd-9bba-8fc707ea86b8"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "5bea7c02-16ce-4bce-b515-5be1d679899f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9969
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Glucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,316.33,507.5,328.76"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "17861-6",
+              "display": "Calcium"
+            }
+          ],
+          "text": "Calcium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "f2293954-ab6f-43fd-9bba-8fc707ea86b8"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "5bea7c02-16ce-4bce-b515-5be1d679899f"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9969
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Glucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 8.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "b67b16f9-deb4-478c-ade3-e52e16b02835"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "a59308ed-2a5e-4628-8464-e7d36d85cdf3"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9977
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Glucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "CALCIUM FLAG: NORMAL",
+                "display": "Calcium flag: NORMAL"
+              }
+            ],
+            "text": "Calcium flag: NORMAL"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-19",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d3c654f3-b12b-48ea-b880-3ed0cff95ad7"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "beb1c522-38af-4592-aad1-2e38e85b9d31"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9933
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Sodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,388.33,425.02,400.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6768-6",
+              "display": "Alkaline Phosphatase"
+            }
+          ],
+          "text": "Alkaline Phosphatase"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "d3c654f3-b12b-48ea-b880-3ed0cff95ad7"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "beb1c522-38af-4592-aad1-2e38e85b9d31"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9933
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Sodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 60.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "673a6714-a5d6-4ebe-8fe0-251cee26e196"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "aa8a1fd6-8942-4ff8-82b1-81516c366954"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Sodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "ALKALINE PHOSPHATASE FLAG: HIGH",
+                "display": "Alkaline Phosphatase flag: HIGH"
+              }
+            ],
+            "text": "Alkaline Phosphatase flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-20",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "0e8109a2-a42d-4808-bf43-001a0a9d1588"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "114a7b0e-970f-4a1a-96fc-72759ca29259"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9943
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "mmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,406.33,180.04,418.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1742-6",
+              "display": "Alanine Aminotransferase (ALT)"
+            }
+          ],
+          "text": "Alanine Aminotransferase (ALT)"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "0e8109a2-a42d-4808-bf43-001a0a9d1588"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "114a7b0e-970f-4a1a-96fc-72759ca29259"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9943
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "mmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 12.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-21",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "3d7d5acd-18a7-48a1-81ab-a622f74cd206"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8ad8796a-6c5d-48e6-b7ea-27b3714f2d3c"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9984
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID:\nPhysician:\n1973-02-2.2 (F)\nLA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,82.51,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2951-2",
+              "display": "Sodium"
+            }
+          ],
+          "text": "Sodium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "3d7d5acd-18a7-48a1-81ab-a622f74cd206"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "8ad8796a-6c5d-48e6-b7ea-27b3714f2d3c"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9984
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID:\nPhysician:\n1973-02-2.2 (F)\nLA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 576.0,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-22",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "bd78553d-bf55-4660-8729-0a1232d8a6a0"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "3f3e6577-a383-4877-8ca5-f9802d1f6e4a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9711
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "UnitS\nReference Range\nAbn.ormal\nl'ucose\nmg/d'L\n70  99\n61.0\nL\nBUN\n19.0\nrng/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodiurn\n144.0\nmm0l/L\n135 - 145\nPotasium\n42\nmmol/L\n3.- 5.1\nChloride\nmmol/L\n96 - 106\n1100\nH\nCarbon ioxi.de\n2.10\nmm olL\n22 - 29\nCalcium\nrng/dL\n8.5 - 10.2\n8.D\nL\nTotal ProtEin\nG/dL\n6.0 -' 83\n8.8\nH\nAlbumin\n4.6\ng/dL\n35 - 5.0\nTo1tal Bilir Ubin\n0.6\nm/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.\nU/L\n44- 47.\nA'laninE Arnino transfeASe (ALT).\n12.0\nU/L\n7 - 56\nAspartate Aminotransfer ase (AST)\n22.0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,316.33,84.5,328.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.901
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "17861-6",
+              "display": "Calcium"
+            }
+          ],
+          "text": "Calcium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "bd78553d-bf55-4660-8729-0a1232d8a6a0"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "3f3e6577-a383-4877-8ca5-f9802d1f6e4a"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9711
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "UnitS\nReference Range\nAbn.ormal\nl'ucose\nmg/d'L\n70  99\n61.0\nL\nBUN\n19.0\nrng/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodiurn\n144.0\nmm0l/L\n135 - 145\nPotasium\n42\nmmol/L\n3.- 5.1\nChloride\nmmol/L\n96 - 106\n1100\nH\nCarbon ioxi.de\n2.10\nmm olL\n22 - 29\nCalcium\nrng/dL\n8.5 - 10.2\n8.D\nL\nTotal ProtEin\nG/dL\n6.0 -' 83\n8.8\nH\nAlbumin\n4.6\ng/dL\n35 - 5.0\nTo1tal Bilir Ubin\n0.6\nm/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.\nU/L\n44- 47.\nA'laninE Arnino transfeASe (ALT).\n12.0\nU/L\n7 - 56\nAspartate Aminotransfer ase (AST)\n22.0"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 8.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-23",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ed700831-17ae-43ea-be0d-4a03ba0938e5"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "08b63878-83d1-4d7d-83f9-56fb6d9d2128"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9984
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Reference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,316.33,84.5,328.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "17861-6",
+              "display": "Calcium"
+            }
+          ],
+          "text": "Calcium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ed700831-17ae-43ea-be0d-4a03ba0938e5"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "08b63878-83d1-4d7d-83f9-56fb6d9d2128"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9984
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Reference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 16.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-24",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "37910e6f-1f28-4cc3-9295-e171106b10bb"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7bb48663-5b05-4516-b152-5042049a75b9"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9977
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Glucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,334.33,508.5,346.76"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2885-2",
+              "display": "Total Protein"
+            }
+          ],
+          "text": "Total Protein"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "37910e6f-1f28-4cc3-9295-e171106b10bb"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7bb48663-5b05-4516-b152-5042049a75b9"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9977
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Glucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 2.2,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "b9df2bea-20c2-4480-aab9-a96bb135962e"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "992e4bf5-6c3c-4272-a8e3-5e14ff1939ba"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9979
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Glucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "TOTAL PROTEIN FLAG: NORMAL",
+                "display": "Total Protein flag: NORMAL"
+              }
+            ],
+            "text": "Total Protein flag: NORMAL"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-25",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "e25427e5-e020-4016-88d2-aeee04a9ac86"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "1d291754-8bf5-491b-8256-37dce3d2db53"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9973
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "SECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,262.33,425.02,274.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium"
+            }
+          ],
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "e25427e5-e020-4016-88d2-aeee04a9ac86"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "1d291754-8bf5-491b-8256-37dce3d2db53"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9973
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "SECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 4.2,
+          "unit": "mmol/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "5af033fe-070a-4209-bb7d-ee0c30d910d0"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "d6ffec96-9c1e-4f83-a36a-1de310fd6696"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "SECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "POTASSIUM FLAG: HIGH",
+                "display": "Potassium flag: HIGH"
+              }
+            ],
+            "text": "Potassium flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-26",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-26",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "14b6ecf6-49e8-40e3-8d3d-7b8f24a264a6"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "ecb6bd73-1f6a-46b4-9ca8-125b10405713"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10839-9",
+              "display": "Troponin I"
+            }
+          ],
+          "text": "Troponin I"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "14b6ecf6-49e8-40e3-8d3d-7b8f24a264a6"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "ecb6bd73-1f6a-46b4-9ca8-125b10405713"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-27",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-27",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "67fda41f-e495-4ff6-8638-f187e31ef04a"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "714100d2-39df-4ee6-adbe-4588ff658f92"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9984
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "PAT-93695 \nDr. Emily Chen, MD\nPatient ID:\nPhysician:\n1973-02-2.2 (F)\nLA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,93.01,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine"
+            }
+          ],
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "67fda41f-e495-4ff6-8638-f187e31ef04a"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "714100d2-39df-4ee6-adbe-4588ff658f92"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9984
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "PAT-93695 \nDr. Emily Chen, MD\nPatient ID:\nPhysician:\n1973-02-2.2 (F)\nLA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.16,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-28",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-28",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "21123749-2168-4fce-bec2-6203477cc31c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "3aefffb7-6d1b-4b77-acd1-67471cb78717"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.997
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Karen Miller\n2025-04-30\nPatient Name:\nReport Date:\nPAT-93695 \nDr. Emily Chen, MD\nPatient ID:\nPhysician:\n1973-02-2.2 (F)\nLA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,85.01,202.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2345-7",
+              "display": "Glucose"
+            }
+          ],
+          "text": "Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "21123749-2168-4fce-bec2-6203477cc31c"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "3aefffb7-6d1b-4b77-acd1-67471cb78717"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.997
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Karen Miller\n2025-04-30\nPatient Name:\nReport Date:\nPAT-93695 \nDr. Emily Chen, MD\nPatient ID:\nPhysician:\n1973-02-2.2 (F)\nLA_0029\nDOB / Gender:\nDocument ID:\nSECTION: COMPREHENSIV1E METABOLIC PANEL\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nGlucose\nmg/dL.\n70 - 99\n61.0\nL\nBUN\n19.0\nmg/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 61.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-29",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-29",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c7a082a9-1d35-4ad1-be99-78a8d3d3cb87"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "d87ddbf6-bc12-48c2-b615-a468c569cdaf"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Karen Miller Report Date: 2025-04-30\nPatient ID: PAT-93695 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,507.5,202.76"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2345-7",
+              "display": "Glucose"
+            }
+          ],
+          "text": "Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "c7a082a9-1d35-4ad1-be99-78a8d3d3cb87"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "d87ddbf6-bc12-48c2-b615-a468c569cdaf"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name: Karen Miller Report Date: 2025-04-30\nPatient ID: PAT-93695 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 61.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "0f03fa78-4e11-449e-80f3-8957a8a22b3a"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "b07dc6f9-0587-4f4b-8ad9-e0b566328cf8"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9982
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient Name: Karen Miller Report Date: 2025-04-30\nPatient ID: PAT-93695 Physician: Dr. Emily Chen, MD\nDOB / Gender: 1973-02-22 (F) Document ID: LAB_0029\nSECTION: COMPREHENSIVE METABOLIC PANEL\nAnalyte Result Units Reference Range Abnormal\nGlucose 61.0 mg/dL 70 - 99 L\nBUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "GLUCOSE FLAG: NORMAL",
+                "display": "Glucose flag: NORMAL"
+              }
+            ],
+            "text": "Glucose flag: NORMAL"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-30",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-30",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "96f59cc7-d73a-487e-b7bd-85407d4e2c15"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "acdcb4aa-e70a-4103-99b8-2958c2b24869"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9971
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name:\nRepoRt Date:\nPAT-93165\nDr. Emily Chen, MD\npatent I:\nPhy.si cian:\n1973-02-22 (F)\nLAB_0029\nDOB / Gender:\nDocument ID\nSECTION: COMPREHENSIVE METABOLI P'ANEl\nAnalyte\nResult\nUnitS\nReference Range\nAbn.ormal\nl'ucose\nmg/d'L\n70  99\n61.0\nL\nBUN\n19.0\nrng/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodiurn\n144.0\nmm0l/L\n135 - 145\nPotasium\n42\nmmol/L\n3.- 5.1\nChloride\nmmol/L\n96 - 106\n1100\nH\nCarbon ioxi.de\n2.10\nmm olL\n22 - 29\nCalcium\nrng/dL\n8.5 - 10.2\n8.D\nL\nTotal ProtEin\nG/dL\n6.0 -' 83\n8.8\nH\nAlbumin"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,71.0,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.901
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3094-0",
+              "display": "BUN"
+            }
+          ],
+          "text": "BUN"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "96f59cc7-d73a-487e-b7bd-85407d4e2c15"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "acdcb4aa-e70a-4103-99b8-2958c2b24869"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9971
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name:\nRepoRt Date:\nPAT-93165\nDr. Emily Chen, MD\npatent I:\nPhy.si cian:\n1973-02-22 (F)\nLAB_0029\nDOB / Gender:\nDocument ID\nSECTION: COMPREHENSIVE METABOLI P'ANEl\nAnalyte\nResult\nUnitS\nReference Range\nAbn.ormal\nl'ucose\nmg/d'L\n70  99\n61.0\nL\nBUN\n19.0\nrng/dL\n7 - 20\nCreatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodiurn\n144.0\nmm0l/L\n135 - 145\nPotasium\n42\nmmol/L\n3.- 5.1\nChloride\nmmol/L\n96 - 106\n1100\nH\nCarbon ioxi.de\n2.10\nmm olL\n22 - 29\nCalcium\nrng/dL\n8.5 - 10.2\n8.D\nL\nTotal ProtEin\nG/dL\n6.0 -' 83\n8.8\nH\nAlbumin"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 19.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-31",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-31",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d4542d48-aa12-4dd3-8e7c-1d3f1311c23f"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2daa8e80-4f2e-44c6-81eb-653c4eeb4a5f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9978
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "BUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,352.33,425.02,364.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1751-7",
+              "display": "Albumin"
+            }
+          ],
+          "text": "Albumin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "d4542d48-aa12-4dd3-8e7c-1d3f1311c23f"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "2daa8e80-4f2e-44c6-81eb-653c4eeb4a5f"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9978
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "BUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 18.4,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "cc609611-7b6e-4945-b1a8-8782bf0a7636"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "7c0c35c3-12aa-4419-8d69-a861c2af007b"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "BUN 19.0 mg/dL 7 - 20\nCreatinine 0.64 mg/dL 0.60 - 1.30\nSodium 144.0 mmol/L 135 - 145\nPotassium 4.2 mmol/L 3.5 - 5.1\nChloride 110.0 mmol/L 96 - 106 H\nCarbon Dioxide 25.0 mmol/L 22 - 29\nCalcium 8.0 mg/dL 8.5 - 10.2 L\nTotal Protein 8.8 g/dL 6.0 - 8.3 H\nAlbumin 4.6 g/dL 3.5 - 5.0\nTotal Bilirubin 0.6 mg/dL 0.1 - 1.2\nAlkaline Phosphatase 60.0 U/L 44 - 147\nAlanine Aminotransferase (ALT) 12.0 U/L 7 - 56\nAspartate Aminotransferase (AST) 22.0 U/L 10 - 40"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "ALBUMIN FLAG: HIGH",
+                "display": "Albumin flag: HIGH"
+              }
+            ],
+            "text": "Albumin flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-32",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-32",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ca271c48-f241-4cf0-a986-e4496caac9be"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "b66647e7-f477-438f-8707-a2e6ab7282e7"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9981
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Creatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,370.33,106.51,382.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.967
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1975-2",
+              "display": "Total Bilirubin"
+            }
+          ],
+          "text": "Total Bilirubin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ca271c48-f241-4cf0-a986-e4496caac9be"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "b66647e7-f477-438f-8707-a2e6ab7282e7"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9981
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Creatinine\n0.64\nmg/dL\n0.60 - 1.30\nSodium\n144.0\nmmol/L\n135 - 145\nPotassium\n4.2\nmmol/L\n3.5 - 5.1\nChloride\nmmol/L\n96 - 106\n110.0\nH\nCarbon D'ioxide\n25.0\nmmol/L\n22 - 29\nCalcium\nmg/L\n8.5 - 10.2\n8.0\nL\nTotal Protein\ng/dL\n6.0 - 8.3\n8.8\nH\nAlbumin\n4.6\ng/dL\n3.5 - 5.0\nTotal Bilirubin\n0.6\nmg/dL\n0.1 - 1.2\nAlkaline Phosphatase\n60.0\n/L\n44 - 147\nAlanine Aminotransferase (ALT)\n12.0\nU/L\n7 -. 5\nAspartate aminotransferase (AST)\n22.0\nU/L\n10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.06,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0029-33",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0029-33",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4af8ce03-630f-49f1-aac2-76082f3c8425"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "e7d31cda-d0e7-4ce9-b236-11308bddd40b"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9983
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "19.0\nmg/dL\n7 - 20\nCreatini ne\n.64\nmg/dL'\n0.60 - 1.30\nSdium\n144.0\nmmo/L\n13S - 145\nP0t asium\n4.2\nmmol/L\n3.5 - 5.1\nChlor.id e\nmmol/L\n96 - 06\nI10.0\nH\nCa bon Diox de\n2S0\nm1mol/l\n22 - 29\nCAlc1iurn\nrng dL\n8.5 - 10.2\n8.0\nL\ntotal .P1rotein\n/dL\n6.0 - 8.3\n8.B\nH\nAlbumin\n6\ng/l\n3.S -  .0\noTal il.irbin\n06\nRng/dL\n0.1 - 1.2\nAlkaine P1hosph1Atase\n6D.10\nU/L\n14 - 140\nAlanine ArnInot.ransferse. (A LT)\n120\nU/1L\n7 -56\nAsparta1te Arninotr1aNsfer.ase  (AST)\n22.0\nU/L\n10 - 40"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,352.33,84.51,364.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.863
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1751-7",
+              "display": "Albumin"
+            }
+          ],
+          "text": "Albumin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0029"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "4af8ce03-630f-49f1-aac2-76082f3c8425"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "e7d31cda-d0e7-4ce9-b236-11308bddd40b"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9983
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "19.0\nmg/dL\n7 - 20\nCreatini ne\n.64\nmg/dL'\n0.60 - 1.30\nSdium\n144.0\nmmo/L\n13S - 145\nP0t asium\n4.2\nmmol/L\n3.5 - 5.1\nChlor.id e\nmmol/L\n96 - 06\nI10.0\nH\nCa bon Diox de\n2S0\nm1mol/l\n22 - 29\nCAlc1iurn\nrng dL\n8.5 - 10.2\n8.0\nL\ntotal .P1rotein\n/dL\n6.0 - 8.3\n8.B\nH\nAlbumin\n6\ng/l\n3.S -  .0\noTal il.irbin\n06\nRng/dL\n0.1 - 1.2\nAlkaine P1hosph1Atase\n6D.10\nU/L\n14 - 140\nAlanine ArnInot.ransferse. (A LT)\n120\nU/1L\n7 -56\nAsparta1te Arninotr1aNsfer.ase  (AST)\n22.0\nU/L\n10 - 40"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 4.6,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        }
+      }
+    }
+  ]
+}

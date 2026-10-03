@@ -1,0 +1,847 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0012",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0012",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0012",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0012"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0012",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0012",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0012",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0012",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0012-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0012-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "276b6dfa-1e4c-4375-acb6-3a11fd932b78"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2d85d446-af5c-407e-9091-2a7886050e9f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.7477
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "rder Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth once daily\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,184.05,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "276b6dfa-1e4c-4375-acb6-3a11fd932b78"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "2d85d446-af5c-407e-9091-2a7886050e9f"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.7477
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "rder Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth once daily\nRefills: 2"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6809",
+              "display": "Medication: Metformin"
+            }
+          ],
+          "text": "Medication: Metformin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0012"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Metformin Sertraline dose: 50 mg mg Sertraline route: by mouth Sertraline frequency: once daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "1c6baa60-4069-4fc7-bbe9-5a44a21a8c39"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "79124089-90f6-4549-99b4-7ae5b0e36775"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9947
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "rder Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth once daily\nRefills: 2"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Sertraline frequency: once daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "1fa6aab8-ce5a-4d68-b82a-b0bc2e82c811"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "90ceb258-83e8-4a1d-ab74-ef7b3d2dd563"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9916
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "rder Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth once daily\nRefills: 2"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Sertraline route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "195a2383-9cae-4b74-9777-278072455d9c"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "0f9b7454-7261-404f-b401-f521373e9439"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9966
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "rder Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: Take 1 tablet by mouth once daily\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0012-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0012-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "061c792d-5a24-4d62-8338-aca6d1070d6e"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "6646da33-44ef-486b-8bfe-ef6d1b9dbcb1"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9944
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Davis | DOB: 2000-12-02 | MRN: PAT-30012 | Order Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDurat"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,182.93,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "061c792d-5a24-4d62-8338-aca6d1070d6e"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "6646da33-44ef-486b-8bfe-ef6d1b9dbcb1"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9944
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Davis | DOB: 2000-12-02 | MRN: PAT-30012 | Order Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDurat"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Medication: Amoxicillin"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0012"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amoxicillin Lisinopril dose: 40 mg mg Lisinopril route: oral Lisinopril frequency: once daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "e048957d-1010-4f55-a3dc-9c5525eaf071"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "269541f2-4b37-4035-b9a7-bd0fb741e01d"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9946
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Davis | DOB: 2000-12-02 | MRN: PAT-30012 | Order Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDurat"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Lisinopril frequency: once daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "2726c3c6-ee4e-4792-ac74-d3227782a701"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "dc73d334-5780-4f9f-8832-c837dfea693c"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9943
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Davis | DOB: 2000-12-02 | MRN: PAT-30012 | Order Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDurat"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Lisinopril route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "dc6be542-1f15-47c9-af94-ce2c717f44c5"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "204bbcd2-d05f-42a0-bbae-75a2c64af446"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9971
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Davis | DOB: 2000-12-02 | MRN: PAT-30012 | Order Date: 2025-06-22\nOrdering Provider: Dr. Marcus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDurat"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 40.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0012-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0012-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "46654ea1-ec09-4a23-92fe-f46862389ede"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "65e55ea6-0879-482a-b9ee-5e2970a8f9de"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9966
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Order Date: 2025-06-22\nOrdering Provider: Dr. Macus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 rng\nRoute: oral | Form: tablet\nScheduleFrequenCy: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 Tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDurat ion: 30 days | Dispense: #90\nInstructins: Take 1 tablet by rnouth once daily\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,184.05,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.812
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "36437",
+              "display": "Sertraline"
+            }
+          ],
+          "text": "Sertraline"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0012"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Sertraline dose: 50 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "46654ea1-ec09-4a23-92fe-f46862389ede"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "65e55ea6-0879-482a-b9ee-5e2970a8f9de"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9966
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Order Date: 2025-06-22\nOrdering Provider: Dr. Macus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 rng\nRoute: oral | Form: tablet\nScheduleFrequenCy: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 Tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDurat ion: 30 days | Dispense: #90\nInstructins: Take 1 tablet by rnouth once daily\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0012-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0012-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "3326308f-edd5-45f0-9e42-92fb8bec1069"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "644248bb-d88a-4b4d-8425-cc3342015c4b"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9962
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Susan Davis | DOB: 2000-12-02 | MRN: PAT-300 12 | Order Date: 2025-06-22\nOrdering Provider: Dr. Macus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 rng\nRoute: oral | Form: tablet\nScheduleFrequenCy: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 Tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDurat"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,182.93,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.812
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "Lisinopril"
+            }
+          ],
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0012"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Lisinopril dose: 80 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "3326308f-edd5-45f0-9e42-92fb8bec1069"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "644248bb-d88a-4b4d-8425-cc3342015c4b"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9962
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Susan Davis | DOB: 2000-12-02 | MRN: PAT-300 12 | Order Date: 2025-06-22\nOrdering Provider: Dr. Macus Vance, DO | Doc ID: MED_0012\nOrder #1: Lisinopril 40 rng\nRoute: oral | Form: tablet\nScheduleFrequenCy: once daily\nDuration: 30 days | Dispense: #30\nInstructions: 1 Tablet oral once daily\nRefills: 1\nOrder #2: Sertraline 50 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDurat"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 80.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0012-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0012-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "3bd664a2-c3d3-4abc-8d93-0903db355d1c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "3a87a7af-7c5c-40cf-886d-64ac0da76b05"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "3bd664a2-c3d3-4abc-8d93-0903db355d1c"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "3a87a7af-7c5c-40cf-886d-64ac0da76b05"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0012"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "bf402240-02f4-4473-b590-88323a4ff5b2"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "f360fdb2-b6dd-478b-b2a0-782f06487d6b"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "b467db1f-1406-47ee-9ebd-960fc68c7bb5"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "f2baeb95-27b2-49c7-a48d-6648ae4f2c67"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "ec5f459c-38b0-480e-a9a8-bc2679f4f94f"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "86dde45d-743c-4fb6-b157-ac960eebe1c8"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

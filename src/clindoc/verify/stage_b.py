@@ -79,6 +79,8 @@ class LearnedVerifier:
         scaler: Optional[TemperatureScaler] = None,
         escalation_threshold: float = DEFAULT_ESCALATION_THRESHOLD,
         custom_predictor: Optional[ModelPredictor] = None,
+        device: Optional[str] = None,
+        eager_load: bool = True,
     ) -> None:
         self.escalation_threshold = float(escalation_threshold)
         self.scaler = scaler or TemperatureScaler(init_temperature=1.0)
@@ -89,48 +91,98 @@ class LearnedVerifier:
         self._predictor: Optional[ModelPredictor] = custom_predictor
         self._model = None
         self._tokenizer = None
-        self._device = None
+        self._device = device
         self.model_path = model_path
+        self._load_attempted: bool = False
 
-    def _lazy_load_model(self) -> bool:
+        if eager_load and self.model_path is not None and self._predictor is None:
+            self.load_model()
+
+    @property
+    def is_model_loaded(self) -> bool:
+        """Check whether a neural model or custom predictor is ready for inference."""
+        return self._model is not None or self._predictor is not None
+
+    def load_model(self) -> bool:
+        """Load ModernBERT model and tokenizer once into memory outside the evaluation loop.
+
+        Guarantees single initialization: if already loaded or if a custom predictor
+        is present, returns True immediately without reloading.
+        """
         if self._predictor is not None:
             return True
         if self._model is not None:
             return True
+        if self._load_attempted:
+            return self._model is not None
         if not self.model_path or not Path(self.model_path).exists():
+            self._load_attempted = True
             return False
 
+        self._load_attempted = True
         try:
+            import logging
             import torch
             from transformers import AutoTokenizer
             from clindoc.m2.model import ClinicalVerifier, MODEL_CHECKPOINT
 
-            self._device = "cuda" if torch.cuda.is_available() else "cpu"
+            if self._device is None:
+                self._device = "cuda" if torch.cuda.is_available() else "cpu"
             model_path_obj = Path(self.model_path)
 
             if model_path_obj.is_dir():
-                self._tokenizer = AutoTokenizer.from_pretrained(str(model_path_obj), local_files_only=True)
-                self._model = ClinicalVerifier(model_id=str(model_path_obj), aux_mode="none").to(self._device)
+                self._tokenizer = AutoTokenizer.from_pretrained(str(model_path_obj))
+                model = ClinicalVerifier(model_id=str(model_path_obj), aux_mode="none")
             else:
-                self._tokenizer = AutoTokenizer.from_pretrained(MODEL_CHECKPOINT, local_files_only=True)
-                ckpt = torch.load(str(model_path_obj), map_location=self._device)
+                self._tokenizer = AutoTokenizer.from_pretrained(MODEL_CHECKPOINT)
+                # Load checkpoint to CPU first to prevent GPU memory spikes (DEC-006 / Colab T4 stability)
+                ckpt = torch.load(str(model_path_obj), map_location="cpu", weights_only=False)
                 aux_mode = ckpt.get("aux_mode", "none") if isinstance(ckpt, dict) else "none"
-                self._model = ClinicalVerifier(model_id=MODEL_CHECKPOINT, aux_mode=aux_mode).to(self._device)
+                model = ClinicalVerifier(model_id=MODEL_CHECKPOINT, aux_mode=aux_mode)
                 if isinstance(ckpt, dict) and "model_state" in ckpt:
-                    self._model.load_state_dict(ckpt["model_state"])
+                    model.load_state_dict(ckpt["model_state"])
                 elif isinstance(ckpt, dict):
-                    self._model.load_state_dict(ckpt)
+                    model.load_state_dict(ckpt)
                 # DEC-009: load fitted temperature from checkpoint if present
                 if isinstance(ckpt, dict) and "temperature" in ckpt:
                     fitted_temp = float(ckpt["temperature"])
                     if fitted_temp > 0:
                         self.scaler = TemperatureScaler(init_temperature=fitted_temp)
                         self.scaler.is_fitted = True
+                del ckpt
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+
+            # Transfer to target device with graceful CPU fallback on CUDA OOM
+            try:
+                self._model = model.to(self._device)
+            except (torch.cuda.OutOfMemoryError, RuntimeError) as oom_err:
+                if self._device != "cpu":
+                    import logging
+                    logging.getLogger(__name__).warning(
+                        "CUDA allocation failed for Stage B ModernBERT (%s). Gracefully falling back to cpu.",
+                        oom_err,
+                    )
+                    self._device = "cpu"
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()
+                    self._model = model.to("cpu")
+                else:
+                    raise
 
             self._model.eval()
             return True
-        except Exception:
+        except Exception as e:
+            import logging
+            logging.getLogger(__name__).warning(
+                "Failed to load Stage B ModernBERT model from %s: %s", self.model_path, e
+            )
+            self._model = None
             return False
+
+    def _lazy_load_model(self) -> bool:
+        """Deprecated alias for load_model() retained for backward compatibility."""
+        return self.load_model()
 
     def verify(
         self,
@@ -208,12 +260,20 @@ class LearnedVerifier:
             escalation_reason=escalation_reason,
         )
 
+    def get_calibrated_probabilities(
+        self, result_or_logits: Union[StageBResult, np.ndarray]
+    ) -> np.ndarray:
+        """Compute the 3-class calibrated probability distribution (DEC-009)."""
+        logits = result_or_logits.logits if isinstance(result_or_logits, StageBResult) else result_or_logits
+        return self.scaler.predict_proba(logits)
+
     def _compute_logits(self, field_type: str, claim_value: str, evidence_text: str) -> np.ndarray:
         """Compute 3-class logits from predictor or neural model."""
         if self._predictor is not None:
             return self._predictor.predict_logits(field_type, claim_value, evidence_text)
 
-        if self._lazy_load_model() and self._model is not None:
+        # Reuse pre-loaded ModernBERT model instance (never load/reload inside per-example loop)
+        if self._model is not None:
             import torch
             formatted = format_input(field_type, claim_value, evidence_text)
             toks = self._tokenizer(
@@ -222,7 +282,11 @@ class LearnedVerifier:
                 truncation=True,
                 max_length=256,
                 return_tensors="pt",
-            ).to(self._device)
+            )
+            if hasattr(toks, "to"):
+                toks = toks.to(self._device)
+            else:
+                toks = {k: v.to(self._device) if hasattr(v, "to") else v for k, v in toks.items()}
             with torch.no_grad():
                 logits_tensor = self._model(
                     input_ids=toks["input_ids"],

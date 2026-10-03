@@ -28,3 +28,14 @@ Phase 0/1 Benchmark `experiments/DR6-llm-model-comparison/`: Benchmark Qwen2.5-7
 - PROJECT_SPEC §5 Components 5 and 9, §7.4, §12, §13.2, §27
 - PHASE0_DECISION_RESOLUTION_PACKAGE DR-6
 - PHASE0_ARCHITECTURE_RESOLUTION Section 7, Section 8
+
+---
+
+## Stage C Implementation Reference
+
+* **Selected Model**: `Qwen/Qwen2.5-7B-Instruct` (primary instruct LLM for both Stage C verification and narrative extraction).
+* **Serving Backend**: `vLLM` running on Google Colab T4 (16GB VRAM, Linux) via OpenAI-compatible endpoint (`/v1/chat/completions`). Never launched on local 6GB GPU.
+* **Structured Output (DEC-013)**: Native `response_format={"type": "json_schema", ...}` using `StageCJudgeOutput.model_json_schema()`.
+* **Determinism & Reproducibility**: `temperature=0.0`, `seed=42`, `max_tokens=256`.
+* **Bounded Retry & Fallback**: Maximum 3 total generation attempts (initial + up to 2 retries). On exhaust/network failure, returns safe `INSUFFICIENT_EVIDENCE` (`confidence=0.50`, `contradiction_type=None`).
+* **CI / Test Default**: `DefaultMockLLMJudge` remains the default client for fast, offline, deterministic unit and integration tests.

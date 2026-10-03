@@ -139,6 +139,7 @@ class M2EvalResult(BaseModel):
     auroc_discrepancy: float | None = None
     brier_score: float | None = None
     ece: float | None = None
+    calibration_temperature: float | None = None
     by_severity: dict[str, Any] = Field(default_factory=dict)
     by_field_type: dict[str, Any] = Field(default_factory=dict)
     by_claim_type: dict[str, Any] = Field(default_factory=dict)

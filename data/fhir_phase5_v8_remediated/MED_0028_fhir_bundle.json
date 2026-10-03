@@ -1,0 +1,1257 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0028",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0028",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0028",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0028"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0028",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0028",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0028",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0028",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0028-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0028-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f4235b9b-b55a-4002-b976-5f4fc373c193"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "b477f3d8-5add-4d8a-a679-435ff490df0f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.7815
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": ": 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: ta"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,196.83,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "f4235b9b-b55a-4002-b976-5f4fc373c193"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "b477f3d8-5add-4d8a-a679-435ff490df0f"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.7815
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": ": 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: ta"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6809",
+              "display": "Medication: Metformin"
+            }
+          ],
+          "text": "Medication: Metformin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0028"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Metformin Amoxicillin dose: 500 mg mg Amoxicillin route: oral Amoxicillin frequency: three times daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "8d999ee5-abc2-4c40-87e0-a78f7cc3009d"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "aaeb50c9-1196-41ae-a6de-7e759e81979a"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9954
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": ": 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: ta"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Amoxicillin frequency: three times daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "e9184b1a-d4ce-4eb3-bb92-8c18f1569bf8"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "a89811d4-de22-4d1c-b512-ff9cd2ec90e3"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9946
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": ": 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: ta"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Amoxicillin route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "ffcd6227-53a7-4c97-92ec-c2ed9657cee6"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "bf1b8952-dcd1-41ee-a6a8-214a66ff1f7c"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.997
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": ": 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: ta"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 500.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0028-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0028-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "5a26e3d9-007b-4794-81b3-826a803183e3"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7435fd13-f605-45d0-b840-6a10724c07c6"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "5a26e3d9-007b-4794-81b3-826a803183e3"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7435fd13-f605-45d0-b840-6a10724c07c6"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0028"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "6e7ad2f7-7706-4063-aab5-6bf8f7ee63b3"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "edd0926d-d66a-48d4-ac5a-c049346bc240"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "f169ee29-a77b-4982-845a-468df97fca2a"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "e41313ee-d383-4c15-a8bf-7fefa54b1b72"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "d69c2a9e-4de0-4948-bae9-dc539527d03a"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "a3c88007-c559-4d75-8922-36a55bcfd461"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0028-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0028-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ce3ca692-705c-4814-9c6d-be0eefb47e04"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8d0c4b7f-a7f9-408a-b24b-956af9c66e19"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.744
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "uctions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,275.8,242.94,289.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ce3ca692-705c-4814-9c6d-be0eefb47e04"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "8d0c4b7f-a7f9-408a-b24b-956af9c66e19"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.744
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "uctions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "83367",
+              "display": "Medication: Atorvastatin"
+            }
+          ],
+          "text": "Medication: Atorvastatin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0028"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Atorvastatin Hydrochlorothiazide dose: 25 mg mg Hydrochlorothiazide route: oral Hydrochlorothiazide frequency: once daily in the morning",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "bec040ab-effb-481f-bb90-95d8a919e437"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "28e98e0a-66b5-45c7-9677-514d5501bb62"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.979
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "uctions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Hydrochlorothiazide frequency: once daily in the morning"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "1ef7b454-20d5-487a-9f64-d913f491253a"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "64c86b10-bbf3-4543-9276-a476416c6f0b"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9945
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "uctions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Hydrochlorothiazide route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "ee506aef-ac47-40db-b8e7-5f738c570211"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "b09d4a3c-4e6e-41b2-82b1-6769c97984ed"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9927
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "uctions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nInstructions: Take one capsule oral three times daily for 7\ndays\nRefills: 1\nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: once daily in the morning\nDuration: Ongoing | Dispense: #30\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 25.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0028-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0028-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c93598c9-efaa-4166-8bc1-c2e1645fc11c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "716106a8-a97a-4d5e-9696-b2779185fe24"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9026
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "e: 2025-05-28\nOrdering Provider Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder 1:' AzIthromycin 500 mg\nRoute: oral |Form: tAblet\nSchedule/Fr.equency: QD\nD'uratioN: 5days | DispensE: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: c1apsule\nScHedule/Fr'equency:  thee times daily\nDuration: 7 a1ys | Disp ene: #21\nInstruct ions: ake one capsule or l tHree t.imes daily for 7\ndays\nRe1fills: 1\nORder #3: Hydr0chlo1rothiazid E 125 mg\nRoute: oal | Form"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,196.83,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.702
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Amoxicillin"
+            }
+          ],
+          "text": "Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0028"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Amoxicillin dose: 250 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "c93598c9-efaa-4166-8bc1-c2e1645fc11c"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "716106a8-a97a-4d5e-9696-b2779185fe24"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9026
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "e: 2025-05-28\nOrdering Provider Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder 1:' AzIthromycin 500 mg\nRoute: oral |Form: tAblet\nSchedule/Fr.equency: QD\nD'uratioN: 5days | DispensE: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: c1apsule\nScHedule/Fr'equency:  thee times daily\nDuration: 7 a1ys | Disp ene: #21\nInstruct ions: ake one capsule or l tHree t.imes daily for 7\ndays\nRe1fills: 1\nORder #3: Hydr0chlo1rothiazid E 125 mg\nRoute: oal | Form"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 250.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0028-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0028-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "752d5fe4-f208-47a2-8482-37215192e1f6"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8033b163-38ed-42ef-a0e9-a5e7eba47e45"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9946
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "tructions: 1 tablEt oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nIstructions: Take one capsule oral three times daily for 7\ndays\nRefills: \nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: tablet\nScheule/Frequency: once daily in the morning\nDuration: Ong.oig | Dispense: #30\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,275.8,242.94,289.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.865
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "5487",
+              "display": "Hydrochlorothiazide"
+            }
+          ],
+          "text": "Hydrochlorothiazide"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0028"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Hydrochlorothiazide dose: 25 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "752d5fe4-f208-47a2-8482-37215192e1f6"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "8033b163-38ed-42ef-a0e9-a5e7eba47e45"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9946
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "tructions: 1 tablEt oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nIstructions: Take one capsule oral three times daily for 7\ndays\nRefills: \nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: tablet\nScheule/Frequency: once daily in the morning\nDuration: Ong.oig | Dispense: #30\nInstructions: Take 1 tablet oral once daily in the morning\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 25.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0028-6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0028-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c4c24a3d-fa29-41de-9950-e34ee822ecf0"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "d8b00c08-a0c1-4400-b17b-c6f080a30318"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9957
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Wilson | DOB: 1982-12-01 | MRN: PAT-30028 | Order Date: 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDurati"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,206.82,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "c4c24a3d-fa29-41de-9950-e34ee822ecf0"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "d8b00c08-a0c1-4400-b17b-c6f080a30318"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9957
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Wilson | DOB: 1982-12-01 | MRN: PAT-30028 | Order Date: 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDurati"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "18631",
+              "display": "Medication: Azithromycin"
+            }
+          ],
+          "text": "Medication: Azithromycin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0028"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Azithromycin Azithromycin dose: 250 mg mg Azithromycin route: oral Azithromycin frequency: QD",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "dfd12723-1f7d-4445-a0c5-0b3652363c35"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "10044fd0-c65e-401c-9e01-d9c8b6cf1912"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9962
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Wilson | DOB: 1982-12-01 | MRN: PAT-30028 | Order Date: 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDurati"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Azithromycin frequency: QD"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "5a00d833-4f6f-46f8-b415-1026b54dc062"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "2562b4ef-fbb1-4235-a4fe-d84faf71ab5e"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9947
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Wilson | DOB: 1982-12-01 | MRN: PAT-30028 | Order Date: 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDurati"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Azithromycin route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "2414e4cd-f273-4701-8eae-2e11805a6efd"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "34b9ff38-1caf-4c99-a344-50a3cf895720"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9965
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "tory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Wilson | DOB: 1982-12-01 | MRN: PAT-30028 | Order Date: 2025-05-28\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablet oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDurati"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 250.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0028-7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0028-7",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7a98ba72-a74d-4e61-bedb-38c38f9a2573"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "f545586d-97ee-4587-8f2c-e0fd9356ef78"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9971
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "y Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Susan Wilson | DOB: 1982-12-01 | MRN: PAT-30 028 | Order Date: 2025-05-28\nOrdering Provider:Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | For: tablet\nSChedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablEt oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuratio"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,206.82,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.865
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "18631",
+              "display": "Azithromycin"
+            }
+          ],
+          "text": "Azithromycin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0028"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Azithromycin dose: 500 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "7a98ba72-a74d-4e61-bedb-38c38f9a2573"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "f545586d-97ee-4587-8f2c-e0fd9356ef78"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9971
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "y Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Susan Wilson | DOB: 1982-12-01 | MRN: PAT-30 028 | Order Date: 2025-05-28\nOrdering Provider:Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | For: tablet\nSChedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablEt oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuratio"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 500.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0028-8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0028-8",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "44695409-8831-4f08-940c-29d46dc10069"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "bde362c3-cd85-496f-8874-f25bbc1f56a7"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9973
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "te: 2025-05-28\nOrdering Provider:Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | For: tablet\nSChedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablEt oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nIstructions: Take one capsule oral three times daily for 7\ndays\nRefills: \nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: tabl"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,196.83,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.865
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Amoxicillin"
+            }
+          ],
+          "text": "Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0028"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Amoxicillin dose: 500 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "44695409-8831-4f08-940c-29d46dc10069"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "bde362c3-cd85-496f-8874-f25bbc1f56a7"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9973
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "te: 2025-05-28\nOrdering Provider:Dr. Sarah Jenkins, MD | Doc ID: MED_0028\nOrder #1: Azithromycin 500 mg\nRoute: oral | For: tablet\nSChedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: 1 tablEt oral QD x 5 days\nRefills: 0\nOrder #2: Amoxicillin 500 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: three times daily\nDuration: 7 days | Dispense: #21\nIstructions: Take one capsule oral three times daily for 7\ndays\nRefills: \nOrder #3: Hydrochlorothiazide 12.5 mg\nRoute: oral | Form: tabl"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 500.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

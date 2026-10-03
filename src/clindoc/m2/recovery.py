@@ -30,7 +30,7 @@ from clindoc.m2.splits import get_fold_examples, get_ood_examples
 from clindoc.m2.dataset import load_examples
 
 DEFAULT_CHECKPOINT_DIR = Path("data/m2_results/checkpoints")
-DEFAULT_DATA_DIR = Path("data/m2_verification")
+DEFAULT_DATA_DIR = Path("data/m2_verification_v3")
 DEFAULT_RECOVERED_FILE = Path("data/m2_results/m2_train_results_recovered.json")
 DEFAULT_RESULTS_FILE = Path("data/m2_results/m2_train_results.json")
 DEFAULT_HEADLINE_RECOVERED_FILE = Path("data/m2_results/m2_recovered_headline_results.json")
@@ -312,6 +312,8 @@ def recover_and_evaluate_checkpoint(
         model_name = parsed["model_name"] if parsed else "modernbert_model"
 
     best_val_macro_f1 = state_dict.get("best_val_macro_f1", 0.0)
+    raw_temp = state_dict.get("temperature")
+    calibration_temperature = float(raw_temp) if raw_temp is not None else 1.0
 
     if tokenizer is None:
         tokenizer = load_tokenizer(model_id)
@@ -343,6 +345,7 @@ def recover_and_evaluate_checkpoint(
         config=config,
         device=device,
         aux_mode=aux_mode,
+        temperature=calibration_temperature,
     )
 
     # Evaluate on held-out OOD test set
@@ -359,6 +362,7 @@ def recover_and_evaluate_checkpoint(
             config=config,
             device=device,
             aux_mode=aux_mode,
+            temperature=calibration_temperature,
         )
 
     # Clean up GPU memory
@@ -371,6 +375,7 @@ def recover_and_evaluate_checkpoint(
         "fold": fold_idx,
         "seed": seed,
         "best_val_macro_f1": best_val_macro_f1,
+        "calibration_temperature": calibration_temperature,
         "val_eval": val_eval.model_dump(),
         "ood_eval": ood_eval.model_dump() if ood_eval else None,
         "history": [],
@@ -394,7 +399,17 @@ def save_incremental_results(
     Returns the persistent file path if backup was written, else None.
     """
     path.parent.mkdir(parents=True, exist_ok=True)
-    deduped = deduplicate_results(results)
+    all_results = []
+    if path.exists():
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                existing = json.load(f)
+            if isinstance(existing, list):
+                all_results.extend([item for item in existing if not is_quarantined_result(item)])
+        except Exception:
+            pass
+    all_results.extend(results)
+    deduped = deduplicate_results(all_results)
     temp_path = path.with_suffix(".tmp")
     with open(temp_path, "w", encoding="utf-8") as f:
         json.dump(deduped, f, indent=2)
@@ -413,9 +428,20 @@ def save_incremental_results(
         try:
             target_persist.mkdir(parents=True, exist_ok=True)
             persist_file = target_persist / path.name
+            persist_all = []
+            if persist_file.exists():
+                try:
+                    with open(persist_file, "r", encoding="utf-8") as f:
+                        p_existing = json.load(f)
+                    if isinstance(p_existing, list):
+                        persist_all.extend([item for item in p_existing if not is_quarantined_result(item)])
+                except Exception:
+                    pass
+            persist_all.extend(deduped)
+            persist_deduped = deduplicate_results(persist_all)
             persist_temp = persist_file.with_suffix(".tmp")
             with open(persist_temp, "w", encoding="utf-8") as f:
-                json.dump(deduped, f, indent=2)
+                json.dump(persist_deduped, f, indent=2)
             persist_temp.replace(persist_file)
 
             # Also persist the latest individual completed run record
@@ -600,9 +626,11 @@ def main():
     parser.add_argument("--list-only", action="store_true", help="List discovered checkpoints without evaluating")
     parser.add_argument("--smoke-test", action="store_true", help="Recover and evaluate ONE checkpoint only as smoke test")
     parser.add_argument("--variant", type=str, default=None, help="Filter checkpoints by variant name (e.g. modernbert_text_only)")
+    parser.add_argument("--data-dir", type=str, default=str(DEFAULT_DATA_DIR), help="Path to M2 verification dataset directory (defaults to data/m2_verification_v3)")
     parser.add_argument("--out-file", type=str, default=str(DEFAULT_RECOVERED_FILE), help="Output JSON path")
 
     args = parser.parse_args()
+    data_dir = Path(args.data_dir)
 
     ckpts = discover_checkpoints(include_quarantined=False)
     if args.variant:
@@ -618,9 +646,9 @@ def main():
 
     if args.smoke_test:
         print("\nRunning smoke-test recovery on the first checkpoint...")
-        recover_checkpoints(max_recoveries=1, variant_filter=args.variant, out_file=Path(args.out_file))
+        recover_checkpoints(data_dir=data_dir, max_recoveries=1, variant_filter=args.variant, out_file=Path(args.out_file))
     else:
-        recover_checkpoints(variant_filter=args.variant, out_file=Path(args.out_file))
+        recover_checkpoints(data_dir=data_dir, variant_filter=args.variant, out_file=Path(args.out_file))
 
 
 if __name__ == "__main__":

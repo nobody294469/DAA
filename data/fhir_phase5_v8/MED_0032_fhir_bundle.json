@@ -1,0 +1,998 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0032",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0032",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0032",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0032"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0032",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0032",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0032",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0032",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0032-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0032-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f67980e5-95e0-4883-be64-706801db9844"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "4230e921-d01b-4ab6-babb-6b557433aae2"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "f67980e5-95e0-4883-be64-706801db9844"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "4230e921-d01b-4ab6-babb-6b557433aae2"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0032"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "45e77059-c300-498d-b1ca-a878a09cd26d"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "779ba805-5df3-4de0-ab91-6c1423bbe17d"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "f864eff4-bd26-4d7a-98df-81ef44dc9153"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "c960866f-c308-4d75-bbc4-0617d05b4d7a"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "2f45e061-9d89-49d6-ae32-ea0be5f08dad"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "31d64131-b928-4bef-aa85-7b3838a74284"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0032-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0032-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "8ba6ca45-4aae-4df1-b256-06a77e80e369"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "3437cad3-d15b-4a94-9f89-93972d18b1f2"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9927
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "rdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/Frequency: every 4-6 hours PRN\nDuration: as needed | Dispense: #1\nInstructions: 2 puffs inhalation every 4-6 hours PRN\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,187.37,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "8ba6ca45-4aae-4df1-b256-06a77e80e369"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "3437cad3-d15b-4a94-9f89-93972d18b1f2"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9927
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "rdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/Frequency: every 4-6 hours PRN\nDuration: as needed | Dispense: #1\nInstructions: 2 puffs inhalation every 4-6 hours PRN\nRefills: 2"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Albuterol"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0032"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Albuterol Albuterol dose: 90 mcg mcg Albuterol route: inhalation Albuterol frequency: twice daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "70c364ba-6a03-400b-9c6b-fdd173528c91"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "a05a8d7f-98bb-4e43-996a-b462145c38cd"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9913
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "rdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/Frequency: every 4-6 hours PRN\nDuration: as needed | Dispense: #1\nInstructions: 2 puffs inhalation every 4-6 hours PRN\nRefills: 2"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Albuterol frequency: twice daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "db73f13f-fe72-4421-8c06-4e4766b5b28f"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "afe66b20-2296-40cf-aa85-fb1550d13822"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9578
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "rdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/Frequency: every 4-6 hours PRN\nDuration: as needed | Dispense: #1\nInstructions: 2 puffs inhalation every 4-6 hours PRN\nRefills: 2"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Albuterol route: inhalation"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "23cb5565-6469-4387-bf24-3577dd73ca9b"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "ef167acf-0e80-4070-9e95-b4e2c7e25f9f"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9968
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "rdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/Frequency: every 4-6 hours PRN\nDuration: as needed | Dispense: #1\nInstructions: 2 puffs inhalation every 4-6 hours PRN\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 90.0,
+                  "unit": "mcg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0032-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0032-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "93d70138-40c1-482e-81e1-977b4a8d9b93"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "31a6b9ae-27bd-41e2-bec3-7b7a5bae8ec5"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9959
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "atory Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Susan Lopez | DOB: 1957-02-19 | MRN: PAT-300 32 | Order Date: 2025-06-26\nOrdering Provider: Dr. Lia Cuddy, MD | Doc ID: MED_0032\nOrde1r #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frquency: once daily at bedtime\nDuration: 90 days | Dispnse: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSc'hedule/"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,196.26,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.769
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0032"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Atorvastatin dose: 20 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "93d70138-40c1-482e-81e1-977b4a8d9b93"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "31a6b9ae-27bd-41e2-bec3-7b7a5bae8ec5"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9959
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "atory Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Susan Lopez | DOB: 1957-02-19 | MRN: PAT-300 32 | Order Date: 2025-06-26\nOrdering Provider: Dr. Lia Cuddy, MD | Doc ID: MED_0032\nOrde1r #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frquency: once daily at bedtime\nDuration: 90 days | Dispnse: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSc'hedule/"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0032-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0032-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "9d813505-3e16-4d23-a689-369895f0d210"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "39f893a4-c9bf-4231-a22b-57d594cc2643"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9963
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "\nOrdering Provder: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: to'rvaStatin 10 mg\nRoute: PO | Form: talet\nSchedule/Frequency: o.nce daily atbd'time\nduration: 90 dayS | DispEnse: #90\nInstructions: Take 1 tablet PO once daily at bedtim1e\nRefils: 3\nOrder #2: Albuterol1 90 mcg\nRoute: inhalat'ion | For m:inhaler\nScedul.e/Frequency: ever 14-6 hours  PN\nDurati on: asneeded | Dispense: #1\nIsTructio1ns: 2 p'ufs inhlation evry 4'-6 hours PRN\nRefi |ls: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,187.37,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.675
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0032"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Albuterol dose: 180 mcg mcg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "9d813505-3e16-4d23-a689-369895f0d210"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "39f893a4-c9bf-4231-a22b-57d594cc2643"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9963
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "\nOrdering Provder: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: to'rvaStatin 10 mg\nRoute: PO | Form: talet\nSchedule/Frequency: o.nce daily atbd'time\nduration: 90 dayS | DispEnse: #90\nInstructions: Take 1 tablet PO once daily at bedtim1e\nRefils: 3\nOrder #2: Albuterol1 90 mcg\nRoute: inhalat'ion | For m:inhaler\nScedul.e/Frequency: ever 14-6 hours  PN\nDurati on: asneeded | Dispense: #1\nIsTructio1ns: 2 p'ufs inhlation evry 4'-6 hours PRN\nRefi |ls: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 180.0,
+                  "unit": "mcg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0032-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0032-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "86875ff5-2aa3-4d7b-b1bf-81ac47eb10c8"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "962e9e40-36b3-43a5-a1ce-4a938eb87420"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9955
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Lopez | DOB: 1957-02-19 | MRN: PAT-30032 | Order Date: 2025-06-26\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,196.26,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "86875ff5-2aa3-4d7b-b1bf-81ac47eb10c8"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "962e9e40-36b3-43a5-a1ce-4a938eb87420"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9955
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Lopez | DOB: 1957-02-19 | MRN: PAT-30032 | Order Date: 2025-06-26\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0032"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amoxicillin Atorvastatin dose: 20 mg mg Atorvastatin route: PO Atorvastatin frequency: once daily at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "a5823cb9-2ec8-43ae-9a4d-2582aacdf531"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "079cbae2-7ad6-42ec-b714-7ac984ae0cbc"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9951
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Lopez | DOB: 1957-02-19 | MRN: PAT-30032 | Order Date: 2025-06-26\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Atorvastatin frequency: once daily at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "a590faf5-12e3-4073-b368-e927b62f2795"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "aa43b3e5-b818-418a-8164-5235df82f3e6"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.994
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Lopez | DOB: 1957-02-19 | MRN: PAT-30032 | Order Date: 2025-06-26\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Atorvastatin route: PO"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "4b7d2dc1-beee-494d-ac82-137fedb76e2d"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "eef6aa94-ce42-4c77-8537-8e6c1d93e408"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.996
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "bulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Susan Lopez | DOB: 1957-02-19 | MRN: PAT-30032 | Order Date: 2025-06-26\nOrdering Provider: Dr. Lisa Cuddy, MD | Doc ID: MED_0032\nOrder #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: once daily at bedtime\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSchedule/"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0032-6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0032-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "6e6476c2-43fb-44e9-b166-0dd452e7f9ee"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "3b409d43-c03b-408c-bb81-4e565dbd25cc"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9957
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "\nOrdering Provider: Dr. Lia Cuddy, MD | Doc ID: MED_0032\nOrde1r #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frquency: once daily at bedtime\nDuration: 90 days | Dispnse: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSc'hedule/Fr equency: every 4-6 hours PRN\nDuation: as needed | Dispense: #1\nInstructions: 2 puffs inhal tioN every 4-6 hours PRN\nRefills: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,187.37,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.769
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0032"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Albuterol dose: 180 mcg mcg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "6e6476c2-43fb-44e9-b166-0dd452e7f9ee"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "3b409d43-c03b-408c-bb81-4e565dbd25cc"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9957
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "\nOrdering Provider: Dr. Lia Cuddy, MD | Doc ID: MED_0032\nOrde1r #1: Atorvastatin 10 mg\nRoute: PO | Form: tablet\nSchedule/Frquency: once daily at bedtime\nDuration: 90 days | Dispnse: #90\nInstructions: Take 1 tablet PO once daily at bedtime\nRefills: 3\nOrder #2: Albuterol 90 mcg\nRoute: inhalation | Form: inhaler\nSc'hedule/Fr equency: every 4-6 hours PRN\nDuation: as needed | Dispense: #1\nInstructions: 2 puffs inhal tioN every 4-6 hours PRN\nRefills: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 180.0,
+                  "unit": "mcg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0032-7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0032-7",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7a6a7902-34a1-4187-a428-e9e495c59b54"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2c75669c-8b69-4a4e-892a-a24ed9c22104"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9944
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "6-26\nOrdering Provder  D. isa 1Cuddy, MD | Doc ID: MED_32\nOrder #1: Atorvstatn 10 rnG\nRoute: PO | Forn: tBle't \nShedule/FrequenCy: once daily aT bedtimE\nDuAtIon: 90 days | Dispense: #190\nIstructi0ns: Ta'ke I tablet1 POonce daly at betime\nRefi'lls: 3\nORder .#2: Albuterol 90 mcg\noutE inhal.at io | 1foRrn: inhal'er\nSched le/Frequ ncy- e'v.er 4-1 'hours PN1\nDura'tion: AS nee1ded | Dispense: 1\n1nstructons:' 2 puffs inhalatioN every 4-6 hou PRN\nREfill: 2"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,187.37,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.622
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0032"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Albuterol dose: 180 mcg mcg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "7a6a7902-34a1-4187-a428-e9e495c59b54"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "2c75669c-8b69-4a4e-892a-a24ed9c22104"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9944
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "6-26\nOrdering Provder  D. isa 1Cuddy, MD | Doc ID: MED_32\nOrder #1: Atorvstatn 10 rnG\nRoute: PO | Forn: tBle't \nShedule/FrequenCy: once daily aT bedtimE\nDuAtIon: 90 days | Dispense: #190\nIstructi0ns: Ta'ke I tablet1 POonce daly at betime\nRefi'lls: 3\nORder .#2: Albuterol 90 mcg\noutE inhal.at io | 1foRrn: inhal'er\nSched le/Frequ ncy- e'v.er 4-1 'hours PN1\nDura'tion: AS nee1ded | Dispense: 1\n1nstructons:' 2 puffs inhalatioN every 4-6 hou PRN\nREfill: 2"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 180.0,
+                  "unit": "mcg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

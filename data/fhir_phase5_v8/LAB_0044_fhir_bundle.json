@@ -1,0 +1,1635 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-lab-0044",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-lab-0044",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-lab-0044",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-LAB-0044"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-lab-0044",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-lab-0044",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-lab-0044",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-lab-0044",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-lab-0044",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-lab-0044",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4d4499c0-314f-44a6-8d9d-16a5adff271f"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "16d54e64-89aa-4f67-9f75-a93921ae6ed7"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9982
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,435.03,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0044"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-lab-0044-1"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-2"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-3"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-4"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-5"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-6"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-7"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-8"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-9"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-10"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-11"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-12"
+          },
+          {
+            "reference": "Observation/obs-lab-0044-13"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4d4499c0-314f-44a6-8d9d-16a5adff271f"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "16d54e64-89aa-4f67-9f75-a93921ae6ed7"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9982
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,435.03,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "4d4499c0-314f-44a6-8d9d-16a5adff271f"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "16d54e64-89aa-4f67-9f75-a93921ae6ed7"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9982
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 75.8,
+          "unit": "%"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "d445cc99-39ef-4549-8da0-e7e2a85ea1a1"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "b6b451d8-7c9c-449d-8ed8-8c337bb68de5"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "HEMATOCRIT FLAG: HIGH",
+                "display": "Hematocrit flag: HIGH"
+              }
+            ],
+            "text": "Hematocrit flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "254cdcac-03a4-4eea-8dd6-765cc6f0e6ad"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7c85d76d-52fb-420b-88a4-7317b86f8d93"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9981
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "DOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nR sult\nUnits\nRefeence RaNge\nAbnormal\nHem.oglobin\n14.1\ng/dL\n12.0 -16.0\nHematocrit\n37.9\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4. 5 - 11.0\n2.5\nL\nPlatelEt Count\n281.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -5.80\n.03\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,262.33,138.54,274.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.892
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "254cdcac-03a4-4eea-8dd6-765cc6f0e6ad"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7c85d76d-52fb-420b-88a4-7317b86f8d93"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9981
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "DOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nR sult\nUnits\nRefeence RaNge\nAbnormal\nHem.oglobin\n14.1\ng/dL\n12.0 -16.0\nHematocrit\n37.9\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4. 5 - 11.0\n2.5\nL\nPlatelEt Count\n281.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -5.80\n.03\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.6
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "430b7cb2-df68-47de-bf80-9e2713f2adc4"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0d99b197-a1d6-458d-a22d-94e968947104"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9931
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "DOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,262.33,508.5,274.76"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "430b7cb2-df68-47de-bf80-9e2713f2adc4"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "0d99b197-a1d6-458d-a22d-94e968947104"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9931
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "DOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 6.03
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "d1d2fd78-0926-473b-836c-4e2386b61072"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "a969d8af-8da5-483a-802e-c17012dd05d0"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9973
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "DOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "RED BLOOD CELL COUNT FLAG: NORMAL",
+                "display": "Red Blood Cell Count flag: NORMAL"
+              }
+            ],
+            "text": "Red Blood Cell Count flag: NORMAL"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "21f3b591-cfec-4810-95fb-55ae078c1dab"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "57d375aa-9e44-4b82-80bb-fa863413dbcd"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9982
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID:\nPhysician:\n1990-01-03 .(F)\nLAB_044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD1 COUNT\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nhemoglobin\n14.1\ng/dL\n12.0 - 16.0\nHematocrit\n379\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4.5 - 11.0\n2.5\nL\nPlatelet Count\n281.0\n10*3/uL\n150 - 450\nRed BloodCell Count\n10*6/uL\n4.20 - 5.80\n6.03\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,108.53,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.951
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "21f3b591-cfec-4810-95fb-55ae078c1dab"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "57d375aa-9e44-4b82-80bb-fa863413dbcd"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9982
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID:\nPhysician:\n1990-01-03 .(F)\nLAB_044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD1 COUNT\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nhemoglobin\n14.1\ng/dL\n12.0 - 16.0\nHematocrit\n379\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4.5 - 11.0\n2.5\nL\nPlatelet Count\n281.0\n10*3/uL\n150 - 450\nRed BloodCell Count\n10*6/uL\n4.20 - 5.80\n6.03\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 1124.0
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "381c6ee0-4b42-4956-9deb-20b806744180"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "52a117a6-6e31-46db-918e-cfab38a3935c"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9977
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,507.5,238.76"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "381c6ee0-4b42-4956-9deb-20b806744180"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "52a117a6-6e31-46db-918e-cfab38a3935c"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9977
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.62
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "b7533daa-713b-441c-ac12-f11bd7f8f3c2"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "45a56621-9e69-4741-a538-e57ce9455ad5"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "SUPPORTED"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "WHITE BLOOD CELL COUNT FLAG: LOW",
+                "display": "White Blood Cell Count flag: LOW"
+              }
+            ],
+            "text": "White Blood Cell Count flag: LOW"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "935edb8f-bc72-4cbf-af77-34eb6da04745"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "a6ae709d-8d43-4964-91e7-41763843183e"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "935edb8f-bc72-4cbf-af77-34eb6da04745"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "a6ae709d-8d43-4964-91e7-41763843183e"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-7",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "81cf3649-c194-47e9-94fa-fe86cf11bb97"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "76d8cbb2-d074-4016-9d07-89214086c50d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,435.03,202.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "81cf3649-c194-47e9-94fa-fe86cf11bb97"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "76d8cbb2-d074-4016-9d07-89214086c50d"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 14.1,
+          "unit": "g/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "5854dfec-e27b-4950-b739-e102f8411ec9"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "de83dcc4-bbf0-4c9c-a700-46acdbfe4d37"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Karen Miller Report Date: 2025-12-10\nPatient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "HEMOGLOBIN FLAG: HIGH",
+                "display": "Hemoglobin flag: HIGH"
+              }
+            ],
+            "text": "Hemoglobin flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-8",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d9a5b15b-c0a6-4f15-a419-9de2722bec2d"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7ab3a20f-d45b-497e-9b17-5553eac8b2c4"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "RepoRt Date:\nPAT-45196\nDr. Lisa Cuddy, MD\nPAtint ID\nPhys.ic ian:\n1990-01-03 (F)\nLAB_0044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nR sult\nUnits\nRefeence RaNge\nAbnormal\nHem.oglobin\n14.1\ng/dL\n12.0 -16.0\nHematocrit\n37.9\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4. 5 - 11.0\n2.5\nL\nPlatelEt Count\n281.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -5.80\n.03\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,145.03,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.892
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "d9a5b15b-c0a6-4f15-a419-9de2722bec2d"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7ab3a20f-d45b-497e-9b17-5553eac8b2c4"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "RepoRt Date:\nPAT-45196\nDr. Lisa Cuddy, MD\nPAtint ID\nPhys.ic ian:\n1990-01-03 (F)\nLAB_0044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nR sult\nUnits\nRefeence RaNge\nAbnormal\nHem.oglobin\n14.1\ng/dL\n12.0 -16.0\nHematocrit\n37.9\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4. 5 - 11.0\n2.5\nL\nPlatelEt Count\n281.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -5.80\n.03\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.62
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-9",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "48dd39fb-be1b-4664-96bf-3dcf05dc42e3"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8f7b5d89-ffd6-4645-8eb1-53d2a4c8c963"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "48dd39fb-be1b-4664-96bf-3dcf05dc42e3"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "8f7b5d89-ffd6-4645-8eb1-53d2a4c8c963"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 45.0,
+          "unit": "U/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-10",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ac223b1c-f797-4686-970e-c64972ff22e2"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8a073bbd-b030-4ec3-860e-8984763a97c9"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9973
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,430.02,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ac223b1c-f797-4686-970e-c64972ff22e2"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "8a073bbd-b030-4ec3-860e-8984763a97c9"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9973
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 281.0
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "b4fd56e6-b1a2-4d87-b1ed-615faf5c8a97"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "9fec9ec3-15a5-45e2-83ee-c12febbfaac5"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient ID: PAT-45986 Physician: Dr. Lisa Cuddy, MD\nDOB / Gender: 1990-01-03 (F) Document ID: LAB_0044\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 14.1 g/dL 12.0 - 16.0\nHematocrit 37.9 % 36.0 - 48.0\nWhite Blood Cell Count 2.5 10*3/uL 4.5 - 11.0 L\nPlatelet Count 281.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.03 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "PLATELET COUNT FLAG: HIGH",
+                "display": "Platelet Count flag: HIGH"
+              }
+            ],
+            "text": "Platelet Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-11",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "eee713b0-0c40-46d1-ac6c-34983ec7e234"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "b559b131-2fdc-42ab-8d53-a4cedff6a4b8"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9983
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "2025-12-10\nPatient Name:\nReport Date:\nPAT-45986 \nDr. Lisa Cuddy, MD\nPatient ID:\nPhysician:\n1990-01-03 .(F)\nLAB_044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD1 COUNT\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nhemoglobin\n14.1\ng/dL\n12.0 - 16.0\nHematocrit\n379\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4.5 - 11.0\n2.5\nL\nPlatelet Count\n281.0\n10*3/uL\n150 - 450\nRed BloodCell Count\n10*6/uL\n4.20 - 5.80\n6.03\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,95.51,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.951
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "eee713b0-0c40-46d1-ac6c-34983ec7e234"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "b559b131-2fdc-42ab-8d53-a4cedff6a4b8"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9983
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "2025-12-10\nPatient Name:\nReport Date:\nPAT-45986 \nDr. Lisa Cuddy, MD\nPatient ID:\nPhysician:\n1990-01-03 .(F)\nLAB_044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD1 COUNT\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nhemoglobin\n14.1\ng/dL\n12.0 - 16.0\nHematocrit\n379\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4.5 - 11.0\n2.5\nL\nPlatelet Count\n281.0\n10*3/uL\n150 - 450\nRed BloodCell Count\n10*6/uL\n4.20 - 5.80\n6.03\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 75.8,
+          "unit": "%"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-12",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "e1d8ab51-07b2-4c9f-9a7e-6c0b5ab99ea7"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "83e8ea86-9ece-4f9e-8b9d-219dac8532e2"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9982
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Karen'  Miller\n25-12-10\nPatient Name:\nRepoRt Date:\nPAT-45196\nDr. Lisa Cuddy, MD\nPAtint ID\nPhys.ic ian:\n1990-01-03 (F)\nLAB_0044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nR sult\nUnits\nRefeence RaNge\nAbnormal\nHem.oglobin\n14.1\ng/dL\n12.0 -16.0\nHematocrit\n37.9\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4. 5 - 11.0\n2.5\nL\nPlatelEt Count\n281.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -5.80\n.03\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,95.51,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.892
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "e1d8ab51-07b2-4c9f-9a7e-6c0b5ab99ea7"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "83e8ea86-9ece-4f9e-8b9d-219dac8532e2"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9982
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Karen'  Miller\n25-12-10\nPatient Name:\nRepoRt Date:\nPAT-45196\nDr. Lisa Cuddy, MD\nPAtint ID\nPhys.ic ian:\n1990-01-03 (F)\nLAB_0044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD COUNT\nAnalyte\nR sult\nUnits\nRefeence RaNge\nAbnormal\nHem.oglobin\n14.1\ng/dL\n12.0 -16.0\nHematocrit\n37.9\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4. 5 - 11.0\n2.5\nL\nPlatelEt Count\n281.0\n10*3/uL\n150 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -5.80\n.03\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 75.8,
+          "unit": "%"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0044-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0044-13",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "822a1d24-1144-4ef4-8bbb-cfd223725d3d"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "b3b2d277-3afc-49e0-bc9d-ea767393388c"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9981
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Report Date:\nPAT-45986 \nDr. Lisa Cuddy, MD\nPatient ID:\nPhysician:\n1990-01-03 .(F)\nLAB_044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD1 COUNT\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nhemoglobin\n14.1\ng/dL\n12.0 - 16.0\nHematocrit\n379\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4.5 - 11.0\n2.5\nL\nPlatelet Count\n281.0\n10*3/uL\n150 - 450\nRed BloodCell Count\n10*6/uL\n4.20 - 5.80\n6.03\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,145.03,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.951
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0044"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "822a1d24-1144-4ef4-8bbb-cfd223725d3d"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "b3b2d277-3afc-49e0-bc9d-ea767393388c"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9981
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Report Date:\nPAT-45986 \nDr. Lisa Cuddy, MD\nPatient ID:\nPhysician:\n1990-01-03 .(F)\nLAB_044\nDOB / Gender:\nDocument ID:\nSECTION: COMPLETE BLOOD1 COUNT\nAnalyte\nResult\nUnits\nReference Range\nAbnormal\nhemoglobin\n14.1\ng/dL\n12.0 - 16.0\nHematocrit\n379\n%\n36.0 - 48.0\nWhite Blood Cell Count\n10*3/uL\n4.5 - 11.0\n2.5\nL\nPlatelet Count\n281.0\n10*3/uL\n150 - 450\nRed BloodCell Count\n10*6/uL\n4.20 - 5.80\n6.03\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.62
+        }
+      }
+    }
+  ]
+}

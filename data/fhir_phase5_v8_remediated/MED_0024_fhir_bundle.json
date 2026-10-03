@@ -1,0 +1,1257 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0024",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0024",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0024",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0024"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0024",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0024",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0024",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0024",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0024-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0024-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "595b93f2-06f7-4c1c-80a4-1d2b22c9c095"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "fb28e2c1-06c5-4bc7-bf24-9a80aaf33496"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9969
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Karen Martinez | DOB: 1986-06-15 | MRN: PAT- 30024 | Order Date: 2025-04-24\nOrdering Provier: Dr. Sarah Jenkins, MD | Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | orm: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days |Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nReills: 3\nOrder #2: Furosemide 20 mg\nRoute': PO | Fo rm: t"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,194.59,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.817
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6918",
+              "display": "Metoprolol"
+            }
+          ],
+          "text": "Metoprolol"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0024"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Metoprolol dose: 100 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "595b93f2-06f7-4c1c-80a4-1d2b22c9c095"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "fb28e2c1-06c5-4bc7-bf24-9a80aaf33496"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9969
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " Infusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Karen Martinez | DOB: 1986-06-15 | MRN: PAT- 30024 | Order Date: 2025-04-24\nOrdering Provier: Dr. Sarah Jenkins, MD | Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | orm: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days |Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nReills: 3\nOrder #2: Furosemide 20 mg\nRoute': PO | Fo rm: t"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 100.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0024-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0024-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ae5f5637-b97a-476d-86c7-4b59837d13a6"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "c7f93853-7cca-4951-8ded-ad39aa7dd636"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.6999
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "| Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuratio"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,206.8,194.6,220.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ae5f5637-b97a-476d-86c7-4b59837d13a6"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "c7f93853-7cca-4951-8ded-ad39aa7dd636"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.6999
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "| Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuratio"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "Medication: Lisinopril"
+            }
+          ],
+          "text": "Medication: Lisinopril"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0024"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Lisinopril Furosemide dose: 40 mg mg Furosemide route: PO Furosemide frequency: twice daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "a1d26f3c-0c28-405a-9bd5-2bbd30024dc6"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "c99bf52d-78dc-447e-ac5b-93c6b83d8c3b"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.99
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "| Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuratio"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Furosemide frequency: twice daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "1728f607-2c8b-4df1-8edb-a2ae984344fe"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "2adc5ed5-05ef-46c0-97be-ab3e6f1f3755"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9944
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "| Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuratio"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Furosemide route: PO"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "a6a634a7-7561-466a-85bd-a649c4f5c7d4"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "f50ac2c4-7b00-406c-9fb7-c80b78d0dccb"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9868
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "| Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuratio"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 40.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0024-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0024-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7b2b7a4f-1a19-4dc0-95e3-cc5b534279de"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "edac4723-1661-44b4-b5ab-7eb5d4c39c2d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9933
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: Take 1 tablet by mouth QD for 5 days\nRefills: 0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,275.8,206.82,289.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "7b2b7a4f-1a19-4dc0-95e3-cc5b534279de"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "edac4723-1661-44b4-b5ab-7eb5d4c39c2d"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9933
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: Take 1 tablet by mouth QD for 5 days\nRefills: 0"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "18631",
+              "display": "Medication: Azithromycin"
+            }
+          ],
+          "text": "Medication: Azithromycin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0024"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Azithromycin Azithromycin dose: 125 mg mg Azithromycin route: by mouth Azithromycin frequency: QD",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "7d27e860-cd83-4fdd-9597-15868ae15b65"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "f51a14f2-f29b-4cae-a711-b4bcaa32a337"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9952
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: Take 1 tablet by mouth QD for 5 days\nRefills: 0"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Azithromycin frequency: QD"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "02634caa-42a4-4adc-9149-f031a1fe4ce1"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "5a840275-c895-46f7-9fd1-a8b324b591dc"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9932
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: Take 1 tablet by mouth QD for 5 days\nRefills: 0"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Azithromycin route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "9ef310b0-9eb2-4b5f-b45f-2e3f82b1e0e8"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "91e39c1e-de10-4d3c-b595-106e72767e3b"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9926
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: tablet\nSchedule/Frequency: twice daily\nDuration: 30 days | Dispense: #30\nInstructions: Take 1 tablet PO twice daily\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: QD\nDuration: 5 days | Dispense: #3\nInstructions: Take 1 tablet by mouth QD for 5 days\nRefills: 0"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 125.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0024-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0024-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "310044f8-bc56-4020-87bf-27543b4947dc"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "9a1eb2d0-fbb6-44f7-af24-67848172aec9"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "310044f8-bc56-4020-87bf-27543b4947dc"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "9a1eb2d0-fbb6-44f7-af24-67848172aec9"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0024"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "6846c0ff-f099-4193-b64a-eb4492e526f8"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "24c2758b-942f-495c-9364-01d5cd9acb0f"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "4603d1d4-2afd-47c8-abb6-8e4fdc8ba843"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "b86dda09-3505-461d-9b21-70b40cbde29a"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "a3303849-08a5-4687-b97a-e1a6cbd7f746"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "35a23376-c743-423f-98ee-1b47b43fcb67"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0024-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0024-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "b8f4795f-fec2-4fcb-af29-eb9b30a0af7c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "4b254d69-73dd-405c-908f-1976c3fa7dbc"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9968
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ry Infuion & SpeCialty Clinic\nPHYS ICIAN MEDICATION ORDERS1 & CLINICAL ADMINISTrATIO'N ReCORD\nPatient: Karen Marinez | dOB: 1986 -06-15 | MRN: PA1T30024 | Orer Date: 2025-04-24\nOrdering Povider: Dr. Sarah Jenkins, MD | Doc ID: MED_0024\nOr'der #1: Metoprolol 100 rng\nRoute: by outh | form: tablet\nSchedule/Freun'cy: twice a day\nDuration: 30 dAys | DiSpense: #180\nInstructions: Take 1 tablet by mouth twice a da1y with o r\nimediately after meals\nRefills: 3\nOrder '#2: Furos emde 20 mg\nRoute:PO |. Form:"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,194.59,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.689
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6918",
+              "display": "Metoprolol"
+            }
+          ],
+          "text": "Metoprolol"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0024"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Metoprolol dose: 50 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "b8f4795f-fec2-4fcb-af29-eb9b30a0af7c"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "4b254d69-73dd-405c-908f-1976c3fa7dbc"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9968
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ry Infuion & SpeCialty Clinic\nPHYS ICIAN MEDICATION ORDERS1 & CLINICAL ADMINISTrATIO'N ReCORD\nPatient: Karen Marinez | dOB: 1986 -06-15 | MRN: PA1T30024 | Orer Date: 2025-04-24\nOrdering Povider: Dr. Sarah Jenkins, MD | Doc ID: MED_0024\nOr'der #1: Metoprolol 100 rng\nRoute: by outh | form: tablet\nSchedule/Freun'cy: twice a day\nDuration: 30 dAys | DiSpense: #180\nInstructions: Take 1 tablet by mouth twice a da1y with o r\nimediately after meals\nRefills: 3\nOrder '#2: Furos emde 20 mg\nRoute:PO |. Form:"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0024-6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0024-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "2eca87f5-edc3-4e86-9217-a34d439e07bd"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "da373c17-a699-47ba-aca9-c0029d21fbfc"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9946
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Martinez | DOB: 1986-06-15 | MRN: PAT-30024 | Order Date: 2025-04-24\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: "
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,194.59,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "2eca87f5-edc3-4e86-9217-a34d439e07bd"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "da373c17-a699-47ba-aca9-c0029d21fbfc"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9946
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Martinez | DOB: 1986-06-15 | MRN: PAT-30024 | Order Date: 2025-04-24\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: "
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Medication: Amoxicillin"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0024"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amoxicillin Metoprolol dose: 50 mg mg Metoprolol route: by mouth Metoprolol frequency: once daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "99f63086-8518-4d60-b422-ea88256b9703"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "7649ba9a-64d4-4a5a-809f-a86f1f1b311f"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9946
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Martinez | DOB: 1986-06-15 | MRN: PAT-30024 | Order Date: 2025-04-24\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: "
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metoprolol frequency: once daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "2c46dd8d-6f23-43d4-910e-f359b117ec66"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "e8a61d52-1aeb-4577-9c0e-a3c2a4dd84b2"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9934
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Martinez | DOB: 1986-06-15 | MRN: PAT-30024 | Order Date: 2025-04-24\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: "
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metoprolol route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "c79c8c8e-1062-4527-b037-f10998ccb0ff"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "dcdfadb8-b128-484c-833d-20f8f0580882"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9962
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Karen Martinez | DOB: 1986-06-15 | MRN: PAT-30024 | Order Date: 2025-04-24\nOrdering Provider: Dr. Sarah Jenkins, MD | Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days | Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nRefills: 3\nOrder #2: Furosemide 20 mg\nRoute: PO | Form: "
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0024-7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0024-7",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "84804a7d-f8fb-4baf-9242-5e865495f8a4"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "788d66df-dfa2-4ae0-82b4-d107edad24a0"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9949
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " Take 1 tablet by mouth twice a day with or\nimmediately after meals\nReills: 3\nOrder #2: Furosemide 20 mg\nRoute': PO | Fo rm: tablet\nSchedule/Freqency: twice daily\nDuration: 30 days | Dispense: #30\nIn truCtions: Take 1 tablet PO twice daiy\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tblet\nSchedule/Frequency: QD\nDuratioN: 5 days | Disp.ene: #3\nInstructions: Take 1 tablet by mouth QD for 5 days\nRefills: 0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,275.8,206.82,289.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.817
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "18631",
+              "display": "Azithromycin"
+            }
+          ],
+          "text": "Azithromycin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0024"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Azithromycin dose: 125 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "84804a7d-f8fb-4baf-9242-5e865495f8a4"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "788d66df-dfa2-4ae0-82b4-d107edad24a0"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9949
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " Take 1 tablet by mouth twice a day with or\nimmediately after meals\nReills: 3\nOrder #2: Furosemide 20 mg\nRoute': PO | Fo rm: tablet\nSchedule/Freqency: twice daily\nDuration: 30 days | Dispense: #30\nIn truCtions: Take 1 tablet PO twice daiy\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tblet\nSchedule/Frequency: QD\nDuratioN: 5 days | Disp.ene: #3\nInstructions: Take 1 tablet by mouth QD for 5 days\nRefills: 0"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 125.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0024-8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0024-8",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "13b134c8-f64f-4544-8e8d-8a517fdc8129"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "369be201-adb2-4f04-bc58-23d850c522a3"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9874
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "MD | Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | orm: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days |Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nReills: 3\nOrder #2: Furosemide 20 mg\nRoute': PO | Fo rm: tablet\nSchedule/Freqency: twice daily\nDuration: 30 days | Dispense: #30\nIn truCtions: Take 1 tablet PO twice daiy\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tblet\nSchedule/Frequency: QD\nDuratioN"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,206.8,194.6,220.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.817
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "4603",
+              "display": "Furosemide"
+            }
+          ],
+          "text": "Furosemide"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0024"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Furosemide dose: 40 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "13b134c8-f64f-4544-8e8d-8a517fdc8129"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "369be201-adb2-4f04-bc58-23d850c522a3"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9874
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "MD | Doc ID: MED_0024\nOrder #1: Metoprolol 100 mg\nRoute: by mouth | orm: tablet\nSchedule/Frequency: twice a day\nDuration: 30 days |Dispense: #180\nInstructions: Take 1 tablet by mouth twice a day with or\nimmediately after meals\nReills: 3\nOrder #2: Furosemide 20 mg\nRoute': PO | Fo rm: tablet\nSchedule/Freqency: twice daily\nDuration: 30 days | Dispense: #30\nIn truCtions: Take 1 tablet PO twice daiy\nRefills: 1\nOrder #3: Azithromycin 250 mg\nRoute: by mouth | Form: tblet\nSchedule/Frequency: QD\nDuratioN"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 40.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

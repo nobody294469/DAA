@@ -1,0 +1,954 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0008",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0008",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0008",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0008"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0008",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0008",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0008",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0008",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0008-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0008-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f59b3f12-7c29-47ac-b929-18ed01a964a2"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8a274d43-5e30-45ff-b11f-e89459051ad0"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9944
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "er Date: 2025-02-11\nOrdering Provder: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by moth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispese: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRote: by mouth | Form: tablet\nSchedule/Frequency:' daily\nDuration: 3 days | Dispnse: #6\nInstructions: Take 1 tablet by mouth daily for 3 days\nRefills: 0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,206.82,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.778
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "18631",
+              "display": "Azithromycin"
+            }
+          ],
+          "text": "Azithromycin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0008"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Azithromycin dose: 125 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "f59b3f12-7c29-47ac-b929-18ed01a964a2"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "8a274d43-5e30-45ff-b11f-e89459051ad0"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9944
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "er Date: 2025-02-11\nOrdering Provder: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by moth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispese: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRote: by mouth | Form: tablet\nSchedule/Frequency:' daily\nDuration: 3 days | Dispnse: #6\nInstructions: Take 1 tablet by mouth daily for 3 days\nRefills: 0"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 125.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0008-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0008-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "6eb32f41-e35f-42d3-9eab-f1b5d2760557"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7d61b649-bc2c-4807-83ec-0e4630385fc6"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9943
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet by mouth daily for 3 days\nRefills: 0"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,194.8,206.82,208.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "6eb32f41-e35f-42d3-9eab-f1b5d2760557"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7d61b649-bc2c-4807-83ec-0e4630385fc6"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9943
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet by mouth daily for 3 days\nRefills: 0"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "18631",
+              "display": "Medication: Azithromycin"
+            }
+          ],
+          "text": "Medication: Azithromycin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0008"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Azithromycin Azithromycin dose: 250 mg mg Azithromycin route: oral Azithromycin frequency: twice daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "7ffca8bb-7aa1-47de-9daa-c701708303eb"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "80ece8f7-fee0-4be0-b52a-c47f0b1c25e1"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.984
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet by mouth daily for 3 days\nRefills: 0"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Azithromycin frequency: twice daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "289f3840-27bd-4755-b0e6-dddb9c337cb9"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "bb57b107-0dd0-4a09-a402-f76a37c40527"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet by mouth daily for 3 days\nRefills: 0"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Azithromycin route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "516803d3-9060-4715-89eb-2fa37f578278"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "2e2395aa-b20d-4f0a-b69d-e8d0a9dc338c"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9952
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDuration: 3 days | Dispense: #6\nInstructions: Take 1 tablet by mouth daily for 3 days\nRefills: 0"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 250.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0008-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0008-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "fac78824-c5fa-44aa-a1aa-46f39954f381"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "39ff8551-ec54-4640-a381-5284302c65b8"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9964
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " Infuion & SpeCialty Clinic\nPHYS ICIAN MEDICATION ORDERS1 & CLINICAL ADMINISTrATIO'N ReCORD\nPatient: Sarah Marinez | dOB: 1957 -03-12 | MRN: PA1T30008 | Orer Date: 2025-02-11\nOrdering rovider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 rng\nRout: by moUth | Form: capsule\nSceu'le/Frequency: TID'\nDurAtion: 90 days | DispensE: #90\nInstructions: Take 1 capsule by mouth TID\nRefills  1\nOrder #: Azithomycin 250 mg\nRoute: by mouth | Form: tabl'et\nSchedle/Frequncy: daly\nDurati on "
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,198.49,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.719
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "25480",
+              "display": "Gabapentin"
+            }
+          ],
+          "text": "Gabapentin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0008"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Gabapentin dose: 50 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "fac78824-c5fa-44aa-a1aa-46f39954f381"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "39ff8551-ec54-4640-a381-5284302c65b8"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9964
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " Infuion & SpeCialty Clinic\nPHYS ICIAN MEDICATION ORDERS1 & CLINICAL ADMINISTrATIO'N ReCORD\nPatient: Sarah Marinez | dOB: 1957 -03-12 | MRN: PA1T30008 | Orer Date: 2025-02-11\nOrdering rovider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 rng\nRout: by moUth | Form: capsule\nSceu'le/Frequency: TID'\nDurAtion: 90 days | DispensE: #90\nInstructions: Take 1 capsule by mouth TID\nRefills  1\nOrder #: Azithomycin 250 mg\nRoute: by mouth | Form: tabl'et\nSchedle/Frequncy: daly\nDurati on "
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0008-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0008-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "5aec8e4a-14c9-4b92-a3b0-52bc53ea8074"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "6e577d8f-c0c2-493c-9b35-6f1440487f7b"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9954
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "y Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Sarah Martinez | DOB: 1957-03-12 | MRN: PAT-30008 | Order Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDurat"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,198.49,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "5aec8e4a-14c9-4b92-a3b0-52bc53ea8074"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "6e577d8f-c0c2-493c-9b35-6f1440487f7b"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9954
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "y Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Sarah Martinez | DOB: 1957-03-12 | MRN: PAT-30008 | Order Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDurat"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "25480",
+              "display": "Medication: Gabapentin"
+            }
+          ],
+          "text": "Medication: Gabapentin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0008"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Gabapentin Gabapentin dose: 50 mg mg Gabapentin route: by mouth Gabapentin frequency: TID",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "402c0136-04fb-4c2f-9e25-704af05e4860"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "be8c94f0-03a5-41c7-8fbb-84276304c928"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9942
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "y Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Sarah Martinez | DOB: 1957-03-12 | MRN: PAT-30008 | Order Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDurat"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Gabapentin frequency: TID"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "549704a2-980c-4764-9ea2-27259a9130d3"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "b5b5b105-961f-4219-be12-3eb8889187cf"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9904
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "y Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Sarah Martinez | DOB: 1957-03-12 | MRN: PAT-30008 | Order Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDurat"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Gabapentin route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "d98a91bf-6954-488b-9392-622465ab2bdb"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "593a1f6a-4acf-4c9e-b411-d36075349d2e"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9962
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "y Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: Sarah Martinez | DOB: 1957-03-12 | MRN: PAT-30008 | Order Date: 2025-02-11\nOrdering Provider: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by mouth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispense: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: daily\nDurat"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0008-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0008-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "51964294-c0bb-4436-a2cf-943037bd9473"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0da7bc71-78c4-4431-bbdb-69f14adf099c"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "51964294-c0bb-4436-a2cf-943037bd9473"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "0da7bc71-78c4-4431-bbdb-69f14adf099c"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0008"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "cab5ecda-4faa-40af-bdfe-bf486b918f7f"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "f6494ddf-c5dd-405b-b70f-382267f52d86"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "56b679bc-95c4-4e4e-837e-e79ac24f7a35"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "a8b7261e-6d57-4f09-a344-7b01e92fa834"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "0b9c3879-f7b7-42cd-921c-9ab9c7e863e3"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "f790fc91-4eba-409a-ae96-eea462d3a7cd"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0008-6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0008-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "56f1da45-11b6-42aa-ac0a-afb78405e3d0"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "8a9d395c-bf96-4e8b-a684-cfdc3a7cd3b1"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.997
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "nfusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Sarah Martinez | DOB: 1957-03-12 | MRN: PAT- 30008 | Order Date: 2025-02-11\nOrdering Provder: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by moth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispese: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRote: by mouth | Form: tablet\nSchedule/Frequency:' daily\nDuratio"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,198.49,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.778
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "25480",
+              "display": "Gabapentin"
+            }
+          ],
+          "text": "Gabapentin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0008"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Gabapentin dose: 100 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "56f1da45-11b6-42aa-ac0a-afb78405e3d0"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "8a9d395c-bf96-4e8b-a684-cfdc3a7cd3b1"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.997
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "nfusion & Specialty Clinic\nPHYSICIAN M EDICATION ORDERS & CLINICAL ADMINISTRATION REC.OR'D\nPatient: Sarah Martinez | DOB: 1957-03-12 | MRN: PAT- 30008 | Order Date: 2025-02-11\nOrdering Provder: Dr. Allison Cameron, MD | Doc ID: MED_0008\nOrder #1: Gabapentin 100 mg\nRoute: by moth | Form: capsule\nSchedule/Frequency: TID\nDuration: 90 days | Dispese: #90\nInstructions: Take 1 capsule by mouth TID\nRefills: 1\nOrder #2: Azithromycin 250 mg\nRote: by mouth | Form: tablet\nSchedule/Frequency:' daily\nDuratio"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 100.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

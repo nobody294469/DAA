@@ -228,6 +228,45 @@ class TestStageADeterministicVerifier:
         irrelevant_ev = _make_evidence("Patient attended clinic appointment.")
         assert verifier.verify(claim, irrelevant_ev).label == "INSUFFICIENT_EVIDENCE"
 
+    def test_deterministic_unobserved_medication_frequency_insufficient_evidence(self, verifier):
+        """Unobserved medication frequency vs different medication must yield INSUFFICIENT_EVIDENCE."""
+        claim = _make_claim("med.frequency", "Insulin glargine frequency: at bedtime")
+        evidence = _make_evidence("Rx: Gabapentin 300 mg capsule. Sig: Take 1 capsule oral TID")
+        res = verifier.verify(claim, evidence)
+        assert res.label == "INSUFFICIENT_EVIDENCE"
+
+    def test_deterministic_unobserved_medication_dose_insufficient_evidence(self, verifier):
+        """Unobserved medication dose vs different medication dose must yield INSUFFICIENT_EVIDENCE."""
+        claim = _make_claim("med.dose", "Insulin glargine dose: 20 units", value_numeric=20.0)
+        evidence = _make_evidence("Rx: Atorvastatin 10 mg tablet. Sig: Take 1 tablet daily")
+        res = verifier.verify(claim, evidence)
+        assert res.label == "INSUFFICIENT_EVIDENCE"
+
+    def test_deterministic_lab_value_unrelated_reference_range_not_supported(self, verifier):
+        """Lab value vs unrelated reference-range number must not become SUPPORTED."""
+        claim = _make_claim("lab.value", "Chloride: 10.2 mmol/L", unit_raw="mmol/L", value_numeric=10.2)
+        evidence = _make_evidence("Calcium 9.4 8.5 - 10.2 mg/dL\nChloride 100.0 96 - 106 mmol/L")
+        res = verifier.verify(claim, evidence)
+        assert res.label != "SUPPORTED"
+        assert res.label == "DISCREPANCY"
+        assert res.contradiction_type == "value_mismatch"
+
+    def test_deterministic_genuine_matching_lab_value_supported(self, verifier):
+        """Genuine matching lab value for the same entity must be SUPPORTED."""
+        claim = _make_claim("lab.value", "Chloride: 100.0 mmol/L", unit_raw="mmol/L", value_numeric=100.0)
+        evidence = _make_evidence("Calcium 9.4 8.5 - 10.2 mg/dL\nChloride 100.0 96 - 106 mmol/L")
+        res = verifier.verify(claim, evidence)
+        assert res.label == "SUPPORTED"
+        assert res.contradiction_type is None
+
+    def test_deterministic_genuine_wrong_lab_value_discrepancy(self, verifier):
+        """Genuine wrong lab value for the same entity must be DISCREPANCY."""
+        claim = _make_claim("lab.value", "Chloride: 105.0 mmol/L", unit_raw="mmol/L", value_numeric=105.0)
+        evidence = _make_evidence("Calcium 9.4 8.5 - 10.2 mg/dL\nChloride 100.0 96 - 106 mmol/L")
+        res = verifier.verify(claim, evidence)
+        assert res.label == "DISCREPANCY"
+        assert res.contradiction_type == "value_mismatch"
+
 
 # ─── 2. LEARNED VERIFIER TESTS (STAGE B) ─────────────────────────────────────
 

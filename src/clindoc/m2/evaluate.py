@@ -23,6 +23,7 @@ def _build_eval_result(
     y_pred: list[int],
     y_probs: list[list[float]] | None,
     examples: list[M2Example],
+    calibration_temperature: float | None = None,
 ) -> M2EvalResult:
     pc_raw = per_class_metrics(y_true, y_pred)
     cm = _confusion(y_true, y_pred)
@@ -61,6 +62,7 @@ def _build_eval_result(
         auroc_discrepancy=auroc,
         brier_score=bs,
         ece=ece_val,
+        calibration_temperature=calibration_temperature,
         by_severity=_breakdown(lambda e: e.severity),
         by_field_type=_breakdown(lambda e: e.field_type, metric_fn=_slice_macro_f1),
         by_claim_type=_breakdown(lambda e: e.claim_type),
@@ -245,6 +247,7 @@ def evaluate_model_on_split(
     config,
     device: str,
     aux_mode: str = "full",
+    temperature: float = 1.0,
 ) -> M2EvalResult:
     """Evaluate a trained ClinicalVerifier on a given split."""
     import torch
@@ -283,12 +286,20 @@ def evaluate_model_on_split(
             else:
                 logits = model(input_ids, attn_mask, aux_features=aux_feat)
 
-            probs = torch.softmax(logits, dim=-1).cpu().tolist()
+            if temperature > 0 and temperature != 1.0:
+                scaled_logits = logits / temperature
+            else:
+                scaled_logits = logits
+
+            probs = torch.softmax(scaled_logits, dim=-1).cpu().tolist()
             preds = [p.index(max(p)) for p in probs]
             labels = [LABEL_TO_INT[ex.label.value] for ex in batch]
             y_true.extend(labels)
             y_pred.extend(preds)
             y_probs_list.extend(probs)
 
-    return _build_eval_result(model_name, split, fold, seed,
-                               y_true, y_pred, y_probs_list, examples)
+    return _build_eval_result(
+        model_name, split, fold, seed,
+        y_true, y_pred, y_probs_list, examples,
+        calibration_temperature=temperature,
+    )

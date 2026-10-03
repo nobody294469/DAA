@@ -201,21 +201,39 @@ class DeterministicVerifier:
     def _verify_numeric_value(
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
-        """Verify lab.value claim against evidence text."""
+        """Verify lab.value claim against evidence text with entity-awareness."""
+        target_entity = self._extract_claim_entity(claim)
+        field_val = self._extract_field_value(claim)
+
+        # 1. Entity Compatibility Guard
+        if target_entity is not None:
+            if not self._is_entity_present_in_text(target_entity, search_scope):
+                return StageAResult(
+                    label="INSUFFICIENT_EVIDENCE",
+                    confidence=1.0,
+                    details={"reason": "entity_not_found_in_evidence", "target_entity": target_entity},
+                )
+            eval_text = self._extract_entity_local_block(target_entity, ev_text)
+        else:
+            eval_text = ev_text
+
         claim_num = self._extract_numeric_value(claim)
         if claim_num is None:
             # Non-numeric lab value (e.g. "positive", "negative")
-            if claim.value.strip().lower() in ev_text.lower():
+            if field_val.strip().lower() in eval_text.lower():
                 return StageAResult(label="SUPPORTED", confidence=1.0)
             return StageAResult(
                 label="DISCREPANCY",
                 contradiction_type="value_mismatch",
                 confidence=1.0,
-                details={"expected": claim.value, "evidence_text": ev_text},
+                details={"expected": field_val, "evidence_text": eval_text},
             )
 
-        # Extract primary candidate value numbers, excluding reference ranges
-        ev_numbers = self._extract_primary_lab_numbers(ev_text)
+        # Extract primary candidate value numbers from the entity-scoped block
+        ev_numbers = self._extract_primary_lab_numbers(eval_text)
+        if not ev_numbers and eval_text != ev_text:
+            ev_numbers = self._extract_primary_lab_numbers(ev_text)
+
         if not ev_numbers:
             return StageAResult(
                 label="INSUFFICIENT_EVIDENCE",
@@ -224,7 +242,7 @@ class DeterministicVerifier:
             )
 
         # Check unit mismatch first if unit is present
-        unit_discrepancy = self._check_unit_consistency(claim, ev_text)
+        unit_discrepancy = self._check_unit_consistency(claim, eval_text)
         if unit_discrepancy:
             return unit_discrepancy
 
@@ -247,10 +265,25 @@ class DeterministicVerifier:
     def _verify_numeric_dose(
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
-        """Verify med.dose claim against evidence text."""
+        """Verify med.dose claim against evidence text with entity-awareness."""
+        target_entity = self._extract_claim_entity(claim)
+        field_val = self._extract_field_value(claim)
+
+        # 1. Entity Compatibility Guard
+        if target_entity is not None:
+            if not self._is_entity_present_in_text(target_entity, search_scope):
+                return StageAResult(
+                    label="INSUFFICIENT_EVIDENCE",
+                    confidence=1.0,
+                    details={"reason": "entity_not_found_in_evidence", "target_entity": target_entity},
+                )
+            eval_text = ev_text
+        else:
+            eval_text = ev_text
+
         claim_num = self._extract_numeric_value(claim)
         if claim_num is None:
-            if claim.value.strip().lower() in ev_text.lower():
+            if field_val.strip().lower() in eval_text.lower():
                 return StageAResult(label="SUPPORTED", confidence=1.0)
             return StageAResult(
                 label="DISCREPANCY",
@@ -258,7 +291,10 @@ class DeterministicVerifier:
                 confidence=1.0,
             )
 
-        ev_numbers = self._extract_all_numbers(ev_text)
+        ev_numbers = self._extract_all_numbers(eval_text)
+        if not ev_numbers and eval_text != ev_text:
+            ev_numbers = self._extract_all_numbers(ev_text)
+
         if not ev_numbers:
             return StageAResult(
                 label="INSUFFICIENT_EVIDENCE",
@@ -267,7 +303,7 @@ class DeterministicVerifier:
             )
 
         # Check unit mismatch first
-        unit_discrepancy = self._check_unit_consistency(claim, ev_text)
+        unit_discrepancy = self._check_unit_consistency(claim, eval_text)
         if unit_discrepancy:
             return unit_discrepancy
 
@@ -299,7 +335,6 @@ class DeterministicVerifier:
             return None
 
         # Look for potential units in evidence text
-        # Common medical units
         tokens = re.findall(r"[a-zA-Z/%^0-9*\[\]{}]+", ev_text)
         ev_ucum_units = set()
         for tok in tokens:
@@ -321,8 +356,23 @@ class DeterministicVerifier:
     def _verify_flag(
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
-        """Verify lab.flag claim against evidence tokens."""
-        val_clean = claim.value.strip().lower()
+        """Verify lab.flag claim against evidence tokens with entity-awareness."""
+        target_entity = self._extract_claim_entity(claim)
+        field_val = self._extract_field_value(claim)
+
+        # 1. Entity Compatibility Guard
+        if target_entity is not None:
+            if not self._is_entity_present_in_text(target_entity, search_scope):
+                return StageAResult(
+                    label="INSUFFICIENT_EVIDENCE",
+                    confidence=1.0,
+                    details={"reason": "entity_not_found_in_evidence", "target_entity": target_entity},
+                )
+            eval_text = self._extract_entity_local_block(target_entity, ev_text)
+        else:
+            eval_text = ev_text
+
+        val_clean = field_val.strip().lower()
 
         # Categorize claim flag
         claim_cat = self._categorize_flag(val_clean)
@@ -330,7 +380,7 @@ class DeterministicVerifier:
             return StageAResult(label=None, confidence=0.0)
 
         # Search for flag tokens in evidence
-        ev_tokens = [t.strip(".,;:()[]{}\"'-") for t in re.split(r"[\s,|]+", ev_text.lower()) if t.strip()]
+        ev_tokens = [t.strip(".,;:()[]{}\"'-") for t in re.split(r"[\s,|]+", eval_text.lower()) if t.strip()]
         ev_flag_cats = {self._categorize_flag(t) for t in ev_tokens} - {None}
 
         if not ev_flag_cats:
@@ -365,14 +415,24 @@ class DeterministicVerifier:
     def _verify_unit(
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
-        """Verify Tier 2 lab.unit claim deterministically via UCUM."""
-        claim_canon, _ = normalize_ucum(claim.value)
+        """Verify Tier 2 lab.unit claim deterministically via UCUM with entity-awareness."""
+        target_entity = self._extract_claim_entity(claim)
+        field_val = self._extract_field_value(claim)
+
+        if target_entity is not None and not self._is_entity_present_in_text(target_entity, search_scope):
+            return StageAResult(
+                label="INSUFFICIENT_EVIDENCE",
+                confidence=1.0,
+                details={"reason": "entity_not_found_in_evidence", "target_entity": target_entity},
+            )
+
+        claim_canon, _ = normalize_ucum(field_val)
         if not claim_canon and claim.unit_raw:
             claim_canon, _ = normalize_ucum(claim.unit_raw)
 
         if not claim_canon:
             # Raw string fallback
-            if claim.value.strip().lower() in ev_text.lower():
+            if field_val.strip().lower() in ev_text.lower():
                 return StageAResult(label="SUPPORTED", confidence=1.0)
             return StageAResult(label="DISCREPANCY", contradiction_type="unit_mismatch", confidence=1.0)
 
@@ -390,15 +450,25 @@ class DeterministicVerifier:
     def _verify_reference_range(
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
-        """Verify Tier 2 lab.reference_range claim deterministically."""
-        claim_clean = re.sub(r"\s+", "", claim.value.lower())
+        """Verify Tier 2 lab.reference_range claim deterministically with entity-awareness."""
+        target_entity = self._extract_claim_entity(claim)
+        field_val = self._extract_field_value(claim)
+
+        if target_entity is not None and not self._is_entity_present_in_text(target_entity, search_scope):
+            return StageAResult(
+                label="INSUFFICIENT_EVIDENCE",
+                confidence=1.0,
+                details={"reason": "entity_not_found_in_evidence", "target_entity": target_entity},
+            )
+
+        claim_clean = re.sub(r"\s+", "", field_val.lower())
         ev_clean = re.sub(r"\s+", "", ev_text.lower())
 
         if claim_clean in ev_clean:
             return StageAResult(label="SUPPORTED", confidence=1.0)
 
         # Check numerical interval format (low - high)
-        m_claim = re.search(r"(\d+(?:\.\d+)?)\s*[-–—to]+\s*(\d+(?:\.\d+)?)", claim.value)
+        m_claim = re.search(r"(\d+(?:\.\d+)?)\s*[-–—to]+\s*(\d+(?:\.\d+)?)", field_val)
         m_ev = re.search(r"(\d+(?:\.\d+)?)\s*[-–—to]+\s*(\d+(?:\.\d+)?)", ev_text)
 
         if m_claim and m_ev:
@@ -421,15 +491,30 @@ class DeterministicVerifier:
     def _verify_route(
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
-        """Verify med.route claim against evidence."""
-        claim_route_raw = claim.value.strip().lower()
+        """Verify med.route claim against evidence with entity-awareness."""
+        target_entity = self._extract_claim_entity(claim)
+        field_val = self._extract_field_value(claim)
+
+        # 1. Entity Compatibility Guard
+        if target_entity is not None:
+            if not self._is_entity_present_in_text(target_entity, search_scope):
+                return StageAResult(
+                    label="INSUFFICIENT_EVIDENCE",
+                    confidence=1.0,
+                    details={"reason": "entity_not_found_in_evidence", "target_entity": target_entity},
+                )
+            eval_text = ev_text
+        else:
+            eval_text = ev_text
+
+        claim_route_raw = field_val.strip().lower()
         canon_claim_route = ROUTE_SYNONYMS.get(claim_route_raw, claim_route_raw)
 
         # Extract words from evidence
-        ev_words = re.findall(r"\b[a-zA-Z]+\b", ev_text.lower())
+        ev_words = re.findall(r"\b[a-zA-Z]+\b", eval_text.lower())
         ev_canonical_routes = {ROUTE_SYNONYMS.get(w, w) for w in ev_words}
 
-        if canon_claim_route in ev_canonical_routes or claim_route_raw in ev_text.lower():
+        if canon_claim_route in ev_canonical_routes or claim_route_raw in eval_text.lower():
             return StageAResult(label="SUPPORTED", confidence=1.0)
 
         # Check if an alternative recognized route token is present in evidence
@@ -447,10 +532,25 @@ class DeterministicVerifier:
     def _verify_frequency(
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
-        """Verify med.frequency claim against evidence."""
-        claim_freq_raw = claim.value.strip().lower()
+        """Verify med.frequency claim against evidence with entity-awareness."""
+        target_entity = self._extract_claim_entity(claim)
+        field_val = self._extract_field_value(claim)
+
+        # 1. Entity Compatibility Guard
+        if target_entity is not None:
+            if not self._is_entity_present_in_text(target_entity, search_scope):
+                return StageAResult(
+                    label="INSUFFICIENT_EVIDENCE",
+                    confidence=1.0,
+                    details={"reason": "entity_not_found_in_evidence", "target_entity": target_entity},
+                )
+            eval_text = ev_text
+        else:
+            eval_text = ev_text
+
+        claim_freq_raw = field_val.strip().lower()
         canon_claim_freq = FREQUENCY_SYNONYMS.get(claim_freq_raw, claim_freq_raw)
-        ev_lower = ev_text.lower()
+        ev_lower = eval_text.lower()
 
         if claim_freq_raw in ev_lower or canon_claim_freq in ev_lower:
             return StageAResult(label="SUPPORTED", confidence=1.0)
@@ -484,8 +584,18 @@ class DeterministicVerifier:
     def _verify_duration(
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
-        """Verify Tier 2 med.duration claim deterministically."""
-        claim_dur = claim.value.strip().lower()
+        """Verify Tier 2 med.duration claim deterministically with entity-awareness."""
+        target_entity = self._extract_claim_entity(claim)
+        field_val = self._extract_field_value(claim)
+
+        if target_entity is not None and not self._is_entity_present_in_text(target_entity, search_scope):
+            return StageAResult(
+                label="INSUFFICIENT_EVIDENCE",
+                confidence=1.0,
+                details={"reason": "entity_not_found_in_evidence", "target_entity": target_entity},
+            )
+
+        claim_dur = field_val.strip().lower()
         if claim_dur in ev_text.lower():
             return StageAResult(label="SUPPORTED", confidence=1.0)
 
@@ -512,7 +622,8 @@ class DeterministicVerifier:
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
         """Verify Tier 2 lab.test_name claim deterministically."""
-        norm_claim = self._normalize_lexical(claim.value)
+        field_val = self._extract_field_value(claim)
+        norm_claim = self._normalize_lexical(field_val)
         norm_ev = self._normalize_lexical(ev_text)
 
         if norm_claim in norm_ev or norm_ev in norm_claim:
@@ -533,7 +644,8 @@ class DeterministicVerifier:
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
         """Verify Tier 1 med.name claim deterministically when possible, else defer to Stage B."""
-        norm_claim = self._normalize_lexical(claim.value)
+        field_val = self._extract_field_value(claim)
+        norm_claim = self._normalize_lexical(field_val)
         norm_ev = self._normalize_lexical(ev_text)
 
         # Verbatim match or containment
@@ -549,6 +661,106 @@ class DeterministicVerifier:
         return StageAResult(label=None, confidence=0.0)
 
     # ─── HELPER METHODS ──────────────────────────────────────────────────────
+
+    @classmethod
+    def _extract_claim_entity(cls, claim: Claim) -> Optional[str]:
+        """Extract clinical entity name (medication or lab test) from claim if present."""
+        val = claim.value.strip()
+        if ":" not in val:
+            return None
+        prefix, after = val.split(":", 1)
+        prefix = prefix.strip()
+        if prefix.lower() in ("medication", "drug", "rx", "test name", "lab test"):
+            return after.strip()
+        qualifiers = ("dose", "frequency", "route", "flag", "value", "unit", "reference range", "duration")
+        prefix_lower = prefix.lower()
+        for q in qualifiers:
+            if prefix_lower.endswith(" " + q):
+                return prefix[:-len(q)-1].strip()
+        return prefix
+
+    @classmethod
+    def _extract_field_value(cls, claim: Claim) -> str:
+        """Extract field value from claim, stripping entity prefix if present."""
+        val = claim.value.strip()
+        if ":" not in val:
+            return val
+        prefix, after = val.split(":", 1)
+        prefix = prefix.strip()
+        if prefix.lower() in ("medication", "drug", "rx", "test name", "lab test"):
+            return after.strip()
+        return after.strip()
+
+    @classmethod
+    def _get_entity_aliases(cls, entity: str) -> list[str]:
+        """Return search alias strings for an entity name."""
+        aliases = [entity.strip()]
+        m = re.search(r"^(.*?)\s*\((.*?)\)$", entity.strip())
+        if m:
+            if m.group(1).strip():
+                aliases.append(m.group(1).strip())
+            if m.group(2).strip():
+                aliases.append(m.group(2).strip())
+        return aliases
+
+    @classmethod
+    def _is_entity_present_in_text(cls, entity: str, text: str) -> bool:
+        """Deterministically check if target entity is present in text."""
+        if not entity or not text:
+            return False
+        aliases = cls._get_entity_aliases(entity)
+        text_lower = text.lower()
+        for a in aliases:
+            a_lower = a.lower()
+            if re.search(r"\b" + re.escape(a_lower) + r"\b", text_lower):
+                return True
+            clean_a = re.sub(r"[^a-z0-9]", "", a_lower)
+            clean_t = re.sub(r"[^a-z0-9]", "", text_lower)
+            if len(clean_a) >= 4 and clean_a in clean_t:
+                return True
+        return False
+
+    @classmethod
+    def _extract_entity_local_block(cls, entity: str, text: str) -> str:
+        """Extract the specific row or local sentence block belonging to an entity."""
+        aliases = cls._get_entity_aliases(entity)
+        lines = text.splitlines()
+        if len(lines) > 1:
+            matched_lines = []
+            for i, line in enumerate(lines):
+                line_lower = line.lower()
+                matched = False
+                for a in aliases:
+                    a_lower = a.lower()
+                    if re.search(r"\b" + re.escape(a_lower) + r"\b", line_lower):
+                        matched = True
+                        break
+                    clean_a = re.sub(r"[^a-z0-9]", "", a_lower)
+                    clean_l = re.sub(r"[^a-z0-9]", "", line_lower)
+                    if len(clean_a) >= 4 and clean_a in clean_l:
+                        matched = True
+                        break
+                if matched:
+                    matched_lines.append(line)
+                    # If this line has no numbers, look ahead up to 2 lines
+                    if not re.search(r"\d", line):
+                        for j in range(i + 1, min(len(lines), i + 3)):
+                            matched_lines.append(lines[j])
+                            if re.search(r"\d", lines[j]):
+                                break
+            if matched_lines:
+                return "\n".join(matched_lines)
+
+        # Single line or fallback: locate entity and take local window
+        text_lower = text.lower()
+        for a in aliases:
+            m = re.search(r"\b" + re.escape(a.lower()) + r"\b", text_lower)
+            if m:
+                start = max(0, m.start() - 30)
+                end = min(len(text), m.end() + 100)
+                return text[start:end]
+
+        return text
 
     @staticmethod
     def _extract_numeric_value(claim: Claim) -> Optional[float]:
@@ -583,27 +795,21 @@ class DeterministicVerifier:
         cleaned = re.sub(r"\b\d{1,4}[/-]\d{1,2}[/-]\d{1,4}\b", " ", cleaned)
         # Filter times like 14:30
         cleaned = re.sub(r"\b\d{1,2}:\d{2}(?::\d{2})?\b", " ", cleaned)
-        # Filter reference range patterns:
-        # e.g., (Reference 70 - 99), (Ref: 70-99), [Ref: 70-99], (70 - 99), (70.0 - 99.0)
+        # Filter two-number intervals (reference ranges e.g. 8.5 - 10.2, 70-99, 12.0 - 15.5)
+        cleaned = re.sub(r"\b\d+(?:\.\d+)?\s*[-–—to]+\s*\d+(?:\.\d+)?\b", " ", cleaned)
+        # Filter reference range patterns in brackets/parentheses
         cleaned = re.sub(
-            r"\((?:ref(?:erence)?(?:\s+range)?\s*:?)?\s*\d+(?:\.\d+)?\s*[-–—to]+\s*\d+(?:\.\d+)?[^)]*\)",
+            r"\((?:ref(?:erence)?(?:\s+range)?\s*:?)?[^)]*\)",
             " ",
             cleaned,
             flags=re.IGNORECASE,
         )
         cleaned = re.sub(
-            r"\[(?:ref(?:erence)?(?:\s+range)?\s*:?)?\s*\d+(?:\.\d+)?\s*[-–—to]+\s*\d+(?:\.\d+)?[^\]]*\]",
+            r"\[(?:ref(?:erence)?(?:\s+range)?\s*:?)?[^\]]*\]",
             " ",
             cleaned,
             flags=re.IGNORECASE,
         )
-        cleaned = re.sub(
-            r"\bref(?:erence)?(?:\s+range)?\s*:?\s*\d+(?:\.\d+)?\s*[-–—to]+\s*\d+(?:\.\d+)?",
-            " ",
-            cleaned,
-            flags=re.IGNORECASE,
-        )
-
         return cls._extract_all_numbers(cleaned)
 
     @staticmethod

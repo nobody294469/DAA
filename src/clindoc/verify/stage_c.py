@@ -29,6 +29,28 @@ from clindoc.m2.calibration import IsotonicConfidenceCalibrator
 from clindoc.schema.verification import ContradictionType, VerificationLabel
 
 
+STAGE_C_PROMPT_VERSION = "V8_STAGE_C_LABFLAG_PROMPT_V1"
+
+LAB_FLAG_TABULAR_INSTRUCTION = (
+    "When evaluating lab.flag claims against structured laboratory tables:\n"
+    "1. Explicit abnormal column indicators take strict precedence: a trailing 'H' or 'HIGH' explicitly denotes HIGH; a trailing 'L' or 'LOW' explicitly denotes LOW; an unflagged or blank abnormal entry denotes NORMAL.\n"
+    "2. Do NOT attempt to recompute, recalculate, or verify numerical intervals if an explicit flag indicator ('H', 'L', 'HIGH', 'LOW', or blank) is present in the source table row."
+)
+
+
+DEFAULT_STAGE_C_SYSTEM_PROMPT = """You are a rigorous clinical document verification judge, NOT a general medical question-answering or diagnostic assistant.
+Your task is to determine whether an extracted clinical claim is SUPPORTED, DISCREPANCY, or INSUFFICIENT_EVIDENCE based STRICTLY and ONLY on the provided source document evidence and local context.
+
+CRITICAL BOUNDARIES:
+1. Do NOT use external medical knowledge, clinical guideline knowledge, or general plausibility assumptions.
+2. Evaluate ONLY what is explicitly stated in the document snippet. If a fact is medically sound or plausible but absent from the text, it is NOT supported.
+3. Example: If the document states 'Glucose: 66 mg/dL', the claim 'Glucose: 66 mg/dL' is SUPPORTED, even though 66 mg/dL is clinically hypoglycemic.
+4. Do NOT guess or fill in missing clinical information.
+5. If the evidence text is missing, blank, or completely unrelated to the claim, return label 'INSUFFICIENT_EVIDENCE' with contradiction_type null.
+6. If the claim directly conflicts with the evidence text (e.g. different value, different unit, wrong medication name, or opposite negation), return label 'DISCREPANCY' and specify the exact contradiction_type.
+7. Return ONLY valid JSON adhering strictly to the requested schema."""
+
+
 class StageCJudgeOutput(BaseModel):
     """Schema-constrained LLM Judge output contract conforming to DEC-013."""
     model_config = ConfigDict(extra="forbid")
@@ -59,6 +81,11 @@ class StageCResult:
     calibrated_confidence: float
     contradiction_type: Optional[ContradictionType]
     rationale: str
+    attempts: int = 1
+    model_name: Optional[str] = None
+    prompt_version: str = STAGE_C_PROMPT_VERSION
+    is_fallback: bool = False
+    error: Optional[str] = None
 
 
 class LLMClientProtocol(Protocol):
@@ -69,8 +96,98 @@ class LLMClientProtocol(Protocol):
         ...
 
 
+class VLLMJudgeClient:
+    """Concrete OpenAI-compatible vLLM judge client for Stage C (DEC-006, DEC-013).
+
+    Targets Qwen/Qwen2.5-7B-Instruct running on vLLM with response_format JSON schema.
+    """
+
+    def __init__(
+        self,
+        model_name: str = "Qwen/Qwen2.5-7B-Instruct",
+        base_url: str = "http://localhost:8000/v1",
+        api_key: str = "EMPTY",
+        temperature: float = 0.0,
+        seed: int = 42,
+        max_tokens: int = 256,
+        timeout: float = 30.0,
+        http_client: Optional[Any] = None,
+        system_prompt: Optional[str] = None,
+    ) -> None:
+        self.model_name = model_name
+        self.base_url = base_url.rstrip("/")
+        self.api_key = api_key
+        self.temperature = float(temperature)
+        self.seed = int(seed)
+        self.max_tokens = int(max_tokens)
+        self.timeout = float(timeout)
+        self.system_prompt = system_prompt or DEFAULT_STAGE_C_SYSTEM_PROMPT
+        if http_client is None:
+            try:
+                import httpx
+                self._http_client = httpx.Client(timeout=self.timeout)
+            except Exception:
+                self._http_client = None
+        else:
+            self._http_client = http_client
+
+    def generate(self, prompt: str, schema: type[BaseModel]) -> str:
+        """Generate schema-constrained JSON response using vLLM chat completions API."""
+        try:
+            import httpx
+        except ImportError:
+            raise RuntimeError(
+                "httpx is required for VLLMJudgeClient. Please install httpx."
+            )
+
+        schema_dict = schema.model_json_schema() if hasattr(schema, "model_json_schema") else {}
+
+        payload = {
+            "model": self.model_name,
+            "messages": [
+                {"role": "system", "content": self.system_prompt},
+                {"role": "user", "content": prompt},
+            ],
+            "temperature": self.temperature,
+            "seed": self.seed,
+            "max_tokens": self.max_tokens,
+            "response_format": {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "stage_c_judge_output",
+                    "schema": schema_dict,
+                    "strict": True,
+                },
+            },
+        }
+        headers = {"Authorization": f"Bearer {self.api_key}"}
+
+        if self._http_client is not None:
+            resp = self._http_client.post(
+                f"{self.base_url}/chat/completions",
+                json=payload,
+                headers=headers,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            return data["choices"][0]["message"]["content"]
+
+        with httpx.Client(timeout=self.timeout) as client:
+            resp = client.post(
+                f"{self.base_url}/chat/completions",
+                json=payload,
+                headers=headers,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            return data["choices"][0]["message"]["content"]
+
+
 class DefaultMockLLMJudge:
     """Deterministic, provider-independent mock judge for offline execution and testing."""
+
+    def __init__(self, model_name: str = "mock-judge-v1") -> None:
+        self.model_name = model_name
 
     def generate(self, prompt: str, schema: type[BaseModel]) -> str:
         """Generate a deterministic, valid JSON response based on prompt text."""
@@ -112,15 +229,18 @@ class StageCJudge:
 
     Grounds judgment strictly in claim, evidence, and local context window (§13.3).
     Calibrates self-reported scalar confidence via IsotonicConfidenceCalibrator (DEC-018).
+    Includes bounded retry (max 3 total attempts) with safe clinical fallback (DEC-013).
     """
 
     def __init__(
         self,
         client: Optional[LLMClientProtocol] = None,
         calibrator: Optional[IsotonicConfidenceCalibrator] = None,
+        max_attempts: int = 3,
     ) -> None:
         self.client = client or DefaultMockLLMJudge()
         self.calibrator = calibrator or self._create_default_calibrator()
+        self.max_attempts = max_attempts
 
     @staticmethod
     def _create_default_calibrator() -> IsotonicConfidenceCalibrator:
@@ -142,7 +262,7 @@ class StageCJudge:
         stage_b_label: Optional[str] = None,
         stage_b_confidence: Optional[float] = None,
     ) -> StageCResult:
-        """Perform Stage C adjudication.
+        """Perform Stage C adjudication with bounded retry and safe clinical fallback.
 
         Args:
             claim: Clinical claim under verification.
@@ -164,20 +284,50 @@ class StageCJudge:
             stage_b_confidence=stage_b_confidence,
         )
 
-        raw_response = self.client.generate(prompt, StageCJudgeOutput)
-        parsed_output = self._parse_and_validate(raw_response)
+        model_name = getattr(self.client, "model_name", type(self.client).__name__)
+        last_error: Optional[Exception] = None
 
-        # Calibrate scalar confidence (DEC-018)
-        raw_conf = parsed_output.confidence
-        cal_conf = float(self.calibrator.predict(raw_conf))
-        cal_conf = max(0.0, min(1.0, cal_conf))
+        # Bounded retry: maximum 3 total generation attempts (DEC-013: max 2 retries)
+        for attempt in range(1, self.max_attempts + 1):
+            try:
+                raw_response = self.client.generate(prompt, StageCJudgeOutput)
+                parsed_output = self._parse_and_validate(raw_response)
 
+                # Calibrate scalar confidence (DEC-018)
+                raw_conf = parsed_output.confidence
+                cal_conf = float(self.calibrator.predict(raw_conf))
+                cal_conf = max(0.0, min(1.0, cal_conf))
+
+                return StageCResult(
+                    label=parsed_output.label,
+                    raw_confidence=raw_conf,
+                    calibrated_confidence=cal_conf,
+                    contradiction_type=parsed_output.contradiction_type,
+                    rationale=parsed_output.rationale,
+                    attempts=attempt,
+                    model_name=model_name,
+                    prompt_version=STAGE_C_PROMPT_VERSION,
+                    is_fallback=False,
+                    error=None,
+                )
+            except Exception as exc:
+                last_error = exc
+
+        # Safe clinical fallback after all attempts fail
         return StageCResult(
-            label=parsed_output.label,
-            raw_confidence=raw_conf,
-            calibrated_confidence=cal_conf,
-            contradiction_type=parsed_output.contradiction_type,
-            rationale=parsed_output.rationale,
+            label="INSUFFICIENT_EVIDENCE",
+            raw_confidence=0.50,
+            calibrated_confidence=0.50,
+            contradiction_type=None,
+            rationale=(
+                f"Stage C verification fallback: generation/validation failed after "
+                f"{self.max_attempts} attempts ({type(last_error).__name__}: {last_error})."
+            ),
+            attempts=self.max_attempts,
+            model_name=model_name,
+            prompt_version=STAGE_C_PROMPT_VERSION,
+            is_fallback=True,
+            error=f"{type(last_error).__name__}: {last_error}" if last_error else "unknown_error",
         )
 
     def _build_judge_prompt(
@@ -189,26 +339,44 @@ class StageCJudge:
         stage_b_label: Optional[str],
         stage_b_confidence: Optional[float],
     ) -> str:
-        """Construct prompt strictly bounded by local evidence and document context."""
+        """Construct user prompt strictly bounded by local evidence and document context."""
         ev_text = evidence.text if (evidence and evidence.text) else "None"
         ctx = context_text or ev_text
+        norm_code = getattr(claim, "normalized_code", None) or "None"
+        numeric_str = str(claim.value_numeric) if claim.value_numeric is not None else "None"
 
         parts = [
-            "You are a clinical document verification judge.",
-            "Verify whether the following extracted clinical claim is supported by the source document text.",
-            "Do NOT use external medical knowledge. Evaluate strictly based on the text provided.",
+            "Evaluate whether the following clinical claim is grounded in the source document snippet.",
             "",
-            f"Claim Field: {claim.field_type}",
-            f"Claim Value: {claim.value}",
-            f"Claim Unit: {claim.unit_raw or 'None'}",
-            f"Claim Negated: {claim.negated}",
-            f"Evidence Text: {ev_text}",
-            f"Document Local Context: {ctx}",
-            f"Stage A Pre-check: {stage_a_label or 'None'}",
-            f"Stage B Pre-check: {stage_b_label or 'None'} (confidence: {stage_b_confidence or 0.0:.2f})",
+            "[CLAIM CONTEXT]",
+            f"- Field Type: {claim.field_type}",
+            f"- Claim Representation: {claim.value}",
+            f"- Numeric Value: {numeric_str}",
+            f"- Unit: {claim.unit_raw or 'None'}",
+            f"- Negated: {claim.negated}",
+            f"- Normalized Code / Term: {norm_code}",
             "",
-            "Respond in JSON format with fields: label, confidence, contradiction_type, rationale.",
         ]
+
+        field_type_str = str(getattr(claim.field_type, "value", claim.field_type))
+        if field_type_str == "lab.flag":
+            parts.extend([
+                "[FIELD-SPECIFIC INSTRUCTIONS]",
+                LAB_FLAG_TABULAR_INSTRUCTION,
+                "",
+            ])
+
+        parts.extend([
+            "[SOURCE EVIDENCE]",
+            f"- Verbatim Evidence Span: {ev_text}",
+            f"- Document Local Context Window: {ctx}",
+            "",
+            "[CASCADE STAGE CONTEXT]",
+            f"- Stage A Pre-check: {stage_a_label or 'None'}",
+            f"- Stage B Prediction: {stage_b_label or 'None'} (confidence: {stage_b_confidence or 0.0:.2f})",
+            "",
+            "Respond in JSON format conforming to StageCJudgeOutput schema with fields: label, confidence, contradiction_type, rationale.",
+        ])
         return "\n".join(parts)
 
     def _parse_and_validate(self, text: str) -> StageCJudgeOutput:

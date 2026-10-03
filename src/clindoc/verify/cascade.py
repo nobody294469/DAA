@@ -55,6 +55,29 @@ class VerificationCascade:
         self.stage_b = stage_b or LearnedVerifier()
         self.stage_c = stage_c or StageCJudge()
         self.always_stage_c = always_stage_c
+        self.last_stage_a_result: Optional[StageAResult] = None
+        self.last_stage_b_result: Optional[StageBResult] = None
+        self.last_stage_c_result: Optional[StageCResult] = None
+
+    def verify_claim_all_stages(
+        self,
+        claim: Claim,
+        evidence: Optional[Evidence] = None,
+        page_text: Optional[str] = None,
+    ) -> tuple[VerificationResult, Optional[StageAResult], Optional[StageBResult], Optional[StageCResult]]:
+        """Verify a single Claim and return the canonical VerificationResult alongside all intermediate stage results."""
+        res = self.verify_claim(claim=claim, evidence=evidence, page_text=page_text)
+        return res, self.last_stage_a_result, self.last_stage_b_result, self.last_stage_c_result
+
+    def verify_claim_detailed(
+        self,
+        claim: Claim,
+        evidence: Optional[Evidence] = None,
+        page_text: Optional[str] = None,
+    ) -> tuple[VerificationResult, Optional[StageBResult]]:
+        """Verify a single Claim and return both the canonical VerificationResult and StageBResult."""
+        res = self.verify_claim(claim=claim, evidence=evidence, page_text=page_text)
+        return res, self.last_stage_b_result
 
     def verify_claim(
         self,
@@ -73,7 +96,15 @@ class VerificationCascade:
             Canonical VerificationResult adhering strictly to schemas/verification_result.json.
         """
         # 1. Missing Evidence Guard
+        self.last_stage_a_result = None
+        self.last_stage_b_result = None
+        self.last_stage_c_result = None
         if evidence is None or not evidence.text or not evidence.text.strip():
+            self.last_stage_a_result = StageAResult(
+                label="INSUFFICIENT_EVIDENCE",
+                confidence=1.0,
+                details={"reason": "missing_or_blank_evidence"},
+            )
             ev_id = evidence.evidence_id if evidence else claim.evidence_id
             return VerificationResult(
                 claim_id=claim.claim_id,
@@ -109,6 +140,7 @@ class VerificationCascade:
         # ─── TIER 2: Deterministic Verification (Stage A Only) ─────────────────
         if field_type in TIER_2_FIELDS and not self.always_stage_c:
             stage_a_res = self.stage_a.verify(claim, evidence, context_text=context_text)
+            self.last_stage_a_result = stage_a_res
             if stage_a_res.label is not None:
                 final_label = stage_a_res.label
                 c_type: Optional[ContradictionType] = (
@@ -135,6 +167,7 @@ class VerificationCascade:
         # ─── TIER 1: Learned Verification Cascade (Stages A, B, C) ───────────
         # Step A: Deterministic Pre-check
         stage_a_res = self.stage_a.verify(claim, evidence, context_text=context_text)
+        self.last_stage_a_result = stage_a_res
 
         # Step B: Learned ModernBERT Verifier
         stage_b_res = self.stage_b.verify(
@@ -143,6 +176,7 @@ class VerificationCascade:
             stage_a_label=stage_a_res.label,
             context_text=context_text,
         )
+        self.last_stage_b_result = stage_b_res
 
         should_escalate = stage_b_res.escalated or self.always_stage_c
 
@@ -156,6 +190,7 @@ class VerificationCascade:
                 stage_b_label=stage_b_res.label,
                 stage_b_confidence=stage_b_res.calibrated_confidence,
             )
+            self.last_stage_c_result = stage_c_res
 
             c_type = stage_c_res.contradiction_type if stage_c_res.label == "DISCREPANCY" else None
             if stage_c_res.label == "DISCREPANCY" and c_type is None:

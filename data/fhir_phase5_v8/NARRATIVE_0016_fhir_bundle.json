@@ -1,0 +1,1389 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-narrative-0016",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-narrative-0016",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-narrative-0016",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-NARRATIVE-00"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-narrative-0016",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-narrative-0016",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-narrative-0016",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-narrative-0016",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-narrative-0016",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-narrative-0016",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "908d84e7-e625-424e-81dd-82ec294598d2"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "49d11526-a1bd-49b3-9a2e-99b36f644819"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.985
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the fol"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,301.04,565.56,327.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0016"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-narrative-0016"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-narrative-0016-1"
+          },
+          {
+            "reference": "Observation/obs-narrative-0016-2"
+          },
+          {
+            "reference": "Observation/obs-narrative-0016-3"
+          },
+          {
+            "reference": "Observation/obs-narrative-0016-4"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0016-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0016-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "908d84e7-e625-424e-81dd-82ec294598d2"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "49d11526-a1bd-49b3-9a2e-99b36f644819"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.985
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the fol"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,301.04,565.56,327.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0016"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "908d84e7-e625-424e-81dd-82ec294598d2"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "49d11526-a1bd-49b3-9a2e-99b36f644819"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.985
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the fol"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 520.9
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "bfc65d5f-a8f0-4bb2-b48d-da1cc792ba0a"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "a91eb34f-b303-4fc7-a767-6b03243c6ebb"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "SUPPORTED"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.8715
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the fol"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "PLATELET COUNT FLAG: HIGH",
+                "display": "Platelet Count flag: HIGH"
+              }
+            ],
+            "text": "Platelet Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0016-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0016-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "7cbc999c-98df-43b5-8161-1c9de4749377"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "0b20eb14-813c-4f45-a9f9-80077b3fa61d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9923
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "\nCHRONOLOGICAL CLINICAL NARRATIVE\nCHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient William Jackson, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW). Subsequent evaluation demonstrated that serum sodium was 149.2 mmol/L (HIGH). Prior outpatient\nregimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJEC"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,212.04,562.89,238.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0016"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "7cbc999c-98df-43b5-8161-1c9de4749377"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "0b20eb14-813c-4f45-a9f9-80077b3fa61d"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9923
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "\nCHRONOLOGICAL CLINICAL NARRATIVE\nCHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient William Jackson, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW). Subsequent evaluation demonstrated that serum sodium was 149.2 mmol/L (HIGH). Prior outpatient\nregimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJEC"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 9.82,
+          "unit": "g/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "816d76fa-09d2-447f-8a90-a7718ce6fd1f"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "c061a1b0-f5b0-4b2f-a5d7-e11bf75c3cc2"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9859
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "\nCHRONOLOGICAL CLINICAL NARRATIVE\nCHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient William Jackson, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW). Subsequent evaluation demonstrated that serum sodium was 149.2 mmol/L (HIGH). Prior outpatient\nregimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJEC"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "HEMOGLOBIN FLAG: NORMAL",
+                "display": "Hemoglobin flag: NORMAL"
+              }
+            ],
+            "text": "Hemoglobin flag: NORMAL"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0016-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0016-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "5ae49fca-5565-42c1-b55f-bec49b129c80"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "3c543cec-97c5-4f72-be0d-3d873d3ecdf2"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9842
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " patient William Jackson, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW). Subsequent evaluation demonstrated that serum sodium was 149.2 mmol/L (HIGH). Prior outpatient\nregimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\nthe"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,225.54,552.36,238.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0016"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "5ae49fca-5565-42c1-b55f-bec49b129c80"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "3c543cec-97c5-4f72-be0d-3d873d3ecdf2"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9842
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": " patient William Jackson, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW). Subsequent evaluation demonstrated that serum sodium was 149.2 mmol/L (HIGH). Prior outpatient\nregimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\nthe"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 298.4,
+          "unit": "mmol/L"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "f8b0eb9e-511f-4218-bda2-6a6430a9576e"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "2acba62b-5c75-4db8-8bde-d97253458f69"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.984
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": " patient William Jackson, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed hemoglobin\nof 9.82 g/dL (LOW). Subsequent evaluation demonstrated that serum sodium was 149.2 mmol/L (HIGH). Prior outpatient\nregimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\nthe"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "SODIUM FLAG: NORMAL",
+                "display": "Sodium flag: NORMAL"
+              }
+            ],
+            "text": "Sodium flag: NORMAL"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0016-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0016-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c43922e5-c363-4443-80a8-09a524d406f2"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "18273dcf-dd0a-42c2-9afe-c735a927672b"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Laboratory Observation"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0016"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "c43922e5-c363-4443-80a8-09a524d406f2"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "18273dcf-dd0a-42c2-9afe-c735a927672b"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0016-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0016-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "9bce9df4-e0f9-4023-9dfd-8d1162f10cbe"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "548a2deb-e626-4259-88dc-494dad425444"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9522
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ctive\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for t"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,390.04,544.96,403.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "9bce9df4-e0f9-4023-9dfd-8d1162f10cbe"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "548a2deb-e626-4259-88dc-494dad425444"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9522
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ctive\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for t"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Omeprazole"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0016"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Omeprazole Omeprazole dose: 40 mg mg Omeprazole route: topically Omeprazole frequency: once weekly",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "df2aef83-28e3-43a3-b44c-164b0be77382"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "a7635a18-6e98-478d-9fc6-a53606d06686"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ctive\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for t"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Omeprazole frequency: once weekly"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "33951a66-7f3f-4722-977a-748975aa47a9"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "59e19c2a-948c-4ec2-923e-e8743e5ccfba"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9882
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ctive\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for t"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Omeprazole route: topically"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "3deb8207-1b5d-460c-a0b8-a6b91b8b201c"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "3fc2069a-9a3e-43e4-89d2-03adfd2be621"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9921
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ctive\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you for t"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 40.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0016-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0016-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "00dc2704-9491-4607-9f75-a541ecdc0b2a"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2123d243-fda1-4476-b82f-cec68581cc4a"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9751
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMME"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,301.04,554.97,314.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "00dc2704-9491-4607-9f75-a541ecdc0b2a"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "2123d243-fda1-4476-b82f-cec68581cc4a"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9751
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMME"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0016"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Amoxicillin Metformin dose: 425 mg mg Metformin route: intravenously Metformin frequency: four times daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "43f0e69d-8182-4809-aefc-9e1b6cf0d576"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "e44a201f-72de-4656-874f-6aecc9d14f5d"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9758
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMME"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metformin frequency: four times daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "8e445647-8455-40e1-860f-dc51aa902cdd"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "36dbb997-b0da-4474-9212-3bd4e6e30cab"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9694
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMME"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metformin route: intravenously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "4053aaf9-8ac9-4abf-ab26-02f3c09159c5"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "55d42d81-c782-40f7-bdcd-e15a997e150c"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9783
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Metformin 850 mg oral twice daily. Following this intervention, trajectory assessment\nshowed platelet count of 520.9 10*3/uL (HIGH). Clinical response has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMME"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 425.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0016-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0016-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "546f04b4-0f9e-49fb-864a-3229eee1df14"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "bd20929e-a970-411a-9da0-f67f39161298"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9852
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "e has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-eval"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,390.04,544.96,403.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "546f04b4-0f9e-49fb-864a-3229eee1df14"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "bd20929e-a970-411a-9da0-f67f39161298"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9852
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "e has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-eval"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Lisinopril"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0016"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Lisinopril Metoprolol dose: 50 mg mg Metoprolol route: by inhalation Metoprolol frequency: twice daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "97ea362e-de89-4b84-bf52-405e08dc21e9"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "f6642056-4b96-40bc-9c9d-98efbe86d3db"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.985
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "e has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-eval"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metoprolol frequency: twice daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "7154fd1c-7994-421f-bf91-af7b3d4837c4"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "556e9761-9c41-4b78-be86-30dc7a4354b2"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9845
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "e has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-eval"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metoprolol route: by inhalation"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "d8b0d021-7644-4537-a4de-bf3d7d7ebd06"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "52278b80-9087-408a-8c0b-b91c4d2ea392"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9924
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "e has been favorable with marked improvement in objective\nmetabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Omeprazole 20 mg PO once daily in the morning. Avoid\nNSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-eval"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0016-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0016-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "8eabc286-0a8a-43aa-9002-c826ca678a21"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2305507a-a914-4786-8b4e-1fd6a256becf"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "8eabc286-0a8a-43aa-9002-c826ca678a21"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "2305507a-a914-4786-8b4e-1fd6a256becf"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0016"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "33f345cf-9764-42f0-8dbe-96c6132aa7ae"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "e0cf1c44-6545-40d5-9609-4f0f1513c264"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "aadc7880-250f-4258-8f5e-80a4ae19e0d9"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "d194c4a9-150a-4e14-ac2b-1fb712506ef8"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "378554e4-ea35-4cdc-b17d-4953525101b3"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "5672c902-e8a8-439b-8a73-5a5a90fe7784"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

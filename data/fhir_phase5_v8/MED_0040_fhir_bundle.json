@@ -1,0 +1,704 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-med-0040",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-med-0040",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-med-0040",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-MED-0040"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-med-0040",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-med-0040",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-med-0040",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-med-0040",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0040-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0040-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "f0144ec6-b8f7-4ebc-92e3-5d5a37d8d66d"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2b247ec0-2a1e-4ba2-a7df-e1b34dcbe649"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.8205
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ns, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: 1 tablet by mouth once daily\nRefills: 3"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,206.8,180.15,220.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "f0144ec6-b8f7-4ebc-92e3-5d5a37d8d66d"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "2b247ec0-2a1e-4ba2-a7df-e1b34dcbe649"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.8205
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ns, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: 1 tablet by mouth once daily\nRefills: 3"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Lisinopril"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0040"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Lisinopril Losartan dose: 50 mg mg Losartan route: by mouth Losartan frequency: once daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "8a840549-1a23-4db5-9faf-e3b058450f88"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "644b731d-e1c3-4df0-97c3-25d40d79e44a"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.994
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ns, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: 1 tablet by mouth once daily\nRefills: 3"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Losartan frequency: once daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "07282c40-c53a-4c6c-a92a-462cabbfadbf"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "ab988305-6663-4eec-b452-326c3f2db6a9"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9886
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ns, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: 1 tablet by mouth once daily\nRefills: 3"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Losartan route: by mouth"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "c29387c1-c3dd-4243-ba98-80237aaa5c10"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "f75feef1-dfe3-4201-850d-4dcb80d749c2"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9888
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ns, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mouth | Form: tablet\nSchedule/Frequency: once daily\nDuration: 30 days | Dispense: #90\nInstructions: 1 tablet by mouth once daily\nRefills: 3"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0040-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0040-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "a9fbabcf-d614-4159-8b21-d3cfecc3e9a0"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "d6a3c8ad-dad3-4f39-999d-5d8dd7b7048e"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.996
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "vans, MD | Doc ID: MED_0040\nOrder #1: Orneprazole 20 mg\nRoute: oral | Form: capsule\nSchedle/FreqUency: once daily before breakfast\nDuratio: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefils: 0\nOrder #2: Losartan 25 mg\nRoute: by mo'uth | For m: tablet\nScheduleFrequency: 0nce dail\nDuration: 30 days | Dispense: #90\nINstructions: 1 tablet by mouth onc daily\nRefills: 3"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,206.8,180.15,220.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.75
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Unspecified Medication"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0040"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Losartan dose: 25 mg mg",
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "a9fbabcf-d614-4159-8b21-d3cfecc3e9a0"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "d6a3c8ad-dad3-4f39-999d-5d8dd7b7048e"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.996
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "vans, MD | Doc ID: MED_0040\nOrder #1: Orneprazole 20 mg\nRoute: oral | Form: capsule\nSchedle/FreqUency: once daily before breakfast\nDuratio: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefils: 0\nOrder #2: Losartan 25 mg\nRoute: by mo'uth | For m: tablet\nScheduleFrequency: 0nce dail\nDuration: 30 days | Dispense: #90\nINstructions: 1 tablet by mouth onc daily\nRefills: 3"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 25.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0040-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0040-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "4e5e50f1-28b8-4641-9581-3a69cff7d974"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "55def36f-e881-4a24-ad4c-ad2ec040d8bc"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9917
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: David Lopez | DOB: 1963-12-28 | MRN: PAT-30040 | Order Date: 2025-04-27\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mout"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "59.0,125.8,195.16,139.57"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "4e5e50f1-28b8-4641-9581-3a69cff7d974"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "55def36f-e881-4a24-ad4c-ad2ec040d8bc"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9917
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: David Lopez | DOB: 1963-12-28 | MRN: PAT-30040 | Order Date: 2025-04-27\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mout"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0040"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Amoxicillin Omeprazole dose: 20 mg mg Omeprazole route: oral Omeprazole frequency: once daily before breakfast",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "c75b1c9e-10f3-4120-9094-e5ac522b9bcc"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "d9719dc4-d1eb-41c6-840d-0c7499f6aa2b"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9906
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: David Lopez | DOB: 1963-12-28 | MRN: PAT-30040 | Order Date: 2025-04-27\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mout"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Omeprazole frequency: once daily before breakfast"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "2c59849f-8b2c-48af-afed-e224c0ec65d5"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "7eb65e5a-7749-4c58-804e-73a804134fc2"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9951
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: David Lopez | DOB: 1963-12-28 | MRN: PAT-30040 | Order Date: 2025-04-27\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mout"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Omeprazole route: oral"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "721d5a5d-f02e-4167-b40d-9b95dc154e3d"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "69a16e78-1535-445f-b19f-d92dc6a2c4c5"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9971
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "ulatory Infusion & Specialty Clinic\nPHYSICIAN MEDICATION ORDERS & CLINICAL ADMINISTRATION RECORD\nPatient: David Lopez | DOB: 1963-12-28 | MRN: PAT-30040 | Order Date: 2025-04-27\nOrdering Provider: Dr. Robert Evans, MD | Doc ID: MED_0040\nOrder #1: Omeprazole 20 mg\nRoute: oral | Form: capsule\nSchedule/Frequency: once daily before breakfast\nDuration: 60 days | Dispense: #30\nInstructions: Take one capsule oral once daily before\nbreakfast for 60 days\nRefills: 0\nOrder #2: Losartan 25 mg\nRoute: by mout"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationRequest/medreq-med-0040-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medreq-med-0040-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d3429d00-69bf-4605-aa77-224ecaecdf2c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "c148b1c2-f65e-4ab9-913d-f7c0b4f25dd2"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target medication not observed in record."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "d3429d00-69bf-4605-aa77-224ecaecdf2c"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "c148b1c2-f65e-4ab9-913d-f7c0b4f25dd2"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target medication not observed in record."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-med-0040"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "9fffce62-df4e-4502-bf51-f905be2b45f4"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "ac653d53-74d2-4697-a18c-5155b5e6bbb8"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target medication not observed in record."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "99caec2b-eaf8-4678-ad6b-8fde70c43074"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "4b79caa8-95af-42d2-bc5e-aad51c933934"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target medication not observed in record."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "fa664220-ba35-40f3-9fa5-9c07c5359458"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "617d5c88-98a0-4279-b3c2-d106f966dbdb"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target medication not observed in record."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

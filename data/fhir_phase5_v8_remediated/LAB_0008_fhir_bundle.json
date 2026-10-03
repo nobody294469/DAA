@@ -1,0 +1,1759 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-lab-0008",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-lab-0008",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-lab-0008",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-LAB-0008"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-lab-0008",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-lab-0008",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-lab-0008",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-lab-0008",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-lab-0008",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-lab-0008",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c6a32f23-f85b-43b1-a74c-5f27186a012d"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "75790160-df77-4ceb-bfbc-7644eaa357df"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9981
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,435.03,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-lab-0008"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-lab-0008-1"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-2"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-3"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-4"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-5"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-6"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-7"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-8"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-9"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-10"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-11"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-12"
+          },
+          {
+            "reference": "Observation/obs-lab-0008-13"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c6a32f23-f85b-43b1-a74c-5f27186a012d"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "75790160-df77-4ceb-bfbc-7644eaa357df"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9981
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,435.03,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4544-3",
+              "display": "Hematocrit"
+            }
+          ],
+          "text": "Hematocrit"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "c6a32f23-f85b-43b1-a74c-5f27186a012d"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "75790160-df77-4ceb-bfbc-7644eaa357df"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9981
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 91.4,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "edaa2089-fb28-4940-8f9c-b35a3a8512cb"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "cb51344b-5c0c-46bb-9b3e-692e4e318046"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "HEMATOCRIT FLAG: HIGH",
+                "display": "Hematocrit flag: HIGH"
+              }
+            ],
+            "text": "Hematocrit flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "cac71253-5f3f-4cae-811f-fa578ea2f87c"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "e9e944fc-1805-41c4-ac60-e0714e300806"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9959
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,430.02,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelet Count"
+            }
+          ],
+          "text": "Platelet Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "cac71253-5f3f-4cae-811f-fa578ea2f87c"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "e9e944fc-1805-41c4-ac60-e0714e300806"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9959
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 430.0,
+          "unit": "10*3/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*3/uL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "4fd3b030-1c20-44bb-a97d-16bcdceb4735"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "0e05fc5d-65c7-4cb6-95b2-e6deba93b855"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "PLATELET COUNT FLAG: HIGH",
+                "display": "Platelet Count flag: HIGH"
+              }
+            ],
+            "text": "Platelet Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "0f05a4ad-448f-45aa-9141-8a48ce8d72a8"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "a31d54f7-e187-44aa-af0f-a368809b5e56"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9974
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,430.02,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "White Blood Cell Count"
+            }
+          ],
+          "text": "White Blood Cell Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "0f05a4ad-448f-45aa-9141-8a48ce8d72a8"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "a31d54f7-e187-44aa-af0f-a368809b5e56"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9974
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 2.2,
+          "unit": "10*3/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*3/uL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "7c3a9b7a-0f27-4643-9793-a971c0b41073"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "3c710d7f-fb8e-46d1-a919-34e25408e5ff"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Patient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "WHITE BLOOD CELL COUNT FLAG: HIGH",
+                "display": "White Blood Cell Count flag: HIGH"
+              }
+            ],
+            "text": "White Blood Cell Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ad4ace96-5763-448f-8c77-df538dda3810"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "9a36c1a7-9100-4b7e-9a26-2ffc25552084"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9926
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "DOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,262.33,508.5,274.76"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "789-8",
+              "display": "Red Blood Cell Count"
+            }
+          ],
+          "text": "Red Blood Cell Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ad4ace96-5763-448f-8c77-df538dda3810"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "9a36c1a7-9100-4b7e-9a26-2ffc25552084"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9926
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "DOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 6.44,
+          "unit": "10*6/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*6/uL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "a1b23965-7409-48c2-961a-0b8eb5e2038f"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "4f425e3f-49ce-4511-a988-de2805d8b5fd"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "SUPPORTED"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "DOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "RED BLOOD CELL COUNT FLAG: HIGH",
+                "display": "Red Blood Cell Count flag: HIGH"
+              }
+            ],
+            "text": "Red Blood Cell Count flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-5",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ba3803f3-a493-4934-a6a5-4c6ab252b60e"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "73b56a53-6fa9-4353-ac10-83cd754c087f"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9983
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Division of Laboratory Medicine | Clin ical Report\nPatricia Anderson\n2025-08-13\nPatient Name:\nReport Date:\nPAT-42018\nDr. Allison Cameron, MD\nPatient ID:\nPhysician.:\n1973-05-0 (F)\nLAB_0008\nDOB / Gender:\nDocument ID:\nS1ECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnis\nReference Range\nAbnormal\nHemoglobin\n13.2\ng/dL\n12.0 - 16.0\nHernatocrit\n45.7\n%\n360 -  48.0\nWhite Blood 1Cell Count\n8.8\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n430.0\n10*3/uL\n50 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -' 5.80\n6.44\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,100.02,202.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.918
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin"
+            }
+          ],
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ba3803f3-a493-4934-a6a5-4c6ab252b60e"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "73b56a53-6fa9-4353-ac10-83cd754c087f"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9983
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Division of Laboratory Medicine | Clin ical Report\nPatricia Anderson\n2025-08-13\nPatient Name:\nReport Date:\nPAT-42018\nDr. Allison Cameron, MD\nPatient ID:\nPhysician.:\n1973-05-0 (F)\nLAB_0008\nDOB / Gender:\nDocument ID:\nS1ECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnis\nReference Range\nAbnormal\nHemoglobin\n13.2\ng/dL\n12.0 - 16.0\nHernatocrit\n45.7\n%\n360 -  48.0\nWhite Blood 1Cell Count\n8.8\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n430.0\n10*3/uL\n50 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -' 5.80\n6.44\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 6.6,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-6",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "2e42e956-2867-468c-807b-2391391492d5"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "5d33a100-c179-4d71-a851-53cf19bd5e68"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "PaTricia Andrs'on1\n2025-0-13.\npatint Name:\nREort Dat1e:\nPT-4201B\nDr Alli.son. C areron, MD\npatient ID:'\nphysician:\n193-0S-O6 ()\nLAB_0008\nDOB / Gender\nDocuEnt ID:\nETION: COMPLETE LOODCOUNT\nAnalyte\nresuT\nUn'i T\nReference RAne\nAbNormal\nhemoglobIn\n13.2\ng/dL\n12.0 - .16D\nHematocrit\n45.17\n%\n36.0 - 8.0\nWhiTe 8l0od Cell1 Cont\n8.8\n10*3/uL\n45 - 11.0\nPlate'let CoUnt\n430.0\n10*3/uL\n15 -. .450\nRE Bl0od Cell. C out\n10*6/uL\n4 20 - 580\n6. 4\nH'"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,208.32,95.51,220.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.815
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4544-3",
+              "display": "Hematocrit"
+            }
+          ],
+          "text": "Hematocrit"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "2e42e956-2867-468c-807b-2391391492d5"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "5d33a100-c179-4d71-a851-53cf19bd5e68"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "PaTricia Andrs'on1\n2025-0-13.\npatint Name:\nREort Dat1e:\nPT-4201B\nDr Alli.son. C areron, MD\npatient ID:'\nphysician:\n193-0S-O6 ()\nLAB_0008\nDOB / Gender\nDocuEnt ID:\nETION: COMPLETE LOODCOUNT\nAnalyte\nresuT\nUn'i T\nReference RAne\nAbNormal\nhemoglobIn\n13.2\ng/dL\n12.0 - .16D\nHematocrit\n45.17\n%\n36.0 - 8.0\nWhiTe 8l0od Cell1 Cont\n8.8\n10*3/uL\n45 - 11.0\nPlate'let CoUnt\n430.0\n10*3/uL\n15 -. .450\nRE Bl0od Cell. C out\n10*6/uL\n4 20 - 580\n6. 4\nH'"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 45.7,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-7",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "375c6542-4dbe-4eb4-b914-42116925259f"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "df51cece-5d3a-434e-8ebf-b57bb002fa99"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9976
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,435.03,202.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin"
+            }
+          ],
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "375c6542-4dbe-4eb4-b914-42116925259f"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "df51cece-5d3a-434e-8ebf-b57bb002fa99"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9976
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 13.2,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "9f3a12d8-a17d-4f4e-9f8d-d6cadcf5d911"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "17161cd0-3ad6-444e-934b-9437262c5bd3"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 1.0
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "Division of Laboratory Medicine | Clinical Report\nPatient Name: Patricia Anderson Report Date: 2025-08-13\nPatient ID: PAT-42018 Physician: Dr. Allison Cameron, MD\nDOB / Gender: 1973-05-06 (F) Document ID: LAB_0008\nSECTION: COMPLETE BLOOD COUNT\nAnalyte Result Units Reference Range Abnormal\nHemoglobin 13.2 g/dL 12.0 - 16.0\nHematocrit 45.7 % 36.0 - 48.0\nWhite Blood Cell Count 8.8 10*3/uL 4.5 - 11.0\nPlatelet Count 430.0 10*3/uL 150 - 450\nRed Blood Cell Count 6.44 10*6/uL 4.20 - 5.80 H"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "HEMOGLOBIN FLAG: HIGH",
+                "display": "Hemoglobin flag: HIGH"
+              }
+            ],
+            "text": "Hemoglobin flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-8",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d532cf2c-c777-4c28-89d3-95fdf746bd9a"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "a2a5d315-235c-4674-b059-f8e249af7ef4"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10839-9",
+              "display": "Troponin I"
+            }
+          ],
+          "text": "Troponin I"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "d532cf2c-c777-4c28-89d3-95fdf746bd9a"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "a2a5d315-235c-4674-b059-f8e249af7ef4"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-9",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "1d2c9b52-02ea-48db-b5b6-79702039c8ef"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "2e8a1913-d97f-4d3e-8512-fc9d189e9f13"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9978
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Division of Laboratory Medicin e | Clinical Report\nPatri'c ia Anders'o'n\n2025-081-13\nPatient Name\nRe port Date:\nPAT-4218\nDr. Allis on Camern, MD\nPat.ie nt ID:\nPhysician:\n193-05-06 (F)\nLAB_0008\nDOB / Gender:\nDocument ID:\nSECTION: CMP'LETe BLOOD COUNT\nAnalyte\nResul\nUNits\nReference Range\nAbnorrnal\nHemoglobin\n132\ng/dL\n120 - 16.0\nhematocrit\n45.7\n%\n36.0 - 48.0\nWhite Blood Cell Count\n8.8\n10*3/uL\n4 5 - 11.0\nPlatelet Cout\n430.10\n10*3/uL\n150 - 450\nRed Bloo'd Cell Co un\n10*6/L\n420 - 5.0\n6.44\nH1"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,190.32,100.02,202.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.867
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin"
+            }
+          ],
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "1d2c9b52-02ea-48db-b5b6-79702039c8ef"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "2e8a1913-d97f-4d3e-8512-fc9d189e9f13"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9978
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Division of Laboratory Medicin e | Clinical Report\nPatri'c ia Anders'o'n\n2025-081-13\nPatient Name\nRe port Date:\nPAT-4218\nDr. Allis on Camern, MD\nPat.ie nt ID:\nPhysician:\n193-05-06 (F)\nLAB_0008\nDOB / Gender:\nDocument ID:\nSECTION: CMP'LETe BLOOD COUNT\nAnalyte\nResul\nUNits\nReference Range\nAbnorrnal\nHemoglobin\n132\ng/dL\n120 - 16.0\nhematocrit\n45.7\n%\n36.0 - 48.0\nWhite Blood Cell Count\n8.8\n10*3/uL\n4 5 - 11.0\nPlatelet Cout\n430.10\n10*3/uL\n150 - 450\nRed Bloo'd Cell Co un\n10*6/L\n420 - 5.0\n6.44\nH1"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 6.6,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-10",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "8e815bab-a78c-4436-acfc-6193c16a5485"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "51dde892-039c-4f4d-8571-d2b2d16de0b6"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Patient ID:\nPhysician.:\n1973-05-0 (F)\nLAB_0008\nDOB / Gender:\nDocument ID:\nS1ECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnis\nReference Range\nAbnormal\nHemoglobin\n13.2\ng/dL\n12.0 - 16.0\nHernatocrit\n45.7\n%\n360 -  48.0\nWhite Blood 1Cell Count\n8.8\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n430.0\n10*3/uL\n50 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -' 5.80\n6.44\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,244.32,108.53,256.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.918
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelet Count"
+            }
+          ],
+          "text": "Platelet Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "8e815bab-a78c-4436-acfc-6193c16a5485"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "51dde892-039c-4f4d-8571-d2b2d16de0b6"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Patient ID:\nPhysician.:\n1973-05-0 (F)\nLAB_0008\nDOB / Gender:\nDocument ID:\nS1ECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnis\nReference Range\nAbnormal\nHemoglobin\n13.2\ng/dL\n12.0 - 16.0\nHernatocrit\n45.7\n%\n360 -  48.0\nWhite Blood 1Cell Count\n8.8\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n430.0\n10*3/uL\n50 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -' 5.80\n6.44\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 1720.0,
+          "unit": "10*3/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*3/uL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-11",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c881bde7-4eb3-4e05-9b5a-5ab3a173aee3"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "34b6ac57-2a37-49c7-bb39-8d5661dffcdb"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9979
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "DOB / Gender:\nDocument ID:\nS1ECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnis\nReference Range\nAbnormal\nHemoglobin\n13.2\ng/dL\n12.0 - 16.0\nHernatocrit\n45.7\n%\n360 -  48.0\nWhite Blood 1Cell Count\n8.8\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n430.0\n10*3/uL\n50 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -' 5.80\n6.44\nH"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,262.33,138.54,274.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.918
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "789-8",
+              "display": "Red Blood Cell Count"
+            }
+          ],
+          "text": "Red Blood Cell Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "c881bde7-4eb3-4e05-9b5a-5ab3a173aee3"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "34b6ac57-2a37-49c7-bb39-8d5661dffcdb"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9979
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "DOB / Gender:\nDocument ID:\nS1ECTION: COMPLETE BLOOD COUNT\nAnalyte\nResult\nUnis\nReference Range\nAbnormal\nHemoglobin\n13.2\ng/dL\n12.0 - 16.0\nHernatocrit\n45.7\n%\n360 -  48.0\nWhite Blood 1Cell Count\n8.8\n10*3/uL\n4.5 - 11.0\nPlatelet Count\n430.0\n10*3/uL\n50 - 450\nRed Blood Cell Count\n10*6/uL\n4.20 -' 5.80\n6.44\nH"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.64,
+          "unit": "10*6/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*6/uL"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-12",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "1a4218a8-ea1a-4d50-af22-fbadeb86d7f1"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "50ab405d-d974-4f87-95f7-e805f849f57d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target analyte not observed in report."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3040-3",
+              "display": "Lipase"
+            }
+          ],
+          "text": "Lipase"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "1a4218a8-ea1a-4d50-af22-fbadeb86d7f1"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "50ab405d-d974-4f87-95f7-e805f849f57d"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target analyte not observed in report."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 45.0,
+          "unit": "U/L",
+          "system": "http://unitsofmeasure.org",
+          "code": "U/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-lab-0008-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-lab-0008-13",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "ea09f87e-12a0-4129-ba1a-46e68ba9b4fe"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "7d700e20-56e5-43e0-9555-420cf25c5db7"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.998
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Re port Date:\nPAT-4218\nDr. Allis on Camern, MD\nPat.ie nt ID:\nPhysician:\n193-05-06 (F)\nLAB_0008\nDOB / Gender:\nDocument ID:\nSECTION: CMP'LETe BLOOD COUNT\nAnalyte\nResul\nUNits\nReference Range\nAbnorrnal\nHemoglobin\n132\ng/dL\n120 - 16.0\nhematocrit\n45.7\n%\n36.0 - 48.0\nWhite Blood Cell Count\n8.8\n10*3/uL\n4 5 - 11.0\nPlatelet Cout\n430.10\n10*3/uL\n150 - 450\nRed Bloo'd Cell Co un\n10*6/L\n420 - 5.0\n6.44\nH1"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "52.0,226.32,145.03,238.69"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 0.867
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "White Blood Cell Count"
+            }
+          ],
+          "text": "White Blood Cell Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-lab-0008"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "ea09f87e-12a0-4129-ba1a-46e68ba9b4fe"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "7d700e20-56e5-43e0-9555-420cf25c5db7"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.998
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Re port Date:\nPAT-4218\nDr. Allis on Camern, MD\nPat.ie nt ID:\nPhysician:\n193-05-06 (F)\nLAB_0008\nDOB / Gender:\nDocument ID:\nSECTION: CMP'LETe BLOOD COUNT\nAnalyte\nResul\nUNits\nReference Range\nAbnorrnal\nHemoglobin\n132\ng/dL\n120 - 16.0\nhematocrit\n45.7\n%\n36.0 - 48.0\nWhite Blood Cell Count\n8.8\n10*3/uL\n4 5 - 11.0\nPlatelet Cout\n430.10\n10*3/uL\n150 - 450\nRed Bloo'd Cell Co un\n10*6/L\n420 - 5.0\n6.44\nH1"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 2.2,
+          "unit": "10*3/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*3/uL"
+        }
+      }
+    }
+  ]
+}

@@ -75,3 +75,7 @@ data/*_backup/
 
 # M2 experiment outputs / checkpoints
 data/m2_results/
+data/m2_results_v3/
+data/m2_verification/frozen_embeddings.pt
+
+phase4_evaluator.zip

@@ -1,0 +1,1312 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-narrative-0018",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient/patient-narrative-0018",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-narrative-0018",
+        "identifier": [
+          {
+            "system": "urn:clindoc:mrn",
+            "value": "SYNTHETIC-PATIENT-NARRATIVE-00"
+          }
+        ],
+        "name": [
+          {
+            "text": "Synthetic Patient"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/org-narrative-0018",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-narrative-0018",
+        "name": "Clinical Healthcare Organization"
+      }
+    },
+    {
+      "fullUrl": "Practitioner/pract-narrative-0018",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-narrative-0018",
+        "name": [
+          {
+            "text": "Attending Physician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/report-narrative-0018",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "report-narrative-0018",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "a27d9738-b400-4995-963c-9ae19807f1b3"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "bbdef908-de18-401b-9dbe-8ef948735ca9"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9861
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ate patient Daniel Harris, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed calcium of\n9.46 mg/dL. Subsequent evaluation demonstrated that serum white blood cell count was 2.8 10*3/uL (LOW). Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacologi"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,225.54,523.87,238.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "text": "Clinical Laboratory Report"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0018"
+        },
+        "performer": [
+          {
+            "reference": "Organization/org-narrative-0018"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/obs-narrative-0018-1"
+          },
+          {
+            "reference": "Observation/obs-narrative-0018-2"
+          },
+          {
+            "reference": "Observation/obs-narrative-0018-3"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0018-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0018-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "a27d9738-b400-4995-963c-9ae19807f1b3"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "bbdef908-de18-401b-9dbe-8ef948735ca9"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9861
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "ate patient Daniel Harris, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed calcium of\n9.46 mg/dL. Subsequent evaluation demonstrated that serum white blood cell count was 2.8 10*3/uL (LOW). Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacologi"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,225.54,523.87,238.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "White Blood Cell Count"
+            }
+          ],
+          "text": "White Blood Cell Count"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0018"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "a27d9738-b400-4995-963c-9ae19807f1b3"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "bbdef908-de18-401b-9dbe-8ef948735ca9"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9861
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "ate patient Daniel Harris, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed calcium of\n9.46 mg/dL. Subsequent evaluation demonstrated that serum white blood cell count was 2.8 10*3/uL (LOW). Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacologi"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 2.8,
+          "unit": "10*3/uL",
+          "system": "http://unitsofmeasure.org",
+          "code": "10*3/uL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "16c27f4e-903e-4a75-8746-80af5cca7413"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "1d28091c-a2f1-48a6-980b-269f01408f96"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9827
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "ate patient Daniel Harris, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed calcium of\n9.46 mg/dL. Subsequent evaluation demonstrated that serum white blood cell count was 2.8 10*3/uL (LOW). Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacologi"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "WHITE BLOOD CELL COUNT FLAG: NORMAL",
+                "display": "White Blood Cell Count flag: NORMAL"
+              }
+            ],
+            "text": "White Blood Cell Count flag: NORMAL"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0018-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0018-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "a8b85779-892b-4cd9-be72-5bf6cd7b3ea7"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "337c140c-cb7b-49f0-90ca-d8712fb75cec"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9852
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "rvice.\nCHRONOLOGICAL CLINICAL NARRATIVE\nCHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient Daniel Harris, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed calcium of\n9.46 mg/dL. Subsequent evaluation demonstrated that serum white blood cell count was 2.8 10*3/uL (LOW). Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURS"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,212.04,556.54,238.59"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "17861-6",
+              "display": "Calcium"
+            }
+          ],
+          "text": "Calcium"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0018"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "a8b85779-892b-4cd9-be72-5bf6cd7b3ea7"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "337c140c-cb7b-49f0-90ca-d8712fb75cec"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9852
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "rvice.\nCHRONOLOGICAL CLINICAL NARRATIVE\nCHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient Daniel Harris, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed calcium of\n9.46 mg/dL. Subsequent evaluation demonstrated that serum white blood cell count was 2.8 10*3/uL (LOW). Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURS"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 4.73,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "interpretation": [
+          {
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "claimId",
+                    "valueString": "f709bd66-4a9c-443c-9dc5-c2b8b23c5d6c"
+                  },
+                  {
+                    "url": "verificationId",
+                    "valueString": "a92295b2-5f75-4bec-9787-06d1db948a1f"
+                  },
+                  {
+                    "url": "verificationLabel",
+                    "valueCode": "DISCREPANCY"
+                  },
+                  {
+                    "url": "confidence",
+                    "valueDecimal": 0.9837
+                  },
+                  {
+                    "url": "evidenceText",
+                    "valueString": "rvice.\nCHRONOLOGICAL CLINICAL NARRATIVE\nCHRONOLOGICAL CLINICAL NARRATIVE: We were asked to evaluate patient Daniel Harris, who was admitted three\ndays ago with complex multisystem decompensation. On initial presentation, initial biomarker profiling revealed calcium of\n9.46 mg/dL. Subsequent evaluation demonstrated that serum white blood cell count was 2.8 10*3/uL (LOW). Prior\noutpatient regimens had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURS"
+                  }
+                ],
+                "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+              }
+            ],
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "CALCIUM FLAG: HIGH",
+                "display": "Calcium flag: HIGH"
+              }
+            ],
+            "text": "Calcium flag: HIGH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/obs-narrative-0018-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-narrative-0018-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "d0c1f760-cde8-4556-9bc7-a58fc6c16eb9"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "c5955974-1c34-49e8-8b0a-2efbbb1d845d"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10839-9",
+              "display": "Troponin I"
+            }
+          ],
+          "text": "Troponin I"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0018"
+        },
+        "valueQuantity": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "d0c1f760-cde8-4556-9bc7-a58fc6c16eb9"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "c5955974-1c34-49e8-8b0a-2efbbb1d845d"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Troponin I' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "value": 0.02,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "ng/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0018-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0018-1",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "592ef890-0368-42cf-9e8e-3fb4c416bbb6"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "cac31287-0952-46d7-905f-f930b3751e51"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9666
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Amlodipine 2.5 mg PO every morning. Following this intervention, trajectory\nassessment showed total cholesterol of 167.7 mg/dL. Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATI"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,301.04,518.03,314.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "592ef890-0368-42cf-9e8e-3fb4c416bbb6"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "cac31287-0952-46d7-905f-f930b3751e51"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9666
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Amlodipine 2.5 mg PO every morning. Following this intervention, trajectory\nassessment showed total cholesterol of 167.7 mg/dL. Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATI"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "17767",
+              "display": "Medication: Amlodipine"
+            }
+          ],
+          "text": "Medication: Amlodipine"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0018"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Amlodipine Amlodipine dose: 2.5 mg mg Amlodipine route: intravenously Amlodipine frequency: every morning",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "09e3da62-9db1-425f-8729-bd589e1af20e"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "fa55b101-c9b6-45b3-bb86-db2db10efa61"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Amlodipine 2.5 mg PO every morning. Following this intervention, trajectory\nassessment showed total cholesterol of 167.7 mg/dL. Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATI"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Amlodipine frequency: every morning"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "8c33198a-d504-43a3-a669-ce6c1e3c4157"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "45ca8123-20c2-48e1-981f-26460ee39b22"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9645
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Amlodipine 2.5 mg PO every morning. Following this intervention, trajectory\nassessment showed total cholesterol of 167.7 mg/dL. Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATI"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Amlodipine route: intravenously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "5be7ffba-2c48-40eb-8f21-91eb99860938"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "df8b1621-84f7-4194-8ae0-276af89918b9"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "SUPPORTED"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9843
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": " had proven insufficient to achieve therapeutic stability.\nHOSPITAL COURSE & TRAJECTORY\nHOSPITAL COURSE & TRAJECTORY: During inpatient specialty evaluation, the consultant team adjusted pharmacological\ntherapy. The patient was initiated on Amlodipine 2.5 mg PO every morning. Following this intervention, trajectory\nassessment showed total cholesterol of 167.7 mg/dL. Clinical response has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATI"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 2.5,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0018-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0018-2",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "c300e1fe-071a-47f9-a12d-5d39e94efb23"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "28466fe7-50c4-4f1a-be57-729bc5e00129"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "SUPPORTED"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9775
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you "
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,390.04,550.22,403.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "c300e1fe-071a-47f9-a12d-5d39e94efb23"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "28466fe7-50c4-4f1a-be57-729bc5e00129"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "SUPPORTED"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9775
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you "
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Medication: Amoxicillin"
+            }
+          ],
+          "text": "Medication: Amoxicillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0018"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Amoxicillin Amoxicillin dose: 250 mg mg Amoxicillin route: topically Amoxicillin frequency: three times daily",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "2d9442f7-d1e4-4abe-95af-b10c420a369b"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "1d22ca91-6f58-4287-95f8-cfb3e44fcf05"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "SUPPORTED"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9582
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you "
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Amoxicillin frequency: three times daily"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "20949a6e-5177-4363-8963-725319eb466f"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "886fa9d1-76ba-430f-a33c-2040ffdf3fa3"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "DISCREPANCY"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9773
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you "
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Amoxicillin route: topically"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "076e5b25-7bcf-4610-af0b-0ac544e60f66"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "110db649-f476-4fc7-a7e1-29318ffd7692"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9871
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down floor. Re-evaluate laboratory markers in 48\nhours. Thank you "
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 250.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0018-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0018-3",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "2ffb7627-953a-4f31-b07e-475b49161abb"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "d7d69947-febc-4ddc-b134-a25ae98e4530"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 1.0
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "C"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "0.0,0.0,0.0,0.0"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "2ffb7627-953a-4f31-b07e-475b49161abb"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "d7d69947-febc-4ddc-b134-a25ae98e4530"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "INSUFFICIENT_EVIDENCE"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 1.0
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "274783",
+              "display": "Medication: Insulin glargine"
+            }
+          ],
+          "text": "Medication: Insulin glargine"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0018"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Insulin glargine Insulin glargine dose: 20 units units Insulin glargine route: subcutaneously Insulin glargine frequency: at bedtime",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "60d5fa32-723b-4af6-894b-4bc21e80e27f"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "84fb3651-c589-427f-bf11-29b503b8695b"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "INSUFFICIENT_EVIDENCE"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 1.0
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Insulin glargine frequency: at bedtime"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "22aad837-4f27-4043-bb6e-976f1b05384d"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "a65cc94b-4d0e-4c01-8c7b-6d88ba2cad6b"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "INSUFFICIENT_EVIDENCE"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 1.0
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Insulin glargine route: subcutaneously"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "94491164-703d-4b52-a8eb-4d3a4607dcbd"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "61d8831d-2cf3-4049-99a8-98047323ef4f"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "INSUFFICIENT_EVIDENCE"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 1.0
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "Document-level absence: Target entity 'Insulin glargine' not observed in clinical narrative."
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 20.0,
+                  "unit": "units",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "[iU]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "MedicationStatement/medstat-narrative-0018-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medstat-narrative-0018-4",
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "claimId",
+                "valueString": "27c0cdc7-b96e-4f10-b11c-ca30aaf9c94b"
+              },
+              {
+                "url": "verificationId",
+                "valueString": "36c17a05-c16d-4c1a-800f-195d33a4cdfb"
+              },
+              {
+                "url": "verificationLabel",
+                "valueCode": "DISCREPANCY"
+              },
+              {
+                "url": "confidence",
+                "valueDecimal": 0.9818
+              },
+              {
+                "url": "stageReached",
+                "valueCode": "B"
+              },
+              {
+                "url": "evidenceText",
+                "valueString": "e has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down flo"
+              },
+              {
+                "url": "sourcePage",
+                "valueInteger": 1
+              },
+              {
+                "url": "sourceBoundingBox",
+                "valueString": "46.0,390.04,550.22,403.09"
+              },
+              {
+                "url": "ocrConfidence",
+                "valueDecimal": 1.0
+              }
+            ],
+            "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+          }
+        ],
+        "status": "active",
+        "medicationCodeableConcept": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "claimId",
+                  "valueString": "27c0cdc7-b96e-4f10-b11c-ca30aaf9c94b"
+                },
+                {
+                  "url": "verificationId",
+                  "valueString": "36c17a05-c16d-4c1a-800f-195d33a4cdfb"
+                },
+                {
+                  "url": "verificationLabel",
+                  "valueCode": "DISCREPANCY"
+                },
+                {
+                  "url": "confidence",
+                  "valueDecimal": 0.9818
+                },
+                {
+                  "url": "evidenceText",
+                  "valueString": "e has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down flo"
+                }
+              ],
+              "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+            }
+          ],
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6809",
+              "display": "Medication: Metformin"
+            }
+          ],
+          "text": "Medication: Metformin"
+        },
+        "subject": {
+          "reference": "Patient/patient-narrative-0018"
+        },
+        "dosage": [
+          {
+            "text": "Medication: Metformin Metoprolol dose: 50 mg mg Metoprolol route: PO Metoprolol frequency: every other day",
+            "timing": {
+              "code": {
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "url": "claimId",
+                        "valueString": "bc24d007-f276-4801-acca-21bc37573e1d"
+                      },
+                      {
+                        "url": "verificationId",
+                        "valueString": "80a63991-3c97-455f-b3cf-05fc76b70d61"
+                      },
+                      {
+                        "url": "verificationLabel",
+                        "valueCode": "DISCREPANCY"
+                      },
+                      {
+                        "url": "confidence",
+                        "valueDecimal": 0.9829
+                      },
+                      {
+                        "url": "evidenceText",
+                        "valueString": "e has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down flo"
+                      }
+                    ],
+                    "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                  }
+                ],
+                "text": "Metoprolol frequency: every other day"
+              }
+            },
+            "route": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "claimId",
+                      "valueString": "d54274b7-db46-4353-b25f-49973aa279b9"
+                    },
+                    {
+                      "url": "verificationId",
+                      "valueString": "9c06ec26-2466-4e1b-b54d-ba2533fd43c1"
+                    },
+                    {
+                      "url": "verificationLabel",
+                      "valueCode": "SUPPORTED"
+                    },
+                    {
+                      "url": "confidence",
+                      "valueDecimal": 0.9779
+                    },
+                    {
+                      "url": "evidenceText",
+                      "valueString": "e has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down flo"
+                    }
+                  ],
+                  "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                }
+              ],
+              "text": "Metoprolol route: PO"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "extension": [
+                    {
+                      "extension": [
+                        {
+                          "url": "claimId",
+                          "valueString": "53afc153-a22a-4086-b560-568b55e8915f"
+                        },
+                        {
+                          "url": "verificationId",
+                          "valueString": "b69b4245-781e-4715-a323-d2d46235169d"
+                        },
+                        {
+                          "url": "verificationLabel",
+                          "valueCode": "DISCREPANCY"
+                        },
+                        {
+                          "url": "confidence",
+                          "valueDecimal": 0.9904
+                        },
+                        {
+                          "url": "evidenceText",
+                          "valueString": "e has been favorable with marked improvement in\nobjective metabolic parameters.\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS\nFOCUSED PHARMACOTHERAPY RECOMMENDATIONS: The specialty team recommends the following maintenance\nregimen: continue Metoprolol 25 mg PO twice daily; and titrate Amoxicillin 500 mg by mouth three times daily for 7 days.\nAvoid NSAIDs and nephrotoxic exposures.\nCONSULTANT ASSESSMENT & SPECIALTY PLAN\nThe patient is stabilized and appropriate for transfer to the regular step-down flo"
+                        }
+                      ],
+                      "url": "http://clindoc.org/fhir/StructureDefinition/claim-provenance"
+                    }
+                  ],
+                  "value": 50.0,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
