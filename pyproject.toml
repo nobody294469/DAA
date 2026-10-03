@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "clindoc2fhir"
-version = "0.1.0"
+version = "0.2.0"
 description = "AI-Based Multimodal Clinical Document-to-EHR Conversion and Verification"
 readme = "README.md"
-requires-python = ">=3.11,<3.12"
+requires-python = ">=3.11,<3.13"
 license = { text = "MIT" }
 authors = [
     { name = "Clindoc2FHIR Team" }
@@ -17,15 +17,23 @@ dependencies = [
     "pyyaml>=6.0",
     "reportlab>=4.0.0",
     "fhir.resources==7.1.0",
+    "pymupdf>=1.24",
+    "Pillow>=10.1",
 ]
 
 [project.optional-dependencies]
 ml = [
     "torch>=2.0.0",
     "scikit-learn>=1.3.0",
+    "transformers>=4.48,<5",
 ]
 ui = [
     "streamlit>=1.30.0",
+]
+web = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-multipart>=0.0.9",
 ]
 ocr = [
     "paddleocr>=2.7.0",
@@ -35,6 +43,8 @@ dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
     "ruff>=0.1.0",
+    "Levenshtein>=0.25",
+    "httpx>=0.27",
 ]
 
 [project.scripts]
@@ -42,6 +52,9 @@ clindoc = "clindoc.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"clindoc.web" = ["static/**/*", "data/*.json"]
 
 [tool.ruff]
 line-length = 100

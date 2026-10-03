@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model · Clindoc2FHIR</title>
+  <meta name="description" content="Stage B model card for the fine-tuned BioClinical-ModernBERT verifier: which checkpoint is serving, live training progress, and validation, OOD and calibration metrics for every run trained on this machine.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="stylesheet" href="/assets/css/results.css">
+  <link rel="stylesheet" href="/assets/css/model.css?v=4">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script type="module" src="/assets/js/model.js"></script>
+</head>
+<body data-page="model">
+  <header data-shell></header>
+
+  <main id="main" tabindex="-1">
+    <div class="page-header">
+      <div class="container container--wide page-header__inner">
+        <div class="page-header__text">
+          <p class="label-mono">Stage B</p>
+          <h1>Model card</h1>
+          <p class="page-header__lede">The fine-tuned BioClinical-ModernBERT classifier behind Stage B: which checkpoint is serving now, live progress while a run trains, and the evaluation card of every run trained on this machine, compared with the reported reference run.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container--wide section--tight stack stack--xl">
+      <p class="visually-hidden" id="model-status" aria-live="polite"></p>
+      <div id="model-error"></div>
+
+      <section class="model-panel" id="serving" aria-labelledby="serving-h">
+        <div class="model-panel__head">
+          <h2 class="model-panel__title" id="serving-h">Serving now</h2>
+          <div class="model-panel__tools"><span id="serving-pill"></span><button class="btn btn--ghost btn--sm" type="button" id="refresh"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#refresh-cw"/></svg>Refresh</button></div>
+        </div>
+        <div class="stack" id="serving-body">
+          <span class="skeleton skeleton--text" style="width:40%"></span>
+          <span class="skeleton skeleton--block" style="--h:96px"></span>
+        </div>
+      </section>
+
+      <section class="model-panel" id="live" aria-labelledby="live-h" hidden>
+        <div class="model-panel__head">
+          <div><h2 class="model-panel__title" id="live-h">Training in progress</h2><p class="card__subtitle" id="live-sub"></p></div>
+          <span class="status-pill is-live"><span class="status-pill__dot" aria-hidden="true"></span><span class="status-pill__text" id="live-updated">Live</span></span>
+        </div>
+        <div>
+          <div class="progress-label"><span id="live-steps">Starting</span><span id="live-pct"></span></div>
+          <progress class="progress" id="live-progress" max="1" aria-labelledby="live-steps"></progress>
+        </div>
+        <ol class="stepper" id="live-phases" aria-label="Training phases"></ol>
+        <div class="stat-row live__stats" id="live-stats"></div>
+        <p class="visually-hidden" id="live-announce" aria-live="polite"></p>
+      </section>
+
+      <section class="res-section model-panel" id="runs" aria-labelledby="runs-h">
+        <div class="res-section__head">
+          <h2 class="model-panel__title" id="runs-h">Training runs</h2>
+          <p class="res-takeaway" id="runs-lede">Model cards written by <code>scripts/train_v3_experiment.py</code> to <code>reports/stage_b_runs/</code>, newest first.</p>
+        </div>
+        <div class="res-controls" id="run-controls" hidden>
+          <div class="field">
+            <label class="field__label" for="run-select">Run</label>
+            <select class="select" id="run-select"></select>
+          </div>
+        </div>
+        <div id="run-view"><span class="skeleton skeleton--block" style="--h:240px"></span></div>
+      </section>
+    </div>
+  </main>
+
+  <footer data-shell></footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/*
+ * Clindoc2FHIR web: Model page (model.html) styles. Shared results styles (.kv, .run-meta, .res-*) come
+ * from results.css; this file only holds what is specific to the model card page.
+ * Sections are ruled panels on the paper (no boxed cards); values and IDs are set in mono.
+ */
+.model-panel {
+  display: flex; flex-direction: column; gap: var(--space-4); min-width: 0;
+  border-top: 1px solid var(--color-rule); padding-top: var(--space-4);
+}
+.model-panel__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); }
+.model-panel__title { font-size: var(--text-xl); }
+.model-panel__tools { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.model-panel .card__subtitle { margin-top: var(--space-1); }
+
+/* Serving facts read as report lines: label in mono, value beside it. */
+#serving-body .kv { row-gap: 0; }
+#serving-body .kv > dt, #serving-body .kv > dd { padding-block: var(--space-2); border-bottom: 1px solid var(--color-border); }
+#serving-body .kv > dt { font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 400; }
+#serving-body .kv:first-child > dt:first-of-type, #serving-body .kv:first-child > dd:first-of-type { border-top: 1px solid var(--color-border); }
+@media (max-width: 479.98px) {
+  #serving-body .kv > dt { border-bottom: 0; padding-bottom: 0; }
+  #serving-body .kv:first-child > dd:first-of-type { border-top: 0; }
+}
+
+/* Empty state: what Stage B is and how to train it, then the reference card. */
+.model-intro { display: flex; flex-direction: column; gap: var(--space-3); max-width: 80ch; }
+.model-intro__title { font-size: var(--text-lg); }
+.model-ref { border-top: 1px solid var(--color-border); padding-top: var(--space-5); }

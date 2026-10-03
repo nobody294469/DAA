@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Style guide · Clindoc2FHIR</title>
+  <meta name="description" content="Living component gallery for the Clindoc2FHIR web app: tokens, components, charts and the page skeleton.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <style>
+    /* Style-guide-only layout; components themselves live in app.css. */
+    .sg-toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+    .sg-toc a { display: flex; align-items: center; min-height: 36px; padding: 0 var(--space-3); border-radius: var(--radius); color: var(--color-text-2); text-decoration: none; font-size: var(--text-sm); font-weight: 600; }
+    .sg-toc a:hover { background: var(--color-surface-2); color: var(--color-text); }
+    @media (max-width: 1023.98px) { .sg-toc ol { flex-direction: row; flex-wrap: wrap; } }
+    .sg-section { display: flex; flex-direction: column; gap: var(--space-4); scroll-margin-top: calc(var(--header-h) + var(--space-4)); }
+    .sg-section > h2 { padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+    .sg-demo { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+    .sg-demo--plain { background: transparent; border: 0; padding: 0; }
+    .sg-swatches { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(min(11rem, 100%), 1fr)); }
+    .sg-swatch { display: flex; flex-direction: column; border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; background: var(--color-surface); font-size: var(--text-xs); }
+    .sg-swatch__chip { height: 44px; border-bottom: 1px solid var(--color-border); }
+    .sg-swatch__name { padding: var(--space-1) var(--space-2) 0; font-family: var(--font-mono); color: var(--color-text); overflow-wrap: anywhere; }
+    .sg-swatch__value { padding: 0 var(--space-2) var(--space-2); color: var(--color-text-muted); font-family: var(--font-mono); }
+    .sg-note { font-size: var(--text-sm); color: var(--color-text-2); }
+  </style>
+  <script type="module">
+    import * as core from '/assets/js/core.js';
+    import * as charts from '/assets/js/charts.js';
+    const { mountShell, api, renderError, escapeHtml, toast, openDialog, renderJsonTree, initDropzone, renderServingBanner, renderEmpty, num, pct, seconds } = core;
+
+    // 1) Markup panels are generated from the live demos BEFORE any script mutates them.
+    let n = 0;
+    const dedent = (s) => {
+      const lines = s.replace(/^\n+|\s+$/g, '').split('\n');
+      const pad = Math.min(...lines.filter((l) => l.trim()).map((l) => l.match(/^ */)[0].length));
+      return lines.map((l) => l.slice(pad)).join('\n');
+    };
+    document.querySelectorAll('[data-markup]').forEach((demo) => {
+      const id = `sg-code-${++n}`;
+      demo.insertAdjacentHTML('afterend', `<details class="accordion"><summary>Markup</summary><div class="code-block"><button class="btn btn--ghost btn--sm code-block__copy" type="button" data-copy-target="#${id}">${core.icon('copy')}Copy</button><pre><code id="${id}">${escapeHtml(dedent(demo.innerHTML))}</code></pre></div></details>`);
+    });
+
+    mountShell();
+
+    // 2) Token swatches (values resolve per theme).
+    const swatches = (el, names) => {
+      const draw = () => {
+        const cs = getComputedStyle(document.documentElement);
+        el.innerHTML = names.map((t) => `<div class="sg-swatch"><div class="sg-swatch__chip" style="background:var(${t})"></div><div class="sg-swatch__name">${t}</div><div class="sg-swatch__value">${escapeHtml(cs.getPropertyValue(t).trim())}</div></div>`).join('');
+      };
+      draw();
+      window.addEventListener('themechange', draw);
+      matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+    };
+    swatches(document.getElementById('sw-surface'), ['--color-bg', '--color-surface', '--color-surface-2', '--color-surface-3', '--color-border', '--color-border-strong', '--color-text', '--color-text-2', '--color-text-muted']);
+    swatches(document.getElementById('sw-brand'), ['--color-primary', '--color-primary-hover', '--color-primary-soft', '--color-accent', '--color-destructive', '--color-focus', '--color-success', '--color-warning', '--color-danger', '--color-info']);
+    swatches(document.getElementById('sw-series'), [1, 2, 3, 4, 5, 6, 7, 8].map((i) => `--series-${i}`));
+    swatches(document.getElementById('sw-seq'), [0, 1, 2, 3, 4, 5, 6].map((i) => `--seq-${i}`));
+
+    // 3) Interactive component demos.
+    document.getElementById('demo-busy').addEventListener('click', (e) => {
+      const b = e.currentTarget;
+      b.setAttribute('aria-busy', 'true'); b.disabled = true; b.lastChild.textContent = 'Processing…';
+      setTimeout(() => { b.removeAttribute('aria-busy'); b.disabled = false; b.lastChild.textContent = 'Process document'; }, 1800);
+    });
+    initDropzone(document.getElementById('demo-dropzone'), (files) => {
+      document.getElementById('demo-dropzone-file').textContent = `${files[0].name} (${num(files[0].size / 1024, 1)} KB)`;
+    });
+    document.querySelectorAll('[data-toast]').forEach((b) => b.addEventListener('click', () =>
+      toast(b.dataset.message, { kind: b.dataset.toast, title: b.dataset.title || '' })));
+    const tree = renderJsonTree(document.getElementById('demo-json'), {
+      resourceType: 'Observation', status: 'final',
+      code: { coding: [{ system: 'http://loinc.org', code: '4544-3', display: 'Hematocrit' }] },
+      valueQuantity: { value: 37.9, unit: '%', system: 'http://unitsofmeasure.org', code: '%' },
+      extension: [{ url: 'claim-provenance', extension: [{ url: 'verdict', valueCode: 'SUPPORTED' }, { url: 'stageReached', valueString: 'B' }, { url: 'bbox', valueString: '[72.0, 301.5, 410.2, 313.0]' }, { url: 'page', valueInteger: 1 }] }],
+    }, { expandDepth: 2, label: 'Example FHIR Observation' });
+    const jsonCount = document.getElementById('demo-json-count');
+    document.getElementById('demo-json-q').addEventListener('input', core.debounce((e) => {
+      const c = tree.search(e.target.value);
+      jsonCount.textContent = e.target.value ? `${c} match${c === 1 ? '' : 'es'}` : '';
+    }, 150));
+    document.getElementById('demo-json-expand').addEventListener('click', tree.expandAll);
+    document.getElementById('demo-json-collapse').addEventListener('click', tree.collapseAll);
+    renderServingBanner(document.getElementById('demo-serving'));
+    renderEmpty(document.getElementById('demo-empty'), { icon: 'filter', title: 'No claims match these filters', body: 'Clear a filter or widen the confidence range.', actions: '<button class="btn btn--secondary btn--sm" type="button">Clear filters</button>' });
+    renderError(document.getElementById('demo-error'), new core.ApiError('Cannot reach the API server.', { kind: 'network' }), () => toast('Retry clicked'));
+
+    // 4) Charts, fed by /api/results (never hard-coded metrics).
+    const host = document.getElementById('chart-demos');
+    const made = [];
+    async function loadCharts() {
+      made.splice(0).forEach((c) => c.destroy());
+      host.querySelectorAll('[data-chart]').forEach((el) => { el.innerHTML = '<span class="skeleton skeleton--block"></span>'; });
+      let r;
+      try { r = await api('/api/results'); } catch (err) {
+        host.querySelectorAll('[data-chart]').forEach((el) => renderError(el, err, loadCharts, { title: 'Chart data unavailable' }));
+        return;
+      }
+      const $ = (id) => document.getElementById(id);
+      const board = r.leaderboard;
+      const hl = board.find((d) => d.id === 'V8_V1')?.name;
+      made.push(charts.barChart($('c-bar'), {
+        data: board, x: 'name', y: 'accuracy', format: 'pct', domain: [0, 1], highlight: hl,
+        labels: board.filter((d) => ['V6', 'V8_V1', 'V9'].includes(d.id)).map((d) => d.name),
+        xLabel: 'Model', yLabel: 'Accuracy', ariaLabel: 'Accuracy on the V3 OOD split by model',
+      }));
+      made.push(charts.barChart($('c-log'), {
+        data: board.filter((d) => d.runtime_seconds > 0), x: 'name', y: 'runtime_seconds', scale: 'log', format: 'sec',
+        tickFormat: (v) => (v >= 1 ? `${num(v)} s` : `${v} s`), labels: 'all', yLabel: 'Runtime for 1,826 claims (log scale)',
+        ariaLabel: 'Runtime by model, log scale',
+      }));
+      const pf = r.per_field;
+      made.push(charts.groupedBarChart($('c-grouped'), {
+        data: pf.fields.map((f) => ({ field: f, V6: pf.models.V6?.[f]?.accuracy, V8_V1: pf.models.V8_V1?.[f]?.accuracy, V9: pf.models.V9?.[f]?.accuracy })),
+        x: 'field', format: 'pct', domain: [0, 1], yLabel: 'Accuracy',
+        series: [{ key: 'V6', label: 'ModernBERT only' }, { key: 'V8_V1', label: 'Cascade (V1 prompt)' }, { key: 'V9', label: 'Qwen-7B only' }],
+        ariaLabel: 'Per-field accuracy for three verifiers',
+      }));
+      const rc = r.risk_coverage, op = rc.operating_point;
+      made.push(charts.lineChart($('c-line'), {
+        x: 'actual_coverage', format: 'dec3', xFormat: 'pct0', xLabel: 'Coverage', yLabel: 'Risk',
+        series: [{ label: 'Stage B, calibrated confidence', data: rc.stage_b, y: 'risk' }, { label: 'Full cascade, joint confidence', data: rc.cascade, y: 'risk' }],
+        annotations: [{ type: 'point', x: op.coverage, y: op.dual_gate.risk, label: `Dual-gate operating point (${pct(op.coverage)})` }],
+        ariaLabel: 'Risk versus coverage',
+      }));
+      const ref = r.stage_b_reference;
+      made.push(charts.lineChart($('c-loss'), {
+        data: ref.history, x: 'epoch', format: 'dec3', xLabel: 'Epoch', yLabel: 'Loss',
+        series: [{ key: 'train_loss', label: 'Train loss' }, { key: 'val_loss', label: 'Validation loss' }],
+        annotations: [{ type: 'x', x: ref.best_epoch, label: 'Best epoch' }], ariaLabel: 'Stage B training and validation loss by epoch',
+      }));
+      made.push(charts.lineChart($('c-f1'), {
+        data: ref.history, x: 'epoch', format: 'dec3', xLabel: 'Epoch', yLabel: 'Macro-F1', yDomain: [0.5, 1], endLabels: true,
+        series: [{ key: 'val_macro_f1', label: 'Validation macro-F1' }], ariaLabel: 'Stage B validation macro-F1 by epoch',
+      }));
+      const cm = r.confusion_matrices;
+      made.push(charts.heatGrid($('c-heat'), {
+        matrix: cm.matrices.V8_V1, rows: cm.labels.map(core.verdictLabel), cols: cm.labels.map(core.verdictLabel),
+        ariaLabel: 'Confusion matrix, V8 cascade with V1 prompt',
+      }));
+      const byField = r.escalation.by_field;
+      made.push(charts.stackedBar($('c-stack'), {
+        data: Object.entries(byField).map(([f, v]) => ({ label: f, settled: v.n - v.escalated, escalated: v.escalated })),
+        mode: 'absolute', series: [{ key: 'settled', label: 'Settled at Stage B' }, { key: 'escalated', label: 'Escalated to Stage C' }],
+        ariaLabel: 'Claims settled and escalated by field',
+      }));
+      const SEV = ['LOW', 'MEDIUM', 'HIGH'];
+      const rows = r.robustness.rows.filter((x) => x.track === 'visual');
+      const degr = [...new Set(rows.map((x) => x.degradation))];
+      made.push(charts.smallMultiples($('c-small'), {
+        chart: charts.lineChart, minWidth: 240, height: 180, x: 'sev', format: 'dec2', yDomain: [0, 1],
+        xFormat: (v) => SEV[v - 1] ?? '', ariaLabel: 'Extraction F1 by severity',
+        series: [{ key: 'lab', label: 'Lab reports' }, { key: 'medication', label: 'Medication sheets' }],
+        panels: degr.map((d) => ({
+          title: d.replace(/_/g, ' '),
+          data: SEV.map((s, i) => ({ sev: i + 1, ...Object.fromEntries(rows.filter((x) => x.degradation === d && x.severity === s).map((x) => [x.dataset, x.extraction_f1])) })),
+        })),
+      }));
+      made.push(charts.sparkline($('c-spark'), { data: ref.history.map((h) => h.val_macro_f1), format: 'dec3', ariaLabel: 'Validation macro-F1 by epoch' }));
+      $('c-spark-value').textContent = num(ref.validation?.macro_f1, 3);
+      charts.legend($('c-legend'), [
+        { label: 'ModernBERT only', color: 'var(--series-1)' },
+        { label: 'Cascade', color: 'var(--series-2)', shape: 'line', dash: '6 4', marker: 'square' },
+        { label: 'Qwen-7B only', color: 'var(--series-3)', value: num(r.headline.qwen_errors) },
+      ]);
+      $('c-table').replaceChildren();
+      charts.toggleTable($('c-table'), [
+        { key: 'name', label: 'Model' }, { key: 'errors', label: 'Errors', numeric: true, format: (v) => num(v) },
+        { key: 'runtime_seconds', label: 'Runtime', numeric: true, format: (v) => seconds(v) },
+      ], board);
+    }
+    loadCharts();
+  </script>
+</head>
+<body data-page="styleguide">
+  <header data-shell></header>
+
+  <main id="main" tabindex="-1">
+    <div class="page-header">
+      <div class="container container--wide page-header__inner">
+        <div class="page-header__text">
+          <p class="eyebrow">Design system</p>
+          <h1>Style guide</h1>
+          <p class="page-header__lede">Living gallery of the shared components in <code>/assets/css/app.css</code>, <code>/assets/js/core.js</code> and <code>/assets/js/charts.js</code>. Copy markup from the "Markup" panels; switch the theme in the header to check dark mode.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container--wide section--tight">
+      <div class="with-sidebar">
+        <nav class="with-sidebar__aside with-sidebar__aside--sticky sg-toc" aria-label="Style guide sections" style="--sidebar:13rem">
+          <ol>
+            <li><a href="#skeleton">Page skeleton</a></li>
+            <li><a href="#tokens">Tokens</a></li>
+            <li><a href="#type">Typography</a></li>
+            <li><a href="#layout">Layout</a></li>
+            <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#cards">Cards and stats</a></li>
+            <li><a href="#badges">Badges and chips</a></li>
+            <li><a href="#alerts">Alerts</a></li>
+            <li><a href="#tabs">Tabs and accordion</a></li>
+            <li><a href="#dialogs">Dialog and drawer</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#json">JSON and code</a></li>
+            <li><a href="#progress">Progress</a></li>
+            <li><a href="#states">States</a></li>
+            <li><a href="#feedback">Toasts and tooltips</a></li>
+            <li><a href="#charts">Charts</a></li>
+          </ol>
+        </nav>
+
+        <div class="with-sidebar__main stack stack--xl">
+
+          <section class="sg-section" id="skeleton" aria-labelledby="skeleton-h">
+            <h2 id="skeleton-h">Page skeleton</h2>
+            <p class="sg-note">Every page uses this shell. <code>mountShell()</code> fills the header and footer placeholders, adds the skip link, marks the nav item matching <code>body[data-page]</code> (home, workbench, playground, explorer, results, model, docs), and wires theme toggle, tabs, reveal, copy buttons and dialog triggers.</p>
+            <div class="code-block">
+              <button class="btn btn--ghost btn--sm code-block__copy" type="button" data-copy-target="#skeleton-code"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy</button>
+<pre><code id="skeleton-code">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Workbench · Clindoc2FHIR&lt;/title&gt;
+  &lt;meta name="description" content="One sentence about this page."&gt;
+  &lt;meta name="color-scheme" content="light dark"&gt;
+  &lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+  &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+  &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"&gt;
+  &lt;link rel="stylesheet" href="/assets/css/app.css"&gt;
+  &lt;script&gt;try{var t=localStorage.getItem('clindoc-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}&lt;/script&gt;
+  &lt;script type="module"&gt;
+    import { mountShell, api, renderError } from '/assets/js/core.js';
+    import { barChart } from '/assets/js/charts.js';
+    mountShell();
+    // page code: skeletons first, then api(...), renderError(el, err, retry) on failure
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body data-page="workbench"&gt;
+  &lt;header data-shell&gt;&lt;/header&gt;
+  &lt;main id="main" tabindex="-1"&gt;
+    &lt;div class="page-header"&gt;
+      &lt;div class="container container--wide page-header__inner"&gt;
+        &lt;div class="page-header__text"&gt;
+          &lt;p class="eyebrow"&gt;Pipeline&lt;/p&gt;
+          &lt;h1&gt;Workbench&lt;/h1&gt;
+          &lt;p class="page-header__lede"&gt;What this page lets you do.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="container container--wide section--tight"&gt; … &lt;/div&gt;
+  &lt;/main&gt;
+  &lt;footer data-shell&gt;&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+          </section>
+
+          <section class="sg-section" id="tokens" aria-labelledby="tokens-h">
+            <h2 id="tokens-h">Tokens</h2>
+            <p class="sg-note">Use roles, never raw hex. Dark mode has its own selected steps. Status colours are for status only; series colours are for chart identity only. <code>--color-secondary</code> is decorative (below 3:1 on light surfaces).</p>
+            <h3>Surfaces and text</h3><div class="sg-swatches" id="sw-surface"></div>
+            <h3>Brand and status</h3><div class="sg-swatches" id="sw-brand"></div>
+            <h3>Chart series (fixed order; max 3 where every pair must be told apart)</h3><div class="sg-swatches" id="sw-series"></div>
+            <h3>Sequential ramp (heat grid; flips in dark mode)</h3><div class="sg-swatches" id="sw-seq"></div>
+          </section>
+
+          <section class="sg-section" id="type" aria-labelledby="type-h">
+            <h2 id="type-h">Typography</h2>
+            <div class="sg-demo" data-markup>
+              <p class="eyebrow">Eyebrow label</p>
+              <h1>Heading 1 in Lexend</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <p class="lede">Lede paragraph for page introductions, set in Source Sans 3 at a larger size.</p>
+              <p>Body copy at 17px with a 1.55 line height. Inline <code>lab.value</code> code, a <a href="#type">link</a>, <kbd>Esc</kbd> and a <mark>search highlight</mark>.</p>
+              <p class="text-sm muted">Muted small text for help and metadata.</p>
+              <p class="tabular-nums">Tabular numbers: 1,826 · 0.9748 · 381</p>
+            </div>
+          </section>
+
+          <section class="sg-section" id="layout" aria-labelledby="layout-h">
+            <h2 id="layout-h">Layout primitives</h2>
+            <p class="sg-note"><code>.container</code> (16px gutter on phones), <code>.stack</code> (vertical gap, <code>--gap</code>), <code>.cluster</code> (wrapping row), <code>.grid</code> (auto-fit, <code>--min</code> column floor), <code>.split</code> (two columns from 768px, <code>--split</code> template), <code>.with-sidebar</code> (aside wraps above content when narrow), <code>.section</code> / <code>.section--alt</code>.</p>
+            <div class="sg-demo" data-markup>
+              <div class="grid" style="--min:10rem">
+                <div class="card card--sunken">Grid item</div>
+                <div class="card card--sunken">Grid item</div>
+                <div class="card card--sunken">Grid item</div>
+              </div>
+              <div class="split" style="--split:2fr 1fr">
+                <div class="card card--sunken">Split main (2fr)</div>
+                <div class="card card--sunken">Split side (1fr)</div>
+              </div>
+              <div class="cluster">
+                <span class="badge">cluster</span><span class="badge">wraps</span><span class="badge">items</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="buttons" aria-labelledby="buttons-h">
+            <h2 id="buttons-h">Buttons</h2>
+            <p class="sg-note">44px minimum target. <code>.btn--cta</code> (accent) is for the single main action of a page; <code>.btn--primary</code> for primary actions in tools. Icon-only buttons need <code>aria-label</code>. While a request runs set <code>aria-busy="true"</code> and <code>disabled</code>.</p>
+            <div class="sg-demo" data-markup>
+              <div class="cluster">
+                <button class="btn btn--cta" type="button">Open the workbench</button>
+                <button class="btn btn--primary" type="button"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#play"/></svg>Verify claim</button>
+                <button class="btn btn--secondary" type="button">Secondary</button>
+                <button class="btn" type="button">Default</button>
+                <button class="btn btn--ghost" type="button">Ghost</button>
+                <button class="btn btn--danger" type="button"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#trash"/></svg>Remove file</button>
+                <button class="btn" type="button" disabled>Disabled</button>
+              </div>
+              <div class="cluster">
+                <button class="btn btn--primary btn--sm" type="button">Small</button>
+                <button class="btn btn--primary btn--lg" type="button">Large</button>
+                <button class="btn btn--ghost btn--icon" type="button" aria-label="Zoom in"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#zoom-in"/></svg></button>
+                <button class="btn btn--ghost btn--icon" type="button" aria-label="Download FHIR bundle"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#download"/></svg></button>
+                <button class="btn btn--primary" type="button" id="demo-busy"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#play"/></svg><span>Process document</span></button>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="forms" aria-labelledby="forms-h">
+            <h2 id="forms-h">Form controls</h2>
+            <p class="sg-note">Every control has a visible <code>&lt;label&gt;</code>; help and errors are linked with <code>aria-describedby</code>; invalid fields get <code>aria-invalid="true"</code>. Chips and segmented controls are native checkboxes/radios, so arrow keys and Space work.</p>
+            <div class="sg-demo" data-markup>
+              <div class="grid" style="--min:14rem">
+                <div class="field">
+                  <label class="field__label" for="f-entity">Entity</label>
+                  <input class="input" id="f-entity" name="entity" value="Hematocrit" aria-describedby="f-entity-help">
+                  <p class="field__help" id="f-entity-help">Analyte or drug name the claim refers to.</p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-value">Value</label>
+                  <input class="input" id="f-value" name="value" value="" aria-invalid="true" aria-describedby="f-value-err">
+                  <p class="field__error" id="f-value-err"><svg class="icon icon--sm" aria-hidden="true"><use href="/assets/icons.svg#alert-triangle"/></svg>Enter a value to verify.</p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-field">Field type</label>
+                  <select class="select" id="f-field" name="field_type">
+                    <option>lab.value</option><option>lab.flag</option><option>med.name</option><option>med.dose</option><option>med.route</option><option>med.frequency</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-search">Search claims</label>
+                  <div class="input-group"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#search"/></svg><input class="input" id="f-search" type="search" name="q"></div>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field__label" for="f-evidence">Evidence text <span class="field__optional">(optional)</span></label>
+                <textarea class="textarea textarea--mono" id="f-evidence" name="evidence_text">Hematocrit 37.9 % 36.0 - 48.0</textarea>
+              </div>
+              <fieldset class="fieldset">
+                <legend>Verdicts</legend>
+                <div class="cluster cluster--sm">
+                  <label class="chip-check"><input type="checkbox" name="label" value="SUPPORTED" checked><span>Supported</span></label>
+                  <label class="chip-check"><input type="checkbox" name="label" value="DISCREPANCY" checked><span>Discrepancy</span></label>
+                  <label class="chip-check"><input type="checkbox" name="label" value="INSUFFICIENT_EVIDENCE"><span>Insufficient evidence</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="segmented">
+                <legend class="visually-hidden">Document type</legend>
+                <label><input type="radio" name="doc_type" value="auto" checked><span>Auto</span></label>
+                <label><input type="radio" name="doc_type" value="lab"><span>Lab</span></label>
+                <label><input type="radio" name="doc_type" value="med"><span>Medication</span></label>
+                <label><input type="radio" name="doc_type" value="narrative"><span>Narrative</span></label>
+              </fieldset>
+              <div class="dropzone" id="demo-dropzone">
+                <svg class="icon dropzone__icon" aria-hidden="true"><use href="/assets/icons.svg#upload"/></svg>
+                <p class="dropzone__title">Drop a PDF or image here</p>
+                <label class="btn btn--secondary">Choose file<input class="visually-hidden" type="file" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff"></label>
+                <p class="field__help">PDF, PNG, JPG or TIFF, up to 15 MB.</p>
+                <p class="dropzone__file" id="demo-dropzone-file" aria-live="polite"></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="cards" aria-labelledby="cards-h">
+            <h2 id="cards-h">Cards and stat tiles</h2>
+            <p class="sg-note">Stat tile contract: sentence-case label without a colon, one value (proportional figures), optional delta with icon, optional note and sparkline. Values must come from the API.</p>
+            <div class="sg-demo" data-markup>
+              <div class="grid" style="--min:15rem">
+                <div class="card">
+                  <div class="card__header"><h3 class="card__title">Card title</h3><span class="badge">Tag</span></div>
+                  <p class="card__subtitle">Subtitle in muted text.</p>
+                  <p>Body content.</p>
+                  <div class="card__footer"><button class="btn btn--secondary btn--sm" type="button">Action</button></div>
+                </div>
+                <a class="card card--link" href="#cards">
+                  <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#search"/></svg></span>
+                  <h3 class="card__title">Link card</h3>
+                  <p class="text-2 text-sm">The whole card is one link.</p>
+                  <span class="card__cta">Open<svg class="icon icon--sm" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></span>
+                </a>
+                <div class="stat">
+                  <p class="stat__label">Claims verified</p>
+                  <p class="stat__value">42</p>
+                  <p class="stat__delta is-good"><svg class="icon icon--sm" aria-hidden="true"><use href="/assets/icons.svg#arrow-down"/></svg>3 fewer discrepancies than last run</p>
+                  <p class="stat__note">Example values only.</p>
+                </div>
+                <div class="stat">
+                  <p class="stat__label">Best validation macro-F1</p>
+                  <p class="stat__value" id="c-spark-value">&#8212;</p>
+                  <div class="stat__trend" id="c-spark"></div>
+                  <p class="stat__note">Sparkline from <code>stage_b_reference.history</code>.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="badges" aria-labelledby="badges-h">
+            <h2 id="badges-h">Badges and chips</h2>
+            <p class="sg-note">Render with <code>verdictBadge(label)</code>, <code>stageBadge(stage)</code>, <code>codeChip(system, code)</code>, <code>splitChip(split)</code> and <code>confidenceMeter(value, { threshold })</code> from core.js. Verdicts always carry icon and text.</p>
+            <div class="sg-demo" data-markup>
+              <div class="cluster">
+                <span class="badge badge--supported"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Supported</span>
+                <span class="badge badge--discrepancy"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x-octagon"/></svg>Discrepancy</span>
+                <span class="badge badge--insufficient"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#help-circle"/></svg>Insufficient evidence</span>
+                <span class="badge badge--supported badge--lg"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Supported</span>
+              </div>
+              <div class="cluster">
+                <span class="badge badge--stage badge--stage-a"><span class="badge__key" aria-hidden="true"><span>A</span></span><span class="visually-hidden">Stage A: </span>Deterministic</span>
+                <span class="badge badge--stage badge--stage-b"><span class="badge__key" aria-hidden="true"><span>B</span></span><span class="visually-hidden">Stage B: </span>ModernBERT</span>
+                <span class="badge badge--stage badge--stage-c"><span class="badge__key" aria-hidden="true"><span>C</span></span><span class="visually-hidden">Stage C: </span>LLM judge</span>
+                <span class="badge">Neutral</span>
+              </div>
+              <div class="cluster">
+                <span class="chip"><span class="chip__sys">LOINC</span>4544-3</span>
+                <span class="chip"><span class="chip__sys">RxNorm</span>17767</span>
+                <span class="chip"><span class="chip__sys">UCUM</span>%</span>
+                <span class="chip chip--missing"><span class="chip__sys">LOINC</span>Uncoded</span>
+                <span class="chip chip--split chip--split-train">Train</span>
+                <span class="chip chip--split chip--split-ood">OOD holdout</span>
+              </div>
+              <div class="cluster">
+                <span class="meter-row"><span class="meter" role="meter" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.93" aria-label="Confidence" aria-valuetext="0.93, threshold 0.60"><span class="meter__fill" style="--value:0.93"></span><span class="meter__mark" style="--at:0.6" aria-hidden="true"></span></span><span class="meter__value">0.93</span></span>
+                <span class="meter-row"><span class="meter is-low" role="meter" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.41" aria-label="Confidence" aria-valuetext="0.41, threshold 0.60"><span class="meter__fill" style="--value:0.41"></span><span class="meter__mark" style="--at:0.6" aria-hidden="true"></span></span><span class="meter__value">0.41</span></span>
+                <a class="status-pill is-live" href="/model.html"><span class="status-pill__dot" aria-hidden="true"></span><span class="status-pill__text">Stage B: ModernBERT · Stage C: vLLM</span></a>
+                <a class="status-pill is-fallback" href="/model.html"><span class="status-pill__dot" aria-hidden="true"></span><span class="status-pill__text">Stage B: heuristic fallback · Stage C: mock judge</span></a>
+                <a class="status-pill is-offline" href="/model.html"><span class="status-pill__dot" aria-hidden="true"></span><span class="status-pill__text">API offline</span></a>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="alerts" aria-labelledby="alerts-h">
+            <h2 id="alerts-h">Alerts and serving banner</h2>
+            <p class="sg-note">The live serving banner below comes from <code>renderServingBanner(el)</code>; use it on any page that shows Stage B or Stage C output.</p>
+            <div id="demo-serving"></div>
+            <div class="sg-demo sg-demo--plain" data-markup>
+              <div class="alert alert--info"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#info"/></svg><div class="alert__body"><p class="alert__title">Information</p><p>Frozen numbers come from the V8 cascade run on the OOD split.</p></div></div>
+              <div class="alert alert--success"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg><div class="alert__body"><p class="alert__title">Bundle valid</p><p>The FHIR R4B bundle passed validation.</p></div></div>
+              <div class="alert alert--warning"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#alert-triangle"/></svg><div class="alert__body"><p class="alert__title">Stage C is the mock judge</p><p>Escalated claims receive a placeholder verdict.</p></div></div>
+              <div class="alert alert--danger" role="alert"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#alert-triangle"/></svg><div class="alert__body"><p class="alert__title">Unsupported file type</p><p>Upload a PDF, PNG, JPG or TIFF file.</p><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button">Choose another file</button></div></div><button class="btn btn--ghost btn--icon btn--sm alert__dismiss" type="button" aria-label="Dismiss"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg></button></div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="tabs" aria-labelledby="tabs-h">
+            <h2 id="tabs-h">Tabs and accordion</h2>
+            <p class="sg-note">Tabs: <code>initTabs()</code> runs inside <code>mountShell()</code>. Add <code>data-tabs-param="tab"</code> to sync the selected tab with the URL. Listen for the bubbling <code>tabchange</code> event. Accordion is native <code>&lt;details&gt;</code>.</p>
+            <div class="sg-demo" data-markup>
+              <div data-tabs>
+                <div class="tabs__list" role="tablist" aria-label="Run output">
+                  <button class="tabs__tab" role="tab" id="t-claims" aria-controls="p-claims" aria-selected="true" type="button">Claims <span class="tabs__count">42</span></button>
+                  <button class="tabs__tab" role="tab" id="t-fhir" aria-controls="p-fhir" aria-selected="false" type="button">FHIR bundle</button>
+                  <button class="tabs__tab" role="tab" id="t-audit" aria-controls="p-audit" aria-selected="false" type="button">Audit report</button>
+                </div>
+                <div class="tabs__panel" role="tabpanel" id="p-claims" aria-labelledby="t-claims" tabindex="0"><p>Claims table goes here.</p></div>
+                <div class="tabs__panel" role="tabpanel" id="p-fhir" aria-labelledby="t-fhir" tabindex="0" hidden><p>FHIR JSON tree goes here.</p></div>
+                <div class="tabs__panel" role="tabpanel" id="p-audit" aria-labelledby="t-audit" tabindex="0" hidden><p>Audit JSON goes here.</p></div>
+              </div>
+              <div>
+                <details class="accordion" open><summary>Why was this claim escalated?</summary><div class="accordion__body"><p>Stage A said Discrepancy while Stage B said Supported.</p></div></details>
+                <details class="accordion"><summary>Stage C rationale</summary><div class="accordion__body"><p>The report lists 37.9 %, not 75.8 %.</p></div></details>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="dialogs" aria-labelledby="dialogs-h">
+            <h2 id="dialogs-h">Dialog and drawer</h2>
+            <p class="sg-note">Native <code>&lt;dialog&gt;</code>: the page behind is inert (focus stays inside), Esc closes, focus returns to the opener. Open with <code>data-dialog-open="#id"</code> or <code>openDialog(el)</code>; close with <code>data-dialog-close</code>, backdrop click or <code>closeDialog(el)</code>.</p>
+            <div class="sg-demo" data-markup>
+              <div class="cluster">
+                <button class="btn btn--secondary" type="button" data-dialog-open="#demo-dialog">Open dialog</button>
+                <button class="btn btn--secondary" type="button" data-dialog-open="#demo-drawer"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#eye"/></svg>Open claim drawer</button>
+              </div>
+              <dialog class="dialog" id="demo-dialog" aria-labelledby="demo-dialog-title">
+                <div class="dialog__header"><h2 class="dialog__title" id="demo-dialog-title">Discard this run?</h2><button class="btn btn--ghost btn--icon" type="button" data-dialog-close aria-label="Close"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg></button></div>
+                <div class="dialog__body"><p>The processed claims and generated bundle will be removed from this page.</p></div>
+                <div class="dialog__footer"><button class="btn btn--ghost" type="button" data-dialog-close>Cancel</button><button class="btn btn--danger" type="button" data-dialog-close>Discard</button></div>
+              </dialog>
+              <dialog class="dialog drawer" id="demo-drawer" aria-labelledby="demo-drawer-title">
+                <div class="dialog__header"><h2 class="dialog__title" id="demo-drawer-title">Claim detail</h2><button class="btn btn--ghost btn--icon" type="button" data-dialog-close aria-label="Close claim detail"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg></button></div>
+                <div class="dialog__body"><p><strong>Hematocrit: 75.8 %</strong></p><p class="muted">Drawer body scrolls independently.</p></div>
+              </dialog>
+            </div>
+          </section>
+
+          <section class="sg-section" id="tables" aria-labelledby="tables-h">
+            <h2 id="tables-h">Tables</h2>
+            <p class="sg-note">Wrap in <code>.table-wrap</code> (horizontal scroll, sticky header; set <code>--table-max-h</code> for vertical scroll). Numeric columns use <code>.num</code>. Sortable headers use <code>aria-sort</code> and a <code>.th-sort</code> button. Rows below are illustrative.</p>
+            <div class="sg-demo sg-demo--plain" data-markup>
+              <div class="table-wrap" style="--table-max-h:20rem" tabindex="0" role="region" aria-label="Example claims table">
+                <table class="table">
+                  <thead><tr>
+                    <th scope="col" aria-sort="ascending"><button class="th-sort" type="button">Claim<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-down"/></svg></button></th>
+                    <th scope="col">Code</th><th scope="col">Verdict</th><th scope="col">Stage</th>
+                    <th scope="col" class="num" aria-sort="none"><button class="th-sort" type="button">Confidence<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-down"/></svg></button></th>
+                  </tr></thead>
+                  <tbody>
+                    <tr><td>Hematocrit: 37.9 %</td><td><span class="chip"><span class="chip__sys">LOINC</span>4544-3</span></td><td><span class="badge badge--supported"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Supported</span></td><td><span class="badge badge--stage badge--stage-b"><span class="badge__key" aria-hidden="true"><span>B</span></span><span class="visually-hidden">Stage B: </span>ModernBERT</span></td><td class="num">0.99</td></tr>
+                    <tr class="is-selected"><td>Amlodipine dose: 10 mg</td><td><span class="chip"><span class="chip__sys">RxNorm</span>17767</span></td><td><span class="badge badge--discrepancy"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x-octagon"/></svg>Discrepancy</span></td><td><span class="badge badge--stage badge--stage-c"><span class="badge__key" aria-hidden="true"><span>C</span></span><span class="visually-hidden">Stage C: </span>LLM judge</span></td><td class="num">1.00</td></tr>
+                    <tr><td>Albumin flag: LOW</td><td><span class="chip chip--missing"><span class="chip__sys">LOINC</span>Uncoded</span></td><td><span class="badge badge--insufficient"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#help-circle"/></svg>Insufficient evidence</span></td><td><span class="badge badge--stage badge--stage-a"><span class="badge__key" aria-hidden="true"><span>A</span></span><span class="visually-hidden">Stage A: </span>Deterministic</span></td><td class="num">0.52</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="json" aria-labelledby="json-h">
+            <h2 id="json-h">JSON tree and code block</h2>
+            <p class="sg-note"><code>renderJsonTree(el, data, { expandDepth, label })</code> returns <code>{ search(q), expandAll(), collapseAll() }</code>. Code blocks copy via <code>data-copy-target</code>.</p>
+            <div class="sg-demo">
+              <div class="cluster">
+                <div class="field" style="flex:1 1 14rem"><label class="field__label" for="demo-json-q">Search JSON</label><input class="input" id="demo-json-q" type="search" aria-describedby="demo-json-count"></div>
+                <p class="text-sm muted" id="demo-json-count" aria-live="polite"></p>
+                <button class="btn btn--ghost btn--sm" type="button" id="demo-json-expand">Expand all</button>
+                <button class="btn btn--ghost btn--sm" type="button" id="demo-json-collapse">Collapse all</button>
+              </div>
+              <div id="demo-json"></div>
+            </div>
+            <div class="sg-demo sg-demo--plain" data-markup>
+              <div class="code-block">
+                <span class="code-block__label">curl</span>
+                <button class="btn btn--ghost btn--sm code-block__copy" type="button" data-copy-target="#demo-code"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy</button>
+                <pre><code id="demo-code">curl -F sample_id=MED_0004 -F doc_type=auto http://localhost:8000/api/process</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="progress" aria-labelledby="progress-h">
+            <h2 id="progress-h">Progress and stepper</h2>
+            <div class="sg-demo" data-markup>
+              <div>
+                <div class="progress-label"><span id="pg-label">Epoch 3 of 5</span><span class="tabular-nums">60%</span></div>
+                <progress class="progress" value="0.6" max="1" aria-labelledby="pg-label"></progress>
+              </div>
+              <div>
+                <div class="progress-label"><span id="pg-label-2">Processing document</span></div>
+                <progress class="progress" aria-labelledby="pg-label-2"></progress>
+              </div>
+              <ol class="stepper" aria-label="Pipeline progress">
+                <li class="stepper__step is-done"><span class="stepper__marker"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><div><p class="stepper__label">Ingest</p><p class="stepper__detail">1 page</p></div></li>
+                <li class="stepper__step is-done"><span class="stepper__marker"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><div><p class="stepper__label">Extract</p><p class="stepper__detail">42 claims</p></div></li>
+                <li class="stepper__step is-current" aria-current="step"><span class="stepper__marker"></span><div><p class="stepper__label">Verify</p><p class="stepper__detail">Stage B</p></div></li>
+                <li class="stepper__step is-pending"><span class="stepper__marker"></span><div><p class="stepper__label">FHIR + audit</p></div></li>
+              </ol>
+            </div>
+          </section>
+
+          <section class="sg-section" id="states" aria-labelledby="states-h">
+            <h2 id="states-h">Loading, empty and error states</h2>
+            <p class="sg-note">Show skeletons first, then content, or <code>renderError(el, err, retry)</code> / <code>renderEmpty(el, opts)</code>. On refetch keep the previous render and add <code>.is-loading-frame</code> instead of flashing skeletons.</p>
+            <div class="sg-demo" data-markup>
+              <div class="stack stack--sm" aria-hidden="true">
+                <span class="skeleton skeleton--title"></span>
+                <span class="skeleton skeleton--text"></span>
+                <span class="skeleton skeleton--text" style="width:80%"></span>
+                <span class="skeleton skeleton--block" style="--h:96px"></span>
+              </div>
+            </div>
+            <div class="sg-demo"><div id="demo-empty"></div></div>
+            <div id="demo-error"></div>
+          </section>
+
+          <section class="sg-section" id="feedback" aria-labelledby="feedback-h">
+            <h2 id="feedback-h">Toasts and tooltips</h2>
+            <p class="sg-note"><code>toast(message, { kind, title, timeout })</code> announces politely (danger uses role=alert). Tooltips show on hover and focus and hide on Esc; never put essential content only in a tooltip.</p>
+            <div class="sg-demo" data-markup>
+              <div class="cluster">
+                <button class="btn" type="button" data-toast="success" data-title="Run complete" data-message="42 claims verified in 1.8 s.">Success toast</button>
+                <button class="btn" type="button" data-toast="warning" data-message="Stage C is the mock judge.">Warning toast</button>
+                <button class="btn" type="button" data-toast="danger" data-title="Upload failed" data-message="File is larger than 15 MB.">Danger toast</button>
+                <span class="tip"><button class="btn btn--ghost btn--icon" type="button" aria-label="What is calibrated confidence?" aria-describedby="tip-cal"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#info"/></svg></button><span class="tip__bubble" role="tooltip" id="tip-cal">Stage B softmax after temperature scaling on the calibration split.</span></span>
+              </div>
+            </div>
+          </section>
+
+          <section class="sg-section" id="charts" aria-labelledby="charts-h">
+            <h2 id="charts-h">Charts</h2>
+            <p class="sg-note">All charts take <code>(container, opts)</code> and return <code>{ update(data), destroy() }</code>; each has a hover and keyboard tooltip (Tab to the chart, then arrow keys) and a "View as table" twin. Data below is live from <code>/api/results</code>.</p>
+            <div class="stack stack--lg" id="chart-demos">
+              <figure class="card chart-card">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">barChart: highlight one, label selectively</h3><p class="chart-card__subtitle">Accuracy on 1,826 OOD claims; production cascade highlighted, others muted.</p></div></div>
+                <div id="c-bar" data-chart></div>
+                <pre class="text-xs muted"><code>barChart(el, { data: leaderboard, x: 'name', y: 'accuracy', format: 'pct', domain: [0, 1], highlight: name, labels: [names] })</code></pre>
+              </figure>
+              <figure class="card chart-card">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">barChart: log scale for runtime</h3><p class="chart-card__subtitle">Seconds to verify the OOD split; spans five orders of magnitude.</p></div></div>
+                <div id="c-log" data-chart></div>
+                <pre class="text-xs muted"><code>barChart(el, { data, x: 'name', y: 'runtime_seconds', scale: 'log', format: 'sec', tickFormat, labels: 'all' })</code></pre>
+              </figure>
+              <figure class="card chart-card">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">groupedBarChart: three verifiers per field</h3><p class="chart-card__subtitle">At most three series so every pair of colours stays distinguishable.</p></div></div>
+                <div id="c-grouped" data-chart></div>
+                <pre class="text-xs muted"><code>groupedBarChart(el, { data, x: 'field', series: [{ key: 'V6', label }, ...], format: 'pct', domain: [0, 1] })</code></pre>
+              </figure>
+              <figure class="card chart-card">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">lineChart: crosshair, per-series data, point annotation</h3><p class="chart-card__subtitle">Risk versus coverage; lower is better.</p></div></div>
+                <div id="c-line" data-chart></div>
+                <pre class="text-xs muted"><code>lineChart(el, { x: 'actual_coverage', series: [{ label, data: points, y: 'risk' }, ...], annotations: [{ type: 'point', x, y, label }] })</code></pre>
+              </figure>
+              <div class="split">
+                <figure class="card chart-card">
+                  <div class="chart-card__header"><div><h3 class="chart-card__title">lineChart: loss (own chart)</h3><p class="chart-card__subtitle">Never share an axis with F1.</p></div></div>
+                  <div id="c-loss" data-chart></div>
+                </figure>
+                <figure class="card chart-card">
+                  <div class="chart-card__header"><div><h3 class="chart-card__title">lineChart: single series, end label</h3><p class="chart-card__subtitle">One series needs no legend.</p></div></div>
+                  <div id="c-f1" data-chart></div>
+                </figure>
+              </div>
+              <div class="split">
+                <figure class="card chart-card">
+                  <div class="chart-card__header"><div><h3 class="chart-card__title">heatGrid: confusion matrix</h3><p class="chart-card__subtitle">Count and row share in every cell; fill = row share.</p></div></div>
+                  <div id="c-heat" data-chart></div>
+                  <pre class="text-xs muted"><code>heatGrid(el, { matrix, rows, cols, rowTitle: 'Ground truth', colTitle: 'Predicted' })</code></pre>
+                </figure>
+                <figure class="card chart-card">
+                  <div class="chart-card__header"><div><h3 class="chart-card__title">stackedBar: absolute, several rows</h3><p class="chart-card__subtitle">Settled vs escalated per field; 2px gaps separate segments.</p></div></div>
+                  <div id="c-stack" data-chart></div>
+                  <pre class="text-xs muted"><code>stackedBar(el, { data, series, mode: 'absolute' | 'percent' })</code></pre>
+                </figure>
+              </div>
+              <figure class="card chart-card">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">smallMultiples: one panel per degradation</h3><p class="chart-card__subtitle">Extraction F1 by severity, shared y-axis 0 to 1, one shared legend.</p></div></div>
+                <div id="c-small" data-chart></div>
+                <pre class="text-xs muted"><code>smallMultiples(el, { chart: lineChart, panels: [{ title, data }], series, yDomain: [0, 1], minWidth: 240 })</code></pre>
+              </figure>
+              <div class="split">
+                <figure class="card chart-card">
+                  <div class="chart-card__header"><div><h3 class="chart-card__title">legend</h3><p class="chart-card__subtitle">Swatches mirror the mark; optional value.</p></div></div>
+                  <div id="c-legend" data-chart></div>
+                </figure>
+                <figure class="card chart-card">
+                  <div class="chart-card__header"><div><h3 class="chart-card__title">toggleTable</h3><p class="chart-card__subtitle">Standalone table twin for any figure.</p></div></div>
+                  <div id="c-table" data-chart></div>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer data-shell></footer>
+</body>
+</html>

@@ -79,3 +79,6 @@ data/m2_results_v3/
 data/m2_verification/frozen_embeddings.pt
 
 phase4_evaluator.zip
+
+# Browser automation scratch output
+.playwright-mcp/

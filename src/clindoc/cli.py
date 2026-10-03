@@ -337,6 +337,19 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         help="Optional glob pattern to filter files (e.g. '*.pdf', '*.json')",
     )
 
+    # clindoc serve [--host 127.0.0.1] [--port 8000] [--checkpoint PATH|none] [--device cpu|cuda|auto]
+    serve_parser = subparsers.add_parser("serve", help="Run the web UI and JSON API (FastAPI + uvicorn)")
+    serve_parser.add_argument("--host", default="127.0.0.1", help="Bind address (default: 127.0.0.1)")
+    serve_parser.add_argument("--port", type=int, default=8000, help="Port (default: 8000)")
+    serve_parser.add_argument(
+        "--checkpoint", default=None,
+        help="Stage B .pt checkpoint, or 'none' for the heuristic (default: env CLINDOC_STAGE_B_CHECKPOINT, "
+             "else the newest data/m2_results_v3/checkpoints/*.pt)",
+    )
+    serve_parser.add_argument("--device", choices=["cpu", "cuda", "auto"], default=None,
+                              help="Stage B device (default: env CLINDOC_DEVICE, else cpu)")
+    serve_parser.add_argument("--reload", action="store_true", help="Reload on code changes (development only)")
+
     args = parser.parse_args(argv)
 
     if not args.subcommand:
@@ -368,6 +381,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             )
             print(f"[OK] Batch processing completed. Successfully processed {len(results)} document(s).")
             print(f"     Artifacts saved to: {args.output_dir}")
+            return 0
+
+        elif args.subcommand == "serve":
+            import os
+            import uvicorn
+
+            # Read by clindoc.web.service when it builds the pipeline (also in --reload children).
+            if args.checkpoint is not None:
+                os.environ["CLINDOC_STAGE_B_CHECKPOINT"] = args.checkpoint
+            if args.device is not None:
+                os.environ["CLINDOC_DEVICE"] = args.device
+            uvicorn.run("clindoc.web.app:app", host=args.host, port=args.port, reload=args.reload)
             return 0
 
         else:

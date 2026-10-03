@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Results · Clindoc2FHIR</title>
+  <meta name="description" content="Frozen benchmark results for the Clindoc2FHIR verification cascade: leaderboard V1 to V9, confusion matrices, risk and coverage, escalation routing, per-field and per-class metrics, dataset, extraction, robustness and FHIR conformance.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="stylesheet" href="/assets/css/results.css">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script type="module" src="/assets/js/results.js"></script>
+</head>
+<body data-page="results">
+  <header data-shell></header>
+
+  <main id="main" tabindex="-1">
+    <div class="page-header">
+      <div class="container container--wide page-header__inner">
+        <div class="page-header__text">
+          <p class="label-mono">Benchmark report, V3 OOD split</p>
+          <h1>Benchmark results</h1>
+          <p class="page-header__lede">Frozen evaluation of the verification cascade and its baselines on the V3 out-of-distribution split (document templates never seen in training), plus dataset, extraction, robustness and FHIR conformance. Every number on this page is read from <code>/api/results</code>; each figure names its source file.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container--wide section--tight">
+      <div class="with-sidebar res-layout">
+        <nav class="with-sidebar__aside with-sidebar__aside--sticky res-toc" aria-label="On this page" style="--sidebar:14rem">
+          <details id="toc" open>
+            <summary>Contents</summary>
+            <ol>
+              <li><a href="#headline">Headline</a></li>
+              <li><a href="#leaderboard">Leaderboard</a></li>
+              <li><a href="#confusion">Confusion matrices</a></li>
+              <li><a href="#selective">Selective prediction</a></li>
+              <li><a href="#routing">Cascade routing</a></li>
+              <li><a href="#per-field">Per-field accuracy</a></li>
+              <li><a href="#per-class">Per-class metrics</a></li>
+              <li><a href="#prompt">Prompt case study</a></li>
+              <li><a href="#dataset">Dataset</a></li>
+              <li><a href="#extraction">Extraction</a></li>
+              <li><a href="#robustness">Robustness</a></li>
+              <li><a href="#interop">Interoperability</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <div class="with-sidebar__main stack stack--xl">
+          <div id="report-error"></div>
+          <p class="visually-hidden" id="report-status" aria-live="polite"></p>
+
+          <section class="res-section" id="headline" aria-labelledby="headline-h">
+            <div class="res-section__head">
+              <h2 id="headline-h">Headline</h2>
+              <p class="res-takeaway" id="headline-takeaway">The production cascade on the out-of-distribution claims, against its two strongest single-stage rivals.</p>
+            </div>
+            <div class="stat-row stat-row--align" id="headline-tiles" style="--min:12rem" aria-busy="true">
+              <div class="stat" aria-hidden="true"><span class="skeleton skeleton--text" style="width:60%"></span><span class="skeleton skeleton--value"></span><span class="skeleton skeleton--text"></span></div>
+              <div class="stat" aria-hidden="true"><span class="skeleton skeleton--text" style="width:60%"></span><span class="skeleton skeleton--value"></span><span class="skeleton skeleton--text"></span></div>
+              <div class="stat" aria-hidden="true"><span class="skeleton skeleton--text" style="width:60%"></span><span class="skeleton skeleton--value"></span><span class="skeleton skeleton--text"></span></div>
+              <div class="stat" aria-hidden="true"><span class="skeleton skeleton--text" style="width:60%"></span><span class="skeleton skeleton--value"></span><span class="skeleton skeleton--text"></span></div>
+            </div>
+            <p class="chart-card__source" id="headline-source"></p>
+          </section>
+
+          <section class="res-section" id="leaderboard" aria-labelledby="leaderboard-h">
+            <div class="res-section__head">
+              <h2 id="leaderboard-h">Model leaderboard</h2>
+              <p class="res-takeaway" id="leaderboard-takeaway">Every verifier, from rule-based matching to a 7B LLM, scored on the same out-of-distribution claims.</p>
+            </div>
+            <figure class="chart-card res-figure">
+              <div class="chart-card__header">
+                <div><h3 class="chart-card__title">V1 to V9 on the V3 OOD split</h3><p class="chart-card__subtitle" id="lb-subtitle">Production cascade highlighted; best first.</p></div>
+                <fieldset class="segmented" id="lb-metric">
+                  <legend class="visually-hidden">Leaderboard metric</legend>
+                  <label><input type="radio" name="lb-metric" value="accuracy" checked><span>Accuracy</span></label>
+                  <label><input type="radio" name="lb-metric" value="macro_f1"><span>Macro-F1</span></label>
+                  <label><input type="radio" name="lb-metric" value="discrepancy_recall"><span>Discrepancy recall</span></label>
+                  <label><input type="radio" name="lb-metric" value="errors"><span>Errors</span></label>
+                  <label><input type="radio" name="lb-metric" value="runtime"><span>Runtime</span></label>
+                </fieldset>
+              </div>
+              <div id="lb-chart"><span class="skeleton skeleton--block" style="--h:320px"></span></div>
+              <div id="lb-table"></div>
+              <figcaption class="chart-card__source" id="leaderboard-source"></figcaption>
+            </figure>
+          </section>
+
+          <section class="res-section" id="confusion" aria-labelledby="confusion-h">
+            <div class="res-section__head">
+              <h2 id="confusion-h">Confusion matrices</h2>
+              <p class="res-takeaway" id="confusion-takeaway">Where each verifier's mistakes land: rows are the ground truth, columns the prediction.</p>
+            </div>
+            <figure class="chart-card res-figure">
+              <div class="chart-card__header">
+                <div><h3 class="chart-card__title" id="cm-title">Confusion matrix</h3><p class="chart-card__subtitle" id="cm-summary">Count and row share in every cell; fill shows the row share.</p></div>
+                <div class="field">
+                  <label class="field__label" for="cm-model">Verifier</label>
+                  <select class="select" id="cm-model"></select>
+                </div>
+              </div>
+              <div id="cm-chart"><span class="skeleton skeleton--block" style="--h:260px"></span></div>
+              <figcaption class="chart-card__source" id="confusion-source"></figcaption>
+            </figure>
+          </section>
+
+          <section class="res-section" id="selective" aria-labelledby="selective-h">
+            <div class="res-section__head">
+              <h2 id="selective-h">Selective prediction</h2>
+              <p class="res-takeaway" id="selective-takeaway">How the error rate among accepted claims changes as more claims are accepted without the LLM.</p>
+            </div>
+            <figure class="chart-card res-figure">
+              <div class="chart-card__header"><div><h3 class="chart-card__title">Risk versus coverage</h3><p class="chart-card__subtitle">Risk is the error rate among the claims accepted at each coverage level; lower is better. Points mark the production operating point.</p></div></div>
+              <div id="rc-chart"><span class="skeleton skeleton--block" style="--h:280px"></span></div>
+              <figcaption class="chart-card__source" id="selective-source"></figcaption>
+            </figure>
+            <div class="stat-row stat-row--align" id="rc-tiles" style="--min:13rem"></div>
+          </section>
+
+          <section class="res-section" id="routing" aria-labelledby="routing-h">
+            <div class="res-section__head">
+              <h2 id="routing-h">How the cascade routes claims</h2>
+              <p class="res-takeaway" id="routing-takeaway">Why claims escalate to the Stage C judge, and which fields escalate most.</p>
+            </div>
+            <div class="grid" style="--min:22rem">
+              <figure class="chart-card res-figure">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">Escalation reasons</h3><p class="chart-card__subtitle">Escalated OOD claims by the rule that sent them to Stage C.</p></div></div>
+                <div id="esc-reasons"><span class="skeleton skeleton--block" style="--h:220px"></span></div>
+              </figure>
+              <figure class="chart-card res-figure">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">Escalation rate by field</h3><p class="chart-card__subtitle">Share of each field's claims settled at Stage B or escalated to Stage C.</p></div></div>
+                <div id="esc-fields"><span class="skeleton skeleton--block" style="--h:220px"></span></div>
+                <div id="esc-fields-table"></div>
+              </figure>
+            </div>
+            <p class="chart-card__source" id="routing-source"></p>
+          </section>
+
+          <section class="res-section" id="per-field" aria-labelledby="per-field-h">
+            <div class="res-section__head">
+              <h2 id="per-field-h">Per-field accuracy</h2>
+              <p class="res-takeaway" id="per-field-takeaway">ModernBERT alone, the cascade and Qwen-7B alone, compared on each Tier-1 field.</p>
+            </div>
+            <figure class="chart-card res-figure">
+              <div class="chart-card__header">
+                <div><h3 class="chart-card__title">Three verifiers per field</h3><p class="chart-card__subtitle" id="pf-subtitle">V3 OOD split.</p></div>
+                <fieldset class="segmented" id="pf-metric">
+                  <legend class="visually-hidden">Per-field metric</legend>
+                  <label><input type="radio" name="pf-metric" value="accuracy" checked><span>Accuracy</span></label>
+                  <label><input type="radio" name="pf-metric" value="errors"><span>Errors</span></label>
+                </fieldset>
+              </div>
+              <div id="pf-chart"><span class="skeleton skeleton--block" style="--h:260px"></span></div>
+              <figcaption class="chart-card__source" id="per-field-source"></figcaption>
+            </figure>
+          </section>
+
+          <section class="res-section" id="per-class" aria-labelledby="per-class-h">
+            <div class="res-section__head">
+              <h2 id="per-class-h">Per-class precision, recall and F1</h2>
+              <p class="res-takeaway" id="per-class-takeaway">Each verdict class scored separately, so the rare Insufficient evidence class is not hidden by the accuracy average.</p>
+            </div>
+            <figure class="chart-card res-figure">
+              <div id="pc-table"><span class="skeleton skeleton--block" style="--h:240px"></span></div>
+              <figcaption class="chart-card__source" id="per-class-source"></figcaption>
+            </figure>
+          </section>
+
+          <section class="res-section" id="prompt" aria-labelledby="prompt-h">
+            <div class="res-section__head">
+              <h2 id="prompt-h">Prompt case study: V0 to V1</h2>
+              <p class="res-takeaway" id="prompt-takeaway">A single change to the Stage C instruction for lab flag claims, with everything else frozen.</p>
+            </div>
+            <div class="stat-row stat-row--align" id="pr-tiles" style="--min:12rem"></div>
+            <figure class="chart-card res-figure">
+              <div class="chart-card__header"><div><h3 class="chart-card__title">Stage C errors by type</h3><p class="chart-card__subtitle">How the judge's wrong verdicts changed between the two prompts (ground truth judged as prediction).</p></div></div>
+              <div id="pr-chart"><span class="skeleton skeleton--block" style="--h:240px"></span></div>
+              <div class="stack stack--sm" id="pr-explain"></div>
+              <figcaption class="chart-card__source" id="prompt-source"></figcaption>
+            </figure>
+          </section>
+
+          <section class="res-section" id="dataset" aria-labelledby="dataset-h">
+            <div class="res-section__head">
+              <h2 id="dataset-h">Dataset</h2>
+              <p class="res-takeaway" id="dataset-takeaway">The SHA-256-locked V3 verification benchmark, split by document so no document appears in two splits.</p>
+            </div>
+            <figure class="chart-card res-figure">
+              <div class="chart-card__header"><div><h3 class="chart-card__title">Splits</h3><p class="chart-card__subtitle">Documents, claims, claim groups, degradation and ground-truth labels per split.</p></div></div>
+              <div id="ds-table"><span class="skeleton skeleton--block" style="--h:200px"></span></div>
+            </figure>
+            <div class="grid" style="--min:22rem">
+              <figure class="chart-card res-figure">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">Label mix per split</h3><p class="chart-card__subtitle">Share of ground-truth labels in each split.</p></div></div>
+                <div id="ds-labels"><span class="skeleton skeleton--block" style="--h:200px"></span></div>
+              </figure>
+              <figure class="chart-card res-figure">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">Labels by degradation severity</h3><p class="chart-card__subtitle">All splits; clean claims come from undegraded renders.</p></div></div>
+                <div id="ds-severity"><span class="skeleton skeleton--block" style="--h:200px"></span></div>
+              </figure>
+            </div>
+            <figure class="chart-card res-figure">
+              <div class="chart-card__header"><div><h3 class="chart-card__title">Labels by document template</h3><p class="chart-card__subtitle">Templates marked OOD appear only in the out-of-distribution split.</p></div></div>
+              <div id="ds-templates"><span class="skeleton skeleton--block" style="--h:400px"></span></div>
+            </figure>
+            <div class="res-integrity" id="ds-integrity"></div>
+            <p class="chart-card__source" id="dataset-source"></p>
+          </section>
+
+          <section class="res-section" id="extraction" aria-labelledby="extraction-h">
+            <div class="res-section__head">
+              <h2 id="extraction-h">Extraction</h2>
+              <p class="res-takeaway" id="extraction-takeaway">Field-level F1 of the three extraction routes, each measured on its own benchmark.</p>
+            </div>
+            <div id="ex-mock"></div>
+            <figure class="chart-card res-figure">
+              <div class="chart-card__header"><div><h3 class="chart-card__title">Per-field extraction F1</h3><p class="chart-card__subtitle">Fill darkens with F1 on a one-hue scale; every cell prints its value.</p></div></div>
+              <div id="ex-table"><span class="skeleton skeleton--block" style="--h:320px"></span></div>
+              <figcaption class="chart-card__source" id="extraction-source"></figcaption>
+            </figure>
+          </section>
+
+          <section class="res-section" id="robustness" aria-labelledby="robustness-h">
+            <div class="res-section__head">
+              <h2 id="robustness-h">Robustness to degradation</h2>
+              <p class="res-takeaway" id="robustness-takeaway">Extraction F1 on lab reports and medication sheets as each degradation gets more severe.</p>
+            </div>
+            <figure class="chart-card res-figure">
+              <div class="chart-card__header"><div><h3 class="chart-card__title">Extraction F1 by severity, one panel per degradation</h3><p class="chart-card__subtitle" id="rb-subtitle">Shared y-axis from 0 to 1.</p></div></div>
+              <div id="rb-chart"><span class="skeleton skeleton--block" style="--h:420px"></span></div>
+              <figcaption class="chart-card__source" id="robustness-source"></figcaption>
+            </figure>
+          </section>
+
+          <section class="res-section" id="interop" aria-labelledby="interop-h">
+            <div class="res-section__head">
+              <h2 id="interop-h">Interoperability</h2>
+              <p class="res-takeaway" id="interop-takeaway">FHIR R4B validity, claim provenance and terminology coding of the OOD bundles.</p>
+            </div>
+            <div class="stat-row stat-row--align" id="fh-tiles" style="--min:12rem"></div>
+            <div class="grid" style="--min:22rem">
+              <figure class="chart-card res-figure">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">Coded resources before and after remediation</h3><p class="chart-card__subtitle">Share of eligible resources carrying a LOINC, RxNorm or UCUM code.</p></div></div>
+                <div id="fh-coding"><span class="skeleton skeleton--block" style="--h:200px"></span></div>
+              </figure>
+              <figure class="chart-card res-figure">
+                <div class="chart-card__header"><div><h3 class="chart-card__title">Resources in the OOD bundles</h3><p class="chart-card__subtitle">Count by FHIR resource type.</p></div></div>
+                <div id="fh-resources"><span class="skeleton skeleton--block" style="--h:200px"></span></div>
+              </figure>
+            </div>
+            <p class="chart-card__source" id="interop-source"></p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer data-shell></footer>
+</body>
+</html>

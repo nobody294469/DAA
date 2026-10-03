@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explorer · Clindoc2FHIR</title>
+  <meta name="description" content="Filter every frozen V8 cascade verdict on the V3 out-of-distribution benchmark and inspect each claim's stage trace, evidence and source page.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="stylesheet" href="/assets/css/explorer.css">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script type="module" src="/assets/js/explorer.js"></script>
+</head>
+<body data-page="explorer">
+  <header data-shell></header>
+
+  <main id="main" tabindex="-1">
+    <div class="page-header">
+      <div class="container container--wide page-header__inner">
+        <div class="page-header__text">
+          <p class="label-mono">Frozen benchmark replay</p>
+          <h1>Verdict explorer</h1>
+          <p class="page-header__lede">Every claim of the V3 out-of-distribution split, as the V8 cascade with the V1 Stage C prompt judged it. Filter by field, label or stage, then open a claim to see how each stage voted, the evidence it read and where it sits on the page.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container--wide section--tight stack stack--lg">
+      <aside class="ex-notice" aria-label="About this data">
+        <p class="label-mono">Recorded verdicts, not live inference</p>
+        <p>These are the stored outputs of the benchmark run: Stage B was the fine-tuned BioClinical-ModernBERT checkpoint and Stage C was Qwen2.5-7B-Instruct-AWQ. Nothing on this page is recomputed by the models this server is running. To verify a claim live, use the <a href="/playground.html">Playground</a>.</p>
+      </aside>
+
+      <section class="ex-filters" aria-labelledby="ex-filters-title">
+        <div class="ex-filters__actions">
+          <h2 class="h4" id="ex-filters-title">Filter claims</h2>
+          <div class="ex-presets" role="group" aria-label="Quick views">
+            <button class="btn btn--secondary btn--sm" type="button" data-preset="errors" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg><span data-preset-label>All cascade errors</span></button>
+            <button class="btn btn--secondary btn--sm" type="button" data-preset="escalated" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#route"/></svg><span data-preset-label>Escalated to Stage C</span></button>
+          </div>
+        </div>
+        <form class="ex-filters__grid" id="ex-form" role="search" aria-label="Filter claims" novalidate>
+          <div class="field">
+            <label class="field__label" for="f-document">Document</label>
+            <select class="select" id="f-document" name="document_id"><option value="">All documents</option></select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-field">Field type</label>
+            <select class="select" id="f-field" name="field_type"><option value="">All fields</option></select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-truth">Ground truth</label>
+            <select class="select" id="f-truth" name="ground_truth">
+              <option value="">Any</option>
+              <option value="SUPPORTED">Supported</option>
+              <option value="DISCREPANCY">Discrepancy</option>
+              <option value="INSUFFICIENT_EVIDENCE">Insufficient evidence</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-label">Final verdict</label>
+            <select class="select" id="f-label" name="label">
+              <option value="">Any</option>
+              <option value="SUPPORTED">Supported</option>
+              <option value="DISCREPANCY">Discrepancy</option>
+              <option value="INSUFFICIENT_EVIDENCE">Insufficient evidence</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-stage">Stage reached</label>
+            <select class="select" id="f-stage" name="stage">
+              <option value="">Any</option>
+              <option value="B">B, ModernBERT</option>
+              <option value="C">C, LLM judge</option>
+            </select>
+          </div>
+          <fieldset class="fieldset">
+            <legend>Correctness</legend>
+            <div class="segmented">
+              <label><input type="radio" name="correct" value="all" checked><span>All</span></label>
+              <label><input type="radio" name="correct" value="correct"><span>Correct</span></label>
+              <label><input type="radio" name="correct" value="errors"><span>Errors</span></label>
+            </div>
+          </fieldset>
+          <div class="field ex-filters__search">
+            <label class="field__label" for="f-q">Search claims</label>
+            <div class="input-group"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#search"/></svg><input class="input" id="f-q" type="search" name="q" maxlength="200" autocomplete="off" aria-describedby="f-q-help"></div>
+            <p class="field__help" id="f-q-help">Matches claim text, document ID or example ID.</p>
+          </div>
+          <div class="field">
+            <button class="btn btn--ghost" type="reset" id="ex-reset"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#refresh-cw"/></svg>Reset filters</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="stat-row" id="ex-summary" style="--min:10rem" role="group" aria-label="Summary for the current filter"></div>
+      <p class="visually-hidden" id="ex-status" aria-live="polite"></p>
+
+      <div class="ex-layout">
+        <section class="stack stack--sm" aria-labelledby="ex-results-title">
+          <div class="cluster cluster--between">
+            <h2 class="h3" id="ex-results-title">Claims</h2>
+            <p class="text-sm muted num" id="ex-range"></p>
+          </div>
+          <p class="text-sm muted" id="ex-hint">In the table, <kbd>Up</kbd> and <kbd>Down</kbd> move between claims and <kbd>Enter</kbd> opens one.</p>
+          <div id="ex-table"></div>
+          <nav class="cluster cluster--between ex-pager" aria-label="Result pages">
+            <button class="btn btn--secondary btn--sm" type="button" id="ex-prev"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#chevron-left"/></svg>Previous</button>
+            <span class="text-sm muted num" id="ex-page"></span>
+            <button class="btn btn--secondary btn--sm" type="button" id="ex-next">Next<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#chevron-right"/></svg></button>
+          </nav>
+        </section>
+
+        <aside class="ex-panel" id="ex-panel" aria-labelledby="ex-panel-title">
+          <div class="ex-panel__header">
+            <h2 class="h4" id="ex-panel-title">Claim detail</h2>
+            <button class="btn btn--ghost btn--icon" type="button" id="ex-panel-clear" aria-label="Clear the selected claim" hidden><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg></button>
+          </div>
+          <div class="ex-panel__body" id="ex-panel-body"></div>
+        </aside>
+      </div>
+    </div>
+
+    <dialog class="dialog drawer drawer--wide" id="ex-drawer" aria-labelledby="ex-drawer-title">
+      <div class="dialog__header">
+        <h2 class="dialog__title" id="ex-drawer-title">Claim detail</h2>
+        <button class="btn btn--ghost btn--icon" type="button" data-dialog-close aria-label="Close claim detail"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg></button>
+      </div>
+      <div class="dialog__body ex-drawer-body" id="ex-drawer-body"></div>
+    </dialog>
+  </main>
+
+  <footer data-shell></footer>
+</body>
+</html>

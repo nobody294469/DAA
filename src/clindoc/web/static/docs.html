@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docs · Clindoc2FHIR</title>
+  <meta name="description" content="Clindoc2FHIR documentation: architecture, verification cascade, DEC-016 provenance, running locally, training Stage B, HTTP API reference, decision records and data contracts.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <style>
+    /* Docs-only layout; components come from app.css. */
+    .docs-toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+    .docs-toc a { display: flex; align-items: center; min-height: 40px; padding: 0 var(--space-3); border-radius: var(--radius); color: var(--color-text-2); text-decoration: none; font-size: var(--text-sm); font-weight: 600; }
+    .docs-toc a:hover { background: var(--color-surface-2); color: var(--color-text); }
+    .docs-toc a[aria-current="true"] { background: var(--color-primary-soft); color: var(--color-primary); }
+    .docs-toc__title { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); margin: 0 0 var(--space-2) var(--space-3); }
+    @media (max-width: 1023.98px) { .docs-toc ol { flex-direction: row; flex-wrap: wrap; } .docs-toc a { min-height: 44px; border: 1px solid var(--color-border); } }
+    @media (pointer: coarse) { .docs-toc a { min-height: 44px; } }
+    .docs-section { display: flex; flex-direction: column; gap: var(--space-4); scroll-margin-top: calc(var(--header-h) + var(--space-4)); }
+    .docs-section > h2 { padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+    .docs-section h3 { margin-top: var(--space-2); }
+    .docs-section .prose { color: var(--color-text-2); max-width: 75ch; }
+    .docs-verdicts { display: grid; gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
+    .docs-verdicts li { display: grid; grid-template-columns: 12rem 1fr; gap: var(--space-3); align-items: baseline; font-size: var(--text-sm); color: var(--color-text-2); }
+    @media (max-width: 479.98px) { .docs-verdicts li { grid-template-columns: 1fr; gap: var(--space-1); } }
+
+    /* Architecture flow: an ordered list; connectors and arrowheads are decoration only. */
+    .flow { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-6); }
+    .flow__step { position: relative; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); }
+    .flow__step--focus { border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary); }
+    .flow__step:not(:last-child)::after { content: ""; position: absolute; left: 2.25rem; top: 100%; width: 2px; height: calc(var(--space-6) - 4px); background: var(--color-border-strong); }
+    .flow__step:not(:last-child)::before { content: ""; position: absolute; left: calc(2.25rem - 4px); top: calc(100% + var(--space-6) - 11px); width: 10px; height: 10px; border-right: 2px solid var(--color-border-strong); border-bottom: 2px solid var(--color-border-strong); transform: rotate(45deg); }
+    .flow__head { display: flex; align-items: center; gap: var(--space-3); }
+    .flow__title { font-size: var(--text-base); }
+    .flow__body { font-size: var(--text-sm); color: var(--color-text-2); }
+    .flow__branches { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr)); }
+    .flow__branches > li { border: 1px dashed var(--color-border-strong); border-radius: var(--radius); background: var(--color-surface-2); padding: var(--space-3); font-size: var(--text-sm); color: var(--color-text-2); display: flex; flex-direction: column; gap: var(--space-1); }
+    .flow__branches strong { color: var(--color-text); }
+
+    .docs-status--locked { color: var(--color-info); background: var(--color-info-soft); border-color: var(--color-info-border); }
+    .docs-status--open { color: var(--color-warning); background: var(--color-warning-soft); border-color: var(--color-warning-border); }
+    .docs-dec summary > span:first-child { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-2); align-items: baseline; }
+    .docs-dec .badge { margin-left: auto; }
+    .docs-contracts { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr)); }
+    .docs-contracts a { display: flex; align-items: center; gap: var(--space-2); font-weight: 600; min-height: 44px; }
+    .docs-section .table td code, .docs-section .table th code { white-space: nowrap; }
+  </style>
+  <script type="module" src="/assets/js/docs.js"></script>
+</head>
+<body data-page="docs">
+  <header data-shell></header>
+
+  <main id="main" tabindex="-1">
+    <div class="page-header">
+      <div class="container container--wide page-header__inner">
+        <div class="page-header__text">
+          <p class="eyebrow">Documentation</p>
+          <h1>How Clindoc2FHIR works</h1>
+          <p class="page-header__lede">Architecture, verification rules, provenance model, local setup, Stage B training, the HTTP API and the decision log behind them.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container--wide section--tight">
+      <div class="with-sidebar">
+        <nav class="with-sidebar__aside with-sidebar__aside--sticky docs-toc" aria-labelledby="toc-title" style="--sidebar:14rem">
+          <p class="docs-toc__title" id="toc-title">On this page</p>
+          <ol>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#cascade">Verification cascade</a></li>
+            <li><a href="#provenance">Provenance</a></li>
+            <li><a href="#running">Running locally</a></li>
+            <li><a href="#training">Training Stage B</a></li>
+            <li><a href="#api">HTTP API</a></li>
+            <li><a href="#decisions">Design decisions</a></li>
+            <li><a href="#contracts">Data contracts</a></li>
+            <li><a href="#limitations">Limitations and safety</a></li>
+          </ol>
+        </nav>
+
+        <div class="with-sidebar__main stack stack--xl">
+
+          <!-- Overview -->
+          <section class="docs-section" id="overview" aria-labelledby="overview-h">
+            <h2 id="overview-h">Overview</h2>
+            <div class="prose">
+              <p>Clindoc2FHIR converts clinical documents (lab reports, medication order sheets and narrative discharge notes) into HL7 FHIR R4B bundles in which every element points back to the text and page region it came from. Each extracted fact is an atomic <em>claim</em>, for example <code>Hematocrit: 46.1 %</code> or <code>Metformin dose: 500 mg</code>. Before a claim is written to FHIR, a three-stage cascade checks it against its source evidence and gives it one of three verdicts:</p>
+            </div>
+            <ul class="docs-verdicts" role="list">
+              <li><span class="badge badge--supported badge--lg"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg>Supported</span><span>The source states the claim.</span></li>
+              <li><span class="badge badge--discrepancy badge--lg"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x-octagon"/></svg>Discrepancy</span><span>The source contradicts it: a different value, flag, unit, drug, dose, route or frequency.</span></li>
+              <li><span class="badge badge--insufficient badge--lg"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#help-circle"/></svg>Insufficient evidence</span><span>The source does not say enough to decide either way.</span></li>
+            </ul>
+            <div class="prose">
+              <p>A verdict measures <strong>document fidelity</strong>: whether the claim matches what the document says. It does not judge whether a value, drug or dose is clinically appropriate.</p>
+              <p>The web app has five working areas: the <a href="/workbench.html">Workbench</a> runs the whole pipeline on a document, the <a href="/playground.html">Playground</a> verifies one hand-written claim, the <a href="/explorer.html">Explorer</a> replays the frozen benchmark verdicts, <a href="/results.html">Results</a> reports the benchmark numbers and <a href="/model.html">Model</a> shows Stage B model cards and live training progress.</p>
+            </div>
+          </section>
+
+          <!-- Architecture -->
+          <section class="docs-section" id="architecture" aria-labelledby="architecture-h">
+            <h2 id="architecture-h">Architecture</h2>
+            <p class="prose">Five stages run in order. The evidence pointer (character offsets, page number, bounding box) created at extraction travels with each claim into the final FHIR resource.</p>
+            <ol class="flow" aria-label="Pipeline stages in processing order">
+              <li class="flow__step">
+                <div class="flow__head"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-text"/></svg></span><h3 class="flow__title">1. Ingestion</h3></div>
+                <p class="flow__body">PyMuPDF reads born-digital PDFs into a <code>DocumentText</code>: pages, lines and words, each with a bounding box in PDF points (top-left origin). Scanned images and text-less PDFs need an OCR engine (the <code>ocr</code> extra, PaddleOCR); without one the API answers 422.</p>
+              </li>
+              <li class="flow__step">
+                <div class="flow__head"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#git-branch"/></svg></span><h3 class="flow__title">2. Extraction router</h3></div>
+                <p class="flow__body">A deterministic layout classifier (DEC-001) sends each region to one extractor. Every claim keeps an evidence span.</p>
+                <ul class="flow__branches" role="list">
+                  <li><strong>Deterministic parsers</strong><span>Row-level rules for lab result tables and medication order grids.</span></li>
+                  <li><strong>GLiNER-BioMed</strong><span>Zero-shot entity extraction for unstructured medication text.</span></li>
+                  <li><strong>LLM narrative extractor</strong><span>Schema-constrained JSON from narrative notes; a mock provider stands in when no vLLM endpoint is configured.</span></li>
+                </ul>
+              </li>
+              <li class="flow__step">
+                <div class="flow__head"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#tag"/></svg></span><h3 class="flow__title">3. Normalization</h3></div>
+                <ul class="flow__branches" role="list">
+                  <li><strong>LOINC</strong><span>Lab analyte names to LOINC codes.</span></li>
+                  <li><strong>RxNorm</strong><span>Drug names to RxNorm concepts.</span></li>
+                  <li><strong>UCUM</strong><span>Units to UCUM codes, with conversion (0.05 g to 50 mg) before any comparison.</span></li>
+                </ul>
+              </li>
+              <li class="flow__step flow__step--focus">
+                <div class="flow__head"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#shield-check"/></svg></span><h3 class="flow__title">4. Verification cascade</h3></div>
+                <ul class="flow__branches" role="list">
+                  <li><span><span class="badge badge--stage badge--stage-a"><span class="badge__key" aria-hidden="true"><span>A</span></span><span class="visually-hidden">Stage A: </span>Deterministic</span></span><span>Exact, numeric, unit and flag rules. Settles Tier 2 fields on its own.</span></li>
+                  <li><span><span class="badge badge--stage badge--stage-b"><span class="badge__key" aria-hidden="true"><span>B</span></span><span class="visually-hidden">Stage B: </span>ModernBERT</span></span><span>Fine-tuned BioClinical-ModernBERT classifier with temperature-calibrated probabilities.</span></li>
+                  <li><span><span class="badge badge--stage badge--stage-c"><span class="badge__key" aria-hidden="true"><span>C</span></span><span class="visually-hidden">Stage C: </span>LLM judge</span></span><span>Qwen2.5-7B-Instruct-AWQ via vLLM, called only for escalated claims; returns a verdict and a rationale.</span></li>
+                </ul>
+              </li>
+              <li class="flow__step">
+                <div class="flow__head"><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-json"/></svg></span><h3 class="flow__title">5. FHIR R4B bundle and audit report</h3></div>
+                <ul class="flow__branches" role="list">
+                  <li><strong>FHIR R4B bundle</strong><span>DiagnosticReport and Observation for labs; MedicationRequest or MedicationStatement for medications (DEC-008), each with claim-provenance extensions.</span></li>
+                  <li><strong>DEC-016 audit report</strong><span>Standalone JSON with every claim, its evidence, verdict, stage reached, confidence and rationale.</span></li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+
+          <!-- Verification cascade -->
+          <section class="docs-section" id="cascade" aria-labelledby="cascade-h">
+            <h2 id="cascade-h">Verification cascade</h2>
+            <div class="prose">
+              <p>The cascade is a selective classifier: cheap stages settle the claims they are sure about and pass the rest on. Fields are split into two tiers (DEC-019).</p>
+            </div>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Field tiering">
+              <table class="table">
+                <caption>Field tiering (DEC-019)</caption>
+                <thead><tr><th scope="col">Tier</th><th scope="col">Fields</th><th scope="col">Stages</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Tier 1, learned</th><td><code>lab.value</code>, <code>lab.flag</code>, <code>med.name</code>, <code>med.dose</code>, <code>med.route</code>, <code>med.frequency</code></td><td>A, then B, then C if escalated</td></tr>
+                  <tr><th scope="row">Tier 2, deterministic</th><td><code>lab.unit</code>, <code>lab.reference_range</code>, <code>lab.test_name</code>, <code>med.duration</code></td><td>Stage A only</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>When a Tier 1 claim escalates to Stage C</h3>
+            <div class="prose">
+              <p>A claim is settled at Stage B only when Stage A and Stage B agree and Stage B's calibrated confidence is at least 0.60. It escalates when any of these holds:</p>
+              <ol>
+                <li><strong>Stage A and Stage B disagree</strong> on the label (Stage A abstaining does not count as disagreement).</li>
+                <li><strong>Calibrated confidence is below 0.60</strong>, the DEC-005 operating threshold.</li>
+                <li><strong>Stage B predicts Insufficient evidence</strong>, which always escalates as a precaution.</li>
+              </ol>
+              <p>Stage B confidence is calibrated by temperature scaling fitted on the calibration split only (DEC-009). Stage C returns a fixed confidence that is not calibrated (DEC-018), so treat its verdicts as decisions with a rationale rather than as probabilities.</p>
+              <p>Serving status matters: without a trained checkpoint Stage B runs a rule-based <strong>heuristic fallback</strong>, and without a vLLM endpoint Stage C is a deterministic <strong>mock judge</strong>. The status pill in the header shows which one is active; the <a href="/model.html">Model</a> page has the details.</p>
+            </div>
+          </section>
+
+          <!-- Provenance -->
+          <section class="docs-section" id="provenance" aria-labelledby="provenance-h">
+            <h2 id="provenance-h">Provenance (DEC-016)</h2>
+            <div class="prose">
+              <p>Composite FHIR resources combine several claims that can carry different verdicts (a supported value with a discrepant unit, say). DEC-016 therefore attaches provenance at two levels, both using the extension URL <code>http://clindoc.org/fhir/StructureDefinition/claim-provenance</code>.</p>
+            </div>
+            <h3>Resource level</h3>
+            <p class="prose">On each Observation, MedicationRequest and MedicationStatement, describing its anchor claim (<code>lab.value</code> for an Observation, <code>med.name</code> for a medication resource).</p>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Resource-level provenance sub-extensions">
+              <table class="table table--compact">
+                <thead><tr><th scope="col">Sub-extension</th><th scope="col">Type</th><th scope="col">Meaning</th></tr></thead>
+                <tbody>
+                  <tr><td><code>claimId</code></td><td>valueString</td><td>Anchor claim ID</td></tr>
+                  <tr><td><code>verificationId</code></td><td>valueString</td><td>ID of its verification result</td></tr>
+                  <tr><td><code>verificationLabel</code></td><td>valueCode</td><td>SUPPORTED, DISCREPANCY or INSUFFICIENT_EVIDENCE</td></tr>
+                  <tr><td><code>confidence</code></td><td>valueDecimal</td><td>Final verdict confidence, 4 decimals</td></tr>
+                  <tr><td><code>stageReached</code></td><td>valueCode</td><td>A, B or C</td></tr>
+                  <tr><td><code>evidenceText</code></td><td>valueString</td><td>Verbatim source text</td></tr>
+                  <tr><td><code>sourcePage</code></td><td>valueInteger</td><td>Page number, 1-based</td></tr>
+                  <tr><td><code>sourceBoundingBox</code></td><td>valueString</td><td><code>x0,y0,x1,y1</code> in PDF points, top-left origin</td></tr>
+                  <tr><td><code>ocrConfidence</code></td><td>valueDecimal</td><td>OCR confidence, when known</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>Element level</h3>
+            <p class="prose">Each constituent element carries its own atomic claim: <code>claimId</code>, <code>verificationId</code>, <code>verificationLabel</code>, <code>confidence</code> and <code>evidenceText</code>.</p>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Elements carrying element-level provenance">
+              <table class="table table--compact">
+                <thead><tr><th scope="col">FHIR element</th><th scope="col">Claim field</th></tr></thead>
+                <tbody>
+                  <tr><td><code>Observation.code</code></td><td><code>lab.test_name</code></td></tr>
+                  <tr><td><code>Observation.valueQuantity</code></td><td><code>lab.value</code> and <code>lab.unit</code></td></tr>
+                  <tr><td><code>Observation.interpretation</code></td><td><code>lab.flag</code></td></tr>
+                  <tr><td><code>Observation.referenceRange</code></td><td><code>lab.reference_range</code></td></tr>
+                  <tr><td>medication code</td><td><code>med.name</code></td></tr>
+                  <tr><td><code>dosage[0].doseAndRate[0].doseQuantity</code></td><td><code>med.dose</code></td></tr>
+                  <tr><td><code>dosage[0].route</code></td><td><code>med.route</code></td></tr>
+                  <tr><td><code>dosage[0].timing</code></td><td><code>med.frequency</code> (timing code) and <code>med.duration</code></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="prose">The standalone audit report (<a href="https://github.com/nobody294469/DAA/blob/feature/web-platform/schemas/audit_report.json">schemas/audit_report.json</a>) lists every claim, including those that are not written into the bundle, with the same evidence and verification fields.</p>
+          </section>
+
+          <!-- Running locally -->
+          <section class="docs-section" id="running" aria-labelledby="running-h">
+            <h2 id="running-h">Running locally</h2>
+            <p class="prose">Python 3.11 or 3.12. Run every command from the repository root: the pipeline reads <code>data/</code> and <code>schemas/</code> by relative path.</p>
+            <div class="code-block">
+              <span class="code-block__label">Install and start the web app</span>
+              <button class="btn btn--ghost btn--sm code-block__copy" type="button" data-copy-target="#code-install"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy</button>
+<pre><code id="code-install">git clone https://github.com/nobody294469/DAA.git
+cd DAA
+python -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -e ".[ml,web,dev]"     # add ocr to read scanned documents
+clindoc serve                      # http://127.0.0.1:8000</code></pre>
+            </div>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="clindoc serve options">
+              <table class="table table--compact">
+                <caption><code>clindoc serve</code> options</caption>
+                <thead><tr><th scope="col">Option</th><th scope="col">Default</th><th scope="col">Effect</th></tr></thead>
+                <tbody>
+                  <tr><td><code>--host</code></td><td><code>127.0.0.1</code></td><td>Bind address. Keep it local: the API has no authentication.</td></tr>
+                  <tr><td><code>--port</code></td><td><code>8000</code></td><td>Port.</td></tr>
+                  <tr><td><code>--checkpoint PATH|none</code></td><td>newest checkpoint</td><td>Stage B checkpoint; <code>none</code> forces the heuristic. Sets <code>CLINDOC_STAGE_B_CHECKPOINT</code>.</td></tr>
+                  <tr><td><code>--device cpu|cuda|auto</code></td><td><code>cpu</code></td><td>Stage B device. Sets <code>CLINDOC_DEVICE</code>.</td></tr>
+                  <tr><td><code>--reload</code></td><td>off</td><td>Restart on code changes (development only).</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Environment variables">
+              <table class="table table--compact">
+                <caption>Environment variables</caption>
+                <thead><tr><th scope="col">Variable</th><th scope="col">Used by</th><th scope="col">Meaning</th></tr></thead>
+                <tbody>
+                  <tr><td><code>CLINDOC_STAGE_B_CHECKPOINT</code></td><td>Stage B</td><td>Path to a trained <code>.pt</code> checkpoint, or <code>none</code> for the heuristic. Unset: the newest <code>data/m2_results_v3/checkpoints/*.pt</code>, else the heuristic.</td></tr>
+                  <tr><td><code>CLINDOC_DEVICE</code></td><td>Stage B</td><td><code>cpu</code> (default), <code>cuda</code> or <code>auto</code>.</td></tr>
+                  <tr><td><code>CLINDOC_BASE_MODEL</code></td><td>Stage B, training</td><td>Base encoder as a local directory or hub ID. Unset: <code>~/.cache/clindoc/BioClinical-ModernBERT-base</code> if it exists, else <code>thomas-sounack/BioClinical-ModernBERT-base</code> from the Hugging Face hub.</td></tr>
+                  <tr><td><code>CLINDOC_VLLM_BASE_URL</code></td><td>Stage C</td><td>OpenAI-compatible vLLM endpoint, e.g. <code>http://gpu-host:8000/v1</code>. Unset: the mock judge.</td></tr>
+                  <tr><td><code>CLINDOC_VLLM_MODEL</code></td><td>Stage C</td><td>Model name served at that endpoint. Default <code>Qwen/Qwen2.5-7B-Instruct</code>; the benchmark used <code>Qwen/Qwen2.5-7B-Instruct-AWQ</code>.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="code-block">
+              <span class="code-block__label">Serve the real models</span>
+              <button class="btn btn--ghost btn--sm code-block__copy" type="button" data-copy-target="#code-real"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy</button>
+<pre><code id="code-real">export CLINDOC_VLLM_BASE_URL=http://gpu-host:8000/v1
+export CLINDOC_VLLM_MODEL=Qwen/Qwen2.5-7B-Instruct-AWQ
+clindoc serve --device cuda \
+  --checkpoint data/m2_results_v3/checkpoints/modernbert_text_only_v3_fold0_seed42.pt</code></pre>
+            </div>
+            <p class="text-sm muted">In PowerShell set variables with <code>$env:CLINDOC_VLLM_BASE_URL = "http://gpu-host:8000/v1"</code>. The narrative extractor's LLM is configured in <code>configs/extraction.yaml</code>, not by these variables.</p>
+          </section>
+
+          <!-- Training -->
+          <section class="docs-section" id="training" aria-labelledby="training-h">
+            <h2 id="training-h">Training Stage B</h2>
+            <div class="prose">
+              <p><code>scripts/train_v3_experiment.py</code> fine-tunes BioClinical-ModernBERT on the V3 benchmark. Before training it checks the SHA-256 of the locked dataset files and that no document appears in two splits; temperature scaling is fitted on the calibration split only. The defaults reproduce the reference run in <code>reports/M2_V3_MODERNBERT_TRAINING_REPORT.md</code>.</p>
+            </div>
+            <div class="code-block">
+              <span class="code-block__label">Examples (repo root, package installed or PYTHONPATH=src)</span>
+              <button class="btn btn--ghost btn--sm code-block__copy" type="button" data-copy-target="#code-train"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy</button>
+<pre><code id="code-train"># End-to-end check: small subsets, 1 epoch, temp output dir, no model card
+python scripts/train_v3_experiment.py --smoke --device cpu
+
+# Reference run
+python scripts/train_v3_experiment.py --device cuda
+
+# Small GPU shared with another job
+python scripts/train_v3_experiment.py --device cuda --run-name modernbert_v3_lowmem \
+  --batch-size 8 --grad-accum 2 --gradient-checkpointing --gpu-mem-fraction 0.45</code></pre>
+            </div>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Training flags">
+              <table class="table table--compact">
+                <caption>Flags</caption>
+                <thead><tr><th scope="col">Flag</th><th scope="col">Default</th><th scope="col">Meaning</th></tr></thead>
+                <tbody>
+                  <tr><td><code>--model-id</code></td><td><code>CLINDOC_BASE_MODEL</code> or the hub ID</td><td>Base encoder: hub ID or local directory.</td></tr>
+                  <tr><td><code>--output-dir</code></td><td><code>data/m2_results_v3</code></td><td>Where metrics, progress and checkpoints go (a temp dir with <code>--smoke</code>).</td></tr>
+                  <tr><td><code>--run-name</code></td><td><code>modernbert_text_only_v3</code></td><td>Names every output file; letters, digits, <code>.</code>, <code>_</code>, <code>-</code>.</td></tr>
+                  <tr><td><code>--seed</code></td><td><code>42</code></td><td>Random seed.</td></tr>
+                  <tr><td><code>--max-epochs</code></td><td><code>10</code></td><td>Upper bound on epochs.</td></tr>
+                  <tr><td><code>--patience</code></td><td><code>3</code></td><td>Early-stopping patience in epochs.</td></tr>
+                  <tr><td><code>--batch-size</code></td><td><code>16</code></td><td>Micro-batch size.</td></tr>
+                  <tr><td><code>--grad-accum</code></td><td><code>1</code></td><td>Micro-batches per optimizer step; effective batch = batch size x this.</td></tr>
+                  <tr><td><code>--max-seq-length</code></td><td><code>256</code></td><td>Token limit for claim plus context.</td></tr>
+                  <tr><td><code>--freeze-lower-n-layers</code></td><td><code>0</code></td><td>Freeze the embeddings and the lowest N encoder layers.</td></tr>
+                  <tr><td><code>--gradient-checkpointing</code></td><td>off</td><td>Trade compute for activation memory.</td></tr>
+                  <tr><td><code>--device</code></td><td><code>auto</code></td><td><code>auto</code>, <code>cpu</code> or <code>cuda</code>.</td></tr>
+                  <tr><td><code>--gpu-mem-fraction</code></td><td>none</td><td>Cap this process at a fraction (0 to 1] of GPU memory; needs CUDA.</td></tr>
+                  <tr><td><code>--smoke</code></td><td>off</td><td>Tiny end-to-end check: 48/24/24/32 examples, 1 epoch, batch 4.</td></tr>
+                  <tr><td><code>--no-model-card</code></td><td>off</td><td>Skip writing the committed model card.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>Outputs</h3>
+            <ul class="prose">
+              <li><code>&lt;output-dir&gt;/&lt;run-name&gt;_progress.json</code>: live progress. The <a href="/model.html">Model</a> page follows it while the run is active.</li>
+              <li><code>&lt;output-dir&gt;/&lt;run-name&gt;_metrics.json</code>: full validation, calibration and OOD metrics.</li>
+              <li><code>&lt;output-dir&gt;/checkpoints/&lt;run-name&gt;_fold0_seed&lt;seed&gt;.pt</code>: the checkpoint. <code>clindoc serve</code> loads the newest one unless <code>--checkpoint</code> pins another.</li>
+              <li><code>reports/stage_b_runs/&lt;run-name&gt;.json</code>: the small model card listed on the Model page (not written with <code>--smoke</code> or <code>--no-model-card</code>).</li>
+            </ul>
+          </section>
+
+          <!-- HTTP API -->
+          <section class="docs-section" id="api" aria-labelledby="api-h">
+            <h2 id="api-h">HTTP API</h2>
+            <p class="prose">JSON over HTTP under <code>/api</code>; errors are <code>{"detail": "…"}</code>. Interactive OpenAPI docs are at <a href="/api/docs">/api/docs</a> (schema at <a href="/api/openapi.json">/api/openapi.json</a>).</p>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="API endpoints">
+              <table class="table table--compact">
+                <thead><tr><th scope="col">Method</th><th scope="col">Path</th><th scope="col">Purpose</th></tr></thead>
+                <tbody>
+                  <tr><td>GET</td><td><code>/api/health</code></td><td>Version and which Stage B, Stage C and extraction LLM are serving.</td></tr>
+                  <tr><td>GET</td><td><code>/api/samples</code></td><td>Bundled sample documents with their benchmark split.</td></tr>
+                  <tr><td>POST</td><td><code>/api/process</code></td><td>Run the full pipeline on an upload (<code>file</code>) or a sample (<code>sample_id</code>); multipart form, optional <code>doc_type</code>. 400 bad input or no claims, 404 unknown sample, 413 over 15 MB, 415 unsupported type, 422 needs OCR or unreadable.</td></tr>
+                  <tr><td>GET</td><td><code>/api/runs/{run_id}</code></td><td>The payload of a recent run (the last 32 are kept in memory).</td></tr>
+                  <tr><td>GET</td><td><code>/api/runs/{run_id}/pages/{n}.png</code></td><td>Rendered page of a processed document.</td></tr>
+                  <tr><td>GET</td><td><code>/api/runs/{run_id}/fhir_bundle.json</code></td><td>Download the FHIR R4B bundle.</td></tr>
+                  <tr><td>GET</td><td><code>/api/runs/{run_id}/audit_report.json</code></td><td>Download the DEC-016 audit report.</td></tr>
+                  <tr><td>POST</td><td><code>/api/verify</code></td><td>Verify one claim against an evidence snippet and return every stage's output.</td></tr>
+                  <tr><td>GET</td><td><code>/api/verify/presets</code></td><td>Example claims taken from the V3 benchmark.</td></tr>
+                  <tr><td>GET</td><td><code>/api/results</code></td><td>Curated frozen benchmark numbers, with a source file for each section.</td></tr>
+                  <tr><td>GET</td><td><code>/api/explorer</code></td><td>Filter frozen V8 verdicts: <code>document_id</code>, <code>field_type</code>, <code>ground_truth</code>, <code>label</code>, <code>stage</code>, <code>correct</code> (all, correct, errors), <code>q</code>, <code>offset</code>, <code>limit</code> (max 200).</td></tr>
+                  <tr><td>GET</td><td><code>/api/explorer/{example_id}</code></td><td>One frozen verdict with its stage trace, evidence, bbox and the Qwen-only result.</td></tr>
+                  <tr><td>GET</td><td><code>/api/documents/{doc_id}/pages/{n}.png</code></td><td>Render of a repository sample PDF (<code>LAB_0001</code>, <code>MED_0001</code>, <code>NARRATIVE_0001</code> style IDs).</td></tr>
+                  <tr><td>GET</td><td><code>/api/model</code></td><td>Stage B model cards, active training progress and serving status.</td></tr>
+                  <tr><td>GET</td><td><code>/api/decisions</code></td><td>Decision records parsed from <code>docs/decisions</code>.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="code-block">
+              <span class="code-block__label">Verify one claim</span>
+              <button class="btn btn--ghost btn--sm code-block__copy" type="button" data-copy-target="#code-verify"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy</button>
+<pre><code id="code-verify">curl -s <span data-origin>http://127.0.0.1:8000</span>/api/verify \
+  -H "Content-Type: application/json" \
+  -d '{"field_type": "lab.value", "entity": "Hematocrit", "value": "46.1", "unit": "%",
+       "evidence_text": "Hematocrit 46.1 % 36.0 - 48.0"}'</code></pre>
+            </div>
+            <p class="text-sm text-2">Returns <code>final</code> (label, confidence, stage reached, rationale), the rendered <code>claim_text</code>, the field <code>tier</code>, and <code>stage_a</code>, <code>stage_b</code> (with calibrated probabilities and escalation reason) and <code>stage_c</code>; a stage that did not run is <code>null</code>.</p>
+            <div class="code-block">
+              <span class="code-block__label">Process a sample or your own PDF</span>
+              <button class="btn btn--ghost btn--sm code-block__copy" type="button" data-copy-target="#code-process"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy</button>
+<pre><code id="code-process">curl -s -X POST <span data-origin>http://127.0.0.1:8000</span>/api/process -F sample_id=MED_0004
+curl -s -X POST <span data-origin>http://127.0.0.1:8000</span>/api/process -F "file=@report.pdf" -F doc_type=lab</code></pre>
+            </div>
+            <p class="text-sm text-2">Returns the run ID, a verdict summary, per-stage counts, page images, every claim with its evidence and verification, the FHIR validation result and download links for the bundle and audit report.</p>
+          </section>
+
+          <!-- Decisions -->
+          <section class="docs-section" id="decisions" aria-labelledby="decisions-h">
+            <h2 id="decisions-h">Design decisions</h2>
+            <p class="prose">Architecture decision records from <code>docs/decisions</code>. <strong>Locked</strong> decisions are final; <strong>open</strong> ones run on a provisional default until an experiment settles them.</p>
+            <p class="text-sm muted" id="decisions-summary" aria-live="polite"></p>
+            <div id="decisions-list"></div>
+          </section>
+
+          <!-- Data contracts -->
+          <section class="docs-section" id="contracts" aria-labelledby="contracts-h">
+            <h2 id="contracts-h">Data contracts</h2>
+            <p class="prose">JSON Schema files in <code>schemas/</code> define what each pipeline stage hands to the next.</p>
+            <ul class="docs-contracts" role="list">
+              <li class="card"><a href="https://github.com/nobody294469/DAA/blob/feature/web-platform/schemas/document_text.json"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-json"/></svg>document_text.json</a><p class="text-sm text-2">Ingestion output: pages, lines, words and bounding boxes.</p></li>
+              <li class="card"><a href="https://github.com/nobody294469/DAA/blob/feature/web-platform/schemas/routing_decision.json"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-json"/></svg>routing_decision.json</a><p class="text-sm text-2">Extraction router decision for each document region.</p></li>
+              <li class="card"><a href="https://github.com/nobody294469/DAA/blob/feature/web-platform/schemas/claim.json"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-json"/></svg>claim.json</a><p class="text-sm text-2">One atomic extracted claim, with its group ID (DEC-015) and canonical field type (DEC-017).</p></li>
+              <li class="card"><a href="https://github.com/nobody294469/DAA/blob/feature/web-platform/schemas/evidence.json"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-json"/></svg>evidence.json</a><p class="text-sm text-2">Source evidence: text, character offsets, page and bounding box.</p></li>
+              <li class="card"><a href="https://github.com/nobody294469/DAA/blob/feature/web-platform/schemas/verification_result.json"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-json"/></svg>verification_result.json</a><p class="text-sm text-2">Cascade output for one claim (DEC-018, DEC-019).</p></li>
+              <li class="card"><a href="https://github.com/nobody294469/DAA/blob/feature/web-platform/schemas/audit_report.json"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-json"/></svg>audit_report.json</a><p class="text-sm text-2">Document-level DEC-016 audit report.</p></li>
+            </ul>
+          </section>
+
+          <!-- Limitations -->
+          <section class="docs-section" id="limitations" aria-labelledby="limitations-h">
+            <h2 id="limitations-h">Limitations and safety</h2>
+            <ul class="limits" role="list">
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#ban"/></svg><span><strong>Not a medical device</strong>A research prototype, not clinically validated or approved for clinical decision support.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#scale"/></svg><span><strong>Fidelity, not clinical correctness</strong>Verdicts say whether a claim matches its document. They do not assess appropriateness, contraindications or medical truth.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#database"/></svg><span><strong>Synthetic benchmark</strong>Documents are rendered from Synthea patients with artificial degradation; no handwriting, carbon copies or real fax artefacts.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#shield-check"/></svg><span><strong>No external clinical benchmark yet</strong>Evaluation on n2c2 2018 Track 2 is gated on a data use agreement and credentialing.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-text"/></svg><span><strong>Narrative extraction measured with a mock LLM</strong>The standalone narrative benchmark (E3) used the mock provider; Qwen-7B was only evaluated inside the cascade.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#image"/></svg><span><strong>Partial degradation matrix</strong>OCR degradation was evaluated in full on lab reports; the medication and narrative matrices were not run.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#layers"/></svg><span><strong>Variants not run</strong>V7 (OCR-aware ModernBERT), V11 (feature ablation) and the optional V13 (LoRA small LLM) were not executed.</span></li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer data-shell></footer>
+</body>
+</html>

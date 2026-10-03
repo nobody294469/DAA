@@ -8,6 +8,7 @@ Features:
   - Full evaluation on val fold and held-out OOD test set
   - Reproducible via seed
   - Saves best checkpoint per fold+seed
+  - Optional gradient accumulation / gradient checkpointing for small (shared 4 GB) GPUs
 """
 from __future__ import annotations
 
@@ -15,7 +16,7 @@ import json
 import random
 from functools import partial
 from pathlib import Path
-from typing import Optional
+from typing import Callable, Optional
 
 import torch
 import torch.nn as nn
@@ -115,6 +116,11 @@ def train_one_fold(
     model_name: str = "modernbert_full",
     ood_examples: list[M2Example] | None = None,
     calib_examples: list[M2Example] | None = None,
+    grad_accum_steps: int = 1,
+    gradient_checkpointing: bool = False,
+    eval_batch_size: int = 64,
+    device: str | None = None,
+    progress_callback: Callable[[dict], None] | None = None,
 ) -> dict:
     """Train ClinicalVerifier on one fold with post-hoc calibration (DEC-009).
 
@@ -129,30 +135,48 @@ def train_one_fold(
         calib_examples: Calibration examples from manifest calibration_doc_ids.
             Used exclusively for TemperatureScaler fitting (DEC-009). If None,
             temperature defaults to 1.0 (identity — no calibration).
+        grad_accum_steps: Micro-batches per optimizer step (effective batch = batch_size * k).
+            The LR schedule is sized in optimizer steps; 1 reproduces the plain loop exactly.
+        gradient_checkpointing: Recompute encoder activations in backward (less memory, slower).
+        eval_batch_size: Batch size of the validation / calibration passes (debug forces 4).
+        device: "cpu" or "cuda"; None picks cuda when available.
+        progress_callback: Called with {"event": "phase" | "step" | "epoch", ...} at phase
+            boundaries, after every optimizer step and after every epoch's validation pass.
 
     Returns:
         dict with val_eval, ood_eval, history, calibration_temperature.
     """
+    if grad_accum_steps < 1:
+        raise ValueError(f"grad_accum_steps must be >= 1, got {grad_accum_steps}")
+
+    def emit(event: str, **fields) -> None:
+        if progress_callback is not None:
+            progress_callback({"event": event, **fields})
+
     set_seed(seed)
-    device = get_device()
+    device = device or get_device()
     n_calib = len(calib_examples) if calib_examples else 0
     print(f"\n  [{model_name} | fold={fold_idx}, seed={seed}] Device: {device} | aux_mode={aux_mode} | freeze={freeze_lower_n_layers}")
     print(f"  Train: {len(train_examples)} | Val: {len(val_examples)} | Calib: {n_calib}")
 
+    emit("phase", phase="load")
     tokenizer = load_tokenizer(config.model_id)
     model = ClinicalVerifier(
         model_id=config.model_id,
         aux_mode=aux_mode,
         freeze_lower_n_layers=freeze_lower_n_layers,
+        gradient_checkpointing=gradient_checkpointing,
     ).to(device)
     print(f"  Trainable params: {model.n_trainable_params:,}")
 
     if debug:
         train_examples = train_examples[:48]
         val_examples = val_examples[:24]
+    train_examples = list(train_examples)  # shuffled per epoch below; never reorder the caller's list
 
     batch_size = 8 if debug else config.batch_size
     max_epochs = 1 if debug else config.max_epochs
+    eval_batch_size = 4 if debug else eval_batch_size
 
     # Differential LR: encoder gets lower LR
     encoder_params = [p for n, p in model.named_parameters()
@@ -164,7 +188,10 @@ def train_one_fold(
         {"params": head_params,    "lr": config.head_lr},
     ], weight_decay=config.weight_decay)
 
-    steps_per_epoch = max(1, len(train_examples) // batch_size)
+    n_batches_per_epoch = -(-len(train_examples) // batch_size)  # micro-batches; last may be partial
+    opt_steps_per_epoch = -(-n_batches_per_epoch // grad_accum_steps)  # optimizer steps actually taken
+    # Schedule length keeps the original floor convention, in optimizer steps.
+    steps_per_epoch = max(1, len(train_examples) // batch_size // grad_accum_steps)
     total_steps = steps_per_epoch * max_epochs
     warmup_steps = max(1, int(config.warmup_fraction * total_steps))
     scheduler = get_scheduler(optimizer, warmup_steps, total_steps)
@@ -184,48 +211,63 @@ def train_one_fold(
         aux_mode=aux_mode,
     )
 
+    global_step = 0
     for epoch in range(max_epochs):
         model.train()
         random.shuffle(train_examples)
         epoch_loss = 0.0
         n_batches = 0
-        for start in range(0, len(train_examples), batch_size):
+        step_in_epoch = 0
+        emit("phase", phase="train", epoch=epoch + 1, max_epochs=max_epochs, step=0,
+             steps_per_epoch=opt_steps_per_epoch, global_step=global_step,
+             total_steps=opt_steps_per_epoch * max_epochs)
+        for b, start in enumerate(range(0, len(train_examples), batch_size)):
             batch = train_examples[start: start + batch_size]
-            if not batch:
-                continue
             input_ids, attn_mask, aux_feat, labels = collate(batch)
-            optimizer.zero_grad()
+            group_start = b - b % grad_accum_steps
+            accum = min(grad_accum_steps, n_batches_per_epoch - group_start)  # micro-batches in this step
+            is_step = b - group_start + 1 == accum
+            if b == group_start:
+                optimizer.zero_grad()
             if device == "cuda" and scaler is not None:
                 with torch.amp.autocast("cuda", dtype=torch.float16):
                     logits = model(input_ids, attn_mask, aux_features=aux_feat)
                     loss = criterion(logits, labels)
-                scaler.scale(loss).backward()
-                scaler.unscale_(optimizer)
-                nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
-                scale_before = scaler.get_scale()
-                scaler.step(optimizer)
-                scaler.update()
-                scale_after = scaler.get_scale()
-                if scale_before <= scale_after:
-                    scheduler.step()
+                scaler.scale(loss / accum).backward()
+                if is_step:
+                    scaler.unscale_(optimizer)
+                    nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+                    scale_before = scaler.get_scale()
+                    scaler.step(optimizer)
+                    scaler.update()
+                    scale_after = scaler.get_scale()
+                    if scale_before <= scale_after:
+                        scheduler.step()
             else:
                 logits = model(input_ids, attn_mask, aux_features=aux_feat)
                 loss = criterion(logits, labels)
-                loss.backward()
-                nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
-                optimizer.step()
-                scheduler.step()
+                (loss / accum).backward()
+                if is_step:
+                    nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+                    optimizer.step()
+                    scheduler.step()
             epoch_loss += loss.item()
             n_batches += 1
+            if is_step:
+                step_in_epoch += 1
+                global_step += 1
+                emit("step", epoch=epoch + 1, step=step_in_epoch,
+                     steps_per_epoch=opt_steps_per_epoch, global_step=global_step,
+                     total_steps=opt_steps_per_epoch * max_epochs, train_loss=epoch_loss / n_batches)
 
         avg_loss = epoch_loss / max(n_batches, 1)
 
         # Validation pass
+        emit("phase", phase="validate", epoch=epoch + 1)
         model.eval()
         y_true, y_pred = [], []
         val_loss_total = 0.0
         n_val_batches = 0
-        eval_batch_size = 64 if not debug else 4
         with torch.no_grad():
             for start in range(0, len(val_examples), eval_batch_size):
                 batch = val_examples[start: start + eval_batch_size]
@@ -247,8 +289,12 @@ def train_one_fold(
 
         avg_val_loss = val_loss_total / max(n_val_batches, 1)
         val_f1 = macro_f1(y_true, y_pred)
+        val_acc = sum(t == p for t, p in zip(y_true, y_pred)) / max(len(y_true), 1)
         print(f"    Epoch {epoch+1:2d}/{max_epochs}: train_loss={avg_loss:.4f} | val_loss={avg_val_loss:.4f} | val_macro_f1={val_f1:.4f}")
-        history.append({"epoch": epoch + 1, "loss": avg_loss, "val_loss": avg_val_loss, "val_macro_f1": val_f1})
+        history.append({"epoch": epoch + 1, "loss": avg_loss, "val_loss": avg_val_loss,
+                        "val_macro_f1": val_f1, "val_accuracy": val_acc})
+        emit("epoch", epoch=epoch + 1, train_loss=avg_loss, val_loss=avg_val_loss,
+             val_macro_f1=val_f1, val_accuracy=val_acc)
 
         if val_f1 > best_val_f1:
             best_val_f1 = val_f1
@@ -269,12 +315,12 @@ def train_one_fold(
     calib_metrics = None
     if calib_examples and best_state is not None:
         from clindoc.m2.calibration import TemperatureScaler
+        emit("phase", phase="calibrate")
         calib_ex = calib_examples[:24] if debug else calib_examples  # limit in debug
         print(f"  Fitting TemperatureScaler on {len(calib_ex)} calibration examples...")
         model.eval()
         calib_logits_list = []
         calib_labels_list = []
-        eval_batch_size = 64 if not debug else 4
         with torch.no_grad():
             for start in range(0, len(calib_ex), eval_batch_size):
                 batch = calib_ex[start: start + eval_batch_size]
@@ -320,6 +366,7 @@ def train_one_fold(
         }, ckpt_path)
 
     # Comprehensive evaluation using evaluate_model_on_split
+    emit("phase", phase="evaluate")
     val_eval = evaluate_model_on_split(
         model, tokenizer, val_examples,
         model_name=model_name, split="cv",

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playground · Clindoc2FHIR</title>
+  <meta name="description" content="Verify one clinical claim against an evidence snippet and see how the deterministic rules, the ModernBERT classifier and the LLM judge each vote.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="stylesheet" href="/assets/css/workbench.css?v=6">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script type="module" src="/assets/js/playground.js"></script>
+</head>
+<body data-page="playground">
+  <header data-shell></header>
+
+  <main id="main" tabindex="-1">
+    <div class="page-header"><div class="container container--wide page-header__inner"><div class="page-header__text">
+      <p class="label-mono">Playground</p>
+      <h1>Verify a single claim</h1>
+      <p class="page-header__lede">Write a claim and the evidence it should match, then see how each cascade stage votes: the deterministic rules, the calibrated classifier and, on escalation, the LLM judge.</p>
+    </div></div></div>
+
+    <div class="container container--wide section--tight stack stack--lg">
+      <div id="serving"></div>
+
+      <section class="wb-panel pg-presets" aria-labelledby="presets-title">
+        <h2 class="wb-panel__title" id="presets-title">Start from a benchmark example</h2>
+        <p class="text-sm text-2 measure">Each example comes from the V3 benchmark and fills the form. Its benchmark label is the ground truth to compare against.</p>
+        <div id="presets" aria-busy="true"><span class="skeleton skeleton--block" style="--h:8rem"></span></div>
+        <p class="text-sm text-2" id="preset-status" role="status"></p>
+      </section>
+
+      <div class="pg-layout">
+        <form class="wb-panel" id="verify-form" novalidate aria-labelledby="form-title">
+          <h2 class="wb-panel__title" id="form-title">Claim and evidence</h2>
+
+          <div class="field">
+            <label class="field__label" for="field-type">Field type</label>
+            <select class="select" id="field-type" name="field_type" aria-describedby="tier-help">
+              <optgroup label="Tier 1: full cascade A, B, C">
+                <option value="lab.value">Lab value (lab.value)</option>
+                <option value="lab.flag">Lab abnormal flag (lab.flag)</option>
+                <option value="med.name">Medication name (med.name)</option>
+                <option value="med.dose">Medication dose (med.dose)</option>
+                <option value="med.route">Medication route (med.route)</option>
+                <option value="med.frequency">Medication frequency (med.frequency)</option>
+              </optgroup>
+              <optgroup label="Tier 2: Stage A rules only">
+                <option value="lab.unit">Lab unit (lab.unit)</option>
+                <option value="lab.reference_range">Lab reference range (lab.reference_range)</option>
+                <option value="lab.test_name">Lab test name (lab.test_name)</option>
+                <option value="med.duration">Medication duration (med.duration)</option>
+              </optgroup>
+            </select>
+            <p class="field__help" id="tier-help"></p>
+          </div>
+
+          <div class="field" id="entity-field">
+            <label class="field__label" for="entity"><span id="entity-label">Test name</span> <span class="field__optional">(recommended)</span></label>
+            <input class="input" id="entity" name="entity" type="text" maxlength="200" autocomplete="off" aria-describedby="entity-help">
+            <p class="field__help" id="entity-help">Builds the claim text the classifier reads, for example "Hematocrit: 37.9 %". Without it the model sees only the bare value.</p>
+          </div>
+
+          <div class="pg-row">
+            <div class="field">
+              <label class="field__label" for="value">Claimed value</label>
+              <input class="input" id="value" name="value" type="text" maxlength="500" autocomplete="off" required aria-describedby="field-help value-error">
+              <p class="field__help" id="field-help"></p>
+              <p class="field__error" id="value-error" hidden></p>
+            </div>
+            <div class="field" id="unit-field">
+              <label class="field__label" for="unit">Unit <span class="field__optional">(optional)</span></label>
+              <input class="input" id="unit" name="unit" type="text" maxlength="50" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="cluster cluster--between">
+              <label class="field__label" for="evidence">Evidence text</label>
+              <span class="pg-count" id="evidence-count" aria-hidden="true">0 / 20,000</span>
+            </div>
+            <textarea class="textarea textarea--mono" id="evidence" name="evidence_text" rows="8" maxlength="20000" spellcheck="false" aria-describedby="evidence-help"></textarea>
+            <p class="field__help" id="evidence-help">The source text the claim is checked against, such as the report row or order block. Leave it empty to test the missing-evidence path.</p>
+          </div>
+
+          <details class="accordion pg-context" id="context-details">
+            <summary><span>Context window <span class="field__optional">(optional)</span></span></summary>
+            <div class="accordion__body field">
+              <label class="field__label" for="context">Surrounding page text</label>
+              <textarea class="textarea textarea--mono" id="context" name="context_text" rows="6" maxlength="50000" spellcheck="false" aria-describedby="context-help context-warning"></textarea>
+              <p class="field__help" id="context-help">DEC-003 context window. The classifier uses it only when the evidence text appears verbatim inside it.</p>
+              <p class="field__error pg-context-warning" id="context-warning" hidden></p>
+            </div>
+          </details>
+
+          <div class="pg-actions">
+            <button class="btn btn--primary" id="submit" type="submit"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#shield-check"/></svg>Verify claim</button>
+            <button class="btn btn--ghost" id="clear" type="button">Clear form</button>
+          </div>
+        </form>
+
+        <section class="pg-result" id="result" aria-labelledby="result-heading">
+          <h2 class="visually-hidden" id="result-heading">Result</h2>
+          <div class="pg-result" id="result-body"></div>
+        </section>
+      </div>
+      <p class="visually-hidden" id="pg-status" role="status"></p>
+
+      <section class="wb-panel" aria-labelledby="recent-title">
+        <div class="wb-panel__head">
+          <h2 class="wb-panel__title" id="recent-title" tabindex="-1">Recent checks</h2>
+          <button class="btn btn--ghost btn--sm" id="recent-clear" type="button" hidden><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#trash"/></svg>Clear history</button>
+        </div>
+        <p class="text-sm text-2">The last 10 checks, kept in this browser only. Select one to load it back into the form.</p>
+        <ul class="pg-recent" id="recent" role="list"></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer data-shell></footer>
+</body>
+</html>

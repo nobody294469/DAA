@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workbench · Clindoc2FHIR</title>
+  <meta name="description" content="Run the Clindoc2FHIR pipeline on a sample or uploaded clinical document and check every extracted claim against the highlighted region of the page it came from.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="stylesheet" href="/assets/css/workbench.css?v=6">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script type="module" src="/assets/js/workbench.js"></script>
+</head>
+<body data-page="workbench">
+  <header data-shell></header>
+
+  <main id="main" tabindex="-1">
+    <div class="page-header"><div class="container container--wide page-header__inner"><div class="page-header__text">
+      <p class="label-mono">Workbench</p>
+      <h1>Process a clinical document</h1>
+      <p class="page-header__lede">Run extraction, terminology coding, the three-stage verification cascade and FHIR export on one document, then check each claim against the region of the page it came from.</p>
+    </div></div></div>
+
+    <div class="container container--wide section--tight stack stack--lg">
+      <div id="serving"></div>
+
+      <!-- 1. Input -->
+      <section class="wb-panel wb-input" aria-labelledby="input-title">
+        <h2 class="wb-panel__title" id="input-title">Choose a document</h2>
+        <div data-tabs id="input-tabs">
+          <div class="tabs__list" role="tablist" aria-label="Input source">
+            <button class="tabs__tab" role="tab" id="tab-library" data-tab="library" aria-controls="panel-library" aria-selected="true" type="button"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#layers"/></svg>Sample library <span class="tabs__count" id="library-count"></span></button>
+            <button class="tabs__tab" role="tab" id="tab-upload" data-tab="upload" aria-controls="panel-upload" aria-selected="false" type="button"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#upload"/></svg>Upload</button>
+          </div>
+
+          <div class="tabs__panel stack" role="tabpanel" id="panel-library" aria-labelledby="tab-library">
+            <div class="field wb-library__search">
+              <label class="field__label" for="sample-search">Search samples</label>
+              <div class="input-group">
+                <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#search"/></svg>
+                <input class="input" id="sample-search" type="search" autocomplete="off" spellcheck="false" aria-describedby="sample-search-help">
+              </div>
+              <p class="field__help" id="sample-search-help">Filter by document ID, type or split, for example MED_0004 or ood.</p>
+            </div>
+            <div class="wb-library" id="library" aria-busy="true">
+              <span class="skeleton skeleton--text"></span><span class="skeleton skeleton--text" style="width:80%"></span><span class="skeleton skeleton--text" style="width:60%"></span>
+            </div>
+            <p class="text-sm muted" id="library-status" role="status"></p>
+          </div>
+
+          <div class="tabs__panel stack" role="tabpanel" id="panel-upload" aria-labelledby="tab-upload" hidden>
+            <div class="dropzone" id="dropzone">
+              <svg class="icon dropzone__icon" aria-hidden="true"><use href="/assets/icons.svg#upload"/></svg>
+              <p class="dropzone__title">Drop a document here</p>
+              <label class="btn btn--secondary"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-text"/></svg>Browse files<input class="visually-hidden" id="file-input" type="file" accept=".pdf,.json,.png,.jpg,.jpeg,.tif,.tiff" aria-describedby="file-help file-error"></label>
+              <p class="field__help" id="file-help">Born-digital PDF or DocumentText JSON, up to 15 MB. PNG, JPG and TIFF images (and scanned PDFs) need OCR, which this server may not have installed.</p>
+              <p class="dropzone__file" id="file-name" aria-live="polite"></p>
+            </div>
+            <p class="field__error" id="file-error" role="alert" hidden></p>
+            <div class="field">
+              <span class="field__label" aria-hidden="true">Document type</span>
+              <fieldset class="segmented" aria-describedby="doctype-help">
+                <legend class="visually-hidden">Document type</legend>
+                <label><input type="radio" name="doc_type" value="auto" checked><span>Auto</span></label>
+                <label><input type="radio" name="doc_type" value="lab"><span>Lab</span></label>
+                <label><input type="radio" name="doc_type" value="med"><span>Medication</span></label>
+                <label><input type="radio" name="doc_type" value="narrative"><span>Narrative</span></label>
+              </fieldset>
+              <p class="field__help measure" id="doctype-help">Auto routes by filename prefix (LAB_, MED_, NARRATIVE_), otherwise by text cues: lab units such as mg/dL point to a lab report, order lines to a medication sheet, and prose mentioning both to a narrative note. Pick a type to override. Library samples always route by their ID.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wb-runbar">
+          <p class="wb-runbar__selection" id="selection">No sample selected.</p>
+          <button class="btn btn--primary btn--lg" id="run" type="button" disabled><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#play"/></svg>Run pipeline</button>
+        </div>
+      </section>
+
+      <!-- 2. Progress -->
+      <section class="wb-panel" id="progress" aria-labelledby="progress-title" hidden>
+        <div class="wb-panel__head">
+          <h2 class="wb-panel__title" id="progress-title">Pipeline run</h2>
+          <p class="label-mono" id="elapsed"></p>
+        </div>
+        <ol class="stepper" id="stepper" aria-label="Pipeline progress"></ol>
+        <p class="text-xs muted" id="progress-note">The pipeline runs as one request, so the steps advance on a timer until the server answers.</p>
+        <div id="progress-error"></div>
+      </section>
+      <p class="visually-hidden" id="run-status" role="status"></p>
+
+      <!-- 3. Results -->
+      <section class="stack stack--lg" id="results" aria-labelledby="results-title" hidden>
+        <div class="wb-results__head">
+          <div class="stack stack--xs">
+            <h2 id="results-title" tabindex="-1">Results</h2>
+            <p class="text-sm text-2" id="results-meta"></p>
+          </div>
+          <div class="btn-group">
+            <a class="btn btn--secondary btn--sm" id="dl-fhir" href="#" download><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#download"/></svg>FHIR bundle</a>
+            <a class="btn btn--secondary btn--sm" id="dl-audit" href="#" download><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#download"/></svg>Audit report</a>
+            <button class="btn btn--ghost btn--sm" id="copy-link" type="button"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#link"/></svg>Copy link</button>
+          </div>
+        </div>
+        <div id="warnings" class="banner-stack"></div>
+        <div class="stat-row stat-row--align" id="kpis" style="--min:9.5rem"></div>
+        <div class="card card--ruled chart-card">
+          <div class="chart-card__header">
+            <div>
+              <h3 class="chart-card__title">Deciding stage</h3>
+              <p class="chart-card__subtitle">Which cascade stage settled each claim. Tier 2 fields (units, ranges, test names, durations) stop at Stage A by design.</p>
+            </div>
+          </div>
+          <div id="stage-chart"></div>
+        </div>
+
+        <div data-tabs id="result-tabs">
+          <div class="tabs__list" role="tablist" aria-label="Run output">
+            <button class="tabs__tab" role="tab" id="tab-claims" data-tab="claims" aria-controls="panel-claims" aria-selected="true" type="button">Claims <span class="tabs__count" id="claims-tab-count"></span></button>
+            <button class="tabs__tab" role="tab" id="tab-fhir" data-tab="fhir" aria-controls="panel-fhir" aria-selected="false" type="button">FHIR bundle</button>
+            <button class="tabs__tab" role="tab" id="tab-audit" data-tab="audit" aria-controls="panel-audit" aria-selected="false" type="button">Audit report</button>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-claims" aria-labelledby="tab-claims">
+            <div class="wb-split">
+              <section class="card card--flush wb-viewer" id="viewer" aria-labelledby="viewer-title">
+                <div class="wb-viewer__bar">
+                  <h3 class="h4" id="viewer-title">Source page</h3>
+                  <div class="wb-viewer__tools">
+                    <label class="visually-hidden" for="page-select">Page</label>
+                    <select class="select wb-viewer__page" id="page-select"></select>
+                    <div class="wb-zoom" role="group" aria-label="Zoom">
+                      <button class="btn btn--ghost btn--icon btn--sm" id="zoom-out" type="button" aria-label="Zoom out"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#zoom-out"/></svg></button>
+                      <output class="wb-zoom__level tabular-nums" id="zoom-level" for="zoom-out zoom-in">Fit</output>
+                      <button class="btn btn--ghost btn--icon btn--sm" id="zoom-in" type="button" aria-label="Zoom in"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#zoom-in"/></svg></button>
+                      <button class="btn btn--ghost btn--icon btn--sm" id="zoom-fit" type="button" aria-label="Fit page to width"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#maximize"/></svg></button>
+                    </div>
+                    <button class="btn btn--ghost btn--sm wb-viewer__toggle" id="viewer-toggle" type="button" aria-expanded="true" aria-controls="viewer-body"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#chevron-up"/></svg><span>Hide page</span></button>
+                  </div>
+                </div>
+                <div class="wb-viewer__body" id="viewer-body">
+                  <div class="wb-viewer__scroll" id="viewer-scroll" tabindex="0" role="region" aria-label="Document page with evidence regions">
+                    <div class="wb-page" id="page">
+                      <img class="wb-page__img" id="page-img" alt="" decoding="async">
+                      <div class="wb-page__overlay" id="overlay"></div>
+                    </div>
+                  </div>
+                  <ul class="wb-key" id="viewer-key" role="list" aria-label="Region outline key"></ul>
+                </div>
+              </section>
+
+              <section class="wb-claims stack" aria-labelledby="claims-title">
+                <h3 class="visually-hidden" id="claims-title">Extracted claims</h3>
+                <div class="wb-filters stack stack--sm">
+                  <fieldset class="fieldset">
+                    <legend>Verdict</legend>
+                    <div class="cluster cluster--sm" id="verdict-filters"></div>
+                  </fieldset>
+                  <div class="wb-filters__row">
+                    <div class="field">
+                      <label class="field__label" for="stage-filter">Deciding stage</label>
+                      <select class="select" id="stage-filter"></select>
+                    </div>
+                    <div class="field">
+                      <label class="field__label" for="field-filter">Field type</label>
+                      <select class="select" id="field-filter"></select>
+                    </div>
+                    <div class="field wb-filters__search">
+                      <label class="field__label" for="claim-search">Search claims</label>
+                      <input class="input" id="claim-search" type="search" autocomplete="off" spellcheck="false">
+                    </div>
+                  </div>
+                  <div class="cluster cluster--between">
+                    <p class="text-sm text-2" id="claims-count" role="status"></p>
+                    <button class="btn btn--ghost btn--sm" id="filters-reset" type="button" hidden><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg>Reset filters</button>
+                  </div>
+                </div>
+                <ul class="wb-claim-list" id="claim-list" role="list"></ul>
+              </section>
+            </div>
+          </div>
+
+          <div class="tabs__panel stack" role="tabpanel" id="panel-fhir" aria-labelledby="tab-fhir" hidden>
+            <div id="fhir-status"></div>
+            <div class="wb-json-tools">
+              <div class="field wb-json-tools__search">
+                <label class="field__label" for="fhir-search">Search bundle</label>
+                <input class="input" id="fhir-search" type="search" autocomplete="off" spellcheck="false" aria-describedby="fhir-matches">
+              </div>
+              <p class="text-sm text-2" id="fhir-matches" role="status"></p>
+              <div class="btn-group">
+                <button class="btn btn--ghost btn--sm" type="button" data-json-action="expand" data-json="fhir">Expand all</button>
+                <button class="btn btn--ghost btn--sm" type="button" data-json-action="collapse" data-json="fhir">Collapse all</button>
+                <button class="btn btn--secondary btn--sm" type="button" data-json-action="copy" data-json="fhir"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy JSON</button>
+                <a class="btn btn--secondary btn--sm" id="dl-fhir-2" href="#" download><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#download"/></svg>Download</a>
+              </div>
+            </div>
+            <div id="fhir-tree" style="--json-max-h:40rem"></div>
+          </div>
+
+          <div class="tabs__panel stack" role="tabpanel" id="panel-audit" aria-labelledby="tab-audit" hidden>
+            <p class="text-sm text-2 measure">The DEC-016 audit report keeps every claim, its evidence span and bounding box, and the verdict of each cascade stage, including claims that did not become FHIR resources.</p>
+            <div class="wb-json-tools">
+              <div class="field wb-json-tools__search">
+                <label class="field__label" for="audit-search">Search audit report</label>
+                <input class="input" id="audit-search" type="search" autocomplete="off" spellcheck="false" aria-describedby="audit-matches">
+              </div>
+              <p class="text-sm text-2" id="audit-matches" role="status"></p>
+              <div class="btn-group">
+                <button class="btn btn--ghost btn--sm" type="button" data-json-action="expand" data-json="audit">Expand all</button>
+                <button class="btn btn--ghost btn--sm" type="button" data-json-action="collapse" data-json="audit">Collapse all</button>
+                <button class="btn btn--secondary btn--sm" type="button" data-json-action="copy" data-json="audit"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy JSON</button>
+                <a class="btn btn--secondary btn--sm" id="dl-audit-2" href="#" download><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#download"/></svg>Download</a>
+              </div>
+            </div>
+            <div id="audit-tree" style="--json-max-h:40rem"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <dialog class="dialog drawer" id="claim-drawer" aria-labelledby="drawer-title">
+      <div class="dialog__header">
+        <div class="stack stack--xs">
+          <p class="label-mono" id="drawer-eyebrow"></p>
+          <h2 class="dialog__title wrap-anywhere" id="drawer-title">Claim detail</h2>
+        </div>
+        <button class="btn btn--ghost btn--icon" type="button" data-dialog-close aria-label="Close claim detail"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#x"/></svg></button>
+      </div>
+      <div class="dialog__body" id="drawer-body"></div>
+      <div class="dialog__footer wb-drawer__footer">
+        <button class="btn btn--secondary btn--sm" id="drawer-locate" type="button"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#crosshair"/></svg>Show on page</button>
+        <div class="btn-group">
+          <button class="btn btn--ghost btn--sm" id="drawer-prev" type="button"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#chevron-left"/></svg>Previous</button>
+          <button class="btn btn--ghost btn--sm" id="drawer-next" type="button">Next<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#chevron-right"/></svg></button>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer data-shell></footer>
+</body>
+</html>

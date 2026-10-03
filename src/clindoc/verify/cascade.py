@@ -36,6 +36,7 @@ from clindoc.schema.verification import (
     VerificationLabel,
     VerificationResult,
 )
+from clindoc.verify.claim_text import build_claim_text
 from clindoc.verify.stage_a import DeterministicVerifier, StageAResult
 from clindoc.verify.stage_b import LearnedVerifier, StageBResult
 from clindoc.verify.stage_c import StageCJudge, StageCResult
@@ -64,9 +65,10 @@ class VerificationCascade:
         claim: Claim,
         evidence: Optional[Evidence] = None,
         page_text: Optional[str] = None,
+        claim_text: Optional[str] = None,
     ) -> tuple[VerificationResult, Optional[StageAResult], Optional[StageBResult], Optional[StageCResult]]:
         """Verify a single Claim and return the canonical VerificationResult alongside all intermediate stage results."""
-        res = self.verify_claim(claim=claim, evidence=evidence, page_text=page_text)
+        res = self.verify_claim(claim=claim, evidence=evidence, page_text=page_text, claim_text=claim_text)
         return res, self.last_stage_a_result, self.last_stage_b_result, self.last_stage_c_result
 
     def verify_claim_detailed(
@@ -74,9 +76,10 @@ class VerificationCascade:
         claim: Claim,
         evidence: Optional[Evidence] = None,
         page_text: Optional[str] = None,
+        claim_text: Optional[str] = None,
     ) -> tuple[VerificationResult, Optional[StageBResult]]:
         """Verify a single Claim and return both the canonical VerificationResult and StageBResult."""
-        res = self.verify_claim(claim=claim, evidence=evidence, page_text=page_text)
+        res = self.verify_claim(claim=claim, evidence=evidence, page_text=page_text, claim_text=claim_text)
         return res, self.last_stage_b_result
 
     def verify_claim(
@@ -84,6 +87,7 @@ class VerificationCascade:
         claim: Claim,
         evidence: Optional[Evidence] = None,
         page_text: Optional[str] = None,
+        claim_text: Optional[str] = None,
     ) -> VerificationResult:
         """Verify a single Claim against Evidence and document text.
 
@@ -91,6 +95,7 @@ class VerificationCascade:
             claim: Extracted and normalized Claim.
             evidence: Linked Evidence span.
             page_text: Verbatim full page text of the document for context window.
+            claim_text: Descriptive claim for Stage B (clindoc.verify.claim_text.build_claim_text).
 
         Returns:
             Canonical VerificationResult adhering strictly to schemas/verification_result.json.
@@ -122,17 +127,7 @@ class VerificationCascade:
             )
 
         # 2. Extract Document Context Window (DEC-003)
-        context_text = evidence.text
-        if page_text and evidence.char_start >= 0 and evidence.char_end > evidence.char_start:
-            is_tabular = claim.field_type.startswith("lab.")
-            window_text, _, _ = extract_context_window(
-                page_text=page_text,
-                char_start=evidence.char_start,
-                char_end=evidence.char_end,
-                is_tabular=is_tabular,
-            )
-            if window_text:
-                context_text = window_text
+        context_text = self._context_text(claim, evidence, page_text)
 
         # 3. Route by Field Verification Tier (DEC-019)
         field_type = claim.field_type
@@ -175,6 +170,7 @@ class VerificationCascade:
             evidence=evidence,
             stage_a_label=stage_a_res.label,
             context_text=context_text,
+            claim_text=claim_text,
         )
         self.last_stage_b_result = stage_b_res
 
@@ -249,16 +245,50 @@ class VerificationCascade:
         Returns:
             List of canonical VerificationResult objects.
         """
-        results: list[VerificationResult] = []
+        # DEC-015: the entity name (test / medication) lives on a sibling claim in the same group.
+        entity_by_group = {
+            c.group_id: c.value
+            for c in claims
+            if c.group_id and c.field_type in ("lab.test_name", "med.name")
+        }
+        prepared = []
         for claim in claims:
             ev = evidence_map.get(claim.evidence_id)
             page_text = None
             if page_text_map and ev:
                 page_text = page_text_map.get(ev.document_id) or page_text_map.get(str(ev.page_number))
 
-            result = self.verify_claim(claim=claim, evidence=ev, page_text=page_text)
-            results.append(result)
-        return results
+            claim_text = build_claim_text(
+                claim.field_type, claim.value, claim.unit_raw, entity_by_group.get(claim.group_id)
+            )
+            prepared.append((claim, ev, page_text, claim_text))
+
+        # One batched Stage B forward per ~16 claims instead of one per claim (neural model only;
+        # the generator is not consumed otherwise). Tier-2 claims that fall through Stage A are
+        # rare and take the per-claim path; verdicts are computed by verify_claim either way.
+        self.stage_b.prefetch_logits(
+            (claim, ev, self._context_text(claim, ev, page_text), claim_text)
+            for claim, ev, page_text, claim_text in prepared
+            if ev is not None and (claim.field_type not in TIER_2_FIELDS or self.always_stage_c)
+        )
+        return [
+            self.verify_claim(claim=claim, evidence=ev, page_text=page_text, claim_text=claim_text)
+            for claim, ev, page_text, claim_text in prepared
+        ]
+
+    @staticmethod
+    def _context_text(claim: Claim, evidence: Evidence, page_text: Optional[str]) -> str:
+        """DEC-003 document-local context window around the evidence span (falls back to the span)."""
+        if page_text and evidence.char_start >= 0 and evidence.char_end > evidence.char_start:
+            window_text, _, _ = extract_context_window(
+                page_text=page_text,
+                char_start=evidence.char_start,
+                char_end=evidence.char_end,
+                is_tabular=claim.field_type.startswith("lab."),
+            )
+            if window_text:
+                return window_text
+        return evidence.text
 
     @staticmethod
     def _default_contradiction_type(claim: Claim) -> ContradictionType:

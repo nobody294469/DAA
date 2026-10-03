@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Clindoc2FHIR mark: a ruled report sheet with a verification tick, ink teal on paper. -->
+  <rect width="32" height="32" rx="4" fill="#1F5F6B"/>
+  <path d="M9 6.5h10.5L24 11v14.5H9Z" fill="#FBFAF7"/>
+  <path d="M12 12.5h6M12 16h9" stroke="#1F5F6B" stroke-width="1.5" stroke-linecap="square"/>
+  <path d="m12.5 21 2.2 2.2 4.6-4.6" fill="none" stroke="#1F5F6B" stroke-width="1.8" stroke-linecap="square"/>
+</svg>

@@ -8,12 +8,19 @@ Authority:
 
 Stage B processes Tier 1 clinical claims through a fine-tuned BioClinical
 ModernBERT 3-way sequence classifier with temperature scaling calibration.
+
+Checkpoints are the .pt files written by clindoc.m2.train.train_one_fold
+(scripts/train_v3_experiment.py). The base encoder config + tokenizer are resolved by
+resolve_base_model_id(); env CLINDOC_BASE_MODEL points at a local copy of the base model and
+CLINDOC_STAGE_B_CHECKPOINT (opt-in via use_env_checkpoint=True) at a trained checkpoint.
 """
 from __future__ import annotations
 
+import logging
+import os
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Optional, Protocol, Union
+from typing import Any, Callable, Iterable, Optional, Protocol, Sequence, Union
 
 import numpy as np
 
@@ -23,12 +30,30 @@ from clindoc.m2.model import (
     INT_TO_LABEL,
     LABEL_ORDER,
     LABEL_TO_INT,
+    MAX_SEQ_LENGTH,
     MODEL_CHECKPOINT,
     format_input,
 )
 from clindoc.schema.verification import VerificationLabel
 
 DEFAULT_ESCALATION_THRESHOLD: float = 0.60  # DEC-005 provisional default
+INFERENCE_BATCH_SIZE: int = 16  # sequences per batched forward pass (prefetch_logits)
+
+logger = logging.getLogger(__name__)
+
+
+def resolve_base_model_id(checkpoint_model_id: Optional[str] = None) -> str:
+    """Base encoder id/dir for the tokenizer + architecture of a Stage B checkpoint.
+
+    Order: the checkpoint's own config.model_id when it is an existing local dir ->
+    env CLINDOC_BASE_MODEL -> ~/.cache/clindoc/BioClinical-ModernBERT-base if present -> hub id.
+    """
+    if checkpoint_model_id and Path(checkpoint_model_id).is_dir():
+        return checkpoint_model_id
+    if os.environ.get("CLINDOC_BASE_MODEL"):
+        return os.environ["CLINDOC_BASE_MODEL"]
+    local = Path.home() / ".cache" / "clindoc" / "BioClinical-ModernBERT-base"
+    return str(local) if local.is_dir() else MODEL_CHECKPOINT
 
 
 @dataclass(frozen=True)
@@ -81,12 +106,23 @@ class LearnedVerifier:
         custom_predictor: Optional[ModelPredictor] = None,
         device: Optional[str] = None,
         eager_load: bool = True,
+        use_env_checkpoint: bool = False,
     ) -> None:
+        """
+        Args:
+            model_path: .pt checkpoint from clindoc.m2.train (None = heuristic fallback).
+            use_env_checkpoint: When model_path is None, read it from env
+                CLINDOC_STAGE_B_CHECKPOINT. Off by default so tests and the Streamlit UI keep
+                the heuristic unless a caller opts in.
+        """
         self.escalation_threshold = float(escalation_threshold)
         self.scaler = scaler or TemperatureScaler(init_temperature=1.0)
         if not self.scaler.is_fitted:
             # If not pre-fitted, set identity temperature so it can scale logits cleanly
             self.scaler.is_fitted = True
+
+        if model_path is None and use_env_checkpoint:
+            model_path = os.environ.get("CLINDOC_STAGE_B_CHECKPOINT") or None
 
         self._predictor: Optional[ModelPredictor] = custom_predictor
         self._model = None
@@ -94,6 +130,10 @@ class LearnedVerifier:
         self._device = device
         self.model_path = model_path
         self._load_attempted: bool = False
+        self._load_error: Optional[str] = None
+        self._base_model_id: Optional[str] = None
+        self._max_seq_length: int = MAX_SEQ_LENGTH
+        self._logit_cache: dict[tuple[str, str, str], np.ndarray] = {}
 
         if eager_load and self.model_path is not None and self._predictor is None:
             self.load_model()
@@ -103,82 +143,110 @@ class LearnedVerifier:
         """Check whether a neural model or custom predictor is ready for inference."""
         return self._model is not None or self._predictor is not None
 
+    @property
+    def load_error(self) -> Optional[str]:
+        """Why the configured checkpoint is not serving (None when loaded or none configured)."""
+        return self._load_error
+
+    @property
+    def device(self) -> Optional[str]:
+        """Device of the loaded neural model, None when it is not loaded."""
+        return self._device if self._model is not None else None
+
+    @property
+    def temperature(self) -> float:
+        """DEC-009 temperature applied to Stage B logits."""
+        return float(self.scaler.temperature)
+
+    @property
+    def base_model_id(self) -> Optional[str]:
+        """Base encoder id/dir the loaded checkpoint was rebuilt from."""
+        return self._base_model_id
+
+    @property
+    def max_seq_length(self) -> int:
+        """Tokenizer truncation length (the checkpoint's training max_seq_length)."""
+        return self._max_seq_length
+
     def load_model(self) -> bool:
         """Load ModernBERT model and tokenizer once into memory outside the evaluation loop.
 
         Guarantees single initialization: if already loaded or if a custom predictor
-        is present, returns True immediately without reloading.
+        is present, returns True immediately without reloading. Failures leave the
+        heuristic fallback active and record the reason in `load_error`.
         """
-        if self._predictor is not None:
+        if self._predictor is not None or self._model is not None:
             return True
-        if self._model is not None:
-            return True
-        if self._load_attempted:
-            return self._model is not None
-        if not self.model_path or not Path(self.model_path).exists():
-            self._load_attempted = True
+        if self._load_attempted or not self.model_path:
             return False
-
         self._load_attempted = True
         try:
-            import logging
-            import torch
-            from transformers import AutoTokenizer
-            from clindoc.m2.model import ClinicalVerifier, MODEL_CHECKPOINT
-
-            if self._device is None:
-                self._device = "cuda" if torch.cuda.is_available() else "cpu"
-            model_path_obj = Path(self.model_path)
-
-            if model_path_obj.is_dir():
-                self._tokenizer = AutoTokenizer.from_pretrained(str(model_path_obj))
-                model = ClinicalVerifier(model_id=str(model_path_obj), aux_mode="none")
-            else:
-                self._tokenizer = AutoTokenizer.from_pretrained(MODEL_CHECKPOINT)
-                # Load checkpoint to CPU first to prevent GPU memory spikes (DEC-006 / Colab T4 stability)
-                ckpt = torch.load(str(model_path_obj), map_location="cpu", weights_only=False)
-                aux_mode = ckpt.get("aux_mode", "none") if isinstance(ckpt, dict) else "none"
-                model = ClinicalVerifier(model_id=MODEL_CHECKPOINT, aux_mode=aux_mode)
-                if isinstance(ckpt, dict) and "model_state" in ckpt:
-                    model.load_state_dict(ckpt["model_state"])
-                elif isinstance(ckpt, dict):
-                    model.load_state_dict(ckpt)
-                # DEC-009: load fitted temperature from checkpoint if present
-                if isinstance(ckpt, dict) and "temperature" in ckpt:
-                    fitted_temp = float(ckpt["temperature"])
-                    if fitted_temp > 0:
-                        self.scaler = TemperatureScaler(init_temperature=fitted_temp)
-                        self.scaler.is_fitted = True
-                del ckpt
-                if torch.cuda.is_available():
-                    torch.cuda.empty_cache()
-
-            # Transfer to target device with graceful CPU fallback on CUDA OOM
-            try:
-                self._model = model.to(self._device)
-            except (torch.cuda.OutOfMemoryError, RuntimeError) as oom_err:
-                if self._device != "cpu":
-                    import logging
-                    logging.getLogger(__name__).warning(
-                        "CUDA allocation failed for Stage B ModernBERT (%s). Gracefully falling back to cpu.",
-                        oom_err,
-                    )
-                    self._device = "cpu"
-                    if torch.cuda.is_available():
-                        torch.cuda.empty_cache()
-                    self._model = model.to("cpu")
-                else:
-                    raise
-
-            self._model.eval()
+            self._load_checkpoint(Path(self.model_path))
+            self._load_error = None
             return True
         except Exception as e:
-            import logging
-            logging.getLogger(__name__).warning(
-                "Failed to load Stage B ModernBERT model from %s: %s", self.model_path, e
-            )
             self._model = None
+            self._load_error = f"{type(e).__name__}: {e}"
+            logger.warning(
+                "Stage B ModernBERT not loaded from %s; heuristic fallback in use. %s",
+                self.model_path, self._load_error,
+            )
             return False
+
+    def _load_checkpoint(self, path: Path) -> None:
+        import torch
+        from clindoc.m2.model import ClinicalVerifier, load_tokenizer
+
+        if path.is_dir():
+            raise ValueError(
+                f"{path} is a directory; Stage B needs the .pt checkpoint written by "
+                "scripts/train_v3_experiment.py (a bare encoder has no trained classification head)"
+            )
+        if not path.is_file():
+            raise FileNotFoundError(f"Stage B checkpoint not found: {path}")
+
+        # CPU first so loading never spikes GPU memory (DEC-006); weights_only: no pickled code.
+        ckpt = torch.load(str(path), map_location="cpu", weights_only=True)
+        if not isinstance(ckpt, dict):
+            raise ValueError(f"{path} is not a ClinicalVerifier checkpoint")
+        cfg = ckpt.get("config") or {}
+        aux_mode = ckpt.get("aux_mode", "none")
+        if aux_mode != "none":
+            raise ValueError(
+                f"checkpoint aux_mode={aux_mode!r}: Stage B serves text-only (aux_mode='none') "
+                "checkpoints; it has no OCR/template features at inference"
+            )
+        base_model_id = resolve_base_model_id(cfg.get("model_id"))
+        max_seq_length = int(cfg.get("max_seq_length") or MAX_SEQ_LENGTH)
+
+        tokenizer = load_tokenizer(base_model_id)
+        model = ClinicalVerifier(model_id=base_model_id, aux_mode="none", load_pretrained=False)
+        model.load_state_dict(ckpt.get("model_state", ckpt), strict=True)
+        # DEC-009: fitted temperature from the checkpoint
+        fitted_temp = float(ckpt.get("temperature") or 0.0)
+        if fitted_temp > 0:
+            self.scaler = TemperatureScaler(init_temperature=fitted_temp)
+            self.scaler.is_fitted = True
+        del ckpt
+
+        device = self._device or ("cuda" if torch.cuda.is_available() else "cpu")
+        # Transfer to target device with graceful CPU fallback on CUDA OOM
+        try:
+            model = model.to(device)
+        except (torch.cuda.OutOfMemoryError, RuntimeError) as oom_err:
+            if device == "cpu":
+                raise
+            logger.warning(
+                "CUDA allocation failed for Stage B ModernBERT (%s). Gracefully falling back to cpu.",
+                oom_err,
+            )
+            device = "cpu"
+            torch.cuda.empty_cache()
+            model = model.to("cpu")
+
+        model.eval()
+        self._tokenizer, self._model, self._device = tokenizer, model, device
+        self._base_model_id, self._max_seq_length = base_model_id, max_seq_length
 
     def _lazy_load_model(self) -> bool:
         """Deprecated alias for load_model() retained for backward compatibility."""
@@ -190,6 +258,7 @@ class LearnedVerifier:
         evidence: Optional[Evidence] = None,
         stage_a_label: Optional[VerificationLabel] = None,
         context_text: Optional[str] = None,
+        claim_text: Optional[str] = None,
     ) -> StageBResult:
         """Run Stage B inference on claim and evidence.
 
@@ -198,6 +267,9 @@ class LearnedVerifier:
             evidence: Linked evidence.
             stage_a_label: Intermediate label from Stage A (if any).
             context_text: Optional local document context window.
+            claim_text: Optional descriptive claim (clindoc.verify.claim_text). The neural
+                model was trained on descriptive claims + DEC-003 context windows, so when it
+                is loaded it reads claim_text/context_text instead of the bare value/span.
 
         Returns:
             StageBResult with predicted label, calibrated confidence, logits, and escalation state.
@@ -217,8 +289,8 @@ class LearnedVerifier:
                 escalation_reason="insufficient_evidence_precaution",
             )
 
-        # 1. Obtain Model Logits
-        logits = self._compute_logits(claim.field_type, claim.value, ev_text)
+        # 1. Obtain Model Logits (neural model sees the training-time input distribution)
+        logits = self._compute_logits(*self._model_inputs(claim, ev_text, context_text, claim_text))
 
         # 2. Raw Softmax Confidence
         exp_logits = np.exp(logits - np.max(logits))
@@ -267,6 +339,67 @@ class LearnedVerifier:
         logits = result_or_logits.logits if isinstance(result_or_logits, StageBResult) else result_or_logits
         return self.scaler.predict_proba(logits)
 
+    def _model_inputs(
+        self,
+        claim: Claim,
+        ev_text: str,
+        context_text: Optional[str],
+        claim_text: Optional[str],
+    ) -> tuple[str, str, str]:
+        """(field_type, claim, evidence) as the active predictor reads them.
+
+        The neural model was trained on descriptive claims + DEC-003 context windows; custom
+        predictors and the heuristic keep reading the bare value and evidence span.
+        """
+        if self._model is not None and self._predictor is None:
+            return claim.field_type, claim_text or claim.value, (context_text or "").strip() or ev_text
+        return claim.field_type, claim.value, ev_text
+
+    def prefetch_logits(
+        self,
+        requests: Iterable[tuple[Claim, Optional[Evidence], Optional[str], Optional[str]]],
+    ) -> None:
+        """Batch the neural forward passes for upcoming verify() calls.
+
+        `requests` are (claim, evidence, context_text, claim_text) as verify() will receive them.
+        No-op, without consuming `requests`, unless a neural model is loaded. verify() reads the
+        cached logits; each call replaces the cache, so it holds at most one batch of claims.
+        """
+        if self._model is None or self._predictor is not None:
+            return
+        keys = []
+        for claim, evidence, context_text, claim_text in requests:
+            ev_text = evidence.text.strip() if (evidence and evidence.text) else ""
+            if ev_text:
+                keys.append(self._model_inputs(claim, ev_text, context_text, claim_text))
+        keys = list(dict.fromkeys(keys))
+        self._logit_cache = dict(zip(keys, self._neural_logits(keys))) if keys else {}
+
+    def _neural_logits(self, inputs: Sequence[tuple[str, str, str]]) -> np.ndarray:
+        """(N, 3) logits for (field_type, claim, evidence) inputs, dynamically padded batches."""
+        import torch
+
+        texts = [format_input(*inp) for inp in inputs]
+        # Length-sorted batches keep padding (wasted FLOPs on CPU) small; rows are scattered back.
+        order = sorted(range(len(texts)), key=lambda i: len(texts[i]))
+        out = np.empty((len(texts), len(LABEL_ORDER)), dtype=np.float32)
+        for start in range(0, len(order), INFERENCE_BATCH_SIZE):
+            idx = order[start:start + INFERENCE_BATCH_SIZE]
+            toks = self._tokenizer(
+                [texts[i] for i in idx],
+                padding=True,
+                truncation=True,
+                max_length=self._max_seq_length,
+                return_tensors="pt",
+            )
+            with torch.inference_mode():
+                logits = self._model(
+                    input_ids=toks["input_ids"].to(self._device),
+                    attention_mask=toks["attention_mask"].to(self._device),
+                )
+            out[idx] = logits.float().cpu().numpy()
+        return out
+
     def _compute_logits(self, field_type: str, claim_value: str, evidence_text: str) -> np.ndarray:
         """Compute 3-class logits from predictor or neural model."""
         if self._predictor is not None:
@@ -274,25 +407,9 @@ class LearnedVerifier:
 
         # Reuse pre-loaded ModernBERT model instance (never load/reload inside per-example loop)
         if self._model is not None:
-            import torch
-            formatted = format_input(field_type, claim_value, evidence_text)
-            toks = self._tokenizer(
-                formatted,
-                padding=True,
-                truncation=True,
-                max_length=256,
-                return_tensors="pt",
-            )
-            if hasattr(toks, "to"):
-                toks = toks.to(self._device)
-            else:
-                toks = {k: v.to(self._device) if hasattr(v, "to") else v for k, v in toks.items()}
-            with torch.no_grad():
-                logits_tensor = self._model(
-                    input_ids=toks["input_ids"],
-                    attention_mask=toks["attention_mask"],
-                )
-            return logits_tensor.squeeze(0).cpu().numpy()
+            key = (field_type, claim_value, evidence_text)
+            cached = self._logit_cache.get(key)
+            return cached if cached is not None else self._neural_logits([key])[0]
 
         # Fallback heuristic predictor for offline execution without downloaded neural weights
         return self._heuristic_logits(field_type, claim_value, evidence_text)

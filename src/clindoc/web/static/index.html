@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clindoc2FHIR · Evidence-checked clinical documents to FHIR</title>
+  <meta name="description" content="Clindoc2FHIR extracts clinical claims from lab reports, medication sheets and notes, verifies each against its source through a three-stage cascade, and emits FHIR R4B bundles with provenance.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Clindoc2FHIR · Evidence-checked clinical documents to FHIR">
+  <meta property="og:description" content="Every extracted clinical claim is checked against its source text through a three-stage cascade before it is written to a FHIR R4B bundle.">
+  <meta name="twitter:card" content="summary">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script type="module">
+    import { mountShell, api, renderError, renderServingPill, escapeHtml, icon, pct, num, verdictBadge, DASH } from '/assets/js/core.js';
+    import { stackedBar } from '/assets/js/charts.js';
+
+    mountShell();
+    renderServingPill(document.getElementById('hero-status'));
+
+    const $ = (id) => document.getElementById(id);
+    const kpis = $('kpis'), routing = $('routing'), specimen = $('specimen');
+    let routingChart = null;
+
+    const tile = (label, value, note) =>
+      `<div class="stat"><p class="stat__label">${escapeHtml(label)}</p><p class="stat__value">${value}</p><p class="stat__note">${note}</p></div>`;
+    const skeletonTiles = (n) => Array.from({ length: n }, () =>
+      '<div class="stat" aria-hidden="true"><span class="skeleton skeleton--text" style="width:60%"></span><span class="skeleton skeleton--value"></span><span class="skeleton skeleton--text"></span></div>').join('');
+    const READOUT_HEAD = '<div class="readout__head" aria-hidden="true"><span>Measure</span><span class="readout__value-head">Result</span><span>Detail</span></div>';
+    const line = (label, value, note) =>
+      `<div class="readout__row"><p class="readout__label">${escapeHtml(label)}</p><p class="readout__value">${value}</p><p class="readout__note">${note}</p></div>`;
+    const skeletonLines = (n) => READOUT_HEAD + Array.from({ length: n }, () =>
+      '<div class="readout__row" aria-hidden="true"><span class="skeleton skeleton--text" style="width:70%"></span><span class="skeleton skeleton--text" style="width:5rem;height:1.4rem"></span><span class="skeleton skeleton--text"></span></div>').join('');
+    const claimText = (p) => ({
+      'lab.value': `${p.entity}: ${p.value}${p.unit ? ` ${p.unit}` : ''}`,
+      'lab.flag': `${p.entity} flag: ${p.value}`,
+      'med.name': `Medication: ${p.value}`,
+    })[p.field_type] ?? `${p.entity} ${String(p.field_type).split('.').pop()}: ${p.value}${p.unit ? ` ${p.unit}` : ''}`;
+
+    function renderKpis(r) {
+      const h = r.headline || {}, f = r.fhir || {}, prov = f.provenance || {};
+      const ratio = (a, b) => (Number.isFinite(a) && Number.isFinite(b) ? `${num(a)}/${num(b)}` : DASH);
+      $('kpi-scope').textContent = `Frozen results on the V3 out-of-distribution split: ${num(h.n_claims_ood)} claims from document templates never seen in training.`;
+      kpis.innerHTML = READOUT_HEAD + [
+        line('Cascade accuracy', pct(h.cascade_accuracy), `${num(h.cascade_correct)} of ${num(h.n_claims_ood)} claims correct; macro-F1 ${num(h.cascade_macro_f1, 3)}`),
+        line('Fewer errors than ModernBERT alone', pct(h.error_reduction_vs_modernbert), `${num(h.cascade_errors)} errors vs ${num(h.modernbert_errors)}`),
+        line('Fewer errors than Qwen-7B alone', pct(h.error_reduction_vs_qwen), `${num(h.cascade_errors)} errors vs ${num(h.qwen_errors)}, ${num(h.speedup_vs_qwen, 1)}x faster`),
+        line('Settled without the LLM', pct(h.autonomous_coverage), `${num(h.autonomous_claims)} claims at ${pct(h.autonomous_accuracy)} accuracy (${num(h.autonomous_errors)} errors)`),
+        line('Valid FHIR R4B bundles', ratio(f.valid_bundles, f.bundles), `${ratio(prov.claims_in_audit_report, f.claims)} claims carry DEC-016 provenance`),
+      ].join('');
+      const src = (r.sources?.headline || [])[0];
+      $('kpi-source').innerHTML = src ? `Source: <code>${escapeHtml(src)}</code> and the frozen experiment JSON listed in <a href="/results.html">Results</a>.` : '';
+    }
+
+    function renderRouting(r) {
+      const h = r.headline || {}, op = r.risk_coverage?.operating_point || {}, esc = r.escalation || {};
+      const escN = op.escalated?.n ?? h.escalated_to_llm;
+      const escErrors = Number.isFinite(escN) && Number.isFinite(op.escalated?.accuracy) ? Math.round(escN * (1 - op.escalated.accuracy)) : null;
+      $('routing-rule').textContent = `A claim is settled at Stage B only when Stage A and Stage B agree and the calibrated confidence is at least ${num(op.threshold, 2)}. Disagreement, low confidence or an insufficient-evidence prediction escalates it to the Stage C judge.`;
+      routing.innerHTML = `<div class="chart-card__header"><div><h3 class="chart-card__title">Where ${num(h.n_claims_ood)} OOD claims were settled</h3><p class="chart-card__subtitle">Share of all claims in the frozen V8 cascade run.</p></div></div><div id="routing-chart"></div>`;
+      $('routing-facts').innerHTML = `
+          ${tile('Errors among claims settled at Stage B', num(op.dual_gate?.errors ?? h.autonomous_errors), `${pct(op.dual_gate?.accuracy ?? h.autonomous_accuracy)} accurate. Confidence thresholding alone at the same coverage leaves ${num(op.confidence_only?.errors)} errors (${num(op.risk_reduction_factor ?? h.risk_reduction_factor, 1)}x higher risk).`)}
+          ${tile('Errors among escalated claims', num(escErrors), `Stage C is ${pct(op.escalated?.accuracy)} accurate here; Stage B alone would have scored ${pct(op.escalated?.stage_b_counterfactual_accuracy)}.`)}
+          ${tile('Escalations caused by A/B disagreement', pct(esc.disagreement_share), 'The deterministic stage flags confident ModernBERT mistakes that a confidence threshold misses.')}`;
+      routingChart?.destroy();
+      routingChart = stackedBar($('routing-chart'), {
+        ariaLabel: 'Routing of OOD claims through the cascade',
+        mode: 'percent', format: 'int', rowLabels: false, insideLabels: false,
+        data: [{ label: `${num(h.n_claims_ood)} OOD claims`, b: h.autonomous_claims, c: escN }],
+        series: [{ key: 'b', label: 'Resolved at Stage B (no LLM call)' }, { key: 'c', label: 'Escalated to Stage C (LLM judge)' }],
+      });
+    }
+
+    // Report rows look like "Hematocrit 37.9 % 36.0 - 48.0" with an optional trailing H/L flag.
+    const ROW = /^(.+?) (-?\d[\d.]*) (\S+) (\d[\d.]* - \d[\d.]*)(?: ([HL]))?$/;
+
+    /** The report section around the evidence line, parsed into rows; null when it is not a lab table. */
+    function reportExcerpt(evidence, needle) {
+      const lines = String(evidence || '').split('\n').map((l) => l.trim());
+      const at = lines.findIndex((l) => ROW.test(l) && l.toLowerCase().startsWith(needle));
+      if (at < 0) return null;
+      let start = at;
+      while (start > 0 && ROW.test(lines[start - 1])) start--;
+      let end = at;
+      while (end < lines.length - 1 && ROW.test(lines[end + 1])) end++;
+      const section = (lines[start - 2] || '').match(/^SECTION:\s*(.+)$/i)?.[1] || '';
+      const from = Math.max(start, Math.min(at - 2, end - 4));
+      const rows = lines.slice(from, Math.min(end, from + 4) + 1).map((l, i) => ({ cells: l.match(ROW).slice(1), traced: from + i === at }));
+      return { rows, section, sourceRow: lines[at].match(ROW).slice(1) };
+    }
+
+    const titleCase = (s) => s.toLowerCase().replace(/^./, (c) => c.toUpperCase());
+
+    function renderSpecimen(r) {
+      const presets = r.verify_presets || [];
+      const p = presets.find((x) => x.field_type === 'lab.value' && x.expected_label === 'DISCREPANCY') || presets[0];
+      if (!p) { specimen.hidden = true; return; }
+      const needle = String(p.entity || p.value).toLowerCase();
+      const ex = reportExcerpt(p.evidence_text, needle);
+      let sheet, source;
+      if (ex) {
+        const body = ex.rows.map(({ cells: [name, val, unit, ref, flag], traced }) =>
+          `<tr${traced ? ' class="is-traced"' : ''}><td>${escapeHtml(name)}${traced ? '<span class="visually-hidden"> (traced row)</span>' : ''}</td><td class="num">${escapeHtml(val)}</td><td>${escapeHtml(unit)}</td><td class="col-ref">${escapeHtml(ref)}</td><td>${escapeHtml(flag || '')}</td></tr>`).join('');
+        sheet = `<table class="specimen__table"><caption class="visually-hidden">Excerpt of ${escapeHtml(p.source_document_id || 'the source report')}</caption><thead><tr><th scope="col">Analyte</th><th scope="col" class="num">Result</th><th scope="col">Units</th><th scope="col" class="col-ref">Reference</th><th scope="col">Flag</th></tr></thead><tbody>${body}</tbody></table>`;
+        const [name, val, unit] = ex.sourceRow;
+        source = `${name}: ${val} ${unit}`;
+      } else {
+        const ln = String(p.evidence_text || '').split('\n').find((l) => l.toLowerCase().includes(needle)) || '(no matching line)';
+        sheet = `<p class="specimen__lines">${escapeHtml(ln)}</p>`;
+        source = ln;
+      }
+      $('specimen-body').innerHTML = `
+        <div class="specimen__sheet">
+          <p class="specimen__meta"><span><strong>${escapeHtml(p.source_document_id || DASH)}</strong> lab report</span><span>${escapeHtml(ex?.section ? titleCase(ex.section) : p.field_type)}</span></p>
+          ${sheet}
+        </div>
+        <dl class="specimen__trace">
+          <div><dt>Source row</dt><dd class="mono">${escapeHtml(source)}</dd></div>
+          <div><dt>Extracted claim</dt><dd class="mono">${escapeHtml(claimText(p))}</dd></div>
+          <div><dt>Benchmark label</dt><dd>${verdictBadge(p.expected_label)}</dd></div>
+        </dl>
+        <p class="specimen__note">${escapeHtml(p.description || '')}</p>
+        <p><a class="link-arrow" href="/playground.html">Run this check in the Playground${icon('arrow-right', 'icon--sm')}</a></p>`;
+    }
+
+    async function load() {
+      kpis.innerHTML = skeletonLines(5);
+      routing.innerHTML = '<span class="skeleton skeleton--title"></span><span class="skeleton skeleton--block" style="--h:72px"></span>';
+      $('routing-facts').innerHTML = skeletonTiles(3);
+      $('specimen-body').innerHTML = '<span class="skeleton skeleton--block" style="--h:180px"></span><span class="skeleton skeleton--text"></span><span class="skeleton skeleton--text" style="width:70%"></span>';
+      kpis.setAttribute('aria-busy', 'true');
+      try {
+        const r = await api('/api/results');
+        renderKpis(r);
+        renderRouting(r);
+        renderSpecimen(r);
+      } catch (err) {
+        renderError(kpis, err, load, { title: 'Benchmark numbers unavailable' });
+        renderError(routing, err, load, { title: 'Routing data unavailable' });
+        $('routing-facts').innerHTML = '';
+        $('specimen-body').innerHTML = '<p class="muted text-sm">The example claim loads from the API.</p>';
+      } finally {
+        kpis.removeAttribute('aria-busy');
+      }
+    }
+    load();
+  </script>
+</head>
+<body data-page="home">
+  <header data-shell></header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="label-mono">Clinical documents to FHIR R4B</p>
+          <h1 class="hero__title" id="hero-title">Clinical claims, checked against their source before they reach the record</h1>
+          <p class="lede">Reads lab reports, medication sheets and notes, codes each finding to LOINC, RxNorm and UCUM, and keeps the source text behind every value.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="/workbench.html">Open the workbench<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+            <a class="link-arrow" href="/results.html">Benchmark results<svg class="icon icon--sm" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+          </div>
+          <p class="hero__status"><span>Serving now</span><span id="hero-status"></span></p>
+        </div>
+        <figure class="specimen" id="specimen" aria-labelledby="specimen-title">
+          <figcaption class="specimen__caption"><span class="label-mono">Fig. 1</span><h2 id="specimen-title">One claim traced to the report row it came from</h2></figcaption>
+          <div class="stack" id="specimen-body" aria-live="polite"></div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--ruled" aria-labelledby="kpi-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2 id="kpi-title">Results on document templates the model never saw</h2>
+          <p id="kpi-scope">Frozen results on the V3 out-of-distribution split.</p>
+        </div>
+        <div class="readout reveal" id="kpis" aria-live="polite"></div>
+        <p class="text-sm muted" id="kpi-source" style="margin-top:var(--space-4)"></p>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="how-title">
+      <div class="container ledger">
+        <div class="ledger__aside reveal">
+          <h2 id="how-title">Five steps from page to bundle</h2>
+          <p>Character offsets, page number and bounding box travel with every claim, from the PDF into the final FHIR resource.</p>
+        </div>
+        <ol class="steps reveal" aria-label="Pipeline steps">
+          <li class="steps__item">
+            <h3 class="steps__title">Ingest</h3>
+            <p class="steps__body">PyMuPDF reads born-digital PDFs into pages, lines and words, each with a bounding box. Scanned pages need OCR.</p>
+            <p class="steps__meta">PDF, PNG, JPG, TIFF</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__title">Extract</h3>
+            <p class="steps__body">A layout router sends lab tables and medication grids to deterministic parsers and narrative notes to a schema-constrained LLM extractor.</p>
+            <p class="steps__meta">Evidence span: offsets + bbox</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__title">Normalize</h3>
+            <p class="steps__body">Analytes map to LOINC, drugs to RxNorm and units to UCUM, with unit conversion before any comparison.</p>
+            <p class="steps__meta">LOINC, RxNorm, UCUM</p>
+          </li>
+          <li class="steps__item steps__item--focus">
+            <h3 class="steps__title">Verify</h3>
+            <p class="steps__body">Each claim is compared with its evidence and labelled Supported, Discrepancy or Insufficient evidence.</p>
+            <ul class="steps__stages" role="list">
+              <li><span class="badge badge--stage badge--stage-a"><span class="badge__key" aria-hidden="true"><span>A</span></span><span class="visually-hidden">Stage A: </span>Deterministic</span>Exact, numeric and flag rules</li>
+              <li><span class="badge badge--stage badge--stage-b"><span class="badge__key" aria-hidden="true"><span>B</span></span><span class="visually-hidden">Stage B: </span>ModernBERT</span>Fine-tuned, calibrated classifier</li>
+              <li><span class="badge badge--stage badge--stage-c"><span class="badge__key" aria-hidden="true"><span>C</span></span><span class="visually-hidden">Stage C: </span>LLM judge</span>Qwen2.5-7B, escalations only</li>
+            </ul>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__title">FHIR and audit</h3>
+            <p class="steps__body">Verified claims become Observation, DiagnosticReport and Medication resources with claim-provenance extensions, plus a standalone audit report.</p>
+            <p class="steps__meta">FHIR R4B, DEC-016 provenance</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="routing-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2 id="routing-title">Only the hard claims reach the LLM</h2>
+          <p id="routing-rule">A claim is settled at Stage B only when the deterministic and neural stages agree with enough confidence; everything else escalates to the Stage C judge.</p>
+        </div>
+        <div class="routing reveal">
+          <div class="chart-card routing__chart" id="routing" aria-live="polite"></div>
+          <div class="routing__facts stat-row--align" id="routing-facts"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ruled" aria-labelledby="explore-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2 id="explore-title">Run it, probe it, audit it</h2>
+        </div>
+        <ul class="index-list reveal" role="list">
+          <li><a class="index-row" href="/workbench.html"><span class="index-row__name">Workbench</span><span class="index-row__desc">Run the full pipeline on a sample or your own PDF and check every claim against its highlighted source region.</span><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+          <li><a class="index-row" href="/playground.html"><span class="index-row__name">Playground</span><span class="index-row__desc">Write a claim and an evidence snippet, then see how each stage votes and why it escalates.</span><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+          <li><a class="index-row" href="/explorer.html"><span class="index-row__name">Explorer</span><span class="index-row__desc">Filter every frozen OOD verdict by field, label and stage, and open any claim next to its rendered page.</span><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+          <li><a class="index-row" href="/results.html"><span class="index-row__name">Results</span><span class="index-row__desc">Leaderboard V1 to V9, confusion matrices, risk and coverage, robustness and FHIR conformance.</span><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+          <li><a class="index-row" href="/model.html"><span class="index-row__name">Model</span><span class="index-row__desc">Stage B model cards: training history, calibration, validation and OOD metrics, live training progress.</span><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+          <li><a class="index-row" href="/docs.html"><span class="index-row__name">Docs</span><span class="index-row__desc">Architecture, HTTP API reference, decision records and how to run everything locally.</span><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--ruled" aria-labelledby="limits-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2 id="limits-title">What this is not</h2>
+        </div>
+        <ol class="notes reveal" role="list">
+          <li><span><strong>Not a medical device</strong>A research prototype. It is not validated or approved for clinical decision support.</span></li>
+          <li><span><strong>Fidelity, not clinical truth</strong>A verdict says whether a claim matches its document, not whether the value, dose or drug is clinically appropriate.</span></li>
+          <li><span><strong>Synthetic benchmark</strong>Documents are rendered from Synthea patients with artificial degradation. No handwriting, faxes or real hospital records.</span></li>
+          <li><span><strong>Scans need OCR</strong>Born-digital PDFs work out of the box. Image-only pages are rejected unless an OCR engine is installed.</span></li>
+          <li><span><strong>Narrative extraction is the weak link</strong>The standalone narrative extractor was benchmarked with a mock LLM provider and has low recall.</span></li>
+          <li><span><strong>Stage C confidence is not calibrated</strong>The LLM judge returns a fixed confidence, and escalated claims are harder: expect lower accuracy there than on claims settled at Stage B.</span></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer data-shell></footer>
+</body>
+</html>

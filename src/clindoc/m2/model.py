@@ -20,7 +20,7 @@ from __future__ import annotations
 
 import torch
 import torch.nn as nn
-from transformers import AutoModel, AutoTokenizer
+from transformers import AutoConfig, AutoModel, AutoTokenizer
 
 from clindoc.m2.schema import (
     AUX_DIM, AUX_PROJ_DIM, HIDDEN_DIM, FUSION_DIM, NUM_LABELS, LABEL_ORDER,
@@ -47,7 +47,15 @@ class ClinicalVerifier(nn.Module):
         aux_mode: str = "full",
         freeze_lower_n_layers: int = 0,
         freeze_all_encoder: bool = False,
+        load_pretrained: bool = True,
+        gradient_checkpointing: bool = False,
     ) -> None:
+        """
+        Args:
+            load_pretrained: False builds the encoder from its config only (no weight
+                download/load) for callers that load a full ClinicalVerifier state dict next.
+            gradient_checkpointing: Recompute encoder activations during backward (less memory).
+        """
         super().__init__()
         self.model_id = model_id
         if not use_aux:
@@ -55,7 +63,23 @@ class ClinicalVerifier(nn.Module):
         self.aux_mode = aux_mode
         self.use_aux = (aux_mode != "none")
 
-        self.encoder = AutoModel.from_pretrained(model_id)
+        # SDPA attention, and no torch.compile'd reference blocks (they need triton, which Windows
+        # lacks): both are numerically equivalent to the eager/uncompiled defaults.
+        if load_pretrained:
+            self.encoder = AutoModel.from_pretrained(
+                model_id, attn_implementation="sdpa", reference_compile=False
+            )
+        else:
+            self.encoder = AutoModel.from_config(
+                AutoConfig.from_pretrained(model_id, reference_compile=False),
+                attn_implementation="sdpa",
+            )
+        if gradient_checkpointing:
+            # Non-reentrant checkpointing still back-propagates when lower layers are frozen.
+            self.encoder.gradient_checkpointing_enable(
+                gradient_checkpointing_kwargs={"use_reentrant": False}
+            )
+        hidden_dim = getattr(getattr(self.encoder, "config", None), "hidden_size", HIDDEN_DIM)
 
         # Freeze encoder options
         if freeze_all_encoder:
@@ -76,16 +100,16 @@ class ClinicalVerifier(nn.Module):
                 nn.Linear(AUX_DIM, AUX_PROJ_DIM),
                 nn.GELU(),
             )
-            head_in = HIDDEN_DIM + AUX_PROJ_DIM  # 768 + 64 = 832
+            head_in = hidden_dim + AUX_PROJ_DIM  # 768 + 64 = 832
         elif self.aux_mode == "ocr_only":
             self.aux_proj = nn.Sequential(
                 nn.Linear(1, 16),
                 nn.GELU(),
             )
-            head_in = HIDDEN_DIM + 16  # 768 + 16 = 784
+            head_in = hidden_dim + 16  # 768 + 16 = 784
         else:
             self.aux_proj = None
-            head_in = HIDDEN_DIM  # 768
+            head_in = hidden_dim  # 768
 
         self.classifier = nn.Linear(head_in, NUM_LABELS)
         self.dropout = nn.Dropout(p=0.1)
