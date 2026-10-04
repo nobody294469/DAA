@@ -1,0 +1,230 @@
+{
+  "run_name": "modernbert_ocr_only_v3_laptop",
+  "created_at": "2026-10-04T00:48:53+00:00",
+  "git_commit": "9bf0bccfff31e4279501ccf62c0b48dc7dbaf945",
+  "base_model": "~\\.cache\\clindoc\\BioClinical-ModernBERT-base",
+  "device": "cuda",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "vram_mb": 4095,
+    "torch": "2.11.0+cu128",
+    "transformers": "4.57.6",
+    "cuda": "12.8"
+  },
+  "config": {
+    "model_id": "~\\.cache\\clindoc\\BioClinical-ModernBERT-base",
+    "num_labels": 3,
+    "max_seq_length": 256,
+    "encoder_lr": 2e-05,
+    "head_lr": 0.0001,
+    "weight_decay": 0.01,
+    "warmup_fraction": 0.06,
+    "max_epochs": 10,
+    "early_stopping_patience": 3,
+    "batch_size": 8,
+    "seeds": [
+      42
+    ],
+    "freeze_lower_n_layers": 0,
+    "frozen_variant_n_layers": 8,
+    "use_aux": true,
+    "aux_dim": 18,
+    "aux_proj_dim": 64,
+    "aux_mode": "ocr_only",
+    "seed": 42,
+    "grad_accum_steps": 2,
+    "effective_batch_size": 16,
+    "gradient_checkpointing": true,
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_mem_fraction": null,
+    "smoke": false
+  },
+  "dataset": {
+    "hashes": {
+      "data/m2_verification_v3/all_examples.jsonl": "40278c01848875382931a8a01397982ff6c00dfb7f588c30666b1ca8a66d6d16",
+      "data/m2_verification_v3/split_manifest.json": "cf41cc1d7e889f14cdcecf9ca2c411d54f2b737ddcfa280f6852b739050d2067",
+      "data/m2_verification/all_examples.jsonl": "ce924fa3921eedf2482c29279579ed010036273e608c399f38ce291c8306a2a8",
+      "data/m2_verification/split_manifest.json": "8a1ebd157188c4c4032dab297df4c53f9d2fc1dd58a52596a368cc7c676e4393"
+    },
+    "partition_counts": {
+      "train": 2242,
+      "validation": 883,
+      "calibration": 678,
+      "ood": 1826
+    }
+  },
+  "training": {
+    "duration_s": 958.1,
+    "epochs_run": 9,
+    "best_epoch": 6,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.7862897436813951,
+        "val_loss": 0.7083985081740788,
+        "val_macro_f1": 0.613102940360604,
+        "val_accuracy": 0.5956964892412231
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.4835727194662196,
+        "val_loss": 0.16420985793229192,
+        "val_macro_f1": 0.9578992081200653,
+        "val_accuracy": 0.9580973952434881
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.18328620403262644,
+        "val_loss": 0.07195525306243715,
+        "val_macro_f1": 0.9759668068728026,
+        "val_accuracy": 0.9830124575311439
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.08964879609299724,
+        "val_loss": 0.027785775162296238,
+        "val_macro_f1": 0.9841886917280455,
+        "val_accuracy": 0.9943374858437146
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.035147182139637634,
+        "val_loss": 0.04352218320699259,
+        "val_macro_f1": 0.981720331216034,
+        "val_accuracy": 0.9909399773499433
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.02199040910103143,
+        "val_loss": 0.03151907372687544,
+        "val_macro_f1": 0.9874427572909134,
+        "val_accuracy": 0.9954699886749717
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.008775534578913896,
+        "val_loss": 0.043870057999356504,
+        "val_macro_f1": 0.9833654302471979,
+        "val_accuracy": 0.9932049830124575
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.0004687438656002601,
+        "val_loss": 0.04793457522808759,
+        "val_macro_f1": 0.9833654302471979,
+        "val_accuracy": 0.9932049830124575
+      },
+      {
+        "epoch": 9,
+        "train_loss": 0.00014144176902295856,
+        "val_loss": 0.04957534488110988,
+        "val_macro_f1": 0.9833654302471979,
+        "val_accuracy": 0.9932049830124575
+      }
+    ]
+  },
+  "validation": {
+    "accuracy": 0.9955,
+    "macro_f1": 0.9874,
+    "discrepancy_recall": 1.0,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 362
+      },
+      "DISCREPANCY": {
+        "precision": 0.9913606911447084,
+        "recall": 1.0,
+        "f1": 0.9956616052060737,
+        "support": 459
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "precision": 1.0,
+        "recall": 0.9354838709677419,
+        "f1": 0.9666666666666666,
+        "support": 62
+      }
+    },
+    "confusion_matrix": [
+      [
+        362,
+        0,
+        0
+      ],
+      [
+        0,
+        459,
+        0
+      ],
+      [
+        0,
+        4,
+        58
+      ]
+    ],
+    "ece": 0.0048,
+    "auroc_macro": null,
+    "auroc_discrepancy": 0.9987,
+    "brier_score": 0.0108
+  },
+  "calibration": {
+    "temperature": 1.2708789110183716,
+    "ece_before": 0.0056,
+    "ece_after": 0.0064,
+    "nll_before": 0.04243812337517738,
+    "nll_after": 0.037676114588975906
+  },
+  "ood": {
+    "accuracy": 0.9589,
+    "macro_f1": 0.9509,
+    "discrepancy_recall": 0.9918,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.9940652818991098,
+        "recall": 0.9190672153635117,
+        "f1": 0.9550962223806131,
+        "support": 729
+      },
+      "DISCREPANCY": {
+        "precision": 0.9390125847047435,
+        "recall": 0.9918200408997955,
+        "f1": 0.9646941819990054,
+        "support": 978
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "precision": 0.9327731092436975,
+        "recall": 0.9327731092436975,
+        "f1": 0.9327731092436976,
+        "support": 119
+      }
+    },
+    "confusion_matrix": [
+      [
+        670,
+        57,
+        2
+      ],
+      [
+        2,
+        970,
+        6
+      ],
+      [
+        2,
+        6,
+        111
+      ]
+    ],
+    "ece": 0.0344,
+    "auroc_macro": null,
+    "auroc_discrepancy": 0.962,
+    "brier_score": 0.0765
+  },
+  "checkpoint": {
+    "path": "data/m2_results_v3/checkpoints/modernbert_ocr_only_v3_laptop_fold0_seed42.pt",
+    "size_bytes": 596115739
+  }
+}

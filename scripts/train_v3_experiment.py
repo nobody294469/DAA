@@ -136,6 +136,9 @@ def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
     p.add_argument("--freeze-lower-n-layers", type=_at_least(0), default=0,
                    help="freeze the embeddings and the lowest N encoder layers")
     p.add_argument("--gradient-checkpointing", action="store_true")
+    p.add_argument("--eval-batch-size", type=_at_least(1), default=64,
+                   help="lower (e.g. 16) on small/hot laptop GPUs: long eval kernels can trip the Windows "
+                        "driver timeout (TDR, nvlddmkm event 153) and kill the run")
     p.add_argument("--aux-mode", choices=("none", "ocr_only"), default="none",
                    help="none = V6 text-only; ocr_only = V7 OCR-aware (fuses OCR confidence). "
                         "Stage B serving supports only 'none'")
@@ -382,6 +385,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             calib_examples=parts["calibration"],
             grad_accum_steps=args.grad_accum,
             gradient_checkpointing=args.gradient_checkpointing,
+            eval_batch_size=args.eval_batch_size,
             device=device,
             progress_callback=progress,
         )
