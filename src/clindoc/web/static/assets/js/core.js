@@ -135,6 +135,7 @@ function detailMessage(detail) {
  * whose message is FastAPI's `detail` when present.
  */
 export async function api(path, { method, json, body, timeout = 20000, signal, headers = {} } = {}) {
+  if (STATIC) return staticApi(path, { json, body });
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), timeout);
   const onAbort = () => ctrl.abort();
@@ -166,6 +167,54 @@ export async function api(path, { method, json, body, timeout = 20000, signal, h
     clearTimeout(timer);
     signal?.removeEventListener('abort', onAbort);
   }
+}
+
+/* Static demo mode (Vercel build, scripts/build_static_site.py sets window.CLINDOC_STATIC):
+ * GETs read snapshot files under /static-api, recorded from the real server with the trained model.
+ * ponytail: snapshots only; live uploads / free-form checks need `clindoc serve`. */
+export const STATIC = typeof window !== 'undefined' && window.CLINDOC_STATIC === true;
+const LIVE_ONLY = 'This static demo replays recorded results. Uploads and custom inputs need the local server (clindoc serve).';
+let explorerIndex = null;
+
+/** SHA-256 key of a /api/verify request; mirrors verify_key() in scripts/build_static_site.py. */
+async function verifyKey(r) {
+  const s = ['field_type', 'value', 'unit', 'entity', 'evidence_text', 'context_text'].map((k) => r?.[k] ?? '').join('\n');
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return [...new Uint8Array(buf)].slice(0, 8).map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function staticApi(path, { json, body }) {
+  const [p, qs = ''] = path.split('?');
+  const get = async (file, missing) => {
+    const res = await fetch(`/static-api${file}`).catch(() => null);
+    if (!res?.ok) throw new ApiError(missing || 'Not available in the static demo.', { status: 404, kind: 'http', detail: missing, path });
+    return res.json();
+  };
+  if (p === '/api/process') {
+    const id = body instanceof FormData ? body.get('sample_id') : null;
+    if (!id) throw new ApiError(LIVE_ONLY, { status: 503, kind: 'http', detail: LIVE_ONLY, path });
+    return get(`/runs/by-sample/${encodeURIComponent(id)}.json`, `${id} was not recorded for the static demo. ${LIVE_ONLY}`);
+  }
+  if (p === '/api/verify') return get(`/verify/${await verifyKey(json)}.json`, `Only the presets are recorded. ${LIVE_ONLY}`);
+  if (p === '/api/explorer') {
+    explorerIndex ||= await get('/explorer/index.json');
+    const f = Object.fromEntries(new URLSearchParams(qs));
+    const needle = (f.q || '').trim().toLowerCase();
+    const correct = f.correct || 'all';
+    const rows = explorerIndex.filter((i) => (!f.document_id || i.document_id === f.document_id)
+      && (!f.field_type || i.field_type === f.field_type) && (!f.ground_truth || i.ground_truth === f.ground_truth)
+      && (!f.label || i.final_label === f.label) && (!f.stage || i.stage_reached === f.stage)
+      && (correct === 'all' || i.correct === (correct === 'correct'))
+      && (!needle || `${i.claim} ${i.example_id} ${i.document_id}`.toLowerCase().includes(needle)));
+    const ok = rows.filter((i) => i.correct).length;
+    const offset = +f.offset || 0;
+    return {
+      total: rows.length, accuracy: rows.length ? Math.round((ok / rows.length) * 1e4) / 1e4 : 0, errors: rows.length - ok,
+      escalated: rows.filter((i) => i.stage_reached === 'C').length, items: rows.slice(offset, offset + (+f.limit || 50)),
+      facets: { documents: [...new Set(explorerIndex.map((i) => i.document_id))].sort(), field_types: [...new Set(explorerIndex.map((i) => i.field_type))].sort() },
+    };
+  }
+  return get(`${p.slice(4)}.json`);
 }
 
 let healthPromise = null;
@@ -610,6 +659,12 @@ export function mountShell() {
     const main = document.querySelector('main');
     if (main && !main.id) main.id = 'main';
     document.body.insertAdjacentHTML('afterbegin', `<a class="skip-link" href="#${main?.id || 'main'}">Skip to main content</a>`);
+  }
+  if (STATIC) {
+    document.querySelector('main')?.insertAdjacentHTML('afterbegin',
+      '<p class="alert alert--info container" role="note" style="margin-block: 1rem 0;">Static demo: verdicts, runs and '
+      + 'checks below were recorded from the trained model. Uploads and custom inputs need the local server '
+      + '(<code>clindoc serve</code>).</p>');
   }
   const header = document.querySelector('header[data-shell]');
   if (header) {

@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": ["**/.*"],
+    "cleanUrls": false,
+    "headers": [
+      { "source": "**/*.@(html|json)", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
+    ]
+  }
+}

@@ -82,3 +82,6 @@ phase4_evaluator.zip
 
 # Browser automation scratch output
 .playwright-mcp/
+
+# Static site build output (scripts/build_static_site.py)
+dist/
