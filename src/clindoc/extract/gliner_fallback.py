@@ -97,7 +97,7 @@ class SubprocessGLiNERProvider:
         self,
         venv_python: Path | None = None,
         worker_script: Path | None = None,
-        model_name: str = "Ihor/gliner-biomed-base-v1.0",
+        model_name: Optional[str] = None,  # None -> worker default (local copy, else hub id)
         threshold: float = 0.30,
     ):
         self.venv_python = venv_python or _DEFAULT_VENV_PYTHON
@@ -130,9 +130,8 @@ class SubprocessGLiNERProvider:
                 str(self.worker_script),
                 "--input", str(in_file),
                 "--output", str(out_file),
-                "--model-name", self.model_name,
-            ]
-            proc = subprocess.run(cmd, capture_output=True, text=True)
+            ] + (["--model-name", self.model_name] if self.model_name else [])
+            proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
             if proc.returncode != 0:
                 raise RuntimeError(
                     f"GLiNER worker exited with code {proc.returncode}:\n{proc.stderr}"

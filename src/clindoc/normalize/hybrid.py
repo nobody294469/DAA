@@ -7,6 +7,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 import math
+import os
 from pathlib import Path
 import re
 from typing import Any, Optional, Protocol, Union, runtime_checkable
@@ -48,11 +49,14 @@ class SapBERTEmbedder:
 
     def __init__(
         self,
-        model_name: str = "cambridgeltl/SapBERT-from-PubMedBERT-fulltext",
+        model_name: Optional[str] = None,
         device: Optional[str] = None,
         local_files_only: bool = True,
     ) -> None:
-        self.model_name = model_name
+        # env CLINDOC_SAPBERT_MODEL -> ~/.cache/clindoc/<name> if downloaded -> hub id
+        local = Path.home() / ".cache" / "clindoc" / "SapBERT-from-PubMedBERT-fulltext"
+        self.model_name = model_name or os.environ.get("CLINDOC_SAPBERT_MODEL") or (
+            str(local) if local.is_dir() else "cambridgeltl/SapBERT-from-PubMedBERT-fulltext")
         self.device = device
         self.local_files_only = local_files_only
         self._tokenizer = None

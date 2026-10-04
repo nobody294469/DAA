@@ -227,7 +227,8 @@ class TestSemanticEmbedder:
 
     def test_sapbert_embedder_specification_and_interface(self):
         embedder = SapBERTEmbedder()
-        assert embedder.model_name == "cambridgeltl/SapBERT-from-PubMedBERT-fulltext"
+        # DEC-007 model: the hub id, or its local copy under ~/.cache/clindoc
+        assert embedder.model_name.replace("\\", "/").endswith("SapBERT-from-PubMedBERT-fulltext")
         assert isinstance(embedder.is_available(), bool)
         assert isinstance(embedder, SemanticEmbedder)
 

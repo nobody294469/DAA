@@ -1,0 +1,230 @@
+{
+  "run_name": "modernbert_text_only_v3_laptop",
+  "created_at": "2026-10-04T00:14:15+00:00",
+  "git_commit": "2bae25dce738a7e7ee3c6ae4fd0c212ed263c73a",
+  "base_model": "~\\.cache\\clindoc\\BioClinical-ModernBERT-base",
+  "device": "cuda",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "vram_mb": 4095,
+    "torch": "2.11.0+cu128",
+    "transformers": "4.57.6",
+    "cuda": "12.8"
+  },
+  "config": {
+    "model_id": "~\\.cache\\clindoc\\BioClinical-ModernBERT-base",
+    "num_labels": 3,
+    "max_seq_length": 256,
+    "encoder_lr": 2e-05,
+    "head_lr": 0.0001,
+    "weight_decay": 0.01,
+    "warmup_fraction": 0.06,
+    "max_epochs": 10,
+    "early_stopping_patience": 3,
+    "batch_size": 8,
+    "seeds": [
+      42
+    ],
+    "freeze_lower_n_layers": 0,
+    "frozen_variant_n_layers": 8,
+    "use_aux": false,
+    "aux_dim": 18,
+    "aux_proj_dim": 64,
+    "aux_mode": "none",
+    "seed": 42,
+    "grad_accum_steps": 2,
+    "effective_batch_size": 16,
+    "gradient_checkpointing": true,
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_mem_fraction": null,
+    "smoke": false
+  },
+  "dataset": {
+    "hashes": {
+      "data/m2_verification_v3/all_examples.jsonl": "40278c01848875382931a8a01397982ff6c00dfb7f588c30666b1ca8a66d6d16",
+      "data/m2_verification_v3/split_manifest.json": "cf41cc1d7e889f14cdcecf9ca2c411d54f2b737ddcfa280f6852b739050d2067",
+      "data/m2_verification/all_examples.jsonl": "ce924fa3921eedf2482c29279579ed010036273e608c399f38ce291c8306a2a8",
+      "data/m2_verification/split_manifest.json": "8a1ebd157188c4c4032dab297df4c53f9d2fc1dd58a52596a368cc7c676e4393"
+    },
+    "partition_counts": {
+      "train": 2242,
+      "validation": 883,
+      "calibration": 678,
+      "ood": 1826
+    }
+  },
+  "training": {
+    "duration_s": 989.4,
+    "epochs_run": 9,
+    "best_epoch": 6,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.7775808895185748,
+        "val_loss": 0.6985890397003719,
+        "val_macro_f1": 0.5798253019024974,
+        "val_accuracy": 0.5900339750849377
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.5129459349710322,
+        "val_loss": 0.39931947950805935,
+        "val_macro_f1": 0.9018373119071025,
+        "val_accuracy": 0.8799546998867497
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.17180270677783735,
+        "val_loss": 0.04609730028148208,
+        "val_macro_f1": 0.9784363676883648,
+        "val_accuracy": 0.986409966024915
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.05118099629242649,
+        "val_loss": 0.06327666342258453,
+        "val_macro_f1": 0.9800770788425108,
+        "val_accuracy": 0.9886749716874292
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.026276261887092183,
+        "val_loss": 0.057397919707000256,
+        "val_macro_f1": 0.9825455990025467,
+        "val_accuracy": 0.9920724801812004
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.01837693478289024,
+        "val_loss": 0.04722037558427213,
+        "val_macro_f1": 0.9833654302471979,
+        "val_accuracy": 0.9932049830124575
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.005053644343627305,
+        "val_loss": 0.059991616917873865,
+        "val_macro_f1": 0.97726196502694,
+        "val_accuracy": 0.9909399773499433
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.00014893381833181688,
+        "val_loss": 0.066152194060643,
+        "val_macro_f1": 0.97726196502694,
+        "val_accuracy": 0.9909399773499433
+      },
+      {
+        "epoch": 9,
+        "train_loss": 6.564295588863278e-05,
+        "val_loss": 0.06707978169288253,
+        "val_macro_f1": 0.97726196502694,
+        "val_accuracy": 0.9909399773499433
+      }
+    ]
+  },
+  "validation": {
+    "accuracy": 0.9932,
+    "macro_f1": 0.9834,
+    "discrepancy_recall": 0.9978,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.9972451790633609,
+        "recall": 1.0,
+        "f1": 0.9986206896551724,
+        "support": 362
+      },
+      "DISCREPANCY": {
+        "precision": 0.9892008639308856,
+        "recall": 0.9978213507625272,
+        "f1": 0.9934924078091106,
+        "support": 459
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "precision": 1.0,
+        "recall": 0.9193548387096774,
+        "f1": 0.9579831932773109,
+        "support": 62
+      }
+    },
+    "confusion_matrix": [
+      [
+        362,
+        0,
+        0
+      ],
+      [
+        1,
+        458,
+        0
+      ],
+      [
+        0,
+        5,
+        57
+      ]
+    ],
+    "ece": 0.0066,
+    "auroc_macro": null,
+    "auroc_discrepancy": 0.9993,
+    "brier_score": 0.0137
+  },
+  "calibration": {
+    "temperature": 1.239011287689209,
+    "ece_before": 0.002,
+    "ece_after": 0.0018,
+    "nll_before": 0.025221874937415123,
+    "nll_after": 0.022701594978570938
+  },
+  "ood": {
+    "accuracy": 0.96,
+    "macro_f1": 0.9518,
+    "discrepancy_recall": 0.9918,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.9955489614243324,
+        "recall": 0.9204389574759945,
+        "f1": 0.9565217391304348,
+        "support": 729
+      },
+      "DISCREPANCY": {
+        "precision": 0.9408341416100873,
+        "recall": 0.9918200408997955,
+        "f1": 0.9656545545047287,
+        "support": 978
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "precision": 0.9256198347107438,
+        "recall": 0.9411764705882353,
+        "f1": 0.9333333333333333,
+        "support": 119
+      }
+    },
+    "confusion_matrix": [
+      [
+        671,
+        56,
+        2
+      ],
+      [
+        1,
+        970,
+        7
+      ],
+      [
+        2,
+        5,
+        112
+      ]
+    ],
+    "ece": 0.0344,
+    "auroc_macro": null,
+    "auroc_discrepancy": 0.9648,
+    "brier_score": 0.0768
+  },
+  "checkpoint": {
+    "path": "data/m2_results_v3/checkpoints/modernbert_text_only_v3_laptop_fold0_seed42.pt",
+    "size_bytes": 596114919
+  }
+}

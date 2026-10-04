@@ -59,7 +59,7 @@ class GLiNERBioMedBridge:
                 "--output", str(out_file),
             ]
 
-            proc = subprocess.run(cmd, capture_output=True, text=True)
+            proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
             if proc.returncode != 0:
                 raise RuntimeError(
                     f"GLiNER worker failed with exit code {proc.returncode}:\n{proc.stderr}"

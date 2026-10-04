@@ -136,6 +136,9 @@ def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
     p.add_argument("--freeze-lower-n-layers", type=_at_least(0), default=0,
                    help="freeze the embeddings and the lowest N encoder layers")
     p.add_argument("--gradient-checkpointing", action="store_true")
+    p.add_argument("--aux-mode", choices=("none", "ocr_only"), default="none",
+                   help="none = V6 text-only; ocr_only = V7 OCR-aware (fuses OCR confidence). "
+                        "Stage B serving supports only 'none'")
     p.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
     p.add_argument("--gpu-mem-fraction", type=_fraction, default=None,
                    help="cap this process at FRACTION of GPU memory (protects a co-tenant GPU job)")
@@ -327,12 +330,12 @@ def main(argv: Optional[list[str]] = None) -> int:
         batch_size=batch_size,
         seeds=[args.seed],
         freeze_lower_n_layers=args.freeze_lower_n_layers,
-        use_aux=False,
+        use_aux=args.aux_mode != "none",
     )
     hw = hardware_info(device)
     train_cfg = {
         "model_id": config.model_id,
-        "aux_mode": "none",
+        "aux_mode": args.aux_mode,
         "freeze_lower_n_layers": args.freeze_lower_n_layers,
         "seed": args.seed,
         "batch_size": batch_size,
@@ -372,7 +375,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             seed=args.seed,
             checkpoint_dir=out_dir / "checkpoints",
             debug=False,
-            aux_mode="none",
+            aux_mode=args.aux_mode,
             freeze_lower_n_layers=args.freeze_lower_n_layers,
             model_name=run_name,
             ood_examples=parts["ood"],

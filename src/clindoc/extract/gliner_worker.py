@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import os
 from pathlib import Path
 import sys
 import time
@@ -24,7 +25,11 @@ def main():
     parser = argparse.ArgumentParser(description="GLiNER-BioMed NER Worker")
     parser.add_argument("--input", type=str, required=True, help="Path to input JSON with list of texts")
     parser.add_argument("--output", type=str, required=True, help="Path to output JSON")
-    parser.add_argument("--model-name", type=str, default="Ihor/gliner-biomed-base-v1.0", help="Hugging Face model ID")
+    # env CLINDOC_GLINER_MODEL -> ~/.cache/clindoc/<name> if downloaded -> hub id
+    local = Path.home() / ".cache" / "clindoc" / "gliner-biomed-base-v1.0"
+    default_model = os.environ.get("CLINDOC_GLINER_MODEL") or (
+        str(local) if local.is_dir() else "Ihor/gliner-biomed-base-v1.0")
+    parser.add_argument("--model-name", type=str, default=default_model, help="Hugging Face model ID or local dir")
     args = parser.parse_args()
 
     input_path = Path(args.input)
