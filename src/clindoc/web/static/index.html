@@ -263,7 +263,7 @@
           <li><span><strong>Not a medical device</strong>A research prototype. It is not validated or approved for clinical decision support.</span></li>
           <li><span><strong>Fidelity, not clinical truth</strong>A verdict says whether a claim matches its document, not whether the value, dose or drug is clinically appropriate.</span></li>
           <li><span><strong>Synthetic benchmark</strong>Documents are rendered from Synthea patients with artificial degradation. No handwriting, faxes or real hospital records.</span></li>
-          <li><span><strong>Scans need OCR</strong>Born-digital PDFs work out of the box. Image-only pages are rejected unless an OCR engine is installed.</span></li>
+          <li><span><strong>Scans go through OCR</strong>Born-digital PDFs are read directly. Scanned pages and images go through PaddleOCR, which is slower and can misread degraded text.</span></li>
           <li><span><strong>Narrative extraction is the weak link</strong>The standalone narrative extractor was benchmarked with a mock LLM provider and has low recall.</span></li>
           <li><span><strong>Stage C confidence is not calibrated</strong>The LLM judge returns a fixed confidence, and escalated claims are harder: expect lower accuracy there than on claims settled at Stage B.</span></li>
         </ol>

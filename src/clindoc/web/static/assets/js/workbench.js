@@ -140,7 +140,7 @@ function pickFile(file) {
   state.file = msg ? null : file;
   const size = file.size < 1024 ? plural(file.size, 'byte') : file.size < 1048576 ? `${num(file.size / 1024, 1)} KB` : `${num(file.size / 1048576, 1)} MB`;
   const ocr = /^\.(png|jpe?g|tiff?)$/.test(ext)
-    ? `<span class="wb-ocr-note">${icon('info', 'icon--sm')}Images need OCR. If the server has no OCR engine the run returns an error.</span>` : '';
+    ? `<span class="wb-ocr-note">${icon('info', 'icon--sm')}Images are read with PaddleOCR, so they take a few seconds longer per page than PDFs.</span>` : '';
   $('file-name').innerHTML = state.file ? `${icon('file-text')}<span>${escapeHtml(file.name)} <span class="muted">(${size})</span></span>${ocr}` : '';
   $('file-input').value = ''; // allow re-picking the same file
   updateSelection();

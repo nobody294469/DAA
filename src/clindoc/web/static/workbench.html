@@ -57,7 +57,7 @@
               <svg class="icon dropzone__icon" aria-hidden="true"><use href="/assets/icons.svg#upload"/></svg>
               <p class="dropzone__title">Drop a document here</p>
               <label class="btn btn--secondary"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#file-text"/></svg>Browse files<input class="visually-hidden" id="file-input" type="file" accept=".pdf,.json,.png,.jpg,.jpeg,.tif,.tiff" aria-describedby="file-help file-error"></label>
-              <p class="field__help" id="file-help">Born-digital PDF or DocumentText JSON, up to 15 MB. PNG, JPG and TIFF images (and scanned PDFs) need OCR, which this server may not have installed.</p>
+              <p class="field__help" id="file-help">Born-digital PDF or DocumentText JSON, up to 15 MB. PNG, JPG and TIFF images (and scanned PDFs) are read with PaddleOCR.</p>
               <p class="dropzone__file" id="file-name" aria-live="polite"></p>
             </div>
             <p class="field__error" id="file-error" role="alert" hidden></p>
