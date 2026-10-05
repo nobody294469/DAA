@@ -47,6 +47,7 @@ class ClinicalVerifier(nn.Module):
         aux_mode: str = "full",
         freeze_lower_n_layers: int = 0,
         freeze_all_encoder: bool = False,
+        local_files_only: bool = False,
     ) -> None:
         super().__init__()
         self.model_id = model_id
@@ -55,7 +56,7 @@ class ClinicalVerifier(nn.Module):
         self.aux_mode = aux_mode
         self.use_aux = (aux_mode != "none")
 
-        self.encoder = AutoModel.from_pretrained(model_id)
+        self.encoder = AutoModel.from_pretrained(model_id, local_files_only=local_files_only)
 
         # Freeze encoder options
         if freeze_all_encoder:

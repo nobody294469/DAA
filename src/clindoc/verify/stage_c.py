@@ -27,6 +27,7 @@ import numpy as np
 from clindoc.extract.contracts import Claim, Evidence
 from clindoc.m2.calibration import IsotonicConfidenceCalibrator
 from clindoc.schema.verification import ContradictionType, VerificationLabel
+from clindoc.config import ProductionProfileError, RuntimeProfile, get_active_profile
 
 
 STAGE_C_PROMPT_VERSION = "V8_STAGE_C_LABFLAG_PROMPT_V1"
@@ -237,10 +238,40 @@ class StageCJudge:
         client: Optional[LLMClientProtocol] = None,
         calibrator: Optional[IsotonicConfidenceCalibrator] = None,
         max_attempts: int = 3,
+        profile: Optional[Union[RuntimeProfile, str]] = None,
+        allow_mock_client: Optional[bool] = None,
     ) -> None:
+        self.profile = RuntimeProfile.from_string(profile) if profile else get_active_profile()
+        if allow_mock_client is not None:
+            self.allow_mock_client = allow_mock_client
+        else:
+            self.allow_mock_client = (self.profile == RuntimeProfile.DEV)
+
+        if self.profile == RuntimeProfile.PRODUCTION or not self.allow_mock_client:
+            if client is None:
+                raise ProductionProfileError(
+                    "Stage C client must be explicitly configured in PRODUCTION profile; DefaultMockLLMJudge is forbidden."
+                )
+            if isinstance(client, DefaultMockLLMJudge):
+                raise ProductionProfileError(
+                    "DefaultMockLLMJudge is forbidden in PRODUCTION profile."
+                )
+            if isinstance(client, VLLMJudgeClient):
+                from urllib.parse import urlparse
+                parsed = urlparse(getattr(client, "base_url", ""))
+                if parsed.scheme not in ("http", "https") or not parsed.netloc:
+                    raise ProductionProfileError(
+                        f"Invalid vLLM base_url '{getattr(client, 'base_url', '')}' in PRODUCTION profile. Must be http:// or https://."
+                    )
+                if not getattr(client, "model_name", "").strip():
+                    raise ProductionProfileError(
+                        "Invalid vLLM model_name in PRODUCTION profile."
+                    )
+
         self.client = client or DefaultMockLLMJudge()
         self.calibrator = calibrator or self._create_default_calibrator()
         self.max_attempts = max_attempts
+        self.prompt_version = STAGE_C_PROMPT_VERSION
 
     @staticmethod
     def _create_default_calibrator() -> IsotonicConfidenceCalibrator:

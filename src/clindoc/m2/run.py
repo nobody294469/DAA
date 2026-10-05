@@ -127,7 +127,7 @@ def step_run_baselines(
     embs_path = data_dir / "frozen_embeddings.pt"
     if embs_path.exists():
         print(f"Loading cached frozen ModernBERT embeddings from {embs_path}...")
-        all_embs = torch.load(embs_path, map_location="cpu", weights_only=False)
+        all_embs = torch.load(embs_path, map_location="cpu", weights_only=True)
     else:
         print("Extracting frozen BioClinical ModernBERT embeddings for all examples...")
         all_embs = extract_frozen_embeddings(examples, device="cuda" if torch.cuda.is_available() else "cpu")

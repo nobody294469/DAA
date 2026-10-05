@@ -39,6 +39,7 @@ from clindoc.schema.verification import (
 from clindoc.verify.stage_a import DeterministicVerifier, StageAResult
 from clindoc.verify.stage_b import LearnedVerifier, StageBResult
 from clindoc.verify.stage_c import StageCJudge, StageCResult
+from clindoc.config import ProductionProfileError, RuntimeProfile, get_active_profile
 
 
 class VerificationCascade:
@@ -50,14 +51,47 @@ class VerificationCascade:
         stage_b: Optional[LearnedVerifier] = None,
         stage_c: Optional[StageCJudge] = None,
         always_stage_c: bool = False,  # For ablation / experimental comparison (§12.2)
+        profile: Optional[Union[RuntimeProfile, str]] = None,
     ) -> None:
+        self.profile = RuntimeProfile.from_string(profile) if profile else get_active_profile()
+        if self.profile == RuntimeProfile.PRODUCTION:
+            if stage_b is None:
+                raise ProductionProfileError(
+                    "Production VerificationCascade requires an explicitly configured, non-heuristic Stage B LearnedVerifier."
+                )
+            if getattr(stage_b, "allow_heuristic_fallback", True):
+                raise ProductionProfileError(
+                    "Production VerificationCascade requires Stage B with allow_heuristic_fallback=False."
+                )
+            if stage_c is None:
+                raise ProductionProfileError(
+                    "Production VerificationCascade requires an explicitly configured, non-mock Stage C StageCJudge."
+                )
+            if getattr(stage_c, "allow_mock_client", True):
+                raise ProductionProfileError(
+                    "Production VerificationCascade requires Stage C with allow_mock_client=False."
+                )
+
         self.stage_a = stage_a or DeterministicVerifier()
-        self.stage_b = stage_b or LearnedVerifier()
-        self.stage_c = stage_c or StageCJudge()
+        self.stage_b = stage_b or LearnedVerifier(profile=self.profile)
+        self.stage_c = stage_c or StageCJudge(profile=self.profile)
         self.always_stage_c = always_stage_c
         self.last_stage_a_result: Optional[StageAResult] = None
         self.last_stage_b_result: Optional[StageBResult] = None
         self.last_stage_c_result: Optional[StageCResult] = None
+
+        from clindoc.manifest import QualificationReport, QualificationStatus, evaluate_cascade_qualification
+        self.qualification_report: QualificationReport = evaluate_cascade_qualification(self)
+
+    @property
+    def is_qualified(self) -> bool:
+        """Check whether this cascade runs under the approved qualified production manifest."""
+        return self.qualification_report.is_qualified
+
+    @property
+    def qualification_status(self) -> QualificationStatus:
+        """Return the current qualification status (QUALIFIED or UNQUALIFIED)."""
+        return self.qualification_report.status
 
     def verify_claim_all_stages(
         self,

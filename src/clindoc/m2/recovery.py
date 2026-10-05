@@ -295,7 +295,7 @@ def recover_and_evaluate_checkpoint(
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    state_dict = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    state_dict = torch.load(checkpoint_path, map_location="cpu", weights_only=True)
 
     ckpt_config = state_dict.get("config", {})
     if config is None:

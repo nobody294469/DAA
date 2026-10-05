@@ -27,6 +27,7 @@ from clindoc.m2.model import (
     format_input,
 )
 from clindoc.schema.verification import VerificationLabel
+from clindoc.config import ProductionProfileError, RuntimeProfile, get_active_profile
 
 DEFAULT_ESCALATION_THRESHOLD: float = 0.60  # DEC-005 provisional default
 
@@ -66,6 +67,107 @@ class MockModelPredictor:
         return logits
 
 
+def load_safe_checkpoint(
+    checkpoint_path: Union[str, Path],
+    profile: Union[RuntimeProfile, str] = RuntimeProfile.DEV,
+    require_weights_only: Optional[bool] = None,
+) -> dict[str, Any]:
+    """Safely deserialize and validate a PyTorch model checkpoint.
+
+    Enforces PD-004, PD-018, and Phase 8.2 Task 2 security invariants:
+      - In PRODUCTION profile, strictly requires weights_only=True (never False).
+      - In DEV profile, defaults to weights_only=True unless explicitly overridden.
+      - Verifies that the checkpoint file exists and is a regular file.
+      - Deserializes with torch.load(..., weights_only=weights_only).
+      - Validates that the deserialized object is a dictionary.
+      - Validates that either 'model_state' or a tensor state_dict is present.
+      - Validates that all tensor weights in the state_dict are torch.Tensor instances.
+      - Fails closed with ProductionProfileError upon missing, malformed, or invalid checkpoints.
+
+    Args:
+        checkpoint_path: Path to the .pt / .pth checkpoint file.
+        profile: Active runtime profile (DEV or PRODUCTION).
+        require_weights_only: Explicit flag for weights_only. If False in PRODUCTION, raises immediately.
+
+    Returns:
+        The deserialized checkpoint dictionary.
+
+    Raises:
+        FileNotFoundError: If checkpoint file does not exist (under DEV profile).
+        ProductionProfileError: If any security invariant or structural validation fails (under PRODUCTION profile).
+        ValueError: If checkpoint structure is invalid (under DEV profile).
+    """
+    import torch
+
+    profile_obj = RuntimeProfile.from_string(profile) if isinstance(profile, str) else profile
+    path = Path(checkpoint_path)
+
+    # 1. Existence and file type validation
+    if not path.exists() or not path.is_file():
+        msg = f"ModernBERT checkpoint missing or not found at: {path}"
+        if profile_obj == RuntimeProfile.PRODUCTION:
+            raise ProductionProfileError(msg)
+        raise FileNotFoundError(msg)
+
+    # 2. Strict enforcement of weights_only policy
+    if profile_obj == RuntimeProfile.PRODUCTION:
+        if require_weights_only is False:
+            raise ProductionProfileError(
+                "torch.load(..., weights_only=False) is strictly forbidden in PRODUCTION profile."
+            )
+        weights_only = True
+    else:
+        weights_only = True if require_weights_only is None else bool(require_weights_only)
+
+    # 3. Deserialization attempt
+    try:
+        ckpt = torch.load(str(path), map_location="cpu", weights_only=weights_only)
+    except Exception as err:
+        if profile_obj == RuntimeProfile.PRODUCTION:
+            raise ProductionProfileError(
+                f"Safe checkpoint deserialization failed for '{path}' (weights_only={weights_only}): {err}"
+            ) from err
+        raise
+
+    # 4. Root structure validation
+    if not isinstance(ckpt, dict):
+        msg = f"Invalid checkpoint structure in '{path}': expected dictionary, got {type(ckpt).__name__}"
+        if profile_obj == RuntimeProfile.PRODUCTION:
+            raise ProductionProfileError(msg)
+        raise ValueError(msg)
+
+    # 5. Extract and validate state_dict
+    if "model_state" in ckpt:
+        state_dict = ckpt["model_state"]
+        if not isinstance(state_dict, dict):
+            msg = f"Invalid checkpoint structure in '{path}': 'model_state' must be a dictionary, got {type(state_dict).__name__}"
+            if profile_obj == RuntimeProfile.PRODUCTION:
+                raise ProductionProfileError(msg)
+            raise ValueError(msg)
+    else:
+        state_dict = ckpt
+
+    if not state_dict:
+        msg = f"Invalid checkpoint structure in '{path}': empty model weights state dictionary."
+        if profile_obj == RuntimeProfile.PRODUCTION:
+            raise ProductionProfileError(msg)
+        raise ValueError(msg)
+
+    for k, v in state_dict.items():
+        if not isinstance(k, str):
+            msg = f"Invalid state_dict key type in '{path}': expected str, got {type(k).__name__}"
+            if profile_obj == RuntimeProfile.PRODUCTION:
+                raise ProductionProfileError(msg)
+            raise ValueError(msg)
+        if not isinstance(v, torch.Tensor):
+            msg = f"Invalid state_dict tensor type for key '{k}' in '{path}': expected torch.Tensor, got {type(v).__name__}"
+            if profile_obj == RuntimeProfile.PRODUCTION:
+                raise ProductionProfileError(msg)
+            raise ValueError(msg)
+
+    return ckpt
+
+
 class LearnedVerifier:
     """Stage B learned semantic verifier backed by BioClinical ModernBERT.
 
@@ -81,12 +183,44 @@ class LearnedVerifier:
         custom_predictor: Optional[ModelPredictor] = None,
         device: Optional[str] = None,
         eager_load: bool = True,
+        profile: Optional[Union[RuntimeProfile, str]] = None,
+        allow_heuristic_fallback: Optional[bool] = None,
     ) -> None:
+        self.profile = RuntimeProfile.from_string(profile) if profile else get_active_profile()
+        if allow_heuristic_fallback is not None:
+            self.allow_heuristic_fallback = allow_heuristic_fallback
+        else:
+            self.allow_heuristic_fallback = (self.profile == RuntimeProfile.DEV)
+
+        if self.profile == RuntimeProfile.PRODUCTION:
+            if isinstance(custom_predictor, MockModelPredictor):
+                raise ProductionProfileError(
+                    "MockModelPredictor is forbidden in PRODUCTION profile."
+                )
+            if self.allow_heuristic_fallback:
+                raise ProductionProfileError(
+                    "Heuristic fallback is forbidden in PRODUCTION profile."
+                )
+            if model_path is None and custom_predictor is None:
+                raise ProductionProfileError(
+                    "ModernBERT model_path is required in PRODUCTION profile."
+                )
+            if model_path is not None and not Path(model_path).exists():
+                raise ProductionProfileError(
+                    f"ModernBERT checkpoint not found at: {model_path}"
+                )
+
         self.escalation_threshold = float(escalation_threshold)
         self.scaler = scaler or TemperatureScaler(init_temperature=1.0)
-        if not self.scaler.is_fitted:
-            # If not pre-fitted, set identity temperature so it can scale logits cleanly
-            self.scaler.is_fitted = True
+        if self.profile == RuntimeProfile.PRODUCTION:
+            if scaler is not None and not scaler.is_fitted:
+                raise ProductionProfileError(
+                    "Stage B temperature scaler must be fitted in PRODUCTION profile."
+                )
+        else:
+            if not self.scaler.is_fitted:
+                # If not pre-fitted, set identity temperature so it can scale logits cleanly
+                self.scaler.is_fitted = True
 
         self._predictor: Optional[ModelPredictor] = custom_predictor
         self._model = None
@@ -117,6 +251,10 @@ class LearnedVerifier:
             return self._model is not None
         if not self.model_path or not Path(self.model_path).exists():
             self._load_attempted = True
+            if self.profile == RuntimeProfile.PRODUCTION:
+                raise ProductionProfileError(
+                    f"ModernBERT checkpoint missing or not found at: {self.model_path}"
+                )
             return False
 
         self._load_attempted = True
@@ -130,19 +268,37 @@ class LearnedVerifier:
                 self._device = "cuda" if torch.cuda.is_available() else "cpu"
             model_path_obj = Path(self.model_path)
 
+            local_files_only = (self.profile == RuntimeProfile.PRODUCTION)
             if model_path_obj.is_dir():
-                self._tokenizer = AutoTokenizer.from_pretrained(str(model_path_obj))
-                model = ClinicalVerifier(model_id=str(model_path_obj), aux_mode="none")
+                self._tokenizer = AutoTokenizer.from_pretrained(str(model_path_obj), local_files_only=local_files_only)
+                model = ClinicalVerifier(model_id=str(model_path_obj), aux_mode="none", local_files_only=local_files_only)
             else:
-                self._tokenizer = AutoTokenizer.from_pretrained(MODEL_CHECKPOINT)
-                # Load checkpoint to CPU first to prevent GPU memory spikes (DEC-006 / Colab T4 stability)
-                ckpt = torch.load(str(model_path_obj), map_location="cpu", weights_only=False)
+                self._tokenizer = AutoTokenizer.from_pretrained(MODEL_CHECKPOINT, local_files_only=local_files_only)
+                # Load checkpoint to CPU using safe deserialization (weights_only=True)
+                ckpt = load_safe_checkpoint(model_path_obj, profile=self.profile, require_weights_only=True)
                 aux_mode = ckpt.get("aux_mode", "none") if isinstance(ckpt, dict) else "none"
-                model = ClinicalVerifier(model_id=MODEL_CHECKPOINT, aux_mode=aux_mode)
-                if isinstance(ckpt, dict) and "model_state" in ckpt:
-                    model.load_state_dict(ckpt["model_state"])
-                elif isinstance(ckpt, dict):
-                    model.load_state_dict(ckpt)
+                model = ClinicalVerifier(model_id=MODEL_CHECKPOINT, aux_mode=aux_mode, local_files_only=local_files_only)
+                
+                state_dict = ckpt["model_state"] if "model_state" in ckpt else ckpt
+                missing_keys, unexpected_keys = model.load_state_dict(state_dict, strict=False)
+                if self.profile == RuntimeProfile.PRODUCTION:
+                    if missing_keys:
+                        raise ProductionProfileError(
+                            f"Missing required model weights in checkpoint '{model_path_obj}': {missing_keys[:5]} "
+                            f"(total missing: {len(missing_keys)})"
+                        )
+                    if unexpected_keys:
+                        raise ProductionProfileError(
+                            f"Unexpected incompatible keys in checkpoint '{model_path_obj}': {unexpected_keys[:5]} "
+                            f"(total unexpected: {len(unexpected_keys)})"
+                        )
+                elif missing_keys or unexpected_keys:
+                    import logging
+                    logging.getLogger(__name__).warning(
+                        "Stage B checkpoint '%s' loaded with discrepancies: missing=%s, unexpected=%s",
+                        model_path_obj, missing_keys[:3], unexpected_keys[:3],
+                    )
+
                 # DEC-009: load fitted temperature from checkpoint if present
                 if isinstance(ckpt, dict) and "temperature" in ckpt:
                     fitted_temp = float(ckpt["temperature"])
@@ -173,6 +329,12 @@ class LearnedVerifier:
             self._model.eval()
             return True
         except Exception as e:
+            if self.profile == RuntimeProfile.PRODUCTION:
+                if isinstance(e, ProductionProfileError):
+                    raise e
+                raise ProductionProfileError(
+                    f"Failed to load Stage B ModernBERT model from {self.model_path}: {e}"
+                ) from e
             import logging
             logging.getLogger(__name__).warning(
                 "Failed to load Stage B ModernBERT model from %s: %s", self.model_path, e
@@ -202,6 +364,12 @@ class LearnedVerifier:
         Returns:
             StageBResult with predicted label, calibrated confidence, logits, and escalation state.
         """
+        if self.profile == RuntimeProfile.PRODUCTION:
+            if not self.scaler.is_fitted or getattr(self.scaler, "temperature", 1.0) <= 0.0:
+                raise ProductionProfileError(
+                    "Stage B temperature scaler must be fitted with a valid positive temperature in PRODUCTION profile."
+                )
+
         ev_text = evidence.text.strip() if (evidence and evidence.text) else ""
         if not ev_text:
             # Missing evidence: definitive INSUFFICIENT_EVIDENCE
@@ -295,6 +463,10 @@ class LearnedVerifier:
             return logits_tensor.squeeze(0).cpu().numpy()
 
         # Fallback heuristic predictor for offline execution without downloaded neural weights
+        if not self.allow_heuristic_fallback or self.profile == RuntimeProfile.PRODUCTION:
+            raise ProductionProfileError(
+                "Stage B neural model is not loaded; heuristic fallback is forbidden in PRODUCTION profile."
+            )
         return self._heuristic_logits(field_type, claim_value, evidence_text)
 
     def _heuristic_logits(self, field_type: str, claim_value: str, evidence_text: str) -> np.ndarray:

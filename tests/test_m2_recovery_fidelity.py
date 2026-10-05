@@ -154,7 +154,7 @@ def test_checkpoint_recovery_numerical_fidelity(tmp_path):
     eval_after = recovered_res["val_eval"]
 
     # 1. State dict weights match
-    recovered_state = torch.load(ckpt_path, map_location="cpu")["model_state"]
+    recovered_state = torch.load(ckpt_path, map_location="cpu", weights_only=True)["model_state"]
     for k in model_before.state_dict():
         assert torch.equal(model_before.state_dict()[k], recovered_state[k]), f"Weight mismatch for {k}"
 

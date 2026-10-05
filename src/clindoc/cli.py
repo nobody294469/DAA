@@ -41,6 +41,74 @@ from clindoc.ocr.ingest import (
 )
 from clindoc.schema.verification import VerificationResult
 from clindoc.verify.cascade import VerificationCascade
+from clindoc.config import (
+    CANONICAL_CALIBRATION_TEMPERATURE,
+    CANONICAL_MODERNBERT_CHECKPOINT,
+    CANONICAL_STAGE_B_ESCALATION_THRESHOLD,
+    ProductionPipelineConfig,
+    ProductionProfileError,
+    RuntimeProfile,
+    get_active_profile,
+)
+
+
+def build_production_cascade(config: Optional[ProductionPipelineConfig] = None) -> VerificationCascade:
+    """Build a hardened production VerificationCascade adhering to PD-003, PD-004, and PD-018."""
+    cfg = config or ProductionPipelineConfig()
+    cfg.validate()
+
+    from clindoc.m2.calibration import TemperatureScaler
+    from clindoc.verify.stage_a import DeterministicVerifier
+    from clindoc.verify.stage_b import LearnedVerifier
+    from clindoc.verify.stage_c import StageCJudge, VLLMJudgeClient
+
+    stage_a = DeterministicVerifier()
+    scaler = TemperatureScaler(init_temperature=cfg.calibration_temperature)
+    scaler.is_fitted = True
+
+    stage_b = LearnedVerifier(
+        model_path=cfg.modernbert_checkpoint_path,
+        scaler=scaler,
+        escalation_threshold=cfg.stage_b_escalation_threshold,
+        profile=RuntimeProfile.PRODUCTION,
+        allow_heuristic_fallback=False,
+    )
+
+    stage_c_client = VLLMJudgeClient(
+        base_url=cfg.vllm_base_url,
+        model_name=cfg.vllm_model_name,
+        timeout=cfg.vllm_timeout_seconds,
+    )
+    stage_c = StageCJudge(
+        client=stage_c_client,
+        profile=RuntimeProfile.PRODUCTION,
+        allow_mock_client=False,
+    )
+
+    return VerificationCascade(
+        stage_a=stage_a,
+        stage_b=stage_b,
+        stage_c=stage_c,
+        profile=RuntimeProfile.PRODUCTION,
+    )
+
+
+def build_production_router(config: Optional[ProductionPipelineConfig] = None) -> ExtractionRouter:
+    """Build a hardened production ExtractionRouter with non-mock vLLM narrative extraction."""
+    cfg = config or ProductionPipelineConfig()
+    cfg.validate()
+
+    from clindoc.extract.llm_extractor import VLLMProvider
+
+    vllm_provider = VLLMProvider(
+        base_url=cfg.vllm_base_url,
+        model_name=cfg.vllm_model_name,
+        timeout=int(cfg.vllm_timeout_seconds),
+    )
+    return ExtractionRouter(
+        llm_provider=vllm_provider,
+        profile=RuntimeProfile.PRODUCTION,
+    )
 
 
 @dataclass
@@ -80,6 +148,7 @@ def process_document(
     router: Optional[ExtractionRouter] = None,
     normalizer: Optional[TerminologyNormalizer] = None,
     cascade: Optional[VerificationCascade] = None,
+    profile: Optional[Union[RuntimeProfile, str]] = None,
 ) -> ProcessResult:
     """Execute the canonical end-to-end verification and FHIR conversion pipeline for one document.
 
@@ -90,6 +159,7 @@ def process_document(
         router: Optional pre-configured ExtractionRouter instance (e.g. for testing/mocking).
         normalizer: Optional pre-configured TerminologyNormalizer instance.
         cascade: Optional pre-configured VerificationCascade instance.
+        profile: Optional execution profile ('dev' or 'production'). Defaults to CLINDOC_PROFILE env var.
 
     Returns:
         ProcessResult containing generated Bundle, AuditReport, paths, and summary counts.
@@ -97,8 +167,28 @@ def process_document(
     Raises:
         FileNotFoundError: If input_file does not exist.
         IngestionError: If file is unsupported, corrupted, or unreadable.
+        ProductionProfileError: If production profile invariants are violated.
         ValueError: If no claims can be extracted or inputs are inconsistent.
     """
+    effective_profile = RuntimeProfile.from_string(profile) if profile else get_active_profile()
+    if effective_profile == RuntimeProfile.PRODUCTION:
+        if router is None:
+            raise ProductionProfileError(
+                "Production profile requires an explicitly configured production ExtractionRouter."
+            )
+        if getattr(router, "profile", RuntimeProfile.DEV) != RuntimeProfile.PRODUCTION:
+            raise ProductionProfileError(
+                "Production profile requires an ExtractionRouter initialized with profile=PRODUCTION."
+            )
+        if cascade is None:
+            raise ProductionProfileError(
+                "Production profile requires an explicitly configured production VerificationCascade."
+            )
+        if getattr(cascade, "profile", RuntimeProfile.DEV) != RuntimeProfile.PRODUCTION:
+            raise ProductionProfileError(
+                "Production profile requires a VerificationCascade initialized with profile=PRODUCTION."
+            )
+
     file_path = Path(input_file)
     if not file_path.exists():
         raise FileNotFoundError(f"Input document file not found: {file_path}")
@@ -199,6 +289,7 @@ def batch_process(
     router: Optional[ExtractionRouter] = None,
     normalizer: Optional[TerminologyNormalizer] = None,
     cascade: Optional[VerificationCascade] = None,
+    profile: Optional[Union[RuntimeProfile, str]] = None,
 ) -> list[ProcessResult]:
     """Batch-process multiple clinical documents in an input directory.
 
@@ -209,6 +300,7 @@ def batch_process(
         router: Reusable ExtractionRouter instance.
         normalizer: Reusable TerminologyNormalizer instance.
         cascade: Reusable VerificationCascade instance.
+        profile: Execution profile ('dev' or 'production').
 
     Returns:
         List of ProcessResult objects for all successfully processed documents.
@@ -216,7 +308,27 @@ def batch_process(
     Raises:
         FileNotFoundError: If input_dir does not exist.
         ValueError: If no matching documents are found.
+        ProductionProfileError: If production profile invariants are violated.
     """
+    effective_profile = RuntimeProfile.from_string(profile) if profile else get_active_profile()
+    if effective_profile == RuntimeProfile.PRODUCTION:
+        if router is None:
+            raise ProductionProfileError(
+                "Production profile requires an explicitly configured production ExtractionRouter."
+            )
+        if getattr(router, "profile", RuntimeProfile.DEV) != RuntimeProfile.PRODUCTION:
+            raise ProductionProfileError(
+                "Production profile requires an ExtractionRouter initialized with profile=PRODUCTION."
+            )
+        if cascade is None:
+            raise ProductionProfileError(
+                "Production profile requires an explicitly configured production VerificationCascade."
+            )
+        if getattr(cascade, "profile", RuntimeProfile.DEV) != RuntimeProfile.PRODUCTION:
+            raise ProductionProfileError(
+                "Production profile requires a VerificationCascade initialized with profile=PRODUCTION."
+            )
+
     in_dir = Path(input_dir)
     if not in_dir.exists() or not in_dir.is_dir():
         raise FileNotFoundError(f"Input directory does not exist: {in_dir}")
@@ -240,9 +352,9 @@ def batch_process(
         raise ValueError(f"No clinical document files found in {in_dir} (pattern: {pattern or 'default'})")
 
     # Reuse pipeline components across the entire batch
-    shared_router = router or ExtractionRouter()
+    shared_router = router or ExtractionRouter(profile=effective_profile)
     shared_normalizer = normalizer or TerminologyNormalizer()
-    shared_cascade = cascade or VerificationCascade()
+    shared_cascade = cascade or VerificationCascade(profile=effective_profile)
 
     results: list[ProcessResult] = []
     failures: list[dict[str, str]] = []
@@ -256,6 +368,7 @@ def batch_process(
                 router=shared_router,
                 normalizer=shared_normalizer,
                 cascade=shared_cascade,
+                profile=effective_profile,
             )
             # Also write prefixed artifacts to out_base for easy flat discovery
             with open(out_base / f"{res.document_id}_fhir_bundle.json", "w", encoding="utf-8") as f:
@@ -288,6 +401,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         prog="clindoc",
         description="Clindoc2FHIR: Multimodal Clinical Document-to-FHIR Verification Pipeline",
+    )
+    parser.add_argument(
+        "--profile",
+        type=str,
+        choices=["dev", "production"],
+        default=None,
+        help="Runtime profile ('dev' or 'production'). Defaults to CLINDOC_PROFILE env var or 'dev'.",
     )
     subparsers = parser.add_subparsers(dest="subcommand", help="Pipeline command to execute")
 
@@ -343,12 +463,15 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         parser.print_help()
         return 1
 
+    profile = args.profile or get_active_profile()
+
     try:
         if args.subcommand == "process":
             res = process_document(
                 input_file=args.input_file,
                 output_dir=args.output_dir,
                 document_id=args.document_id,
+                profile=profile,
             )
             print(f"[OK] Successfully processed document: {res.document_id}")
             print(f"     FHIR Bundle:  {res.fhir_bundle_path}")
@@ -365,6 +488,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 input_dir=args.input_dir,
                 output_dir=args.output_dir,
                 pattern=args.pattern,
+                profile=profile,
             )
             print(f"[OK] Batch processing completed. Successfully processed {len(results)} document(s).")
             print(f"     Artifacts saved to: {args.output_dir}")
@@ -374,7 +498,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             parser.print_help()
             return 1
 
-    except (FileNotFoundError, IngestionError, UnsupportedFileTypeError, EmptyDocumentError, ValueError) as err:
+    except (FileNotFoundError, IngestionError, UnsupportedFileTypeError, EmptyDocumentError, ValueError, ProductionProfileError) as err:
         sys.stderr.write(f"Error: {err}\n")
         return 1
     except Exception as err:

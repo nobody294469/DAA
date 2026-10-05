@@ -50,6 +50,7 @@ from clindoc.extract.gliner_fallback import GLiNERFallbackExtractor, MockGLiNERP
 from clindoc.extract.llm_extractor import MockLLMProvider, NarrativeExtractor
 from clindoc.extract.region_classifier import RegionClassifier
 from clindoc.ocr.document_text import DocumentPage, DocumentText
+from clindoc.config import ProductionProfileError, RuntimeProfile, get_active_profile
 
 
 # ─── CONFIG LOADING ──────────────────────────────────────────────────────────
@@ -93,6 +94,7 @@ class ExtractionRouter:
         ucum_map: dict | None = None,
         med_catalog: dict | None = None,
         max_llm_retries: int = 2,
+        profile: Optional[Union[RuntimeProfile, str]] = None,
     ):
         """
         Args:
@@ -105,7 +107,9 @@ class ExtractionRouter:
             ucum_map: Optional UCUM lookup injection (for tests).
             med_catalog: Optional medication catalog injection (for tests).
             max_llm_retries: Bounded LLM retry count (DEC-013: max 2).
+            profile: Runtime execution profile (DEV or PRODUCTION).
         """
+        self.profile = RuntimeProfile.from_string(profile) if profile else get_active_profile()
         cfg = _load_extraction_config(config_path)
         det_cfg = cfg.get("deterministic_extraction", {})
 
@@ -133,6 +137,10 @@ class ExtractionRouter:
         )
 
         # GLiNER: use injected provider or default to subprocess (lazy)
+        if self.profile == RuntimeProfile.PRODUCTION and isinstance(gliner_provider, MockGLiNERProvider):
+            raise ProductionProfileError(
+                "MockGLiNERProvider is forbidden in PRODUCTION profile."
+            )
         self.gliner = GLiNERFallbackExtractor(provider=gliner_provider)
 
         # LLM: use injected provider or default to mock (safe for tests)
@@ -141,6 +149,10 @@ class ExtractionRouter:
         if llm_provider is not None:
             effective_llm = llm_provider
         elif provider_name == "mock":
+            if self.profile == RuntimeProfile.PRODUCTION:
+                raise ProductionProfileError(
+                    "MockLLMProvider is forbidden in PRODUCTION profile. Configure a valid vLLM endpoint."
+                )
             effective_llm = MockLLMProvider()
         else:
             # Production: VLLMProvider (only used when explicitly configured)
@@ -152,6 +164,25 @@ class ExtractionRouter:
                 temperature=llm_cfg.get("temperature", 0.0),
                 timeout=llm_cfg.get("timeout_seconds", 60),
             )
+
+        if self.profile == RuntimeProfile.PRODUCTION:
+            if isinstance(effective_llm, MockLLMProvider):
+                raise ProductionProfileError(
+                    "MockLLMProvider is forbidden in PRODUCTION profile."
+                )
+            from clindoc.extract.llm_extractor import VLLMProvider
+            if isinstance(effective_llm, VLLMProvider):
+                from urllib.parse import urlparse
+                parsed = urlparse(getattr(effective_llm, "base_url", ""))
+                if parsed.scheme not in ("http", "https") or not parsed.netloc:
+                    raise ProductionProfileError(
+                        f"Invalid VLLMProvider base_url '{getattr(effective_llm, 'base_url', '')}' in PRODUCTION profile. Must be http:// or https://."
+                    )
+                if not getattr(effective_llm, "model_name", "").strip():
+                    raise ProductionProfileError(
+                        "Invalid VLLMProvider model_name in PRODUCTION profile."
+                    )
+
         self.narrative = NarrativeExtractor(
             provider=effective_llm,
             max_retries=min(llm_cfg.get("max_retries", 2), 2),
