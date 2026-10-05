@@ -1,0 +1,191 @@
+/* Clindoc2FHIR Design System — Vanilla CSS Tokens & Global Foundation
+   Authority: PRODUCTIZATION_DECISIONS.md PD-013; PRODUCTIZATION_SPEC.md §7.3
+*/
+
+:root {
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Color Palette — Slate & Neutral Foundations */
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-subtle: #f1f5f9;
+  --bg-surface-muted: #e2e8f0;
+
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --border-focus: #0284c7;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  /* Primary Brand (Clinical Sky/Azure) */
+  --color-primary: #0284c7;
+  --color-primary-hover: #0369a1;
+  --color-primary-light: #e0f2fe;
+  --color-primary-border: #7dd3fc;
+  --color-primary-text: #0369a1;
+
+  /* Clinical Verification Verdict Tokens */
+  --verdict-supported-bg: #dcfce7;
+  --verdict-supported-border: #86efac;
+  --verdict-supported-text: #166534;
+  --verdict-supported-dot: #22c55e;
+
+  --verdict-discrepancy-bg: #fee2e2;
+  --verdict-discrepancy-border: #fca5a5;
+  --verdict-discrepancy-text: #991b1b;
+  --verdict-discrepancy-dot: #ef4444;
+
+  --verdict-insufficient-bg: #fef3c7;
+  --verdict-insufficient-border: #fcd34d;
+  --verdict-insufficient-text: #92400e;
+  --verdict-insufficient-dot: #f59e0b;
+
+  /* Cascade Stage Badges */
+  --stage-a-bg: #eff6ff;
+  --stage-a-text: #1d4ed8;
+  --stage-a-border: #bfdbfe;
+
+  --stage-b-bg: #eef2ff;
+  --stage-b-text: #4338ca;
+  --stage-b-border: #c7d2fe;
+
+  --stage-c-bg: #faf5ff;
+  --stage-c-text: #7e22ce;
+  --stage-c-border: #e9d5ff;
+
+  /* Role Badges */
+  --role-reviewer-bg: #ecfdf5;
+  --role-reviewer-text: #047857;
+  --role-approver-bg: #fdf2f8;
+  --role-approver-text: #be185d;
+  --role-operator-bg: #f0fdfa;
+  --role-operator-text: #0f766e;
+  --role-admin-bg: #f1f5f9;
+  --role-admin-text: #334155;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+
+  /* Layout dimensions */
+  --header-height: 60px;
+}
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all 0.15s ease-in-out;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Common UI Components & Utilities */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-surface-subtle);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge-supported {
+  background-color: var(--verdict-supported-bg);
+  border: 1px solid var(--verdict-supported-border);
+  color: var(--verdict-supported-text);
+}
+.badge-discrepancy {
+  background-color: var(--verdict-discrepancy-bg);
+  border: 1px solid var(--verdict-discrepancy-border);
+  color: var(--verdict-discrepancy-text);
+}
+.badge-insufficient {
+  background-color: var(--verdict-insufficient-bg);
+  border: 1px solid var(--verdict-insufficient-border);
+  color: var(--verdict-insufficient-text);
+}
+
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+}

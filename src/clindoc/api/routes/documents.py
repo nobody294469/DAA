@@ -1,17 +1,19 @@
 """Document Ingestion and Retrieval Endpoints (PRODUCTIZATION_SPEC §9.3).
 
 Authority:
-  - PRODUCTIZATION_SPEC.md §1.2, §2 (W-01, W-02), §4.3, §9.3
-  - PRODUCTIZATION_DECISIONS.md PD-007, PD-009, PD-012
+  - PRODUCTIZATION_SPEC.md §1.2, §2 (W-01, W-02), §4.3, §7.3, §9.3
+  - PRODUCTIZATION_DECISIONS.md PD-007, PD-009, PD-012, PD-013
 
 Endpoints:
   - POST /api/v1/documents: Upload document, screen, store encrypted, enqueue job, audit.
   - GET  /api/v1/documents/{id}: Retrieve document metadata under object-level authorization.
+  - GET  /api/v1/documents/{id}/file: Stream decrypted document binary for review viewer.
 """
 
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 from typing import Optional
 import uuid
 
@@ -22,6 +24,7 @@ from fastapi import (
     Form,
     HTTPException,
     Request,
+    Response,
     UploadFile,
     status,
 )
@@ -35,6 +38,7 @@ from clindoc.api.auth.rbac import require_role
 from clindoc.api.auth.roles import CanonicalRole
 from clindoc.api.deps import (
     get_audit_service,
+    get_blob_store,
     get_ingest_service,
     get_job_queue,
 )
@@ -42,6 +46,7 @@ from clindoc.db.enums import DocumentStatus
 from clindoc.db.models import Document
 from clindoc.ingest.service import DocumentIngestionService
 from clindoc.jobs.queue import JobQueue
+from clindoc.storage.blob import BlobNotFoundError, BlobStore, DecryptionError
 
 logger = logging.getLogger(__name__)
 
@@ -253,3 +258,99 @@ def get_document(
         "identity_verification_status": id_verif_val,
         "duplicate_of": str(doc.duplicate_of) if doc.duplicate_of else None,
     }
+
+
+@router.get("/{document_id}/file")
+async def get_document_file(
+    document_id: uuid.UUID,
+    request: Request,
+    current_user: AuthenticatedUser = Depends(get_current_user),
+    session: Session = Depends(get_db_session),
+    blob_store: BlobStore = Depends(get_blob_store),
+    audit_service: AuditService = Depends(get_audit_service),
+) -> Response:
+    """Retrieve and stream decrypted document binary for authenticated review viewer (PD-013).
+
+    Authority:
+      - PRODUCTIZATION_SPEC.md §7.3, §9.3 (GET /documents/{id}/file)
+      - PRODUCTIZATION_DECISIONS.md PD-007 (Encrypted blob storage)
+      - PRODUCTIZATION_DECISIONS.md PD-009 (RBAC object authorization)
+      - PRODUCTIZATION_DECISIONS.md PD-012 (Fail-closed audit logging)
+      - PRODUCTIZATION_DECISIONS.md PD-013 (High-DPI PDF.js / SVG viewer)
+
+    Security rules:
+      1. Object-level authorization enforced:
+         - system_admin strictly denied (HTTP 403) to prevent PHI exposure.
+         - document_operator may only download documents they uploaded.
+         - clinical_reviewer and approver may access active documents for review.
+         - auditor and integration_service receive HTTP 403.
+      2. Retrieves and decrypts ciphertext via authenticated AES-256-GCM.
+      3. Records fail-closed audit event for document download.
+      4. Returns decrypted payload with Content-Disposition inline and verified MIME type.
+    """
+    correlation_id = getattr(request.state, "correlation_id", None) or str(uuid.uuid4())
+    source_ip = request.client.host if request.client else None
+
+    doc = session.query(Document).filter(Document.id == document_id).first()
+    if doc is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Document with ID '{document_id}' was not found.",
+        )
+
+    # Enforce object-level access control (PD-009, PRODUCTIZATION_SPEC §1.2)
+    authorize_document_access(doc, current_user, action="read")
+
+    # Retrieve and decrypt raw payload from encrypted blob store
+    try:
+        payload_bytes = blob_store.get(doc.storage_ref)
+    except BlobNotFoundError as exc:
+        logger.error("Blob not found for document %s at storage_ref %s", doc.id, doc.storage_ref)
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Document payload for ID '{document_id}' was not found in storage.",
+        ) from exc
+    except DecryptionError as exc:
+        logger.error("Failed to decrypt blob for document %s: %s", doc.id, exc)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Document content decryption or integrity verification failed.",
+        ) from exc
+
+    # Record download audit event (PD-012: fail closed if audit fails)
+    status_val = doc.status.value if hasattr(doc.status, "value") else str(doc.status)
+    try:
+        audit_service.record_event(
+            session=session,
+            actor_id=str(current_user.user_id),
+            event_type="DOCUMENT_FILE_DOWNLOADED",
+            entity_type="document",
+            entity_id=str(doc.id),
+            action="DOWNLOAD",
+            source_ip=source_ip,
+            correlation_id=correlation_id,
+            metadata_json={
+                "status": status_val,
+                "file_size_bytes": len(payload_bytes),
+                "mime_type": doc.mime_type,
+            },
+        )
+        session.commit()
+    except Exception as exc:
+        session.rollback()
+        logger.error("Audit log failed for document file download: %s", exc)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Transaction failed closed: Audit event could not be secured.",
+        ) from exc
+
+    safe_filename = Path(doc.original_filename).name or "document.bin"
+    return Response(
+        content=payload_bytes,
+        media_type=doc.mime_type or "application/octet-stream",
+        headers={
+            "Content-Disposition": f'inline; filename="{safe_filename}"',
+            "Content-Length": str(len(payload_bytes)),
+        },
+    )
+
