@@ -78,6 +78,14 @@ class VerificationResult(BaseModel):
         default=False,
         description="True if Stage B escalated this claim to Stage C (due to disagreement or low confidence)",
     )
+    is_fallback: bool = Field(
+        default=False,
+        description="True if verification verdict was produced by a fallback mechanism (PRODUCTIZATION_SPEC §13 F-06, F-07)",
+    )
+    fallback_reason: Optional[str] = Field(
+        default=None,
+        description="Machine-readable fallback classification reason ('llm_unavailable', 'llm_schema_invalid')",
+    )
 
     @model_validator(mode="after")
     def validate_cascade_invariants(self) -> "VerificationResult":

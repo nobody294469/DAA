@@ -84,6 +84,7 @@ from clindoc.ocr.ingest import (
     ingest_document,
 )
 from clindoc.storage.blob import BlobNotFoundError, BlobStore
+from clindoc.observability.metrics import get_metrics
 
 logger = logging.getLogger(__name__)
 
@@ -144,6 +145,11 @@ class InvalidDocumentStateError(WorkerError):
     pass
 
 
+class ModernBERTUnavailableError(WorkerError):
+    """Raised when ModernBERT is unavailable, unloadable, or fails checksum/integrity validation (F-05)."""
+    pass
+
+
 class DocumentProcessingWorker:
     """Background worker executing the clinical document verification cascade.
 
@@ -176,6 +182,26 @@ class DocumentProcessingWorker:
         self.last_extraction_output: Optional[DocumentExtractionOutput] = None
         self.last_normalized_claims: Optional[list[Any]] = None
         self.last_verification_output: Optional[list[Any]] = None
+
+    def _verify_modernbert_availability(self) -> None:
+        """Enforce F-05: ModernBERT is mandatory. If unavailable/unloadable, refuse to process."""
+        stage_b = getattr(self.cascade, "stage_b", None)
+        if stage_b is not None:
+            profile = get_active_profile()
+            if profile == RuntimeProfile.PRODUCTION:
+                if hasattr(stage_b, "_predictor") and stage_b._predictor.__class__.__name__ == "MockModelPredictor":
+                    raise ModernBERTUnavailableError("MockModelPredictor is forbidden in PRODUCTION profile.")
+                if getattr(stage_b, "allow_heuristic_fallback", False):
+                    raise ModernBERTUnavailableError("Heuristic fallback is forbidden in PRODUCTION profile.")
+                if hasattr(stage_b, "is_model_loaded") and not stage_b.is_model_loaded:
+                    try:
+                        loaded = stage_b.load_model()
+                        if not loaded:
+                            raise ModernBERTUnavailableError("ModernBERT checkpoint failed to load.")
+                    except Exception as e:
+                        raise ModernBERTUnavailableError(f"ModernBERT checkpoint failed to load: {e}") from e
+            elif hasattr(stage_b, "verify_readiness"):
+                stage_b.verify_readiness()
 
     def _get_or_create_model_run(self, session: Session, job: ProcessingJob) -> ModelRun:
         """Resolve existing or create canonical ModelRun record for provenance (§3.7)."""
@@ -298,6 +324,9 @@ class DocumentProcessingWorker:
                 f"Worker cannot process job {job.id} with status '{job.status}'. Expected 'RUNNING'."
             )
 
+        job_start_time = time.perf_counter()
+        get_metrics().record_job_started()
+
         document = session.get(Document, job.document_id)
         if document is None:
             err_msg = f"Document {job.document_id} referenced by job {job.id} does not exist."
@@ -331,6 +360,7 @@ class DocumentProcessingWorker:
         is_temp = False
 
         try:
+            self._verify_modernbert_availability()
             temp_path, is_temp = self._prepare_scratch_file(document)
 
             # ─── SEQUENTIAL ORCHESTRATION SKELETON ───────────────────────────
@@ -385,12 +415,85 @@ class DocumentProcessingWorker:
             document.status = DocumentStatus.PENDING_REVIEW
             job.current_stage = "COMPLETED"
             session.flush()
+            job_duration = time.perf_counter() - job_start_time
+            get_metrics().record_job_completed(job_duration)
+            get_metrics().record_document_status("pending_review")
             return self.queue.mark_completed(session=session, job_id=job.id)
 
-        except (DocumentNotFoundError, BlobNotFoundError, IngestionError, ProductionProfileError) as terminal_exc:
+        except ModernBERTUnavailableError as mb_exc:
+            logger.error("F-05 ModernBERT unavailable/unloadable for job %s: %s", job.id, mb_exc)
+            get_metrics().record_model_unavailable("modernbert", "model_not_loaded")
+            # F-05: worker must refuse to process the job; job must remain QUEUED;
+            # document state reverts to INGESTED; no heuristic/mock fallback;
+            document.status = DocumentStatus.INGESTED
+            job.status = JobStatus.PENDING
+            job.worker_id = None
+            job.lease_expires_at = None
+            job.current_stage = "QUEUED"
+            job.error_code = "MODERNBERT_UNAVAILABLE"
+            job.error_message = self._sanitize_error(mb_exc)
+            if job.attempts > 0:
+                job.attempts -= 1  # Release lease without penalizing retry budget
+            session.flush()
+
+            self.queue.record_stage_event(
+                session=session,
+                job_id=job.id,
+                stage_name="VERIFICATION",
+                status="FAILED",
+                error_message="ModernBERT unavailable/unloadable; job remains QUEUED (fail-closed, no fallback permitted)",
+            )
+            return job
+        except ProductionProfileError as ppe:
+            if "modernbert" in str(ppe).lower():
+                logger.error("F-05 ModernBERT production profile violation for job %s: %s", job.id, ppe)
+                document.status = DocumentStatus.INGESTED
+                job.status = JobStatus.PENDING
+                job.worker_id = None
+                job.lease_expires_at = None
+                job.current_stage = "QUEUED"
+                job.error_code = "MODERNBERT_UNAVAILABLE"
+                job.error_message = self._sanitize_error(ppe)
+                if job.attempts > 0:
+                    job.attempts -= 1
+                session.flush()
+                self.queue.record_stage_event(
+                    session=session,
+                    job_id=job.id,
+                    stage_name="VERIFICATION",
+                    status="FAILED",
+                    error_message="ModernBERT unavailable/unloadable; job remains QUEUED (fail-closed, no fallback permitted)",
+                )
+                return job
+
+            logger.error("Terminal failure during job %s: %s", job.id, ppe)
+            document.status = DocumentStatus.FAILED
+            session.flush()
+            job_duration = time.perf_counter() - job_start_time
+            get_metrics().record_job_failed(job_duration)
+            get_metrics().record_document_status("failed")
+            sanitized_err = self._sanitize_error(
+                ppe,
+                sensitive_strings=[
+                    str(temp_path) if temp_path else None,
+                    document.original_filename,
+                    document.patient_context_id,
+                ],
+            )
+            return self.queue.mark_failed(
+                session=session,
+                job_id=job.id,
+                error_code=type(ppe).__name__,
+                error_message=sanitized_err,
+                retryable=False,
+            )
+        except (DocumentNotFoundError, BlobNotFoundError, IngestionError) as terminal_exc:
             logger.error("Terminal failure during job %s: %s", job.id, terminal_exc)
             document.status = DocumentStatus.FAILED
             session.flush()
+            job_duration = time.perf_counter() - job_start_time
+            get_metrics().record_job_failed(job_duration)
+            get_metrics().record_document_status("failed")
             sanitized_err = self._sanitize_error(
                 terminal_exc,
                 sensitive_strings=[
@@ -427,6 +530,9 @@ class DocumentProcessingWorker:
             if res.status == JobStatus.FAILED:
                 document.status = DocumentStatus.FAILED
                 session.flush()
+                job_duration = time.perf_counter() - job_start_time
+                get_metrics().record_job_failed(job_duration)
+                get_metrics().record_document_status("failed")
             return res
         finally:
             if is_temp and temp_path and temp_path.exists():
@@ -996,6 +1102,19 @@ class DocumentProcessingWorker:
                 except (ValueError, TypeError):
                     vr_id = uuid.uuid4()
 
+                is_fallback = bool(getattr(res, "is_fallback", False))
+                fallback_reason = getattr(res, "fallback_reason", None)
+
+                stage_c_details = None
+                if res.rationale or is_fallback:
+                    stage_c_details = {
+                        "rationale": res.rationale,
+                        "is_fallback": is_fallback,
+                        "fallback_reason": fallback_reason,
+                    }
+                    if is_fallback and fallback_reason == "llm_unavailable":
+                        stage_c_details["handling_path"] = "AWAITING_LLM"
+
                 db_vr = VerificationResult(
                     id=vr_id,
                     claim_id=db_claim.id,
@@ -1003,17 +1122,36 @@ class DocumentProcessingWorker:
                     calibrated_confidence=float(res.confidence),
                     verification_stage=_map_verification_stage(res.stage_reached),
                     escalated=bool(res.escalated),
-                    is_fallback=False,
+                    is_fallback=is_fallback,
+                    fallback_reason=fallback_reason,
                     provider_kind=provider_kind,
                     model_run_id=job.model_run_id,
                     contradiction_type=_map_contradiction_type(res.contradiction_type),
                     rationale=res.rationale,
                     stage_a_details={"label": res.stage_a_label} if res.stage_a_label else None,
                     stage_b_details={"label": res.stage_b_label, "raw_confidence": res.stage_b_raw_confidence} if res.stage_b_label else None,
-                    stage_c_details={"rationale": res.rationale} if res.rationale else None,
+                    stage_c_details=stage_c_details,
                     payload=res.model_dump(mode="json"),
                 )
                 session.add(db_vr)
+
+                # Route escalated fallback claims to human review with reason and AWAITING_LLM provenance (F-06, F-07)
+                if is_fallback:
+                    db_claim.review_state = ClaimReviewState.ESCALATED
+                    claim_payload = dict(db_claim.payload or {})
+                    claim_payload["is_fallback"] = True
+                    claim_payload["fallback_reason"] = fallback_reason
+                    claim_payload["review_reason"] = fallback_reason
+                    if fallback_reason == "llm_unavailable":
+                        claim_payload["awaiting_llm"] = True
+                    db_claim.payload = claim_payload
+
+                # Record claim metrics
+                stage_str = f"stage_{str(res.stage_reached).lower()}"
+                label_str = str(res.label).lower()
+                get_metrics().record_claim(stage_str, label_str)
+                if res.escalated or is_fallback:
+                    get_metrics().record_claim_requiring_review()
 
             session.flush()
 

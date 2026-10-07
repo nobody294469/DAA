@@ -31,8 +31,10 @@ from clindoc.api.routes import (
     documents_router,
     health_router,
     jobs_router,
+    metrics_router,
     review_router,
 )
+from clindoc.observability.middleware import PrometheusMetricsMiddleware
 
 logger = logging.getLogger("clindoc.api")
 
@@ -82,7 +84,10 @@ def create_app(
             expose_headers=["X-Correlation-ID", "Content-Disposition"],
         )
 
-    # 2. Security and Correlation Headers Middleware (T-21, PD-013)
+    # 2. Prometheus HTTP Metrics Middleware (Phase 8.10)
+    app.add_middleware(PrometheusMetricsMiddleware)
+
+    # 3. Security and Correlation Headers Middleware (T-21, PD-013)
     @app.middleware("http")
     async def security_and_correlation_middleware(request: Request, call_next):
         corr_id = request.headers.get("X-Correlation-ID") or str(uuid.uuid4())
@@ -95,12 +100,16 @@ def create_app(
         response.headers["Content-Security-Policy"] = csp
         return response
 
-    # 3. Register Versioned API Routers under /api/v1
+    # 4. Register Versioned API Routers under /api/v1
     app.include_router(health_router, prefix="/api/v1")
     app.include_router(documents_router, prefix="/api/v1")
     app.include_router(jobs_router, prefix="/api/v1")
     app.include_router(audit_router, prefix="/api/v1")
     app.include_router(review_router, prefix="/api/v1")
+
+    # 5. Register Metrics Router (Internal Monitoring Scrape Endpoint)
+    app.include_router(metrics_router)
+    app.include_router(metrics_router, prefix="/api/v1")
 
     return app
 

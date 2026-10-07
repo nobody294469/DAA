@@ -1,0 +1,25 @@
+# Prometheus Configuration for ClinDoc Operational Monitoring (Phase 8.10)
+# Authority: Phase 8.10 §13, PRODUCTIZATION_SPEC §9.2, §10.4
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  scrape_timeout: 10s
+
+rule_files:
+  - "/etc/prometheus/alerting_rules.yml"
+
+scrape_configs:
+  - job_name: "clindoc_api"
+    metrics_path: "/metrics"
+    scheme: "http"
+    static_configs:
+      - targets: ["clindoc-api:8000"]
+        labels:
+          environment: "production"
+          service: "clindoc2fhir"
+          tier: "backend"
+
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]

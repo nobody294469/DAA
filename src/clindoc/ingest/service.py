@@ -28,6 +28,7 @@ from sqlalchemy.orm import Session
 
 from clindoc.db.enums import DocumentStatus
 from clindoc.db.models import Document
+from clindoc.observability.metrics import get_metrics
 from clindoc.storage.blob import BlobStore
 
 
@@ -106,6 +107,8 @@ class DocumentIngestionService:
 
         # 1. Zero-byte check
         if file_size == 0:
+            get_metrics().record_document_status("failed_ingest")
+            get_metrics().record_security_event("malformed_file")
             return ScreeningResult(
                 status=DocumentStatus.FAILED_INGEST,
                 sha256=sha256_hex,
@@ -119,6 +122,8 @@ class DocumentIngestionService:
 
         # 2. File size ceiling check (F-01 / F-19)
         if file_size > self.max_file_size_bytes:
+            get_metrics().record_document_status("failed_ingest")
+            get_metrics().record_security_event("oversized_file")
             return ScreeningResult(
                 status=DocumentStatus.FAILED_INGEST,
                 sha256=sha256_hex,
@@ -135,6 +140,8 @@ class DocumentIngestionService:
 
         # If declared MIME is explicitly unsupported, reject immediately with FAILED_INGEST
         if declared_mime_type and declared_mime_type not in SUPPORTED_MIME_TYPES:
+            get_metrics().record_document_status("failed_ingest")
+            get_metrics().record_security_event("malformed_file")
             return ScreeningResult(
                 status=DocumentStatus.FAILED_INGEST,
                 sha256=sha256_hex,
@@ -148,6 +155,8 @@ class DocumentIngestionService:
 
         # Header mismatch detection (declared a supported MIME like PDF, but magic bytes don't match)
         if declared_mime_type and declared_mime_type != sniffed_mime:
+            get_metrics().record_document_status("quarantined")
+            get_metrics().record_security_event("mime_spoof")
             return ScreeningResult(
                 status=DocumentStatus.QUARANTINED,
                 sha256=sha256_hex,
@@ -162,6 +171,8 @@ class DocumentIngestionService:
         effective_mime = sniffed_mime or declared_mime_type or "application/octet-stream"
 
         if effective_mime not in SUPPORTED_MIME_TYPES:
+            get_metrics().record_document_status("failed_ingest")
+            get_metrics().record_security_event("malformed_file")
             return ScreeningResult(
                 status=DocumentStatus.FAILED_INGEST,
                 sha256=sha256_hex,
@@ -183,6 +194,8 @@ class DocumentIngestionService:
                 # Check for active password encryption (Threat T-08)
                 if pdf_doc.is_encrypted:
                     pdf_doc.close()
+                    get_metrics().record_document_status("quarantined")
+                    get_metrics().record_security_event("encrypted_pdf")
                     return ScreeningResult(
                         status=DocumentStatus.QUARANTINED,
                         sha256=sha256_hex,
@@ -197,6 +210,8 @@ class DocumentIngestionService:
                 page_count = len(pdf_doc)
                 if page_count == 0:
                     pdf_doc.close()
+                    get_metrics().record_document_status("quarantined")
+                    get_metrics().record_security_event("malformed_file")
                     return ScreeningResult(
                         status=DocumentStatus.QUARANTINED,
                         sha256=sha256_hex,
@@ -213,6 +228,8 @@ class DocumentIngestionService:
                 pdf_doc.close()
 
             except Exception as exc:
+                get_metrics().record_document_status("quarantined")
+                get_metrics().record_security_event("malformed_file")
                 return ScreeningResult(
                     status=DocumentStatus.QUARANTINED,
                     sha256=sha256_hex,
@@ -226,6 +243,8 @@ class DocumentIngestionService:
 
             # 5. Page count limit check
             if page_count > self.max_page_count:
+                get_metrics().record_document_status("failed_ingest")
+                get_metrics().record_security_event("excessive_pages")
                 return ScreeningResult(
                     status=DocumentStatus.FAILED_INGEST,
                     sha256=sha256_hex,
@@ -238,6 +257,7 @@ class DocumentIngestionService:
                 )
 
         # Successfully passed screening
+        get_metrics().record_document_status("ingested")
         return ScreeningResult(
             status=DocumentStatus.INGESTED,
             sha256=sha256_hex,

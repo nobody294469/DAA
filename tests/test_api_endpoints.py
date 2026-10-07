@@ -255,11 +255,21 @@ def test_health_ready_requires_authentication(api_test_env, rsa_keypair):
         headers={"Authorization": f"Bearer {token}"},
     )
     assert resp_auth.status_code == 200
-    assert resp_auth.json() == {
-        "status": "ready",
-        "database": "connected",
-        "blob_store": "ready",
-    }
+    body = resp_auth.json()
+    # Infrastructure fields must be present and healthy
+    assert body["status"] == "ready"
+    assert body["database"] == "connected"
+    assert body["blob_store"] == "ready"
+    # Model readiness fields must be present (no models registered in test env)
+    assert "modernbert" in body
+    assert "modernbert_detail" in body
+    assert "qwen_vllm" in body
+    assert "qwen_vllm_detail" in body
+    # Confirm no PHI / secrets / credentials leaked
+    body_str = str(body)
+    assert "VLLM_API_KEY" not in body_str
+    assert "Bearer" not in body_str
+    assert "patient" not in body_str.lower()
 
 
 # ─── 2. DOCUMENT INGESTION (POST /api/v1/documents) ──────────────────────────

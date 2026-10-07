@@ -1,0 +1,106 @@
+# Alerting Rules for ClinDoc Operations (Phase 8.10 §15)
+# Authority: PRODUCTIZATION_SPEC §10.4, §13 (Failures F-05, F-06, F-07)
+
+groups:
+  - name: clindoc_critical_alerts
+    rules:
+      - alert: ClinDocApplicationReadinessFailed
+        expr: clindoc_http_requests_total{route="/api/v1/health/ready", status_class="5xx"} > 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "ClinDoc infrastructure readiness probe failed"
+          description: "Relational database or encrypted blob storage is unavailable. Immediate attention required."
+
+      - alert: ModernBERTUnavailable
+        expr: clindoc_model_readiness{model="modernbert"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "ModernBERT (Stage B) model unavailable"
+          description: "Stage B learned verifier is not loaded or failing. Pipeline cannot process Tier 1 claims safely."
+
+      - alert: SustainedQwenUnavailability
+        expr: clindoc_model_readiness{model="qwen"} == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Qwen/vLLM (Stage C) unavailable for > 5 minutes"
+          description: "Stage C LLM judge is unreachable. Claims are falling back to safe clinical default."
+
+      - alert: CircuitBreakerOpenProlonged
+        expr: clindoc_circuit_breaker_state{model="vllm_gateway"} == 2
+        for: 3m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Circuit breaker is OPEN for more than 3 minutes"
+          description: "Model serving endpoint is experiencing sustained failures; circuit breaker is preventing overload."
+
+  - name: clindoc_warning_alerts
+    rules:
+      - alert: HighStageCFallbackRate
+        expr: rate(clindoc_stage_c_fallbacks_total[5m]) / (rate(clindoc_cascade_evaluations_total{stage="stage_c"}[5m]) + 0.001) > 0.15
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High Stage C fallback rate (> 15%)"
+          description: "Over 15% of Stage C evaluations are triggering safe fallbacks in the last 5 minutes."
+
+      - alert: HighSchemaInvalidRate
+        expr: rate(clindoc_stage_c_fallbacks_total{reason="llm_schema_invalid"}[5m]) > 0.1
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High schema validation failure rate from LLM"
+          description: "Qwen/vLLM outputs are failing schema validation, triggering parser retry/fallback."
+
+      - alert: HighAPIErrorRate
+        expr: rate(clindoc_http_requests_total{status_class="5xx"}[5m]) / (rate(clindoc_http_requests_total[5m]) + 0.001) > 0.05
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High API error rate (> 5% 5xx)"
+          description: "HTTP 5xx responses exceed 5% of total API traffic over the last 5 minutes."
+
+      - alert: HighIngestionRejectionRate
+        expr: rate(clindoc_security_events_total[5m]) > 0.5
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Spike in document ingestion rejections"
+          description: "Abnormal rate of rejected, malformed, or quarantined document uploads."
+
+      - alert: GrowingHumanReviewQueue
+        expr: delta(clindoc_review_queue_size[15m]) > 20
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Human review queue is growing rapidly"
+          description: "Review queue size increased by more than 20 claims in the last 15 minutes."
+
+      - alert: SustainedHighProcessingLatency
+        expr: histogram_quantile(0.95, rate(clindoc_job_duration_seconds_bucket[10m])) > 60
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "P95 document processing latency exceeds 60 seconds"
+          description: "Background processing jobs are experiencing sustained latency degradation."
+
+      - alert: ConcurrencySaturation
+        expr: clindoc_concurrency_permits_in_use{model="qwen"} >= 9
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Model serving concurrency near saturation (>= 90%)"
+          description: "High volume of concurrent model requests approaching configured capacity limit."

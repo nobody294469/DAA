@@ -328,13 +328,24 @@ class TestNumericClaimsUnitHandling:
 
     def test_numeric_claim_invalid_numeric_value_handling(self):
         normalizer = TerminologyNormalizer()
-        claim = _make_claim("lab.value", "positive", unit_raw=None)
-        normalizer.normalize_claim(claim)
 
-        assert claim.value == "positive"
-        assert claim.value_numeric is None
-        assert claim.normalized_code is None
-        assert claim.code_system is None
+        # 1. Genuinely invalid/unrecognized non-numeric value has no numeric value or code
+        claim_invalid = _make_claim("lab.value", "unparseable_value", unit_raw=None)
+        normalizer.normalize_claim(claim_invalid)
+
+        assert claim_invalid.value == "unparseable_value"
+        assert claim_invalid.value_numeric is None
+        assert claim_invalid.normalized_code is None
+        assert claim_invalid.code_system is None
+
+        # 2. PD-022: Recognized qualitative determination "positive" canonicalizes to POSITIVE
+        claim_qual = _make_claim("lab.value", "positive", unit_raw=None)
+        normalizer.normalize_claim(claim_qual)
+
+        assert claim_qual.value == "positive"
+        assert claim_qual.value_numeric is None
+        assert claim_qual.normalized_code == "POSITIVE"
+        assert claim_qual.code_system is None
 
 
 class TestAuditCandidateMemory:

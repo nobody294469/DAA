@@ -598,6 +598,7 @@ class VerificationResult(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     verification_stage: Mapped[VerificationStage] = mapped_column(String(32), nullable=False)
     escalated: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     is_fallback: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    fallback_reason: Mapped[Optional[str]] = mapped_column(String(64), nullable=True, doc="Machine-readable fallback code: 'llm_unavailable' or 'llm_schema_invalid'")
     provider_kind: Mapped[str] = mapped_column(String(50), nullable=False, doc="'modernbert_vllm', 'mock_dev', 'heuristic'")
     model_run_id: Mapped[Optional[uuid.UUID]] = mapped_column(
         UUID(as_uuid=True),

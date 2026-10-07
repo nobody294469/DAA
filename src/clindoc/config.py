@@ -85,6 +85,11 @@ class ProductionPipelineConfig:
     vllm_timeout_seconds: float = 30.0
     allow_mocks: bool = False
     allow_heuristics: bool = False
+    circuit_breaker_failure_threshold: int = 5
+    circuit_breaker_cooldown_seconds: float = 30.0
+    model_concurrency_limit: int = 10
+    backoff_base_delay: float = 0.5
+    backoff_max_delay: float = 8.0
 
     def validate(self) -> None:
         """Validate production configuration. Raises ProductionProfileError if invalid."""
@@ -142,6 +147,33 @@ class ProductionPipelineConfig:
                     "Production configuration violation: vllm_model_name is required."
                 )
 
+            # 5. Validate Circuit Breaker, Concurrency & Backoff Invariants (§3.5)
+            if self.circuit_breaker_failure_threshold < 1:
+                raise ProductionProfileError(
+                    f"Production configuration violation: circuit_breaker_failure_threshold must be >= 1, "
+                    f"got {self.circuit_breaker_failure_threshold}."
+                )
+            if self.circuit_breaker_cooldown_seconds <= 0.0:
+                raise ProductionProfileError(
+                    f"Production configuration violation: circuit_breaker_cooldown_seconds must be > 0, "
+                    f"got {self.circuit_breaker_cooldown_seconds}."
+                )
+            if self.model_concurrency_limit < 1:
+                raise ProductionProfileError(
+                    f"Production configuration violation: model_concurrency_limit must be >= 1, "
+                    f"got {self.model_concurrency_limit}."
+                )
+            if self.backoff_base_delay <= 0.0:
+                raise ProductionProfileError(
+                    f"Production configuration violation: backoff_base_delay must be > 0, "
+                    f"got {self.backoff_base_delay}."
+                )
+            if self.backoff_max_delay < self.backoff_base_delay:
+                raise ProductionProfileError(
+                    f"Production configuration violation: backoff_max_delay ({self.backoff_max_delay}) "
+                    f"must be >= backoff_base_delay ({self.backoff_base_delay})."
+                )
+
 
 # Configurable operational defaults for queue leasing and retries.
 # (PRODUCTIZATION_SPEC.md §4.1 R-3 and §13 F-17 mandate that lease expiry and retry limits
@@ -149,6 +181,13 @@ class ProductionPipelineConfig:
 # These values are operational defaults isolated behind configuration).
 DEFAULT_JOB_LEASE_SECONDS: int = 300  # 5 minutes configurable operational default
 DEFAULT_JOB_MAX_ATTEMPTS: int = 3     # 3 attempts configurable operational default
+
+# Model serving resilience operational defaults (§3.5)
+DEFAULT_CIRCUIT_BREAKER_FAILURE_THRESHOLD: int = 5
+DEFAULT_CIRCUIT_BREAKER_COOLDOWN_SECONDS: float = 30.0
+DEFAULT_MODEL_CONCURRENCY_LIMIT: int = 10
+DEFAULT_BACKOFF_BASE_DELAY: float = 0.5
+DEFAULT_BACKOFF_MAX_DELAY: float = 8.0
 
 
 def get_job_lease_seconds() -> int:
@@ -165,4 +204,70 @@ def get_job_lease_seconds() -> int:
         except ValueError:
             pass
     return DEFAULT_JOB_LEASE_SECONDS
+
+
+def get_circuit_breaker_failure_threshold() -> int:
+    """Read configured circuit breaker failure threshold from environment."""
+    raw = os.environ.get("CLINDOC_CIRCUIT_BREAKER_FAILURE_THRESHOLD")
+    if raw is not None and raw.strip():
+        try:
+            val = int(raw.strip())
+            if val >= 1:
+                return val
+        except ValueError:
+            pass
+    return DEFAULT_CIRCUIT_BREAKER_FAILURE_THRESHOLD
+
+
+def get_circuit_breaker_cooldown_seconds() -> float:
+    """Read configured circuit breaker cool-down duration in seconds from environment."""
+    raw = os.environ.get("CLINDOC_CIRCUIT_BREAKER_COOLDOWN_SECONDS")
+    if raw is not None and raw.strip():
+        try:
+            val = float(raw.strip())
+            if val > 0.0:
+                return val
+        except ValueError:
+            pass
+    return DEFAULT_CIRCUIT_BREAKER_COOLDOWN_SECONDS
+
+
+def get_model_concurrency_limit() -> int:
+    """Read configured model concurrency cap from environment."""
+    raw = os.environ.get("CLINDOC_MODEL_CONCURRENCY_LIMIT")
+    if raw is not None and raw.strip():
+        try:
+            val = int(raw.strip())
+            if val >= 1:
+                return val
+        except ValueError:
+            pass
+    return DEFAULT_MODEL_CONCURRENCY_LIMIT
+
+
+def get_backoff_base_delay() -> float:
+    """Read configured backoff base delay in seconds from environment."""
+    raw = os.environ.get("CLINDOC_BACKOFF_BASE_DELAY")
+    if raw is not None and raw.strip():
+        try:
+            val = float(raw.strip())
+            if val > 0.0:
+                return val
+        except ValueError:
+            pass
+    return DEFAULT_BACKOFF_BASE_DELAY
+
+
+def get_backoff_max_delay() -> float:
+    """Read configured backoff max delay in seconds from environment."""
+    raw = os.environ.get("CLINDOC_BACKOFF_MAX_DELAY")
+    if raw is not None and raw.strip():
+        try:
+            val = float(raw.strip())
+            if val > 0.0:
+                return val
+        except ValueError:
+            pass
+    return DEFAULT_BACKOFF_MAX_DELAY
+
 

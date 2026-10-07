@@ -1,0 +1,55 @@
+# Docker Compose for ClinDoc Observability Stack (Phase 8.10 §14)
+# Runs Prometheus and Grafana on isolated private bridge network.
+
+version: "3.8"
+
+networks:
+  clindoc-monitoring-net:
+    driver: bridge
+    internal: true  # Isolated internal network: no public ingress
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.50.1
+    container_name: clindoc-prometheus
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+      - "--web.enable-lifecycle"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./alerting_rules.yml:/etc/prometheus/alerting_rules.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "127.0.0.1:9090:9090"  # Bound strictly to loopback interface
+    networks:
+      - clindoc-monitoring-net
+
+  grafana:
+    image: grafana/grafana:10.3.3
+    container_name: clindoc-grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD_FILE=/run/secrets/grafana_admin_password
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_ANALYTICS_REPORTING_ENABLED=false
+      - GF_ANALYTICS_CHECK_FOR_UPDATES=false
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./grafana/dashboards:/etc/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    ports:
+      - "127.0.0.1:3000:3000"  # Bound strictly to loopback interface
+    networks:
+      - clindoc-monitoring-net
+    depends_on:
+      - prometheus
+
+volumes:
+  prometheus-data:
+  grafana-data:

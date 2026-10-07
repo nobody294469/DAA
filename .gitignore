@@ -41,6 +41,14 @@ scratch/
 *.pem
 *.key
 
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Real-world clinical trials / patient PDFs
+trials/
+
 # Model checkpoints & large binary weights
 *.pt
 *.bin

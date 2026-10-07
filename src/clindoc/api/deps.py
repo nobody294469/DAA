@@ -3,6 +3,7 @@
 Authority:
   - PRODUCTIZATION_SPEC.md §9.2 (API and Backend Architecture)
   - PRODUCTIZATION_DECISIONS.md PD-001, PD-007, PD-012
+  - PRODUCTIZATION_DECISIONS.md Phase 8.7 Step 3 (Model Health Registry)
 """
 
 from __future__ import annotations
@@ -36,6 +37,7 @@ _GLOBAL_JOB_QUEUE: Optional[JobQueue] = None
 _GLOBAL_CLAIM_REVIEW_SERVICE: Optional[ClaimReviewService] = None
 _GLOBAL_APPROVAL_ENGINE: Optional[DocumentApprovalEngine] = None
 _GLOBAL_TRIAGE_ENGINE: Optional[TriageEngine] = None
+_GLOBAL_MODEL_HEALTH_REGISTRY = None  # ModelHealthRegistry singleton (lazy import)
 
 
 def set_global_blob_store(store: Optional[BlobStore]) -> None:
@@ -144,3 +146,61 @@ def get_triage_engine(
         .first()
     )
     return TriageEngine(policy=active_policy)
+
+
+def get_model_health_registry():
+    """FastAPI dependency: Resolve the active ModelHealthRegistry."""
+    global _GLOBAL_MODEL_HEALTH_REGISTRY
+    if _GLOBAL_MODEL_HEALTH_REGISTRY is not None:
+        return _GLOBAL_MODEL_HEALTH_REGISTRY
+    from clindoc.services.model_health import get_model_health_registry as _get
+    return _get()
+
+
+def set_global_model_health_registry(registry) -> None:
+    """Override the application-wide ModelHealthRegistry (for testing/lifecycle)."""
+    global _GLOBAL_MODEL_HEALTH_REGISTRY
+    _GLOBAL_MODEL_HEALTH_REGISTRY = registry
+
+
+_GLOBAL_FHIR_EXPORT_SERVICE = None
+
+
+def get_fhir_export_service(
+    audit_service: AuditService = Depends(get_audit_service),
+):
+    """FastAPI dependency: Resolve FHIRExportService."""
+    global _GLOBAL_FHIR_EXPORT_SERVICE
+    if _GLOBAL_FHIR_EXPORT_SERVICE is not None:
+        return _GLOBAL_FHIR_EXPORT_SERVICE
+    from clindoc.services.fhir_export import FHIRExportService
+    return FHIRExportService(audit_service=audit_service)
+
+
+def set_global_fhir_export_service(service) -> None:
+    """Override application-wide FHIRExportService (for testing/lifecycle)."""
+    global _GLOBAL_FHIR_EXPORT_SERVICE
+    _GLOBAL_FHIR_EXPORT_SERVICE = service
+
+
+_GLOBAL_EHR_INTEGRATION_SERVICE = None
+
+
+def get_ehr_integration_service(
+    audit_service: AuditService = Depends(get_audit_service),
+    export_service = Depends(get_fhir_export_service),
+):
+    """FastAPI dependency: Resolve EHRIntegrationService."""
+    global _GLOBAL_EHR_INTEGRATION_SERVICE
+    if _GLOBAL_EHR_INTEGRATION_SERVICE is not None:
+        return _GLOBAL_EHR_INTEGRATION_SERVICE
+    from clindoc.services.ehr_integration import EHRIntegrationService
+    return EHRIntegrationService(audit_service=audit_service, export_service=export_service)
+
+
+def set_global_ehr_integration_service(service) -> None:
+    """Override application-wide EHRIntegrationService (for testing/lifecycle)."""
+    global _GLOBAL_EHR_INTEGRATION_SERVICE
+    _GLOBAL_EHR_INTEGRATION_SERVICE = service
+
+

@@ -1,15 +1,19 @@
 """Mapper converting extracted & verified clinical claims into FHIR R4B Bundles."""
 
+import datetime
 from decimal import Decimal
 import json
 import re
 from typing import Any, Optional, Sequence
 
+from fhir.resources.R4B.attachment import Attachment
 from fhir.resources.R4B.bundle import Bundle, BundleEntry
 from fhir.resources.R4B.codeableconcept import CodeableConcept
 from fhir.resources.R4B.coding import Coding
 from fhir.resources.R4B.diagnosticreport import DiagnosticReport
+from fhir.resources.R4B.documentreference import DocumentReference, DocumentReferenceContent
 from fhir.resources.R4B.dosage import Dosage, DosageDoseAndRate
+from fhir.resources.R4B.encounter import Encounter
 from fhir.resources.R4B.extension import Extension
 from fhir.resources.R4B.humanname import HumanName
 from fhir.resources.R4B.identifier import Identifier
@@ -19,13 +23,16 @@ from fhir.resources.R4B.observation import Observation, ObservationReferenceRang
 from fhir.resources.R4B.organization import Organization
 from fhir.resources.R4B.patient import Patient
 from fhir.resources.R4B.practitioner import Practitioner
+from fhir.resources.R4B.provenance import Provenance, ProvenanceAgent, ProvenanceEntity
 from fhir.resources.R4B.quantity import Quantity
 from fhir.resources.R4B.reference import Reference
 from fhir.resources.R4B.timing import Timing
 
 from clindoc.extract.contracts import Claim, Evidence
 from clindoc.fhir.constants import (
+    ACT_CODE_SYSTEM,
     DIAG_CATEGORY_SYSTEM,
+    DOC_CATEGORY_SYSTEM,
     EXT_CLAIM_PROVENANCE,
     EXT_SOURCE_EVIDENCE,
     EXT_VERIFICATION_DISCREPANCY,
@@ -486,6 +493,12 @@ def build_resource_provenance_extension(
                 valueDecimal=round(Decimal(str(evidence.ocr_confidence)), 4),
             )
         )
+    if hasattr(claim, "review_state") and claim.review_state is not None:
+        rs_str = claim.review_state.value if hasattr(claim.review_state, "value") else str(claim.review_state)
+        sub_exts.append(Extension(url="reviewState", valueCode=rs_str))
+    if hasattr(claim, "model_run_id") and claim.model_run_id is not None:
+        sub_exts.append(Extension(url="modelRunId", valueString=str(claim.model_run_id)))
+
     return Extension(url=EXT_CLAIM_PROVENANCE, extension=sub_exts)
 
 
@@ -510,6 +523,149 @@ def build_element_provenance_extension(
     return Extension(url=EXT_CLAIM_PROVENANCE, extension=sub_exts)
 
 
+def _map_document_reference(
+    document_id: str,
+    patient_id: str,
+    doc_metadata: Optional[dict[str, Any]] = None,
+) -> DocumentReference:
+    """Map source clinical document metadata into a FHIR R4B DocumentReference resource."""
+    meta = doc_metadata or {}
+    doc_slug = _sanitize_id(document_id.lower())
+    docref_id = f"docref-{doc_slug}"
+
+    mime_type = meta.get("mime_type") or "application/pdf"
+    filename = meta.get("original_filename") or meta.get("filename") or f"{doc_slug}.pdf"
+    storage_ref = meta.get("storage_ref")
+    sha256_hash = meta.get("sha256")
+
+    attachment = Attachment(
+        contentType=mime_type,
+        title=filename,
+        url=storage_ref,
+    )
+    if sha256_hash:
+        import base64
+        try:
+            raw_bytes = bytes.fromhex(sha256_hash)
+            attachment.hash = base64.b64encode(raw_bytes).decode("ascii")
+        except Exception:
+            attachment.hash = sha256_hash
+
+    content = [DocumentReferenceContent(attachment=attachment)]
+
+    doc_date = meta.get("uploaded_at")
+    if doc_date and isinstance(doc_date, str):
+        try:
+            doc_datetime = datetime.datetime.fromisoformat(doc_date)
+        except Exception:
+            doc_datetime = datetime.datetime(2026, 1, 1, 0, 0, 0, tzinfo=datetime.timezone.utc)
+    elif doc_date and isinstance(doc_date, datetime.datetime):
+        doc_datetime = doc_date
+    else:
+        doc_datetime = datetime.datetime(2026, 1, 1, 0, 0, 0, tzinfo=datetime.timezone.utc)
+
+    return DocumentReference(
+        id=docref_id,
+        status="current",
+        subject=Reference(reference=f"Patient/{patient_id}"),
+        date=doc_datetime,
+        category=[
+            CodeableConcept(
+                coding=[
+                    Coding(
+                        system=DOC_CATEGORY_SYSTEM,
+                        code="clinical-note",
+                        display="Clinical Note",
+                    )
+                ],
+                text="Clinical Document",
+            )
+        ],
+        content=content,
+    )
+
+
+def _map_encounter(
+    document_id: str,
+    patient_id: str,
+    encounter_info: Optional[dict[str, Any]] = None,
+) -> Optional[Encounter]:
+    """Map encounter information into a FHIR R4B Encounter resource if metadata is present.
+
+    If encounter metadata is absent or incomplete, returns None (never fabricate!).
+    """
+    if not encounter_info:
+        return None
+
+    enc_id_val = encounter_info.get("encounter_id") or encounter_info.get("id")
+    if not enc_id_val:
+        return None
+
+    doc_slug = _sanitize_id(document_id.lower())
+    enc_slug = _sanitize_id(str(enc_id_val).lower())
+    enc_id = f"enc-{enc_slug}" if enc_slug != "unknown" else f"enc-{doc_slug}"
+
+    enc_class_code = encounter_info.get("encounter_class") or encounter_info.get("class") or "AMB"
+    class_display_map = {
+        "AMB": "ambulatory",
+        "IMP": "inpatient encounter",
+        "EMER": "emergency",
+        "VR": "virtual",
+        "HH": "home health",
+    }
+    class_disp = class_display_map.get(str(enc_class_code).upper(), "ambulatory")
+
+    enc_status = encounter_info.get("status") or "finished"
+    if enc_status not in ("planned", "arrived", "triaged", "in-progress", "onleave", "finished", "cancelled"):
+        enc_status = "finished"
+
+    return Encounter(
+        id=enc_id,
+        status=enc_status,
+        class_fhir=Coding(
+            system=ACT_CODE_SYSTEM,
+            code=str(enc_class_code).upper(),
+            display=class_disp,
+        ),
+        subject=Reference(reference=f"Patient/{patient_id}"),
+    )
+
+
+def _map_provenance(
+    document_id: str,
+    target_references: list[Reference],
+    practitioner_id: str,
+    doc_ref_id: Optional[str] = None,
+    recorded_at: Optional[datetime.datetime] = None,
+) -> Provenance:
+    """Construct top-level FHIR R4B Provenance resource linking targets to source DocumentReference and agent."""
+    doc_slug = _sanitize_id(document_id.lower())
+    prov_id = f"prov-{doc_slug}"
+
+    agents = [
+        ProvenanceAgent(
+            who=Reference(reference=f"Practitioner/{practitioner_id}"),
+        )
+    ]
+
+    entities = []
+    if doc_ref_id:
+        entities.append(
+            ProvenanceEntity(
+                role="source",
+                what=Reference(reference=f"DocumentReference/{doc_ref_id}"),
+            )
+        )
+
+    return Provenance(
+        id=prov_id,
+        target=target_references,
+        recorded=recorded_at or datetime.datetime(2026, 1, 1, 0, 0, 0, tzinfo=datetime.timezone.utc),
+        agent=agents,
+        entity=entities if entities else None,
+    )
+
+
 def claims_to_fhir_bundle(
     claims: Sequence[Claim],
     evidence_map: dict[str, Evidence],
@@ -518,6 +674,10 @@ def claims_to_fhir_bundle(
     document_type: Optional[str] = None,
     patient_id: Optional[str] = None,
     patient_name: Optional[str] = None,
+    document_metadata: Optional[dict[str, Any]] = None,
+    encounter_info: Optional[dict[str, Any]] = None,
+    include_document_reference: bool = False,
+    include_provenance_resource: bool = False,
 ) -> Bundle:
     """Map canonical clinical claims and verifications into a compliant FHIR R4B Bundle.
 
@@ -525,6 +685,7 @@ def claims_to_fhir_bundle(
       - PROJECT_SPEC §5 #10, §7.7, §15, §16
       - DEC-008: Hybrid MedicationRequest vs MedicationStatement routing
       - DEC-016: Two-tier provenance hierarchy (resource-level & element-level)
+      - Phase 8.8: FHIR R4B Export & Provenance Grounding
 
     Args:
         claims: Sequence of extracted and normalized Claim objects.
@@ -534,6 +695,10 @@ def claims_to_fhir_bundle(
         document_type: Source document layout type (e.g. clinic_rx_pad, mar_order_sheet, etc.).
         patient_id: Optional patient MRN/ID override.
         patient_name: Optional patient name string override.
+        document_metadata: Optional source document metadata (mime_type, filename, storage_ref, sha256).
+        encounter_info: Optional encounter metadata (encounter_id, encounter_class, status).
+        include_document_reference: Whether to include DocumentReference entry in bundle.
+        include_provenance_resource: Whether to include top-level Provenance entry in bundle.
 
     Returns:
         FHIR R4B Bundle of type 'collection' carrying resources and provenance extensions.
@@ -594,6 +759,13 @@ def claims_to_fhir_bundle(
         name=[HumanName(text="Attending Physician")],
     )
 
+    # 3b. DocumentReference & Encounter (Phase 8.8)
+    doc_ref = None
+    if include_document_reference or document_metadata is not None:
+        doc_ref = _map_document_reference(resolved_doc_id, patient.id, document_metadata)
+
+    encounter = _map_encounter(resolved_doc_id, patient.id, encounter_info)
+
     # 4. Map Lab Observation resources
     observations: list[Observation] = []
     for grp_idx, (grp_key, grp) in enumerate(lab_groups.items()):
@@ -648,43 +820,64 @@ def claims_to_fhir_bundle(
             extension=name_exts if name_exts else None,
         )
 
-        # Value Quantity & element-level provenance for value/unit
+        # Value Quantity / Value String & element-level provenance for value/unit
         val_quantity = None
+        val_string = None
         if val_claim:
             num_val = val_claim.value_numeric
             if num_val is None:
-                m = re.search(r"[-+]?\d*\.?\d+", val_claim.value)
-                num_val = float(m.group()) if m else 0.0
-
-            unit_str = unit_claim.value if unit_claim else (val_claim.unit_raw or None)
-            ucum_sys = None
-            ucum_code = None
-            if unit_claim and unit_claim.normalized_code and unit_claim.code_system == "UCUM":
-                ucum_sys = UCUM_SYSTEM
-                ucum_code = unit_claim.normalized_code
-            elif unit_str:
-                ucum_sys = UCUM_SYSTEM
-                ucum_code = unit_str.strip()
-
-            vq_exts = [
-                build_element_provenance_extension(
-                    val_claim, verification_map[val_claim.claim_id], evidence_map[val_claim.evidence_id]
-                )
-            ]
-            if unit_claim:
-                vq_exts.append(
-                    build_element_provenance_extension(
-                        unit_claim, verification_map[unit_claim.claim_id], evidence_map[unit_claim.evidence_id]
+                # Qualitative claims must NEVER be parsed as numbers (e.g. HIV-1 -> 1, Type 2 -> 2)
+                from clindoc.normalize.normalizer import normalize_qualitative_value
+                is_qual = (
+                    val_claim.normalized_code in (
+                        "NEGATIVE", "POSITIVE", "REACTIVE", "NON_REACTIVE",
+                        "DETECTED", "NOT_DETECTED", "EQUIVOCAL",
                     )
+                    or normalize_qualitative_value(val_claim.value) is not None
                 )
+                if not is_qual:
+                    m = re.search(r"[-+]?\d*\.?\d+", val_claim.value)
+                    if m:
+                        try:
+                            num_val = float(m.group())
+                        except ValueError:
+                            num_val = None
 
-            val_quantity = Quantity(
-                value=round(Decimal(str(num_val)), 4),
-                unit=unit_str,
-                system=ucum_sys,
-                code=ucum_code,
-                extension=vq_exts,
-            )
+            if num_val is not None:
+                unit_str = unit_claim.value if unit_claim else (val_claim.unit_raw or None)
+                ucum_sys = None
+                ucum_code = None
+                if unit_claim and unit_claim.normalized_code and unit_claim.code_system == "UCUM":
+                    ucum_sys = UCUM_SYSTEM
+                    ucum_code = unit_claim.normalized_code
+                elif unit_str:
+                    ucum_sys = UCUM_SYSTEM
+                    ucum_code = unit_str.strip()
+
+                vq_exts = [
+                    build_element_provenance_extension(
+                        val_claim, verification_map[val_claim.claim_id], evidence_map[val_claim.evidence_id]
+                    )
+                ]
+                if unit_claim:
+                    vq_exts.append(
+                        build_element_provenance_extension(
+                            unit_claim, verification_map[unit_claim.claim_id], evidence_map[unit_claim.evidence_id]
+                        )
+                    )
+
+                val_quantity = Quantity(
+                    value=round(Decimal(str(num_val)), 4),
+                    unit=unit_str,
+                    system=ucum_sys,
+                    code=ucum_code,
+                    extension=vq_exts,
+                )
+            else:
+                # Grounded qualitative laboratory determination (PD-022)
+                # Emit Observation.valueString = claim.value.
+                # ABSOLUTE SAFETY REQUIREMENT: NEVER emit valueQuantity = 0.0
+                val_string = val_claim.value
 
         # Interpretation & element-level provenance for flag
         interpretations = None
@@ -757,7 +950,10 @@ def claims_to_fhir_bundle(
             ],
             code=obs_code,
             subject=Reference(reference=f"Patient/{patient.id}"),
+            encounter=Reference(reference=f"Encounter/{encounter.id}") if encounter else None,
+            derivedFrom=[Reference(reference=f"DocumentReference/{doc_ref.id}")] if doc_ref else None,
             valueQuantity=val_quantity,
+            valueString=val_string,
             interpretation=interpretations,
             referenceRange=ref_ranges,
             extension=[res_provenance],
@@ -913,6 +1109,8 @@ def claims_to_fhir_bundle(
                 status=req_status,
                 intent=req_intent,
                 subject=Reference(reference=f"Patient/{patient.id}"),
+                encounter=Reference(reference=f"Encounter/{encounter.id}") if encounter else None,
+                supportingInformation=[Reference(reference=f"DocumentReference/{doc_ref.id}")] if doc_ref else None,
                 medicationCodeableConcept=med_code,
                 dosageInstruction=[dosage],
                 extension=[res_provenance],
@@ -931,6 +1129,8 @@ def claims_to_fhir_bundle(
                 id=f"medstat-{doc_slug}-{grp_idx + 1}",
                 status=stat_status,
                 subject=Reference(reference=f"Patient/{patient.id}"),
+                context=Reference(reference=f"Encounter/{encounter.id}") if encounter else None,
+                derivedFrom=[Reference(reference=f"DocumentReference/{doc_ref.id}")] if doc_ref else None,
                 medicationCodeableConcept=med_code,
                 dosage=[dosage],
                 extension=[res_provenance],
@@ -957,6 +1157,7 @@ def claims_to_fhir_bundle(
             ],
             code=CodeableConcept(text="Clinical Laboratory Report"),
             subject=Reference(reference=f"Patient/{patient.id}"),
+            encounter=Reference(reference=f"Encounter/{encounter.id}") if encounter else None,
             performer=[Reference(reference=f"Organization/{organization.id}")],
             result=[Reference(reference=f"Observation/{obs.id}") for obs in observations],
             extension=[observations[0].extension[0]] if observations[0].extension else None,
@@ -969,6 +1170,12 @@ def claims_to_fhir_bundle(
         BundleEntry(fullUrl=f"Practitioner/{practitioner.id}", resource=practitioner),
     ]
 
+    if doc_ref:
+        entries.append(BundleEntry(fullUrl=f"DocumentReference/{doc_ref.id}", resource=doc_ref))
+
+    if encounter:
+        entries.append(BundleEntry(fullUrl=f"Encounter/{encounter.id}", resource=encounter))
+
     if diag_report:
         entries.append(BundleEntry(fullUrl=f"DiagnosticReport/{diag_report.id}", resource=diag_report))
 
@@ -977,6 +1184,19 @@ def claims_to_fhir_bundle(
 
     for med in med_resources:
         entries.append(BundleEntry(fullUrl=f"{med.resource_type}/{med.id}", resource=med))
+
+    if include_provenance_resource:
+        target_refs = [Reference(reference=f"Observation/{obs.id}") for obs in observations]
+        target_refs.extend(Reference(reference=f"{med.resource_type}/{med.id}") for med in med_resources)
+        if diag_report:
+            target_refs.append(Reference(reference=f"DiagnosticReport/{diag_report.id}"))
+        prov_res = _map_provenance(
+            resolved_doc_id,
+            target_references=target_refs,
+            practitioner_id=practitioner.id,
+            doc_ref_id=doc_ref.id if doc_ref else None,
+        )
+        entries.append(BundleEntry(fullUrl=f"Provenance/{prov_res.id}", resource=prov_res))
 
     return Bundle(
         id=f"bundle-{doc_slug}",

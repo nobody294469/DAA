@@ -21,6 +21,7 @@ dependencies = [
     "fastapi>=0.100.0",
     "uvicorn>=0.22.0",
     "PyJWT>=2.8.0",
+    "prometheus_client>=0.20.0",
 ]
 
 [project.optional-dependencies]

@@ -30,6 +30,21 @@ from clindoc.extract.contracts import (
     BBoxModel, Claim, Evidence, TIER_1_FIELDS,
 )
 from clindoc.ocr.document_text import DocumentPage
+from clindoc.config import (
+    get_circuit_breaker_failure_threshold,
+    get_circuit_breaker_cooldown_seconds,
+    get_model_concurrency_limit,
+    get_backoff_base_delay,
+    get_backoff_max_delay,
+)
+from clindoc.services.circuit_breaker import (
+    CircuitBreaker,
+    ConcurrencyLimiter,
+    ExponentialBackoff,
+    get_shared_circuit_breaker,
+    get_shared_concurrency_limiter,
+    is_retryable_error,
+)
 
 
 # ─── PERMITTED NARRATIVE FIELDS (DEC-020 / AUDIT-20 scope boundary) ──────────
@@ -86,21 +101,168 @@ LLM_OUTPUT_SCHEMA = {
 _SYSTEM_PROMPT = """You are a clinical document extraction assistant.
 Your task is to extract ONLY medication regimen and laboratory result information from clinical text.
 You MUST extract ONLY these field types:
-  - lab.value    : numeric laboratory test result value
-  - lab.flag     : interpretation flag (NORMAL, HIGH, LOW, CRITICAL only)
+  - lab.value    : quantitative numeric laboratory test result value (e.g. 13.5, 95) OR grounded qualitative laboratory determination (e.g. Negative, Positive, Reactive, Non-Reactive, Detected, Not Detected, Equivocal)
+  - lab.flag     : interpretation or severity flag ONLY when explicitly stated in the source text (NORMAL, HIGH, LOW, CRITICAL only)
   - med.name     : medication active ingredient or brand name
-  - med.dose     : numeric dose quantity (e.g. 10, 500, 2.5)
-  - med.route    : route of administration (oral, intravenous, inhalation, topical, etc.)
-  - med.frequency: dosing frequency (once daily, twice daily, BID, every 8 hours, etc.)
+  - med.dose     : numeric dose quantity ONLY (e.g. 10, 500, 2.5, 0.5, 6.25, 1)
+  - med.route    : anatomical route of administration (e.g. oral, by mouth, PO, intravenous, IV, subcutaneous, SC, inhalation, topical)
+  - med.frequency: dosing frequency or administration schedule (e.g. once daily, twice daily, BID, TID, every 8 hours, every 3 weeks, PRN, as needed, as and when needed)
 
-CRITICAL RULES:
-1. Do NOT extract diagnoses, conditions, procedures, allergies, vital signs, or social/family history.
-2. The evidence_text MUST be an exact verbatim substring of the input text.
-3. If a field is not clearly stated in the text, do NOT include it.
-4. Respond ONLY with valid JSON conforming to the schema. No commentary.
+CRITICAL EXTRACTION RULES:
+1. DOSE VS UNIT SEPARATION & DURATION BOUNDARY:
+   - med.dose contains ONLY the physical numeric quantity per administration (e.g. "0.5", "6.25", "10", "1", "500").
+   - unit_raw contains the unit of measure (e.g. "ml", "mg", "g", "mcg", "units").
+   - NEVER put the unit inside med.dose.
+   - NEVER use evidence_text, field names, or surrounding prose as the dose value.
+   - DOSE VS TREATMENT DURATION: Course durations or treatment periods (e.g. "6 weeks", "5 days", "3 months", "for 10 days", "for 30 days") represent the total treatment duration, NOT the dose and NOT the frequency. NEVER extract treatment durations or time periods into med.dose or med.frequency.
+   - Physical medication doses (e.g. "500 mg", "1 g", "5 mL", "10 units") must remain med.dose.
+2. FREQUENCY VS ROUTE & DOSAGE FORM BOUNDARY:
+   - med.frequency represents WHEN or HOW OFTEN the drug is taken (e.g. "once daily", "twice daily", "three times daily", "every 8 hours", "every 3 weeks", "PRN", "as needed", "as and when needed"). NEVER classify frequency or timing as med.route.
+   - med.route represents WHERE or HOW the drug enters the body (e.g. "oral", "by mouth", "PO", "intravenous", "IV", "subcutaneous", "SC").
+   - VERBATIM ROUTE RULE: Extract the route wording EXACTLY as written in the source text (e.g. if the text says "by mouth", extract value "by mouth", do NOT replace with "oral"; if the text says "PO", extract value "PO"). Canonical route normalization occurs downstream.
+   - DOSAGE FORM SEPARATION: Dosage forms such as "tablet", "tab", "capsule", "cap", "syrup", "injection" are DOSAGE FORMS, NOT routes, NOT frequencies, and NOT doses. NEVER extract dosage forms into med.route, med.frequency, or med.dose.
+3. MEDICATION NAMES & DOSAGE FORMS:
+   - Strip standalone dosage-form prefixes such as "TAB", "SYP", "CAP", "INJ", "Tab" from med.name when separated by whitespace (e.g. "TAB ALDACTONE" -> value: "Aldactone", "SYP FUROPED" -> value: "Furoped").
+   - Preserve source-faithful tokens for abbreviated compound medications (e.g. "C.Autrin" -> value: "C.Autrin", "T.Shelcal" -> value: "T.Shelcal"). Do not strip prefixes when part of the source token.
+   - Do NOT include dosage forms, route, or frequency in med.name.
+4. COMPOUND PRESCRIPTIONS & INLINE ORDERS:
+   - A single prescription line or sentence may contain multiple medication entities.
+   - When genuinely separate medications are listed together in a slash-delimited or co-prescribed order (e.g. "C.Autrin / T.Shelcal once daily for 6 weeks"):
+     a) Extract EACH distinct medication as its own med.name claim (e.g. "C.Autrin", "T.Shelcal").
+     b) Propagate the shared dosing frequency to EACH co-prescribed medication (e.g. "once daily" for each).
+     c) Do NOT extract the duration ("6 weeks") as a dose or frequency.
+   - In inline medication sentences (e.g. "Tab Paracetamol 500mg as and when needed", "Tab Metacin 1g as and when needed"):
+     ALWAYS extract the medication active name as med.name (e.g. "Paracetamol", "Metacin"); do NOT omit the medication name merely because dose, frequency, or indication follow it.
+5. DO NOT SPLIT COMBINATION DRUGS OR CLINICAL SLASH TERMS:
+   - Genuine single combination medications containing slashes or hyphens (e.g. "Amoxicillin/clavulanate", "Trimethoprim/sulfamethoxazole", "Sulfamethoxazole/trimethoprim") are single drug entities: extract the full combination name as a single med.name; do NOT split them into separate drugs.
+   - Clinical slash terms, ratios, or lab tests (e.g. "PT/INR", "HIV/HBsAg", "BP: 120/80") are NOT medication co-prescriptions. Do NOT treat them as medications.
+6. LABORATORY FINDINGS (QUANTITATIVE VS QUALITATIVE):
+   - lab.value has dual semantics:
+     a) Quantitative numeric findings: extract the numeric quantity into value (e.g. "14.2") and the unit into unit_raw (e.g. "g/dL", "mg/dL").
+     b) Grounded qualitative determinations: extract the qualitative determination into value (e.g. "Negative", "Positive", "Reactive", "Non-Reactive", "Detected", "Not Detected", "Equivocal"). unit_raw MUST be null.
+   - lab.value VS lab.flag DISTINCTION:
+     - lab.value represents the actual test determination (e.g. "Negative", "Non-Reactive", "14.2").
+     - lab.flag represents an explicit interpretation/severity rating (e.g. "NORMAL", "HIGH", "LOW", "CRITICAL").
+     - Do NOT automatically infer or synthesize lab.flag="NORMAL" merely because lab.value is "Negative" or "Non-Reactive".
+     - lab.value and lab.flag may coexist ONLY when independently and explicitly grounded in the text.
+   - ARBITRARY COMMENTARY IS NOT A QUALITATIVE RESULT:
+     - Specimen commentary, descriptive remarks, or processing notes (e.g. "specimen slightly hemolyzed", "clotted sample", "repeat requested") are NOT qualitative laboratory determinations. Do NOT extract them as lab.value.
+7. NEGATIVE EXTRACTION RULES (STRICTLY FORBIDDEN):
+   - Do NOT extract document titles, headers, patient identifiers, or hospital departments (e.g. "DISCHARGE SUMMARY", "UHID: 12345").
+   - Do NOT extract diagnoses, conditions, surgical procedures, or clinical notes (e.g. "DIAGNOSIS: TETRALOGY OF FALLOT", "PAEDIATRIC CARDIOTHORACIC SURGERY"). These must yield ZERO extractions.
+   - Do NOT extract discharge disposition or general adjectives (e.g. "Discharge Type: NORMAL") as lab.flag.
+8. VERBATIM EVIDENCE GROUNDING:
+   - The evidence_text MUST be an exact verbatim substring copied from the input text. Do not normalize, invent, or alter evidence_text.
+9. IF A FIELD IS NOT EXPLICITLY STATED in the text, do NOT include it.
+10. RESPOND ONLY WITH VALID JSON conforming to the schema. No conversational commentary.
 
-Output schema:
-{"extractions": [{"field_type": "...", "value": "...", "evidence_text": "...", "unit_raw": null, "confidence": 0.9}]}
+FEW-SHOT EXAMPLES:
+
+Example 1 — Liquid suspension / pediatric syrup:
+Input: "SYP FUROPED 0.5ML TWO TIMES IN A DAY TILL NEXT ORDER"
+Output:
+{
+  "extractions": [
+    {"field_type": "med.name", "value": "Furoped", "evidence_text": "SYP FUROPED", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.dose", "value": "0.5", "evidence_text": "0.5ML", "unit_raw": "ml", "confidence": 0.92},
+    {"field_type": "med.frequency", "value": "TWO TIMES IN A DAY", "evidence_text": "TWO TIMES IN A DAY", "unit_raw": null, "confidence": 0.94}
+  ]
+}
+
+Example 2 — Dot-leader formatting and tablet regimen:
+Input: "TAB ALDACTONE................6.25MG...................THREE TIMES IN A DAY"
+Output:
+{
+  "extractions": [
+    {"field_type": "med.name", "value": "Aldactone", "evidence_text": "TAB ALDACTONE", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.dose", "value": "6.25", "evidence_text": "6.25MG", "unit_raw": "mg", "confidence": 0.93},
+    {"field_type": "med.frequency", "value": "THREE TIMES IN A DAY", "evidence_text": "THREE TIMES IN A DAY", "unit_raw": null, "confidence": 0.94}
+  ]
+}
+
+Example 3 — Compound co-prescription with shared schedule and course duration (duration excluded from dose/frequency, source tokens preserved):
+Input: "C.Autrin / T.Shelcal once daily for 6 weeks"
+Output:
+{
+  "extractions": [
+    {"field_type": "med.name", "value": "C.Autrin", "evidence_text": "C.Autrin", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.frequency", "value": "once daily", "evidence_text": "once daily", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.name", "value": "T.Shelcal", "evidence_text": "T.Shelcal", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.frequency", "value": "once daily", "evidence_text": "once daily", "unit_raw": null, "confidence": 0.95}
+  ]
+}
+
+Example 4 — Inline PRN prescription with dosage form prefix:
+Input: "Tab Metacin 1g as and when needed"
+Output:
+{
+  "extractions": [
+    {"field_type": "med.name", "value": "Metacin", "evidence_text": "Tab Metacin", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.dose", "value": "1", "evidence_text": "1g", "unit_raw": "g", "confidence": 0.95},
+    {"field_type": "med.frequency", "value": "as and when needed", "evidence_text": "as and when needed", "unit_raw": null, "confidence": 0.95}
+  ]
+}
+
+Example 5 — Full regimen with verbatim route, physical dose, and course duration (duration excluded):
+Input: "Metformin 500 mg by mouth twice daily for 10 days"
+Output:
+{
+  "extractions": [
+    {"field_type": "med.name", "value": "Metformin", "evidence_text": "Metformin", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.dose", "value": "500", "evidence_text": "500 mg", "unit_raw": "mg", "confidence": 0.95},
+    {"field_type": "med.route", "value": "by mouth", "evidence_text": "by mouth", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.frequency", "value": "twice daily", "evidence_text": "twice daily", "unit_raw": null, "confidence": 0.95}
+  ]
+}
+
+Example 6 — Combination medication (negative split rule):
+Input: "Amoxicillin/clavulanate 625 mg oral twice daily for 5 days"
+Output:
+{
+  "extractions": [
+    {"field_type": "med.name", "value": "Amoxicillin/clavulanate", "evidence_text": "Amoxicillin/clavulanate", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.dose", "value": "625", "evidence_text": "625 mg", "unit_raw": "mg", "confidence": 0.95},
+    {"field_type": "med.route", "value": "oral", "evidence_text": "oral", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "med.frequency", "value": "twice daily", "evidence_text": "twice daily", "unit_raw": null, "confidence": 0.95}
+  ]
+}
+
+Example 7 — Non-medication clinical headers, diagnoses, and lab slash ratios (NEGATIVE EXAMPLES):
+Input: "DISCHARGE SUMMARY\\nUHID: 12345\\nDIAGNOSIS: TETRALOGY OF FALLOT\\nPT/INR: 12.1secs\\nPAEDIATRIC CARDIOTHORACIC SURGERY"
+Output:
+{
+  "extractions": []
+}
+
+Example 8 — Quantitative numeric laboratory finding:
+Input: "Haemoglobin: 14.2 g/dL (ref 12.0 - 16.0)"
+Output:
+{
+  "extractions": [
+    {"field_type": "lab.value", "value": "14.2", "evidence_text": "14.2 g/dL", "unit_raw": "g/dL", "confidence": 0.95}
+  ]
+}
+
+Example 9 — Grounded qualitative laboratory determinations (Negative, Non-Reactive):
+Input: "HBsAg: Negative\\nHIV: Negative\\nVDRL: Non-Reactive"
+Output:
+{
+  "extractions": [
+    {"field_type": "lab.value", "value": "Negative", "evidence_text": "Negative", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "lab.value", "value": "Negative", "evidence_text": "Negative", "unit_raw": null, "confidence": 0.95},
+    {"field_type": "lab.value", "value": "Non-Reactive", "evidence_text": "Non-Reactive", "unit_raw": null, "confidence": 0.95}
+  ]
+}
+
+Example 10 — Specimen commentary and non-qualitative laboratory notes (NEGATIVE EXAMPLE):
+Input: "Biochemistry: Specimen slightly hemolyzed. Clotted sample received."
+Output:
+{
+  "extractions": []
+}
+
+Output schema format:
+{"extractions": [{"field_type": "...", "value": "...", "evidence_text": "...", "unit_raw": null, "confidence": 0.85}]}
 """
 
 
@@ -139,12 +301,26 @@ class VLLMProvider:
         api_key_env: str = "VLLM_API_KEY",
         temperature: float = 0.0,
         timeout: int = 60,
+        circuit_breaker: Optional[CircuitBreaker] = None,
+        concurrency_limiter: Optional[ConcurrencyLimiter] = None,
+        http_client: Optional[Any] = None,
     ):
         self.model_name = model_name
-        self.base_url = base_url
+        self.base_url = base_url.rstrip("/")
         self.api_key = os.environ.get(api_key_env, "EMPTY")
         self.temperature = temperature
         self.timeout = timeout
+        self.http_client = http_client
+        self.circuit_breaker = circuit_breaker or get_shared_circuit_breaker(
+            self.base_url,
+            failure_threshold=get_circuit_breaker_failure_threshold(),
+            cooldown_seconds=get_circuit_breaker_cooldown_seconds(),
+        )
+        self.concurrency_limiter = concurrency_limiter or get_shared_concurrency_limiter(
+            self.base_url,
+            max_concurrency=get_model_concurrency_limit(),
+            timeout=float(self.timeout),
+        )
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
         """Call vLLM OpenAI-compatible API with grammar-constrained JSON output."""
@@ -172,16 +348,28 @@ class VLLMProvider:
             },
         }
 
-        with httpx.Client(timeout=self.timeout) as client:
-            resp = client.post(
-                f"{self.base_url}/chat/completions",
-                json=payload,
-                headers={"Authorization": f"Bearer {self.api_key}"},
-            )
-            resp.raise_for_status()
-            data = resp.json()
+        with self.concurrency_limiter:
+            with self.circuit_breaker:
+                if self.http_client is not None:
+                    resp = self.http_client.post(
+                        f"{self.base_url}/chat/completions",
+                        json=payload,
+                        headers={"Authorization": f"Bearer {self.api_key}"},
+                    )
+                    resp.raise_for_status()
+                    data = resp.json()
+                    return data["choices"][0]["message"]["content"]
 
-        return data["choices"][0]["message"]["content"]
+                with httpx.Client(timeout=self.timeout) as client:
+                    resp = client.post(
+                        f"{self.base_url}/chat/completions",
+                        json=payload,
+                        headers={"Authorization": f"Bearer {self.api_key}"},
+                    )
+                    resp.raise_for_status()
+                    data = resp.json()
+
+                return data["choices"][0]["message"]["content"]
 
 
 # ─── MOCK PROVIDER ───────────────────────────────────────────────────────────
@@ -254,7 +442,7 @@ class MockLLMProvider:
         if route_m:
             extractions.append({
                 "field_type": "med.route",
-                "value": route_m.group(0).lower(),
+                "value": route_m.group(0),
                 "evidence_text": route_m.group(0),
                 "unit_raw": None,
                 "confidence": 0.88,
@@ -274,7 +462,7 @@ class MockLLMProvider:
                 "confidence": 0.86,
             })
 
-        # lab.value
+        # lab.value (quantitative and qualitative per PD-022)
         lab_m = re.search(
             r"\b(\d+(?:\.\d+)?)\s*(g/dL|mg/dL|mmol/L|U/L|10\*\d+/\w+|%)\b",
             text, re.IGNORECASE,
@@ -287,6 +475,19 @@ class MockLLMProvider:
                 "unit_raw": lab_m.group(2),
                 "confidence": 0.83,
             })
+        else:
+            qual_m = re.search(
+                r"\b(Negative|Positive|Reactive|Non-Reactive|Non Reactive|Nonreactive|Detected|Not Detected|Equivocal)\b",
+                text, re.IGNORECASE,
+            )
+            if qual_m:
+                extractions.append({
+                    "field_type": "lab.value",
+                    "value": qual_m.group(0),
+                    "evidence_text": qual_m.group(0),
+                    "unit_raw": None,
+                    "confidence": 0.90,
+                })
 
         # lab.flag
         flag_m = re.search(r"\b(HIGH|LOW|NORMAL|CRITICAL)\b", text)
@@ -315,6 +516,7 @@ class NarrativeExtractor:
         self,
         provider: LLMProvider | None = None,
         max_retries: int = 2,
+        backoff: Optional[ExponentialBackoff] = None,
     ):
         """
         Args:
@@ -322,9 +524,14 @@ class NarrativeExtractor:
                       Defaults to MockLLMProvider (safe for tests).
                       Use VLLMProvider for production.
             max_retries: Bounded retry limit (DEC-013: max 2).
+            backoff: Exponential backoff with jitter instance.
         """
         self._provider = provider or MockLLMProvider()
         self.max_retries = min(max_retries, 2)  # DEC-013: hard limit
+        self._backoff = backoff or ExponentialBackoff(
+            base_delay=get_backoff_base_delay(),
+            max_delay=get_backoff_max_delay(),
+        )
 
     def extract(
         self,
@@ -367,10 +574,27 @@ class NarrativeExtractor:
                 last_error = f"JSONDecodeError on attempt {attempt}: {e}"
                 diagnostics["validation_errors"].append(last_error)
                 parsed = None
+
+                cb = getattr(self._provider, "circuit_breaker", None)
+                if cb is not None:
+                    cb.record_failure(e)
+
+                if attempt < self.max_retries:
+                    self._backoff.sleep(attempt + 1)
             except Exception as e:
                 last_error = f"LLM error on attempt {attempt}: {e}"
                 diagnostics["validation_errors"].append(last_error)
                 parsed = None
+
+                cb = getattr(self._provider, "circuit_breaker", None)
+                if cb is not None:
+                    cb.record_failure(e)
+
+                if not is_retryable_error(e):
+                    break
+
+                if attempt < self.max_retries:
+                    self._backoff.sleep(attempt + 1)
 
         if parsed is None:
             diagnostics["validation_errors"].append(f"All {self.max_retries + 1} attempts failed: {last_error}")
@@ -437,8 +661,33 @@ class NarrativeExtractor:
                 })
                 continue
 
+            # Locate evidence span within region text (§7.4)
+            # 1. Fast path: exact literal substring match
+            local_start = -1
+            local_end = -1
+            source_span = ""
+
+            if evidence_text and evidence_text.strip():
+                pos = region_text.find(evidence_text)
+                if pos >= 0:
+                    local_start = pos
+                    local_end = pos + len(evidence_text)
+                    source_span = evidence_text
+                else:
+                    # 2. Whitespace-invariant token sequence match (Root Cause A)
+                    # Normalizes only whitespace differences (spaces, tabs, newlines)
+                    # while preserving exact token sequence and characters fail-closed.
+                    tokens = evidence_text.split()
+                    if tokens:
+                        pattern = r"\s+".join(re.escape(tok) for tok in tokens)
+                        match = re.search(pattern, region_text)
+                        if match:
+                            local_start = match.start()
+                            local_end = match.end()
+                            source_span = region_text[local_start:local_end]
+
             # REJECT: evidence_text is not a verbatim substring (§7.4)
-            if not evidence_text or evidence_text not in region_text:
+            if local_start < 0:
                 diagnostics["rejected"].append({
                     "field_type": field_type,
                     "value": value,
@@ -447,14 +696,8 @@ class NarrativeExtractor:
                 })
                 continue
 
-            # Locate evidence span within region text (FIX 6: never search entire page from zero)
-            local_pos = region_text.find(evidence_text)
-            if local_pos >= 0:
-                char_start = char_offset + local_pos
-                char_end = char_start + len(evidence_text)
-            else:
-                char_start = char_offset
-                char_end = char_start + len(evidence_text)
+            char_start = char_offset + local_start
+            char_end = char_offset + local_end
 
             # Build bbox from page geometry
             bbox_list = page.get_bbox_for_span(char_start, char_end)
@@ -471,7 +714,7 @@ class NarrativeExtractor:
             evidence = Evidence(
                 document_id=document_id,
                 page_number=page.page_number,
-                text=evidence_text,
+                text=source_span,
                 char_start=char_start,
                 char_end=char_end,
                 bbox=bbox_model,

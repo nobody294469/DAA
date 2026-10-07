@@ -20,3 +20,7 @@ EXT_SOURCE_EVIDENCE = "http://clindoc.local/fhir/StructureDefinition/source-evid
 
 # Identifier Systems
 IDENTIFIER_MRN_SYSTEM = "urn:clindoc:mrn"
+
+# Document & Encounter Systems (Phase 8.8)
+DOC_CATEGORY_SYSTEM = "http://terminology.hl7.org/CodeSystem/document-classcodes"
+ACT_CODE_SYSTEM = "http://terminology.hl7.org/CodeSystem/v3-ActCode"

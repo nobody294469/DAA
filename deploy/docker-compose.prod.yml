@@ -1,0 +1,253 @@
+version: "3.8"
+
+# ==============================================================================
+# ClinDoc Production Air-Gapped / Private Infrastructure Stack
+# Phase 8.11: Production Deployment Manifest
+#
+# Topology:
+#   Hospital Ingress / Client Network
+#          ↓ HTTPS (Private Internal Hospital Network)
+#   ClinDoc API (clindoc-api)
+#          ↓ Inter-service RPC & Queue
+#   PostgreSQL DB + Encrypted Blob Storage + Background Worker (clindoc-worker)
+#          ↓ Strict TLS (HTTPS port 8443) over gateway_network
+#   vLLM TLS Reverse Proxy (clindoc-vllm-tls-proxy)
+#          ↓ Isolated model_serving_internal bridge (internal: true, no WAN)
+#   vLLM GPU Container (clindoc-vllm-production)
+#
+# Observability:
+#   Prometheus + Grafana on internal clindoc_monitoring network (internal: true)
+# ==============================================================================
+
+networks:
+  # Ingress network connecting API to hospital ingress / review UI
+  hospital_ingress:
+    driver: bridge
+
+  # Private application network connecting API, Worker, DB, and Blob Storage
+  app_internal:
+    driver: bridge
+    internal: true
+
+  # Private gateway network connecting API/Worker to vLLM TLS proxy
+  gateway_network:
+    driver: bridge
+    internal: true
+
+  # Strictly isolated network for GPU host; zero WAN egress
+  model_serving_internal:
+    driver: bridge
+    internal: true
+
+  # Monitoring network for Prometheus and Grafana
+  monitoring_internal:
+    driver: bridge
+    internal: true
+
+services:
+  # ----------------------------------------------------------------------------
+  # 1. Relational Database (PostgreSQL 15)
+  # ----------------------------------------------------------------------------
+  postgres:
+    image: postgres:15-alpine
+    container_name: clindoc-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: clindoc_db
+      POSTGRES_USER: clindoc_user
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - app_internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U clindoc_user -d clindoc_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------------------------------
+  # 2. ClinDoc API Server (FastAPI / Uvicorn)
+  # ----------------------------------------------------------------------------
+  api:
+    image: clindoc/api:production-v1.0.0
+    container_name: clindoc-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - CLINDOC_PROFILE=production
+      - HF_HUB_OFFLINE=1
+      - TRANSFORMERS_OFFLINE=1
+      - ALLOW_SAPBERT_DOWNLOAD=0
+      - ALLOW_NLI_DOWNLOAD=0
+    volumes:
+      - blob_data:/var/lib/clindoc/blob_store
+      - model_artifacts:/opt/clindoc/models:ro
+      - certs_data:/etc/ssl/clindoc:ro
+    ports:
+      - "127.0.0.1:8000:8000"  # Bound to local interface or internal private proxy
+    networks:
+      - hospital_ingress
+      - app_internal
+      - gateway_network
+      - monitoring_internal
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/v1/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+  # ----------------------------------------------------------------------------
+  # 3. ClinDoc Background Processing Worker
+  # ----------------------------------------------------------------------------
+  worker:
+    image: clindoc/worker:production-v1.0.0
+    container_name: clindoc-worker
+    restart: unless-stopped
+    command: ["python", "-m", "clindoc.jobs.worker"]
+    env_file:
+      - .env
+    environment:
+      - CLINDOC_PROFILE=production
+      - HF_HUB_OFFLINE=1
+      - TRANSFORMERS_OFFLINE=1
+      - ALLOW_SAPBERT_DOWNLOAD=0
+      - ALLOW_NLI_DOWNLOAD=0
+    volumes:
+      - blob_data:/var/lib/clindoc/blob_store
+      - model_artifacts:/opt/clindoc/models:ro
+      - certs_data:/etc/ssl/clindoc:ro
+    networks:
+      - app_internal
+      - gateway_network
+      - monitoring_internal
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+
+  # ----------------------------------------------------------------------------
+  # 4. vLLM TLS Termination Proxy
+  # ----------------------------------------------------------------------------
+  vllm-tls-proxy:
+    image: nginx:1.25-alpine
+    container_name: clindoc-vllm-tls-proxy
+    restart: unless-stopped
+    volumes:
+      - ./vllm/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./vllm/certs:/etc/ssl/certs:ro
+    networks:
+      - gateway_network
+      - model_serving_internal
+    depends_on:
+      - vllm
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:8080/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ----------------------------------------------------------------------------
+  # 5. vLLM Model Serving Container (GPU Host, Isolated Internal Network)
+  # ----------------------------------------------------------------------------
+  vllm:
+    image: vllm/vllm-openai:v0.6.3
+    container_name: clindoc-vllm-production
+    restart: unless-stopped
+    command: >
+      serve Qwen/Qwen2.5-7B-Instruct-AWQ
+      --quantization awq
+      --api-key ${VLLM_API_KEY:?VLLM_API_KEY is required}
+      --disable-log-requests
+      --max-model-len 4096
+      --host 0.0.0.0
+      --port 8000
+    environment:
+      - VLLM_API_KEY=${VLLM_API_KEY:?VLLM_API_KEY is required}
+      - HUGGINGFACE_HUB_CACHE=/root/.cache/huggingface
+      - HF_HUB_OFFLINE=1
+      - TRANSFORMERS_OFFLINE=1
+      - CUDA_VISIBLE_DEVICES=0
+    volumes:
+      - vllm_cache:/root/.cache/huggingface
+    networks:
+      - model_serving_internal
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # ----------------------------------------------------------------------------
+  # 6. Prometheus Operational Metrics Scraper
+  # ----------------------------------------------------------------------------
+  prometheus:
+    image: prom/prometheus:v2.50.1
+    container_name: clindoc-prometheus
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.enable-lifecycle"
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./observability/alerting_rules.yml:/etc/prometheus/alerting_rules.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "127.0.0.1:9090:9090"
+    networks:
+      - monitoring_internal
+
+  # ----------------------------------------------------------------------------
+  # 7. Grafana Operational Dashboards
+  # ----------------------------------------------------------------------------
+  grafana:
+    image: grafana/grafana:10.3.3
+    container_name: clindoc-grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD_FILE=/run/secrets/grafana_admin_password
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_ANALYTICS_REPORTING_ENABLED=false
+      - GF_ANALYTICS_CHECK_FOR_UPDATES=false
+    volumes:
+      - ./observability/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./observability/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./observability/grafana/dashboards:/etc/grafana/dashboards:ro
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "127.0.0.1:3000:3000"
+    networks:
+      - monitoring_internal
+    depends_on:
+      - prometheus
+
+volumes:
+  pg_data:
+    driver: local
+  blob_data:
+    driver: local
+  model_artifacts:
+    driver: local
+  vllm_cache:
+    driver: local
+  certs_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local

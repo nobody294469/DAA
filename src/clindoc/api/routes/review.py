@@ -28,6 +28,8 @@ import logging
 from typing import Any, List, Optional
 import uuid
 
+from clindoc.observability.metrics import get_metrics
+
 from fastapi import (
     APIRouter,
     Depends,
@@ -505,6 +507,7 @@ def perform_claim_action(
                 notes=payload.notes,
                 commit=True,
             )
+            get_metrics().record_review_action("accept", "success")
             return {
                 "action": "ACCEPT",
                 "claim_id": str(updated.claim_id),
@@ -529,6 +532,7 @@ def perform_claim_action(
                 commit=True,
             )
             new_c = edit_res.new_claim
+            get_metrics().record_review_action("edit", "success")
             return {
                 "action": "EDIT",
                 "claim_id": str(new_c.claim_id),
@@ -561,6 +565,7 @@ def perform_claim_action(
                 notes=payload.notes,
                 commit=True,
             )
+            get_metrics().record_review_action("reject", "success")
             return {
                 "action": "REJECT",
                 "claim_id": str(updated.claim_id),
@@ -580,6 +585,7 @@ def perform_claim_action(
                 notes=payload.notes,
                 commit=True,
             )
+            get_metrics().record_review_action("escalate", "success")
             return {
                 "action": "ESCALATE",
                 "claim_id": str(updated.claim_id),
@@ -599,6 +605,7 @@ def perform_claim_action(
                 notes=payload.notes,
                 commit=True,
             )
+            get_metrics().record_review_action("reopen", "success")
             return {
                 "action": "REOPEN",
                 "claim_id": str(updated.claim_id),
@@ -609,20 +616,27 @@ def perform_claim_action(
             }
 
     except ClaimNotFoundError as exc:
+        get_metrics().record_review_action(payload.action.value.lower(), "error")
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
     except OptimisticLockError as exc:
+        get_metrics().record_review_action(payload.action.value.lower(), "error")
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(exc)) from exc
     except InvalidStateTransitionError as exc:
+        get_metrics().record_review_action(payload.action.value.lower(), "error")
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(exc)) from exc
     except ClaimMissingReasonError as exc:
+        get_metrics().record_review_action(payload.action.value.lower(), "error")
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
     except ClaimAuditError as exc:
+        get_metrics().record_review_action(payload.action.value.lower(), "error")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Transaction failed closed: Audit event could not be secured.",
         ) from exc
     except ValueError as exc:
+        get_metrics().record_review_action(payload.action.value.lower(), "error")
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+
 
 
 # ─── 4. PATIENT IDENTITY CONFIRMATION ────────────────────────────────────────

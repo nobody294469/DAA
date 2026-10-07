@@ -40,6 +40,8 @@ from clindoc.verify.stage_a import DeterministicVerifier, StageAResult
 from clindoc.verify.stage_b import LearnedVerifier, StageBResult
 from clindoc.verify.stage_c import StageCJudge, StageCResult
 from clindoc.config import ProductionProfileError, RuntimeProfile, get_active_profile
+import time
+from clindoc.observability.metrics import get_metrics
 
 
 class VerificationCascade:
@@ -173,8 +175,10 @@ class VerificationCascade:
 
         # ─── TIER 2: Deterministic Verification (Stage A Only) ─────────────────
         if field_type in TIER_2_FIELDS and not self.always_stage_c:
+            t0 = time.perf_counter()
             stage_a_res = self.stage_a.verify(claim, evidence, context_text=context_text)
             self.last_stage_a_result = stage_a_res
+            get_metrics().record_cascade_evaluation("stage_a", "resolved", time.perf_counter() - t0)
             if stage_a_res.label is not None:
                 final_label = stage_a_res.label
                 c_type: Optional[ContradictionType] = (
@@ -200,10 +204,13 @@ class VerificationCascade:
 
         # ─── TIER 1: Learned Verification Cascade (Stages A, B, C) ───────────
         # Step A: Deterministic Pre-check
+        t0 = time.perf_counter()
         stage_a_res = self.stage_a.verify(claim, evidence, context_text=context_text)
         self.last_stage_a_result = stage_a_res
+        get_metrics().record_cascade_evaluation("stage_a", "resolved", time.perf_counter() - t0)
 
         # Step B: Learned ModernBERT Verifier
+        t1 = time.perf_counter()
         stage_b_res = self.stage_b.verify(
             claim=claim,
             evidence=evidence,
@@ -211,11 +218,15 @@ class VerificationCascade:
             context_text=context_text,
         )
         self.last_stage_b_result = stage_b_res
+        b_duration = time.perf_counter() - t1
 
         should_escalate = stage_b_res.escalated or self.always_stage_c
+        b_outcome = "escalated" if should_escalate else "resolved"
+        get_metrics().record_cascade_evaluation("stage_b", b_outcome, b_duration)
 
         # Step C: Selective LLM Judge on Escalation
         if should_escalate:
+            t2 = time.perf_counter()
             stage_c_res = self.stage_c.judge(
                 claim=claim,
                 evidence=evidence,
@@ -225,6 +236,9 @@ class VerificationCascade:
                 stage_b_confidence=stage_b_res.calibrated_confidence,
             )
             self.last_stage_c_result = stage_c_res
+            c_duration = time.perf_counter() - t2
+            c_outcome = "fallback" if stage_c_res.is_fallback else "resolved"
+            get_metrics().record_cascade_evaluation("stage_c", c_outcome, c_duration)
 
             c_type = stage_c_res.contradiction_type if stage_c_res.label == "DISCREPANCY" else None
             if stage_c_res.label == "DISCREPANCY" and c_type is None:
@@ -244,6 +258,8 @@ class VerificationCascade:
                 rationale=stage_c_res.rationale,
                 evidence_id=evidence.evidence_id,
                 escalated=True,
+                is_fallback=stage_c_res.is_fallback,
+                fallback_reason=stage_c_res.fallback_reason,
             )
 
         # Not Escalated: Final Verdict from Stage B

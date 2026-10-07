@@ -21,13 +21,35 @@ import json
 import re
 from typing import Any, Callable, Optional, Protocol, Union
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 import numpy as np
 
 from clindoc.extract.contracts import Claim, Evidence
 from clindoc.m2.calibration import IsotonicConfidenceCalibrator
 from clindoc.schema.verification import ContradictionType, VerificationLabel
-from clindoc.config import ProductionProfileError, RuntimeProfile, get_active_profile
+from clindoc.config import (
+    ProductionProfileError,
+    RuntimeProfile,
+    get_active_profile,
+    get_circuit_breaker_failure_threshold,
+    get_circuit_breaker_cooldown_seconds,
+    get_model_concurrency_limit,
+    get_backoff_base_delay,
+    get_backoff_max_delay,
+)
+from clindoc.services.circuit_breaker import (
+    CircuitBreaker,
+    CircuitBreakerOpenError,
+    ConcurrencyLimiter,
+    ExponentialBackoff,
+    FALLBACK_REASON_LLM_SCHEMA_INVALID,
+    FALLBACK_REASON_LLM_UNAVAILABLE,
+    classify_fallback_reason,
+    get_shared_circuit_breaker,
+    get_shared_concurrency_limiter,
+    is_retryable_error,
+)
+from clindoc.observability.metrics import get_metrics
 
 
 STAGE_C_PROMPT_VERSION = "V8_STAGE_C_LABFLAG_PROMPT_V1"
@@ -86,6 +108,7 @@ class StageCResult:
     model_name: Optional[str] = None
     prompt_version: str = STAGE_C_PROMPT_VERSION
     is_fallback: bool = False
+    fallback_reason: Optional[str] = None
     error: Optional[str] = None
 
 
@@ -114,6 +137,8 @@ class VLLMJudgeClient:
         timeout: float = 30.0,
         http_client: Optional[Any] = None,
         system_prompt: Optional[str] = None,
+        circuit_breaker: Optional[CircuitBreaker] = None,
+        concurrency_limiter: Optional[ConcurrencyLimiter] = None,
     ) -> None:
         self.model_name = model_name
         self.base_url = base_url.rstrip("/")
@@ -123,6 +148,16 @@ class VLLMJudgeClient:
         self.max_tokens = int(max_tokens)
         self.timeout = float(timeout)
         self.system_prompt = system_prompt or DEFAULT_STAGE_C_SYSTEM_PROMPT
+        self.circuit_breaker = circuit_breaker or get_shared_circuit_breaker(
+            self.base_url,
+            failure_threshold=get_circuit_breaker_failure_threshold(),
+            cooldown_seconds=get_circuit_breaker_cooldown_seconds(),
+        )
+        self.concurrency_limiter = concurrency_limiter or get_shared_concurrency_limiter(
+            self.base_url,
+            max_concurrency=get_model_concurrency_limit(),
+            timeout=self.timeout,
+        )
         if http_client is None:
             try:
                 import httpx
@@ -163,25 +198,27 @@ class VLLMJudgeClient:
         }
         headers = {"Authorization": f"Bearer {self.api_key}"}
 
-        if self._http_client is not None:
-            resp = self._http_client.post(
-                f"{self.base_url}/chat/completions",
-                json=payload,
-                headers=headers,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            return data["choices"][0]["message"]["content"]
+        with self.concurrency_limiter:
+            with self.circuit_breaker:
+                if self._http_client is not None:
+                    resp = self._http_client.post(
+                        f"{self.base_url}/chat/completions",
+                        json=payload,
+                        headers=headers,
+                    )
+                    resp.raise_for_status()
+                    data = resp.json()
+                    return data["choices"][0]["message"]["content"]
 
-        with httpx.Client(timeout=self.timeout) as client:
-            resp = client.post(
-                f"{self.base_url}/chat/completions",
-                json=payload,
-                headers=headers,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            return data["choices"][0]["message"]["content"]
+                with httpx.Client(timeout=self.timeout) as client:
+                    resp = client.post(
+                        f"{self.base_url}/chat/completions",
+                        json=payload,
+                        headers=headers,
+                    )
+                    resp.raise_for_status()
+                    data = resp.json()
+                    return data["choices"][0]["message"]["content"]
 
 
 class DefaultMockLLMJudge:
@@ -240,6 +277,7 @@ class StageCJudge:
         max_attempts: int = 3,
         profile: Optional[Union[RuntimeProfile, str]] = None,
         allow_mock_client: Optional[bool] = None,
+        backoff: Optional[ExponentialBackoff] = None,
     ) -> None:
         self.profile = RuntimeProfile.from_string(profile) if profile else get_active_profile()
         if allow_mock_client is not None:
@@ -272,6 +310,10 @@ class StageCJudge:
         self.calibrator = calibrator or self._create_default_calibrator()
         self.max_attempts = max_attempts
         self.prompt_version = STAGE_C_PROMPT_VERSION
+        self.backoff = backoff or ExponentialBackoff(
+            base_delay=get_backoff_base_delay(),
+            max_delay=get_backoff_max_delay(),
+        )
 
     @staticmethod
     def _create_default_calibrator() -> IsotonicConfidenceCalibrator:
@@ -317,12 +359,20 @@ class StageCJudge:
 
         model_name = getattr(self.client, "model_name", type(self.client).__name__)
         last_error: Optional[Exception] = None
+        attempts_executed = 0
 
         # Bounded retry: maximum 3 total generation attempts (DEC-013: max 2 retries)
         for attempt in range(1, self.max_attempts + 1):
+            attempts_executed = attempt
+            if attempt > 1:
+                get_metrics().record_model_retry("qwen")
             try:
+                import time
+                t0 = time.perf_counter()
                 raw_response = self.client.generate(prompt, StageCJudgeOutput)
                 parsed_output = self._parse_and_validate(raw_response)
+                gen_duration = time.perf_counter() - t0
+                get_metrics().record_model_request("qwen", "success", duration_seconds=gen_duration)
 
                 # Calibrate scalar confidence (DEC-018)
                 raw_conf = parsed_output.confidence
@@ -344,20 +394,47 @@ class StageCJudge:
             except Exception as exc:
                 last_error = exc
 
-        # Safe clinical fallback after all attempts fail
+                # Classify error outcome for metrics
+                if isinstance(exc, (json.JSONDecodeError, ValidationError, ValueError)):
+                    err_outcome = "schema_invalid"
+                elif isinstance(exc, CircuitBreakerOpenError):
+                    err_outcome = "circuit_open"
+                elif isinstance(exc, TimeoutError):
+                    err_outcome = "timeout"
+                else:
+                    err_outcome = "failure"
+                get_metrics().record_model_request("qwen", err_outcome)
+
+                # If this was a schema validation failure after generate succeeded, record failure on breaker
+                cb = getattr(self.client, "circuit_breaker", None)
+                if cb is not None and isinstance(exc, (json.JSONDecodeError, ValidationError, ValueError)):
+                    cb.record_failure(exc)
+
+                # Bounded retry policy (§3.5): fail fast on non-retryable errors
+                if not is_retryable_error(exc):
+                    break
+
+                # Exponential backoff with jitter before next attempt
+                if attempt < self.max_attempts:
+                    self.backoff.sleep(attempt)
+
+        # Safe clinical fallback after all attempts fail (F-06, F-07)
+        fallback_reason = classify_fallback_reason(last_error) or FALLBACK_REASON_LLM_UNAVAILABLE
+        get_metrics().record_stage_c_fallback(fallback_reason)
         return StageCResult(
             label="INSUFFICIENT_EVIDENCE",
             raw_confidence=0.50,
             calibrated_confidence=0.50,
             contradiction_type=None,
             rationale=(
-                f"Stage C verification fallback: generation/validation failed after "
-                f"{self.max_attempts} attempts ({type(last_error).__name__}: {last_error})."
+                f"Stage C verification fallback ({fallback_reason}): generation/validation failed after "
+                f"{attempts_executed} attempts ({type(last_error).__name__}: {last_error})."
             ),
-            attempts=self.max_attempts,
+            attempts=attempts_executed,
             model_name=model_name,
             prompt_version=STAGE_C_PROMPT_VERSION,
             is_fallback=True,
+            fallback_reason=fallback_reason,
             error=f"{type(last_error).__name__}: {last_error}" if last_error else "unknown_error",
         )
 

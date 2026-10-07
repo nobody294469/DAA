@@ -5,13 +5,17 @@ from typing import Any
 from pydantic import BaseModel, Field
 
 from fhir.resources.R4B.bundle import Bundle
-from fhir.resources.R4B.patient import Patient
-from fhir.resources.R4B.organization import Organization
-from fhir.resources.R4B.practitioner import Practitioner
-from fhir.resources.R4B.observation import Observation
 from fhir.resources.R4B.diagnosticreport import DiagnosticReport
+from fhir.resources.R4B.documentreference import DocumentReference
+from fhir.resources.R4B.encounter import Encounter
 from fhir.resources.R4B.medicationrequest import MedicationRequest
 from fhir.resources.R4B.medicationstatement import MedicationStatement
+from fhir.resources.R4B.observation import Observation
+from fhir.resources.R4B.organization import Organization
+from fhir.resources.R4B.patient import Patient
+from fhir.resources.R4B.practitioner import Practitioner
+from fhir.resources.R4B.provenance import Provenance
+
 
 from clindoc.fhir.constants import (
     EXT_CLAIM_PROVENANCE,
@@ -101,8 +105,9 @@ class FHIRValidator:
                 errors=errors,
             )
 
-        # 2. Collect available resource references
+        # 2. Collect available resource references & detect duplicate IDs
         available_refs: set[str] = set()
+        seen_keys: set[str] = set()
         for idx, entry in enumerate(bundle.entry):
             res = entry.resource
             if res is None:
@@ -112,7 +117,11 @@ class FHIRValidator:
             r_id = res.id
             resource_counts[r_type] = resource_counts.get(r_type, 0) + 1
             if r_type and r_id:
-                available_refs.add(f"{r_type}/{r_id}")
+                r_key = f"{r_type}/{r_id}"
+                if r_key in seen_keys:
+                    errors.append(f"Duplicate resource identified in bundle: '{r_key}'")
+                seen_keys.add(r_key)
+                available_refs.add(r_key)
 
         # 3. Validate referential integrity & resource-specific invariants
         has_patient = False
@@ -137,6 +146,10 @@ class FHIRValidator:
                 elif diag.subject.reference not in available_refs:
                     errors.append(f"DiagnosticReport/{diag.id} subject '{diag.subject.reference}' not found in bundle")
 
+                # Check encounter reference
+                if diag.encounter and diag.encounter.reference not in available_refs:
+                    errors.append(f"DiagnosticReport/{diag.id} encounter '{diag.encounter.reference}' not found in bundle")
+
                 # Check result references
                 if not diag.result:
                     warnings.append(f"DiagnosticReport/{diag.id} contains no observation results")
@@ -154,6 +167,16 @@ class FHIRValidator:
                 elif obs.subject.reference not in available_refs:
                     errors.append(f"Observation/{obs.id} subject '{obs.subject.reference}' not found in bundle")
 
+                # Check encounter reference
+                if obs.encounter and obs.encounter.reference not in available_refs:
+                    errors.append(f"Observation/{obs.id} encounter '{obs.encounter.reference}' not found in bundle")
+
+                # Check derivedFrom references
+                if obs.derivedFrom:
+                    for df in obs.derivedFrom:
+                        if df.reference and df.reference not in available_refs:
+                            errors.append(f"Observation/{obs.id} derivedFrom '{df.reference}' not found in bundle")
+
                 # Check status
                 if obs.status not in ("registered", "preliminary", "final", "amended", "corrected"):
                     errors.append(f"Observation/{obs.id} invalid status '{obs.status}'")
@@ -170,14 +193,17 @@ class FHIRValidator:
                     if not has_loinc:
                         warnings.append(f"Observation/{obs.id} has no LOINC coding")
 
-                # Check valueQuantity
-                if obs.valueQuantity is None:
-                    errors.append(f"Observation/{obs.id} missing valueQuantity")
-                else:
+                # Check value[x] (valueQuantity for numeric, valueString for qualitative per PD-022)
+                if obs.valueQuantity is None and obs.valueString is None:
+                    errors.append(f"Observation/{obs.id} missing value[x] (expected valueQuantity or valueString)")
+                elif obs.valueQuantity is not None:
                     if obs.valueQuantity.value is None:
                         errors.append(f"Observation/{obs.id} valueQuantity.value is None")
                     if not obs.valueQuantity.unit:
                         warnings.append(f"Observation/{obs.id} valueQuantity.unit is missing")
+                elif obs.valueString is not None:
+                    if not obs.valueString.strip():
+                        errors.append(f"Observation/{obs.id} valueString is empty")
 
                 # Check verification / provenance extensions
                 ver_status_found = False
@@ -218,6 +244,22 @@ class FHIRValidator:
                 elif res.subject.reference not in available_refs:
                     errors.append(f"{r_type}/{res.id} subject '{res.subject.reference}' not found in bundle")
 
+                # Encounter / context reference
+                if getattr(res, "encounter", None) and res.encounter.reference not in available_refs:
+                    errors.append(f"{r_type}/{res.id} encounter '{res.encounter.reference}' not found in bundle")
+                if getattr(res, "context", None) and res.context.reference not in available_refs:
+                    errors.append(f"{r_type}/{res.id} context '{res.context.reference}' not found in bundle")
+
+                # Supporting information / derivedFrom references
+                if getattr(res, "supportingInformation", None):
+                    for si in res.supportingInformation:
+                        if si.reference and si.reference not in available_refs:
+                            errors.append(f"{r_type}/{res.id} supportingInformation '{si.reference}' not found in bundle")
+                if getattr(res, "derivedFrom", None):
+                    for df in res.derivedFrom:
+                        if df.reference and df.reference not in available_refs:
+                            errors.append(f"{r_type}/{res.id} derivedFrom '{df.reference}' not found in bundle")
+
                 # Medication code
                 if not getattr(res, "medicationCodeableConcept", None):
                     errors.append(f"{r_type}/{res.id} missing medicationCodeableConcept")
@@ -245,6 +287,47 @@ class FHIRValidator:
 
                 if not prov_found:
                     errors.append(f"{r_type}/{res.id} missing claim-provenance extension ({EXT_CLAIM_PROVENANCE})")
+
+            elif r_type == "DocumentReference":
+                doc_ref: DocumentReference = res
+                if not doc_ref.status:
+                    errors.append(f"DocumentReference/{doc_ref.id} missing status")
+                if not doc_ref.subject or not doc_ref.subject.reference:
+                    errors.append(f"DocumentReference/{doc_ref.id} missing subject reference")
+                elif doc_ref.subject.reference not in available_refs:
+                    errors.append(f"DocumentReference/{doc_ref.id} subject '{doc_ref.subject.reference}' not found in bundle")
+                if not doc_ref.content:
+                    errors.append(f"DocumentReference/{doc_ref.id} missing content")
+
+            elif r_type == "Encounter":
+                enc: Encounter = res
+                if not enc.status:
+                    errors.append(f"Encounter/{enc.id} missing status")
+                if not enc.class_fhir:
+                    errors.append(f"Encounter/{enc.id} missing class")
+                if not enc.subject or not enc.subject.reference:
+                    errors.append(f"Encounter/{enc.id} missing subject reference")
+                elif enc.subject.reference not in available_refs:
+                    errors.append(f"Encounter/{enc.id} subject '{enc.subject.reference}' not found in bundle")
+
+            elif r_type == "Provenance":
+                prov: Provenance = res
+                if not prov.target:
+                    errors.append(f"Provenance/{prov.id} missing target references")
+                else:
+                    for t_ref in prov.target:
+                        if not t_ref.reference or t_ref.reference not in available_refs:
+                            errors.append(f"Provenance/{prov.id} target '{t_ref.reference}' not found in bundle")
+                if not prov.agent:
+                    errors.append(f"Provenance/{prov.id} missing agent")
+                else:
+                    for ag in prov.agent:
+                        if ag.who and ag.who.reference and ag.who.reference not in available_refs:
+                            errors.append(f"Provenance/{prov.id} agent '{ag.who.reference}' not found in bundle")
+                if prov.entity:
+                    for ent in prov.entity:
+                        if ent.what and ent.what.reference and ent.what.reference not in available_refs:
+                            errors.append(f"Provenance/{prov.id} entity '{ent.what.reference}' not found in bundle")
 
         if not has_patient:
             errors.append("Bundle missing Patient resource")

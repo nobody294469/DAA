@@ -23,6 +23,7 @@ from fastapi import (
     File,
     Form,
     HTTPException,
+    Query,
     Request,
     Response,
     UploadFile,
@@ -34,19 +35,43 @@ from clindoc.api.audit.service import AuditService, AuditServiceError
 from clindoc.api.auth.dependencies import get_current_user, get_db_session
 from clindoc.api.auth.models import AuthenticatedUser
 from clindoc.api.auth.object_access import authorize_document_access
-from clindoc.api.auth.rbac import require_role
+from clindoc.api.auth.rbac import require_export_access, require_role
 from clindoc.api.auth.roles import CanonicalRole
 from clindoc.api.deps import (
     get_audit_service,
     get_blob_store,
+    get_ehr_integration_service,
+    get_fhir_export_service,
     get_ingest_service,
     get_job_queue,
 )
 from clindoc.db.enums import DocumentStatus
-from clindoc.db.models import Document
+from clindoc.db.models import Document, FHIRBundle
 from clindoc.ingest.service import DocumentIngestionService
 from clindoc.jobs.queue import JobQueue
-from clindoc.storage.blob import BlobNotFoundError, BlobStore, DecryptionError
+from clindoc.services.ehr_integration import (
+    EHRApprovalMissingError,
+    EHRDuplicateSubmissionError,
+    EHRIntegrationError,
+    EHRIntegrationService,
+    EHRPatientIdentityError,
+    EHRUnresolvedClaimError,
+)
+from clindoc.services.ehr_transport import (
+    EHRAuthenticationError,
+    EHRTimeoutError,
+    EHRTransportError,
+    EHRValidationError,
+)
+from clindoc.services.fhir_export import (
+    FHIRExportEligibilityError,
+    FHIRExportError,
+    FHIRExportNotFoundError,
+    FHIRExportService,
+    FHIRExportValidationError,
+)
+from clindoc.storage.blob import BlobNotFoundError, BlobStorageError, BlobStore, DecryptionError
+
 
 logger = logging.getLogger(__name__)
 
@@ -158,7 +183,7 @@ async def upload_document(
         logger.error("Document upload transaction aborted: %s", exc)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Document upload processing failed: {exc}",
+            detail="Document upload processing failed.",
         ) from exc
 
     status_val = doc.status.value if hasattr(doc.status, "value") else str(doc.status)
@@ -316,6 +341,12 @@ async def get_document_file(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Document content decryption or integrity verification failed.",
         ) from exc
+    except BlobStorageError as exc:
+        logger.error("Blob storage error for document %s: %s", doc.id, exc)
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invalid or unsafe document storage reference.",
+        ) from exc
 
     # Record download audit event (PD-012: fail closed if audit fails)
     status_val = doc.status.value if hasattr(doc.status, "value") else str(doc.status)
@@ -353,4 +384,128 @@ async def get_document_file(
             "Content-Length": str(len(payload_bytes)),
         },
     )
+
+
+@router.post("/{document_id}/export", status_code=status.HTTP_200_OK)
+async def export_document_fhir(
+    request: Request,
+    document_id: uuid.UUID,
+    current_user: AuthenticatedUser = Depends(require_export_access),
+    session: Session = Depends(get_db_session),
+    export_service: FHIRExportService = Depends(get_fhir_export_service),
+    blob_store: BlobStore = Depends(get_blob_store),
+):
+    """Export an approved document into a validated FHIR R4B Bundle (Phase 8.8).
+
+    Enforces:
+      - RBAC: integration_service or approver role required.
+      - Four-Eyes check: Document must have is_export_eligible=True.
+      - Safety boundary: Only verified/accepted claims are exported.
+      - Audit trail: Emits hash-chained FHIR_BUNDLE_EXPORTED audit event.
+    """
+    correlation_id = getattr(request.state, "correlation_id", None) or str(uuid.uuid4())
+    source_ip = request.client.host if request.client else None
+
+    try:
+        result = export_service.export_document(
+            session=session,
+            document_id=document_id,
+            exported_by=current_user.user_id,
+            blob_store=blob_store,
+            source_ip=source_ip,
+            correlation_id=correlation_id,
+        )
+        session.commit()
+        return result.to_dict()
+    except FHIRExportNotFoundError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+    except FHIRExportEligibilityError as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+    except FHIRExportValidationError as exc:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(exc)) from exc
+    except FHIRExportError as exc:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(exc)) from exc
+
+
+@router.get("/{document_id}/fhir-bundle", status_code=status.HTTP_200_OK)
+async def get_document_fhir_bundle(
+    document_id: uuid.UUID,
+    current_user: AuthenticatedUser = Depends(require_export_access),
+    session: Session = Depends(get_db_session),
+    blob_store: BlobStore = Depends(get_blob_store),
+):
+    """Retrieve the finalized, approved FHIR R4B Bundle for a document (Phase 8.8)."""
+    bundle_row = (
+        session.query(FHIRBundle)
+        .filter(FHIRBundle.document_id == document_id)
+        .order_by(FHIRBundle.created_at.desc())
+        .first()
+    )
+    if not bundle_row:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No exported FHIR bundle found for document '{document_id}'.",
+        )
+
+    if bundle_row.bundle_payload:
+        return bundle_row.bundle_payload
+
+    try:
+        raw_bytes = blob_store.get(bundle_row.storage_ref)
+        import json as _json
+        return _json.loads(raw_bytes.decode("utf-8"))
+    except Exception as exc:
+        logger.error("Failed to retrieve FHIR bundle from storage for doc %s: %s", document_id, exc)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to retrieve FHIR bundle payload from storage.",
+        ) from exc
+
+
+@router.post("/{document_id}/transmit-ehr", status_code=status.HTTP_200_OK)
+async def transmit_document_to_ehr(
+    request: Request,
+    document_id: uuid.UUID,
+    destination_type: str = Query("sandbox", pattern="^(sandbox|mock|staging|production)$"),
+    current_user: AuthenticatedUser = Depends(require_export_access),
+    session: Session = Depends(get_db_session),
+    ehr_service: EHRIntegrationService = Depends(get_ehr_integration_service),
+):
+    """Deliver an approved, verified document to the EHR transmission boundary (Phase 8.12).
+
+    Enforces:
+      - RBAC: integration_service or approver role required.
+      - Four-Eyes check: Document must be APPROVED and is_export_eligible=True.
+      - Patient identity: Patient identity must be CONFIRMED.
+      - Safety boundary: Fallback or unverified claims are strictly blocked.
+      - Idempotency: Duplicate transmissions are detected and rejected.
+      - Audit trail: Emits hash-chained EHR_TRANSMISSION_* audit events.
+    """
+    correlation_id = getattr(request.state, "correlation_id", None) or str(uuid.uuid4())
+    try:
+        result = ehr_service.transmit_document_to_ehr(
+            session=session,
+            document_id=document_id,
+            actor_id=current_user.user_id,
+            destination_type=destination_type,
+            correlation_id=correlation_id,
+        )
+        session.commit()
+        return result.to_dict()
+    except FHIRExportNotFoundError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+    except (EHRApprovalMissingError, EHRPatientIdentityError, FHIRExportEligibilityError, EHRUnresolvedClaimError) as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+    except EHRDuplicateSubmissionError as exc:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(exc)) from exc
+    except EHRTimeoutError as exc:
+        raise HTTPException(status_code=status.HTTP_504_GATEWAY_TIMEOUT, detail=str(exc)) from exc
+    except EHRAuthenticationError as exc:
+        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=str(exc)) from exc
+    except EHRValidationError as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+    except (EHRTransportError, EHRIntegrationError, FHIRExportError) as exc:
+        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=str(exc)) from exc
+
+
 

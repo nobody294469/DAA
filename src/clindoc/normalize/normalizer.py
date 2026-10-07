@@ -38,6 +38,60 @@ def _resolve_config_path(path: Path) -> Path:
     return path
 
 
+# Canonical qualitative normalization vocabulary (PD-022)
+QUALITATIVE_CANONICAL_MAP: dict[str, str] = {
+    "negative": "NEGATIVE",
+    "neg": "NEGATIVE",
+    "-ve": "NEGATIVE",
+    "positive": "POSITIVE",
+    "pos": "POSITIVE",
+    "+ve": "POSITIVE",
+    "reactive": "REACTIVE",
+    "non-reactive": "NON_REACTIVE",
+    "non reactive": "NON_REACTIVE",
+    "nonreactive": "NON_REACTIVE",
+    "detected": "DETECTED",
+    "not detected": "NOT_DETECTED",
+    "not-detected": "NOT_DETECTED",
+    "undetected": "NOT_DETECTED",
+    "equivocal": "EQUIVOCAL",
+    "indeterminate": "EQUIVOCAL",
+}
+
+
+def normalize_qualitative_value(val: str) -> Optional[str]:
+    """Map recognized qualitative laboratory determinations to canonical vocabulary per PD-022.
+
+    Returns canonical string (NEGATIVE, POSITIVE, REACTIVE, NON_REACTIVE, DETECTED, NOT_DETECTED, EQUIVOCAL)
+    or None if the value is not a recognized qualitative determination.
+    """
+    if not val or not val.strip():
+        return None
+    val_clean = val.strip().lower()
+
+    # Exact dictionary lookup
+    if val_clean in QUALITATIVE_CANONICAL_MAP:
+        return QUALITATIVE_CANONICAL_MAP[val_clean]
+
+    # Phrase boundary checks (ordered multi-word first)
+    if re.search(r"\bnon[- ]reactive\b", val_clean):
+        return "NON_REACTIVE"
+    if re.search(r"\bnot[- ]detected\b", val_clean) or re.search(r"\bundetected\b", val_clean):
+        return "NOT_DETECTED"
+    if re.search(r"\bnegative\b", val_clean) or re.search(r"\bneg\b", val_clean) or "-ve" in val_clean:
+        return "NEGATIVE"
+    if re.search(r"\bpositive\b", val_clean) or re.search(r"\bpos\b", val_clean) or "+ve" in val_clean:
+        return "POSITIVE"
+    if re.search(r"\breactive\b", val_clean):
+        return "REACTIVE"
+    if re.search(r"\bdetected\b", val_clean):
+        return "DETECTED"
+    if re.search(r"\bequivocal\b", val_clean) or re.search(r"\bindeterminate\b", val_clean):
+        return "EQUIVOCAL"
+
+    return None
+
+
 class TerminologyNormalizer:
     """Production Terminology Normalization subsystem.
 
@@ -174,32 +228,45 @@ class TerminologyNormalizer:
                     self.normalized_units[claim.claim_id] = canon_u
                     candidates = [CandidateMatch(code=canon_u, display=canon_u, score=conf_u, system="UCUM")]
 
-        # Handle numeric claims per PROJECT_SPEC §8.3 (lab.value, med.dose)
+        # Handle numeric claims (lab.value, med.dose) and qualitative determinations (PD-022)
         elif claim.field_type in ("lab.value", "med.dose"):
-            # Ensure value_numeric is populated if parseable from claim.value
-            if claim.value_numeric is None:
-                m = re.search(r"[-+]?\d+(?:\.\d+)?", claim.value)
-                if m:
-                    try:
-                        claim.value_numeric = float(m.group(0))
-                    except ValueError:
-                        pass
+            qual_canonical = None
+            if claim.field_type == "lab.value":
+                qual_canonical = normalize_qualitative_value(claim.value)
 
-            # Normalize unit to UCUM without altering claim.value or unit_raw
-            raw_unit_to_norm = claim.unit_raw
-            if not raw_unit_to_norm and claim.value:
-                m_unit = re.search(r"[-+]?\d+(?:\.\d+)?\s*([a-zA-Z/%^0-9*\[\]{}]+.*)$", claim.value)
-                if m_unit:
-                    raw_unit_to_norm = m_unit.group(1).strip()
+            if qual_canonical is not None:
+                # Qualitative laboratory determination (PD-022):
+                # value_numeric MUST be None; no unit normalization; canonical code populated
+                claim.value_numeric = None
+                best_code = qual_canonical
+                best_system = None
+                best_conf = 1.0
+                candidates = [CandidateMatch(code=qual_canonical, display=qual_canonical, score=1.0, system="CANONICAL")]
+            else:
+                # Quantitative numeric claims (lab.value numeric, med.dose)
+                if claim.value_numeric is None:
+                    m = re.search(r"[-+]?\d+(?:\.\d+)?", claim.value)
+                    if m:
+                        try:
+                            claim.value_numeric = float(m.group(0))
+                        except ValueError:
+                            pass
 
-            if raw_unit_to_norm:
-                canon_unit, ucum_conf = self.ucum_normalizer.normalize(raw_unit_to_norm)
-                if canon_unit:
-                    self.normalized_units[claim.claim_id] = canon_unit
-                    best_code = canon_unit
-                    best_system = "UCUM"
-                    best_conf = round(ucum_conf, 4)
-                    candidates = [CandidateMatch(code=canon_unit, display=canon_unit, score=ucum_conf, system="UCUM")]
+                # Normalize unit to UCUM without altering claim.value or unit_raw
+                raw_unit_to_norm = claim.unit_raw
+                if not raw_unit_to_norm and claim.value:
+                    m_unit = re.search(r"[-+]?\d+(?:\.\d+)?\s*([a-zA-Z/%^0-9*\[\]{}]+.*)$", claim.value)
+                    if m_unit:
+                        raw_unit_to_norm = m_unit.group(1).strip()
+
+                if raw_unit_to_norm:
+                    canon_unit, ucum_conf = self.ucum_normalizer.normalize(raw_unit_to_norm)
+                    if canon_unit:
+                        self.normalized_units[claim.claim_id] = canon_unit
+                        best_code = canon_unit
+                        best_system = "UCUM"
+                        best_conf = round(ucum_conf, 4)
+                        candidates = [CandidateMatch(code=canon_unit, display=canon_unit, score=ucum_conf, system="UCUM")]
 
         # Record candidates for machine-readable audit report (§7.5)
         self.audit_candidates[claim.claim_id] = [c.to_dict() for c in candidates]

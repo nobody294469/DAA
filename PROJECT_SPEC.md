@@ -374,9 +374,11 @@ If `code_confidence` < threshold (`DECISION REQUIRED-2`), `normalized_code` MUST
 
 *Canonical naming rule (DEC-017):* The canonical string is `lab.reference_range` (not `lab.ref_range`). Obsolete types (`lab.loinc_code`, `med.dose_unit`, `med.quantity`) are deprecated and excluded. Narrative extraction is strictly confined to these 10 fields (DEC-020).
 
-### 8.3 Numeric claims
+### 8.3 Numeric and Qualitative Laboratory Claims (amended per PD-022)
 
-Any claim with `field_type` in `{lab.value, med.dose}` MUST populate `value_numeric` after unit normalization is attempted (UCUM), and MUST preserve `unit_raw` even if normalization fails.
+Any claim with `field_type = "med.dose"` or any quantitative claim with `field_type = "lab.value"` MUST populate `value_numeric` after unit normalization is attempted (UCUM) if a valid numeric quantity can be parsed, and MUST preserve `unit_raw` even if normalization fails.
+
+For qualitative laboratory findings with `field_type = "lab.value"` (e.g., "Negative", "Positive", "Reactive", "Non-Reactive", "Detected", "Not Detected", "Equivocal"), `value_numeric` MUST be explicitly `null`, and `unit_raw` / unit codes MUST be `null` unless independently applicable.
 
 ---
 
@@ -544,9 +546,10 @@ Retrieval-based normalization for: `lab.test_name` → LOINC, `med.name` → RxN
 - `Observation` — one per `lab.value` claim (with `component` sub-structure for panels where appropriate), carrying the LOINC code, UCUM unit, reference range, and interpretation flag.
 - Medication resources — `MedicationStatement` for narrative-derived "patient is taking X" claims (temporal_status = current/historical/discontinued), `MedicationRequest` for prescription-order-derived claims (temporal_status = planned or from an explicit order/prescription document). `DECISION REQUIRED-8`: exact rule for which resource type a given `med.*` claim maps to when `temporal_status` is `unspecified` — default recommendation is `MedicationStatement` with a documented assumption, but this MUST be explicitly decided and recorded, not left to whichever engineer implements the mapper that week.
 
-### 15.2 Validity (MUST)
+### 15.2 Validity and Observation Value Mapping (amended per PD-022)
 
 - Every generated `Bundle` MUST validate against the official FHIR R4B JSON schema / a FHIR validator (e.g., the HL7 validator or an equivalent library) as part of the test suite (§24) — "FHIR validity rate" is a reported metric (§21.4), meaning some invalid bundles may occur during development, but the CI test suite MUST fail if the rate is not 100% on the benchmark test set at each phase's acceptance gate.
+- **Quantitative vs. Qualitative Observation Mapping (PD-022):** For quantitative `lab.value` claims (`value_numeric` populated), `Observation.valueQuantity` MUST carry the numeric value and UCUM unit. For qualitative `lab.value` claims (`value_numeric` is `null`), `Observation.valueString` MUST be used to carry the verbatim qualitative determination (e.g., `"Negative"`, `"Non-Reactive"`). Qualitative findings MUST NEVER default to or be coerced into `Observation.valueQuantity = 0.0`.
 
 ### 15.3 Coding
 

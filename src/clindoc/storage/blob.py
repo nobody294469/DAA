@@ -15,6 +15,7 @@ import abc
 import hashlib
 import os
 from pathlib import Path
+import re
 from typing import Optional
 from uuid import UUID
 
@@ -22,6 +23,8 @@ from cryptography.exceptions import InvalidTag
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 from clindoc.config import ProductionProfileError, RuntimeProfile, get_active_profile
+
+HEX_64_PATTERN = re.compile(r"^[0-9a-fA-F]{64}$")
 
 
 class BlobStorageError(Exception):
@@ -130,21 +133,40 @@ class EncryptedFileBlobStore(BlobStore):
             )
         self._aesgcm = AESGCM(self._key)
 
-    def _get_path_for_sha256(self, sha256_hex: str) -> Path:
-        """Compute hierarchical file path for content hash."""
-        prefix = sha256_hex[:2]
-        return self.root_dir / prefix / f"{sha256_hex}.enc"
-
     def _parse_storage_ref(self, storage_ref: str) -> str:
-        """Extract SHA-256 hex digest from storage_ref URI."""
-        if storage_ref.startswith("blob://local/"):
-            return storage_ref[len("blob://local/"):]
-        elif storage_ref.startswith("file://"):
-            p = Path(storage_ref[len("file://"):])
-            stem = p.name.removesuffix(".enc")
-            return stem
-        # Plain sha256 fallback
-        return storage_ref.strip()
+        """Extract SHA-256 hex digest from storage_ref URI and validate format."""
+        if not isinstance(storage_ref, str):
+            raise BlobStorageError(f"Invalid storage reference type: {type(storage_ref).__name__}.")
+        cleaned = storage_ref.strip()
+        if cleaned.startswith("blob://local/"):
+            sha256_hex = cleaned[len("blob://local/"):]
+        elif cleaned.startswith("file://"):
+            p = Path(cleaned[len("file://"):])
+            sha256_hex = p.name.removesuffix(".enc")
+        else:
+            sha256_hex = cleaned
+
+        if not HEX_64_PATTERN.match(sha256_hex):
+            raise BlobStorageError(
+                f"Invalid or unsafe storage reference '{storage_ref}': "
+                "expected 64-character hexadecimal SHA-256 digest."
+            )
+        return sha256_hex.lower()
+
+    def _get_path_for_sha256(self, sha256_hex: str) -> Path:
+        """Compute hierarchical file path for content hash and verify root containment."""
+        if not HEX_64_PATTERN.match(sha256_hex):
+            raise BlobStorageError(
+                f"Invalid or unsafe SHA-256 digest: '{sha256_hex}'. "
+                "Must be a 64-character hexadecimal string."
+            )
+        prefix = sha256_hex[:2].lower()
+        target_path = (self.root_dir / prefix / f"{sha256_hex.lower()}.enc").resolve()
+        try:
+            target_path.relative_to(self.root_dir)
+        except ValueError:
+            raise BlobStorageError("Path traversal detected: target path is outside blob root directory.")
+        return target_path
 
     def put(self, data: bytes, document_id: Optional[UUID] = None) -> str:
         """Encrypt and persist raw document bytes using AES-256-GCM.
@@ -184,13 +206,13 @@ class EncryptedFileBlobStore(BlobStore):
         target_path = self._get_path_for_sha256(sha256_hex)
 
         if not target_path.exists():
-            raise BlobNotFoundError(f"Blob for {storage_ref} not found on disk at {target_path}.")
+            raise BlobNotFoundError(f"Blob for {storage_ref} not found on disk.")
 
         with open(target_path, "rb") as f:
             raw_payload = f.read()
 
         if len(raw_payload) < self.NONCE_SIZE_BYTES + 16:  # 12-byte nonce + 16-byte tag
-            raise DecryptionError(f"Corrupted blob payload at {target_path}: file too short.")
+            raise DecryptionError(f"Corrupted blob payload for {storage_ref}: file too short.")
 
         nonce = raw_payload[:self.NONCE_SIZE_BYTES]
         ciphertext = raw_payload[self.NONCE_SIZE_BYTES:]

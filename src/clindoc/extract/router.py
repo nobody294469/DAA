@@ -451,13 +451,43 @@ class ExtractionRouter:
                 char_offset=char_offset,
             )
             diagnostics["route"] = "llm_narrative"
+            if not evidences and not claims and diagnostics.get("validation_errors"):
+                diagnostics["status"] = "narrative_not_processed"
+                unprocessed_rd = RoutingDecision(
+                    document_id=doc.document_id,
+                    region_id=rd.region_id,
+                    route=rd.route,
+                    reason="narrative_not_processed",
+                    confidence=0.0,
+                )
+                return ExtractionResult(
+                    routing_decision=unprocessed_rd,
+                    evidence=[],
+                    claims=[],
+                    diagnostics=diagnostics,
+                )
+            return ExtractionResult(
+                routing_decision=rd,
+                evidence=evidences,
+                claims=claims,
+                diagnostics=diagnostics,
+            )
         except Exception as e:
-            evidences, claims = [], []
-            diagnostics = {"route": "llm_narrative", "error": str(e)}
-
-        return ExtractionResult(
-            routing_decision=rd,
-            evidence=evidences,
-            claims=claims,
-            diagnostics=diagnostics,
-        )
+            diagnostics = {
+                "route": "llm_narrative",
+                "status": "narrative_not_processed",
+                "error": str(e),
+            }
+            unprocessed_rd = RoutingDecision(
+                document_id=doc.document_id,
+                region_id=rd.region_id,
+                route=rd.route,
+                reason="narrative_not_processed",
+                confidence=0.0,
+            )
+            return ExtractionResult(
+                routing_decision=unprocessed_rd,
+                evidence=[],
+                claims=[],
+                diagnostics=diagnostics,
+            )

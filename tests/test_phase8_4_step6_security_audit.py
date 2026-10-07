@@ -641,7 +641,18 @@ def test_health_endpoints_security_and_degradation(audit_test_env, rsa_keypair):
     # 2. /ready returns 200 with auth
     resp_ready = client.get("/api/v1/health/ready", headers={"Authorization": f"Bearer {admin_token}"})
     assert resp_ready.status_code == 200
-    assert resp_ready.json() == {"status": "ready", "database": "connected", "blob_store": "ready"}
+    ready_body = resp_ready.json()
+    # Infrastructure fields must be present and healthy
+    assert ready_body["status"] == "ready"
+    assert ready_body["database"] == "connected"
+    assert ready_body["blob_store"] == "ready"
+    # Model readiness fields must be present (no models registered in test env -- informational)
+    assert "modernbert" in ready_body
+    assert "qwen_vllm" in ready_body
+    # No PHI or credentials in response
+    ready_str = str(ready_body)
+    assert "VLLM_API_KEY" not in ready_str
+    assert "Bearer" not in ready_str
 
     # 3. /ready returns 503 when degraded
     blob_store = audit_test_env["blob_store"]
