@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
   <link rel="stylesheet" href="/assets/css/app.css">
   <link rel="stylesheet" href="/assets/css/workbench.css?v=6">
-  <script>try{var t=localStorage.getItem('clindoc-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}</script>
   <script type="module" src="/assets/js/workbench.js"></script>
 </head>
 <body data-page="workbench">
@@ -31,6 +31,10 @@
       <!-- 1. Input -->
       <section class="wb-panel wb-input" aria-labelledby="input-title">
         <h2 class="wb-panel__title" id="input-title">Choose a document</h2>
+        <div class="wb-input__summary" id="input-summary" hidden>
+          <p class="text-sm">Document <strong class="mono" id="input-summary-name"></strong></p>
+          <button class="btn btn--secondary" id="change-doc" type="button" aria-controls="input-tabs">Change document</button>
+        </div>
         <div data-tabs id="input-tabs">
           <div class="tabs__list" role="tablist" aria-label="Input source">
             <button class="tabs__tab" role="tab" id="tab-library" data-tab="library" aria-controls="panel-library" aria-selected="true" type="button"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#layers"/></svg>Sample library <span class="tabs__count" id="library-count"></span></button>
@@ -88,7 +92,7 @@
           <p class="label-mono" id="elapsed"></p>
         </div>
         <ol class="stepper" id="stepper" aria-label="Pipeline progress"></ol>
-        <p class="text-xs muted" id="progress-note">The pipeline runs as one request, so the steps advance on a timer until the server answers.</p>
+        <p class="text-xs muted" id="progress-note">The pipeline runs as one request; each step shows its result when the server answers.</p>
         <div id="progress-error"></div>
       </section>
       <p class="visually-hidden" id="run-status" role="status"></p>

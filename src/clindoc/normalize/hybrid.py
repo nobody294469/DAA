@@ -76,7 +76,10 @@ class SapBERTEmbedder:
             local_only = self.local_files_only and not allow_download
 
             if self.device is None:
-                self.device = "cuda" if torch.cuda.is_available() else "cpu"
+                # CLINDOC_DEVICE (set by `clindoc serve --device`) keeps small encoders off a GPU the LLM judge needs.
+                env_device = os.environ.get("CLINDOC_DEVICE", "").strip()
+                self.device = env_device if env_device in ("cpu", "cuda") else (
+                    "cuda" if torch.cuda.is_available() else "cpu")
 
             self._tokenizer = AutoTokenizer.from_pretrained(
                 self.model_name,

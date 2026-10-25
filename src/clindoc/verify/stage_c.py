@@ -18,6 +18,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import json
+from pathlib import Path
 import re
 from typing import Any, Callable, Optional, Protocol, Union
 
@@ -162,25 +163,100 @@ class VLLMJudgeClient:
         }
         headers = {"Authorization": f"Bearer {self.api_key}"}
 
-        if self._http_client is not None:
-            resp = self._http_client.post(
-                f"{self.base_url}/chat/completions",
-                json=payload,
-                headers=headers,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            return data["choices"][0]["message"]["content"]
+        if self._http_client is None:
+            self._http_client = httpx.Client(timeout=self.timeout)
+        resp = self._http_client.post(f"{self.base_url}/chat/completions", json=payload, headers=headers)
+        resp.raise_for_status()
+        return resp.json()["choices"][0]["message"]["content"]
 
-        with httpx.Client(timeout=self.timeout) as client:
-            resp = client.post(
-                f"{self.base_url}/chat/completions",
-                json=payload,
-                headers=headers,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            return data["choices"][0]["message"]["content"]
+
+_CASCADE_BLOCK = re.compile(r"\[CASCADE STAGE CONTEXT\].*?\n\n", re.DOTALL)
+
+
+def local_judge_messages(prompt: str, system_prompt: str, schema: type[BaseModel], compact: bool = False) -> list[dict]:
+    """Chat messages for a local judge; the single format shared by inference and LoRA training.
+
+    compact=True (fine-tuned adapters): drop the Stage A/B hints, which training data cannot provide
+    honestly, and the JSON schema text, whose shape the adapter has learned.
+    """
+    if compact:
+        user = _CASCADE_BLOCK.sub("", prompt)
+    else:
+        schema_json = json.dumps(schema.model_json_schema(), separators=(",", ":"))
+        user = (f"{prompt}\n\nReply with ONLY one JSON object matching this JSON schema, "
+                f"no prose and no code fences:\n{schema_json}")
+    return [{"role": "system", "content": system_prompt}, {"role": "user", "content": user}]
+
+
+class LocalTransformersJudgeClient:
+    """In-process Stage C judge: a local instruct LLM (e.g. Qwen2.5-3B-Instruct) via transformers.
+
+    Same contract as VLLMJudgeClient (DEC-006 Qwen family) without a separate server. Local
+    decoding has no grammar constraint (DEC-013), so the JSON schema goes in the prompt and the
+    first JSON object is returned; StageCJudge still validates it and retries up to 3 times.
+    ponytail: greedy decode, one claim at a time, behind the web server's global lock;
+    batch or move to vLLM if escalation volume grows.
+    """
+
+    def __init__(
+        self,
+        model_path: str,
+        device: Optional[str] = None,
+        max_new_tokens: int = 256,
+        system_prompt: Optional[str] = None,
+    ) -> None:
+        self.model_path = model_path
+        self.model_name = Path(model_path).name if Path(model_path).exists() else model_path
+        # A LoRA adapter dir (scripts/train_judge_lora.py) names its base model and uses the compact format.
+        cfg = Path(model_path) / "adapter_config.json"
+        self.adapter = json.loads(cfg.read_text(encoding="utf-8")) if cfg.is_file() else None
+        self.compact = bool(self.adapter)
+        self.device = device
+        self.max_new_tokens = int(max_new_tokens)
+        self.system_prompt = system_prompt or DEFAULT_STAGE_C_SYSTEM_PROMPT
+        self._model = None
+        self._tokenizer = None
+
+    def _load(self) -> None:
+        import torch
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+
+        base = self.adapter["base_model"] if self.adapter else self.model_path
+        self._tokenizer = AutoTokenizer.from_pretrained(base)
+        use_cuda = self.device != "cpu" and torch.cuda.is_available()
+        dtype = torch.float16 if use_cuda else torch.float32
+        if self.adapter:
+            # LoRA needs every base weight materialised on one device (offload would silently drop it):
+            # attach on CPU, then move the whole model; fall back to CPU if it does not fit in VRAM.
+            from clindoc.verify.lora import load_lora
+
+            self._model = AutoModelForCausalLM.from_pretrained(base, dtype=dtype)
+            load_lora(self._model, Path(self.model_path))
+            if use_cuda:
+                try:
+                    self._model.to("cuda")
+                except torch.cuda.OutOfMemoryError:
+                    self._model.to("cpu").float()
+                    torch.cuda.empty_cache()
+        else:
+            # Plain base model: accelerate spills layers to CPU RAM when it exceeds free VRAM.
+            self._model = AutoModelForCausalLM.from_pretrained(base, dtype=dtype, device_map="auto" if use_cuda else None)
+        self._model.eval()
+
+    def generate(self, prompt: str, schema: type[BaseModel]) -> str:
+        import torch
+
+        if self._model is None:
+            self._load()
+        messages = local_judge_messages(prompt, self.system_prompt, schema, compact=self.compact)
+        ids = self._tokenizer.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt")
+        ids = ids.to(self._model.device)
+        with torch.inference_mode():
+            out = self._model.generate(ids, attention_mask=torch.ones_like(ids), max_new_tokens=self.max_new_tokens,
+                                       do_sample=False, pad_token_id=self._tokenizer.eos_token_id)
+        text = self._tokenizer.decode(out[0, ids.shape[1]:], skip_special_tokens=True)
+        match = re.search(r"\{.*\}", text, re.DOTALL)
+        return match.group(0) if match else text
 
 
 class DefaultMockLLMJudge:
@@ -261,6 +337,7 @@ class StageCJudge:
         stage_a_label: Optional[str] = None,
         stage_b_label: Optional[str] = None,
         stage_b_confidence: Optional[float] = None,
+        claim_text: Optional[str] = None,
     ) -> StageCResult:
         """Perform Stage C adjudication with bounded retry and safe clinical fallback.
 
@@ -271,6 +348,8 @@ class StageCJudge:
             stage_a_label: Preceding Stage A verdict (if any).
             stage_b_label: Preceding Stage B verdict (if any).
             stage_b_confidence: Preceding Stage B confidence.
+            claim_text: Descriptive claim (clindoc.verify.claim_text), e.g. "Hematocrit: 37.9 %". Added as
+                an extra prompt line; omitted -> the frozen V1 prompt exactly.
 
         Returns:
             StageCResult containing verified label, calibrated confidence, contradiction_type, and rationale.
@@ -282,7 +361,9 @@ class StageCJudge:
             stage_a_label=stage_a_label,
             stage_b_label=stage_b_label,
             stage_b_confidence=stage_b_confidence,
+            claim_text=claim_text,
         )
+        prompt_version = STAGE_C_PROMPT_VERSION + ("+claim_text" if claim_text else "")
 
         model_name = getattr(self.client, "model_name", type(self.client).__name__)
         last_error: Optional[Exception] = None
@@ -306,7 +387,7 @@ class StageCJudge:
                     rationale=parsed_output.rationale,
                     attempts=attempt,
                     model_name=model_name,
-                    prompt_version=STAGE_C_PROMPT_VERSION,
+                    prompt_version=prompt_version,
                     is_fallback=False,
                     error=None,
                 )
@@ -325,7 +406,7 @@ class StageCJudge:
             ),
             attempts=self.max_attempts,
             model_name=model_name,
-            prompt_version=STAGE_C_PROMPT_VERSION,
+            prompt_version=prompt_version,
             is_fallback=True,
             error=f"{type(last_error).__name__}: {last_error}" if last_error else "unknown_error",
         )
@@ -338,6 +419,7 @@ class StageCJudge:
         stage_a_label: Optional[str],
         stage_b_label: Optional[str],
         stage_b_confidence: Optional[float],
+        claim_text: Optional[str] = None,
     ) -> str:
         """Construct user prompt strictly bounded by local evidence and document context."""
         ev_text = evidence.text if (evidence and evidence.text) else "None"
@@ -351,6 +433,7 @@ class StageCJudge:
             "[CLAIM CONTEXT]",
             f"- Field Type: {claim.field_type}",
             f"- Claim Representation: {claim.value}",
+            *([f"- Claim Text: {claim_text}"] if claim_text else []),
             f"- Numeric Value: {numeric_str}",
             f"- Unit: {claim.unit_raw or 'None'}",
             f"- Negated: {claim.negated}",

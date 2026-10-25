@@ -85,3 +85,15 @@ phase4_evaluator.zip
 
 # Static site build output (scripts/build_static_site.py)
 dist/
+
+# Stage C judge fine-tuning data and adapters (scripts/build_judge_dataset.py, train_judge_lora.py)
+data/judge_sft/
+data/judge_lora/
+
+# Promo videos (large binaries, kept out of git)
+ClinicalDoc_video/
+
+# Open-data Stage B training (regenerate: scripts/build_open_claims.py)
+data/open/
+data/m2_open/
+data/colab_bundle.zip

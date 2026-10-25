@@ -479,3 +479,34 @@ def test_stage_c_prompt_includes_lab_flag_tabular_instruction():
     assert "When evaluating lab.flag claims" not in prompt_med
 
 
+
+
+# ─── Local in-process judge (LocalTransformersJudgeClient) ───────────────────
+
+def test_local_transformers_judge_extracts_json_from_chatty_reply():
+    """The local client returns the JSON object even when the model adds prose; the judge accepts it."""
+    import torch
+    from clindoc.verify.stage_c import LocalTransformersJudgeClient
+
+    reply = ('Sure, here is my verdict:\n{"label": "SUPPORTED", "confidence": 0.9, '
+             '"contradiction_type": null, "rationale": "The evidence states Lisinopril 10mg."}\nDone.')
+
+    class StubTokenizer:
+        eos_token_id = 0
+        def apply_chat_template(self, messages, add_generation_prompt, return_tensors):
+            assert "JSON schema" in messages[-1]["content"]  # schema is in the prompt (no grammar locally)
+            return torch.tensor([[1, 2, 3]])
+        def decode(self, ids, skip_special_tokens):
+            return reply
+
+    class StubModel:
+        device = torch.device("cpu")
+        def generate(self, ids, **kwargs):
+            assert kwargs["do_sample"] is False  # greedy, deterministic
+            return torch.cat([ids, torch.tensor([[7, 8]])], dim=1)
+
+    client = LocalTransformersJudgeClient("stub-qwen", device="cpu")
+    client._model, client._tokenizer = StubModel(), StubTokenizer()
+    res = StageCJudge(client=client).judge(claim=_make_claim(), evidence=_make_evidence())
+    assert res.label == "SUPPORTED" and not res.is_fallback and res.attempts == 1
+    assert res.model_name == "stub-qwen"

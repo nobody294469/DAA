@@ -307,12 +307,12 @@ def test_evaluator_passes_page_text_and_expands_stage_c_context():
     claim, evidence = m2_example_to_claim_and_evidence(ex)
 
     # A) Direct verify without page_text: Stage C context_text is ONLY evidence.text
-    cascade.verify_claim_detailed(claim=claim, evidence=evidence, page_text=None)
+    cascade.verify_claim(claim=claim, evidence=evidence, page_text=None)
     prompt_without_pt = recording_client.recorded_prompts[-1]
     assert f"- Document Local Context Window: {ev_phrase}" in prompt_without_pt
 
     # B) Direct verify with page_text: Stage C context_text is expanded window
-    cascade.verify_claim_detailed(claim=claim, evidence=evidence, page_text=page_text_lab)
+    cascade.verify_claim(claim=claim, evidence=evidence, page_text=page_text_lab)
     prompt_with_pt = recording_client.recorded_prompts[-1]
     expected_window, _, _ = extract_context_window(page_text_lab, char_start, char_end, is_tabular=True)
     assert f"- Document Local Context Window: {expected_window}" in prompt_with_pt

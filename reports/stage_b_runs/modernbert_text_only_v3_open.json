@@ -1,0 +1,198 @@
+{
+  "run_name": "modernbert_text_only_v3_open",
+  "created_at": "2026-10-25T21:17:32+00:00",
+  "git_commit": null,
+  "base_model": "thomas-sounack/BioClinical-ModernBERT-base",
+  "device": "cuda",
+  "hardware": {
+    "gpu": "Tesla T4",
+    "vram_mb": 14912,
+    "torch": "2.11.0+cu130",
+    "transformers": "4.57.6",
+    "cuda": "13.0"
+  },
+  "config": {
+    "model_id": "thomas-sounack/BioClinical-ModernBERT-base",
+    "num_labels": 3,
+    "max_seq_length": 256,
+    "encoder_lr": 2e-05,
+    "head_lr": 0.0001,
+    "weight_decay": 0.01,
+    "warmup_fraction": 0.06,
+    "max_epochs": 6,
+    "early_stopping_patience": 2,
+    "batch_size": 32,
+    "seeds": [
+      42
+    ],
+    "freeze_lower_n_layers": 0,
+    "frozen_variant_n_layers": 8,
+    "use_aux": false,
+    "aux_dim": 18,
+    "aux_proj_dim": 64,
+    "aux_mode": "none",
+    "seed": 42,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 32,
+    "gradient_checkpointing": false,
+    "device": "cuda",
+    "device_name": "Tesla T4",
+    "gpu_mem_fraction": null,
+    "smoke": false,
+    "extra_train": [
+      "data/m2_open/train.jsonl"
+    ]
+  },
+  "dataset": {
+    "hashes": {
+      "data/m2_verification_v3/all_examples.jsonl": "40278c01848875382931a8a01397982ff6c00dfb7f588c30666b1ca8a66d6d16",
+      "data/m2_verification_v3/split_manifest.json": "cf41cc1d7e889f14cdcecf9ca2c411d54f2b737ddcfa280f6852b739050d2067",
+      "data/m2_verification/all_examples.jsonl": "ce924fa3921eedf2482c29279579ed010036273e608c399f38ce291c8306a2a8",
+      "data/m2_verification/split_manifest.json": "8a1ebd157188c4c4032dab297df4c53f9d2fc1dd58a52596a368cc7c676e4393"
+    },
+    "partition_counts": {
+      "train": 20078,
+      "validation": 883,
+      "calibration": 678,
+      "ood": 1826
+    }
+  },
+  "training": {
+    "duration_s": 1551.96,
+    "epochs_run": 4,
+    "best_epoch": 2,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.2913054986945858,
+        "val_loss": 0.06488482694008521,
+        "val_macro_f1": 0.9800802181894525,
+        "val_accuracy": 0.9886749716874292
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.024394599275009494,
+        "val_loss": 0.024251044062631472,
+        "val_macro_f1": 0.9841886917280455,
+        "val_accuracy": 0.9943374858437146
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.008599756449946618,
+        "val_loss": 0.026326160828050758,
+        "val_macro_f1": 0.9841886917280455,
+        "val_accuracy": 0.9943374858437146
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.003984757949064648,
+        "val_loss": 0.042269374275097756,
+        "val_macro_f1": 0.9833688536397837,
+        "val_accuracy": 0.9932049830124575
+      }
+    ]
+  },
+  "validation": {
+    "accuracy": 0.9943,
+    "macro_f1": 0.9842,
+    "discrepancy_recall": 1.0,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 362
+      },
+      "DISCREPANCY": {
+        "precision": 0.9892241379310345,
+        "recall": 1.0,
+        "f1": 0.9945828819068255,
+        "support": 459
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "precision": 1.0,
+        "recall": 0.9193548387096774,
+        "f1": 0.9579831932773109,
+        "support": 62
+      }
+    },
+    "confusion_matrix": [
+      [
+        362,
+        0,
+        0
+      ],
+      [
+        0,
+        459,
+        0
+      ],
+      [
+        0,
+        5,
+        57
+      ]
+    ],
+    "ece": 0.004,
+    "auroc_macro": null,
+    "auroc_discrepancy": 0.9988,
+    "brier_score": 0.0104
+  },
+  "calibration": {
+    "temperature": 1.0611683130264282,
+    "ece_before": 0.002,
+    "ece_after": 0.002,
+    "nll_before": 0.0455906055867672,
+    "nll_after": 0.045116156339645386
+  },
+  "ood": {
+    "accuracy": 0.9622,
+    "macro_f1": 0.9572,
+    "discrepancy_recall": 0.998,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.9926362297496318,
+        "recall": 0.9245541838134431,
+        "f1": 0.9573863636363636,
+        "support": 729
+      },
+      "DISCREPANCY": {
+        "precision": 0.9384615384615385,
+        "recall": 0.9979550102249489,
+        "f1": 0.9672943508424182,
+        "support": 978
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "precision": 1.0,
+        "recall": 0.8991596638655462,
+        "f1": 0.9469026548672567,
+        "support": 119
+      }
+    },
+    "confusion_matrix": [
+      [
+        674,
+        55,
+        0
+      ],
+      [
+        2,
+        976,
+        0
+      ],
+      [
+        3,
+        9,
+        107
+      ]
+    ],
+    "ece": 0.0308,
+    "auroc_macro": null,
+    "auroc_discrepancy": 0.9585,
+    "brier_score": 0.0746
+  },
+  "checkpoint": {
+    "path": "data/m2_results_v3/checkpoints/modernbert_text_only_v3_open_fold0_seed42.pt",
+    "size_bytes": 596114635
+  }
+}

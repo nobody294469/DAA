@@ -11,14 +11,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
   <link rel="stylesheet" href="/assets/css/app.css">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}</script>
   <style>
     /* Docs-only layout; components come from app.css. */
     .docs-toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
     .docs-toc a { display: flex; align-items: center; min-height: 40px; padding: 0 var(--space-3); border-radius: var(--radius); color: var(--color-text-2); text-decoration: none; font-size: var(--text-sm); font-weight: 600; }
     .docs-toc a:hover { background: var(--color-surface-2); color: var(--color-text); }
     .docs-toc a[aria-current="true"] { background: var(--color-primary-soft); color: var(--color-primary); }
-    .docs-toc__title { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); margin: 0 0 var(--space-2) var(--space-3); }
-    @media (max-width: 1023.98px) { .docs-toc ol { flex-direction: row; flex-wrap: wrap; } .docs-toc a { min-height: 44px; border: 1px solid var(--color-border); } }
+    .docs-toc__title { font-size: var(--text-xs); font-weight: 600; color: var(--color-text-muted); margin: 0 0 var(--space-2) var(--space-3); }
+    @media (max-width: 1023.98px) { .docs-toc ol { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; } .docs-toc a { flex: none; min-height: 44px; border: 1px solid var(--color-border); } }
     @media (pointer: coarse) { .docs-toc a { min-height: 44px; } }
     .docs-section { display: flex; flex-direction: column; gap: var(--space-4); scroll-margin-top: calc(var(--header-h) + var(--space-4)); }
     .docs-section > h2 { padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }

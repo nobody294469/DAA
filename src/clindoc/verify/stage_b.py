@@ -248,10 +248,6 @@ class LearnedVerifier:
         self._tokenizer, self._model, self._device = tokenizer, model, device
         self._base_model_id, self._max_seq_length = base_model_id, max_seq_length
 
-    def _lazy_load_model(self) -> bool:
-        """Deprecated alias for load_model() retained for backward compatibility."""
-        return self.load_model()
-
     def verify(
         self,
         claim: Claim,

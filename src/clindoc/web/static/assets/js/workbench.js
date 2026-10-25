@@ -212,13 +212,11 @@ async function run() {
   const name = input.sample || input.file.name;
   announce(`Processing ${name}.`);
   const t0 = performance.now();
-  let step = 0;
-  renderSteps({ current: 0 });
+  // /api/process is one synchronous call, so per-step progress is unknown until it returns:
+  // show an honest indeterminate wait, then fill every step with its real result (loading.md).
+  renderSteps({});
   const timer = setInterval(() => {
-    const dt = performance.now() - t0;
-    $('elapsed').textContent = `Elapsed ${(dt / 1000).toFixed(1)} s`;
-    const next = Math.min(3, Math.floor(dt / 450));
-    if (next !== step) { step = next; renderSteps({ current: step, done: step - 1 }); }
+    $('elapsed').textContent = `Processing… ${((performance.now() - t0) / 1000).toFixed(1)} s`;
   }, 100);
   try {
     const body = new FormData();
@@ -238,7 +236,8 @@ async function run() {
     setQuery({ run: data.run_id, sample: input.sample || null });
     await showResults(data);
     announce(`Done. ${plural(data.summary.n_claims, 'claim')} verified in ${ms(data.elapsed_ms)}: ${data.summary.n_supported} supported, ${data.summary.n_discrepancy} discrepancies, ${data.summary.n_insufficient_evidence} insufficient evidence.`);
-    $('results-title').focus();
+    $('results-title').focus({ preventScroll: true });
+    $('results').scrollIntoView({ block: 'start', behavior: smooth() });
   } catch (err) {
     clearInterval(timer);
     const at = errorStep(err);
@@ -301,7 +300,8 @@ async function showResults(run) {
   ['dl-fhir', 'dl-fhir-2'].forEach((id) => { $(id).href = run.downloads.fhir_bundle; });
   ['dl-audit', 'dl-audit-2'].forEach((id) => { $(id).href = run.downloads.audit_report; });
 
-  const notes = [...(run.warnings || [])];
+  // Stage B/C serving-mode warnings are already in the page's serving banner; show only run-specific notes.
+  const notes = (run.warnings || []).filter((w) => !/^Stage [BC]\b/.test(w));
   if (!run.fhir.valid) notes.push(`The FHIR bundle has ${plural(run.fhir.errors.length, 'validation issue')}; see the FHIR bundle tab.`);
   $('warnings').innerHTML = notes.length
     ? `<div class="alert alert--warning">${icon('alert-triangle')}<div class="alert__body"><p class="alert__title">Notes on this run</p><ul class="wb-bullets">${notes.map((w) => `<li>${escapeHtml(w)}</li>`).join('')}</ul></div></div>` : '';
@@ -331,7 +331,21 @@ async function showResults(run) {
   initFilters();
   initViewer();
   applyFilters();
+  collapseInput(run.document_id);
 }
+
+/** Fold the document picker to one line once results exist, so results lead the page (layout.md › Visual hierarchy). */
+function collapseInput(name) {
+  $('input-summary-name').textContent = name;
+  $('input-summary').hidden = false;
+  document.querySelector('.wb-input').classList.add('is-collapsed');
+}
+
+$('change-doc').addEventListener('click', () => {
+  $('input-summary').hidden = true;
+  document.querySelector('.wb-input').classList.remove('is-collapsed');
+  document.querySelector('#input-tabs [role="tab"][aria-selected="true"]')?.focus();
+});
 
 /* ---------------------------------------------------------------------- */
 /* Claim filters + list                                                    */
@@ -700,6 +714,7 @@ async function boot() {
   if (runId) {
     try {
       await showResults(await api(`/api/runs/${encodeURIComponent(runId)}`));
+      $('results').scrollIntoView({ block: 'start', behavior: smooth() });
       await samplesLoaded;
       if (state.run && state.samples.some((s) => s.id === state.run.document_id)) selectSample(state.run.document_id);
       return;

@@ -1,6 +1,6 @@
 /**
  * Clindoc2FHIR web — shared runtime helpers (ES module, no dependencies, no side effects on import).
- * Authority: HTTP API contract (src/clindoc/web/app.py) and the component gallery at /styleguide.html.
+ * Authority: HTTP API contract (src/clindoc/web/app.py); design tokens and components in assets/css/app.css.
  *
  * Typical page bootstrap:
  *   import { mountShell, api, renderError } from '/assets/js/core.js';
@@ -237,14 +237,16 @@ export function servingSummary(health) {
   const b = health?.stage_b || {};
   const c = health?.stage_c || {};
   const bReal = b.mode === 'modernbert';
-  const cReal = c.mode === 'vllm';
+  const cReal = c.mode === 'vllm' || c.mode === 'local';
   const bDetail = bReal
     ? [basename(b.checkpoint), b.device, isNum(b.temperature) ? `T = ${b.temperature.toFixed(3)}` : ''].filter(Boolean).join(' · ')
     : b.load_error || 'No trained checkpoint loaded.';
+  const cLabel = c.mode === 'local' ? `Local ${c.model || 'LLM'}` : cReal ? `vLLM ${c.model || ''}`.trim() : 'Mock judge';
+  const cDetail = c.mode === 'local' ? 'In-process LLM judge on this machine.' : cReal ? c.base_url || '' : 'No LLM judge configured.';
   return {
     live: bReal && cReal,
     stageB: { real: bReal, label: bReal ? 'ModernBERT (trained checkpoint)' : 'Heuristic fallback', detail: bDetail },
-    stageC: { real: cReal, label: cReal ? `vLLM ${c.model || ''}`.trim() : 'Mock judge', detail: cReal ? c.base_url || '' : 'No vLLM endpoint configured.' },
+    stageC: { real: cReal, label: cLabel, detail: cDetail },
     extractionReal: health?.extraction_llm?.mode === 'vllm',
   };
 }
@@ -290,7 +292,7 @@ export function renderServingBanner(el, { stages = ['B', 'C'] } = {}) {
       }
       if (stages.includes('C') && !s.stageC.real) {
         parts.push(alert('warning', 'alert-triangle', 'Stage C is the mock judge',
-          'No vLLM endpoint is configured. Escalated claims receive a deterministic placeholder verdict, not a Qwen judgement.'));
+          'No LLM judge is configured (start the server with --llm or a vLLM endpoint). Escalated claims receive a deterministic placeholder verdict, not a Qwen judgement.'));
       }
       if (!parts.length) {
         const live = [stages.includes('B') && `Stage B: ${escapeHtml(s.stageB.label)} (${escapeHtml(s.stageB.detail)})`, stages.includes('C') && `Stage C: ${escapeHtml(s.stageC.label)}`].filter(Boolean).join('; ');
@@ -598,38 +600,54 @@ export function initDropzone(zone, onFiles) {
 /* ------------------------------------------------------------------------ */
 
 const THEME_KEY = 'clindoc-theme';
-// Light is the default whatever the OS says; dark only when the reader picks it.
-const THEMES = ['light', 'dark'];
-const THEME_ICON = { light: 'moon', dark: 'sun' };
+// 'auto' (default) follows the system appearance (dark-mode.md); light/dark are explicit overrides.
+const THEMES = ['auto', 'light', 'dark'];
+const THEME_ICON = { auto: 'monitor', light: 'sun', dark: 'moon' };
+const THEME_LABEL = { auto: 'match system', light: 'light', dark: 'dark' };
+const systemDark = typeof matchMedia === 'function' ? matchMedia('(prefers-color-scheme: dark)') : null;
 
-/** Stored theme preference: 'light' (default) | 'dark'. */
+/** Stored theme preference: 'auto' (default) | 'light' | 'dark'. */
 export function getTheme() {
   try {
-    return localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light';
+    const t = localStorage.getItem(THEME_KEY);
+    return t === 'light' || t === 'dark' ? t : 'auto';
   } catch {
-    return 'light';
+    return 'auto';
   }
 }
 
-/** Apply and persist a theme; dispatches window 'themechange'. */
-export function setTheme(theme) {
-  const t = theme === 'dark' ? 'dark' : 'light';
-  if (t === 'light') delete document.documentElement.dataset.theme;
-  else document.documentElement.dataset.theme = t;
-  try {
-    if (t === 'light') localStorage.removeItem(THEME_KEY);
-    else localStorage.setItem(THEME_KEY, t);
-  } catch { /* storage blocked: theme still applies for this page */ }
+/** The appearance actually shown: the preference, or the system setting when 'auto'. */
+export function effectiveTheme(pref = getTheme()) {
+  return pref === 'auto' ? (systemDark?.matches ? 'dark' : 'light') : pref;
+}
+
+function applyTheme() {
+  const t = effectiveTheme();
+  document.documentElement.dataset.theme = t;
   syncThemeButtons();
   window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: t } }));
 }
 
+/** Persist a preference ('auto' | 'light' | 'dark') and apply it; dispatches window 'themechange'. */
+export function setTheme(pref) {
+  const p = THEMES.includes(pref) ? pref : 'auto';
+  try {
+    if (p === 'auto') localStorage.removeItem(THEME_KEY);
+    else localStorage.setItem(THEME_KEY, p);
+  } catch { /* storage blocked: theme still applies for this page */ }
+  applyTheme();
+}
+
+// Follow live system changes (e.g. Auto appearance at sunset) while the preference is 'auto'.
+systemDark?.addEventListener?.('change', () => { if (getTheme() === 'auto') applyTheme(); });
+
 function syncThemeButtons() {
-  const t = getTheme();
-  const next = THEMES[(THEMES.indexOf(t) + 1) % THEMES.length];
+  const p = getTheme();
+  const next = THEMES[(THEMES.indexOf(p) + 1) % THEMES.length];
   document.querySelectorAll('[data-theme-toggle]').forEach((b) => {
-    b.innerHTML = icon(THEME_ICON[t]);
-    b.setAttribute('aria-label', `Colour theme: ${t}. Switch to ${next}.`);
+    b.innerHTML = icon(THEME_ICON[p]);
+    b.setAttribute('aria-label', `Colour theme: ${THEME_LABEL[p]}. Switch to ${THEME_LABEL[next]}.`);
+    b.title = `Theme: ${THEME_LABEL[p]}`;
   });
 }
 
@@ -707,7 +725,6 @@ export function mountShell() {
     <li><a href="/docs.html">Documentation</a></li>
     <li><a href="/results.html">Benchmark results</a></li>
     <li><a href="/model.html">Model card</a></li>
-    <li><a href="/styleguide.html">Style guide</a></li>
   </ul>
 </div>`;
   }

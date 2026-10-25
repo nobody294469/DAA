@@ -330,10 +330,9 @@ Downstream interoperability was evaluated across all 34 OOD documents (1,826 cla
 │   ├── m2/                           # ModernBERT dataset, model, and metrics
 │   ├── normalize/                    # LOINC, RxNorm, and UCUM normalizers
 │   ├── ocr/                          # DocumentText schema, ingestion, and OCR
-│   ├── ui/                           # Streamlit reviewer application
+│   ├── web/                          # FastAPI app + static website (clindoc serve)
 │   └── verify/                       # Verification cascade orchestrator
 ├── tests/                            # Automated unit, integration, evaluation, and schema tests
-├── app.py                            # Streamlit application entry point
 ├── pyproject.toml                    # Package metadata and dependencies
 └── uv.lock                           # Locked dependency tree
 ```
@@ -360,7 +359,7 @@ source .venv/bin/activate       # On Linux/macOS
 .venv\Scripts\activate          # On Windows
 
 # Install package and dependencies
-pip install -e .[ml,ui,ocr,dev]
+pip install -e .[ml,web,ocr,dev]
 ```
 
 ### 1. Process a Single Clinical Document
@@ -377,10 +376,10 @@ Outputs:
 clindoc batch data/rendered/ --output-dir output/batch_run/ --pattern "*.pdf"
 ```
 
-### 3. Launch the Streamlit Reviewer UI
-Launch the visual audit interface to inspect extracted claims, source bounding boxes, and cascade verification rationales:
+### 3. Launch the Web App
+Run the website and JSON API (workbench, playground, explorer, results, model card) at http://127.0.0.1:8000:
 ```bash
-streamlit run app.py
+clindoc serve --checkpoint data/m2_results_v3/checkpoints/<run>.pt
 ```
 
 ### 4. Run the Automated Test Suite

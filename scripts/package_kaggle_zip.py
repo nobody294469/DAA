@@ -33,7 +33,6 @@ INCLUDE_ROOT_FILES = {
     "README.md",
     "PHASE0_ARCHITECTURE_RESOLUTION.md",
     "PHASE0_DECISION_RESOLUTION_PACKAGE.md",
-    "app.py",
     "pyproject.toml",
     "uv.lock",
     ".gitignore",

@@ -148,6 +148,9 @@ def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
     p.add_argument("--smoke", action="store_true",
                    help="tiny end-to-end check: 48/24/24/32 examples, 1 epoch, batch 4, temp output dir, no model card")
     p.add_argument("--no-model-card", action="store_true", help="do not write reports/stage_b_runs/<run-name>.json")
+    p.add_argument("--extra-train", type=Path, action="append", default=[],
+                   help="extra M2Example JSONL appended to the V3 train split, e.g. data/m2_open/train.jsonl "
+                        "(scripts/build_open_claims.py); V3 validation/calibration/OOD stay untouched")
     args = p.parse_args(argv)
     if args.gpu_mem_fraction is not None and args.device == "cpu":
         p.error("--gpu-mem-fraction needs a CUDA device")
@@ -311,6 +314,12 @@ def main(argv: Optional[list[str]] = None) -> int:
         if not docs[a].isdisjoint(docs[b]):
             raise ValueError(f"document leakage between {a} and {b}")
     print(f"  Partitions {counts}; document-level isolation VERIFIED")
+    for path in args.extra_train:
+        extra = load_examples(path)
+        if not {e.source_doc_id for e in extra}.isdisjoint(set().union(*docs.values())):
+            raise ValueError(f"{path} shares documents with the V3 benchmark")
+        parts["train"] = parts["train"] + extra
+        print(f"  + {len(extra)} extra train examples from {path}")
 
     max_epochs, batch_size = args.max_epochs, args.batch_size
     if args.smoke:
@@ -356,6 +365,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         "device_name": hw["gpu"] or "cpu",
         "gpu_mem_fraction": args.gpu_mem_fraction,
         "smoke": args.smoke,
+        "extra_train": [_repo_rel(Path(x)) for x in args.extra_train],
     }
     print("\nConfiguration:")
     for k, v in train_cfg.items():

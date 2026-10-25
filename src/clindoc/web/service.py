@@ -41,7 +41,7 @@ from clindoc.ocr.ingest import IngestionError, OCREngineError, UnsupportedFileTy
 from clindoc.verify.cascade import VerificationCascade
 from clindoc.verify.claim_text import build_claim_text
 from clindoc.verify.stage_b import LearnedVerifier
-from clindoc.verify.stage_c import StageCJudge, VLLMJudgeClient
+from clindoc.verify.stage_c import LocalTransformersJudgeClient, StageCJudge, VLLMJudgeClient
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 SAMPLE_DIRS = {
@@ -118,10 +118,15 @@ def components() -> Components:
             device = os.environ.get("CLINDOC_DEVICE", "cpu").strip() or "cpu"
             stage_b = LearnedVerifier(model_path=ckpt, device=None if device == "auto" else device)
             base_url = os.environ.get("CLINDOC_VLLM_BASE_URL", "").strip() or None
+            local_llm = os.environ.get("CLINDOC_LLM_MODEL", "").strip() or None
             if base_url:
                 model = os.environ.get("CLINDOC_VLLM_MODEL", "").strip()
                 client = VLLMJudgeClient(base_url=base_url, **({"model_name": model} if model else {}))
                 stage_c = StageCJudge(client=client)
+            elif local_llm:  # in-process judge, e.g. ~/.cache/clindoc/Qwen2.5-3B-Instruct
+                llm_device = os.environ.get("CLINDOC_LLM_DEVICE", "auto").strip() or "auto"
+                stage_c = StageCJudge(client=LocalTransformersJudgeClient(
+                    local_llm, device=None if llm_device == "auto" else llm_device))
             else:
                 stage_c = StageCJudge()
             _components = Components(
@@ -153,7 +158,9 @@ def stage_b_status() -> dict[str, Any]:
 
 def stage_c_status() -> dict[str, Any]:
     c = components()
-    return {"mode": "vllm" if c.vllm_base_url else "mock",
+    client = c.cascade.stage_c.client
+    mode = "vllm" if c.vllm_base_url else "local" if isinstance(client, LocalTransformersJudgeClient) else "mock"
+    return {"mode": mode,
             "model": getattr(c.cascade.stage_c.client, "model_name", None), "base_url": c.vllm_base_url}
 
 
@@ -168,7 +175,7 @@ def warnings() -> list[str]:
         out.append("Stage B is running the offline heuristic (no ModernBERT checkpoint loaded); "
                    "Tier 1 verdicts are not model predictions.")
     if stage_c_status()["mode"] == "mock":
-        out.append("Stage C is the offline mock judge (no vLLM endpoint configured); escalated verdicts "
+        out.append("Stage C is the offline mock judge (no LLM judge configured); escalated verdicts "
                    "and rationales are placeholders.")
     return out
 

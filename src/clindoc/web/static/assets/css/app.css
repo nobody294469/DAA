@@ -3,9 +3,8 @@
  * Direction: printed clinical lab report. Warm paper, near-black ink, one desaturated teal accent,
  *            1px hairline rules instead of shadows, radii 2-6px (no pills). Figtree (headings
  *            headings), IBM Plex Sans (UI/body), IBM Plex Mono (values, codes, IDs, labels).
- *            Light by default; dark (charcoal) only via [data-theme="dark"].
+ *            Follows the system appearance; core.js sets [data-theme] (auto, or the reader's override).
  *            + dataviz rules (one axis, thin marks, recessive chrome, text in text tokens).
- * Living gallery with copy-ready markup: /styleguide.html
  *
  * TABLE OF CONTENTS
  *   01  Tokens — light (default)
@@ -129,7 +128,7 @@
   --font-body: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "Figtree", system-ui, sans-serif; /* labels, tags, figures: sans with tabular numbers */
   --font-code: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace; /* real code, JSON, evidence text */
-  --text-xs: 0.78125rem;  /* 12.5px: tags, chart ticks, mono labels */
+  --text-xs: 0.8125rem;   /* 13px: tags, labels, footnotes (raised from 12.5px for legibility) */
   --text-sm: 0.875rem;    /* 14px: tables, help text */
   --text-base: 1rem;      /* 16px: body */
   --text-lg: 1.1875rem;
@@ -1232,4 +1231,24 @@ a.status-pill:hover { border-color: var(--color-primary); color: var(--color-tex
   .specimen tr.is-traced td { background-size: 100% 100%; }
   .btn:hover:not(:disabled), .btn:active:not(:disabled) { transform: none; }
   .js-reveal .reveal:not(.is-visible) > * { opacity: 1; transform: none; }
+}
+/* ========================================================================== */
+/* 26  Review fixes: line length, mobile contents bar, increased contrast       */
+/* ========================================================================== */
+/* Prose stays near 60-75 characters per line on wide screens. */
+.chart-card__subtitle, .chart-card__source, .wb-panel > p { max-width: 72ch; }
+
+/* Long pages on phones: the "On this page" contents stay one tap away while scrolling. */
+@media (max-width: 1023.98px) {
+  .res-toc, .docs-toc { position: sticky; top: var(--header-h); z-index: 5; background: var(--color-bg); }
+  .res-toc details[open] ol { max-height: 60vh; overflow-y: auto; }
+  .docs-toc { padding-block: var(--space-2); border-bottom: 1px solid var(--color-border); }
+  .docs-toc ol { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+  .docs-toc a { flex: none; }
+}
+
+/* System "Increase contrast" (color.md: colours must work in increased-contrast contexts). */
+@media (prefers-contrast: more) {
+  :root { --color-text-2: var(--color-text); --color-text-muted: #3F3E39; --color-border: #8C877B; }
+  :root[data-theme="dark"] { --color-text-2: var(--color-text); --color-text-muted: #D9D6CD; --color-border: #8A877E; }
 }

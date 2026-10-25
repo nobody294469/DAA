@@ -337,7 +337,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         help="Optional glob pattern to filter files (e.g. '*.pdf', '*.json')",
     )
 
-    # clindoc serve [--host 127.0.0.1] [--port 8000] [--checkpoint PATH|none] [--device cpu|cuda|auto]
+    # clindoc serve [--host 127.0.0.1] [--port 8000] [--checkpoint PATH|none] [--device cpu|cuda|auto] [--llm PATH]
     serve_parser = subparsers.add_parser("serve", help="Run the web UI and JSON API (FastAPI + uvicorn)")
     serve_parser.add_argument("--host", default="127.0.0.1", help="Bind address (default: 127.0.0.1)")
     serve_parser.add_argument("--port", type=int, default=8000, help="Port (default: 8000)")
@@ -348,6 +348,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     )
     serve_parser.add_argument("--device", choices=["cpu", "cuda", "auto"], default=None,
                               help="Stage B device (default: env CLINDOC_DEVICE, else cpu)")
+    serve_parser.add_argument("--llm", default=None,
+                              help="Stage C judge: local instruct model dir or hub id run in-process "
+                                   "(default: env CLINDOC_LLM_MODEL, else the mock judge)")
     serve_parser.add_argument("--reload", action="store_true", help="Reload on code changes (development only)")
 
     args = parser.parse_args(argv)
@@ -392,6 +395,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 os.environ["CLINDOC_STAGE_B_CHECKPOINT"] = args.checkpoint
             if args.device is not None:
                 os.environ["CLINDOC_DEVICE"] = args.device
+            if args.llm is not None:
+                os.environ["CLINDOC_LLM_MODEL"] = args.llm
             uvicorn.run("clindoc.web.app:app", host=args.host, port=args.port, reload=args.reload)
             return 0
 

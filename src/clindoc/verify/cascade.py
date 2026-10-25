@@ -71,17 +71,6 @@ class VerificationCascade:
         res = self.verify_claim(claim=claim, evidence=evidence, page_text=page_text, claim_text=claim_text)
         return res, self.last_stage_a_result, self.last_stage_b_result, self.last_stage_c_result
 
-    def verify_claim_detailed(
-        self,
-        claim: Claim,
-        evidence: Optional[Evidence] = None,
-        page_text: Optional[str] = None,
-        claim_text: Optional[str] = None,
-    ) -> tuple[VerificationResult, Optional[StageBResult]]:
-        """Verify a single Claim and return both the canonical VerificationResult and StageBResult."""
-        res = self.verify_claim(claim=claim, evidence=evidence, page_text=page_text, claim_text=claim_text)
-        return res, self.last_stage_b_result
-
     def verify_claim(
         self,
         claim: Claim,
@@ -185,6 +174,7 @@ class VerificationCascade:
                 stage_a_label=stage_a_res.label,
                 stage_b_label=stage_b_res.label,
                 stage_b_confidence=stage_b_res.calibrated_confidence,
+                claim_text=claim_text,
             )
             self.last_stage_c_result = stage_c_res
 
