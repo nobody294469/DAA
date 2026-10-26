@@ -263,7 +263,8 @@ export function renderServingPill(el) {
   return getHealth().then(
     (h) => {
       const s = servingSummary(h);
-      set(s.live ? 'is-live' : 'is-fallback', `Stage B: ${s.stageB.real ? 'ModernBERT' : 'heuristic fallback'} · Stage C: ${s.stageC.real ? 'vLLM' : 'mock judge'}`);
+      const judge = h?.stage_c?.mode === 'local' ? 'local LLM' : s.stageC.real ? 'vLLM' : 'mock judge';
+      set(s.live ? 'is-live' : 'is-fallback', `Stage B: ${s.stageB.real ? 'ModernBERT' : 'heuristic fallback'} · Stage C: ${judge}`);
       return h;
     },
     () => { set('is-offline', 'API offline'); return null; },
