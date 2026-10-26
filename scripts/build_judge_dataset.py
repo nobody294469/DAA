@@ -6,7 +6,11 @@ splits). Each example is rendered with the live StageCJudge prompt builder + loc
 they stay the held-out test (eval/eval_local_judge.py-style scoring on escalated OOD claims).
 Rationales are short templates (the benchmark has no human rationales); labels are the real targets.
 
+--open-per-source adds label-balanced claims from the open note corpora (scripts/build_open_claims.py);
+--flag-copies repeats SUPPORTED lab.flag claims, the judge's weakest case on escalated OOD claims.
+
 Usage (repo root):  $env:PYTHONPATH="src"; python scripts/build_judge_dataset.py [--out data/judge_sft]
+  v2 judge set:     ... --out data/judge_sft_v2 --open-per-source 400 --flag-copies 3
 """
 from __future__ import annotations
 
@@ -14,6 +18,7 @@ import argparse
 from collections import Counter
 import json
 from pathlib import Path
+import random
 import re
 
 from clindoc.extract.contracts import BBoxModel, Claim, Evidence
@@ -23,6 +28,7 @@ from clindoc.verify.stage_c import DEFAULT_STAGE_C_SYSTEM_PROMPT, StageCJudge, S
 
 REPO = Path(__file__).resolve().parents[1]
 V3 = REPO / "data" / "m2_verification_v3"
+OPEN = REPO / "data" / "m2_open"
 _NUM_UNIT = re.compile(r"^(-?[\d.,]+)\s*(.*)$")
 
 RATIONALE = {
@@ -66,15 +72,37 @@ def to_example(ex) -> dict:
             "response": target.model_dump_json()}
 
 
+def open_sample(per_source: int, seed: int) -> list:
+    """Label-balanced sample of the open-note train claims (scripts/build_open_claims.py output)."""
+    rng = random.Random(seed)
+    out = []
+    for path in sorted(OPEN.glob("*_train.jsonl")):
+        by = {}
+        for ex in load_examples(path):
+            by.setdefault(ex.label, []).append(ex)
+        share = {"SUPPORTED": 0.45, "DISCREPANCY": 0.45, "INSUFFICIENT_EVIDENCE": 0.10}
+        for label, rows in sorted(by.items()):
+            out += rng.sample(rows, min(len(rows), round(per_source * share[label])))
+    return out
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--out", type=Path, default=REPO / "data" / "judge_sft")
+    ap.add_argument("--open-per-source", type=int, default=0,
+                    help="add N label-balanced train claims from each data/m2_open/<source>_train.jsonl")
+    ap.add_argument("--flag-copies", type=int, default=1,
+                    help="copies of each SUPPORTED lab.flag train claim (the judge's weak spot on OOD)")
+    ap.add_argument("--seed", type=int, default=42)
     args = ap.parse_args()
     examples = load_examples(V3 / "all_examples.jsonl")
     manifest = json.loads((V3 / "split_manifest.json").read_text(encoding="utf-8"))
     args.out.mkdir(parents=True, exist_ok=True)
-    for name, rows in (("train", load_train_examples(examples, manifest)),
-                       ("validation", load_validation_examples(examples, manifest))):
+    train = load_train_examples(examples, manifest)
+    train += [ex for ex in train if ex.field_type == "lab.flag" and ex.label == "SUPPORTED"] * (args.flag_copies - 1)
+    train += open_sample(args.open_per_source, args.seed) if args.open_per_source else []
+    random.Random(args.seed).shuffle(train)
+    for name, rows in (("train", train), ("validation", load_validation_examples(examples, manifest))):
         built = [to_example(ex) for ex in rows]
         with open(args.out / f"{name}.jsonl", "w", encoding="utf-8") as f:
             for b in built:

@@ -97,3 +97,6 @@ ClinicalDoc_video/
 data/open/
 data/m2_open/
 data/colab_bundle.zip
+data/colab_judge_bundle.zip
+data/colab_adapter_parts/
+data/judge_sft_v2/
