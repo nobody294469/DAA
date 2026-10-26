@@ -510,3 +510,14 @@ def test_local_transformers_judge_extracts_json_from_chatty_reply():
     res = StageCJudge(client=client).judge(claim=_make_claim(), evidence=_make_evidence())
     assert res.label == "SUPPORTED" and not res.is_fallback and res.attempts == 1
     assert res.model_name == "stub-qwen"
+
+
+def test_adapter_base_model_is_portable(tmp_path, monkeypatch):
+    from clindoc.verify.stage_c import adapter_base_model
+
+    assert adapter_base_model(str(tmp_path)) == str(tmp_path)  # recorded path exists
+    monkeypatch.setattr("pathlib.Path.home", lambda: tmp_path)
+    assert adapter_base_model(r"C:\Users\x\.cache\clindoc\Qwen2.5-1.5B-Instruct") == "Qwen/Qwen2.5-1.5B-Instruct"
+    (tmp_path / ".cache" / "clindoc" / "Qwen2.5-1.5B-Instruct").mkdir(parents=True)
+    assert adapter_base_model("/train/box/Qwen2.5-1.5B-Instruct").endswith("Qwen2.5-1.5B-Instruct")
+    assert adapter_base_model("/train/box/Qwen2.5-1.5B-Instruct").startswith(str(tmp_path))

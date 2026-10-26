@@ -1252,3 +1252,27 @@ a.status-pill:hover { border-color: var(--color-primary); color: var(--color-tex
   :root { --color-text-2: var(--color-text); --color-text-muted: #3F3E39; --color-border: #8C877B; }
   :root[data-theme="dark"] { --color-text-2: var(--color-text); --color-text-muted: #D9D6CD; --color-border: #8A877E; }
 }
+
+/* ========================================================================== */
+/* 27  Google sign-in (only when the server sets CLINDOC_GOOGLE_CLIENT_ID)     */
+/* ========================================================================== */
+.auth-locked body { overflow: hidden; }
+.auth-locked main, .auth-locked footer[data-shell] { visibility: hidden; }
+.auth-gate {
+  position: fixed; inset: var(--header-h) 0 0; z-index: var(--z-drawer);
+  display: grid; place-items: center; padding: var(--space-4); background: var(--color-bg);
+}
+.auth-gate__card {
+  width: min(100%, 26rem); padding: var(--space-7) var(--space-6); text-align: center; align-items: center;
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+.auth-gate__title { font-size: var(--text-2xl); margin: 0; }
+.auth-gate__lede { color: var(--color-text-muted); margin: 0; }
+.auth-gate__button { min-height: 44px; }
+.auth-gate__error { color: var(--color-danger); margin: 0; min-height: 1.5em; font-size: var(--text-sm); }
+.site-header__user {
+  display: none; max-width: 14ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: var(--text-sm); color: var(--color-text-2);
+}
+@media (min-width: 768px) { .site-header__user { display: inline-block; } }

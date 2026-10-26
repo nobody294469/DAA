@@ -31,6 +31,8 @@ web = [
     "fastapi>=0.115",
     "uvicorn[standard]>=0.30",
     "python-multipart>=0.0.9",
+    "httpx>=0.27",         # Google sign-in token check, vLLM judge client
+    "itsdangerous>=2.1",   # signed session cookie (Starlette SessionMiddleware)
 ]
 ocr = [
     "paddleocr>=2.7.0",

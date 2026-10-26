@@ -188,6 +188,20 @@ def local_judge_messages(prompt: str, system_prompt: str, schema: type[BaseModel
     return [{"role": "system", "content": system_prompt}, {"role": "user", "content": user}]
 
 
+def adapter_base_model(recorded: str) -> str:
+    """Base model dir for a LoRA adapter, portable across machines.
+
+    adapter_config.json records the training machine's path (e.g. C:\\Users\\...\\Qwen2.5-1.5B-Instruct).
+    Order: that path if it exists -> ~/.cache/clindoc/<name> -> hub id Qwen/<name>.
+    ponytail: the hub fallback assumes a Qwen-family base (DEC-006); record a hub id if that changes.
+    """
+    if Path(recorded).is_dir():
+        return recorded
+    name = recorded.replace("\\", "/").rstrip("/").rsplit("/", 1)[-1]
+    local = Path.home() / ".cache" / "clindoc" / name
+    return str(local) if local.is_dir() else f"Qwen/{name}"
+
+
 class LocalTransformersJudgeClient:
     """In-process Stage C judge: a local instruct LLM (e.g. Qwen2.5-3B-Instruct) via transformers.
 
@@ -221,7 +235,7 @@ class LocalTransformersJudgeClient:
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
 
-        base = self.adapter["base_model"] if self.adapter else self.model_path
+        base = adapter_base_model(self.adapter["base_model"]) if self.adapter else self.model_path
         self._tokenizer = AutoTokenizer.from_pretrained(base)
         use_cuda = self.device != "cpu" and torch.cuda.is_available()
         dtype = torch.float16 if use_cuda else torch.float32

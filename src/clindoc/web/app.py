@@ -26,9 +26,10 @@ from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 import pymupdf
+from starlette.middleware.sessions import SessionMiddleware
 
 from clindoc.extract.contracts import FieldType
-from clindoc.web import __version__, service
+from clindoc.web import __version__, auth, service
 from clindoc.web.service import KIND_BY_PREFIX, REPO_ROOT, sample_pdf
 
 logger = logging.getLogger(__name__)
@@ -160,6 +161,10 @@ def model_cards() -> list[dict[str, Any]]:
 
 # ─── Request models ───────────────────────────────────────────────────────────
 
+class GoogleSignIn(BaseModel):
+    credential: str = Field(..., min_length=20, max_length=4096)  # GIS ID token (JWT)
+
+
 class VerifyRequest(BaseModel):
     field_type: str = Field(max_length=40)
     value: str = Field(max_length=500)
@@ -224,6 +229,39 @@ def create_app() -> FastAPI:
                 and int(length) > service.MAX_UPLOAD_BYTES + MULTIPART_OVERHEAD):
             return JSONResponse({"detail": service.too_large()}, status_code=413)
         return await call_next(request)
+
+    if auth.client_id():  # optional Google sign-in (clindoc/web/auth.py)
+        @app.middleware("http")
+        async def _auth_gate(request: Request, call_next):
+            path = request.url.path
+            if path.startswith("/api/") and path not in auth.PUBLIC and not request.session.get("user"):
+                return JSONResponse({"detail": "Sign in with Google to use this app."}, status_code=401)
+            return await call_next(request)
+
+        # Added after the gate so it wraps it: the session is decoded before the gate reads it.
+        app.add_middleware(SessionMiddleware, secret_key=auth.session_secret(), session_cookie="clindoc_session",
+                           max_age=auth.SESSION_MAX_AGE, same_site="lax", https_only=True)
+
+    @app.get("/api/auth/me")
+    def auth_me(request: Request) -> dict[str, Any]:
+        cid = auth.client_id()
+        return {"enabled": bool(cid), "client_id": cid, "user": request.session.get("user") if cid else None}
+
+    @app.post("/api/auth/google")
+    def auth_google(request: Request, body: GoogleSignIn) -> dict[str, Any]:
+        try:
+            user = auth.verify_credential(body.credential)
+        except auth.AuthError as exc:
+            raise HTTPException(401, str(exc)) from exc
+        request.session["user"] = user
+        logger.info("signed in: %s", user["email"])
+        return {"user": user}
+
+    @app.post("/api/auth/logout")
+    def auth_logout(request: Request) -> dict[str, Any]:
+        if auth.client_id():
+            request.session.clear()
+        return {"ok": True}
 
     @app.exception_handler(RequestValidationError)
     async def _invalid(request: Request, exc: RequestValidationError) -> JSONResponse:

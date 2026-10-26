@@ -1,0 +1,24 @@
+# `gcloud run deploy --source .` upload filter. Without this file gcloud falls back to .gitignore,
+# which would drop the gitignored model artifacts the Dockerfile needs. Mirrors .dockerignore.
+.gcloudignore
+.git
+.venv*
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.claude
+dist
+ClinicalDoc_video
+tests
+eval
+n2c2_access
+data/open
+data/m2_open
+data/judge_sft
+data/colab_bundle.zip
+data/degraded
+data/ocr_cache
+data/fhir_phase5_v8*
+data/m2_results*/checkpoints/*laptop*
+data/m2_results_v1_legacy
+*.zip

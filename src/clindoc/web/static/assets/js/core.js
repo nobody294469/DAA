@@ -666,6 +666,55 @@ export const NAV = [
   ['docs', 'Docs', '/docs.html'],
 ];
 
+/* Google sign-in, only when the server sets CLINDOC_GOOGLE_CLIENT_ID (clindoc/web/auth.py).
+ * Signed in: name + Sign out in the header. Signed out: a full-page gate with the Google button. */
+async function initAuth(header) {
+  if (STATIC) return;
+  let me;
+  try { me = await (await fetch('/api/auth/me', { headers: { Accept: 'application/json' } })).json(); } catch { return; }
+  if (!me?.enabled) return;
+  if (me.user) {
+    header?.querySelector('.site-header__tools')?.insertAdjacentHTML('afterbegin',
+      `<span class="site-header__user" title="${escapeHtml(me.user.email)}">${escapeHtml(me.user.name)}</span>`
+      + '<button class="btn btn--ghost btn--sm" type="button" data-sign-out>Sign out</button>');
+    header?.querySelector('[data-sign-out]')?.addEventListener('click', async () => {
+      await fetch('/api/auth/logout', { method: 'POST' }).catch(() => {});
+      location.reload();
+    });
+    return;
+  }
+  document.body.insertAdjacentHTML('beforeend', `<div class="auth-gate" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+  <div class="auth-gate__card stack">
+    <img src="/favicon.svg" alt="" width="40" height="40">
+    <h1 class="auth-gate__title" id="auth-title">Sign in to Clindoc2FHIR</h1>
+    <p class="auth-gate__lede">Use your Google account to continue.</p>
+    <div class="auth-gate__button" data-google-button></div>
+    <p class="auth-gate__error" role="alert" data-auth-error></p>
+  </div>
+</div>`);
+  document.documentElement.classList.add('auth-locked');
+  const error = document.querySelector('[data-auth-error]');
+  const script = Object.assign(document.createElement('script'), { src: 'https://accounts.google.com/gsi/client', async: true });
+  script.onerror = () => { error.textContent = 'Could not load Google sign-in. Check the network and reload.'; };
+  script.onload = () => {
+    window.google.accounts.id.initialize({
+      client_id: me.client_id,
+      callback: async ({ credential }) => {
+        error.textContent = '';
+        try {
+          await api('/api/auth/google', { json: { credential } });
+          location.reload();
+        } catch (err) {
+          error.textContent = err.message;
+        }
+      },
+    });
+    window.google.accounts.id.renderButton(document.querySelector('[data-google-button]'),
+      { theme: effectiveTheme() === 'dark' ? 'filled_black' : 'outline', size: 'large', text: 'signin_with', shape: 'rectangular' });
+  };
+  document.head.append(script);
+}
+
 /**
  * Inject the shared header/footer into <header data-shell> / <footer data-shell>, mark the active
  * nav link from <body data-page>, wire theme toggle, mobile menu, serving pills, tabs, reveal,
@@ -728,6 +777,7 @@ export function mountShell() {
   </ul>
 </div>`;
   }
+  initAuth(header);
   syncThemeButtons();
   document.querySelectorAll('[data-theme-toggle]').forEach((b) => b.addEventListener('click', () => {
     const t = getTheme();

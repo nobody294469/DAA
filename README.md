@@ -381,6 +381,9 @@ Run the website and JSON API (workbench, playground, explorer, results, model ca
 ```bash
 clindoc serve --checkpoint data/m2_results_v3/checkpoints/<run>.pt
 ```
+Optional Google sign-in (`CLINDOC_GOOGLE_CLIENT_ID`, `CLINDOC_SESSION_SECRET`) and the Cloud Run
+container (`Dockerfile`) are covered in [docs/deploy.md](docs/deploy.md). Open-data training sets for
+Stage B are built with `scripts/build_open_claims.py` and trained on Colab with `scripts/colab_train_stage_b.ipynb`.
 
 ### 4. Run the Automated Test Suite
 Execute the full unit, integration, and schema validation test suite:
