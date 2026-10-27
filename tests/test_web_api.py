@@ -54,7 +54,8 @@ def test_health_reports_offline_stages(client):
     assert body["stage_b"] == {"mode": "heuristic", "checkpoint": None, "device": None, "temperature": None,
                                "base_model": None, "load_error": None}
     assert body["stage_c"]["mode"] == "mock" and body["stage_c"]["base_url"] is None
-    assert body["extraction_llm"]["mode"] in ("mock", "vllm")
+    assert body["extraction_llm"]["mode"] in ("mock", "vllm", "rules", "online")
+    assert body["online"] == {"enabled": False} or "api_key" not in body["online"]  # the key is never exposed
 
 
 def test_samples_listing(client):

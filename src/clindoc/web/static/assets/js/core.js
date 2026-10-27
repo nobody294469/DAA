@@ -237,12 +237,15 @@ export function servingSummary(health) {
   const b = health?.stage_b || {};
   const c = health?.stage_c || {};
   const bReal = b.mode === 'modernbert';
-  const cReal = c.mode === 'vllm' || c.mode === 'local';
+  const cReal = ['vllm', 'local', 'both', 'online'].includes(c.mode);
   const bDetail = bReal
     ? [basename(b.checkpoint), b.device, isNum(b.temperature) ? `T = ${b.temperature.toFixed(3)}` : ''].filter(Boolean).join(' · ')
     : b.load_error || 'No trained checkpoint loaded.';
-  const cLabel = c.mode === 'local' ? `Local ${c.model || 'LLM'}` : cReal ? `vLLM ${c.model || ''}`.trim() : 'Mock judge';
-  const cDetail = c.mode === 'local' ? 'In-process LLM judge on this machine.' : cReal ? c.base_url || '' : 'No LLM judge configured.';
+  const cLabel = c.mode === 'local' ? `Local ${c.model || 'LLM'}` : c.mode === 'both' ? `Local + online (${c.model || 'LLM'})`
+    : c.mode === 'online' ? `Online ${c.model || 'LLM'}` : cReal ? `vLLM ${c.model || ''}`.trim() : 'Mock judge';
+  const cDetail = c.mode === 'local' ? 'In-process LLM judge on this machine.'
+    : c.mode === 'both' ? 'Local judge first; the online model is asked only when the local one cannot answer.'
+    : c.mode === 'online' ? 'Hosted LLM judge: claim text is sent to the online provider.' : cReal ? c.base_url || '' : 'No LLM judge configured.';
   return {
     live: bReal && cReal,
     stageB: { real: bReal, label: bReal ? 'ModernBERT (trained checkpoint)' : 'Heuristic fallback', detail: bDetail },
@@ -263,7 +266,8 @@ export function renderServingPill(el) {
   return getHealth().then(
     (h) => {
       const s = servingSummary(h);
-      const judge = h?.stage_c?.mode === 'local' ? 'local LLM' : s.stageC.real ? 'vLLM' : 'mock judge';
+      const m = h?.stage_c?.mode;
+      const judge = m === 'local' ? 'local LLM' : m === 'both' ? 'local + online LLM' : m === 'online' ? 'online LLM' : s.stageC.real ? 'vLLM' : 'mock judge';
       set(s.live ? 'is-live' : 'is-fallback', `Stage B: ${s.stageB.real ? 'ModernBERT' : 'heuristic fallback'} · Stage C: ${judge}`);
       return h;
     },

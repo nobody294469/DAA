@@ -276,7 +276,7 @@ def create_app() -> FastAPI:
     @app.get("/api/health")
     def health() -> dict[str, Any]:
         return {"status": "ok", "version": __version__, "stage_b": service.stage_b_status(),
-                "stage_c": service.stage_c_status(), "extraction_llm": service.extraction_llm_status()}
+                "stage_c": service.stage_c_status(), "extraction_llm": service.extraction_llm_status(), "online": service.online_status()}
 
     @app.get("/api/samples")
     def samples() -> dict[str, Any]:

@@ -79,3 +79,23 @@ Stage B and SapBERT stay on CPU (`CLINDOC_DEVICE=cpu` in the image), and the jud
 - Scanned images (PaddleOCR) and GLiNER fallback extraction run in separate local venvs and are not
   packaged; image uploads return a clear 422. PDFs and text work.
 - Any other container host works the same way: run the image with `PORT` set and the env vars above.
+
+## Optional: online LLM (hosted API) alongside the local LLM
+
+Off by default: with no key the whole system runs offline. To add a hosted model for the free-text extractor
+(the offline rules + drug list are limited to what they were built from), copy `env.example` to `.env` (git-ignored)
+and set the key there. **Never put the key in code, chat or git.** `clindoc serve` loads `.env` itself.
+
+| Variable | Meaning |
+|---|---|
+| `CLINDOC_ONLINE_API_KEY` | Enables online support. Any OpenAI-compatible provider works (OpenAI, Groq, Together, OpenRouter, Azure, your own vLLM) |
+| `CLINDOC_ONLINE_BASE_URL` | Provider endpoint (default `https://api.openai.com/v1`) |
+| `CLINDOC_ONLINE_MODEL` | Model name (default `gpt-4o-mini`) |
+| `CLINDOC_ONLINE_JUDGE` | `off`: local Qwen judge only · `both`: local judge first, hosted model only when the local one cannot answer · `online`: hosted judge only |
+
+- **Extraction:** offline rules always run; the hosted model's extractions are merged in (de-duplicated, every span
+  re-validated as verbatim text). Any online failure (network, auth, quota) silently falls back to the offline result.
+- **Privacy:** enabling it sends the text of uploaded documents to the provider's host. The site shows a warning
+  whenever it is on, and `/api/health` reports `online.host` and `online.model` (never the key). Use it only with
+  synthetic or public data, or a provider covered by your data-processing agreement.
+- **Cost:** one request per text region for extraction, plus one per escalated claim if the judge is `online`/`both`.

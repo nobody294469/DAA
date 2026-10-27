@@ -119,7 +119,17 @@ def components() -> Components:
             stage_b = LearnedVerifier(model_path=ckpt, device=None if device == "auto" else device)
             base_url = os.environ.get("CLINDOC_VLLM_BASE_URL", "").strip() or None
             local_llm = os.environ.get("CLINDOC_LLM_MODEL", "").strip() or None
-            if base_url:
+            online = online_config()
+            hosted = (VLLMJudgeClient(base_url=online.base_url, api_key=online.api_key, model_name=online.model,
+                                      timeout=60.0) if online and online.judge != "off" else None)
+            if hosted and online.judge == "both" and local_llm:  # local first, hosted only when local is unusable
+                llm_device = os.environ.get("CLINDOC_LLM_DEVICE", "auto").strip() or "auto"
+                from clindoc.extract.online_provider import ChainedJudgeClient
+                stage_c = StageCJudge(client=ChainedJudgeClient(
+                    LocalTransformersJudgeClient(local_llm, device=None if llm_device == "auto" else llm_device), hosted))
+            elif hosted:  # opt-in: hosted model as the Stage C judge (document text leaves this machine)
+                stage_c = StageCJudge(client=hosted)
+            elif base_url:
                 model = os.environ.get("CLINDOC_VLLM_MODEL", "").strip()
                 client = VLLMJudgeClient(base_url=base_url, **({"model_name": model} if model else {}))
                 stage_c = StageCJudge(client=client)
@@ -156,10 +166,24 @@ def stage_b_status() -> dict[str, Any]:
     }
 
 
+def online_config():
+    """Opt-in hosted LLM (CLINDOC_ONLINE_API_KEY); None = fully offline. The key itself is never exposed."""
+    from clindoc.extract.online_provider import OnlineConfig
+    return OnlineConfig.from_env()
+
+
+def online_status() -> dict[str, Any]:
+    cfg = online_config()
+    return cfg.public() if cfg else {"enabled": False}
+
+
 def stage_c_status() -> dict[str, Any]:
     c = components()
     client = c.cascade.stage_c.client
-    mode = "vllm" if c.vllm_base_url else "local" if isinstance(client, LocalTransformersJudgeClient) else "mock"
+    online = online_config()
+    chained = type(client).__name__ == "ChainedJudgeClient"
+    mode = ("both" if chained else "online" if online and online.judge == "online" else "vllm" if c.vllm_base_url
+            else "local" if isinstance(client, LocalTransformersJudgeClient) else "mock")
     return {"mode": mode,
             "model": getattr(c.cascade.stage_c.client, "model_name", None), "base_url": c.vllm_base_url}
 
@@ -170,12 +194,17 @@ def _narrative_provider():
     ponytail: rules, not an LLM; swap in extract.llm_extractor.VLLMProvider when a vLLM server is available.
     """
     from clindoc.extract.text_provider import ClinicalTextProvider
+    cfg = online_config()
+    if cfg:  # offline rules + hosted LLM, merged; falls back to the rules alone on any online failure
+        from clindoc.extract.online_provider import HybridTextProvider, OnlineLLMProvider
+        return HybridTextProvider(OnlineLLMProvider(cfg))
     return ClinicalTextProvider()
 
 
 def extraction_llm_status() -> dict[str, str]:
     provider = getattr(components().router.narrative, "_provider", None)
-    return {"mode": "mock" if isinstance(provider, MockLLMProvider) else "vllm"}
+    mode = "mock" if isinstance(provider, MockLLMProvider) else "online" if online_config() else "rules"
+    return {"mode": mode}
 
 
 def warnings() -> list[str]:
@@ -183,6 +212,11 @@ def warnings() -> list[str]:
     if stage_b_status()["mode"] == "heuristic":
         out.append("Stage B is running the offline heuristic (no ModernBERT checkpoint loaded); "
                    "Tier 1 verdicts are not model predictions.")
+    online = online_config()
+    if online:
+        out.append(f"Online LLM is ON: text of uploaded documents is sent to {online.host} ({online.model})"
+                   f"{' for extraction and the Stage C judge' if online.judge == 'online' else ' for extraction and as a backup Stage C judge' if online.judge == 'both' else ' for extraction'}. "
+                   "Use it only with data you are allowed to share.")
     if stage_c_status()["mode"] == "mock":
         out.append("Stage C is the offline mock judge (no LLM judge configured); escalated verdicts "
                    "and rationales are placeholders.")

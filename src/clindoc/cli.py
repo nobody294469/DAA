@@ -283,6 +283,20 @@ def batch_process(
     return results
 
 
+
+def _load_dotenv(path: Path) -> None:
+    """Minimal .env reader (KEY=VALUE per line, # comments); only CLINDOC_* keys, existing env vars win."""
+    import os
+
+    if not path.is_file():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        key, sep, value = line.strip().partition("=")
+        key = key.strip()
+        if sep and key.startswith("CLINDOC_") and not line.lstrip().startswith("#"):
+            os.environ.setdefault(key, value.strip().strip('"').strip("'"))
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     """CLI entry point for the clindoc command."""
     parser = argparse.ArgumentParser(
@@ -390,6 +404,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             import os
             import uvicorn
 
+            _load_dotenv(Path(".env"))  # CLINDOC_* settings incl. CLINDOC_ONLINE_API_KEY; never overrides real env vars
             # Read by clindoc.web.service when it builds the pipeline (also in --reload children).
             if args.checkpoint is not None:
                 os.environ["CLINDOC_STAGE_B_CHECKPOINT"] = args.checkpoint
