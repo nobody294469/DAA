@@ -322,13 +322,21 @@ class ExtractionRouter:
 
         # 1b. Unfamiliar layout: the template parsers found no Tier-1 claim at all, so nothing can escalate.
         #     A provider that sets `recovers_unparsed_regions` (ClinicalTextProvider) reads the region as free text.
-        if (getattr(getattr(self.narrative, "_provider", None), "recovers_unparsed_regions", False)
-                and not any(c.field_type in TIER_1_FIELDS for c in det_claims)):
+        #     A provider that sets `augments_regions` (the online model) also reads regions the parsers did handle,
+        #     because prose around a table row (spelled-out doses, brand names) is invisible to them.
+        provider = getattr(self.narrative, "_provider", None)
+        if (getattr(provider, "recovers_unparsed_regions", False)
+                and (getattr(provider, "augments_regions", False) or not any(c.field_type in TIER_1_FIELDS for c in det_claims))):
             try:
                 from clindoc.extract.text_provider import best_reading
                 rec_evs, rec_clms, rec_diag = self.narrative.extract(
                     doc.document_id, page, region_text, rd.region_id, char_offset=char_offset,
                     prompt_text=best_reading(page, region_text, char_offset))
+                if getattr(provider, "augments_regions", False):  # keep only what the parsers did not already find
+                    have = {(c.field_type, str(c.value).lower()) for c in final_claims + low_conf_tier1}
+                    rec_clms = [c for c in rec_clms if (c.field_type, str(c.value).lower()) not in have]
+                    kept = {c.evidence_id for c in rec_clms}
+                    rec_evs = [e for e in rec_evs if e.evidence_id in kept]
                 final_evidences.extend(rec_evs)
                 final_claims.extend(rec_clms)
                 diagnostics["text_recovery"] = {"claims": len(rec_clms), "rejected": len(rec_diag.get("rejected", []))}

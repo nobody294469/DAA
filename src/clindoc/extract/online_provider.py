@@ -84,7 +84,7 @@ class OnlineConfig:
 class OnlineLLMProvider:
     """LLMProvider that asks a hosted model; returns the same JSON contract as LLM_OUTPUT_SCHEMA."""
 
-    def __init__(self, cfg: OnlineConfig, timeout: float = 60.0, http_client=None) -> None:
+    def __init__(self, cfg: OnlineConfig, timeout: float = 25.0, http_client=None) -> None:
         self.cfg, self.timeout, self._http = cfg, timeout, http_client
 
     def _post(self, payload: dict) -> dict:
@@ -98,20 +98,29 @@ class OnlineLLMProvider:
         messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
         modes = ({"type": "json_schema", "json_schema": {"name": "extraction", "schema": LLM_OUTPUT_SCHEMA, "strict": True}},
                  {"type": "json_object"})
-        resp = None
+        resp, error = None, None
         for model in (self.cfg.model, *self.cfg.fallback_models):  # a busy or retired model should not stop the others
             for fmt in modes:  # not every provider supports json_schema: fall back to plain JSON mode
-                for attempt in range(2):  # 429/5xx spikes are often gone a second later
-                    resp = self._post({"model": model, "temperature": 0, "messages": messages, "response_format": fmt})
+                for attempt in range(2):  # 429/5xx spikes and timeouts are often gone a second later
+                    try:
+                        resp = self._post({"model": model, "temperature": 0, "messages": messages, "response_format": fmt})
+                    except Exception as exc:  # noqa: BLE001: timeout / connection error
+                        resp, error = None, exc
+                        logger.info("online model %s: %s (attempt %d)", model, type(exc).__name__, attempt + 1)
+                        continue
                     if resp.status_code in (429, 500, 502, 503, 504) and attempt == 0:
                         time.sleep(1)
                         continue
                     break
+                if resp is None:
+                    break  # transport failed twice: next model
                 if resp.status_code == 400 and fmt is modes[0]:
                     continue
                 if resp.status_code >= 400:
                     break  # try the next model
                 return resp.json()["choices"][0]["message"]["content"]
+        if resp is None and error is not None:
+            raise error
         resp.raise_for_status()
         raise RuntimeError("online provider rejected every model and response format")
 
@@ -120,6 +129,7 @@ class HybridTextProvider:
     """Offline rules + online LLM, merged. Has the router's `recovers_unparsed_regions` behaviour of the offline one."""
 
     recovers_unparsed_regions = True
+    augments_regions = True  # router.py: also read regions the template parsers handled
 
     def __init__(self, online: OnlineLLMProvider) -> None:
         self.online = online
