@@ -12,6 +12,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse
@@ -66,7 +67,10 @@ def _ai(text: str) -> tuple[list[dict], str | None]:
         with urllib.request.urlopen(req, timeout=40) as r:
             out = json.loads(json.loads(r.read())["choices"][0]["message"]["content"])["extractions"]
     except Exception as e:  # network, auth, quota, bad JSON: fall back to the rules result
-        return [], f"{type(e).__name__}"
+        why = f"{type(e).__name__}"
+        if isinstance(e, urllib.error.HTTPError):  # the provider's own error text (never contains our key)
+            why += f" {e.code}: " + e.read().decode("utf-8", "ignore")[:240].replace(key, "***")
+        return [], why
     keep = []
     for x in out if isinstance(out, list) else []:
         ev = _find(text, str(x.get("evidence_text", "")))
