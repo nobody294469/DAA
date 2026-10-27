@@ -12,6 +12,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler
@@ -58,25 +59,38 @@ def _ai(text: str) -> tuple[list[dict], str | None]:
     if not key:
         return [], None
     base = os.environ.get("CLINDOC_ONLINE_BASE_URL", "https://api.openai.com/v1").rstrip("/")
-    model = os.environ.get("CLINDOC_ONLINE_MODEL", "gpt-4o-mini")
-    body = json.dumps({"model": model, "temperature": 0, "response_format": {"type": "json_object"},
-                       "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": text[:14000]}]})
-    req = urllib.request.Request(f"{base}/chat/completions", body.encode(), {
-        "Authorization": f"Bearer {key}", "Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=40) as r:
-            out = json.loads(json.loads(r.read())["choices"][0]["message"]["content"])["extractions"]
-    except Exception as e:  # network, auth, quota, bad JSON: fall back to the rules result
-        why = f"{type(e).__name__}"
-        if isinstance(e, urllib.error.HTTPError):  # the provider's own error text (never contains our key)
-            why += f" {e.code}: " + e.read().decode("utf-8", "ignore")[:240].replace(key, "***")
-        return [], why
+    primary = os.environ.get("CLINDOC_ONLINE_MODEL", "gpt-4o-mini")
+    models = [primary] + [m.strip() for m in os.environ.get("CLINDOC_ONLINE_FALLBACK_MODELS", "").split(",") if m.strip()]
+    out = None
+    for model in models:  # a busy or retired model should not stop the others
+        body = json.dumps({"model": model, "temperature": 0, "response_format": {"type": "json_object"},
+                           "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": text[:14000]}]})
+        req = urllib.request.Request(f"{base}/chat/completions", body.encode(), {
+            "Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+        for attempt in range(2):  # 503/429 spikes and timeouts are often gone a second later
+            try:
+                with urllib.request.urlopen(req, timeout=12) as r:
+                    out = json.loads(json.loads(r.read())["choices"][0]["message"]["content"])["extractions"]
+                break
+            except Exception as e:
+                why = type(e).__name__
+                retry = not isinstance(e, urllib.error.HTTPError) or e.code in (429, 500, 502, 503, 504)
+                if isinstance(e, urllib.error.HTTPError):  # provider error text goes to the Vercel logs only, never the page
+                    why += f" {e.code}: " + e.read().decode("utf-8", "ignore")[:200].replace(key, "***")
+                print(f"smart extraction {model} attempt {attempt + 1} failed:", why, file=sys.stderr)
+                if not retry:
+                    break
+                time.sleep(1)
+        if out is not None:
+            break
+    if out is None:
+        return [], "failed"
     keep = []
     for x in out if isinstance(out, list) else []:
         ev = _find(text, str(x.get("evidence_text", "")))
         if x.get("field_type") in FIELDS and str(x.get("value", "")).strip() and ev:
             keep.append({**x, "evidence_text": ev, "group": "ai-" + str(x.get("group", "0"))})
-    return keep, f"{urlparse(base).hostname} · {model}"
+    return keep, "ok"
 
 
 def solve(text: str) -> dict:
@@ -85,7 +99,7 @@ def solve(text: str) -> dict:
     seen = {(e["field_type"], e["evidence_text"].lower()) for e in rules}
     merged = rules + [{**e, "source": "ai"} for e in ai if (e["field_type"], e["evidence_text"].lower()) not in seen]
     online = bool(os.environ.get("CLINDOC_ONLINE_API_KEY", "").strip())
-    return {"ai": "on" if ai_info and "." in ai_info else ("failed" if online else "off"), "ai_info": ai_info,
+    return {"ai": "on" if ai_info == "ok" else ("failed" if online else "off"),
             "n_rules": len(rules), "n_ai": len(merged) - len(rules), "claims": merged}
 
 
@@ -108,8 +122,7 @@ class handler(BaseHTTPRequestHandler):
         if not self._signed_in():
             return
         online = bool(os.environ.get("CLINDOC_ONLINE_API_KEY", "").strip())
-        self._send(200, {"ai": "on" if online else "off",
-                         "model": os.environ.get("CLINDOC_ONLINE_MODEL", "gpt-4o-mini") if online else None})
+        self._send(200, {"ai": "on" if online else "off"})
 
     def do_POST(self):
         if not self._signed_in():
