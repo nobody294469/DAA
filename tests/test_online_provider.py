@@ -86,3 +86,11 @@ def test_dotenv_loader_only_clindoc_keys_and_env_wins(tmp_path: Path, monkeypatc
     _load_dotenv(f)
     assert os.environ["CLINDOC_ONLINE_MODEL"] == "abc" and os.environ["CLINDOC_ONLINE_BASE_URL"] == "kept"
     assert "OTHER" not in os.environ
+
+
+def test_busy_model_falls_back_to_next_model(monkeypatch):
+    monkeypatch.setattr("clindoc.extract.online_provider.time.sleep", lambda s: None)
+    cfg = OnlineConfig("k", "https://x.test/v1", "main", "off", ("backup",))
+    http = _Http(_Resp(503), _Resp(503), _Resp(200, {"extractions": []}))  # main: 2 busy answers, then backup answers
+    OnlineLLMProvider(cfg, http_client=http).complete("s", "u")
+    assert [h["model"] for h in http.sent] == ["main", "main", "backup"]

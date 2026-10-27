@@ -16,6 +16,7 @@ import json
 import logging
 import os
 import re
+import time
 from dataclasses import dataclass
 from urllib.parse import urlparse
 
@@ -58,6 +59,7 @@ class OnlineConfig:
     base_url: str
     model: str
     judge: str  # Stage C judge: "off" (local only) | "online" (hosted only) | "both" (local first, hosted as backup)
+    fallback_models: tuple[str, ...] = ()  # tried in order when the main model is busy or retired
 
     @property
     def host(self) -> str:
@@ -71,7 +73,8 @@ class OnlineConfig:
         return cls(api_key=key,
                    base_url=(os.environ.get("CLINDOC_ONLINE_BASE_URL", "").strip() or DEFAULT_BASE_URL).rstrip("/"),
                    model=os.environ.get("CLINDOC_ONLINE_MODEL", "").strip() or "gpt-4o-mini",
-                   judge=_judge_mode(os.environ.get("CLINDOC_ONLINE_JUDGE", "")))
+                   judge=_judge_mode(os.environ.get("CLINDOC_ONLINE_JUDGE", "")),
+                   fallback_models=tuple(m.strip() for m in os.environ.get("CLINDOC_ONLINE_FALLBACK_MODELS", "").split(",") if m.strip()))
 
     def public(self) -> dict:
         """Safe to show in the UI / API: never the key."""
@@ -92,17 +95,25 @@ class OnlineLLMProvider:
                            headers={"Authorization": f"Bearer {self.cfg.api_key}"})
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
-        base = {"model": self.cfg.model, "temperature": 0,
-                "messages": [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]}
+        messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
         modes = ({"type": "json_schema", "json_schema": {"name": "extraction", "schema": LLM_OUTPUT_SCHEMA, "strict": True}},
                  {"type": "json_object"})
-        for fmt in modes:  # not every provider supports json_schema: fall back to plain JSON mode
-            resp = self._post({**base, "response_format": fmt})
-            if resp.status_code == 400 and fmt is modes[0]:
-                continue
-            resp.raise_for_status()
-            return resp.json()["choices"][0]["message"]["content"]
-        raise RuntimeError("online provider rejected both response formats")
+        resp = None
+        for model in (self.cfg.model, *self.cfg.fallback_models):  # a busy or retired model should not stop the others
+            for fmt in modes:  # not every provider supports json_schema: fall back to plain JSON mode
+                for attempt in range(2):  # 429/5xx spikes are often gone a second later
+                    resp = self._post({"model": model, "temperature": 0, "messages": messages, "response_format": fmt})
+                    if resp.status_code in (429, 500, 502, 503, 504) and attempt == 0:
+                        time.sleep(1)
+                        continue
+                    break
+                if resp.status_code == 400 and fmt is modes[0]:
+                    continue
+                if resp.status_code >= 400:
+                    break  # try the next model
+                return resp.json()["choices"][0]["message"]["content"]
+        resp.raise_for_status()
+        raise RuntimeError("online provider rejected every model and response format")
 
 
 class HybridTextProvider:
