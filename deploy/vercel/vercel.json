@@ -1,3 +1,6 @@
 {
-  "functions": { "api/solve.py": { "includeFiles": "api/_lib/**", "maxDuration": 60 } }
+  "functions": {
+    "api/solve.py": { "includeFiles": "api/_lib/**", "maxDuration": 60 },
+    "api/auth.py": { "includeFiles": "api/_lib/**" }
+  }
 }

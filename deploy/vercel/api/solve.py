@@ -17,6 +17,7 @@ from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "_lib"))
+import session  # noqa: E402
 from text_provider import extract_text  # noqa: E402  (copied from src/clindoc/extract by the deploy step)
 
 MAX_BYTES = 4_000_000
@@ -93,12 +94,22 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
+    def _signed_in(self) -> bool:
+        if session.enabled() and not session.check(self.headers.get("Cookie")):
+            self._send(401, {"error": "Please sign in with Google first."})
+            return False
+        return True
+
     def do_GET(self):
+        if not self._signed_in():
+            return
         online = bool(os.environ.get("CLINDOC_ONLINE_API_KEY", "").strip())
         self._send(200, {"ai": "on" if online else "off",
                          "model": os.environ.get("CLINDOC_ONLINE_MODEL", "gpt-4o-mini") if online else None})
 
     def do_POST(self):
+        if not self._signed_in():
+            return
         try:
             n = int(self.headers.get("Content-Length", 0))
             if n > MAX_BYTES:

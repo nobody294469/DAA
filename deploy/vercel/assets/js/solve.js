@@ -4,7 +4,7 @@ mountShell();
 const $ = (id) => document.getElementById(id);
 const b64 = (buf) => { let s = ''; const u = new Uint8Array(buf); for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
 
-fetch('/api/solve').then((r) => r.json()).then((h) => {
+fetch('/api/solve').then((r) => { if (r.status === 401) location.href = '/login.html?next=/solve.html'; return r.json(); }).then((h) => {
   $('ai-status').textContent = h.ai === 'on' ? `AI model on (${h.model}) + offline rules` : 'AI model off: offline rules only. Add CLINDOC_ONLINE_API_KEY in the Vercel project settings to switch it on.';
 }).catch(() => { $('ai-status').textContent = 'Solve service not reachable.'; });
 
@@ -15,6 +15,7 @@ $('run').addEventListener('click', async () => {
   try {
     const res = await fetch('/api/solve', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     const d = await res.json();
+    if (res.status === 401) location.href = '/login.html?next=/solve.html';
     if (!res.ok) throw new Error(d.error || 'Request failed');
     const groups = new Map();
     d.claims.forEach((c) => { const k = c.group || c.field_type + c.value; (groups.get(k) || groups.set(k, []).get(k)).push(c); });

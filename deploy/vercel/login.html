@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · Clindoc2FHIR</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script type="module" src="/assets/js/login.js"></script>
+</head>
+<body data-page="login">
+  <main id="main" tabindex="-1" style="min-height:100vh;display:grid;place-items:center;padding:24px">
+    <div class="stack" style="max-width:420px;text-align:center">
+      <p class="label-mono">Clindoc2FHIR</p>
+      <h1>Sign in</h1>
+      <p class="muted">Use your Google account to open the platform.</p>
+      <div id="g-button" style="display:flex;justify-content:center;min-height:44px"></div>
+      <p class="field__error" id="msg" role="alert" hidden></p>
+    </div>
+  </main>
+</body>
+</html>
