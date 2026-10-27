@@ -130,7 +130,7 @@ def components() -> Components:
             else:
                 stage_c = StageCJudge()
             _components = Components(
-                router=ExtractionRouter(),
+                router=ExtractionRouter(llm_provider=_narrative_provider()),
                 normalizer=TerminologyNormalizer(),
                 cascade=VerificationCascade(stage_b=stage_b, stage_c=stage_c),
                 checkpoint=_display_path(ckpt) if ckpt else None,
@@ -162,6 +162,15 @@ def stage_c_status() -> dict[str, Any]:
     mode = "vllm" if c.vllm_base_url else "local" if isinstance(client, LocalTransformersJudgeClient) else "mock"
     return {"mode": mode,
             "model": getattr(c.cascade.stage_c.client, "model_name", None), "base_url": c.vllm_base_url}
+
+
+def _narrative_provider():
+    """Free-text extractor: the offline rule-based ClinicalTextProvider (finds every drug and lab in prose).
+
+    ponytail: rules, not an LLM; swap in extract.llm_extractor.VLLMProvider when a vLLM server is available.
+    """
+    from clindoc.extract.text_provider import ClinicalTextProvider
+    return ClinicalTextProvider()
 
 
 def extraction_llm_status() -> dict[str, str]:

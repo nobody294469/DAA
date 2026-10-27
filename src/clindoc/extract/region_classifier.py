@@ -30,7 +30,7 @@ from clindoc.ocr.document_text import DocumentPage, DocumentText
 _MED_LINE_PATTERN = re.compile(
     r"""
     (?:
-        [A-Z][a-z]+(?:\s+[A-Z]?[a-z]+)*   # drug name (capitalized)
+        [A-Z][a-z]+(?:\s+[A-Za-z]+)*      # drug name (capitalized); [A-Z]?[a-z]+ was ambiguous: 2^words backtracking
         \s+
         \d+(?:\.\d+)?                       # numeric dose
         \s*

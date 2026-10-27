@@ -100,3 +100,10 @@ data/colab_bundle.zip
 data/colab_judge_bundle.zip
 data/colab_adapter_parts/
 data/judge_sft_v2/
+
+# Presentation build deps
+presentation/node_modules/
+presentation/package-lock.json
+
+server.log
+server.pid

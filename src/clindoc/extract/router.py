@@ -320,6 +320,21 @@ class ExtractionRouter:
                     "threshold": self.deterministic_threshold,
                 })
 
+        # 1b. Unfamiliar layout: the template parsers found no Tier-1 claim at all, so nothing can escalate.
+        #     A provider that sets `recovers_unparsed_regions` (ClinicalTextProvider) reads the region as free text.
+        if (getattr(getattr(self.narrative, "_provider", None), "recovers_unparsed_regions", False)
+                and not any(c.field_type in TIER_1_FIELDS for c in det_claims)):
+            try:
+                from clindoc.extract.text_provider import layout_text
+                rec_evs, rec_clms, rec_diag = self.narrative.extract(
+                    doc.document_id, page, region_text, rd.region_id, char_offset=char_offset,
+                    prompt_text=layout_text(page, char_offset, char_offset + len(region_text)) or None)
+                final_evidences.extend(rec_evs)
+                final_claims.extend(rec_clms)
+                diagnostics["text_recovery"] = {"claims": len(rec_clms), "rejected": len(rec_diag.get("rejected", []))}
+            except Exception as e:  # never let recovery break a run
+                diagnostics["text_recovery"] = {"error": str(e)}
+
         # 2. Stage 2: GLiNER cross-check for low-confidence Tier 1 fields
         unresolved_tier1: list[Claim] = []
         if low_conf_tier1:
@@ -415,9 +430,13 @@ class ExtractionRouter:
     ) -> ExtractionResult:
         """Run LLM narrative extraction for prose regions."""
         try:
+            prompt_text = None
+            if getattr(getattr(self.narrative, "_provider", None), "recovers_unparsed_regions", False):
+                from clindoc.extract.text_provider import layout_text  # rows rebuilt from word positions
+                prompt_text = layout_text(page, char_offset, char_offset + len(region_text)) or None
             evidences, claims, diagnostics = self.narrative.extract(
                 doc.document_id, page, region_text, rd.region_id,
-                char_offset=char_offset,
+                char_offset=char_offset, prompt_text=prompt_text,
             )
             diagnostics["route"] = "llm_narrative"
         except Exception as e:

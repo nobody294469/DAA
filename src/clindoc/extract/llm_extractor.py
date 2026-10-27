@@ -48,6 +48,8 @@ PERMITTED_NARRATIVE_FIELDS: frozenset[str] = frozenset({
 # ─── LLM OUTPUT SCHEMA ───────────────────────────────────────────────────────
 # This is the schema passed to grammar-constrained decoding (DEC-013).
 # JSON Schema that constrains field_type to permitted_narrative_fields.
+ENTITY_LINK_FIELDS: frozenset[str] = frozenset({"lab.test_name"})  # accepted only with a provider `group`
+
 LLM_OUTPUT_SCHEMA = {
     "type": "object",
     "required": ["extractions"],
@@ -333,8 +335,12 @@ class NarrativeExtractor:
         region_text: str,
         region_id: str,
         char_offset: int = 0,
+        prompt_text: str | None = None,
     ) -> tuple[list[Evidence], list[Claim], dict]:
         """Extract Tier 1 fields from narrative prose using the LLM.
+
+        prompt_text: what the provider reads (e.g. table rows rebuilt from word positions); every span it returns
+        is still validated as a verbatim substring of region_text.
 
         Returns:
             (evidences, claims, diagnostics)
@@ -349,7 +355,7 @@ class NarrativeExtractor:
         if not region_text.strip():
             return [], [], diagnostics
 
-        user_prompt = _build_user_prompt(region_text)
+        user_prompt = _build_user_prompt(prompt_text or region_text)
         raw_response: str | None = None
         parsed: dict | None = None
         last_error: str = ""
@@ -413,6 +419,7 @@ class NarrativeExtractor:
         all_evidences: list[Evidence] = []
         all_claims: list[Claim] = []
         group_id = str(uuid.uuid4())
+        groups: dict[str, str] = {}  # optional per-entity `group` key from the provider (DEC-015)
 
         for ext in extractions:
             field_type = ext.get("field_type", "")
@@ -422,7 +429,10 @@ class NarrativeExtractor:
             confidence = float(ext.get("confidence", 0.80))
 
             # REJECT: unsupported field_type (DEC-017 / AUDIT-20)
-            if field_type not in PERMITTED_NARRATIVE_FIELDS:
+            # `group` marks a provider-linked entity (ClinicalTextProvider): the test name that lab values in
+            # prose are verified against (DEC-015). Tier-2 stays out of the LLM-permitted set (AUDIT-20 FIX 3).
+            entity_link = field_type in ENTITY_LINK_FIELDS and bool(ext.get("group"))
+            if field_type not in PERMITTED_NARRATIVE_FIELDS and not entity_link:
                 diagnostics["rejected"].append({
                     "field_type": field_type,
                     "reason": "field_type not in PERMITTED_NARRATIVE_FIELDS",
@@ -491,7 +501,7 @@ class NarrativeExtractor:
 
             claim = Claim(
                 document_id=document_id,
-                group_id=group_id,
+                group_id=groups.setdefault(ext["group"], str(uuid.uuid4())) if ext.get("group") else group_id,
                 field_type=field_type,  # type: ignore[arg-type]
                 value=value.strip(),
                 value_numeric=value_numeric,

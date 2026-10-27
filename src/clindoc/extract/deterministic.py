@@ -121,8 +121,11 @@ _REF_RANGE_PATTERN = re.compile(
     re.VERBOSE,
 )
 
+# Header / identifier rows that carry numbers but are not results
+_DATE_OR_ID_ROW = re.compile(r"\b\d{4}-\d{2}-\d{2}\b|\b\d{1,2}/\d{1,2}/\d{2,4}\b|\b(?:Date|DOB|MRN|ID|Phone|Page|Accession)\b", re.IGNORECASE)
+
 # Numeric value pattern
-_NUMERIC_PATTERN = re.compile(r"^-?\d+(?:\.\d+)?$")
+_NUMERIC_PATTERN =re.compile(r"^-?\d+(?:\.\d+)?$")
 
 # Duration pattern
 _DURATION_PATTERN = re.compile(
@@ -449,11 +452,14 @@ class DeterministicExtractor:
         if group_id is None:
             group_id = str(uuid.uuid4())
 
+        test_name, test_conf = extract_lab_test_name(row_text, loinc_map=self._get_loinc())
+        if test_name is None and _DATE_OR_ID_ROW.search(row_text):
+            return [], []  # "Date: 2025-03-02", "MRN: 4821": identifiers are not lab results
+
         evidence = build_evidence(document_id, page, row_text, char_start, char_end)
         claims: list[Claim] = []
 
         # --- lab.test_name (Tier 2) ---
-        test_name, test_conf = extract_lab_test_name(row_text, loinc_map=self._get_loinc())
         if test_name is not None:
             claims.append(Claim(
                 document_id=document_id,

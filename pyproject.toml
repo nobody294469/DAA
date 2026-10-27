@@ -54,6 +54,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 "clindoc.web" = ["static/**/*", "data/*.json"]
+"clindoc.extract" = ["data/*.txt"]
 
 [tool.ruff]
 line-length = 100
