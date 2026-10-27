@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI solve · Clindoc2FHIR</title>
+  <meta name="description" content="Upload a clinical PDF or paste a note: offline rules plus a hosted AI model extract medications, labs and vitals with verbatim evidence.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script>try{var t=localStorage.getItem('clindoc-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script type="module" src="/assets/js/solve.js"></script>
+</head>
+<body data-page="solve">
+  <header data-shell></header>
+  <main id="main" tabindex="-1">
+    <div class="page-header">
+      <div class="container container--wide page-header__inner">
+        <div class="page-header__text">
+          <p class="label-mono">Hosted demo · rules + AI</p>
+          <h1>AI solve</h1>
+          <p class="page-header__lede">Upload a text PDF or paste a note. Offline rules always run; when the AI model is switched on for this site it reads the same text and its findings are merged in. Every result points to the exact words in your document.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container container--wide stack" style="padding-block:24px">
+      <p class="text-sm" id="ai-status" role="status">Checking AI status…</p>
+      <div class="stack">
+        <label class="btn btn--secondary" style="width:max-content">Choose a PDF<input class="visually-hidden" id="file" type="file" accept=".pdf,.txt"></label>
+        <textarea class="input" id="note" rows="8" spellcheck="false" placeholder="…or paste a clinical note, e.g. Metoprolol 25 mg po BID. Hemoglobin 9.2 g/dL (L). Blood pressure 118/76 mmHg."></textarea>
+        <div><button class="btn btn--primary btn--lg" id="run" type="button">Solve</button> <span class="text-sm muted" id="busy"></span></div>
+        <p class="text-sm muted">Hosted demo reads text PDFs and notes (up to 4 MB). Scanned images, the verification cascade and FHIR export need the local server. Do not upload real patient data when the AI model is on: the text is sent to the model provider.</p>
+      </div>
+      <div id="out"></div>
+    </div>
+  </main>
+  <footer data-shell></footer>
+</body>
+</html>

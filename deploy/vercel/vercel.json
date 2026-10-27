@@ -1,0 +1,3 @@
+{
+  "functions": { "api/solve.py": { "includeFiles": "api/_lib/**", "maxDuration": 60 } }
+}

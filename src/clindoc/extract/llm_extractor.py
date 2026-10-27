@@ -447,6 +447,13 @@ class NarrativeExtractor:
                 })
                 continue
 
+            # Spans found in the row-rebuilt prompt text (table cells on one line) match the page text across its
+            # line breaks; the evidence kept is the page's own text, so it stays verbatim (§7.4).
+            if evidence_text and evidence_text not in region_text and " " in evidence_text:
+                ws = re.search(r"\s+".join(map(re.escape, evidence_text.split())), region_text)
+                if ws:
+                    evidence_text = ws.group(0)
+
             # REJECT: evidence_text is not a verbatim substring (§7.4)
             if not evidence_text or evidence_text not in region_text:
                 diagnostics["rejected"].append({

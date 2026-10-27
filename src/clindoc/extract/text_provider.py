@@ -66,6 +66,13 @@ _LAB = re.compile(
     r"(?P<value>\d+(?:\.\d+)?)(?:\s{1,3}\d+(?:\.\d+)?\s?[-–]\s?\d+(?:\.\d+)?)?\s{0,3}(?P<unit>g/dL|g/L|mg/dL|mg/L|mmol/L|mEq/L|U/L|IU/L|ng/mL|pg/mL|µmol/L|umol/L|mIU/L|mm/h|"
     r"10\*\d+/[uµ]?L|x10\^?\d+/[uµ]?L|%)",
     re.IGNORECASE)
+_VITALS = {"heart rate": "Heart rate", "pulse": "Heart rate", "respiratory rate": "Respiratory rate", "resp rate": "Respiratory rate",
+           "temperature": "Body temperature", "temp": "Body temperature", "oxygen saturation": "Oxygen saturation",
+           "spo2": "SpO2", "spo\u2082": "SpO2", "spoi": "SpO2"}  # "SpOI": PDF fonts render the 2 as I
+_VITAL = re.compile(
+    r"\b(?P<name>" + "|".join(sorted(map(re.escape, _VITALS), key=len, reverse=True)) + r")\b[\s:=]*"
+    r"(?P<value>\d+(?:\.\d+)?)\s{0,3}(?P<unit>beats/min|bpm|breaths/min|/min|[\u00b0\ufffd]\s?[CF]|%|\s?mmHg)", re.IGNORECASE)
+_BP = re.compile(r"\b(?P<name>blood pressure|BP)\b[\s:=]*(?P<sys>\d{2,3})\s?/\s?(?P<dia>\d{2,3})\s{0,3}(?P<unit>mmHg)", re.IGNORECASE)
 _FLAG = re.compile(r"[\s(,\-]*\(?\b(HIGH|LOW|CRITICAL|ELEVATED|DECREASED|H|L)\b\)?", re.IGNORECASE)
 _FLAG_MAP = {"HIGH": "HIGH", "ELEVATED": "HIGH", "H": "HIGH", "LOW": "LOW", "DECREASED": "LOW", "L": "LOW", "CRITICAL": "CRITICAL"}
 
@@ -80,12 +87,12 @@ _DRUG_SUFFIX = re.compile(r"(mab|nib|pril|sartan|olol|statin|azole|cillin|mycin|
                           r"thiazide|parin|prazole|tidine|vir|caine|sone|solone|cycline|platin|taxel|setron|triptan|gliptin|"
                           r"gliflozin|glutide|barbital|phylline|terol|tropium|navir|limus|rubicin|zepine|pamil|semide|"
                           r"formin|glitazone|dronate|fibrate|ciclib|degib|parib|tinib|zomib|metacin|profen|codone|morphone)$", re.I)
-_LEX_RE = re.compile(r"(" + "|".join(sorted(map(re.escape, _LEXICON), key=len, reverse=True)) + r")", re.IGNORECASE) if _LEXICON else None
+_LEX_RE = re.compile(r"\b(" + "|".join(sorted(map(re.escape, _LEXICON), key=len, reverse=True)) + r")\b", re.IGNORECASE) if _LEXICON else None
 _DOSE_AFTER = re.compile(rf"\s{{0,3}}[\(,:]?\s{{0,3}}(?:(?:dose|doses) (?:of )?|at |of )?(?P<dose>\d+(?:\.\d+)?)[ ]?(?P<unit>{_DOSE_UNITS})(?![/\w])")
 
 
 _NOT_DRUG = frozenset({"april", "nasal", "pharmacy"})
-_SUFFIX_WORD = re.compile(r"[A-Za-z][A-Za-z\-]{3,}")
+_SUFFIX_WORD = re.compile(r"\b[A-Za-z][A-Za-z\-]{3,}\b")
 
 
 def _is_drug(word: str) -> bool:
@@ -171,6 +178,21 @@ def extract_text(text: str) -> list[dict]:
         if flag:
             out.append({"field_type": "lab.flag", "value": _FLAG_MAP[flag.group(1).upper()], "evidence_text": flag.group(1),
                         "unit_raw": None, "confidence": 0.85, "group": g})
+    k = 0
+    for m in _BP.finditer(text):
+        ev = text[m.start("sys"):m.end("unit")]
+        for label, part in (("Systolic blood pressure", "sys"), ("Diastolic blood pressure", "dia")):
+            g, k = f"vit{k}", k + 1
+            out.append({"field_type": "lab.test_name", "value": label, "evidence_text": text[m.start("name"):m.end("name")],
+                        "unit_raw": None, "confidence": 0.9, "group": g})
+            out.append({"field_type": "lab.value", "value": m.group(part), "evidence_text": ev, "unit_raw": m.group("unit"),
+                        "confidence": 0.9, "group": g})
+    for m in _VITAL.finditer(text):
+        g, k = f"vit{k}", k + 1
+        out.append({"field_type": "lab.test_name", "value": _VITALS[m.group("name").lower()],
+                    "evidence_text": text[m.start("name"):m.end("name")], "unit_raw": None, "confidence": 0.9, "group": g})
+        out.append({"field_type": "lab.value", "value": m.group("value"), "evidence_text": text[m.start("value"):m.end("unit")],
+                    "unit_raw": m.group("unit").strip(), "confidence": 0.9, "group": g})
     return out
 
 
@@ -193,6 +215,15 @@ def layout_text(page, start: int, end: int) -> str:
         else:
             rows.append([yc, [t]])
     return "\n".join(" ".join(t.text for t in sorted(r[1], key=lambda t: t.bbox.x0)) for r in rows)
+
+
+def best_reading(page, region_text: str, char_offset: int) -> str | None:
+    """The reading of a region that yields more extractions: its stored text, or rows rebuilt from word positions.
+
+    Tables are stored cell by cell in either order depending on the PDF, so neither reading is right for all of them.
+    """
+    rows = layout_text(page, char_offset, char_offset + len(region_text))
+    return rows if rows and len(extract_text(rows)) > len(extract_text(region_text)) else None
 
 
 class ClinicalTextProvider:

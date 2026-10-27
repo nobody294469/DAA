@@ -47,6 +47,9 @@ from clindoc.verify.schema import (
 )
 
 
+VITAL_SIGN_NAMES = frozenset({"Systolic blood pressure", "Diastolic blood pressure", "Heart rate", "Respiratory rate",
+                               "Body temperature", "Oxygen saturation", "SpO2"})  # text_provider._VITALS
+
 def _sanitize_id(val: str) -> str:
     """Sanitize strings into valid FHIR resource IDs (letters, digits, dots, dashes; <= 64 chars)."""
     clean = re.sub(r"[^A-Za-z0-9\-\.]", "-", val.strip())
@@ -749,8 +752,8 @@ def claims_to_fhir_bundle(
                     coding=[
                         Coding(
                             system=OBS_CATEGORY_SYSTEM,
-                            code="laboratory",
-                            display="Laboratory",
+                            code="vital-signs" if test_display in VITAL_SIGN_NAMES else "laboratory",
+                            display="Vital Signs" if test_display in VITAL_SIGN_NAMES else "Laboratory",
                         )
                     ]
                 )

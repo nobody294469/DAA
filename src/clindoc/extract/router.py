@@ -325,10 +325,10 @@ class ExtractionRouter:
         if (getattr(getattr(self.narrative, "_provider", None), "recovers_unparsed_regions", False)
                 and not any(c.field_type in TIER_1_FIELDS for c in det_claims)):
             try:
-                from clindoc.extract.text_provider import layout_text
+                from clindoc.extract.text_provider import best_reading
                 rec_evs, rec_clms, rec_diag = self.narrative.extract(
                     doc.document_id, page, region_text, rd.region_id, char_offset=char_offset,
-                    prompt_text=layout_text(page, char_offset, char_offset + len(region_text)) or None)
+                    prompt_text=best_reading(page, region_text, char_offset))
                 final_evidences.extend(rec_evs)
                 final_claims.extend(rec_clms)
                 diagnostics["text_recovery"] = {"claims": len(rec_clms), "rejected": len(rec_diag.get("rejected", []))}
@@ -432,8 +432,8 @@ class ExtractionRouter:
         try:
             prompt_text = None
             if getattr(getattr(self.narrative, "_provider", None), "recovers_unparsed_regions", False):
-                from clindoc.extract.text_provider import layout_text  # rows rebuilt from word positions
-                prompt_text = layout_text(page, char_offset, char_offset + len(region_text)) or None
+                from clindoc.extract.text_provider import best_reading
+                prompt_text = best_reading(page, region_text, char_offset)
             evidences, claims, diagnostics = self.narrative.extract(
                 doc.document_id, page, region_text, rd.region_id,
                 char_offset=char_offset, prompt_text=prompt_text,
