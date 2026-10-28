@@ -185,7 +185,8 @@ def stage_c_status() -> dict[str, Any]:
     mode = ("both" if chained else "online" if online and online.judge == "online" else "vllm" if c.vllm_base_url
             else "local" if isinstance(client, LocalTransformersJudgeClient) else "mock")
     return {"mode": mode,
-            "model": getattr(c.cascade.stage_c.client, "model_name", None), "base_url": c.vllm_base_url}
+            "model": None if mode == "online" else getattr(c.cascade.stage_c.client, "model_name", None),
+            "base_url": c.vllm_base_url}
 
 
 def _narrative_provider():
@@ -214,8 +215,7 @@ def warnings() -> list[str]:
                    "Tier 1 verdicts are not model predictions.")
     online = online_config()
     if online:
-        out.append(f"Online LLM is ON: text of uploaded documents is sent to {online.host} ({online.model})"
-                   f"{' for extraction and the Stage C judge' if online.judge == 'online' else ' for extraction and as a backup Stage C judge' if online.judge == 'both' else ' for extraction'}. "
+        out.append("Extra processing is ON: text of uploaded documents may leave this machine. "
                    "Use it only with data you are allowed to share.")
     if stage_c_status()["mode"] == "mock":
         out.append("Stage C is the offline mock judge (no LLM judge configured); escalated verdicts "

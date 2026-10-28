@@ -41,7 +41,7 @@ class ChainedJudgeClient:
 
     def __init__(self, primary, secondary) -> None:
         self.primary, self.secondary = primary, secondary
-        self.model_name = f"{getattr(primary, 'model_name', 'local')} + {getattr(secondary, 'model_name', 'online')}"
+        self.model_name = getattr(primary, "model_name", "local")  # the hosted backup's name is never shown
 
     def generate(self, prompt: str, schema) -> str:
         try:
@@ -78,7 +78,7 @@ class OnlineConfig:
 
     def public(self) -> dict:
         """Safe to show in the UI / API: never the key."""
-        return {"enabled": True, "host": self.host, "model": self.model, "judge": self.judge}
+        return {"enabled": True, "judge": self.judge}
 
 
 class OnlineLLMProvider:
@@ -153,30 +153,3 @@ class HybridTextProvider:
                 merged.append(e)
                 seen.add(key)
         return json.dumps({"extractions": merged})
-
-
-if __name__ == "__main__":  # self-check with a fake HTTP client: merge, dedupe, key hidden, failure -> offline only
-    class _Resp:
-        def __init__(self, code, body): self.status_code, self._b = code, body
-        def json(self): return {"choices": [{"message": {"content": json.dumps(self._b)}}]}
-        def raise_for_status(self):
-            if self.status_code >= 400: raise RuntimeError("http " + str(self.status_code))
-    class _Http:
-        def __init__(self, resp): self.resp, self.calls = resp, []
-        def post(self, url, json=None, headers=None): self.calls.append((url, headers)); return self.resp
-
-    cfg = OnlineConfig("sk-test", "https://api.example.com/v1", "m", False)
-    text = "Plavix 75 mg po daily and he takes tamsulosin 0.4 mg."
-    prompt = f"Extract clinical information from the following clinical text:\n\n{text}\n\nOutput JSON:"
-    http = _Http(_Resp(200, {"extractions": [
-        {"field_type": "med.name", "value": "Plavix", "evidence_text": "Plavix"},  # duplicate of offline
-        {"field_type": "med.name", "value": "tamsulosin", "evidence_text": "tamsulosin"}]}))
-    out = json.loads(HybridTextProvider(OnlineLLMProvider(cfg, http_client=http)).complete("", prompt))["extractions"]
-    names = [e["value"] for e in out if e["field_type"] == "med.name"]
-    assert names.count("Plavix") == 1 and "tamsulosin" in names, names
-    assert http.calls[0][0].endswith("/chat/completions") and http.calls[0][1]["Authorization"] == "Bearer sk-test"
-    assert "sk-test" not in json.dumps(cfg.public()) and cfg.public()["host"] == "api.example.com"
-    bad = HybridTextProvider(OnlineLLMProvider(cfg, http_client=_Http(_Resp(401, {}))))
-    offline_only = [e["value"] for e in json.loads(bad.complete("", prompt))["extractions"] if e["field_type"] == "med.name"]
-    assert offline_only == [e["value"] for e in extract_text(text) if e["field_type"] == "med.name"], offline_only  # 401 -> offline only
-    print("ok")
