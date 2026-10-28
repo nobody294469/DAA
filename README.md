@@ -433,12 +433,12 @@ This project declares the **MIT License** in `pyproject.toml` (`license = { text
 
 ## Run locally (Antigravity / VS Code)
 
-Open the folder, then **Terminal → Run Task** and pick:
+Open the folder: the website starts by itself (task **Auto-start website**, runs on folder open) and opens
+http://127.0.0.1:8000 once the models are loaded (about a minute). The first time, the editor asks once to
+allow automatic tasks and to trust the folder: click Allow / Yes.
 
-- **Start website (local)**: loads the models (about a minute), then opens http://127.0.0.1:8000
-- **Stop website** / **Restart website** / **Website status** / **Show server log** / **Run tests**
-- Debugging: **Run and Debug → Debug website (foreground)**
-
-Or double-click `start.bat`, or run `python run_server.py` (any Python: it re-launches itself with the project's `.venv`).
-The editor is already pointed at `.venv` (`.vscode/settings.json`). Put the optional online-model key in `.env`
-(see `env.example`); without it everything runs offline.
+- Other tasks (**Terminal → Run Task**): Start / Stop / Restart website, Website status, Show server log, Run tests.
+- **First-time setup** (new machine): creates `.venv` and installs everything, then copy nothing else: `.env` is created for you.
+- Debugging: **Run and Debug → Debug website (foreground)**. Or double-click `start.bat`, or `python run_server.py`.
+- Optional online model: put your key in `.env` (see `env.example`); without it everything runs offline.
+- Antigravity agent notes: `.agent/rules` and `.agent/workflows`.

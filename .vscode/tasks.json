@@ -1,11 +1,20 @@
 {
   "version": "2.0.0",
   "tasks": [
-    { "label": "Start website (local)", "type": "shell", "command": ".venv/Scripts/python.exe run_server.py", "problemMatcher": [], "presentation": { "reveal": "always", "panel": "shared" } },
-    { "label": "Stop website", "type": "shell", "command": ".venv/Scripts/python.exe run_server.py stop", "problemMatcher": [] },
-    { "label": "Restart website", "type": "shell", "command": ".venv/Scripts/python.exe run_server.py restart", "problemMatcher": [] },
-    { "label": "Website status", "type": "shell", "command": ".venv/Scripts/python.exe run_server.py status", "problemMatcher": [] },
-    { "label": "Run tests", "type": "shell", "command": ".venv/Scripts/python.exe -m pytest -q", "group": "test", "problemMatcher": [] },
+    {
+      "label": "Auto-start website",
+      "type": "shell",
+      "command": "python run_server.py",
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": { "reveal": "silent", "panel": "dedicated", "close": true, "showReuseMessage": false },
+      "problemMatcher": []
+    },
+    { "label": "Start website (local)", "type": "shell", "command": "python run_server.py", "problemMatcher": [], "presentation": { "reveal": "silent", "close": true } },
+    { "label": "Stop website", "type": "shell", "command": "python run_server.py stop", "problemMatcher": [], "presentation": { "reveal": "silent", "close": true } },
+    { "label": "Restart website", "type": "shell", "command": "python run_server.py restart", "problemMatcher": [], "presentation": { "reveal": "silent", "close": true } },
+    { "label": "Website status", "type": "shell", "command": "python run_server.py status", "problemMatcher": [] },
+    { "label": "First-time setup", "type": "shell", "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup_local.ps1", "problemMatcher": [] },
+    { "label": "Run tests", "type": "shell", "command": "python -m pytest -q", "group": "test", "problemMatcher": [] },
     { "label": "Show server log", "type": "shell", "command": "powershell -NoProfile -Command Get-Content server.log -Tail 40 -Wait", "isBackground": true, "problemMatcher": [] }
   ]
 }
