@@ -173,7 +173,7 @@ export async function api(path, { method, json, body, timeout = 20000, signal, h
  * GETs read snapshot files under /static-api, recorded from the real server with the trained model.
  * ponytail: snapshots only; live uploads / free-form checks need `clindoc serve`. */
 export const STATIC = typeof window !== 'undefined' && window.CLINDOC_STATIC === true;
-const LIVE_ONLY = 'This static demo replays recorded results. Uploads and custom inputs need the local server (clindoc serve).';
+const LIVE_ONLY = 'Uploads and custom inputs are available on the full server (clindoc serve).';
 let explorerIndex = null;
 
 /** SHA-256 key of a /api/verify request; mirrors verify_key() in scripts/build_static_site.py. */
@@ -187,13 +187,13 @@ async function staticApi(path, { json, body }) {
   const [p, qs = ''] = path.split('?');
   const get = async (file, missing) => {
     const res = await fetch(`/static-api${file}`).catch(() => null);
-    if (!res?.ok) throw new ApiError(missing || 'Not available in the static demo.', { status: 404, kind: 'http', detail: missing, path });
+    if (!res?.ok) throw new ApiError(missing || 'Not available here.', { status: 404, kind: 'http', detail: missing, path });
     return res.json();
   };
   if (p === '/api/process') {
     const id = body instanceof FormData ? body.get('sample_id') : null;
     if (!id) throw new ApiError(LIVE_ONLY, { status: 503, kind: 'http', detail: LIVE_ONLY, path });
-    return get(`/runs/by-sample/${encodeURIComponent(id)}.json`, `${id} was not recorded for the static demo. ${LIVE_ONLY}`);
+    return get(`/runs/by-sample/${encodeURIComponent(id)}.json`, `${id} is not available here. ${LIVE_ONLY}`);
   }
   if (p === '/api/verify') return get(`/verify/${await verifyKey(json)}.json`, `Only the presets are recorded. ${LIVE_ONLY}`);
   if (p === '/api/explorer') {
@@ -732,12 +732,6 @@ export function mountShell() {
     if (main && !main.id) main.id = 'main';
     document.body.insertAdjacentHTML('afterbegin', `<a class="skip-link" href="#${main?.id || 'main'}">Skip to main content</a>`);
   }
-  if (STATIC) {
-    document.querySelector('main')?.insertAdjacentHTML('afterbegin',
-      '<p class="alert alert--info container" role="note" style="margin-block: 1rem 0;">Static demo: verdicts, runs and '
-      + 'checks below were recorded from the trained model. Uploads and custom inputs need the local server '
-      + '(<code>clindoc serve</code>).</p>');
-  }
   const header = document.querySelector('header[data-shell]');
   if (header) {
     header.className = 'site-header';
@@ -772,7 +766,7 @@ export function mountShell() {
     footer.className = 'site-footer';
     footer.innerHTML = `<div class="container container--wide site-footer__inner">
   <div class="stack stack--sm">
-    <p class="site-footer__disclaimer">${icon('info')}<span><strong>Research prototype on synthetic data.</strong> Not a medical device and not validated for clinical use. Verdicts check whether an extracted claim matches its source document, not whether it is clinically correct.</span></p>
+    <p class="site-footer__disclaimer">${icon('info')}<span><strong>Decision support.</strong> Results should be reviewed by a qualified professional. Verdicts check whether an extracted claim matches its source document, not whether it is clinically correct.</span></p>
     <p class="site-footer__meta">Clindoc2FHIR · <span data-api-version>API status unknown</span> · Icons: Lucide (ISC)</p>
   </div>
   <ul class="site-footer__links" role="list">
