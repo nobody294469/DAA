@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug website (foreground)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "clindoc.cli",
+      "args": ["serve", "--port", "8000", "--device", "cpu",
+               "--checkpoint", "data/m2_results_v3/checkpoints/modernbert_text_only_v3_openmix_fold0_seed42.pt",
+               "--llm", "data/judge_lora/Qwen2.5-1.5B-Instruct-v3"],
+      "env": { "PYTHONPATH": "${workspaceFolder}/src" },
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Start website (local)", "type": "shell", "command": ".venv/Scripts/python.exe run_server.py", "problemMatcher": [], "presentation": { "reveal": "always", "panel": "shared" } },
+    { "label": "Stop website", "type": "shell", "command": ".venv/Scripts/python.exe run_server.py stop", "problemMatcher": [] },
+    { "label": "Restart website", "type": "shell", "command": ".venv/Scripts/python.exe run_server.py restart", "problemMatcher": [] },
+    { "label": "Website status", "type": "shell", "command": ".venv/Scripts/python.exe run_server.py status", "problemMatcher": [] },
+    { "label": "Run tests", "type": "shell", "command": ".venv/Scripts/python.exe -m pytest -q", "group": "test", "problemMatcher": [] },
+    { "label": "Show server log", "type": "shell", "command": "powershell -NoProfile -Command Get-Content server.log -Tail 40 -Wait", "isBackground": true, "problemMatcher": [] }
+  ]
+}

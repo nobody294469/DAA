@@ -51,7 +51,11 @@ data/m2_results_v1_legacy/test_ckpt/
 
 # IDE & OS
 .idea/
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 *.swp
 *~
 .DS_Store
