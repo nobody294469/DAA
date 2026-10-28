@@ -61,7 +61,7 @@ def _ai(text: str) -> tuple[list[dict], str | None]:
     base = os.environ.get("CLINDOC_ONLINE_BASE_URL", "https://api.openai.com/v1").rstrip("/")
     primary = os.environ.get("CLINDOC_ONLINE_MODEL", "gpt-4o-mini")
     models = [primary] + [m.strip() for m in os.environ.get("CLINDOC_ONLINE_FALLBACK_MODELS", "").split(",") if m.strip()]
-    out = None
+    out, deadline = None, time.monotonic() + 52  # Vercel stops the function at 60 s
     for model in models:  # a busy or retired model should not stop the others
         body = json.dumps({"model": model, "temperature": 0, "response_format": {"type": "json_object"},
                            "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": text[:14000]}]})
@@ -69,7 +69,7 @@ def _ai(text: str) -> tuple[list[dict], str | None]:
             "Authorization": f"Bearer {key}", "Content-Type": "application/json"})
         for attempt in range(2):  # 503/429 spikes and timeouts are often gone a second later
             try:
-                with urllib.request.urlopen(req, timeout=12) as r:
+                with urllib.request.urlopen(req, timeout=max(5, min(22, deadline - time.monotonic()))) as r:
                     out = json.loads(json.loads(r.read())["choices"][0]["message"]["content"])["extractions"]
                 break
             except Exception as e:
@@ -78,7 +78,7 @@ def _ai(text: str) -> tuple[list[dict], str | None]:
                 if isinstance(e, urllib.error.HTTPError):  # provider error text goes to the Vercel logs only, never the page
                     why += f" {e.code}: " + e.read().decode("utf-8", "ignore")[:200].replace(key, "***")
                 print(f"smart extraction {model} attempt {attempt + 1} failed:", why, file=sys.stderr)
-                if not retry:
+                if not retry or time.monotonic() > deadline - 5:
                     break
                 time.sleep(1)
         if out is not None:
