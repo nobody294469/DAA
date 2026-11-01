@@ -1,0 +1,18 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR FUNCTIONAL EVALUATION ONLY]
+PATIENT: Synthetic Patient Nephro-04
+ENCOUNTER: Nephrology Subspecialty Consultation
+DATE: 2026-03-25
+
+CHIEF COMPLAINT:
+Management of chronic kidney disease stage 3b and secondary hypertension.
+
+HISTORY OF PRESENT ILLNESS:
+The patient is a 71-year-old male with chronic kidney disease secondary to hypertensive nephrosclerosis. Blood pressure in clinic is 138/82 mmHg.
+
+DIAGNOSTIC TESTING:
+Renal panel reveals serum Creatinine 1.8 mg/dL (HIGH). Blood Urea Nitrogen is 28 mg/dL (HIGH). Serum Potassium is 4.7 mmol/L (NORMAL).
+
+CURRENT THERAPY:
+Continue Losartan 50 mg PO once daily.
+Continue Amlodipine 5 mg oral daily.
+Take Sodium Bicarbonate 650 mg by mouth twice daily for metabolic acidosis.

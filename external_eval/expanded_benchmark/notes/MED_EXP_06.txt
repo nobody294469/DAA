@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL PRESCRIPTION ORDER - NOT PHI - FOR EVALUATION ONLY]
+COMPREHENSIVE NEUROLOGY CLINIC
+Rx Slip Date: 2026-04-22
+Patient: Synthetic Patient Med-Exp-06    MRN: PAT-391024
+DOB: 1982-05-18    Provider: Dr. James Wilson, MD (NPI: 1293847561)
+
+Gabapentin 300 mg oral capsule
+Take 1 capsule by mouth three times daily
+Quantity: 90 capsules    Refills: 2
+
+Levetiracetam 500 mg oral tablet
+Take 1 tablet PO twice daily
+Quantity: 60 tablets    Refills: 3

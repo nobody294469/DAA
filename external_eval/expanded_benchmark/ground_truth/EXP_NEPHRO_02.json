@@ -1,0 +1,224 @@
+{
+  "doc_id": "EXP_NEPHRO_02",
+  "category": "narrative_encounter",
+  "specialty": "Nephrology",
+  "title": "Hemodialysis Flowsheet Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 19,
+  "claims": [
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 267,
+      "char_end": 276,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.value",
+      "value": "5.4",
+      "value_numeric": 5.4,
+      "unit_raw": null,
+      "evidence_text": "5.4",
+      "char_start": 281,
+      "char_end": 284,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 285,
+      "char_end": 291,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 293,
+      "char_end": 297,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.test_name",
+      "value": "Phosphorus",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Phosphorus",
+      "char_start": 306,
+      "char_end": 316,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.value",
+      "value": "5.8",
+      "value_numeric": 5.8,
+      "unit_raw": null,
+      "evidence_text": "5.8",
+      "char_start": 321,
+      "char_end": 324,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 325,
+      "char_end": 330,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 332,
+      "char_end": 336,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.test_name",
+      "value": "Calcium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Calcium",
+      "char_start": 345,
+      "char_end": 352,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.value",
+      "value": "9.1",
+      "value_numeric": 9.1,
+      "unit_raw": null,
+      "evidence_text": "9.1",
+      "char_start": 357,
+      "char_end": 360,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 361,
+      "char_end": 366,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "med.name",
+      "value": "Sevelamer Carbonate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sevelamer Carbonate",
+      "char_start": 382,
+      "char_end": 401,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "med.dose",
+      "value": "800 mg",
+      "value_numeric": 800.0,
+      "unit_raw": "mg",
+      "evidence_text": "800 mg",
+      "char_start": 402,
+      "char_end": 408,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 409,
+      "char_end": 413,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "med.frequency",
+      "value": "three times daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "three times daily",
+      "char_start": 421,
+      "char_end": 438,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "med.name",
+      "value": "Calcitriol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Calcitriol",
+      "char_start": 451,
+      "char_end": 461,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "med.dose",
+      "value": "0.25 mcg",
+      "value_numeric": 0.25,
+      "unit_raw": "mcg",
+      "evidence_text": "0.25 mcg",
+      "char_start": 462,
+      "char_end": 470,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 471,
+      "char_end": 473,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 474,
+      "char_end": 484,
+      "page_number": 1
+    }
+  ]
+}

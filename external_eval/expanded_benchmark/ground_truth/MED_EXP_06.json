@@ -1,0 +1,103 @@
+{
+  "doc_id": "MED_EXP_06",
+  "category": "structured_medication",
+  "specialty": "Neurology",
+  "title": "Neurology Clinic Prescription - Missing Section Headers",
+  "format": "prescription_pad",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 8,
+  "claims": [
+    {
+      "document_id": "MED_EXP_06",
+      "field_type": "med.name",
+      "value": "Gabapentin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Gabapentin",
+      "char_start": 254,
+      "char_end": 264,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_06",
+      "field_type": "med.dose",
+      "value": "300 mg",
+      "value_numeric": 300.0,
+      "unit_raw": "mg",
+      "evidence_text": "300 mg",
+      "char_start": 265,
+      "char_end": 271,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_06",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 300,
+      "char_end": 308,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_06",
+      "field_type": "med.frequency",
+      "value": "three times daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "three times daily",
+      "char_start": 309,
+      "char_end": 326,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_06",
+      "field_type": "med.name",
+      "value": "Levetiracetam",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Levetiracetam",
+      "char_start": 364,
+      "char_end": 377,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_06",
+      "field_type": "med.dose",
+      "value": "500 mg",
+      "value_numeric": 500.0,
+      "unit_raw": "mg",
+      "evidence_text": "500 mg",
+      "char_start": 378,
+      "char_end": 384,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_06",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 411,
+      "char_end": 413,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_06",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 414,
+      "char_end": 425,
+      "page_number": 1
+    }
+  ]
+}

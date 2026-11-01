@@ -1,0 +1,290 @@
+{
+  "doc_id": "EXP_CARDIO_01",
+  "category": "narrative_encounter",
+  "specialty": "Cardiology",
+  "title": "Heart Failure Clinic Progress Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 25,
+  "claims": [
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 723,
+      "char_end": 732,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.value",
+      "value": "4.4",
+      "value_numeric": 4.4,
+      "unit_raw": null,
+      "evidence_text": "4.4",
+      "char_start": 733,
+      "char_end": 736,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 737,
+      "char_end": 743,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 745,
+      "char_end": 751,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.test_name",
+      "value": "BNP",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BNP",
+      "char_start": 760,
+      "char_end": 763,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.value",
+      "value": "110",
+      "value_numeric": 110.0,
+      "unit_raw": null,
+      "evidence_text": "110",
+      "char_start": 777,
+      "char_end": 780,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.unit",
+      "value": "pg/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "pg/mL",
+      "char_start": 781,
+      "char_end": 786,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BUN",
+      "char_start": 788,
+      "char_end": 791,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.value",
+      "value": "19",
+      "value_numeric": 19.0,
+      "unit_raw": null,
+      "evidence_text": "19",
+      "char_start": 796,
+      "char_end": 798,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 799,
+      "char_end": 804,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 809,
+      "char_end": 819,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.value",
+      "value": "1.0",
+      "value_numeric": 1.0,
+      "unit_raw": null,
+      "evidence_text": "1.0",
+      "char_start": 824,
+      "char_end": 827,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 828,
+      "char_end": 833,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.name",
+      "value": "Sacubitril-Valsartan",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sacubitril-Valsartan",
+      "char_start": 997,
+      "char_end": 1017,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.dose",
+      "value": "49-51 mg",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "49-51 mg",
+      "char_start": 1018,
+      "char_end": 1026,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 1027,
+      "char_end": 1031,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 1039,
+      "char_end": 1050,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.name",
+      "value": "Metoprolol Succinate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Metoprolol Succinate",
+      "char_start": 1061,
+      "char_end": 1081,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.dose",
+      "value": "100 mg",
+      "value_numeric": 100.0,
+      "unit_raw": "mg",
+      "evidence_text": "100 mg",
+      "char_start": 1082,
+      "char_end": 1088,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 1089,
+      "char_end": 1091,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 1092,
+      "char_end": 1097,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.name",
+      "value": "Spironolactone",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Spironolactone",
+      "char_start": 1123,
+      "char_end": 1137,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.dose",
+      "value": "25 mg",
+      "value_numeric": 25.0,
+      "unit_raw": "mg",
+      "evidence_text": "25 mg",
+      "char_start": 1138,
+      "char_end": 1143,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 1144,
+      "char_end": 1152,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 1153,
+      "char_end": 1163,
+      "page_number": 1
+    }
+  ]
+}

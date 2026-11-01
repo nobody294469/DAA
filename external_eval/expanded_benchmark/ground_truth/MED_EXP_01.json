@@ -1,0 +1,104 @@
+{
+  "doc_id": "MED_EXP_01",
+  "category": "structured_medication",
+  "specialty": "Cardiology",
+  "title": "Outpatient Cardiology Discharge Prescription",
+  "format": "prescription_pad",
+  "features": [
+    "retail_order",
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 8,
+  "claims": [
+    {
+      "document_id": "MED_EXP_01",
+      "field_type": "med.name",
+      "value": "Atorvastatin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Atorvastatin",
+      "char_start": 395,
+      "char_end": 407,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_01",
+      "field_type": "med.dose",
+      "value": "40 mg",
+      "value_numeric": 40.0,
+      "unit_raw": "mg",
+      "evidence_text": "40 mg",
+      "char_start": 408,
+      "char_end": 413,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_01",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 445,
+      "char_end": 453,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 454,
+      "char_end": 464,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_01",
+      "field_type": "med.name",
+      "value": "Metoprolol Succinate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Metoprolol Succinate",
+      "char_start": 534,
+      "char_end": 554,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_01",
+      "field_type": "med.dose",
+      "value": "50 mg",
+      "value_numeric": 50.0,
+      "unit_raw": "mg",
+      "evidence_text": "50 mg",
+      "char_start": 555,
+      "char_end": 560,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 592,
+      "char_end": 594,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_01",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 595,
+      "char_end": 600,
+      "page_number": 1
+    }
+  ]
+}

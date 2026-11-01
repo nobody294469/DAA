@@ -1,0 +1,236 @@
+{
+  "doc_id": "LAB_EXP_03",
+  "category": "structured_lab",
+  "specialty": "Cardiology / Lipids",
+  "title": "Lipid & Cardiovascular Risk Assessment",
+  "format": "tabular_ocr",
+  "features": [
+    "tabular",
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 20,
+  "claims": [
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.test_name",
+      "value": "Total Cholesterol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Total Cholesterol",
+      "char_start": 464,
+      "char_end": 481,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.value",
+      "value": "215",
+      "value_numeric": 215.0,
+      "unit_raw": null,
+      "evidence_text": "215",
+      "char_start": 488,
+      "char_end": 491,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 520,
+      "char_end": 525,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 532,
+      "char_end": 536,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.test_name",
+      "value": "Triglycerides",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Triglycerides",
+      "char_start": 537,
+      "char_end": 550,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.value",
+      "value": "180",
+      "value_numeric": 180.0,
+      "unit_raw": null,
+      "evidence_text": "180",
+      "char_start": 561,
+      "char_end": 564,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 593,
+      "char_end": 598,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 605,
+      "char_end": 609,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.test_name",
+      "value": "HDL Cholesterol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HDL Cholesterol",
+      "char_start": 610,
+      "char_end": 625,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.value",
+      "value": "42",
+      "value_numeric": 42.0,
+      "unit_raw": null,
+      "evidence_text": "42",
+      "char_start": 634,
+      "char_end": 636,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 666,
+      "char_end": 671,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 678,
+      "char_end": 684,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.test_name",
+      "value": "LDL Cholesterol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LDL Cholesterol",
+      "char_start": 685,
+      "char_end": 700,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.value",
+      "value": "137",
+      "value_numeric": 137.0,
+      "unit_raw": null,
+      "evidence_text": "137",
+      "char_start": 709,
+      "char_end": 712,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 741,
+      "char_end": 746,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 753,
+      "char_end": 757,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.test_name",
+      "value": "hs-CRP",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "hs-CRP",
+      "char_start": 758,
+      "char_end": 764,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.value",
+      "value": "3.2",
+      "value_numeric": 3.2,
+      "unit_raw": null,
+      "evidence_text": "3.2",
+      "char_start": 782,
+      "char_end": 785,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.unit",
+      "value": "mg/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/L",
+      "char_start": 814,
+      "char_end": 818,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_03",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 826,
+      "char_end": 830,
+      "page_number": 1
+    }
+  ]
+}

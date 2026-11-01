@@ -1,0 +1,15 @@
+[SYNTHETIC CLINICAL LABORATORY REPORT - NOT PHI - FOR EVALUATION ONLY]
+CARDIOVASCULAR DIAGNOSTIC CENTER
+Sample ID: SPEC-749102        Date: 2026-04-11
+Patient: Synthetic Patient Lab-Exp-03    MRN: PAT-773019
+DOB: 1959-12-04    Age: 66    Gender: Male
+Ordering MD: Dr. Simon Walsh, MD (NPI: 1849201938)
+
+LIPID PROFILE:
+Test                    Result      Range               Units       Flag
+------------------------------------------------------------------------
+Total Cholesterol       215         < 200               mg/dL       HIGH
+Triglycerides           180         < 150               mg/dL       HIGH
+HDL Cholesterol         42          > 40                mg/dL       NORMAL
+LDL Cholesterol         137         < 100               mg/dL       HIGH
+hs-CRP                  3.2         < 1.0               mg/L        HIGH

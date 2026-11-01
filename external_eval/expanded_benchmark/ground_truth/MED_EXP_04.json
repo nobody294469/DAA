@@ -1,0 +1,126 @@
+{
+  "doc_id": "MED_EXP_04",
+  "category": "structured_medication",
+  "specialty": "Infectious Disease",
+  "title": "Outpatient Antimicrobial Order",
+  "format": "prescription_pad",
+  "features": [
+    "retail_order",
+    "duration_claims",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 10,
+  "claims": [
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.name",
+      "value": "Amoxicillin-Clavulanate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Amoxicillin-Clavulanate",
+      "char_start": 336,
+      "char_end": 359,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.dose",
+      "value": "875 mg",
+      "value_numeric": 875.0,
+      "unit_raw": "mg",
+      "evidence_text": "875 mg",
+      "char_start": 360,
+      "char_end": 366,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 413,
+      "char_end": 421,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 422,
+      "char_end": 433,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.duration",
+      "value": "for 10 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 10 days",
+      "char_start": 434,
+      "char_end": 445,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.name",
+      "value": "Doxycycline",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Doxycycline",
+      "char_start": 504,
+      "char_end": 515,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.dose",
+      "value": "100 mg",
+      "value_numeric": 100.0,
+      "unit_raw": "mg",
+      "evidence_text": "100 mg",
+      "char_start": 516,
+      "char_end": 522,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 571,
+      "char_end": 573,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.frequency",
+      "value": "BID",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BID",
+      "char_start": 574,
+      "char_end": 577,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_04",
+      "field_type": "med.duration",
+      "value": "for 7 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 7 days",
+      "char_start": 578,
+      "char_end": 588,
+      "page_number": 1
+    }
+  ]
+}

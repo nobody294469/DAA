@@ -1,0 +1,123 @@
+{
+  "benchmark_name": "ClinicalDoc Smallest Reproducible Multi-Specialty Synthetic Benchmark",
+  "benchmark_version": "1.0-frozen",
+  "created_date": "2026-10-29",
+  "license": "Apache 2.0 (Synthea-derived core + original synthetic test fixtures)",
+  "total_documents": 12,
+  "document_breakdown": {
+    "structured_lab": 4,
+    "structured_medication": 4,
+    "narrative_encounter": 4
+  },
+  "specialties_covered": [
+    "Cardiology",
+    "Endocrinology",
+    "Infectious Disease / Pulmonary",
+    "Nephrology",
+    "Hematology"
+  ],
+  "is_synthetic_evaluation": true,
+  "phi_free_guarantee": true,
+  "documents": [
+    {
+      "doc_id": "SYNTH_CARDIO_01",
+      "category": "narrative_encounter",
+      "specialty": "Cardiology",
+      "format": "clinical_narrative_text",
+      "text_file": "external_eval/synthetic_benchmark/notes/SYNTH_CARDIO_01.txt",
+      "gt_file": "external_eval/synthetic_benchmark/ground_truth/SYNTH_CARDIO_01.json",
+      "claim_count": 22
+    },
+    {
+      "doc_id": "SYNTH_ENDO_01",
+      "category": "narrative_encounter",
+      "specialty": "Endocrinology",
+      "format": "clinical_narrative_text",
+      "text_file": "external_eval/synthetic_benchmark/notes/SYNTH_ENDO_01.txt",
+      "gt_file": "external_eval/synthetic_benchmark/ground_truth/SYNTH_ENDO_01.json",
+      "claim_count": 23
+    },
+    {
+      "doc_id": "SYNTH_PULM_01",
+      "category": "narrative_encounter",
+      "specialty": "Pulmonology",
+      "format": "clinical_narrative_text",
+      "text_file": "external_eval/synthetic_benchmark/notes/SYNTH_PULM_01.txt",
+      "gt_file": "external_eval/synthetic_benchmark/ground_truth/SYNTH_PULM_01.json",
+      "claim_count": 21
+    },
+    {
+      "doc_id": "SYNTH_NEPHRO_01",
+      "category": "narrative_encounter",
+      "specialty": "Nephrology",
+      "format": "clinical_narrative_text",
+      "text_file": "external_eval/synthetic_benchmark/notes/SYNTH_NEPHRO_01.txt",
+      "gt_file": "external_eval/synthetic_benchmark/ground_truth/SYNTH_NEPHRO_01.json",
+      "claim_count": 23
+    },
+    {
+      "doc_id": "LAB_0001",
+      "category": "structured_lab",
+      "specialty": "Metabolic Panel",
+      "format": "tabular_pdf_ocr",
+      "ocr_cache": "data/ocr_cache/LAB_0001.json",
+      "gt_file": "data/ground_truth/LAB_0001.json"
+    },
+    {
+      "doc_id": "LAB_0002",
+      "category": "structured_lab",
+      "specialty": "Cardiology / Lipids",
+      "format": "tabular_pdf_ocr",
+      "ocr_cache": "data/ocr_cache/LAB_0002.json",
+      "gt_file": "data/ground_truth/LAB_0002.json"
+    },
+    {
+      "doc_id": "LAB_0003",
+      "category": "structured_lab",
+      "specialty": "Nephrology / Renal",
+      "format": "tabular_pdf_ocr",
+      "ocr_cache": "data/ocr_cache/LAB_0003.json",
+      "gt_file": "data/ground_truth/LAB_0003.json"
+    },
+    {
+      "doc_id": "LAB_0004",
+      "category": "structured_lab",
+      "specialty": "Hematology",
+      "format": "tabular_pdf_ocr",
+      "ocr_cache": "data/ocr_cache/LAB_0004.json",
+      "gt_file": "data/ground_truth/LAB_0004.json"
+    },
+    {
+      "doc_id": "MED_0001",
+      "category": "structured_medication",
+      "specialty": "Cardiovascular",
+      "format": "prescription_pad_ocr",
+      "ocr_cache": "data/med_ocr_cache/MED_0001.json",
+      "gt_file": "data/med_ground_truth/MED_0001.json"
+    },
+    {
+      "doc_id": "MED_0002",
+      "category": "structured_medication",
+      "specialty": "Cardiovascular",
+      "format": "prescription_pad_ocr",
+      "ocr_cache": "data/med_ocr_cache/MED_0002.json",
+      "gt_file": "data/med_ground_truth/MED_0002.json"
+    },
+    {
+      "doc_id": "MED_0003",
+      "category": "structured_medication",
+      "specialty": "Endocrinology",
+      "format": "prescription_pad_ocr",
+      "ocr_cache": "data/med_ocr_cache/MED_0003.json",
+      "gt_file": "data/med_ground_truth/MED_0003.json"
+    },
+    {
+      "doc_id": "MED_0004",
+      "category": "structured_medication",
+      "specialty": "Infectious Disease",
+      "format": "prescription_pad_ocr",
+      "ocr_cache": "data/med_ocr_cache/MED_0004.json",
+      "gt_file": "data/med_ground_truth/MED_0004.json"
+    }
+  ]
+}

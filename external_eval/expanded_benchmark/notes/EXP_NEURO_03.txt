@@ -1,0 +1,10 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+MOVEMENT DISORDERS PROGRAM
+Date: 2026-05-20    Patient: Synthetic Patient Neuro-Exp-03
+MRN: PAT-552018    DOB: 1950-10-10    Dr. Derek Shepherd (NPI: 1449204934)
+
+Follow-up idiopathic Parkinson disease. Tremor well controlled.
+Recent basic metabolic panel shows Potassium 4.2 mmol/L.
+Serum Creatinine is 0.9 mg/dL and BUN is 16 mg/dL.
+Carbidopa-Levodopa 25-100 mg oral tablet three times daily.
+Pramipexole 0.5 mg PO three times daily.

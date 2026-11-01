@@ -1,0 +1,191 @@
+{
+  "doc_id": "EXP_EMERG_02",
+  "category": "narrative_encounter",
+  "specialty": "Emergency Medicine",
+  "title": "ED Syncope & Orthostatic Hypotension",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 16,
+  "claims": [
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.test_name",
+      "value": "Hematocrit",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hematocrit",
+      "char_start": 258,
+      "char_end": 268,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.value",
+      "value": "31.2",
+      "value_numeric": 31.2,
+      "unit_raw": null,
+      "evidence_text": "31.2",
+      "char_start": 273,
+      "char_end": 277,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.unit",
+      "value": "%",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "%",
+      "char_start": 277,
+      "char_end": 278,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 280,
+      "char_end": 283,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.test_name",
+      "value": "Blood Urea Nitrogen",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Blood Urea Nitrogen",
+      "char_start": 286,
+      "char_end": 305,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.value",
+      "value": "36",
+      "value_numeric": 36.0,
+      "unit_raw": null,
+      "evidence_text": "36",
+      "char_start": 310,
+      "char_end": 312,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 313,
+      "char_end": 318,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 320,
+      "char_end": 324,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 333,
+      "char_end": 343,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.value",
+      "value": "1.4",
+      "value_numeric": 1.4,
+      "unit_raw": null,
+      "evidence_text": "1.4",
+      "char_start": 348,
+      "char_end": 351,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 352,
+      "char_end": 357,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 359,
+      "char_end": 363,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "med.name",
+      "value": "Midodrine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Midodrine",
+      "char_start": 412,
+      "char_end": 421,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "med.dose",
+      "value": "5 mg",
+      "value_numeric": 5.0,
+      "unit_raw": "mg",
+      "evidence_text": "5 mg",
+      "char_start": 422,
+      "char_end": 426,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 427,
+      "char_end": 431,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_02",
+      "field_type": "med.frequency",
+      "value": "three times daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "three times daily",
+      "char_start": 439,
+      "char_end": 456,
+      "page_number": 1
+    }
+  ]
+}

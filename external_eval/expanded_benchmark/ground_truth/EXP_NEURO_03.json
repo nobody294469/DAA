@@ -1,0 +1,202 @@
+{
+  "doc_id": "EXP_NEURO_03",
+  "category": "narrative_encounter",
+  "specialty": "Neurology",
+  "title": "Parkinson's Disease Note - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 17,
+  "claims": [
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 330,
+      "char_end": 339,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "lab.value",
+      "value": "4.2",
+      "value_numeric": 4.2,
+      "unit_raw": null,
+      "evidence_text": "4.2",
+      "char_start": 340,
+      "char_end": 343,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 344,
+      "char_end": 350,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 358,
+      "char_end": 368,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "lab.value",
+      "value": "0.9",
+      "value_numeric": 0.9,
+      "unit_raw": null,
+      "evidence_text": "0.9",
+      "char_start": 372,
+      "char_end": 375,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 376,
+      "char_end": 381,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BUN",
+      "char_start": 386,
+      "char_end": 389,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "lab.value",
+      "value": "16",
+      "value_numeric": 16.0,
+      "unit_raw": null,
+      "evidence_text": "16",
+      "char_start": 393,
+      "char_end": 395,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 396,
+      "char_end": 401,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "med.name",
+      "value": "Carbidopa-Levodopa",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Carbidopa-Levodopa",
+      "char_start": 403,
+      "char_end": 421,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "med.dose",
+      "value": "25-100 mg",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "25-100 mg",
+      "char_start": 422,
+      "char_end": 431,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 432,
+      "char_end": 436,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "med.frequency",
+      "value": "three times daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "three times daily",
+      "char_start": 444,
+      "char_end": 461,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "med.name",
+      "value": "Pramipexole",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Pramipexole",
+      "char_start": 463,
+      "char_end": 474,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "med.dose",
+      "value": "0.5 mg",
+      "value_numeric": 0.5,
+      "unit_raw": "mg",
+      "evidence_text": "0.5 mg",
+      "char_start": 475,
+      "char_end": 481,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 482,
+      "char_end": 484,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_03",
+      "field_type": "med.frequency",
+      "value": "three times daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "three times daily",
+      "char_start": 485,
+      "char_end": 502,
+      "page_number": 1
+    }
+  ]
+}

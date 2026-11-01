@@ -1,0 +1,18 @@
+[SYNTHETIC CLINICAL PRESCRIPTION ORDER - NOT PHI - FOR EVALUATION ONLY]
+ID ASSOCIATES & TRAVEL MEDICINE
+Order Date: 2026-04-18    Encounter: ENC-48192
+Patient: Synthetic Patient Med-Exp-04    MRN: PAT-552910
+DOB: 1984-07-29    Age: 41
+Prescriber: Dr. Nathan Brooks, MD    NPI: 1928374650
+
+Prescribed Medications:
+
+Order #1:
+Medication: Amoxicillin-Clavulanate 875 mg oral tablet
+Instructions (Sig): Take 1 tablet by mouth twice daily for 10 days
+Dispense: 20 tablets    Refills: 0
+
+Order #2:
+Medication: Doxycycline 100 mg oral capsule
+Instructions (Sig): Take 1 capsule PO BID for 7 days
+Dispense: 14 capsules    Refills: 0

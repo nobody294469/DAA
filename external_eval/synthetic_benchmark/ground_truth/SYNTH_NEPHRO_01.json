@@ -1,0 +1,262 @@
+{
+  "doc_id": "SYNTH_NEPHRO_01",
+  "specialty": "Nephrology",
+  "title": "Nephrology Subspecialty Consultation",
+  "is_synthetic": true,
+  "total_claims": 23,
+  "claims": [
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 495,
+      "char_end": 505,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.value",
+      "value": "1.8",
+      "value_numeric": 1.8,
+      "unit_raw": null,
+      "evidence_text": "1.8",
+      "char_start": 506,
+      "char_end": 509,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 510,
+      "char_end": 515,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 517,
+      "char_end": 521,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.test_name",
+      "value": "Blood Urea Nitrogen",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Blood Urea Nitrogen",
+      "char_start": 524,
+      "char_end": 543,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.value",
+      "value": "28",
+      "value_numeric": 28.0,
+      "unit_raw": null,
+      "evidence_text": "28",
+      "char_start": 547,
+      "char_end": 549,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 550,
+      "char_end": 555,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 570,
+      "char_end": 579,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.value",
+      "value": "4.7",
+      "value_numeric": 4.7,
+      "unit_raw": null,
+      "evidence_text": "4.7",
+      "char_start": 583,
+      "char_end": 586,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 587,
+      "char_end": 593,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 595,
+      "char_end": 601,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.name",
+      "value": "Losartan",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Losartan",
+      "char_start": 631,
+      "char_end": 639,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.dose",
+      "value": "50 mg",
+      "value_numeric": 50.0,
+      "unit_raw": "mg",
+      "evidence_text": "50 mg",
+      "char_start": 640,
+      "char_end": 645,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 646,
+      "char_end": 648,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 649,
+      "char_end": 659,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.name",
+      "value": "Amlodipine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Amlodipine",
+      "char_start": 670,
+      "char_end": 680,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.dose",
+      "value": "5 mg",
+      "value_numeric": 5.0,
+      "unit_raw": "mg",
+      "evidence_text": "5 mg",
+      "char_start": 681,
+      "char_end": 685,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 686,
+      "char_end": 690,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 691,
+      "char_end": 696,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.name",
+      "value": "Sodium Bicarbonate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sodium Bicarbonate",
+      "char_start": 703,
+      "char_end": 721,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.dose",
+      "value": "650 mg",
+      "value_numeric": 650.0,
+      "unit_raw": "mg",
+      "evidence_text": "650 mg",
+      "char_start": 722,
+      "char_end": 728,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 729,
+      "char_end": 737,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_NEPHRO_01",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 738,
+      "char_end": 749,
+      "page_number": 1
+    }
+  ]
+}

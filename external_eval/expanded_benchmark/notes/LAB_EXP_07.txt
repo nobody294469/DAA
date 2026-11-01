@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL LABORATORY REPORT - NOT PHI - FOR EVALUATION ONLY]
+ENDOCRINE PATHOLOGY LABORATORY
+SPECIMEN: THY-902148    COLLECTED: 2026-04-23
+PATIENT: Synthetic Patient Lab-Exp-07    MRN: PAT-332910
+DOB: 1993-01-12    AGE: 33    FEMALE
+ENDOCRINOLOGIST: Dr. Laura Croft, MD (NPI: 1449203817)
+
+TSH                     4.85        0.45 - 4.50         uIU/mL      HIGH
+Free T4                 1.05        0.82 - 1.77         ng/dL       NORMAL
+Free T3                 3.1         2.0 - 4.4           pg/mL       NORMAL
+Hemoglobin A1c          5.6         4.0 - 5.6           %           NORMAL
+Vitamin D 25-OH         24          30 - 100            ng/mL       LOW

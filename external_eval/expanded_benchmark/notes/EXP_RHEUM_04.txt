@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+SPONDYLOARTHRITIS CLINIC
+Date: 2O26-O5-3O    Patient: Synthetic Patient Rheum-Exp-04
+MRN: PAT-993018    DOB: 1983-02-17    Dr. Lexie Grey (NPI: 1948204939)
+
+LABORATORY FINDINGS:
+C-Reactive Protein was 12 mg/L (HIGH).
+Hemoglobin was 14.1 g/dL.
+
+MEDICATIONS:
+Secukinumab 150 mg subcutaneous every 4 weeks.
+Celecoxib 200 mg oral once daily with food.

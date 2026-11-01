@@ -1,0 +1,902 @@
+{
+  "benchmark_name": "ClinicalDoc Expanded Diverse Multi-Specialty Synthetic Benchmark",
+  "benchmark_version": "2.0-frozen-expanded",
+  "created_date": "2026-10-29",
+  "license": "Apache 2.0 (Synthea-derived core + original synthetic test fixtures)",
+  "total_documents": 60,
+  "total_claims": 999,
+  "document_breakdown": {
+    "narrative_encounter": 44,
+    "structured_medication": 8,
+    "structured_lab": 8
+  },
+  "specialties_covered": [
+    "Cardiology",
+    "Cardiology / Lipids",
+    "Critical Care / Arterial Blood Gas",
+    "Emergency Medicine",
+    "Endocrinology",
+    "Endocrinology / Thyroid",
+    "Gastroenterology",
+    "Gastroenterology / Hepatic",
+    "Hematology",
+    "Hematology / Coagulation",
+    "Infectious Disease",
+    "Metabolic Panel",
+    "Nephrology",
+    "Nephrology / Renal",
+    "Neurology",
+    "Oncology",
+    "Psychiatry",
+    "Pulmonology",
+    "Rheumatology"
+  ],
+  "is_synthetic_evaluation": true,
+  "phi_free_guarantee": true,
+  "claims_by_field": {
+    "lab.test_name": 161,
+    "lab.value": 161,
+    "lab.unit": 156,
+    "lab.flag": 98,
+    "med.name": 96,
+    "med.dose": 96,
+    "med.route": 96,
+    "med.frequency": 96,
+    "med.duration": 11,
+    "lab.reference_range": 28
+  },
+  "documents": [
+    {
+      "doc_id": "EXP_CARDIO_01",
+      "category": "narrative_encounter",
+      "specialty": "Cardiology",
+      "title": "Heart Failure Clinic Progress Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_CARDIO_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_CARDIO_01.json",
+      "claim_count": 25
+    },
+    {
+      "doc_id": "EXP_CARDIO_02",
+      "category": "narrative_encounter",
+      "specialty": "Cardiology",
+      "title": "Inpatient NSTEMI Discharge Summary",
+      "format": "clinical_narrative_text",
+      "features": [
+        "discharge_summary",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_CARDIO_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_CARDIO_02.json",
+      "claim_count": 22
+    },
+    {
+      "doc_id": "EXP_CARDIO_03",
+      "category": "narrative_encounter",
+      "specialty": "Cardiology",
+      "title": "Afib Clinic Note - Missing Section Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_CARDIO_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_CARDIO_03.json",
+      "claim_count": 16
+    },
+    {
+      "doc_id": "EXP_CARDIO_04",
+      "category": "narrative_encounter",
+      "specialty": "Cardiology",
+      "title": "Post-CABG Note - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "irregular_spacing",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_CARDIO_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_CARDIO_04.json",
+      "claim_count": 21
+    },
+    {
+      "doc_id": "EXP_ENDO_01",
+      "category": "narrative_encounter",
+      "specialty": "Endocrinology",
+      "title": "Type 2 Diabetes Management Consultation",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_ENDO_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_ENDO_01.json",
+      "claim_count": 23
+    },
+    {
+      "doc_id": "EXP_ENDO_02",
+      "category": "narrative_encounter",
+      "specialty": "Endocrinology",
+      "title": "Thyroid Clinic Progress Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_ENDO_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_ENDO_02.json",
+      "claim_count": 12
+    },
+    {
+      "doc_id": "EXP_ENDO_03",
+      "category": "narrative_encounter",
+      "specialty": "Endocrinology",
+      "title": "Adrenal Clinic Note - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_ENDO_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_ENDO_03.json",
+      "claim_count": 20
+    },
+    {
+      "doc_id": "EXP_ENDO_04",
+      "category": "narrative_encounter",
+      "specialty": "Endocrinology",
+      "title": "DKA ICU Note - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_ENDO_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_ENDO_04.json",
+      "claim_count": 15
+    },
+    {
+      "doc_id": "EXP_PULM_01",
+      "category": "narrative_encounter",
+      "specialty": "Pulmonology",
+      "title": "COPD Exacerbation Clinic Follow-up",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_PULM_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_PULM_01.json",
+      "claim_count": 21
+    },
+    {
+      "doc_id": "EXP_PULM_02",
+      "category": "narrative_encounter",
+      "specialty": "Pulmonology",
+      "title": "Severe Asthma Assessment",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_PULM_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_PULM_02.json",
+      "claim_count": 16
+    },
+    {
+      "doc_id": "EXP_PULM_03",
+      "category": "narrative_encounter",
+      "specialty": "Pulmonology",
+      "title": "Interstitial Lung Disease Note - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_PULM_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_PULM_03.json",
+      "claim_count": 13
+    },
+    {
+      "doc_id": "EXP_PULM_04",
+      "category": "narrative_encounter",
+      "specialty": "Pulmonology",
+      "title": "Pneumonia Discharge - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_PULM_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_PULM_04.json",
+      "claim_count": 12
+    },
+    {
+      "doc_id": "EXP_NEPHRO_01",
+      "category": "narrative_encounter",
+      "specialty": "Nephrology",
+      "title": "CKD Stage 4 Outpatient Clinic Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_NEPHRO_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_NEPHRO_01.json",
+      "claim_count": 32
+    },
+    {
+      "doc_id": "EXP_NEPHRO_02",
+      "category": "narrative_encounter",
+      "specialty": "Nephrology",
+      "title": "Hemodialysis Flowsheet Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_NEPHRO_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_NEPHRO_02.json",
+      "claim_count": 19
+    },
+    {
+      "doc_id": "EXP_NEPHRO_03",
+      "category": "narrative_encounter",
+      "specialty": "Nephrology",
+      "title": "Kidney Transplant Follow-up - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_NEPHRO_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_NEPHRO_03.json",
+      "claim_count": 17
+    },
+    {
+      "doc_id": "EXP_NEPHRO_04",
+      "category": "narrative_encounter",
+      "specialty": "Nephrology",
+      "title": "Glomerulonephritis Note - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_NEPHRO_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_NEPHRO_04.json",
+      "claim_count": 15
+    },
+    {
+      "doc_id": "EXP_INFECT_01",
+      "category": "narrative_encounter",
+      "specialty": "Infectious Disease",
+      "title": "Bacteremia & Cellulitis Inpatient Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_INFECT_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_INFECT_01.json",
+      "claim_count": 22
+    },
+    {
+      "doc_id": "EXP_INFECT_02",
+      "category": "narrative_encounter",
+      "specialty": "Infectious Disease",
+      "title": "HIV / Viral Hepatitis Management",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_INFECT_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_INFECT_02.json",
+      "claim_count": 14
+    },
+    {
+      "doc_id": "EXP_INFECT_03",
+      "category": "narrative_encounter",
+      "specialty": "Infectious Disease",
+      "title": "Lyme Disease Evaluation - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_INFECT_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_INFECT_03.json",
+      "claim_count": 11
+    },
+    {
+      "doc_id": "EXP_INFECT_04",
+      "category": "narrative_encounter",
+      "specialty": "Infectious Disease",
+      "title": "OPAT Osteomyelitis Note - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_INFECT_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_INFECT_04.json",
+      "claim_count": 16
+    },
+    {
+      "doc_id": "EXP_ONCO_01",
+      "category": "narrative_encounter",
+      "specialty": "Oncology",
+      "title": "Breast Cancer Adjuvant Therapy Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_ONCO_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_ONCO_01.json",
+      "claim_count": 17
+    },
+    {
+      "doc_id": "EXP_ONCO_02",
+      "category": "narrative_encounter",
+      "specialty": "Hematology",
+      "title": "Iron Deficiency Anemia Management",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_ONCO_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_ONCO_02.json",
+      "claim_count": 16
+    },
+    {
+      "doc_id": "EXP_ONCO_03",
+      "category": "narrative_encounter",
+      "specialty": "Oncology",
+      "title": "Chemotherapy Follow-up - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_ONCO_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_ONCO_03.json",
+      "claim_count": 21
+    },
+    {
+      "doc_id": "EXP_ONCO_04",
+      "category": "narrative_encounter",
+      "specialty": "Hematology",
+      "title": "Multiple Myeloma Note - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_ONCO_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_ONCO_04.json",
+      "claim_count": 21
+    },
+    {
+      "doc_id": "EXP_GASTRO_01",
+      "category": "narrative_encounter",
+      "specialty": "Gastroenterology",
+      "title": "Cirrhosis Outpatient Clinic Review",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_GASTRO_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_GASTRO_01.json",
+      "claim_count": 27
+    },
+    {
+      "doc_id": "EXP_GASTRO_02",
+      "category": "narrative_encounter",
+      "specialty": "Gastroenterology",
+      "title": "Crohn's Disease Follow-up Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_GASTRO_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_GASTRO_02.json",
+      "claim_count": 20
+    },
+    {
+      "doc_id": "EXP_GASTRO_03",
+      "category": "narrative_encounter",
+      "specialty": "Gastroenterology",
+      "title": "Acute Pancreatitis Note - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_GASTRO_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_GASTRO_03.json",
+      "claim_count": 19
+    },
+    {
+      "doc_id": "EXP_GASTRO_04",
+      "category": "narrative_encounter",
+      "specialty": "Gastroenterology",
+      "title": "Peptic Ulcer Note - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_GASTRO_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_GASTRO_04.json",
+      "claim_count": 12
+    },
+    {
+      "doc_id": "EXP_NEURO_01",
+      "category": "narrative_encounter",
+      "specialty": "Neurology",
+      "title": "Epilepsy Clinic Management Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_NEURO_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_NEURO_01.json",
+      "claim_count": 17
+    },
+    {
+      "doc_id": "EXP_NEURO_02",
+      "category": "narrative_encounter",
+      "specialty": "Neurology",
+      "title": "Ischemic Stroke Prevention Follow-up",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_NEURO_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_NEURO_02.json",
+      "claim_count": 18
+    },
+    {
+      "doc_id": "EXP_NEURO_03",
+      "category": "narrative_encounter",
+      "specialty": "Neurology",
+      "title": "Parkinson's Disease Note - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_NEURO_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_NEURO_03.json",
+      "claim_count": 17
+    },
+    {
+      "doc_id": "EXP_NEURO_04",
+      "category": "narrative_encounter",
+      "specialty": "Neurology",
+      "title": "Multiple Sclerosis Note - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_NEURO_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_NEURO_04.json",
+      "claim_count": 11
+    },
+    {
+      "doc_id": "EXP_RHEUM_01",
+      "category": "narrative_encounter",
+      "specialty": "Rheumatology",
+      "title": "Rheumatoid Arthritis Outpatient Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_RHEUM_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_RHEUM_01.json",
+      "claim_count": 24
+    },
+    {
+      "doc_id": "EXP_RHEUM_02",
+      "category": "narrative_encounter",
+      "specialty": "Rheumatology",
+      "title": "Systemic Lupus Erythematosus Progress Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_RHEUM_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_RHEUM_02.json",
+      "claim_count": 19
+    },
+    {
+      "doc_id": "EXP_RHEUM_03",
+      "category": "narrative_encounter",
+      "specialty": "Rheumatology",
+      "title": "Gouty Arthritis Note - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_RHEUM_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_RHEUM_03.json",
+      "claim_count": 14
+    },
+    {
+      "doc_id": "EXP_RHEUM_04",
+      "category": "narrative_encounter",
+      "specialty": "Rheumatology",
+      "title": "Ankylosing Spondylitis - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_RHEUM_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_RHEUM_04.json",
+      "claim_count": 15
+    },
+    {
+      "doc_id": "EXP_PSYCH_01",
+      "category": "narrative_encounter",
+      "specialty": "Psychiatry",
+      "title": "Bipolar Maintenance Progress Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_PSYCH_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_PSYCH_01.json",
+      "claim_count": 18
+    },
+    {
+      "doc_id": "EXP_PSYCH_02",
+      "category": "narrative_encounter",
+      "specialty": "Psychiatry",
+      "title": "Major Depression Evaluation Note",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_PSYCH_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_PSYCH_02.json",
+      "claim_count": 15
+    },
+    {
+      "doc_id": "EXP_PSYCH_03",
+      "category": "narrative_encounter",
+      "specialty": "Psychiatry",
+      "title": "Clozapine Monitoring Note - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_PSYCH_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_PSYCH_03.json",
+      "claim_count": 14
+    },
+    {
+      "doc_id": "EXP_PSYCH_04",
+      "category": "narrative_encounter",
+      "specialty": "Psychiatry",
+      "title": "Anxiety Clinic Note - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_PSYCH_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_PSYCH_04.json",
+      "claim_count": 11
+    },
+    {
+      "doc_id": "EXP_EMERG_01",
+      "category": "narrative_encounter",
+      "specialty": "Emergency Medicine",
+      "title": "Emergency Department Chest Pain Protocol",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_EMERG_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_EMERG_01.json",
+      "claim_count": 20
+    },
+    {
+      "doc_id": "EXP_EMERG_02",
+      "category": "narrative_encounter",
+      "specialty": "Emergency Medicine",
+      "title": "ED Syncope & Orthostatic Hypotension",
+      "format": "clinical_narrative_text",
+      "features": [
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_EMERG_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_EMERG_02.json",
+      "claim_count": 16
+    },
+    {
+      "doc_id": "EXP_EMERG_03",
+      "category": "narrative_encounter",
+      "specialty": "Emergency Medicine",
+      "title": "Suspected Appendicitis Note - Missing Headings",
+      "format": "clinical_narrative_text",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_EMERG_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_EMERG_03.json",
+      "claim_count": 15
+    },
+    {
+      "doc_id": "EXP_EMERG_04",
+      "category": "narrative_encounter",
+      "specialty": "Emergency Medicine",
+      "title": "Acute Asthma Exacerbation ED Note - Simulated OCR Noise",
+      "format": "clinical_narrative_text",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/EXP_EMERG_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/EXP_EMERG_04.json",
+      "claim_count": 14
+    },
+    {
+      "doc_id": "MED_EXP_01",
+      "category": "structured_medication",
+      "specialty": "Cardiology",
+      "title": "Outpatient Cardiology Discharge Prescription",
+      "format": "prescription_pad",
+      "features": [
+        "retail_order",
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/MED_EXP_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/MED_EXP_01.json",
+      "claim_count": 8
+    },
+    {
+      "doc_id": "MED_EXP_02",
+      "category": "structured_medication",
+      "specialty": "Endocrinology",
+      "title": "Diabetes Care Prescription Pad",
+      "format": "prescription_pad",
+      "features": [
+        "retail_order",
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/MED_EXP_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/MED_EXP_02.json",
+      "claim_count": 8
+    },
+    {
+      "doc_id": "MED_EXP_03",
+      "category": "structured_medication",
+      "specialty": "Psychiatry",
+      "title": "Behavioral Health E-Prescription Confirmation",
+      "format": "prescription_pad",
+      "features": [
+        "retail_order",
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/MED_EXP_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/MED_EXP_03.json",
+      "claim_count": 8
+    },
+    {
+      "doc_id": "MED_EXP_04",
+      "category": "structured_medication",
+      "specialty": "Infectious Disease",
+      "title": "Outpatient Antimicrobial Order",
+      "format": "prescription_pad",
+      "features": [
+        "retail_order",
+        "duration_claims",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/MED_EXP_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/MED_EXP_04.json",
+      "claim_count": 10
+    },
+    {
+      "doc_id": "MED_EXP_05",
+      "category": "structured_medication",
+      "specialty": "Pulmonology",
+      "title": "Respiratory Inhaler Prescription Order",
+      "format": "prescription_pad",
+      "features": [
+        "retail_order",
+        "inhaler_routes",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/MED_EXP_05.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/MED_EXP_05.json",
+      "claim_count": 8
+    },
+    {
+      "doc_id": "MED_EXP_06",
+      "category": "structured_medication",
+      "specialty": "Neurology",
+      "title": "Neurology Clinic Prescription - Missing Section Headers",
+      "format": "prescription_pad",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/MED_EXP_06.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/MED_EXP_06.json",
+      "claim_count": 8
+    },
+    {
+      "doc_id": "MED_EXP_07",
+      "category": "structured_medication",
+      "specialty": "Gastroenterology",
+      "title": "GI Clinic Prescription - Irregular Spacing",
+      "format": "prescription_pad",
+      "features": [
+        "irregular_spacing",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/MED_EXP_07.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/MED_EXP_07.json",
+      "claim_count": 9
+    },
+    {
+      "doc_id": "MED_EXP_08",
+      "category": "structured_medication",
+      "specialty": "Rheumatology",
+      "title": "Rheumatology Rx - Simulated OCR Noise",
+      "format": "prescription_pad",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/MED_EXP_08.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/MED_EXP_08.json",
+      "claim_count": 8
+    },
+    {
+      "doc_id": "LAB_EXP_01",
+      "category": "structured_lab",
+      "specialty": "Metabolic Panel",
+      "title": "Outpatient Comprehensive Metabolic Panel",
+      "format": "tabular_ocr",
+      "features": [
+        "tabular",
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/LAB_EXP_01.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/LAB_EXP_01.json",
+      "claim_count": 22
+    },
+    {
+      "doc_id": "LAB_EXP_02",
+      "category": "structured_lab",
+      "specialty": "Hematology",
+      "title": "Complete Blood Count with Differential",
+      "format": "tabular_ocr",
+      "features": [
+        "tabular",
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/LAB_EXP_02.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/LAB_EXP_02.json",
+      "claim_count": 25
+    },
+    {
+      "doc_id": "LAB_EXP_03",
+      "category": "structured_lab",
+      "specialty": "Cardiology / Lipids",
+      "title": "Lipid & Cardiovascular Risk Assessment",
+      "format": "tabular_ocr",
+      "features": [
+        "tabular",
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/LAB_EXP_03.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/LAB_EXP_03.json",
+      "claim_count": 20
+    },
+    {
+      "doc_id": "LAB_EXP_04",
+      "category": "structured_lab",
+      "specialty": "Nephrology / Renal",
+      "title": "Renal Function Panel - Tabular ASCII",
+      "format": "tabular_ocr",
+      "features": [
+        "ascii_table",
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/LAB_EXP_04.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/LAB_EXP_04.json",
+      "claim_count": 19
+    },
+    {
+      "doc_id": "LAB_EXP_05",
+      "category": "structured_lab",
+      "specialty": "Gastroenterology / Hepatic",
+      "title": "Hepatic Function Panel",
+      "format": "tabular_ocr",
+      "features": [
+        "tabular",
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/LAB_EXP_05.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/LAB_EXP_05.json",
+      "claim_count": 20
+    },
+    {
+      "doc_id": "LAB_EXP_06",
+      "category": "structured_lab",
+      "specialty": "Hematology / Coagulation",
+      "title": "Coagulation & Hemostasis Profile",
+      "format": "tabular_ocr",
+      "features": [
+        "tabular",
+        "standard_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/LAB_EXP_06.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/LAB_EXP_06.json",
+      "claim_count": 19
+    },
+    {
+      "doc_id": "LAB_EXP_07",
+      "category": "structured_lab",
+      "specialty": "Endocrinology / Thyroid",
+      "title": "Endocrine Panel - Missing Explicit Section Header",
+      "format": "tabular_ocr",
+      "features": [
+        "missing_headings",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/LAB_EXP_07.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/LAB_EXP_07.json",
+      "claim_count": 15
+    },
+    {
+      "doc_id": "LAB_EXP_08",
+      "category": "structured_lab",
+      "specialty": "Critical Care / Arterial Blood Gas",
+      "title": "ABG Panel - Simulated OCR Noise",
+      "format": "tabular_ocr",
+      "features": [
+        "simulated_ocr_noise",
+        "header_noise"
+      ],
+      "text_file": "external_eval/expanded_benchmark/notes/LAB_EXP_08.txt",
+      "gt_file": "external_eval/expanded_benchmark/ground_truth/LAB_EXP_08.json",
+      "claim_count": 19
+    }
+  ]
+}

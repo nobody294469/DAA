@@ -1,0 +1,10 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+TRANSPLANT NEPHROLOGY CLINIC
+Date: 2026-04-18    Patient: Synthetic Patient Nephro-Exp-03
+MRN: PAT-301928    DOB: 1982-12-11    Dr. Emily Clark (NPI: 1049203818)
+
+Renal allograft recipient 2 years post-deceased donor transplant.
+Graft function is stable. Tacrolimus trough level is 6.8 ng/mL.
+Serum Creatinine is 1.3 mg/dL and BUN is 21 mg/dL.
+Tacrolimus 2 mg oral twice daily.
+Mycophenolate Mofetil 500 mg PO twice daily.

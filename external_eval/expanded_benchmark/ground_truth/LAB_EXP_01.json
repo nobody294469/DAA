@@ -1,0 +1,258 @@
+{
+  "doc_id": "LAB_EXP_01",
+  "category": "structured_lab",
+  "specialty": "Metabolic Panel",
+  "title": "Outpatient Comprehensive Metabolic Panel",
+  "format": "tabular_ocr",
+  "features": [
+    "tabular",
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 22,
+  "claims": [
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Glucose",
+      "char_start": 595,
+      "char_end": 602,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.value",
+      "value": "105",
+      "value_numeric": 105.0,
+      "unit_raw": null,
+      "evidence_text": "105",
+      "char_start": 619,
+      "char_end": 622,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.reference_range",
+      "value": "70 - 99",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "70 - 99",
+      "char_start": 631,
+      "char_end": 638,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 651,
+      "char_end": 656,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 663,
+      "char_end": 667,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BUN",
+      "char_start": 668,
+      "char_end": 671,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.value",
+      "value": "18",
+      "value_numeric": 18.0,
+      "unit_raw": null,
+      "evidence_text": "18",
+      "char_start": 692,
+      "char_end": 694,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.reference_range",
+      "value": "7 - 20",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "7 - 20",
+      "char_start": 704,
+      "char_end": 710,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 724,
+      "char_end": 729,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 736,
+      "char_end": 742,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 743,
+      "char_end": 753,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.value",
+      "value": "1.1",
+      "value_numeric": 1.1,
+      "unit_raw": null,
+      "evidence_text": "1.1",
+      "char_start": 767,
+      "char_end": 770,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.reference_range",
+      "value": "0.7 - 1.3",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "0.7 - 1.3",
+      "char_start": 779,
+      "char_end": 788,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 799,
+      "char_end": 804,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.test_name",
+      "value": "Sodium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sodium",
+      "char_start": 818,
+      "char_end": 824,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.value",
+      "value": "140",
+      "value_numeric": 140.0,
+      "unit_raw": null,
+      "evidence_text": "140",
+      "char_start": 842,
+      "char_end": 845,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.reference_range",
+      "value": "136 - 145",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "136 - 145",
+      "char_start": 854,
+      "char_end": 863,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 874,
+      "char_end": 880,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 893,
+      "char_end": 902,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.value",
+      "value": "4.5",
+      "value_numeric": 4.5,
+      "unit_raw": null,
+      "evidence_text": "4.5",
+      "char_start": 917,
+      "char_end": 920,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.reference_range",
+      "value": "3.5 - 5.1",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "3.5 - 5.1",
+      "char_start": 929,
+      "char_end": 938,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_01",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 949,
+      "char_end": 955,
+      "page_number": 1
+    }
+  ]
+}

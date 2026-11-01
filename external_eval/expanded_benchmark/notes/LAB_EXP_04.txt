@@ -1,0 +1,15 @@
+[SYNTHETIC CLINICAL LABORATORY REPORT - NOT PHI - FOR EVALUATION ONLY]
+KIDNEY SPECIALTY LABS
+REPORT ID: REN-492019    DATE: 2026-04-14
+PATIENT: Synthetic Patient Lab-Exp-04    MRN: PAT-662910
+DOB: 1973-06-30    AGE: 52
+NEPHROLOGIST: Dr. Hannah Cole, MD (NPI: 1749203819)
+
+RENAL FUNCTION PANEL:
+Analyte            Observed    Reference           Units      Interpretation
+============================================================================
+BUN                32          7 - 20              mg/dL      HIGH
+Creatinine         2.4         0.6 - 1.2           mg/dL      HIGH
+eGFR               28          > 60                mL/min     LOW
+Phosphorus         5.1         2.5 - 4.5           mg/dL      HIGH
+Calcium            8.8         8.5 - 10.5          mg/dL      NORMAL

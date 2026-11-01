@@ -1,0 +1,18 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+NEPHROLOGY CONSULTATIVE SERVICES
+Date: 2026-04-14    Patient: Synthetic Patient Nephro-Exp-01
+MRN: PAT-501928    DOB: 1954-10-30    Age: 71
+Nephrologist: Dr. Melissa Scott, MD (NPI: 1249203816)
+
+CHIEF COMPLAINT:
+Follow-up chronic kidney disease, stage 4.
+
+LABORATORY FINDINGS:
+Serum Creatinine was 2.8 mg/dL (HIGH). Estimated GFR was 22 mL/min (LOW).
+BUN was 42 mg/dL (HIGH). Serum Potassium was 4.9 mmol/L (NORMAL).
+Serum Bicarbonate was 18 mmol/L (LOW).
+
+MEDICATION PLAN:
+Sodium Bicarbonate 650 mg oral tablet twice daily.
+Furosemide 40 mg PO once daily in the morning.
+Amlodipine 5 mg by mouth daily.

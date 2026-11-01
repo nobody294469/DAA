@@ -1,0 +1,213 @@
+{
+  "doc_id": "EXP_PSYCH_01",
+  "category": "narrative_encounter",
+  "specialty": "Psychiatry",
+  "title": "Bipolar Maintenance Progress Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 18,
+  "claims": [
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.test_name",
+      "value": "Lithium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Lithium",
+      "char_start": 254,
+      "char_end": 261,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.value",
+      "value": "0.85",
+      "value_numeric": 0.85,
+      "unit_raw": null,
+      "evidence_text": "0.85",
+      "char_start": 272,
+      "char_end": 276,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.unit",
+      "value": "mEq/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mEq/L",
+      "char_start": 277,
+      "char_end": 282,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.test_name",
+      "value": "TSH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "TSH",
+      "char_start": 304,
+      "char_end": 307,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.value",
+      "value": "2.4",
+      "value_numeric": 2.4,
+      "unit_raw": null,
+      "evidence_text": "2.4",
+      "char_start": 312,
+      "char_end": 315,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.unit",
+      "value": "uIU/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "uIU/mL",
+      "char_start": 316,
+      "char_end": 322,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 324,
+      "char_end": 330,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 339,
+      "char_end": 349,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.value",
+      "value": "0.9",
+      "value_numeric": 0.9,
+      "unit_raw": null,
+      "evidence_text": "0.9",
+      "char_start": 354,
+      "char_end": 357,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 358,
+      "char_end": 363,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "med.name",
+      "value": "Lithium Carbonate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Lithium Carbonate",
+      "char_start": 392,
+      "char_end": 409,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "med.dose",
+      "value": "600 mg",
+      "value_numeric": 600.0,
+      "unit_raw": "mg",
+      "evidence_text": "600 mg",
+      "char_start": 410,
+      "char_end": 416,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 417,
+      "char_end": 421,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 429,
+      "char_end": 440,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "med.name",
+      "value": "Quetiapine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Quetiapine",
+      "char_start": 442,
+      "char_end": 452,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "med.dose",
+      "value": "100 mg",
+      "value_numeric": 100.0,
+      "unit_raw": "mg",
+      "evidence_text": "100 mg",
+      "char_start": 453,
+      "char_end": 459,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 460,
+      "char_end": 462,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_01",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 463,
+      "char_end": 468,
+      "page_number": 1
+    }
+  ]
+}

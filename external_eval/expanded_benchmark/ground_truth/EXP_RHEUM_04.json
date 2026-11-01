@@ -1,0 +1,180 @@
+{
+  "doc_id": "EXP_RHEUM_04",
+  "category": "narrative_encounter",
+  "specialty": "Rheumatology",
+  "title": "Ankylosing Spondylitis - Simulated OCR Noise",
+  "format": "clinical_narrative_text",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 15,
+  "claims": [
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "lab.test_name",
+      "value": "C-Reactive Protein",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "C-Reactive Protein",
+      "char_start": 246,
+      "char_end": 264,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "lab.value",
+      "value": "12",
+      "value_numeric": 12.0,
+      "unit_raw": null,
+      "evidence_text": "12",
+      "char_start": 269,
+      "char_end": 271,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "lab.unit",
+      "value": "mg/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/L",
+      "char_start": 272,
+      "char_end": 276,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 278,
+      "char_end": 282,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin",
+      "char_start": 285,
+      "char_end": 295,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "lab.value",
+      "value": "14.1",
+      "value_numeric": 14.1,
+      "unit_raw": null,
+      "evidence_text": "14.1",
+      "char_start": 300,
+      "char_end": 304,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 305,
+      "char_end": 309,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "med.name",
+      "value": "Secukinumab",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Secukinumab",
+      "char_start": 325,
+      "char_end": 336,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "med.dose",
+      "value": "150 mg",
+      "value_numeric": 150.0,
+      "unit_raw": "mg",
+      "evidence_text": "150 mg",
+      "char_start": 337,
+      "char_end": 343,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "med.route",
+      "value": "subcutaneous",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "subcutaneous",
+      "char_start": 344,
+      "char_end": 356,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "med.frequency",
+      "value": "every 4 weeks",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 4 weeks",
+      "char_start": 357,
+      "char_end": 370,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "med.name",
+      "value": "Celecoxib",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Celecoxib",
+      "char_start": 372,
+      "char_end": 381,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "med.dose",
+      "value": "200 mg",
+      "value_numeric": 200.0,
+      "unit_raw": "mg",
+      "evidence_text": "200 mg",
+      "char_start": 382,
+      "char_end": 388,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 389,
+      "char_end": 393,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_04",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 394,
+      "char_end": 404,
+      "page_number": 1
+    }
+  ]
+}

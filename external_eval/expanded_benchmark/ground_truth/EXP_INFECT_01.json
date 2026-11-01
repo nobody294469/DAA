@@ -1,0 +1,257 @@
+{
+  "doc_id": "EXP_INFECT_01",
+  "category": "narrative_encounter",
+  "specialty": "Infectious Disease",
+  "title": "Bacteremia & Cellulitis Inpatient Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 22,
+  "claims": [
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.test_name",
+      "value": "Vancomycin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Vancomycin",
+      "char_start": 261,
+      "char_end": 271,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.value",
+      "value": "16.5",
+      "value_numeric": 16.5,
+      "unit_raw": null,
+      "evidence_text": "16.5",
+      "char_start": 289,
+      "char_end": 293,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.unit",
+      "value": "ug/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ug/mL",
+      "char_start": 294,
+      "char_end": 299,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.test_name",
+      "value": "C-Reactive Protein",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "C-Reactive Protein",
+      "char_start": 315,
+      "char_end": 333,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.value",
+      "value": "45",
+      "value_numeric": 45.0,
+      "unit_raw": null,
+      "evidence_text": "45",
+      "char_start": 338,
+      "char_end": 340,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.unit",
+      "value": "mg/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/L",
+      "char_start": 341,
+      "char_end": 345,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 347,
+      "char_end": 351,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.test_name",
+      "value": "Erythrocyte Sedimentation Rate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Erythrocyte Sedimentation Rate",
+      "char_start": 354,
+      "char_end": 384,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.value",
+      "value": "52",
+      "value_numeric": 52.0,
+      "unit_raw": null,
+      "evidence_text": "52",
+      "char_start": 389,
+      "char_end": 391,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.unit",
+      "value": "mm/hr",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mm/hr",
+      "char_start": 392,
+      "char_end": 397,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 399,
+      "char_end": 403,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 412,
+      "char_end": 422,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.value",
+      "value": "0.9",
+      "value_numeric": 0.9,
+      "unit_raw": null,
+      "evidence_text": "0.9",
+      "char_start": 427,
+      "char_end": 430,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 431,
+      "char_end": 436,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "med.name",
+      "value": "Vancomycin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Vancomycin",
+      "char_start": 462,
+      "char_end": 472,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "med.dose",
+      "value": "1250 mg",
+      "value_numeric": 1250.0,
+      "unit_raw": "mg",
+      "evidence_text": "1250 mg",
+      "char_start": 473,
+      "char_end": 480,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "med.route",
+      "value": "IV",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IV",
+      "char_start": 481,
+      "char_end": 483,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "med.frequency",
+      "value": "every 12 hours",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 12 hours",
+      "char_start": 484,
+      "char_end": 498,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "med.name",
+      "value": "Cefazolin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Cefazolin",
+      "char_start": 500,
+      "char_end": 509,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "med.dose",
+      "value": "2 g",
+      "value_numeric": 2.0,
+      "unit_raw": "g",
+      "evidence_text": "2 g",
+      "char_start": 510,
+      "char_end": 513,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "med.route",
+      "value": "IV",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IV",
+      "char_start": 514,
+      "char_end": 516,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_01",
+      "field_type": "med.frequency",
+      "value": "every 8 hours",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 8 hours",
+      "char_start": 517,
+      "char_end": 530,
+      "page_number": 1
+    }
+  ]
+}

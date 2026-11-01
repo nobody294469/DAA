@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+RENAL GLOMERULAR CLINIC
+Date: 2O26-O4-2O    Patient: Synthetic Patient Nephro-Exp-04
+MRN: PAT-201928    DOB: 1990-04-03    Dr. William Davis (NPI: 1948203819)
+
+LABORATORY FINDINGS:
+Serum Albumin was 2.9 g/dL (LOW).
+24-hour urine protein was 3.2 g/24hr (HIGH).
+Serum Creatinine was 1.2 mg/dL.
+
+MEDICATIONS:
+Lisinopril 20 mg oral once daily.

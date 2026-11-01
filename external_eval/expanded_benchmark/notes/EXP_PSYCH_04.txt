@@ -1,0 +1,11 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+ANXIETY DISORDERS CLINIC
+Date: 2O26-O6-1O    Patient: Synthetic Patient Psych-Exp-04
+MRN: PAT-553018    DOB: 1996-01-18    Dr. Teddy Altman (NPI: 1549204943)
+
+LAB RESULTS:
+Serum ALT was 19 U/L (NORMAL).
+Serum Creatinine was 0.8 mg/dL.
+
+MEDICATIONS:
+Escitalopram 10 mg oral once daily.

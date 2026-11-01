@@ -1,0 +1,10 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+CLOZAPINE REMS MONITORING CLINIC
+Date: 2026-06-07    Patient: Synthetic Patient Psych-Exp-03
+MRN: PAT-663018    DOB: 1980-09-29    Dr. Preston Burke (NPI: 1649204942)
+
+Weekly ANC registry monitoring.
+Absolute Neutrophil Count was 2.8 10*3/uL (NORMAL).
+White Blood Cell Count is 5.9 10*3/uL.
+Fasting Blood Glucose is 98 mg/dL.
+Clozapine 300 mg oral tablet daily at bedtime.

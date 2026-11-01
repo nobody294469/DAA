@@ -1,0 +1,180 @@
+{
+  "doc_id": "EXP_EMERG_03",
+  "category": "narrative_encounter",
+  "specialty": "Emergency Medicine",
+  "title": "Suspected Appendicitis Note - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 15,
+  "claims": [
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "White Blood Cell Count",
+      "char_start": 295,
+      "char_end": 317,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "lab.value",
+      "value": "14.8",
+      "value_numeric": 14.8,
+      "unit_raw": null,
+      "evidence_text": "14.8",
+      "char_start": 318,
+      "char_end": 322,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 323,
+      "char_end": 330,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 332,
+      "char_end": 336,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "lab.test_name",
+      "value": "Total Bilirubin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Total Bilirubin",
+      "char_start": 339,
+      "char_end": 354,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "lab.value",
+      "value": "0.9",
+      "value_numeric": 0.9,
+      "unit_raw": null,
+      "evidence_text": "0.9",
+      "char_start": 359,
+      "char_end": 362,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 363,
+      "char_end": 368,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "med.name",
+      "value": "Morphine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Morphine",
+      "char_start": 370,
+      "char_end": 378,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "med.dose",
+      "value": "4 mg",
+      "value_numeric": 4.0,
+      "unit_raw": "mg",
+      "evidence_text": "4 mg",
+      "char_start": 379,
+      "char_end": 383,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "med.route",
+      "value": "IV",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IV",
+      "char_start": 384,
+      "char_end": 386,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "med.frequency",
+      "value": "every 3 hours",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 3 hours",
+      "char_start": 387,
+      "char_end": 400,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "med.name",
+      "value": "Ondansetron",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Ondansetron",
+      "char_start": 428,
+      "char_end": 439,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "med.dose",
+      "value": "4 mg",
+      "value_numeric": 4.0,
+      "unit_raw": "mg",
+      "evidence_text": "4 mg",
+      "char_start": 440,
+      "char_end": 444,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "med.route",
+      "value": "IV",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IV",
+      "char_start": 445,
+      "char_end": 447,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_03",
+      "field_type": "med.frequency",
+      "value": "every 8 hours",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 8 hours",
+      "char_start": 448,
+      "char_end": 461,
+      "page_number": 1
+    }
+  ]
+}

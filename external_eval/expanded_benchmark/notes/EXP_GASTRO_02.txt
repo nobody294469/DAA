@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+INFLAMMATORY BOWEL DISEASE CENTER
+Date: 2026-05-09    Patient: Synthetic Patient Gastro-Exp-02
+MRN: PAT-111028    DOB: 1994-01-30    Dr. Rachel Bloom (NPI: 1948204929)
+
+DIAGNOSTIC WORKUP:
+Fecal Calprotectin was 420 ug/g (HIGH).
+C-Reactive Protein was 14 mg/L (HIGH).
+Hemoglobin was 11.2 g/dL (LOW).
+
+MAINTENANCE THERAPY:
+Infliximab 5 mg/kg IV infusion every 8 weeks.
+Azathioprine 100 mg oral tablet once daily.

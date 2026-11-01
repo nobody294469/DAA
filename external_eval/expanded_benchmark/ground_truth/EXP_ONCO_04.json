@@ -1,0 +1,246 @@
+{
+  "doc_id": "EXP_ONCO_04",
+  "category": "narrative_encounter",
+  "specialty": "Hematology",
+  "title": "Multiple Myeloma Note - Simulated OCR Noise",
+  "format": "clinical_narrative_text",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 21,
+  "claims": [
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.test_name",
+      "value": "Calcium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Calcium",
+      "char_start": 239,
+      "char_end": 246,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.value",
+      "value": "10.8",
+      "value_numeric": 10.8,
+      "unit_raw": null,
+      "evidence_text": "10.8",
+      "char_start": 251,
+      "char_end": 255,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 256,
+      "char_end": 261,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 263,
+      "char_end": 267,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 276,
+      "char_end": 286,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.value",
+      "value": "1.5",
+      "value_numeric": 1.5,
+      "unit_raw": null,
+      "evidence_text": "1.5",
+      "char_start": 291,
+      "char_end": 294,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 295,
+      "char_end": 300,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 302,
+      "char_end": 306,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin",
+      "char_start": 309,
+      "char_end": 319,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.value",
+      "value": "10.2",
+      "value_numeric": 10.2,
+      "unit_raw": null,
+      "evidence_text": "10.2",
+      "char_start": 324,
+      "char_end": 328,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 329,
+      "char_end": 333,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 335,
+      "char_end": 338,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "med.name",
+      "value": "Lenalidomide",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Lenalidomide",
+      "char_start": 348,
+      "char_end": 360,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "med.dose",
+      "value": "25 mg",
+      "value_numeric": 25.0,
+      "unit_raw": "mg",
+      "evidence_text": "25 mg",
+      "char_start": 361,
+      "char_end": 366,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 367,
+      "char_end": 371,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 372,
+      "char_end": 382,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "med.duration",
+      "value": "for 21 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 21 days",
+      "char_start": 383,
+      "char_end": 394,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "med.name",
+      "value": "Dexamethasone",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Dexamethasone",
+      "char_start": 396,
+      "char_end": 409,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "med.dose",
+      "value": "20 mg",
+      "value_numeric": 20.0,
+      "unit_raw": "mg",
+      "evidence_text": "20 mg",
+      "char_start": 410,
+      "char_end": 415,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 416,
+      "char_end": 418,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_04",
+      "field_type": "med.frequency",
+      "value": "once weekly",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once weekly",
+      "char_start": 419,
+      "char_end": 430,
+      "page_number": 1
+    }
+  ]
+}

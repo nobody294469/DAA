@@ -1,0 +1,11 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+ASTHMA CLINIC PROGRESS NOTE
+Date: 2026-04-06    Patient: Synthetic Patient Pulm-Exp-02
+MRN: PAT-801928    DOB: 1989-08-14    Dr. Gregory Stone (NPI: 1549203813)
+
+LAB RESULTS:
+Absolute Eosinophil Count was 480 cells/uL (HIGH). Total Serum IgE was 280 IU/mL (HIGH).
+
+TREATMENT PLAN:
+Dupilumab 300 mg subcutaneous every 2 weeks.
+Montelukast 10 mg oral once daily at bedtime.

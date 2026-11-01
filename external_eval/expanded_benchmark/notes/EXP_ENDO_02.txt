@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+PATIENT: Synthetic Patient Endo-Exp-02    MRN: PAT-382910
+DATE: 2026-03-28    PHYSICIAN: Dr. Robert Taylor, MD (NPI: 1293847193)
+DIAGNOSIS: Primary hypothyroidism post-radioiodine therapy.
+
+LABORATORY EVALUATION:
+Serum TSH was 6.2 uIU/mL (HIGH). Free T4 was 0.95 ng/dL (NORMAL).
+
+RECOMMENDATIONS:
+Adjust thyroid hormone replacement.
+
+ACTIVE MEDICATIONS:
+Levothyroxine 112 mcg oral tablet once daily in the morning on an empty stomach.

@@ -1,32 +1,557 @@
 {
-  "Hemoglobin": {"loinc_code": "718-7", "canonical_name": "Hemoglobin", "default_unit": "g/dL"},
-  "Hematocrit": {"loinc_code": "4544-3", "canonical_name": "Hematocrit", "default_unit": "%"},
-  "White Blood Cell Count": {"loinc_code": "6690-2", "canonical_name": "White Blood Cell Count", "default_unit": "10*3/uL"},
-  "WBC": {"loinc_code": "6690-2", "canonical_name": "White Blood Cell Count", "default_unit": "10*3/uL"},
-  "Platelet Count": {"loinc_code": "777-3", "canonical_name": "Platelet Count", "default_unit": "10*3/uL"},
-  "Platelets": {"loinc_code": "777-3", "canonical_name": "Platelet Count", "default_unit": "10*3/uL"},
-  "Red Blood Cell Count": {"loinc_code": "789-8", "canonical_name": "Red Blood Cell Count", "default_unit": "10*6/uL"},
-  "RBC": {"loinc_code": "789-8", "canonical_name": "Red Blood Cell Count", "default_unit": "10*6/uL"},
-  "Glucose": {"loinc_code": "2345-7", "canonical_name": "Glucose", "default_unit": "mg/dL"},
-  "BUN": {"loinc_code": "3094-0", "canonical_name": "BUN", "default_unit": "mg/dL"},
-  "Blood Urea Nitrogen": {"loinc_code": "3094-0", "canonical_name": "BUN", "default_unit": "mg/dL"},
-  "Creatinine": {"loinc_code": "2160-0", "canonical_name": "Creatinine", "default_unit": "mg/dL"},
-  "Sodium": {"loinc_code": "2951-2", "canonical_name": "Sodium", "default_unit": "mmol/L"},
-  "Potassium": {"loinc_code": "2823-3", "canonical_name": "Potassium", "default_unit": "mmol/L"},
-  "Chloride": {"loinc_code": "2075-0", "canonical_name": "Chloride", "default_unit": "mmol/L"},
-  "Carbon Dioxide": {"loinc_code": "2028-9", "canonical_name": "Carbon Dioxide", "default_unit": "mmol/L"},
-  "Calcium": {"loinc_code": "17861-6", "canonical_name": "Calcium", "default_unit": "mg/dL"},
-  "Total Protein": {"loinc_code": "2885-2", "canonical_name": "Total Protein", "default_unit": "g/dL"},
-  "Albumin": {"loinc_code": "1751-7", "canonical_name": "Albumin", "default_unit": "g/dL"},
-  "Total Bilirubin": {"loinc_code": "1975-2", "canonical_name": "Total Bilirubin", "default_unit": "mg/dL"},
-  "Alkaline Phosphatase": {"loinc_code": "6768-6", "canonical_name": "Alkaline Phosphatase", "default_unit": "U/L"},
-  "ALP": {"loinc_code": "6768-6", "canonical_name": "Alkaline Phosphatase", "default_unit": "U/L"},
-  "Alanine Aminotransferase (ALT)": {"loinc_code": "1742-6", "canonical_name": "Alanine Aminotransferase (ALT)", "default_unit": "U/L"},
-  "ALT": {"loinc_code": "1742-6", "canonical_name": "Alanine Aminotransferase (ALT)", "default_unit": "U/L"},
-  "Aspartate Aminotransferase (AST)": {"loinc_code": "1920-8", "canonical_name": "Aspartate Aminotransferase (AST)", "default_unit": "U/L"},
-  "AST": {"loinc_code": "1920-8", "canonical_name": "Aspartate Aminotransferase (AST)", "default_unit": "U/L"},
-  "Total Cholesterol": {"loinc_code": "2093-3", "canonical_name": "Total Cholesterol", "default_unit": "mg/dL"},
-  "Triglycerides": {"loinc_code": "2571-8", "canonical_name": "Triglycerides", "default_unit": "mg/dL"},
-  "HDL Cholesterol": {"loinc_code": "2085-9", "canonical_name": "HDL Cholesterol", "default_unit": "mg/dL"},
-  "LDL Cholesterol": {"loinc_code": "13457-7", "canonical_name": "LDL Cholesterol", "default_unit": "mg/dL"}
+  "Hemoglobin": {
+    "loinc_code": "718-7",
+    "canonical_name": "Hemoglobin",
+    "default_unit": "g/dL"
+  },
+  "Hematocrit": {
+    "loinc_code": "4544-3",
+    "canonical_name": "Hematocrit",
+    "default_unit": "%"
+  },
+  "White Blood Cell Count": {
+    "loinc_code": "6690-2",
+    "canonical_name": "White Blood Cell Count",
+    "default_unit": "10*3/uL"
+  },
+  "WBC": {
+    "loinc_code": "6690-2",
+    "canonical_name": "White Blood Cell Count",
+    "default_unit": "10*3/uL"
+  },
+  "Platelet Count": {
+    "loinc_code": "777-3",
+    "canonical_name": "Platelet Count",
+    "default_unit": "10*3/uL"
+  },
+  "Platelets": {
+    "loinc_code": "777-3",
+    "canonical_name": "Platelet Count",
+    "default_unit": "10*3/uL"
+  },
+  "Red Blood Cell Count": {
+    "loinc_code": "789-8",
+    "canonical_name": "Red Blood Cell Count",
+    "default_unit": "10*6/uL"
+  },
+  "RBC": {
+    "loinc_code": "789-8",
+    "canonical_name": "Red Blood Cell Count",
+    "default_unit": "10*6/uL"
+  },
+  "Glucose": {
+    "loinc_code": "2345-7",
+    "canonical_name": "Glucose",
+    "default_unit": "mg/dL"
+  },
+  "BUN": {
+    "loinc_code": "3094-0",
+    "canonical_name": "BUN",
+    "default_unit": "mg/dL"
+  },
+  "Blood Urea Nitrogen": {
+    "loinc_code": "3094-0",
+    "canonical_name": "Blood Urea Nitrogen",
+    "default_unit": "mg/dL"
+  },
+  "Creatinine": {
+    "loinc_code": "2160-0",
+    "canonical_name": "Creatinine",
+    "default_unit": "mg/dL"
+  },
+  "Sodium": {
+    "loinc_code": "2951-2",
+    "canonical_name": "Sodium",
+    "default_unit": "mmol/L"
+  },
+  "Potassium": {
+    "loinc_code": "2823-3",
+    "canonical_name": "Potassium",
+    "default_unit": "mmol/L"
+  },
+  "Chloride": {
+    "loinc_code": "2075-0",
+    "canonical_name": "Chloride",
+    "default_unit": "mmol/L"
+  },
+  "Carbon Dioxide": {
+    "loinc_code": "2028-9",
+    "canonical_name": "Carbon Dioxide",
+    "default_unit": "mmol/L"
+  },
+  "Calcium": {
+    "loinc_code": "17861-6",
+    "canonical_name": "Calcium",
+    "default_unit": "mg/dL"
+  },
+  "Total Protein": {
+    "loinc_code": "2885-2",
+    "canonical_name": "Total Protein",
+    "default_unit": "g/dL"
+  },
+  "Albumin": {
+    "loinc_code": "1751-7",
+    "canonical_name": "Albumin",
+    "default_unit": "g/dL"
+  },
+  "Total Bilirubin": {
+    "loinc_code": "1975-2",
+    "canonical_name": "Total Bilirubin",
+    "default_unit": "mg/dL"
+  },
+  "Alkaline Phosphatase": {
+    "loinc_code": "6768-6",
+    "canonical_name": "Alkaline Phosphatase",
+    "default_unit": "U/L"
+  },
+  "ALP": {
+    "loinc_code": "6768-6",
+    "canonical_name": "Alkaline Phosphatase",
+    "default_unit": "U/L"
+  },
+  "Alanine Aminotransferase (ALT)": {
+    "loinc_code": "1742-6",
+    "canonical_name": "Alanine Aminotransferase (ALT)",
+    "default_unit": "U/L"
+  },
+  "ALT": {
+    "loinc_code": "1742-6",
+    "canonical_name": "ALT",
+    "default_unit": "U/L"
+  },
+  "Aspartate Aminotransferase (AST)": {
+    "loinc_code": "1920-8",
+    "canonical_name": "Aspartate Aminotransferase (AST)",
+    "default_unit": "U/L"
+  },
+  "AST": {
+    "loinc_code": "1920-8",
+    "canonical_name": "AST",
+    "default_unit": "U/L"
+  },
+  "Total Cholesterol": {
+    "loinc_code": "2093-3",
+    "canonical_name": "Total Cholesterol",
+    "default_unit": "mg/dL"
+  },
+  "Triglycerides": {
+    "loinc_code": "2571-8",
+    "canonical_name": "Triglycerides",
+    "default_unit": "mg/dL"
+  },
+  "HDL Cholesterol": {
+    "loinc_code": "2085-9",
+    "canonical_name": "HDL Cholesterol",
+    "default_unit": "mg/dL"
+  },
+  "LDL Cholesterol": {
+    "loinc_code": "13457-7",
+    "canonical_name": "LDL Cholesterol",
+    "default_unit": "mg/dL"
+  },
+  "Hemoglobin A1c": {
+    "loinc_code": "4548-4",
+    "canonical_name": "Hemoglobin A1c",
+    "default_unit": "%"
+  },
+  "HbA1c": {
+    "loinc_code": "4548-4",
+    "canonical_name": "Hemoglobin A1c",
+    "default_unit": "%"
+  },
+  "A1c": {
+    "loinc_code": "4548-4",
+    "canonical_name": "Hemoglobin A1c",
+    "default_unit": "%"
+  },
+  "INR": {
+    "loinc_code": "6301-6",
+    "canonical_name": "INR",
+    "default_unit": ""
+  },
+  "Prothrombin Time": {
+    "loinc_code": "5902-2",
+    "canonical_name": "Prothrombin Time",
+    "default_unit": "seconds"
+  },
+  "PT": {
+    "loinc_code": "5902-2",
+    "canonical_name": "Prothrombin Time",
+    "default_unit": "seconds"
+  },
+  "aPTT": {
+    "loinc_code": "3173-2",
+    "canonical_name": "aPTT",
+    "default_unit": "seconds"
+  },
+  "Activated Partial Thromboplastin Time": {
+    "loinc_code": "3173-2",
+    "canonical_name": "aPTT",
+    "default_unit": "seconds"
+  },
+  "Fibrinogen": {
+    "loinc_code": "3255-7",
+    "canonical_name": "Fibrinogen",
+    "default_unit": "mg/dL"
+  },
+  "Erythrocyte Sedimentation Rate": {
+    "loinc_code": "4537-7",
+    "canonical_name": "Erythrocyte Sedimentation Rate",
+    "default_unit": "mm/hr"
+  },
+  "ESR": {
+    "loinc_code": "4537-7",
+    "canonical_name": "ESR",
+    "default_unit": "mm/hr"
+  },
+  "Absolute Neutrophil Count": {
+    "loinc_code": "751-8",
+    "canonical_name": "Neutrophil Count",
+    "default_unit": "10*3/uL"
+  },
+  "Neutrophil Count": {
+    "loinc_code": "751-8",
+    "canonical_name": "Neutrophil Count",
+    "default_unit": "10*3/uL"
+  },
+  "ANC": {
+    "loinc_code": "751-8",
+    "canonical_name": "Neutrophil Count",
+    "default_unit": "10*3/uL"
+  },
+  "Absolute Eosinophil Count": {
+    "loinc_code": "711-2",
+    "canonical_name": "Eosinophil Count",
+    "default_unit": "cells/uL"
+  },
+  "Eosinophil Count": {
+    "loinc_code": "711-2",
+    "canonical_name": "Eosinophil Count",
+    "default_unit": "cells/uL"
+  },
+  "CD4 Count": {
+    "loinc_code": "24467-3",
+    "canonical_name": "CD4 Count",
+    "default_unit": "cells/uL"
+  },
+  "C-Reactive Protein": {
+    "loinc_code": "1988-1",
+    "canonical_name": "C-Reactive Protein",
+    "default_unit": "mg/L"
+  },
+  "CRP": {
+    "loinc_code": "1988-1",
+    "canonical_name": "C-Reactive Protein",
+    "default_unit": "mg/L"
+  },
+  "hs-CRP": {
+    "loinc_code": "30522-7",
+    "canonical_name": "hs-CRP",
+    "default_unit": "mg/L"
+  },
+  "Bicarbonate": {
+    "loinc_code": "1963-8",
+    "canonical_name": "Bicarbonate",
+    "default_unit": "mmol/L"
+  },
+  "Phosphorus": {
+    "loinc_code": "2777-1",
+    "canonical_name": "Phosphorus",
+    "default_unit": "mg/dL"
+  },
+  "Anion Gap": {
+    "loinc_code": "1863-0",
+    "canonical_name": "Anion Gap",
+    "default_unit": "mmol/L"
+  },
+  "Uric Acid": {
+    "loinc_code": "3084-1",
+    "canonical_name": "Uric Acid",
+    "default_unit": "mg/dL"
+  },
+  "Ferritin": {
+    "loinc_code": "2276-4",
+    "canonical_name": "Ferritin",
+    "default_unit": "ng/mL"
+  },
+  "Fecal Calprotectin": {
+    "loinc_code": "38445-3",
+    "canonical_name": "Calprotectin",
+    "default_unit": "ug/g"
+  },
+  "Calprotectin": {
+    "loinc_code": "38445-3",
+    "canonical_name": "Calprotectin",
+    "default_unit": "ug/g"
+  },
+  "Lipase": {
+    "loinc_code": "2542-6",
+    "canonical_name": "Lipase",
+    "default_unit": "U/L"
+  },
+  "Amylase": {
+    "loinc_code": "1798-8",
+    "canonical_name": "Amylase",
+    "default_unit": "U/L"
+  },
+  "Lactate": {
+    "loinc_code": "2524-7",
+    "canonical_name": "Lactate",
+    "default_unit": "mmol/L"
+  },
+  "Complement C3": {
+    "loinc_code": "4485-9",
+    "canonical_name": "Complement C3",
+    "default_unit": "mg/dL"
+  },
+  "Complement C4": {
+    "loinc_code": "4498-2",
+    "canonical_name": "Complement C4",
+    "default_unit": "mg/dL"
+  },
+  "Rheumatoid Factor": {
+    "loinc_code": "11572-5",
+    "canonical_name": "Rheumatoid Factor",
+    "default_unit": "IU/mL"
+  },
+  "24-hour urine protein": {
+    "loinc_code": "2888-6",
+    "canonical_name": "protein",
+    "default_unit": "g/24hr"
+  },
+  "urine protein": {
+    "loinc_code": "2888-6",
+    "canonical_name": "protein",
+    "default_unit": "g/24hr"
+  },
+  "protein": {
+    "loinc_code": "2888-6",
+    "canonical_name": "protein",
+    "default_unit": "g/24hr"
+  },
+  "Estimated GFR": {
+    "loinc_code": "33914-3",
+    "canonical_name": "GFR",
+    "default_unit": "mL/min"
+  },
+  "GFR": {
+    "loinc_code": "33914-3",
+    "canonical_name": "GFR",
+    "default_unit": "mL/min"
+  },
+  "eGFR": {
+    "loinc_code": "33914-3",
+    "canonical_name": "eGFR",
+    "default_unit": "mL/min"
+  },
+  "Total Serum IgE": {
+    "loinc_code": "19113-3",
+    "canonical_name": "IgE",
+    "default_unit": "IU/mL"
+  },
+  "IgE": {
+    "loinc_code": "19113-3",
+    "canonical_name": "IgE",
+    "default_unit": "IU/mL"
+  },
+  "Microalbumin": {
+    "loinc_code": "14957-5",
+    "canonical_name": "Microalbumin",
+    "default_unit": "mg/L"
+  },
+  "TSH": {
+    "loinc_code": "3016-3",
+    "canonical_name": "TSH",
+    "default_unit": "uIU/mL"
+  },
+  "Free T4": {
+    "loinc_code": "3024-7",
+    "canonical_name": "Free T4",
+    "default_unit": "ng/dL"
+  },
+  "Cortisol": {
+    "loinc_code": "2143-6",
+    "canonical_name": "Cortisol",
+    "default_unit": "ug/dL"
+  },
+  "ACTH": {
+    "loinc_code": "2141-0",
+    "canonical_name": "ACTH",
+    "default_unit": "pg/mL"
+  },
+  "pH": {
+    "loinc_code": "2744-1",
+    "canonical_name": "pH",
+    "default_unit": ""
+  },
+  "PaCO2": {
+    "loinc_code": "2019-8",
+    "canonical_name": "PaCO2",
+    "default_unit": "mmHg"
+  },
+  "PaO2": {
+    "loinc_code": "2703-7",
+    "canonical_name": "PaO2",
+    "default_unit": "mmHg"
+  },
+  "BNP": {
+    "loinc_code": "42637-9",
+    "canonical_name": "BNP",
+    "default_unit": "pg/mL"
+  },
+  "Troponin I": {
+    "loinc_code": "10839-9",
+    "canonical_name": "Troponin I",
+    "default_unit": "ng/mL"
+  },
+  "High-sensitivity Troponin T": {
+    "loinc_code": "6598-7",
+    "canonical_name": "Troponin T",
+    "default_unit": "ng/L"
+  },
+  "Troponin T": {
+    "loinc_code": "6598-7",
+    "canonical_name": "Troponin T",
+    "default_unit": "ng/L"
+  },
+  "Procalcitonin": {
+    "loinc_code": "33959-8",
+    "canonical_name": "Procalcitonin",
+    "default_unit": "ng/mL"
+  },
+  "Tacrolimus": {
+    "loinc_code": "7917-8",
+    "canonical_name": "Tacrolimus",
+    "default_unit": "ng/mL"
+  },
+  "Vancomycin": {
+    "loinc_code": "4092-3",
+    "canonical_name": "Vancomycin",
+    "default_unit": "ug/mL"
+  },
+  "Lithium": {
+    "loinc_code": "14334-7",
+    "canonical_name": "Lithium",
+    "default_unit": "mEq/L"
+  },
+  "Levetiracetam": {
+    "loinc_code": "38356-2",
+    "canonical_name": "Levetiracetam",
+    "default_unit": "ug/mL"
+  },
+  "Lamotrigine": {
+    "loinc_code": "3732-5",
+    "canonical_name": "Lamotrigine",
+    "default_unit": "ug/mL"
+  },
+  "Digoxin": {
+    "loinc_code": "2215-2",
+    "canonical_name": "Digoxin",
+    "default_unit": "ng/mL"
+  },
+  "Albumin/Creatinine ratio": {
+    "loinc_code": "14959-1",
+    "canonical_name": "Albumin/Creatinine ratio",
+    "default_unit": "mg/g"
+  },
+  "Albumin/Creatinine Ratio": {
+    "loinc_code": "14959-1",
+    "canonical_name": "Albumin/Creatinine ratio",
+    "default_unit": "mg/g"
+  },
+  "Urine Albumin/Creatinine Ratio": {
+    "loinc_code": "14959-1",
+    "canonical_name": "Albumin/Creatinine ratio",
+    "default_unit": "mg/g"
+  },
+  "Albumin/Creatinine": {
+    "loinc_code": "14959-1",
+    "canonical_name": "Albumin/Creatinine ratio",
+    "default_unit": "mg/g"
+  },
+  "BUN/Creatinine ratio": {
+    "loinc_code": "3097-3",
+    "canonical_name": "BUN/Creatinine ratio",
+    "default_unit": "ratio"
+  },
+  "BUN/Creatinine Ratio": {
+    "loinc_code": "3097-3",
+    "canonical_name": "BUN/Creatinine ratio",
+    "default_unit": "ratio"
+  },
+  "BUN/Creatinine": {
+    "loinc_code": "3097-3",
+    "canonical_name": "BUN/Creatinine ratio",
+    "default_unit": "ratio"
+  },
+  "Protein/Creatinine ratio": {
+    "loinc_code": "2890-2",
+    "canonical_name": "Protein/Creatinine ratio",
+    "default_unit": "mg/mg"
+  },
+  "Protein/Creatinine Ratio": {
+    "loinc_code": "2890-2",
+    "canonical_name": "Protein/Creatinine ratio",
+    "default_unit": "mg/mg"
+  },
+  "Urine Protein/Creatinine Ratio": {
+    "loinc_code": "2890-2",
+    "canonical_name": "Protein/Creatinine ratio",
+    "default_unit": "mg/mg"
+  },
+  "Protein/Creatinine": {
+    "loinc_code": "2890-2",
+    "canonical_name": "Protein/Creatinine ratio",
+    "default_unit": "mg/mg"
+  },
+  "Troponin": {
+    "loinc_code": "49563-0",
+    "canonical_name": "Troponin",
+    "default_unit": "ng/mL"
+  },
+  "Blood Culture": {
+    "loinc_code": "600-7",
+    "canonical_name": "Blood Culture",
+    "default_unit": ""
+  },
+  "Urine Culture": {
+    "loinc_code": "630-4",
+    "canonical_name": "Urine Culture",
+    "default_unit": ""
+  },
+  "CBC": {
+    "loinc_code": "58410-2",
+    "canonical_name": "Complete Blood Count",
+    "default_unit": ""
+  },
+  "CMP": {
+    "loinc_code": "24323-8",
+    "canonical_name": "Comprehensive Metabolic Panel",
+    "default_unit": ""
+  },
+  "Lipid Panel": {
+    "loinc_code": "24331-1",
+    "canonical_name": "Lipid Panel",
+    "default_unit": ""
+  },
+  "Liver Function Tests": {
+    "loinc_code": "24325-3",
+    "canonical_name": "Hepatic Function Panel",
+    "default_unit": ""
+  },
+  "COVID-19 PCR": {
+    "loinc_code": "94500-6",
+    "canonical_name": "COVID-19 PCR",
+    "default_unit": ""
+  },
+  "COVID-19": {
+    "loinc_code": "94500-6",
+    "canonical_name": "COVID-19 PCR",
+    "default_unit": ""
+  },
+  "HIV": {
+    "loinc_code": "75622-1",
+    "canonical_name": "HIV",
+    "default_unit": ""
+  }
 }

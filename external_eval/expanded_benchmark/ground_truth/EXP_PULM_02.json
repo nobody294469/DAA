@@ -1,0 +1,191 @@
+{
+  "doc_id": "EXP_PULM_02",
+  "category": "narrative_encounter",
+  "specialty": "Pulmonology",
+  "title": "Severe Asthma Assessment",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 16,
+  "claims": [
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "lab.test_name",
+      "value": "Eosinophil Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Eosinophil Count",
+      "char_start": 252,
+      "char_end": 268,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "lab.value",
+      "value": "480",
+      "value_numeric": 480.0,
+      "unit_raw": null,
+      "evidence_text": "480",
+      "char_start": 273,
+      "char_end": 276,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "lab.unit",
+      "value": "cells/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "cells/uL",
+      "char_start": 277,
+      "char_end": 285,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 287,
+      "char_end": 291,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "lab.test_name",
+      "value": "IgE",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IgE",
+      "char_start": 306,
+      "char_end": 309,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "lab.value",
+      "value": "280",
+      "value_numeric": 280.0,
+      "unit_raw": null,
+      "evidence_text": "280",
+      "char_start": 314,
+      "char_end": 317,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "lab.unit",
+      "value": "IU/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IU/mL",
+      "char_start": 318,
+      "char_end": 323,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 325,
+      "char_end": 329,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "med.name",
+      "value": "Dupilumab",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Dupilumab",
+      "char_start": 349,
+      "char_end": 358,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "med.dose",
+      "value": "300 mg",
+      "value_numeric": 300.0,
+      "unit_raw": "mg",
+      "evidence_text": "300 mg",
+      "char_start": 359,
+      "char_end": 365,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "med.route",
+      "value": "subcutaneous",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "subcutaneous",
+      "char_start": 366,
+      "char_end": 378,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "med.frequency",
+      "value": "every 2 weeks",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 2 weeks",
+      "char_start": 379,
+      "char_end": 392,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "med.name",
+      "value": "Montelukast",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Montelukast",
+      "char_start": 394,
+      "char_end": 405,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "med.dose",
+      "value": "10 mg",
+      "value_numeric": 10.0,
+      "unit_raw": "mg",
+      "evidence_text": "10 mg",
+      "char_start": 406,
+      "char_end": 411,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 412,
+      "char_end": 416,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 417,
+      "char_end": 427,
+      "page_number": 1
+    }
+  ]
+}

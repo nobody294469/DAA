@@ -1,0 +1,291 @@
+{
+  "doc_id": "LAB_EXP_02",
+  "category": "structured_lab",
+  "specialty": "Hematology",
+  "title": "Complete Blood Count with Differential",
+  "format": "tabular_ocr",
+  "features": [
+    "tabular",
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 25,
+  "claims": [
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "White Blood Cell Count",
+      "char_start": 467,
+      "char_end": 489,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.value",
+      "value": "12.4",
+      "value_numeric": 12.4,
+      "unit_raw": null,
+      "evidence_text": "12.4",
+      "char_start": 491,
+      "char_end": 495,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.reference_range",
+      "value": "4.5 - 11.0",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "4.5 - 11.0",
+      "char_start": 503,
+      "char_end": 513,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 523,
+      "char_end": 530,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 535,
+      "char_end": 539,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.test_name",
+      "value": "Red Blood Cell Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Red Blood Cell Count",
+      "char_start": 540,
+      "char_end": 560,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.value",
+      "value": "4.20",
+      "value_numeric": 4.2,
+      "unit_raw": null,
+      "evidence_text": "4.20",
+      "char_start": 564,
+      "char_end": 568,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.reference_range",
+      "value": "4.00 - 5.20",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "4.00 - 5.20",
+      "char_start": 576,
+      "char_end": 587,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.unit",
+      "value": "10*6/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*6/uL",
+      "char_start": 596,
+      "char_end": 603,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 608,
+      "char_end": 614,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin",
+      "char_start": 615,
+      "char_end": 625,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.value",
+      "value": "11.8",
+      "value_numeric": 11.8,
+      "unit_raw": null,
+      "evidence_text": "11.8",
+      "char_start": 639,
+      "char_end": 643,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.reference_range",
+      "value": "12.0 - 16.0",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "12.0 - 16.0",
+      "char_start": 651,
+      "char_end": 662,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 671,
+      "char_end": 675,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 683,
+      "char_end": 686,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.test_name",
+      "value": "Hematocrit",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hematocrit",
+      "char_start": 687,
+      "char_end": 697,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.value",
+      "value": "35.5",
+      "value_numeric": 35.5,
+      "unit_raw": null,
+      "evidence_text": "35.5",
+      "char_start": 711,
+      "char_end": 715,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.reference_range",
+      "value": "37.0 - 47.0",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "37.0 - 47.0",
+      "char_start": 723,
+      "char_end": 734,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.unit",
+      "value": "%",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "%",
+      "char_start": 743,
+      "char_end": 744,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 755,
+      "char_end": 758,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Platelet Count",
+      "char_start": 759,
+      "char_end": 773,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.value",
+      "value": "245",
+      "value_numeric": 245.0,
+      "unit_raw": null,
+      "evidence_text": "245",
+      "char_start": 783,
+      "char_end": 786,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.reference_range",
+      "value": "150 - 450",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "150 - 450",
+      "char_start": 795,
+      "char_end": 804,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 815,
+      "char_end": 822,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_02",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 827,
+      "char_end": 833,
+      "page_number": 1
+    }
+  ]
+}

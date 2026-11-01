@@ -1,0 +1,4182 @@
+{
+  "dataset": "Glaucoma_Med_Dataset (https://github.com/jche253/Glaucoma_Med_Dataset)",
+  "subset_size": 200,
+  "positive_records_count": 150,
+  "negative_records_count": 50,
+  "sampling_seed": 42,
+  "selection_method": "Stratified deterministic random sample (150 positive records with medication labels, 50 negative records with zero labels, seed=42)",
+  "record_ids": [
+    "7445",
+    "7030",
+    "9810",
+    "8535",
+    "7981",
+    "845",
+    "7568",
+    "6764",
+    "6722",
+    "*****",
+    "9387",
+    "9181",
+    "9270",
+    "*****",
+    "121",
+    "*****",
+    "7158",
+    "6820",
+    "468",
+    "9596",
+    "*****",
+    "*****",
+    "7138",
+    "7998",
+    "8709",
+    "*****",
+    "*****",
+    "9876",
+    "202",
+    "7633",
+    "*****",
+    "537",
+    "1029",
+    "9932",
+    "*****",
+    "8764",
+    "*****",
+    "9206",
+    "439",
+    "8612",
+    "8151",
+    "539",
+    "7450",
+    "9521",
+    "7538",
+    "*****",
+    "9734",
+    "9662",
+    "*****",
+    "8775",
+    "6996",
+    "630",
+    "7005",
+    "7986",
+    "*****",
+    "8884",
+    "9630",
+    "*****",
+    "8162",
+    "7419",
+    "8094",
+    "8494",
+    "8192",
+    "6880",
+    "*****",
+    "*****",
+    "8728",
+    "*****",
+    "*****",
+    "*****",
+    "9470",
+    "8846",
+    "7178",
+    "8729",
+    "901",
+    "*****",
+    "8694",
+    "*****",
+    "7061",
+    "7239",
+    "7065",
+    "6862",
+    "9109",
+    "9396",
+    "*****",
+    "7406",
+    "7952",
+    "9584",
+    "8406",
+    "6875",
+    "*****",
+    "9408",
+    "9136",
+    "*****",
+    "571",
+    "*****",
+    "9019",
+    "797",
+    "8982",
+    "1004",
+    "268",
+    "914",
+    "7342",
+    "9951",
+    "*****",
+    "432",
+    "*****",
+    "8511",
+    "7682",
+    "*****",
+    "*****",
+    "157",
+    "780",
+    "9446",
+    "668",
+    "*****",
+    "6942",
+    "499",
+    "9782",
+    "9300",
+    "700",
+    "*****",
+    "7962",
+    "7647",
+    "8645",
+    "9633",
+    "*****",
+    "*****",
+    "8349",
+    "8726",
+    "7441",
+    "712",
+    "*****",
+    "9130",
+    "8672",
+    "394",
+    "*****",
+    "402",
+    "*****",
+    "7385",
+    "*****",
+    "677",
+    "721",
+    "*****",
+    "*****",
+    "8995",
+    "7343",
+    "7847",
+    "7833",
+    "1032",
+    "8829",
+    "*****",
+    "*****",
+    "8824",
+    "7611",
+    "6841",
+    "7035",
+    "8444",
+    "378",
+    "7651",
+    "8649",
+    "9405",
+    "811",
+    "1076",
+    "7892",
+    "9982",
+    "980",
+    "8830",
+    "7965",
+    "8352",
+    "415",
+    "8353",
+    "9713",
+    "9956",
+    "*****",
+    "*****",
+    "*****",
+    "*****",
+    "7461",
+    "8463",
+    "*****",
+    "*****",
+    "*****",
+    "*****",
+    "6778",
+    "8074",
+    "*****",
+    "9368",
+    "*****",
+    "1073",
+    "9567",
+    "9777",
+    "7111",
+    "7142",
+    "8991",
+    "*****",
+    "6783",
+    "7258",
+    "9131",
+    "*****"
+  ],
+  "records": [
+    {
+      "record_id": "7445",
+      "line_num": 4323,
+      "text": "RTC in 6 months",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "7030",
+      "line_num": 3908,
+      "text": "Patient states that since stopping Prednisolone she feels her eye has gotten more red. She also says that she has been having watery/clear discharge that feels milky and heavy OD. She has also noticed large floaters OS at the end of ***, they have gotten smaller and intermittent since then. No flashes of light. No current eye pain or irritation.",
+      "labels": [
+        [
+          35,
+          47,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9810",
+      "line_num": 2468,
+      "text": "Dorzolamide/timolol\u00a0BID OU",
+      "labels": [
+        [
+          0,
+          19,
+          "DRUG"
+        ],
+        [
+          20,
+          23,
+          "FREQUENCY"
+        ],
+        [
+          24,
+          26,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8535",
+      "line_num": 2020,
+      "text": "- ATs QID prn OU - discussed he may need more after resuming chemotherapy",
+      "labels": [
+        [
+          2,
+          5,
+          "DRUG"
+        ],
+        [
+          6,
+          9,
+          "FREQUENCY"
+        ],
+        [
+          10,
+          13,
+          "FREQUENCY"
+        ],
+        [
+          14,
+          16,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7981",
+      "line_num": 1467,
+      "text": "Dorzolamide BID OU - 10:00AM",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "845",
+      "line_num": 3352,
+      "text": "Latanoprost at night-both eyes",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          20,
+          "FREQUENCY"
+        ],
+        [
+          21,
+          30,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7568",
+      "line_num": 4446,
+      "text": "PF Timolol BID OU - 7am",
+      "labels": [
+        [
+          3,
+          10,
+          "DRUG"
+        ],
+        [
+          11,
+          14,
+          "FREQUENCY"
+        ],
+        [
+          15,
+          17,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6764",
+      "line_num": 3642,
+      "text": "- continue  ***** supplement",
+      "labels": [
+        [
+          2,
+          10,
+          "DRUG USE"
+        ],
+        [
+          12,
+          17,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6722",
+      "line_num": 3600,
+      "text": "Patient is here for an IOP check regarding glaucoma.  Patient uses latanoprost QHS OU, brimonidine BID OU, dorzolamide BID OU.  Patient states he is using tears that are preservative free.  Patient would like to know how long he is to wait in between glaucoma meds.",
+      "labels": [
+        [
+          62,
+          66,
+          "DRUG USE"
+        ],
+        [
+          67,
+          78,
+          "DRUG"
+        ],
+        [
+          79,
+          82,
+          "FREQUENCY"
+        ],
+        [
+          83,
+          85,
+          "ROUTE"
+        ],
+        [
+          87,
+          98,
+          "DRUG"
+        ],
+        [
+          99,
+          102,
+          "FREQUENCY"
+        ],
+        [
+          103,
+          105,
+          "ROUTE"
+        ],
+        [
+          107,
+          118,
+          "DRUG"
+        ],
+        [
+          119,
+          122,
+          "FREQUENCY"
+        ],
+        [
+          123,
+          125,
+          "ROUTE"
+        ],
+        [
+          149,
+          154,
+          "DRUG USE"
+        ],
+        [
+          155,
+          160,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1020,
+      "text": "Dorzolamide/Timolol BID OU - 8:30AM",
+      "labels": [
+        [
+          0,
+          19,
+          "DRUG"
+        ],
+        [
+          20,
+          23,
+          "FREQUENCY"
+        ],
+        [
+          24,
+          26,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9387",
+      "line_num": 5128,
+      "text": "HPI: ***** ***** ********* is a 77 y.o. female",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "9181",
+      "line_num": 4922,
+      "text": "ATs prn OU",
+      "labels": [
+        [
+          0,
+          3,
+          "DRUG"
+        ],
+        [
+          4,
+          7,
+          "FREQUENCY"
+        ],
+        [
+          8,
+          10,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9270",
+      "line_num": 5011,
+      "text": "Latanoprost qhs OU - 10:30pm",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 795,
+      "text": "Timolol qam OD - 6:30am",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "121",
+      "line_num": 2628,
+      "text": "\u00b720/40, 20/400, not clear view of retina",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 494,
+      "text": "Chief Complaint: Follow-up visit",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "7158",
+      "line_num": 4036,
+      "text": "Patient states vision has been stable. Compliant with cosopt BID OU. Uses ATs about 8x daily lubricating und qhs.",
+      "labels": [
+        [
+          54,
+          60,
+          "DRUG"
+        ],
+        [
+          61,
+          64,
+          "FREQUENCY"
+        ],
+        [
+          65,
+          67,
+          "ROUTE"
+        ],
+        [
+          69,
+          73,
+          "DRUG USE"
+        ],
+        [
+          74,
+          77,
+          "DRUG"
+        ],
+        [
+          84,
+          92,
+          "FREQUENCY"
+        ],
+        [
+          93,
+          108,
+          "DRUG"
+        ],
+        [
+          109,
+          112,
+          "FREQUENCY"
+        ],
+        [
+          39,
+          53,
+          "ADHERENCE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6820",
+      "line_num": 3698,
+      "text": "- Patient asked about second surgery. Currently no plan for revision unless fluctuating hypotony more frequent causing persistent decreased vision. Could attempt revision vs. Closing trab and place tube shunt",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "468",
+      "line_num": 2975,
+      "text": "PFATs prn/rarely OU",
+      "labels": [
+        [
+          0,
+          5,
+          "DRUG"
+        ],
+        [
+          6,
+          9,
+          "FREQUENCY"
+        ],
+        [
+          10,
+          16,
+          "FREQUENCY"
+        ],
+        [
+          17,
+          19,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9596",
+      "line_num": 5337,
+      "text": "Subjective",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 837,
+      "text": "H/o Glaucoma suspect. Last exam pt stopped ****** with no issues. Pt states that he has since failed his DMV exam and would like his formed filled out to be able to continue to drive. When VA was checked today in clinic he was 20/25 OU and pt is confused as to why he failed. One eye passed while the other did not",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 369,
+      "text": "Ocuvite daily",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          13,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7138",
+      "line_num": 4016,
+      "text": "- IOP good on timolol and brimonidine BID",
+      "labels": [
+        [
+          14,
+          21,
+          "DRUG"
+        ],
+        [
+          26,
+          37,
+          "DRUG"
+        ],
+        [
+          38,
+          41,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7998",
+      "line_num": 1484,
+      "text": "Doing cont latanoprost qhs ou",
+      "labels": [
+        [
+          6,
+          10,
+          "DRUG USE"
+        ],
+        [
+          11,
+          22,
+          "DRUG"
+        ],
+        [
+          23,
+          26,
+          "FREQUENCY"
+        ],
+        [
+          27,
+          29,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8709",
+      "line_num": 2194,
+      "text": "start atropine BID.",
+      "labels": [
+        [
+          0,
+          5,
+          "DRUG USE"
+        ],
+        [
+          6,
+          14,
+          "DRUG"
+        ],
+        [
+          15,
+          18,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 722,
+      "text": "- Continue PF taper",
+      "labels": [
+        [
+          2,
+          10,
+          "DRUG USE"
+        ],
+        [
+          11,
+          19,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 809,
+      "text": "Vision is stable OU. No complaints of pain/discomfort/flashes/floaters",
+      "labels": [
+        [
+          17,
+          19,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9876",
+      "line_num": 5435,
+      "text": "6 weeks f/u-- SLT ** */**/** - no problems post procedure.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "202",
+      "line_num": 2709,
+      "text": "Follow up: Return in about 7 months (around */*/****) for *** **.",
+      "labels": [
+        [
+          62,
+          64,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7633",
+      "line_num": 4511,
+      "text": "Chief Complaint: New Patient Visit",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 833,
+      "text": "Prednisolone **/day OS, TID OD - 6:00AM",
+      "labels": [
+        [
+          0,
+          12,
+          "DRUG"
+        ],
+        [
+          13,
+          19,
+          "FREQUENCY"
+        ],
+        [
+          20,
+          22,
+          "ROUTE"
+        ],
+        [
+          24,
+          27,
+          "FREQUENCY"
+        ],
+        [
+          28,
+          30,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "537",
+      "line_num": 3044,
+      "text": "Vision is unchanged. No eye pain. C/o of OU feeling uncomfortable with little relief.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "1029",
+      "line_num": 3536,
+      "text": "HPI: ***** * ***** is a 73 y.o. female with a history of pseudophakia OU and primary open angle glaucoma vs ocular hypertension who presents for follow up with visual field testing and *** RNFL. Pt is using latanoprost qhs OU and reports good compliance.",
+      "labels": [
+        [
+          201,
+          206,
+          "DRUG USE"
+        ],
+        [
+          207,
+          218,
+          "DRUG"
+        ],
+        [
+          219,
+          222,
+          "FREQUENCY"
+        ],
+        [
+          223,
+          225,
+          "ROUTE"
+        ],
+        [
+          238,
+          253,
+          "ADHERENCE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9932",
+      "line_num": 5491,
+      "text": "Here for POAG",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1052,
+      "text": "Ilotycin QHS",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG"
+        ],
+        [
+          9,
+          12,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8764",
+      "line_num": 2246,
+      "text": "Pilocarpine qid OS.",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 124,
+      "text": "- Restart Erythromycin ung Qhs OU x 1 month, then OTC (Ophthalmic ointment) erythromycin OK Qhs",
+      "labels": [
+        [
+          2,
+          9,
+          "DRUG USE"
+        ],
+        [
+          10,
+          26,
+          "DRUG"
+        ],
+        [
+          27,
+          30,
+          "FREQUENCY"
+        ],
+        [
+          31,
+          33,
+          "ROUTE"
+        ],
+        [
+          34,
+          43,
+          "DURATION"
+        ],
+        [
+          76,
+          88,
+          "DRUG"
+        ],
+        [
+          92,
+          95,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9206",
+      "line_num": 4947,
+      "text": "States that over the 6 months pt suffered with depression, anxiety, etc. And been in the ER two times. Feels slight visual changes. Has been having some dry eye issues and would like to address that. Uses PF AT's. Depends on the usage.",
+      "labels": [
+        [
+          200,
+          204,
+          "DRUG USE"
+        ],
+        [
+          205,
+          212,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "439",
+      "line_num": 2946,
+      "text": "Patient had HVF yesterday. States her eyes have been bothering her more since last visit. Traffic lights are really starting to bother her, especially the green lights. While driving at night last week she was seeing double because of the bright lights and the green lights looked like **********.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "8612",
+      "line_num": 2097,
+      "text": "Recommend start Erythromycin ung QHS OD to help with dryness",
+      "labels": [
+        [
+          10,
+          15,
+          "DRUG USE"
+        ],
+        [
+          16,
+          32,
+          "DRUG"
+        ],
+        [
+          33,
+          36,
+          "FREQUENCY"
+        ],
+        [
+          37,
+          39,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8151",
+      "line_num": 1637,
+      "text": "Hx: No changes since last visit.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "539",
+      "line_num": 3046,
+      "text": "Dorzolamide/Timolol BID OD - 7am",
+      "labels": [
+        [
+          0,
+          19,
+          "DRUG"
+        ],
+        [
+          20,
+          23,
+          "FREQUENCY"
+        ],
+        [
+          24,
+          26,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7450",
+      "line_num": 4328,
+      "text": "Patient using Timolol OU in the mornings. No changes to vision **** last visit. Has growths on eyelids and would like to discuss these with Dr. *****. She is having more dry eyes in both eyes but right eye seems worse. Using OTC saline drops. She would like to discuss her mychart message about iphone transient blindness. She has been reading articles about her going blind for a few moments after laying in bed and using cell phone.",
+      "labels": [
+        [
+          8,
+          13,
+          "DRUG USE"
+        ],
+        [
+          14,
+          21,
+          "DRUG"
+        ],
+        [
+          22,
+          24,
+          "ROUTE"
+        ],
+        [
+          25,
+          40,
+          "FREQUENCY"
+        ],
+        [
+          229,
+          241,
+          "DRUG"
+        ],
+        [
+          219,
+          224,
+          "DRUG USE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9521",
+      "line_num": 5262,
+      "text": "Soothe ung qhs OU",
+      "labels": [
+        [
+          0,
+          10,
+          "DRUG"
+        ],
+        [
+          11,
+          14,
+          "FREQUENCY"
+        ],
+        [
+          15,
+          17,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7538",
+      "line_num": 4416,
+      "text": "- IOP same on latanoprost, unable to tolerate dorzolamide due to burning",
+      "labels": [
+        [
+          14,
+          25,
+          "DRUG"
+        ],
+        [
+          46,
+          57,
+          "DRUG"
+        ],
+        [
+          65,
+          72,
+          "***"
+        ],
+        [
+          2,
+          13,
+          "***"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 871,
+      "text": "No eye pain. ******** says that she complains of darkness in vision. Notes ****** spots in vision, no floaters.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "9734",
+      "line_num": 2392,
+      "text": "Azopt BID OU - 9:20am",
+      "labels": [
+        [
+          0,
+          5,
+          "DRUG"
+        ],
+        [
+          6,
+          9,
+          "FREQUENCY"
+        ],
+        [
+          10,
+          12,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9662",
+      "line_num": 5403,
+      "text": "Brimonidine BID OS - 6:15am",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 714,
+      "text": "Stable",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "8775",
+      "line_num": 2257,
+      "text": "sodium chloride Instill 1 drop into both eyes every three hours.",
+      "labels": [
+        [
+          0,
+          15,
+          "DRUG"
+        ],
+        [
+          24,
+          30,
+          "DOSAGE"
+        ],
+        [
+          36,
+          45,
+          "ROUTE"
+        ],
+        [
+          46,
+          63,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6996",
+      "line_num": 3874,
+      "text": "Cosopt BID OS - 10am (afternoon dose PRN)",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG"
+        ],
+        [
+          7,
+          10,
+          "FREQUENCY"
+        ],
+        [
+          11,
+          13,
+          "ROUTE"
+        ],
+        [
+          37,
+          40,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "630",
+      "line_num": 3137,
+      "text": "Continue Timolol(0.25%) BID OS",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG USE"
+        ],
+        [
+          9,
+          16,
+          "DRUG"
+        ],
+        [
+          17,
+          22,
+          "STRENGTH"
+        ],
+        [
+          24,
+          27,
+          "FREQUENCY"
+        ],
+        [
+          28,
+          30,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7005",
+      "line_num": 3883,
+      "text": "(Assessment & Plan note Last Updated **/**/****)   Office Visit  Written **/**/**** by ****** * ***, MD",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "7986",
+      "line_num": 1472,
+      "text": "Timolol BID OU took last 9am this morning",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 894,
+      "text": "Prednisolone 4x/day LEFT eye - 8:15am",
+      "labels": [
+        [
+          0,
+          12,
+          "DRUG"
+        ],
+        [
+          13,
+          19,
+          "FREQUENCY"
+        ],
+        [
+          20,
+          28,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8884",
+      "line_num": 4625,
+      "text": "Vision seems pretty good with new Mrx.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "9630",
+      "line_num": 5371,
+      "text": "-urgent add-on for increased irritation left eye",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 892,
+      "text": "Yesterday she felt like she had something but eye feels okay today. Vision is very good.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "8162",
+      "line_num": 1648,
+      "text": "-IOP **/** off latanoprost",
+      "labels": [
+        [
+          15,
+          26,
+          "DRUG"
+        ],
+        [
+          11,
+          14,
+          "DRUG STOP"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7419",
+      "line_num": 4297,
+      "text": "Continue timolol and brimonidine",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG USE"
+        ],
+        [
+          9,
+          16,
+          "DRUG"
+        ],
+        [
+          21,
+          32,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8094",
+      "line_num": 1580,
+      "text": "Combigan BID OU - 9:00am",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG"
+        ],
+        [
+          9,
+          12,
+          "FREQUENCY"
+        ],
+        [
+          13,
+          15,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8494",
+      "line_num": 1979,
+      "text": "Refresh 2-3x/day OU",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          16,
+          "FREQUENCY"
+        ],
+        [
+          17,
+          19,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8192",
+      "line_num": 1678,
+      "text": "Latanoprost QHS OD",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6880",
+      "line_num": 3758,
+      "text": "Latanoprost qhs OU - 6:30pm",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 857,
+      "text": "Plan:",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 42,
+      "text": "She needs a renewal of timolol if she is supposed to continue it.",
+      "labels": [
+        [
+          23,
+          30,
+          "DRUG"
+        ],
+        [
+          12,
+          19,
+          "DRUG USE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8728",
+      "line_num": 2213,
+      "text": "Cosopt 2x/day OU - 9:00am.",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG"
+        ],
+        [
+          7,
+          13,
+          "FREQUENCY"
+        ],
+        [
+          14,
+          16,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 482,
+      "text": "PFAT OD prn *********",
+      "labels": [
+        [
+          0,
+          4,
+          "DRUG"
+        ],
+        [
+          5,
+          7,
+          "ROUTE"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 426,
+      "text": "Patient is here for an IOP check and MRx. Patient uses FML and Timolol, no Diamox. Aware of MRx fee.",
+      "labels": [
+        [
+          55,
+          58,
+          "DRUG"
+        ],
+        [
+          63,
+          70,
+          "DRUG"
+        ],
+        [
+          75,
+          81,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 379,
+      "text": "Latanoprost At bedtime LEFT eye - 10pm",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          23,
+          31,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9470",
+      "line_num": 5211,
+      "text": "No eye pain or noticeable vision change. No more drops, just AT's.",
+      "labels": [
+        [
+          61,
+          65,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8846",
+      "line_num": 2316,
+      "text": "Latanoprost hs OU -\u00a0Midnight.",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          14,
+          "FREQUENCY"
+        ],
+        [
+          15,
+          17,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7178",
+      "line_num": 4056,
+      "text": "- vision is stable",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "8729",
+      "line_num": 2214,
+      "text": "CYCLOSPORINE 0.05 % EYE DROPS IN A *********** Instill in eye every twelve hours.",
+      "labels": [
+        [
+          0,
+          12,
+          "DRUG"
+        ],
+        [
+          13,
+          19,
+          "STRENGTH"
+        ],
+        [
+          55,
+          61,
+          "ROUTE"
+        ],
+        [
+          62,
+          80,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "901",
+      "line_num": 3408,
+      "text": "HPI: **** * ********* is a 80 y.o. female",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 480,
+      "text": "Dorzolamide 2x/day BOTH eyes - 10pm (**/**/****)",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          18,
+          "FREQUENCY"
+        ],
+        [
+          19,
+          28,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8694",
+      "line_num": 2179,
+      "text": "- encouraged PFATs at least BID OU - discussed to space at least 5 mins from glaucoma drops",
+      "labels": [
+        [
+          13,
+          18,
+          "DRUG"
+        ],
+        [
+          28,
+          31,
+          "FREQUENCY"
+        ],
+        [
+          32,
+          34,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 292,
+      "text": "Dorzolamide BID, OU",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          17,
+          19,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7061",
+      "line_num": 3939,
+      "text": "Latanoprost OD - 9pm",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7239",
+      "line_num": 4117,
+      "text": "Latanoprost qhs OU",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7065",
+      "line_num": 3943,
+      "text": "Glaucoma Diagnosis:  Referred by: ***** * ********",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "6862",
+      "line_num": 3740,
+      "text": "Chief Complaint: Follow-up visit",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "9109",
+      "line_num": 4850,
+      "text": "Preservative free artificial tears during day prn",
+      "labels": [
+        [
+          0,
+          34,
+          "DRUG"
+        ],
+        [
+          46,
+          49,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9396",
+      "line_num": 5137,
+      "text": "Return in about 4 months (around */**/****) for ***.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1211,
+      "text": "Had shingles on her back (left side) a few months ago. Resolved now.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "7406",
+      "line_num": 4284,
+      "text": "- on timolol OU for 5 years or so",
+      "labels": [
+        [
+          5,
+          12,
+          "DRUG"
+        ],
+        [
+          13,
+          15,
+          "ROUTE"
+        ],
+        [
+          20,
+          27,
+          "DURATION"
+        ],
+        [
+          2,
+          4,
+          "DRUG USE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7952",
+      "line_num": 1438,
+      "text": "Eye Meds: Latanoprost at night-left eye",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG USE"
+        ],
+        [
+          10,
+          21,
+          "DRUG"
+        ],
+        [
+          22,
+          30,
+          "FREQUENCY"
+        ],
+        [
+          31,
+          39,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9584",
+      "line_num": 5325,
+      "text": "2. Continue Latanoprost QHS OD",
+      "labels": [
+        [
+          3,
+          11,
+          "DRUG USE"
+        ],
+        [
+          12,
+          23,
+          "DRUG"
+        ],
+        [
+          24,
+          27,
+          "FREQUENCY"
+        ],
+        [
+          28,
+          30,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8406",
+      "line_num": 1891,
+      "text": "Latanoprost qHS OU @12.30 last night",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6875",
+      "line_num": 3753,
+      "text": "DME OU (OS new diagnosis), Corneal Erosion OD - not healing 2 months per patient - seeing Glaucoma Specialist Dr. **** in **. ****** shot 3.5 months OS - also shot OD 3.5 months ago.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1183,
+      "text": "Using: Timolol ** ***, Latanoprost OS in evening.",
+      "labels": [
+        [
+          0,
+          5,
+          "DRUG USE"
+        ],
+        [
+          7,
+          14,
+          "DRUG"
+        ],
+        [
+          15,
+          17,
+          "ROUTE"
+        ],
+        [
+          18,
+          21,
+          "FREQUENCY"
+        ],
+        [
+          23,
+          34,
+          "DRUG"
+        ],
+        [
+          35,
+          37,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9408",
+      "line_num": 5149,
+      "text": "Alphagan TID OD - 5:30am",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG"
+        ],
+        [
+          9,
+          12,
+          "FREQUENCY"
+        ],
+        [
+          13,
+          15,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9136",
+      "line_num": 4877,
+      "text": "- extensive discussion about potential benefits of low vision as she endorses loss of independence due to vision",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 531,
+      "text": "MD HPI: stable vision/eyes OU, no complaints",
+      "labels": [
+        [
+          27,
+          29,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "571",
+      "line_num": 3078,
+      "text": "Cosopt 2x/day OS - 6am",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG"
+        ],
+        [
+          7,
+          13,
+          "FREQUENCY"
+        ],
+        [
+          14,
+          16,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1233,
+      "text": "Poor night driving and difficulty reading subtitles on TV. Continuing c/o dry eyes; uses few different kinds of OTC tears and Cequa. Denies eye pain.",
+      "labels": [
+        [
+          126,
+          131,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9019",
+      "line_num": 4760,
+      "text": "HPI: * ******* ******** is a 84 y.o. Female here for undilated IOP check after starting latanoprost.  Doing well overall without significant changes in eyes or vision.  Endorses excellent drop compliance.",
+      "labels": [
+        [
+          88,
+          99,
+          "DRUG"
+        ],
+        [
+          178,
+          203,
+          "ADHERENCE"
+        ],
+        [
+          79,
+          87,
+          "DRUG USE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "797",
+      "line_num": 3304,
+      "text": "Using Timolol every 6 hours OU d/t eyes being itchy OS>OD. Feeling like there is a fog over vision OS>OD for about a month.",
+      "labels": [
+        [
+          0,
+          5,
+          "DRUG USE"
+        ],
+        [
+          6,
+          13,
+          "DRUG"
+        ],
+        [
+          14,
+          27,
+          "FREQUENCY"
+        ],
+        [
+          28,
+          30,
+          "ROUTE"
+        ],
+        [
+          35,
+          51,
+          "***"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8982",
+      "line_num": 4723,
+      "text": "Cosopt bid OS- 7:30am",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG"
+        ],
+        [
+          7,
+          10,
+          "FREQUENCY"
+        ],
+        [
+          11,
+          13,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "1004",
+      "line_num": 3511,
+      "text": "PLAN:",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "268",
+      "line_num": 2775,
+      "text": "Moderate post op restrictions",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "914",
+      "line_num": 3421,
+      "text": "Latanoprost QHS OU- 11:30pm",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7342",
+      "line_num": 4220,
+      "text": "Latanoprost qhs OS - 8:00PM",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9951",
+      "line_num": 5510,
+      "text": "Cosopt bid OD--10:00am",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG"
+        ],
+        [
+          7,
+          10,
+          "FREQUENCY"
+        ],
+        [
+          11,
+          13,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1193,
+      "text": "Latanoprost qpm OD",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "432",
+      "line_num": 2939,
+      "text": "-Brimonidine (purple top) twice daily, both eyes",
+      "labels": [
+        [
+          1,
+          12,
+          "DRUG"
+        ],
+        [
+          26,
+          37,
+          "FREQUENCY"
+        ],
+        [
+          39,
+          48,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 355,
+      "text": "Patient is worried about being here for 3 months and worried about complications.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "8511",
+      "line_num": 1996,
+      "text": "Cosopt BID OU - 5:45am",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG"
+        ],
+        [
+          7,
+          10,
+          "FREQUENCY"
+        ],
+        [
+          11,
+          13,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7682",
+      "line_num": 4560,
+      "text": "Patient is tapering Prednisone now for gout in hand - 12 day taper (been on it for 10 days now)",
+      "labels": [
+        [
+          11,
+          19,
+          "DRUG USE"
+        ],
+        [
+          20,
+          30,
+          "DRUG"
+        ],
+        [
+          54,
+          60,
+          "DURATION"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1170,
+      "text": "Consent signed for CEIOL LEFT EYE today",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 696,
+      "text": "Mild cataracts OU, not visually significant",
+      "labels": [
+        [
+          15,
+          17,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "157",
+      "line_num": 2664,
+      "text": "-may use artificial tear 5 min before timolol to reduce burning.",
+      "labels": [
+        [
+          9,
+          24,
+          "DRUG"
+        ],
+        [
+          38,
+          45,
+          "DRUG"
+        ],
+        [
+          56,
+          63,
+          "***"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "780",
+      "line_num": 3287,
+      "text": "Chief Complaint",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "9446",
+      "line_num": 5187,
+      "text": "Latanoprost qhs OU - 11:30PM",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "668",
+      "line_num": 3175,
+      "text": "PFAT PRN/rarely - says they do not help",
+      "labels": [
+        [
+          0,
+          4,
+          "DRUG"
+        ],
+        [
+          5,
+          8,
+          "FREQUENCY"
+        ],
+        [
+          9,
+          15,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1200,
+      "text": "Stop Bromfenac QD OS",
+      "labels": [
+        [
+          0,
+          4,
+          "DRUG STOP"
+        ],
+        [
+          5,
+          14,
+          "DRUG"
+        ],
+        [
+          15,
+          17,
+          "ROUTE"
+        ],
+        [
+          18,
+          20,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6942",
+      "line_num": 3820,
+      "text": "Continue timolol/dorzolamide combination BID OU",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG USE"
+        ],
+        [
+          9,
+          28,
+          "DRUG"
+        ],
+        [
+          41,
+          44,
+          "FREQUENCY"
+        ],
+        [
+          45,
+          47,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "499",
+      "line_num": 3006,
+      "text": "Dorzolamide/Timolol BID OU - 6:30AM",
+      "labels": [
+        [
+          0,
+          20,
+          "DRUG"
+        ],
+        [
+          20,
+          23,
+          "FREQUENCY"
+        ],
+        [
+          24,
+          26,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9782",
+      "line_num": 2440,
+      "text": "Cosopt 2x a day both eyes",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG"
+        ],
+        [
+          7,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          25,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9300",
+      "line_num": 5041,
+      "text": "Has been using Pred OU. No vision change. No eye pain.",
+      "labels": [
+        [
+          9,
+          14,
+          "DRUG USE"
+        ],
+        [
+          15,
+          19,
+          "DRUG"
+        ],
+        [
+          20,
+          22,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "700",
+      "line_num": 3207,
+      "text": "S/p Trabeculectomy OS (*/**/**)",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1161,
+      "text": "-Dorzolamide/Timolol BID, OU",
+      "labels": [
+        [
+          1,
+          20,
+          "DRUG"
+        ],
+        [
+          21,
+          24,
+          "FREQUENCY"
+        ],
+        [
+          26,
+          28,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7962",
+      "line_num": 1448,
+      "text": "Natures Eye vitamins (\"Same ingredients as ***** 2\").",
+      "labels": [
+        [
+          43,
+          50,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7647",
+      "line_num": 4525,
+      "text": "Occupation:  Retired",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "8645",
+      "line_num": 2130,
+      "text": "***#2 ***** valve with corneal patch graft left eye (**/**/**-**/**/**)",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "9633",
+      "line_num": 5374,
+      "text": "-discussed need for increased lubrication and strict return precautions",
+      "labels": [
+        [
+          30,
+          41,
+          "DRUG"
+        ],
+        [
+          20,
+          29,
+          "DRUG USE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 130,
+      "text": "End stage glaucoma ou",
+      "labels": [
+        [
+          19,
+          21,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 834,
+      "text": "Genteal AT's/ointment 3-4x/day OU",
+      "labels": [
+        [
+          8,
+          12,
+          "DRUG"
+        ],
+        [
+          13,
+          21,
+          "DRUG"
+        ],
+        [
+          22,
+          30,
+          "FREQUENCY"
+        ],
+        [
+          31,
+          33,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8349",
+      "line_num": 1834,
+      "text": "Has some dryness and redness. Not using AT's. No vision changes.",
+      "labels": [
+        [
+          30,
+          39,
+          "DRUG STOP"
+        ],
+        [
+          40,
+          44,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8726",
+      "line_num": 2211,
+      "text": "CARBOXYMETHYLCELLULOSE SODIUM (REFRESH ****) Instill  in eye.",
+      "labels": [
+        [
+          0,
+          29,
+          "DRUG"
+        ],
+        [
+          31,
+          43,
+          "DRUG"
+        ],
+        [
+          54,
+          60,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7441",
+      "line_num": 4319,
+      "text": "3. Hx of BRVO OD -Followed by Dr. *****",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "712",
+      "line_num": 3219,
+      "text": "Timolol qam OD - 10am",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1226,
+      "text": "HPI (Edited by physician):6 month f/u + DFE",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "9130",
+      "line_num": 4871,
+      "text": "- HVF with central loss due to ARMD - stable in recent past",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "8672",
+      "line_num": 2157,
+      "text": "Taking  Travatan qHS **, PFATs, **** ung at night",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG USE"
+        ],
+        [
+          8,
+          16,
+          "DRUG"
+        ],
+        [
+          17,
+          20,
+          "FREQUENCY"
+        ],
+        [
+          21,
+          23,
+          "ROUTE"
+        ],
+        [
+          25,
+          30,
+          "DRUG"
+        ],
+        [
+          32,
+          40,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "394",
+      "line_num": 2901,
+      "text": "Latanoprost qhs OD - 11:00 pm",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1132,
+      "text": "Eye Meds: Rhopressa at night-both eyes",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG USE"
+        ],
+        [
+          10,
+          19,
+          "DRUG"
+        ],
+        [
+          20,
+          28,
+          "FREQUENCY"
+        ],
+        [
+          29,
+          38,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "402",
+      "line_num": 2909,
+      "text": "Cosopt 2x/day OS - 6:05am",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG"
+        ],
+        [
+          6,
+          13,
+          "FREQUENCY"
+        ],
+        [
+          14,
+          16,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 517,
+      "text": "Dorzolamide BID OU - 7:35am",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7385",
+      "line_num": 4263,
+      "text": "2. Continue Latanoprost QHS, OU",
+      "labels": [
+        [
+          3,
+          11,
+          "DRUG USE"
+        ],
+        [
+          12,
+          23,
+          "DRUG"
+        ],
+        [
+          24,
+          27,
+          "FREQUENCY"
+        ],
+        [
+          29,
+          31,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 101,
+      "text": "Chief Complaint/HPI: ****** ****** is a 69 y.o. male here today",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "677",
+      "line_num": 3184,
+      "text": "She and her son are pleased with her results from Dr. ******'s procedures. She rarely uses AT now, and no discomfort.",
+      "labels": [
+        [
+          79,
+          90,
+          "DRUG USE"
+        ],
+        [
+          91,
+          93,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "721",
+      "line_num": 3228,
+      "text": "Restasis BID OU - yesterday",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG"
+        ],
+        [
+          9,
+          12,
+          "FREQUENCY"
+        ],
+        [
+          13,
+          15,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 153,
+      "text": "Cosopt BIDs OS - 9am",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG"
+        ],
+        [
+          7,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 563,
+      "text": "HVF 24-2 **/**/**** Full OU",
+      "labels": [
+        [
+          25,
+          27,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8995",
+      "line_num": 4736,
+      "text": "Latanoprost QHS OU",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7343",
+      "line_num": 4221,
+      "text": "Systane BID OD",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7847",
+      "line_num": 1333,
+      "text": "Prednisolone 6x/daily OD - 2pm",
+      "labels": [
+        [
+          0,
+          12,
+          "DRUG"
+        ],
+        [
+          13,
+          21,
+          "FREQUENCY"
+        ],
+        [
+          22,
+          24,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7833",
+      "line_num": 1319,
+      "text": "Dorzolamide 2x/day OD - ? Unsure if took last night.",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          18,
+          "FREQUENCY"
+        ],
+        [
+          19,
+          21,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "1032",
+      "line_num": 3539,
+      "text": "- continue\u00a0latanoprost qhs OU",
+      "labels": [
+        [
+          2,
+          10,
+          "DRUG USE"
+        ],
+        [
+          11,
+          22,
+          "DRUG"
+        ],
+        [
+          23,
+          26,
+          "FREQUENCY"
+        ],
+        [
+          27,
+          29,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8829",
+      "line_num": 2303,
+      "text": "Lubricating gel qhs OU.",
+      "labels": [
+        [
+          0,
+          15,
+          "DRUG"
+        ],
+        [
+          16,
+          19,
+          "FREQUENCY"
+        ],
+        [
+          20,
+          22,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 202,
+      "text": "Hx: Had to go see his MD for shingles-left side of face.  Started some medication for it and now it's caused some paralysis on that side.  Sometimes his eyelid gets better and sometime not--droopy and doesn't close so his eye get pretty dry and it's red off an on. He had a filament on his eye and he had to ***** it off and had to use an eye drop)(Ocuflox) 3x a day for awhile. He saw Dr. ******* on */**.",
+      "labels": [
+        [
+          349,
+          356,
+          "DRUG"
+        ],
+        [
+          358,
+          366,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 420,
+      "text": "+ timolol bid ou",
+      "labels": [
+        [
+          2,
+          9,
+          "DRUG"
+        ],
+        [
+          10,
+          13,
+          "FREQUENCY"
+        ],
+        [
+          14,
+          16,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8824",
+      "line_num": 2298,
+      "text": "Latanoprost QHS OU.",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7611",
+      "line_num": 4489,
+      "text": "Brimonidine BID OU - 8am",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6841",
+      "line_num": 3719,
+      "text": "- continue ***** 2 vitamins",
+      "labels": [
+        [
+          2,
+          10,
+          "DRUG USE"
+        ],
+        [
+          11,
+          16,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7035",
+      "line_num": 3913,
+      "text": "Latanoprost qhs OU - Midnight",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8444",
+      "line_num": 1929,
+      "text": "HPI: 1 week follow up",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "378",
+      "line_num": 2885,
+      "text": "Timolol qam OU -7:30 am",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7651",
+      "line_num": 4529,
+      "text": "Simbrinza BID OS - 6:00AM",
+      "labels": [
+        [
+          0,
+          9,
+          "DRUG"
+        ],
+        [
+          10,
+          13,
+          "FREQUENCY"
+        ],
+        [
+          14,
+          16,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8649",
+      "line_num": 2134,
+      "text": "Timolol/dorzolamide BID OS -",
+      "labels": [
+        [
+          0,
+          19,
+          "DRUG"
+        ],
+        [
+          20,
+          23,
+          "FREQUENCY"
+        ],
+        [
+          24,
+          26,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9405",
+      "line_num": 5146,
+      "text": "1 month f/u",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "811",
+      "line_num": 3318,
+      "text": "Saw Dr. ***** **/**. Vision stable. C/o dry eyes--using PFATS once weekly. Good drop compliance. Denies eye pain.",
+      "labels": [
+        [
+          50,
+          55,
+          "DRUG USE"
+        ],
+        [
+          56,
+          61,
+          "DRUG"
+        ],
+        [
+          62,
+          73,
+          "FREQUENCY"
+        ],
+        [
+          75,
+          95,
+          "ADHERENCE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "1076",
+      "line_num": 3583,
+      "text": "Continue OD: timolol qAM\u00a0and Lumigan qHS",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG USE"
+        ],
+        [
+          9,
+          11,
+          "ROUTE"
+        ],
+        [
+          13,
+          20,
+          "DRUG"
+        ],
+        [
+          21,
+          24,
+          "FREQUENCY"
+        ],
+        [
+          29,
+          36,
+          "DRUG"
+        ],
+        [
+          37,
+          40,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7892",
+      "line_num": 1378,
+      "text": "Chief Complaint: Follow-up visit",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "9982",
+      "line_num": 21,
+      "text": "CC: Medical Eye Examination",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "980",
+      "line_num": 3487,
+      "text": "Also latanoprost qhs OU",
+      "labels": [
+        [
+          5,
+          16,
+          "DRUG"
+        ],
+        [
+          17,
+          20,
+          "FREQUENCY"
+        ],
+        [
+          21,
+          23,
+          "ROUTE"
+        ],
+        [
+          0,
+          4,
+          "DRUG USE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8830",
+      "line_num": 2304,
+      "text": "now on dorzolamide BID with good IOP, continue.",
+      "labels": [
+        [
+          0,
+          6,
+          "DRUG USE"
+        ],
+        [
+          7,
+          18,
+          "DRUG"
+        ],
+        [
+          19,
+          22,
+          "FREQUENCY"
+        ],
+        [
+          38,
+          46,
+          "DRUG USE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7965",
+      "line_num": 1451,
+      "text": "Patient returns for IOP check. She states every day there is a point where she has to stop whatever she is doing and close eyes for awhile as they become too blurry to see. States it is usually when she has \"done too much\" and needs to rest them.  Uses AT's at least BID sometimes more.",
+      "labels": [
+        [
+          248,
+          252,
+          "DRUG USE"
+        ],
+        [
+          253,
+          257,
+          "DRUG"
+        ],
+        [
+          267,
+          270,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8352",
+      "line_num": 1837,
+      "text": "Latanoprost qhs OS - 11pm",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "415",
+      "line_num": 2922,
+      "text": "No occupation listed.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "8353",
+      "line_num": 1838,
+      "text": "No occupation listed.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "9713",
+      "line_num": 2371,
+      "text": "Plan: Continue latanoprost qhs OU, encouraged drop compliance",
+      "labels": [
+        [
+          6,
+          14,
+          "DRUG USE"
+        ],
+        [
+          15,
+          26,
+          "DRUG"
+        ],
+        [
+          27,
+          30,
+          "FREQUENCY"
+        ],
+        [
+          31,
+          33,
+          "ROUTE"
+        ],
+        [
+          46,
+          61,
+          "ADHERENCE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9956",
+      "line_num": 5515,
+      "text": "She says that she has been using Alphagan though it does not burn when it goes in so she hopes it is getting in.",
+      "labels": [
+        [
+          27,
+          32,
+          "DRUG USE"
+        ],
+        [
+          33,
+          41,
+          "DRUG"
+        ],
+        [
+          52,
+          65,
+          "***"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 158,
+      "text": "2.******** tear OS - approx 2010, s/p laser treatment, followed by Dr. ******",
+      "labels": [
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 350,
+      "text": "Using latanoprost qhs OU.",
+      "labels": [
+        [
+          0,
+          5,
+          "DRUG USE"
+        ],
+        [
+          6,
+          17,
+          "DRUG"
+        ],
+        [
+          18,
+          21,
+          "FREQUENCY"
+        ],
+        [
+          22,
+          24,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1251,
+      "text": "** meds Brimonidine BID OS,Cosopt BID **, ***** 2",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG USE"
+        ],
+        [
+          8,
+          19,
+          "DRUG"
+        ],
+        [
+          20,
+          23,
+          "FREQUENCY"
+        ],
+        [
+          24,
+          26,
+          "ROUTE"
+        ],
+        [
+          27,
+          33,
+          "DRUG"
+        ],
+        [
+          34,
+          37,
+          "FREQUENCY"
+        ],
+        [
+          38,
+          40,
+          "ROUTE"
+        ],
+        [
+          42,
+          49,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1175,
+      "text": "Continue Dorzolamide BID-TID OU",
+      "labels": [
+        [
+          0,
+          8,
+          "DRUG USE"
+        ],
+        [
+          9,
+          20,
+          "DRUG"
+        ],
+        [
+          21,
+          24,
+          "FREQUENCY"
+        ],
+        [
+          25,
+          28,
+          "FREQUENCY"
+        ],
+        [
+          29,
+          31,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7461",
+      "line_num": 4339,
+      "text": "Dorzolamide TID OS - 6:00AM",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8463",
+      "line_num": 1948,
+      "text": "Pt feels va is about the same. Pt did not use drops this AM.",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 450,
+      "text": "******* qam OD - 9:15am1",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 616,
+      "text": "Brimonidine BID OS - 5am, 1pm",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1224,
+      "text": "Latanoprost QHS OU",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1107,
+      "text": "Fish oils",
+      "labels": [
+        [
+          0,
+          9,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6778",
+      "line_num": 3656,
+      "text": "Latanoprost QHS OU - 8pm",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8074",
+      "line_num": 1560,
+      "text": "Timolol qam OU - 7:15AM",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1126,
+      "text": "Refresh PRN/at least once daily",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          31,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9368",
+      "line_num": 5109,
+      "text": "-Dorzolamide TID OU",
+      "labels": [
+        [
+          1,
+          12,
+          "DRUG"
+        ],
+        [
+          13,
+          16,
+          "FREQUENCY"
+        ],
+        [
+          17,
+          19,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 1063,
+      "text": "HPI: 5 months + DFE",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "1073",
+      "line_num": 3580,
+      "text": "Lumigan QHS OD",
+      "labels": [
+        [
+          0,
+          7,
+          "DRUG"
+        ],
+        [
+          8,
+          11,
+          "FREQUENCY"
+        ],
+        [
+          12,
+          14,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9567",
+      "line_num": 5308,
+      "text": "Latanoprost at night ou 95% good compliance",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          20,
+          "FREQUENCY"
+        ],
+        [
+          21,
+          23,
+          "ROUTE"
+        ],
+        [
+          24,
+          27,
+          "STRENGTH"
+        ],
+        [
+          28,
+          43,
+          "ADHERENCE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9777",
+      "line_num": 2435,
+      "text": "Prednisolone q/3hrs - OD 8:45am",
+      "labels": [
+        [
+          0,
+          12,
+          "DRUG"
+        ],
+        [
+          13,
+          19,
+          "FREQUENCY"
+        ],
+        [
+          22,
+          24,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7111",
+      "line_num": 3989,
+      "text": "Latanoprost qhs ** - ** @ 10 pm last night.",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          15,
+          "FREQUENCY"
+        ],
+        [
+          16,
+          18,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "7142",
+      "line_num": 4020,
+      "text": "- continue brimonidine BID and timolol",
+      "labels": [
+        [
+          2,
+          10,
+          "DRUG USE"
+        ],
+        [
+          11,
+          22,
+          "DRUG"
+        ],
+        [
+          23,
+          26,
+          "FREQUENCY"
+        ],
+        [
+          31,
+          38,
+          "DRUG"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "8991",
+      "line_num": 4732,
+      "text": "Latanoprost Q HS OU",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          16,
+          "FREQUENCY"
+        ],
+        [
+          17,
+          19,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "*****",
+      "line_num": 498,
+      "text": "Brimonidine Twice daily LEFT eye - this AM",
+      "labels": [
+        [
+          0,
+          11,
+          "DRUG"
+        ],
+        [
+          12,
+          23,
+          "FREQUENCY"
+        ],
+        [
+          24,
+          32,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "6783",
+      "line_num": 3661,
+      "text": "HVF with possible paracentral and peripheral scotoma enlargement",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "7258",
+      "line_num": 4136,
+      "text": "Currently using Combigan BID OU",
+      "labels": [
+        [
+          0,
+          15,
+          "DRUG USE"
+        ],
+        [
+          16,
+          24,
+          "DRUG"
+        ],
+        [
+          25,
+          28,
+          "FREQUENCY"
+        ],
+        [
+          29,
+          31,
+          "ROUTE"
+        ]
+      ],
+      "is_negative": false
+    },
+    {
+      "record_id": "9131",
+      "line_num": 4872,
+      "text": "- *** ONH with sup/inf thinning OD, mild thinning inf OS",
+      "labels": [],
+      "is_negative": true
+    },
+    {
+      "record_id": "*****",
+      "line_num": 208,
+      "text": "PF AT PRN --right now 3-4 times day",
+      "labels": [
+        [
+          0,
+          5,
+          "DRUG"
+        ],
+        [
+          6,
+          9,
+          "FREQUENCY"
+        ],
+        [
+          22,
+          35,
+          "FREQUENCY"
+        ]
+      ],
+      "is_negative": false
+    }
+  ]
+}

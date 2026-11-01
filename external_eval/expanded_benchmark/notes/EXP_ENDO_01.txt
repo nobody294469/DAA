@@ -1,0 +1,20 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+PATIENT: Synthetic Patient Endo-Exp-01    MRN: PAT-492019
+DATE: 2026-03-25    CLINIC: Center for Endocrinology & Metabolism
+DOB: 1969-07-14    AGE: 56    PROVIDER: Dr. Linda Chang, MD (NPI: 1492038192)
+VITALS: BP 130/82, HR 72, Weight 88 kg, BMI 29.4
+
+CHIEF COMPLAINT:
+Follow-up for type 2 diabetes mellitus and dyslipidemia.
+
+LABORATORY DATA:
+Fasting Glucose was 142 mg/dL (HIGH). Hemoglobin A1c was measured at 7.8% (HIGH).
+Urine Albumin/Creatinine ratio was 45 mg/g (HIGH). Serum Creatinine was 0.9 mg/dL.
+
+PLAN:
+Increase antidiabetic therapy.
+
+MEDICATIONS:
+Continue Metformin 1000 mg oral tablet twice daily with food.
+Start Empagliflozin 10 mg PO once daily in the morning.
+Continue Atorvastatin 20 mg by mouth daily.

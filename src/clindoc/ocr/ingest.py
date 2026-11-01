@@ -19,7 +19,7 @@ from clindoc.ocr.born_digital import extract_born_digital_pdf
 from clindoc.ocr.schema import DocumentOCRRecord
 from clindoc.m2.context import reconstruct_canonical_page_text
 
-SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".tiff", ".tif"}
+SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".tiff", ".tif", ".txt", ".docx"}
 
 
 # ─── STRUCTURED INGESTION EXCEPTIONS ──────────────────────────────────────────
@@ -51,12 +51,10 @@ class OCREngineError(IngestionError):
 
 # ─── CORE INGESTION FUNCTIONS ────────────────────────────────────────────────
 
-def _detect_tabular(doc_id: str, is_tabular: bool | None = None) -> bool:
+def _detect_tabular(doc_id: str, is_tabular: bool | None = None, lines: list[dict[str, Any]] | None = None) -> bool:
     """Determine whether document has tabular layout (lab report)."""
-    if is_tabular is not None:
-        return is_tabular
-    doc_id_upper = doc_id.upper()
-    return doc_id_upper.startswith("LAB_") or "TEMPLATE_A" in doc_id_upper or "TEMPLATE_B" in doc_id_upper or "TEMPLATE_C" in doc_id_upper
+    from clindoc.ocr.table_layout import detect_tabular_layout
+    return detect_tabular_layout(doc_id=doc_id, lines=lines, is_tabular_override=is_tabular)
 
 
 def ingest_from_record(
@@ -77,10 +75,10 @@ def ingest_from_record(
         "born_digital" if "digital" in engine else "scanned_image"
     )
 
-    tabular = _detect_tabular(resolved_doc_id, is_tabular)
-
     lines = record_data.get("lines", [])
     num_pages = record_data.get("num_pages", 1)
+
+    tabular = _detect_tabular(resolved_doc_id, is_tabular, lines=lines)
 
     # Group lines by page
     lines_by_page: dict[int, list[dict[str, Any]]] = {}
@@ -212,6 +210,195 @@ def _find_cached_record(doc_id: str, custom_dir: Path | None = None) -> Path | N
     return None
 
 
+def _ingest_txt(
+    file_path: Path,
+    doc_id: str,
+    is_tabular: bool | None = None,
+) -> DocumentText:
+    """Ingest plain text (.txt) document into canonical DocumentText."""
+    try:
+        raw_bytes = file_path.read_bytes()
+    except Exception as e:
+        raise UnreadableDocumentError(f"Failed to read TXT file {file_path}: {e}") from e
+
+    if not raw_bytes.strip():
+        raise EmptyDocumentError(f"TXT document {file_path} is empty")
+
+    text_content = ""
+    for enc in ("utf-8-sig", "utf-8", "latin-1"):
+        try:
+            text_content = raw_bytes.decode(enc)
+            break
+        except UnicodeDecodeError:
+            continue
+
+    if not text_content.strip():
+        raise EmptyDocumentError(f"TXT document {file_path} contains no readable text")
+
+    normalized = text_content.replace("\r\n", "\n").replace("\r", "\n")
+    lines = normalized.split("\n")
+
+    tabular = _detect_tabular(doc_id, is_tabular, lines=[{"text": l} for l in lines])
+
+    tokens: list[Token] = []
+    line_y = 54.0
+    line_height = 14.0
+
+    for r_idx, line_str in enumerate(lines):
+        line_id = f"line_{r_idx}"
+        words = line_str.split()
+        if not words:
+            continue
+
+        word_x = 54.0
+        for word in words:
+            word_w = max(len(word) * 7.0, 10.0)
+            t_box = BBoxDict(
+                x0=round(word_x, 2),
+                y0=round(line_y, 2),
+                x1=round(word_x + word_w, 2),
+                y1=round(line_y + line_height, 2),
+            )
+            tokens.append(
+                Token(
+                    text=word,
+                    bbox=t_box,
+                    confidence=None,
+                    line_id=line_id,
+                )
+            )
+            word_x += word_w + 5.0
+
+        line_y += line_height + 2.0
+
+    page_h = max(792, int(line_y + 54.0))
+    doc_page = DocumentPage(
+        page_number=1,
+        width_px=612,
+        height_px=page_h,
+        tokens=tokens,
+    )
+
+    return DocumentText(
+        document_id=doc_id,
+        source_type="born_digital",
+        pages=[doc_page],
+    )
+
+
+def _ingest_docx(
+    file_path: Path,
+    doc_id: str,
+    is_tabular: bool | None = None,
+) -> DocumentText:
+    """Ingest Microsoft Word (.docx) document into canonical DocumentText."""
+    import io, zipfile, xml.etree.ElementTree as ET
+
+    try:
+        raw_bytes = file_path.read_bytes()
+    except Exception as e:
+        raise UnreadableDocumentError(f"Failed to read DOCX file {file_path}: {e}") from e
+
+    if not raw_bytes:
+        raise EmptyDocumentError(f"DOCX document {file_path} is empty")
+
+    try:
+        zf = zipfile.ZipFile(io.BytesIO(raw_bytes))
+    except Exception as e:
+        raise UnreadableDocumentError(f"Corrupted or invalid DOCX archive {file_path}: {e}") from e
+
+    with zf:
+        for zinfo in zf.infolist():
+            if zinfo.flag_bits & 0x1:
+                raise UnreadableDocumentError(f"DOCX file {file_path} is password-protected or encrypted")
+
+        if "word/document.xml" not in zf.namelist():
+            raise UnreadableDocumentError(f"DOCX archive {file_path} missing word/document.xml")
+
+        try:
+            doc_xml = zf.read("word/document.xml")
+            root = ET.fromstring(doc_xml)
+        except Exception as e:
+            raise UnreadableDocumentError(f"Failed to parse word/document.xml in {file_path}: {e}") from e
+
+        ns = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+
+        body = root.find("w:body", ns)
+        if body is None:
+            raise EmptyDocumentError(f"DOCX document {file_path} has no document body")
+
+        extracted_lines: list[str] = []
+
+        for child in body:
+            tag = child.tag.split("}")[-1] if "}" in child.tag else child.tag
+
+            if tag == "p":
+                texts = [node.text for node in child.findall(".//w:t", ns) if node.text]
+                p_text = "".join(texts).strip()
+                if p_text:
+                    extracted_lines.append(p_text)
+
+            elif tag == "tbl":
+                for tr in child.findall(".//w:tr", ns):
+                    cell_texts: list[str] = []
+                    for tc in tr.findall(".//w:tc", ns):
+                        tc_texts = [node.text for node in tc.findall(".//w:t", ns) if node.text]
+                        cell_str = " ".join("".join(tc_texts).split())
+                        if cell_str:
+                            cell_texts.append(cell_str)
+                    if cell_texts:
+                        row_line = "   ".join(cell_texts)
+                        extracted_lines.append(row_line)
+
+    if not extracted_lines:
+        raise EmptyDocumentError(f"DOCX document {file_path} contains no extractable text")
+
+    tokens: list[Token] = []
+    line_y = 54.0
+    line_height = 14.0
+
+    for r_idx, line_str in enumerate(extracted_lines):
+        line_id = f"line_{r_idx}"
+        words = line_str.split()
+        if not words:
+            continue
+
+        word_x = 54.0
+        for word in words:
+            word_w = max(len(word) * 7.0, 10.0)
+            t_box = BBoxDict(
+                x0=round(word_x, 2),
+                y0=round(line_y, 2),
+                x1=round(word_x + word_w, 2),
+                y1=round(line_y + line_height, 2),
+            )
+            tokens.append(
+                Token(
+                    text=word,
+                    bbox=t_box,
+                    confidence=None,
+                    line_id=line_id,
+                )
+            )
+            word_x += word_w + 5.0
+
+        line_y += line_height + 2.0
+
+    page_h = max(792, int(line_y + 54.0))
+    doc_page = DocumentPage(
+        page_number=1,
+        width_px=612,
+        height_px=page_h,
+        tokens=tokens,
+    )
+
+    return DocumentText(
+        document_id=doc_id,
+        source_type="born_digital",
+        pages=[doc_page],
+    )
+
+
 def ingest_document(
     path: str | Path,
     document_id: str | None = None,
@@ -221,10 +408,10 @@ def ingest_document(
     force: bool = False,
     dpi: int = 150,
 ) -> DocumentText:
-    """Canonical Ingestion API: Convert clinical PDF or image into DocumentText.
+    """Canonical Ingestion API: Convert clinical PDF, DOCX, TXT or image into DocumentText.
 
     Parameters:
-      path: Path to the input PDF or image document.
+      path: Path to the input PDF, DOCX, TXT or image document.
       document_id: Optional document identifier (defaults to file stem, e.g. 'LAB_0001').
       source_type: Ingestion modality ('auto', 'born_digital', 'scanned_image').
       is_tabular: Optional override for tabular row grouping (auto-detected if None).
@@ -255,6 +442,12 @@ def ingest_document(
 
     doc_id = document_id or file_path.stem
     custom_cache_p = Path(ocr_cache_dir) if ocr_cache_dir else None
+
+    # Dedicated adapters for born-digital plain text and Word documents
+    if suffix == ".txt":
+        return _ingest_txt(file_path, doc_id=doc_id, is_tabular=is_tabular)
+    elif suffix == ".docx":
+        return _ingest_docx(file_path, doc_id=doc_id, is_tabular=is_tabular)
 
     # 1. Check existing OCR cache if not forcing
     if not force:

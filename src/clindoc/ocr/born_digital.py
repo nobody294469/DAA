@@ -44,7 +44,7 @@ def extract_born_digital_pdf(pdf_path: str | Path, doc_id: str | None = None) ->
             all_words.append(word_box)
             lines_dict[(b_no, l_no)].append(word_box)
 
-        # Build lines maintaining reading order
+        page_lines: list[LineBox] = []
         for (b_no, l_no), words in lines_dict.items():
             words_sorted = sorted(words, key=lambda w: w.bbox[0])
             line_text = " ".join(w.text for w in words_sorted)
@@ -53,7 +53,7 @@ def extract_born_digital_pdf(pdf_path: str | Path, doc_id: str | None = None) ->
             line_x1 = max(w.bbox[2] for w in words_sorted)
             line_y1 = max(w.bbox[3] for w in words_sorted)
 
-            all_lines.append(
+            page_lines.append(
                 LineBox(
                     text=line_text,
                     bbox=[round(line_x0, 2), round(line_y0, 2), round(line_x1, 2), round(line_y1, 2)],
@@ -63,8 +63,12 @@ def extract_born_digital_pdf(pdf_path: str | Path, doc_id: str | None = None) ->
                 )
             )
 
-    # Sort lines primarily top-to-bottom, secondarily left-to-right
-    all_lines.sort(key=lambda line: (line.page, line.bbox[1], line.bbox[0]))
+        # Apply robust 2D layout analysis to sort page lines into clinical reading order
+        from clindoc.ocr.layout import sort_page_lines_reading_order
+        p_width = float(page.rect.width) if hasattr(page, "rect") else 612.0
+        p_height = float(page.rect.height) if hasattr(page, "rect") else 792.0
+        page_lines_ordered = sort_page_lines_reading_order(page_lines, page_width=p_width, page_height=p_height)
+        all_lines.extend(page_lines_ordered)
 
     elapsed_ms = round((time.perf_counter() - start_time) * 1000, 2)
 

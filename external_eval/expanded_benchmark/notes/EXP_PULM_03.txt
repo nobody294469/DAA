@@ -1,0 +1,9 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+PULMONARY FIBROSIS CLINIC
+Date: 2026-04-09    Patient: Synthetic Patient Pulm-Exp-03
+MRN: PAT-701928    DOB: 1963-02-18    Dr. Sarah Jenkins (NPI: 1449203814)
+
+Patient with idiopathic pulmonary fibrosis on antifibrotic therapy.
+Monthly surveillance labs reveal ALT 34 U/L and AST 28 U/L (both in normal range).
+Serum Total Bilirubin is 0.7 mg/dL.
+Pirfenidone 801 mg PO three times daily with meals.

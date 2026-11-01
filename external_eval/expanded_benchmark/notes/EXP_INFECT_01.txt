@@ -1,0 +1,14 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+INFECTIOUS DISEASE CONSULTATION
+Date: 2026-04-21    Patient: Synthetic Patient Infect-Exp-01
+MRN: PAT-101928    DOB: 1970-08-15    Dr. Angela Martin (NPI: 1849204920)
+
+LABORATORY VALUES:
+Serum Vancomycin trough level was 16.5 ug/mL (THERAPEUTIC).
+C-Reactive Protein was 45 mg/L (HIGH).
+Erythrocyte Sedimentation Rate was 52 mm/hr (HIGH).
+Serum Creatinine was 0.9 mg/dL.
+
+ANTIMICROBIAL REGIMEN:
+Vancomycin 1250 mg IV every 12 hours.
+Cefazolin 2 g IV every 8 hours.

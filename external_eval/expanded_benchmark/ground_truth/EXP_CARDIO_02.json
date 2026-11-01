@@ -1,0 +1,257 @@
+{
+  "doc_id": "EXP_CARDIO_02",
+  "category": "narrative_encounter",
+  "specialty": "Cardiology",
+  "title": "Inpatient NSTEMI Discharge Summary",
+  "format": "clinical_narrative_text",
+  "features": [
+    "discharge_summary",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 22,
+  "claims": [
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "lab.test_name",
+      "value": "Troponin I",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Troponin I",
+      "char_start": 481,
+      "char_end": 491,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "lab.value",
+      "value": "8.4",
+      "value_numeric": 8.4,
+      "unit_raw": null,
+      "evidence_text": "8.4",
+      "char_start": 496,
+      "char_end": 499,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "lab.unit",
+      "value": "ng/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ng/mL",
+      "char_start": 500,
+      "char_end": 505,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin",
+      "char_start": 520,
+      "char_end": 530,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "lab.value",
+      "value": "13.2",
+      "value_numeric": 13.2,
+      "unit_raw": null,
+      "evidence_text": "13.2",
+      "char_start": 535,
+      "char_end": 539,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 540,
+      "char_end": 544,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "lab.test_name",
+      "value": "Total Cholesterol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Total Cholesterol",
+      "char_start": 546,
+      "char_end": 563,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "lab.value",
+      "value": "195",
+      "value_numeric": 195.0,
+      "unit_raw": null,
+      "evidence_text": "195",
+      "char_start": 581,
+      "char_end": 584,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 585,
+      "char_end": 590,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.name",
+      "value": "Aspirin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Aspirin",
+      "char_start": 616,
+      "char_end": 623,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.dose",
+      "value": "81 mg",
+      "value_numeric": 81.0,
+      "unit_raw": "mg",
+      "evidence_text": "81 mg",
+      "char_start": 624,
+      "char_end": 629,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 630,
+      "char_end": 634,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 642,
+      "char_end": 652,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.name",
+      "value": "Ticagrelor",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Ticagrelor",
+      "char_start": 654,
+      "char_end": 664,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.dose",
+      "value": "90 mg",
+      "value_numeric": 90.0,
+      "unit_raw": "mg",
+      "evidence_text": "90 mg",
+      "char_start": 665,
+      "char_end": 670,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 671,
+      "char_end": 673,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.frequency",
+      "value": "BID",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BID",
+      "char_start": 674,
+      "char_end": 677,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.duration",
+      "value": "for 12 months",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 12 months",
+      "char_start": 678,
+      "char_end": 691,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.name",
+      "value": "Atorvastatin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Atorvastatin",
+      "char_start": 693,
+      "char_end": 705,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.dose",
+      "value": "80 mg",
+      "value_numeric": 80.0,
+      "unit_raw": "mg",
+      "evidence_text": "80 mg",
+      "char_start": 706,
+      "char_end": 711,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 712,
+      "char_end": 720,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_02",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 721,
+      "char_end": 726,
+      "page_number": 1
+    }
+  ]
+}

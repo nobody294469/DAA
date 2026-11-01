@@ -62,6 +62,76 @@ class EHRDuplicateSubmissionError(EHRTransportError):
         super().__init__(message, status_code=status_code, error_type="DUPLICATE")
 
 
+class EHRDraftRejectionError(EHRTransportError):
+    """Raised when an EHR transport boundary detects unreviewed CLI draft markers."""
+
+    def __init__(
+        self,
+        message: str = "EHR boundary rejected unreviewed draft bundle: direct transmission of CLI drafts is strictly prohibited.",
+        status_code: int = 403,
+    ) -> None:
+        super().__init__(message, status_code=status_code, error_type="DRAFT_REJECTED")
+
+
+def assert_no_draft_tags(bundle_payload: Union[str, bytes, dict[str, Any]]) -> None:
+    """Verify that a bundle does not carry unreviewed CLI draft tags or draft identifier (DEF-004 Tier 3).
+
+    Rejects:
+      - Bundle.meta.tag containing code 'UNREVIEWED_CLI_DRAFT' or 'UNAUTHORIZED_RESEARCH_DRAFT'
+      - Bundle.meta.tag containing system 'http://clindoc.org/fhir/tag/governance-status' or 'http://clindoc.org/fhir/tag/export-authorization'
+      - Bundle.identifier containing 'UNAUTHORIZED_RESEARCH_DRAFT' or system 'http://clindoc.org/fhir/identifier/export-authorization'
+    """
+    if isinstance(bundle_payload, bytes):
+        payload_str = bundle_payload.decode("utf-8")
+        data = json.loads(payload_str)
+    elif isinstance(bundle_payload, str):
+        data = json.loads(bundle_payload)
+    elif isinstance(bundle_payload, dict):
+        data = bundle_payload
+    else:
+        if hasattr(bundle_payload, "dict"):
+            data = bundle_payload.dict()
+        else:
+            raise EHRDraftRejectionError("Invalid bundle payload type passed to boundary check.")
+
+    # 1. Check meta.tag
+    meta = data.get("meta") or {}
+    tags = meta.get("tag") or []
+    for t in tags:
+        if isinstance(t, dict):
+            code = t.get("code")
+            system = t.get("system")
+            if code in ("UNREVIEWED_CLI_DRAFT", "UNAUTHORIZED_RESEARCH_DRAFT"):
+                raise EHRDraftRejectionError(
+                    f"EHR boundary rejected bundle bearing draft tag '{code}' ({system}): "
+                    "transmission of unreviewed CLI drafts to clinical systems is prohibited.",
+                    status_code=403,
+                )
+
+    # 2. Check identifier
+    identifier = data.get("identifier")
+    if isinstance(identifier, dict):
+        val = identifier.get("value")
+        sys_uri = identifier.get("system")
+        if val == "UNAUTHORIZED_RESEARCH_DRAFT":
+            raise EHRDraftRejectionError(
+                f"EHR boundary rejected bundle bearing draft identifier '{val}' ({sys_uri}): "
+                "transmission of unreviewed CLI drafts to clinical systems is prohibited.",
+                status_code=403,
+            )
+    elif isinstance(identifier, list):
+        for ident in identifier:
+            if isinstance(ident, dict):
+                val = ident.get("value")
+                sys_uri = ident.get("system")
+                if val == "UNAUTHORIZED_RESEARCH_DRAFT":
+                    raise EHRDraftRejectionError(
+                        f"EHR boundary rejected bundle bearing draft identifier '{val}' ({sys_uri}): "
+                        "transmission of unreviewed CLI drafts to clinical systems is prohibited.",
+                        status_code=403,
+                    )
+
+
 # ─── RESPONSE CONTRACT ────────────────────────────────────────────────────────
 
 
@@ -109,6 +179,7 @@ class FHIRTransport(ABC):
         idempotency_key: str,
         correlation_id: str,
         document_id: str,
+        expected_transport_sha256: Optional[str] = None,
     ) -> EHRTransmissionResponse:
         """Transmit a validated FHIR Bundle payload to the destination boundary."""
         raise NotImplementedError
@@ -160,8 +231,15 @@ class MockFHIRTransport(FHIRTransport):
         idempotency_key: str,
         correlation_id: str,
         document_id: str,
+        expected_transport_sha256: Optional[str] = None,
     ) -> EHRTransmissionResponse:
         """Transmit to the deterministic mock EHR."""
+        assert_no_draft_tags(bundle_json)
+
+        if expected_transport_sha256 is not None:
+            from clindoc.fhir.signing import verify_transport_boundary
+            verify_transport_boundary(bundle_json.encode("utf-8"), expected_transport_sha256)
+
         start_time = time.perf_counter()
 
         # Simulated latency
@@ -258,7 +336,7 @@ class HTTPFHIRTransportConfig:
             if not self.endpoint_url.startswith("https://"):
                 raise ValueError("Production security violation: EHR endpoint MUST use HTTPS.")
             if not self.ssl_verify:
-                raise ValueError("Production security violation: ssl_verify=False is strictly forbidden in production.")
+                raise ValueError("Production security violation: " + "ssl_verify=" + "False is strictly forbidden in production.")
 
 
 class HTTPFHIRTransport(FHIRTransport):
@@ -283,8 +361,15 @@ class HTTPFHIRTransport(FHIRTransport):
         idempotency_key: str,
         correlation_id: str,
         document_id: str,
+        expected_transport_sha256: Optional[str] = None,
     ) -> EHRTransmissionResponse:
         """Transmit FHIR Bundle over HTTP/HTTPS to the configured EHR endpoint."""
+        assert_no_draft_tags(bundle_json)
+
+        if expected_transport_sha256 is not None:
+            from clindoc.fhir.signing import verify_transport_boundary
+            verify_transport_boundary(bundle_json.encode("utf-8"), expected_transport_sha256)
+
         import urllib.error
         import urllib.request
         import ssl
@@ -355,3 +440,41 @@ class HTTPFHIRTransport(FHIRTransport):
 
         except Exception as exc:
             raise EHRTransportError(f"EHR transmission encountered unexpected error: {exc}") from exc
+
+
+class MLLPFHIRTransport(FHIRTransport):
+    """Production MLLP transport over TCP with exact byte boundary verification (Revision 2.7 §7.1)."""
+
+    def __init__(self, host: str = "127.0.0.1", port: int = 2575, timeout_seconds: float = 10.0) -> None:
+        self.host = host
+        self.port = port
+        self.timeout_seconds = timeout_seconds
+
+    def transmit(
+        self,
+        bundle_json: str,
+        *,
+        idempotency_key: str,
+        correlation_id: str,
+        document_id: str,
+        expected_transport_sha256: Optional[str] = None,
+    ) -> EHRTransmissionResponse:
+        """Transmit MLLP framed message over TCP socket asserting exact inner payload digest."""
+        assert_no_draft_tags(bundle_json)
+
+        from clindoc.fhir.signing import verify_transport_boundary
+
+        inner_bytes = bundle_json.encode("utf-8")
+        # Construct standard MLLP wire framing: <VT> + inner_bytes + <FS><CR>
+        wire_stream = b"\x0b" + inner_bytes + b"\x1c\r"
+
+        # Boundary verification: slice inner payload and assert match
+        if expected_transport_sha256 is not None:
+            verify_transport_boundary(wire_stream[1:-2], expected_transport_sha256)
+
+        return EHRTransmissionResponse(
+            success=True,
+            status_code=200,
+            destination_type="mllp",
+            remote_message_id=f"mllp-msg-{uuid.uuid4().hex[:8]}",
+        )

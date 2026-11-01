@@ -1,0 +1,147 @@
+{
+  "doc_id": "EXP_PULM_04",
+  "category": "narrative_encounter",
+  "specialty": "Pulmonology",
+  "title": "Pneumonia Discharge - Simulated OCR Noise",
+  "format": "clinical_narrative_text",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 12,
+  "claims": [
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "lab.test_name",
+      "value": "Procalcitonin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Procalcitonin",
+      "char_start": 230,
+      "char_end": 243,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "lab.value",
+      "value": "0.08",
+      "value_numeric": 0.08,
+      "unit_raw": null,
+      "evidence_text": "0.08",
+      "char_start": 248,
+      "char_end": 252,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "lab.unit",
+      "value": "ng/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ng/mL",
+      "char_start": 253,
+      "char_end": 258,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 260,
+      "char_end": 266,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "White Blood Cell Count",
+      "char_start": 269,
+      "char_end": 291,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "lab.value",
+      "value": "7.4",
+      "value_numeric": 7.4,
+      "unit_raw": null,
+      "evidence_text": "7.4",
+      "char_start": 296,
+      "char_end": 299,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 300,
+      "char_end": 307,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "med.name",
+      "value": "Azithromycin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Azithromycin",
+      "char_start": 334,
+      "char_end": 346,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "med.dose",
+      "value": "250 mg",
+      "value_numeric": 250.0,
+      "unit_raw": "mg",
+      "evidence_text": "250 mg",
+      "char_start": 347,
+      "char_end": 353,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 354,
+      "char_end": 358,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 359,
+      "char_end": 369,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_04",
+      "field_type": "med.duration",
+      "value": "for 3 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 3 days",
+      "char_start": 370,
+      "char_end": 380,
+      "page_number": 1
+    }
+  ]
+}

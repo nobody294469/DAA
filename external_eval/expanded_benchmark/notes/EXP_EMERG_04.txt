@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+URGENT CARE RAPID TRIAGE
+Date: 2O26-O6-18    Patient: Synthetic Patient Emerg-Exp-04
+MRN: PAT-113018    DOB: 1990-11-28    Dr. Jackson Avery (NPI: 1149204947)
+
+LABORATORY FINDINGS:
+Serum Potassium was 3.8 mmol/L (NORMAL).
+Venous Blood Gas pH was 7.38.
+
+TREATMENT:
+Methylprednisolone 125 mg IV once stat.
+Albuterol 2.5 mg inhalation every 20 minutes for 3 doses.

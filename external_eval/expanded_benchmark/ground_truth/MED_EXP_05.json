@@ -1,0 +1,104 @@
+{
+  "doc_id": "MED_EXP_05",
+  "category": "structured_medication",
+  "specialty": "Pulmonology",
+  "title": "Respiratory Inhaler Prescription Order",
+  "format": "prescription_pad",
+  "features": [
+    "retail_order",
+    "inhaler_routes",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 8,
+  "claims": [
+    {
+      "document_id": "MED_EXP_05",
+      "field_type": "med.name",
+      "value": "Fluticasone Propionate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Fluticasone Propionate",
+      "char_start": 343,
+      "char_end": 365,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_05",
+      "field_type": "med.dose",
+      "value": "110 mcg",
+      "value_numeric": 110.0,
+      "unit_raw": "mcg",
+      "evidence_text": "110 mcg",
+      "char_start": 366,
+      "char_end": 373,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_05",
+      "field_type": "med.route",
+      "value": "inhalation",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "inhalation",
+      "char_start": 374,
+      "char_end": 384,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_05",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 424,
+      "char_end": 435,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_05",
+      "field_type": "med.name",
+      "value": "Albuterol Sulfate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Albuterol Sulfate",
+      "char_start": 500,
+      "char_end": 517,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_05",
+      "field_type": "med.dose",
+      "value": "90 mcg",
+      "value_numeric": 90.0,
+      "unit_raw": "mcg",
+      "evidence_text": "90 mcg",
+      "char_start": 518,
+      "char_end": 524,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_05",
+      "field_type": "med.route",
+      "value": "inhalation",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "inhalation",
+      "char_start": 525,
+      "char_end": 535,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_05",
+      "field_type": "med.frequency",
+      "value": "every 4 hours",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 4 hours",
+      "char_start": 580,
+      "char_end": 593,
+      "page_number": 1
+    }
+  ]
+}

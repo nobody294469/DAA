@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+INFECTIOUS DISEASE OUTPATIENT CLINIC
+Date: 2026-04-23    Patient: Synthetic Patient Infect-Exp-02
+MRN: PAT-991028    DOB: 1985-02-14    Dr. Raymond Holt (NPI: 1749204921)
+
+IMMUNOLOGY LABS:
+CD4 Count was 680 cells/uL (NORMAL).
+HIV-1 RNA was < 20 copies/mL (UNDETECTABLE).
+Serum ALT was 22 U/L and AST was 20 U/L.
+
+ANTIRETROVIRAL THERAPY:
+Biktarvy 50-200-25 mg oral tablet once daily.

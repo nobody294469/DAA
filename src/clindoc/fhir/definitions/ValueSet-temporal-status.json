@@ -1,0 +1,38 @@
+{
+  "resourceType": "ValueSet",
+  "id": "temporal-status",
+  "url": "http://clindoc.org/fhir/ValueSet/temporal-status",
+  "version": "1.0.0",
+  "name": "ClindocTemporalStatusValueSet",
+  "title": "Clinical Document Temporal Status Value Set",
+  "status": "draft",
+  "experimental": false,
+  "date": "2026-10-30",
+  "publisher": "Clinical Document Verification & FHIR Export System",
+  "description": "Value set defining permitted temporal status codes for clinical observations, orders, and statements.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://clindoc.org/fhir/CodeSystem/temporal-status",
+        "concept": [
+          {
+            "code": "current",
+            "display": "Current Finding or Order"
+          },
+          {
+            "code": "historical",
+            "display": "Historical Finding or Therapy"
+          },
+          {
+            "code": "planned",
+            "display": "Planned Order or Intervention"
+          },
+          {
+            "code": "discontinued",
+            "display": "Discontinued Therapy"
+          }
+        ]
+      }
+    ]
+  }
+}

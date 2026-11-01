@@ -1,0 +1,19 @@
+[SYNTHETIC CLINICAL PRESCRIPTION ORDER - NOT PHI - FOR EVALUATION ONLY]
+COMMUNITY BEHAVIORAL HEALTH CLINIC
+Date of Order: 2026-04-15    Time: 14:22
+Patient: Synthetic Patient Med-Exp-03    MRN: PAT-618401
+DOB: 1991-03-05    Age: 35    Sex: Female
+Prescriber: Dr. Sarah Lin, MD (NPI: 1493028172)
+Phone: 555-019-3829    DEA: BL1948291
+
+PRESCRIPTION DETAILS:
+
+Rx 1:
+Drug: Escitalopram 10 mg oral tablet
+Sig: Take 1 tablet oral once daily in the morning
+Dispense Quantity: 30    Refills: 4
+
+Rx 2:
+Drug: Hydroxyzine 25 mg oral capsule
+Sig: Take 1 capsule PO every 8 hours as needed for anxiety
+Dispense Quantity: 60    Refills: 2

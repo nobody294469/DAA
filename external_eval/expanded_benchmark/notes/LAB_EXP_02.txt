@@ -1,0 +1,15 @@
+[SYNTHETIC CLINICAL LABORATORY REPORT - NOT PHI - FOR EVALUATION ONLY]
+REGIONAL HEALTH SYSTEM PATHOLOGY LAB
+Order Date: 2026-04-08    Time: 07:15
+Patient: Synthetic Patient Lab-Exp-02    MRN: PAT-881924
+DOB: 1988-10-15    Sex: Female    Age: 37
+Provider: Dr. Clara Barton, MD (NPI: 1928374651)
+
+COMPLETE BLOOD COUNT:
+Analyte                 Value       Ref Interval        Units       Status
+--------------------------------------------------------------------------
+White Blood Cell Count  12.4        4.5 - 11.0          10*3/uL     HIGH
+Red Blood Cell Count    4.20        4.00 - 5.20         10*6/uL     NORMAL
+Hemoglobin              11.8        12.0 - 16.0         g/dL        LOW
+Hematocrit              35.5        37.0 - 47.0         %           LOW
+Platelet Count          245         150 - 450           10*3/uL     NORMAL

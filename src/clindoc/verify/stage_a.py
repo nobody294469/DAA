@@ -15,8 +15,21 @@ It does NOT use neural models or LLMs.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import json
+from pathlib import Path
 import re
-from typing import Any, Optional
+from typing import Any, Final, Optional, Sequence, Union
+
+REASON_PARENT_ANCHOR_UNVERIFIED: Final[str] = "PARENT_ANCHOR_UNVERIFIED"
+
+MED_ATTRIBUTE_FIELDS: Final[frozenset[str]] = frozenset({
+    "med.dose",
+    "med.route",
+    "med.frequency",
+    "med.duration",
+})
+
+NO_ANCHOR_SENTINEL: Final[str] = "__no_anchor__"
 
 from clindoc.extract.contracts import (
     Claim,
@@ -28,10 +41,44 @@ from clindoc.extract.contracts import (
 from clindoc.normalize.ucum import normalize_ucum
 from clindoc.schema.verification import ContradictionType, VerificationLabel
 
+# Project root and config loader for catalog aliases
+_PROJ_ROOT = Path(__file__).resolve().parents[3]
+_LOINC_MAP: Optional[dict[str, Any]] = None
+_CANON_TO_ALIASES: dict[str, set[str]] = {}
+_CODE_TO_ALIASES: dict[str, set[str]] = {}
+
+
+def _init_catalog_aliases() -> None:
+    """Initialize catalog alias lookups from configs/loinc_subset.json."""
+    global _LOINC_MAP, _CANON_TO_ALIASES, _CODE_TO_ALIASES
+    if _LOINC_MAP is not None:
+        return
+    p = _PROJ_ROOT / "configs" / "loinc_subset.json"
+    if p.exists():
+        with open(p, "r", encoding="utf-8") as f:
+            _LOINC_MAP = json.load(f)
+    else:
+        _LOINC_MAP = {}
+
+    for alias, meta in _LOINC_MAP.items():
+        canon = meta.get("canonical_name", alias)
+        code = meta.get("loinc_code")
+
+        canon_lower = canon.lower().strip()
+        alias_lower = alias.lower().strip()
+
+        _CANON_TO_ALIASES.setdefault(canon_lower, set()).update({alias, canon})
+        _CANON_TO_ALIASES.setdefault(alias_lower, set()).update({alias, canon})
+        if code:
+            _CODE_TO_ALIASES.setdefault(code, set()).update({alias, canon})
+
 # Standard clinical negation triggers (DEC-003, §20.1)
+# Note: Actual negative laboratory result terms (e.g., 'no growth', 'not detected')
+# are result values, not clinical negation triggers. Negation lookaheads prevent false
+# negation_mismatch discrepancies on completed negative results (Phase 3.3.1).
 NEGATION_PATTERNS: tuple[str, ...] = (
-    r"\bno\b",
-    r"\bnot\b",
+    r"\bno\s+(?!growth|organisms?)\b",
+    r"\bnot\s+(?!detected|reactive)\b",
     r"\bdenies\b",
     r"\bnegative\s+for\b",
     r"\bwithout\b",
@@ -40,7 +87,7 @@ NEGATION_PATTERNS: tuple[str, ...] = (
     r"\bnone\b",
     r"\bnever\b",
     r"\bzero\b",
-    r"\bruled\s+out\b",
+    r"(?<!cannot\s)(?<!can\'t\s)\b(?:rules?|ruled)\s+out\b",
 )
 
 # Standard route synonyms mapping to canonical route tokens
@@ -621,17 +668,37 @@ class DeterministicVerifier:
     def _verify_test_name(
         self, claim: Claim, ev_text: str, search_scope: str
     ) -> StageAResult:
-        """Verify Tier 2 lab.test_name claim deterministically."""
+        """Verify Tier 2 lab.test_name claim deterministically with catalog alias awareness."""
         field_val = self._extract_field_value(claim)
-        norm_claim = self._normalize_lexical(field_val)
+        aliases = self._get_entity_aliases(field_val, code=claim.normalized_code)
         norm_ev = self._normalize_lexical(ev_text)
 
-        if norm_claim in norm_ev or norm_ev in norm_claim:
-            return StageAResult(
-                label="SUPPORTED",
-                confidence=1.0,
-                normalized_code_agreement=True if claim.normalized_code else None,
-            )
+        for alias in aliases:
+            norm_alias = self._normalize_lexical(alias)
+            if not norm_alias:
+                continue
+
+            # Short acronyms/tokens (e.g. <=3 chars like 'WBC', 'PT', 'ALP') require word boundary
+            if len(norm_alias) <= 3:
+                if re.search(r"\b" + re.escape(norm_alias) + r"\b", norm_ev):
+                    return StageAResult(
+                        label="SUPPORTED",
+                        confidence=1.0,
+                        normalized_code_agreement=True if claim.normalized_code else None,
+                    )
+            else:
+                if norm_alias in norm_ev or norm_ev in norm_alias:
+                    return StageAResult(
+                        label="SUPPORTED",
+                        confidence=1.0,
+                        normalized_code_agreement=True if claim.normalized_code else None,
+                    )
+                if re.search(r"\b" + re.escape(norm_alias) + r"\b", norm_ev):
+                    return StageAResult(
+                        label="SUPPORTED",
+                        confidence=1.0,
+                        normalized_code_agreement=True if claim.normalized_code else None,
+                    )
 
         return StageAResult(
             label="DISCREPANCY",
@@ -692,8 +759,9 @@ class DeterministicVerifier:
         return after.strip()
 
     @classmethod
-    def _get_entity_aliases(cls, entity: str) -> list[str]:
-        """Return search alias strings for an entity name."""
+    def _get_entity_aliases(cls, entity: str, code: Optional[str] = None) -> list[str]:
+        """Return search alias strings for an entity name, including approved catalog synonyms."""
+        _init_catalog_aliases()
         aliases = [entity.strip()]
         m = re.search(r"^(.*?)\s*\((.*?)\)$", entity.strip())
         if m:
@@ -701,6 +769,18 @@ class DeterministicVerifier:
                 aliases.append(m.group(1).strip())
             if m.group(2).strip():
                 aliases.append(m.group(2).strip())
+
+        ent_lower = entity.strip().lower()
+        if ent_lower in _CANON_TO_ALIASES:
+            for a in _CANON_TO_ALIASES[ent_lower]:
+                if a not in aliases:
+                    aliases.append(a)
+
+        if code and code in _CODE_TO_ALIASES:
+            for a in _CODE_TO_ALIASES[code]:
+                if a not in aliases:
+                    aliases.append(a)
+
         return aliases
 
     @classmethod
@@ -843,3 +923,206 @@ class DeterministicVerifier:
         s = re.sub(r"[^\w\s]", " ", s)
         s = re.sub(r"\s+", " ", s).strip()
         return s
+
+    def verify_medication_group_integrity(
+        self,
+        claims: Sequence[Claim],
+        verification_results: dict[str, Any],
+    ) -> dict[str, Any]:
+        """Apply fail-closed topological integrity check across medication claims.
+
+        Authority: Phase 5.2.3 Sub-Milestone 4.1
+        Enforces parent-child verification dependencies:
+        If a parent medication anchor ('med.name') fails verification or is unverified,
+        dependent medication attributes ('med.dose', 'med.route', 'med.frequency', 'med.duration')
+        in that same medication group cannot remain independently verified or eligible for unreviewed export.
+
+        Args:
+            claims: Sequence of Claim instances containing group_id annotations.
+            verification_results: Mapping of claim_id -> StageAResult (or VerificationResult / dict).
+
+        Returns:
+            Updated dictionary mapping claim_id -> verification result where dependent
+            attributes of unverified parent anchors are transitioned to fail-closed.
+        """
+        updated_results = dict(verification_results)
+
+        # 1. Index claims by group_id and identify parent anchors ('med.name')
+        group_anchors: dict[str, list[Claim]] = {}
+        for c in claims:
+            gid = getattr(c, "group_id", None)
+            if gid and gid != NO_ANCHOR_SENTINEL and c.field_type == "med.name":
+                group_anchors.setdefault(gid, []).append(c)
+
+        # 2. Evaluate each dependent medication attribute claim
+        for c in claims:
+            if c.field_type not in MED_ATTRIBUTE_FIELDS:
+                continue
+
+            cid = c.claim_id
+            gid = getattr(c, "group_id", None)
+
+            anchor_claims = group_anchors.get(gid, []) if (gid and gid != NO_ANCHOR_SENTINEL) else []
+
+            is_anchor_verified = False
+            anchor_failure_detail = None
+            parent_anchor_id = None
+
+            if not anchor_claims:
+                is_anchor_verified = False
+                anchor_failure_detail = "MISSING_ANCHOR"
+            elif len(anchor_claims) > 1:
+                is_anchor_verified = False
+                anchor_failure_detail = "AMBIGUOUS_MULTI_ANCHOR"
+                parent_anchor_id = anchor_claims[0].claim_id
+            else:
+                parent_anchor = anchor_claims[0]
+                parent_anchor_id = parent_anchor.claim_id
+                parent_res = verification_results.get(parent_anchor_id)
+
+                if parent_res is None:
+                    is_anchor_verified = False
+                    anchor_failure_detail = "MISSING_RESULT"
+                else:
+                    p_label = getattr(parent_res, "label", None)
+                    if hasattr(p_label, "value"):
+                        p_label = p_label.value
+                    elif p_label is not None:
+                        p_label = str(p_label).upper()
+
+                    if p_label in ("SUPPORTED", "VERIFIED"):
+                        is_anchor_verified = True
+                    elif p_label is None:
+                        is_anchor_verified = False
+                        anchor_failure_detail = "PENDING_VERIFICATION"
+                    else:
+                        is_anchor_verified = False
+                        anchor_failure_detail = f"ANCHOR_{p_label}"
+
+            # 3. If parent anchor is verified, child retains its independent result
+            if is_anchor_verified:
+                continue
+
+            # 4. If parent anchor is NOT verified, child fails closed with PARENT_ANCHOR_UNVERIFIED
+            existing_res = updated_results.get(cid)
+
+            if existing_res is None:
+                updated_results[cid] = StageAResult(
+                    label="INSUFFICIENT_EVIDENCE",
+                    contradiction_type=None,
+                    confidence=1.0,
+                    details={
+                        "reason": REASON_PARENT_ANCHOR_UNVERIFIED,
+                        "anchor_failure_detail": anchor_failure_detail,
+                        "parent_anchor_claim_id": parent_anchor_id,
+                    },
+                )
+            elif isinstance(existing_res, StageAResult):
+                if existing_res.label == "DISCREPANCY":
+                    # Preserve original discrepancy and contradiction type
+                    new_details = dict(existing_res.details)
+                    new_details["parent_anchor_unverified"] = True
+                    new_details["parent_anchor_claim_id"] = parent_anchor_id
+                    new_details["anchor_failure_detail"] = anchor_failure_detail
+                    updated_results[cid] = StageAResult(
+                        label=existing_res.label,
+                        contradiction_type=existing_res.contradiction_type,
+                        confidence=existing_res.confidence,
+                        normalized_code_agreement=existing_res.normalized_code_agreement,
+                        details=new_details,
+                    )
+                else:
+                    # SUPPORTED, INSUFFICIENT_EVIDENCE, or None (pending) -> Fail-closed
+                    new_details = dict(existing_res.details)
+                    new_details["original_label"] = existing_res.label
+                    new_details["reason"] = REASON_PARENT_ANCHOR_UNVERIFIED
+                    new_details["anchor_failure_detail"] = anchor_failure_detail
+                    new_details["parent_anchor_claim_id"] = parent_anchor_id
+                    updated_results[cid] = StageAResult(
+                        label="INSUFFICIENT_EVIDENCE",
+                        contradiction_type=None,
+                        confidence=1.0,
+                        normalized_code_agreement=existing_res.normalized_code_agreement,
+                        details=new_details,
+                    )
+            elif hasattr(existing_res, "verification_id"):
+                # VerificationResult instance
+                res_label = str(getattr(existing_res, "label", "")).upper()
+                if res_label == "DISCREPANCY":
+                    # Preserve original discrepancy
+                    pass
+                else:
+                    from clindoc.schema.verification import VerificationResult
+                    updated_results[cid] = VerificationResult(
+                        verification_id=existing_res.verification_id,
+                        claim_id=c.claim_id,
+                        label="INSUFFICIENT_EVIDENCE",
+                        confidence=0.0,
+                        stage_reached=existing_res.stage_reached,
+                        stage_a_label="INSUFFICIENT_EVIDENCE",
+                        stage_b_label=existing_res.stage_b_label,
+                        stage_b_raw_confidence=existing_res.stage_b_raw_confidence,
+                        contradiction_type=None,
+                        normalized_code_agreement=existing_res.normalized_code_agreement,
+                        rationale=None,
+                        evidence_id=c.evidence_id,
+                        escalated=existing_res.escalated,
+                        is_fallback=True,
+                        fallback_reason=REASON_PARENT_ANCHOR_UNVERIFIED,
+                    )
+            elif isinstance(existing_res, dict):
+                res_label = str(existing_res.get("label", "")).upper()
+                if res_label != "DISCREPANCY":
+                    new_dict = dict(existing_res)
+                    new_dict["original_label"] = existing_res.get("label")
+                    new_dict["label"] = "INSUFFICIENT_EVIDENCE"
+                    new_dict["contradiction_type"] = None
+                    new_dict["reason"] = REASON_PARENT_ANCHOR_UNVERIFIED
+                    new_dict["anchor_failure_detail"] = anchor_failure_detail
+                    new_dict["parent_anchor_claim_id"] = parent_anchor_id
+                    updated_results[cid] = new_dict
+
+        return updated_results
+
+    def verify_claims(
+        self,
+        claims: Sequence[Claim],
+        evidence_map: dict[str, Evidence],
+        context_text_map: Optional[dict[str, str]] = None,
+        context_text: Optional[str] = None,
+        enforce_topological_integrity: bool = True,
+    ) -> dict[str, StageAResult]:
+        """Verify a collection of claims with deterministic Stage A rules and topological integrity.
+
+        Args:
+            claims: Sequence of extracted Claims.
+            evidence_map: Lookup dictionary mapping evidence_id -> Evidence.
+            context_text_map: Optional mapping of document_id or evidence_id -> context text.
+            context_text: Optional global context text fallback.
+            enforce_topological_integrity: If True (default), propagates parent anchor failures.
+
+        Returns:
+            Dictionary mapping claim_id -> StageAResult.
+        """
+        raw_results: dict[str, StageAResult] = {}
+        for c in claims:
+            ev = evidence_map.get(c.evidence_id)
+            ctx = None
+            if context_text_map:
+                ctx = context_text_map.get(c.evidence_id) or context_text_map.get(c.document_id)
+            if ctx is None:
+                ctx = context_text
+
+            raw_results[c.claim_id] = self.verify(c, evidence=ev, context_text=ctx)
+
+        if enforce_topological_integrity:
+            return self.verify_medication_group_integrity(claims, raw_results)
+        return raw_results
+
+
+def apply_medication_group_integrity(
+    claims: Sequence[Claim],
+    verification_results: dict[str, Any],
+) -> dict[str, Any]:
+    """Module-level entry point for verify_medication_group_integrity (Phase 5.2.3 Sub-Milestone 4.1)."""
+    return DeterministicVerifier().verify_medication_group_integrity(claims, verification_results)

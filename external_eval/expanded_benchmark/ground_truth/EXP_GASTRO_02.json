@@ -1,0 +1,235 @@
+{
+  "doc_id": "EXP_GASTRO_02",
+  "category": "narrative_encounter",
+  "specialty": "Gastroenterology",
+  "title": "Crohn's Disease Follow-up Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 20,
+  "claims": [
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.test_name",
+      "value": "Calprotectin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Calprotectin",
+      "char_start": 262,
+      "char_end": 274,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.value",
+      "value": "420",
+      "value_numeric": 420.0,
+      "unit_raw": null,
+      "evidence_text": "420",
+      "char_start": 279,
+      "char_end": 282,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.unit",
+      "value": "ug/g",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ug/g",
+      "char_start": 283,
+      "char_end": 287,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 289,
+      "char_end": 293,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.test_name",
+      "value": "C-Reactive Protein",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "C-Reactive Protein",
+      "char_start": 296,
+      "char_end": 314,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.value",
+      "value": "14",
+      "value_numeric": 14.0,
+      "unit_raw": null,
+      "evidence_text": "14",
+      "char_start": 319,
+      "char_end": 321,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.unit",
+      "value": "mg/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/L",
+      "char_start": 322,
+      "char_end": 326,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 328,
+      "char_end": 332,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin",
+      "char_start": 335,
+      "char_end": 345,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.value",
+      "value": "11.2",
+      "value_numeric": 11.2,
+      "unit_raw": null,
+      "evidence_text": "11.2",
+      "char_start": 350,
+      "char_end": 354,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 355,
+      "char_end": 359,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 361,
+      "char_end": 364,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "med.name",
+      "value": "Infliximab",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Infliximab",
+      "char_start": 389,
+      "char_end": 399,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "med.dose",
+      "value": "5 mg/kg",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "5 mg/kg",
+      "char_start": 400,
+      "char_end": 407,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "med.route",
+      "value": "IV",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IV",
+      "char_start": 408,
+      "char_end": 410,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "med.frequency",
+      "value": "every 8 weeks",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 8 weeks",
+      "char_start": 420,
+      "char_end": 433,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "med.name",
+      "value": "Azathioprine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Azathioprine",
+      "char_start": 435,
+      "char_end": 447,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "med.dose",
+      "value": "100 mg",
+      "value_numeric": 100.0,
+      "unit_raw": "mg",
+      "evidence_text": "100 mg",
+      "char_start": 448,
+      "char_end": 454,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 455,
+      "char_end": 459,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 467,
+      "char_end": 477,
+      "page_number": 1
+    }
+  ]
+}

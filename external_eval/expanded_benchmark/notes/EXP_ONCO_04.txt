@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+MYELOMA SPECIALTY CLINIC
+Date: 2O26-O5-O5    Patient: Synthetic Patient Onco-Exp-04
+MRN: PAT-331028    DOB: 1953-10-14    Dr. Gregory House (NPI: 1149204927)
+
+LABS:
+Serum Calcium was 10.8 mg/dL (HIGH).
+Serum Creatinine was 1.5 mg/dL (HIGH).
+Hemoglobin was 10.2 g/dL (LOW).
+
+MEDS:
+Lenalidomide 25 mg oral once daily for 21 days.
+Dexamethasone 20 mg PO once weekly.

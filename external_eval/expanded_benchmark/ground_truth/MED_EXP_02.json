@@ -1,0 +1,104 @@
+{
+  "doc_id": "MED_EXP_02",
+  "category": "structured_medication",
+  "specialty": "Endocrinology",
+  "title": "Diabetes Care Prescription Pad",
+  "format": "prescription_pad",
+  "features": [
+    "retail_order",
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 8,
+  "claims": [
+    {
+      "document_id": "MED_EXP_02",
+      "field_type": "med.name",
+      "value": "Metformin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Metformin",
+      "char_start": 349,
+      "char_end": 358,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_02",
+      "field_type": "med.dose",
+      "value": "1000 mg",
+      "value_numeric": 1000.0,
+      "unit_raw": "mg",
+      "evidence_text": "1000 mg",
+      "char_start": 359,
+      "char_end": 366,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_02",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 398,
+      "char_end": 406,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_02",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 407,
+      "char_end": 418,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_02",
+      "field_type": "med.name",
+      "value": "Semaglutide",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Semaglutide",
+      "char_start": 489,
+      "char_end": 500,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_02",
+      "field_type": "med.dose",
+      "value": "0.5 mg",
+      "value_numeric": 0.5,
+      "unit_raw": "mg",
+      "evidence_text": "0.5 mg",
+      "char_start": 501,
+      "char_end": 507,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_02",
+      "field_type": "med.route",
+      "value": "subcutaneous",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "subcutaneous",
+      "char_start": 508,
+      "char_end": 520,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_02",
+      "field_type": "med.frequency",
+      "value": "once weekly",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once weekly",
+      "char_start": 562,
+      "char_end": 573,
+      "page_number": 1
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+CARDIOLOGY CONSULTATION
+Date: 2026-03-18    Patient: Synthetic Patient Cardio-Exp-03
+MRN: PAT-619283    DOB: 1961-04-20    Provider: Dr. Alan Stern (NPI: 1849203719)
+
+Patient seen for management of paroxysmal atrial fibrillation on anticoagulation. He is feeling well without dizzy spells or palpitations.
+Morning blood work shows Potassium 4.1 mmol/L and INR 2.3 (in therapeutic range). Serum Creatinine is 1.1 mg/dL.
+We will maintain the current antiarrhythmic and anticoagulant regimen.
+Continue Diltiazem 180 mg PO once daily for rate control.
+Continue Warfarin 5 mg by mouth daily in the evening.

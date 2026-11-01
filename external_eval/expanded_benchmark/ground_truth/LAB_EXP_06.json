@@ -1,0 +1,225 @@
+{
+  "doc_id": "LAB_EXP_06",
+  "category": "structured_lab",
+  "specialty": "Hematology / Coagulation",
+  "title": "Coagulation & Hemostasis Profile",
+  "format": "tabular_ocr",
+  "features": [
+    "tabular",
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 19,
+  "claims": [
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.test_name",
+      "value": "Prothrombin Time",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Prothrombin Time",
+      "char_start": 473,
+      "char_end": 489,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.value",
+      "value": "14.2",
+      "value_numeric": 14.2,
+      "unit_raw": null,
+      "evidence_text": "14.2",
+      "char_start": 497,
+      "char_end": 501,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.reference_range",
+      "value": "11.0 - 13.5",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "11.0 - 13.5",
+      "char_start": 509,
+      "char_end": 520,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.unit",
+      "value": "seconds",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "seconds",
+      "char_start": 529,
+      "char_end": 536,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 541,
+      "char_end": 545,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.test_name",
+      "value": "INR",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "INR",
+      "char_start": 546,
+      "char_end": 549,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.value",
+      "value": "1.3",
+      "value_numeric": 1.3,
+      "unit_raw": null,
+      "evidence_text": "1.3",
+      "char_start": 570,
+      "char_end": 573,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.reference_range",
+      "value": "0.8 - 1.1",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "0.8 - 1.1",
+      "char_start": 582,
+      "char_end": 591,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 614,
+      "char_end": 618,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.test_name",
+      "value": "aPTT",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "aPTT",
+      "char_start": 619,
+      "char_end": 623,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.value",
+      "value": "32.0",
+      "value_numeric": 32.0,
+      "unit_raw": null,
+      "evidence_text": "32.0",
+      "char_start": 643,
+      "char_end": 647,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.reference_range",
+      "value": "25.0 - 35.0",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "25.0 - 35.0",
+      "char_start": 655,
+      "char_end": 666,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.unit",
+      "value": "seconds",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "seconds",
+      "char_start": 675,
+      "char_end": 682,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 687,
+      "char_end": 693,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.test_name",
+      "value": "Fibrinogen",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Fibrinogen",
+      "char_start": 694,
+      "char_end": 704,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.value",
+      "value": "380",
+      "value_numeric": 380.0,
+      "unit_raw": null,
+      "evidence_text": "380",
+      "char_start": 718,
+      "char_end": 721,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.reference_range",
+      "value": "200 - 400",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "200 - 400",
+      "char_start": 730,
+      "char_end": 739,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 750,
+      "char_end": 755,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_06",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 762,
+      "char_end": 768,
+      "page_number": 1
+    }
+  ]
+}

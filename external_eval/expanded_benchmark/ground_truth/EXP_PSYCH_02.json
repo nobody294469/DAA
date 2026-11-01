@@ -1,0 +1,180 @@
+{
+  "doc_id": "EXP_PSYCH_02",
+  "category": "narrative_encounter",
+  "specialty": "Psychiatry",
+  "title": "Major Depression Evaluation Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 15,
+  "claims": [
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "lab.test_name",
+      "value": "Sodium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sodium",
+      "char_start": 264,
+      "char_end": 270,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "lab.value",
+      "value": "139",
+      "value_numeric": 139.0,
+      "unit_raw": null,
+      "evidence_text": "139",
+      "char_start": 275,
+      "char_end": 278,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 279,
+      "char_end": 285,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 287,
+      "char_end": 293,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 302,
+      "char_end": 311,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "lab.value",
+      "value": "4.1",
+      "value_numeric": 4.1,
+      "unit_raw": null,
+      "evidence_text": "4.1",
+      "char_start": 316,
+      "char_end": 319,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 320,
+      "char_end": 326,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "med.name",
+      "value": "Sertraline",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sertraline",
+      "char_start": 335,
+      "char_end": 345,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "med.dose",
+      "value": "100 mg",
+      "value_numeric": 100.0,
+      "unit_raw": "mg",
+      "evidence_text": "100 mg",
+      "char_start": 346,
+      "char_end": 352,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 353,
+      "char_end": 357,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 365,
+      "char_end": 375,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "med.name",
+      "value": "Bupropion XL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Bupropion XL",
+      "char_start": 392,
+      "char_end": 404,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "med.dose",
+      "value": "150 mg",
+      "value_numeric": 150.0,
+      "unit_raw": "mg",
+      "evidence_text": "150 mg",
+      "char_start": 405,
+      "char_end": 411,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 412,
+      "char_end": 414,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 415,
+      "char_end": 425,
+      "page_number": 1
+    }
+  ]
+}

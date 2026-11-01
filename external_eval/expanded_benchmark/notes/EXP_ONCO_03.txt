@@ -1,0 +1,11 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+MEDICAL ONCOLOGY REVIEW
+Date: 2026-05-03    Patient: Synthetic Patient Onco-Exp-03
+MRN: PAT-441028    DOB: 1966-07-08    Dr. Victoria Newman (NPI: 1249204926)
+
+Cycle 3 post-carboplatin monitoring.
+Absolute Neutrophil Count was 0.8 10*3/uL (LOW).
+Platelet Count is 95 10*3/uL (LOW).
+White Blood Cell Count is 2.1 10*3/uL (LOW).
+Filgrastim 300 mcg subcutaneous once daily for 3 days.
+Ondansetron 8 mg PO every 8 hours as needed.

@@ -1,0 +1,10 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+GOUT MANAGEMENT CLINIC
+Date: 2026-05-28    Patient: Synthetic Patient Rheum-Exp-03
+MRN: PAT-112018    DOB: 1962-07-19    Dr. Arizona Robbins (NPI: 1049204938)
+
+Follow-up chronic tophaceous gout.
+Serum Uric Acid was 5.4 mg/dL (in goal range < 6.0).
+Serum Creatinine is 1.1 mg/dL and eGFR is 74 mL/min.
+Allopurinol 300 mg PO once daily.
+Colchicine 0.6 mg by mouth daily for flare prophylaxis.

@@ -1,0 +1,15 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+EMERGENCY DEPARTMENT RAPID ASSESSMENT
+Date: 2026-06-12    Time: 02:45 EST
+Patient: Synthetic Patient Emerg-Exp-01    MRN: PAT-443018
+DOB: 1967-11-05    Age: 58    ED Attending: Dr. George O'Malley, MD (NPI: 1449204944)
+Vitals: BP 148/92 mmHg, Pulse 88, SpO2 96%, Temp 98.6 F
+
+RAPID STAT LABS:
+High-sensitivity Troponin T was 12 ng/L (NORMAL).
+Serum Potassium was 4.0 mmol/L (NORMAL).
+Serum Glucose was 118 mg/dL (HIGH).
+
+ED MEDICATIONS:
+Aspirin 324 mg oral chewable tablet once stat.
+Nitroglycerin 0.4 mg sublingual every 5 minutes as needed for chest pain.

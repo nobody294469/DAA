@@ -1,0 +1,22 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR FUNCTIONAL EVALUATION ONLY]
+PATIENT: Synthetic Patient Cardio-01
+ENCOUNTER: Cardiology Outpatient Consultation
+DATE: 2026-03-15
+
+CHIEF COMPLAINT:
+Follow-up for congestive heart failure and paroxysmal atrial fibrillation.
+
+HISTORY OF PRESENT ILLNESS:
+The patient is a 68-year-old male presenting for routine cardiology follow-up. He reports mild exertional dyspnea when climbing stairs but denies chest pain, palpitations, or orthopnea.
+
+LABORATORY RESULTS:
+Recent serum chemistry reveals Potassium 4.2 mmol/L (NORMAL). Digoxin level is therapeutic at 1.1 ng/mL. Serum BNP was measured at 145 pg/mL.
+
+ASSESSMENT AND PLAN:
+1. Congestive heart failure, NYHA Class II - compensated.
+2. Paroxysmal atrial fibrillation - rate and rhythm controlled.
+
+MEDICATIONS:
+Continue Carvedilol 25 mg PO twice daily.
+Continue Furosemide 40 mg oral once daily in the morning.
+Continue Apixaban 5 mg by mouth BID for stroke prevention.

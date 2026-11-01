@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+EMERGENCY MEDICINE PROGRESS NOTE
+Date: 2026-06-14    Patient: Synthetic Patient Emerg-Exp-02
+MRN: PAT-333018    DOB: 1948-03-12    Dr. Isobel Stevens (NPI: 1349204945)
+
+LABORATORY FINDINGS:
+Hematocrit was 31.2% (LOW).
+Blood Urea Nitrogen was 36 mg/dL (HIGH).
+Serum Creatinine was 1.4 mg/dL (HIGH).
+Serum Sodium was 135 mmol/L.
+
+DISCHARGE PLAN:
+Midodrine 5 mg oral tablet three times daily.

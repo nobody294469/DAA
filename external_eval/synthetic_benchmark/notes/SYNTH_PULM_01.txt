@@ -1,0 +1,17 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR FUNCTIONAL EVALUATION ONLY]
+PATIENT: Synthetic Patient Pulm-03
+ENCOUNTER: Pulmonary Consultation & Inpatient Discharge Note
+DATE: 2026-03-22
+
+CHIEF COMPLAINT:
+Resolving community-acquired pneumonia.
+
+HOSPITAL COURSE:
+The patient is a 42-year-old male admitted with right lower lobe pneumonia. Treatment was initiated with intravenous Ceftriaxone 1 g IV once daily for 3 days. Patient showed marked clinical improvement with defervescence.
+
+DISCHARGE LABS:
+WBC count improved to 7.8 10*3/uL (NORMAL). Serum CRP decreased to 8.2 mg/L.
+
+DISCHARGE MEDICATIONS:
+Switch to Azithromycin 500 mg PO daily for 5 days.
+Albuterol inhaler 90 mcg by inhalation every 4 hours as needed for wheezing.

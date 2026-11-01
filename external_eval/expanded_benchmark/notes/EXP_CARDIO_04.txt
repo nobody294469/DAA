@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+CARDIOTHORACIC CLINIC
+Date: 2O26-O3-22    Patient: Synthetic Patient Cardio-Exp-04
+MRN: PAT-519284    DOB: 1955-11-19    Dr. David Miller (NPI: 1948203719)
+
+LABORATORY RESULTS:
+Hemoglobin was 10.8 g/dL (LOW). Platelet Count was 210 10*3/uL.
+Serum Sodium was 138 mmol/L and Potassium was 4.3 mmol/L.
+
+DISCHARGE REGIMEN:
+Metoprolol Tartrate 25 mg oral twice daily.
+Aspirin 81 mg PO daily.

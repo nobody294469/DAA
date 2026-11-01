@@ -1,0 +1,224 @@
+{
+  "doc_id": "EXP_GASTRO_03",
+  "category": "narrative_encounter",
+  "specialty": "Gastroenterology",
+  "title": "Acute Pancreatitis Note - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 19,
+  "claims": [
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.test_name",
+      "value": "Lipase",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Lipase",
+      "char_start": 316,
+      "char_end": 322,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.value",
+      "value": "480",
+      "value_numeric": 480.0,
+      "unit_raw": null,
+      "evidence_text": "480",
+      "char_start": 327,
+      "char_end": 330,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 331,
+      "char_end": 334,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 336,
+      "char_end": 340,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.test_name",
+      "value": "Amylase",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Amylase",
+      "char_start": 349,
+      "char_end": 356,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.value",
+      "value": "210",
+      "value_numeric": 210.0,
+      "unit_raw": null,
+      "evidence_text": "210",
+      "char_start": 361,
+      "char_end": 364,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 365,
+      "char_end": 368,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 370,
+      "char_end": 374,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.test_name",
+      "value": "Calcium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Calcium",
+      "char_start": 413,
+      "char_end": 420,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.value",
+      "value": "8.9",
+      "value_numeric": 8.9,
+      "unit_raw": null,
+      "evidence_text": "8.9",
+      "char_start": 425,
+      "char_end": 428,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 429,
+      "char_end": 434,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "med.name",
+      "value": "Tramadol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Tramadol",
+      "char_start": 436,
+      "char_end": 444,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "med.dose",
+      "value": "50 mg",
+      "value_numeric": 50.0,
+      "unit_raw": "mg",
+      "evidence_text": "50 mg",
+      "char_start": 445,
+      "char_end": 450,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 451,
+      "char_end": 453,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "med.frequency",
+      "value": "every 6 hours",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 6 hours",
+      "char_start": 454,
+      "char_end": 467,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "med.name",
+      "value": "Pantoprazole",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Pantoprazole",
+      "char_start": 497,
+      "char_end": 509,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "med.dose",
+      "value": "40 mg",
+      "value_numeric": 40.0,
+      "unit_raw": "mg",
+      "evidence_text": "40 mg",
+      "char_start": 510,
+      "char_end": 515,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "med.route",
+      "value": "IV",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IV",
+      "char_start": 516,
+      "char_end": 518,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_03",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 519,
+      "char_end": 524,
+      "page_number": 1
+    }
+  ]
+}

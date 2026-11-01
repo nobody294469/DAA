@@ -1,0 +1,191 @@
+{
+  "doc_id": "EXP_INFECT_04",
+  "category": "narrative_encounter",
+  "specialty": "Infectious Disease",
+  "title": "OPAT Osteomyelitis Note - Simulated OCR Noise",
+  "format": "clinical_narrative_text",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 16,
+  "claims": [
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.test_name",
+      "value": "ESR",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ESR",
+      "char_start": 249,
+      "char_end": 252,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.value",
+      "value": "38",
+      "value_numeric": 38.0,
+      "unit_raw": null,
+      "evidence_text": "38",
+      "char_start": 257,
+      "char_end": 259,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.unit",
+      "value": "mm/hr",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mm/hr",
+      "char_start": 260,
+      "char_end": 265,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 267,
+      "char_end": 271,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.test_name",
+      "value": "C-Reactive Protein",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "C-Reactive Protein",
+      "char_start": 274,
+      "char_end": 292,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.value",
+      "value": "18",
+      "value_numeric": 18.0,
+      "unit_raw": null,
+      "evidence_text": "18",
+      "char_start": 297,
+      "char_end": 299,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.unit",
+      "value": "mg/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/L",
+      "char_start": 300,
+      "char_end": 304,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 306,
+      "char_end": 310,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "White Blood Cell Count",
+      "char_start": 313,
+      "char_end": 335,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.value",
+      "value": "6.9",
+      "value_numeric": 6.9,
+      "unit_raw": null,
+      "evidence_text": "6.9",
+      "char_start": 340,
+      "char_end": 343,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 344,
+      "char_end": 351,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "med.name",
+      "value": "Ertapenem",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Ertapenem",
+      "char_start": 373,
+      "char_end": 382,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "med.dose",
+      "value": "1 g",
+      "value_numeric": 1.0,
+      "unit_raw": "g",
+      "evidence_text": "1 g",
+      "char_start": 383,
+      "char_end": 386,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "med.route",
+      "value": "IV",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IV",
+      "char_start": 387,
+      "char_end": 389,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 390,
+      "char_end": 400,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_04",
+      "field_type": "med.duration",
+      "value": "for 4 weeks",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 4 weeks",
+      "char_start": 401,
+      "char_end": 412,
+      "page_number": 1
+    }
+  ]
+}

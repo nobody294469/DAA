@@ -29,6 +29,12 @@ from typing import Any, Optional, Protocol
 from clindoc.extract.contracts import (
     BBoxModel, Claim, Evidence, TIER_1_FIELDS,
 )
+from clindoc.extract.segmentation import segment_clinical_text, find_segment_idx
+from clindoc.extract.medication_association import (
+    associate_segment_medications,
+    AssociationStatus,
+    NO_ANCHOR_SENTINEL,
+)
 from clindoc.ocr.document_text import DocumentPage
 from clindoc.config import (
     get_circuit_breaker_failure_threshold,
@@ -633,19 +639,94 @@ class NarrativeExtractor:
         char_offset: int,
         diagnostics: dict,
     ) -> tuple[list[Evidence], list[Claim]]:
-        """Validate each extraction and build canonical Evidence + Claim objects."""
+        """Validate each extraction, deterministically ground evidence spans, and build canonical Claims.
+
+        Phase 5.2.3 Milestone 1 Architecture:
+          1. Pre-validation:
+             - Check permitted narrative fields (DEC-020 / AUDIT-20)
+             - Check non-empty value and evidence_text
+          2. Explicit vs Searched Offset Grounding:
+             - If candidate specifies source offsets (char_start/char_end or local_start/local_end):
+               validate integer types, region_text bounds, and verbatim substring match.
+               Fail closed on invalid offset bounds or text mismatch.
+             - If candidate offsets are missing:
+               search region_text for all verbatim occurrences (exact substring or whitespace-normalized tokens).
+               - 0 occurrences: fail closed (unmatched evidence text).
+               - 1 occurrence: unique grounding.
+               - >1 occurrences: fail closed if ambiguous; only map if candidate extractions with this evidence_text
+                 have identical field values and exact 1:1 match to occurrences (preventing silent first-occurrence selection).
+          3. Deterministic Sorting (Invariance to LLM JSON order):
+             Sort grounded extractions by:
+               (local_start, local_end, field_anchor_priority, field_type, value, unit_raw, -confidence)
+             Ties at identical offsets place anchors (med.name, lab.value) first.
+          4. State-Machine Group ID Assignment:
+             Iterate through deterministically ordered extractions:
+             - Each med.name generates a fresh UUID group_id.
+             - Subsequent med attributes inherit current_med_group.
+             - Each lab.value generates a fresh UUID group_id.
+             - Subsequent lab attributes inherit current_lab_group.
+             - Attributes appearing before any anchor receive '__no_anchor__' sentinel.
+          5. Canonical Evidence & Claim Generation:
+             Preserves exact character offsets and source span text.
+        """
         all_evidences: list[Evidence] = []
         all_claims: list[Claim] = []
-        group_id = str(uuid.uuid4())
 
+        def _find_occurrences(ev_text: str) -> list[tuple[int, int, str]]:
+            """Find all matching spans (local_start, local_end, matched_text) in region_text."""
+            if not ev_text or not ev_text.strip():
+                return []
+
+            prefix = r"(?<!\w)" if re.match(r"^\w", ev_text) else ""
+            suffix = r"(?!\w)" if re.search(r"\w$", ev_text) else ""
+
+            # 1. Word-boundary exact literal matches
+            pattern_exact_wb = prefix + re.escape(ev_text) + suffix
+            exact_wb_matches = [
+                (m.start(), m.end(), region_text[m.start():m.end()])
+                for m in re.finditer(pattern_exact_wb, region_text)
+            ]
+            if exact_wb_matches:
+                return exact_wb_matches
+
+            # 2. Word-boundary whitespace-normalized token sequence matches (Root Cause A)
+            tokens = ev_text.split()
+            if tokens:
+                pattern_ws_wb = prefix + r"\s+".join(re.escape(tok) for tok in tokens) + suffix
+                ws_wb_matches = [
+                    (m.start(), m.end(), region_text[m.start():m.end()])
+                    for m in re.finditer(pattern_ws_wb, region_text)
+                ]
+                if ws_wb_matches:
+                    return ws_wb_matches
+
+            # 3. Fallback: unconstrained substring matches (if boundaries involve punctuation/symbols)
+            pattern_exact = re.escape(ev_text)
+            exact_matches = [
+                (m.start(), m.end(), region_text[m.start():m.end()])
+                for m in re.finditer(pattern_exact, region_text)
+            ]
+            if exact_matches:
+                return exact_matches
+
+            if tokens:
+                pattern_ws = r"\s+".join(re.escape(tok) for tok in tokens)
+                ws_matches = [
+                    (m.start(), m.end(), region_text[m.start():m.end()])
+                    for m in re.finditer(pattern_ws, region_text)
+                ]
+                if ws_matches:
+                    return ws_matches
+
+            return []
+
+        # Step 1: Pre-validation of field types, values, and evidence texts
+        valid_candidates: list[dict] = []
         for ext in extractions:
             field_type = ext.get("field_type", "")
             value = ext.get("value", "")
             evidence_text = ext.get("evidence_text", "")
-            unit_raw = ext.get("unit_raw")
-            confidence = float(ext.get("confidence", 0.80))
 
-            # REJECT: unsupported field_type (DEC-017 / AUDIT-20)
             if field_type not in PERMITTED_NARRATIVE_FIELDS:
                 diagnostics["rejected"].append({
                     "field_type": field_type,
@@ -653,53 +734,222 @@ class NarrativeExtractor:
                 })
                 continue
 
-            # REJECT: empty value
-            if not value.strip():
+            if not value or not str(value).strip():
                 diagnostics["rejected"].append({
                     "field_type": field_type,
                     "reason": "empty value",
                 })
                 continue
 
-            # Locate evidence span within region text (§7.4)
-            # 1. Fast path: exact literal substring match
-            local_start = -1
-            local_end = -1
-            source_span = ""
-
-            if evidence_text and evidence_text.strip():
-                pos = region_text.find(evidence_text)
-                if pos >= 0:
-                    local_start = pos
-                    local_end = pos + len(evidence_text)
-                    source_span = evidence_text
-                else:
-                    # 2. Whitespace-invariant token sequence match (Root Cause A)
-                    # Normalizes only whitespace differences (spaces, tabs, newlines)
-                    # while preserving exact token sequence and characters fail-closed.
-                    tokens = evidence_text.split()
-                    if tokens:
-                        pattern = r"\s+".join(re.escape(tok) for tok in tokens)
-                        match = re.search(pattern, region_text)
-                        if match:
-                            local_start = match.start()
-                            local_end = match.end()
-                            source_span = region_text[local_start:local_end]
-
-            # REJECT: evidence_text is not a verbatim substring (§7.4)
-            if local_start < 0:
+            if not evidence_text or not str(evidence_text).strip():
                 diagnostics["rejected"].append({
                     "field_type": field_type,
-                    "value": value,
-                    "evidence_text": evidence_text,
-                    "reason": "evidence_text is not a verbatim substring of region_text",
+                    "reason": "empty evidence_text",
                 })
                 continue
+
+            valid_candidates.append(ext)
+
+        # Step 2: Separate candidates with explicit offsets from those needing occurrence search
+        grounded: list[tuple[dict, int, int, str]] = []
+        needs_search: list[dict] = []
+
+        for ext in valid_candidates:
+            evidence_text = str(ext.get("evidence_text", ""))
+            has_local = ext.get("local_start") is not None and ext.get("local_end") is not None
+            has_char = ext.get("char_start") is not None and ext.get("char_end") is not None
+
+            if has_local or has_char:
+                try:
+                    if has_local:
+                        ls = int(ext["local_start"])
+                        le = int(ext["local_end"])
+                    else:
+                        cs = int(ext["char_start"])
+                        ce = int(ext["char_end"])
+                        if char_offset <= cs < char_offset + len(region_text):
+                            ls = cs - char_offset
+                            le = ce - char_offset
+                        elif 0 <= cs < len(region_text):
+                            ls = cs
+                            le = ce
+                        else:
+                            ls, le = cs, ce
+                except (ValueError, TypeError):
+                    diagnostics["rejected"].append({
+                        "field_type": ext.get("field_type"),
+                        "value": ext.get("value"),
+                        "evidence_text": evidence_text,
+                        "reason": "invalid source offset: non-integer offset",
+                    })
+                    continue
+
+                # Bounds check
+                if ls < 0 or le <= ls or le > len(region_text):
+                    diagnostics["rejected"].append({
+                        "field_type": ext.get("field_type"),
+                        "value": ext.get("value"),
+                        "evidence_text": evidence_text,
+                        "reason": f"invalid source offset: [{ls}:{le}] out of bounds for region_text (len {len(region_text)})",
+                    })
+                    continue
+
+                # Text match check
+                span_text = region_text[ls:le]
+                if (
+                    span_text == evidence_text
+                    or re.sub(r"\s+", " ", span_text).strip() == re.sub(r"\s+", " ", evidence_text).strip()
+                ):
+                    grounded.append((ext, ls, le, span_text))
+                else:
+                    diagnostics["rejected"].append({
+                        "field_type": ext.get("field_type"),
+                        "value": ext.get("value"),
+                        "evidence_text": evidence_text,
+                        "reason": f"invalid source offset: text at [{ls}:{le}] '{span_text}' does not match evidence_text '{evidence_text}'",
+                    })
+            else:
+                needs_search.append(ext)
+
+        # Step 3: Ground candidates without explicit offsets
+        by_ev_text: dict[str, list[dict]] = {}
+        for ext in needs_search:
+            ev_text = str(ext.get("evidence_text", ""))
+            by_ev_text.setdefault(ev_text, []).append(ext)
+
+        for ev_text, exts in by_ev_text.items():
+            occs = _find_occurrences(ev_text)
+            if len(occs) == 0:
+                for ext in exts:
+                    diagnostics["rejected"].append({
+                        "field_type": ext.get("field_type"),
+                        "value": ext.get("value"),
+                        "evidence_text": ev_text,
+                        "reason": "evidence_text is not a verbatim substring of region_text",
+                    })
+            elif len(occs) == 1:
+                ls, le, span_text = occs[0]
+                for ext in exts:
+                    grounded.append((ext, ls, le, span_text))
+            else:
+                # Multiple occurrences in region_text
+                all_identical = (
+                    len({(e.get("field_type"), str(e.get("value")), str(e.get("unit_raw") or "")) for e in exts}) == 1
+                )
+                if all_identical and len(exts) == len(occs):
+                    for ext, (ls, le, span_text) in zip(exts, occs):
+                        grounded.append((ext, ls, le, span_text))
+                else:
+                    for ext in exts:
+                        diagnostics["rejected"].append({
+                            "field_type": ext.get("field_type"),
+                            "value": ext.get("value"),
+                            "evidence_text": ev_text,
+                            "reason": f"ambiguous evidence span: evidence_text appears multiple times ({len(occs)}) in region_text without unique source offset",
+                        })
+
+        # Step 4: Deterministic sort by coordinates and anchor priority
+        def _field_priority(ft: str) -> int:
+            if ft == "med.name":
+                return 0
+            if ft in ("med.dose", "med.route", "med.frequency", "med.duration"):
+                return 1
+            if ft == "lab.value":
+                return 0
+            if ft == "lab.flag":
+                return 1
+            return 2
+
+        grounded.sort(key=lambda item: (
+            item[1],  # local_start (ascending)
+            _field_priority(item[0].get("field_type", "")),
+            item[2],  # local_end (ascending)
+            str(item[0].get("field_type", "")),
+            str(item[0].get("value", "")),
+            str(item[0].get("unit_raw", "") or ""),
+            -float(item[0].get("confidence", 0.8)),
+        ))
+
+        # Step 4.5: Segment region_text into sentence and clause spans (Milestone 2)
+        segments = segment_clinical_text(region_text, page=page, char_offset=char_offset)
+
+        # Step 5: Segment Containment, Layered Medication Association, and Claim/Evidence generation
+        # 1. Enforce strict segment containment: reject any extraction crossing segment boundaries
+        contained_by_seg: dict[int, list[tuple[dict, int, int, str]]] = {}
+        for ext, local_start, local_end, source_span in grounded:
+            seg_idx = find_segment_idx(local_start, local_end, segments)
+            if seg_idx is None:
+                diagnostics["rejected"].append({
+                    "field_type": ext.get("field_type"),
+                    "value": ext.get("value"),
+                    "evidence_text": ext.get("evidence_text"),
+                    "reason": f"invalid source offset: [{local_start}:{local_end}] uncontained or crosses segment boundary",
+                })
+                continue
+            contained_by_seg.setdefault(seg_idx, []).append((ext, local_start, local_end, source_span))
+
+        # 2. Process segment by segment
+        assigned_items: list[tuple[dict, int, int, str, str, str, dict]] = []
+
+        for seg_idx in sorted(contained_by_seg.keys()):
+            seg_items = contained_by_seg[seg_idx]
+            seg = segments[seg_idx]
+
+            lab_items = [it for it in seg_items if it[0].get("field_type", "").startswith("lab.")]
+            med_items = [it for it in seg_items if it[0].get("field_type", "").startswith("med.")]
+            other_items = [
+                it for it in seg_items
+                if not it[0].get("field_type", "").startswith("lab.")
+                and not it[0].get("field_type", "").startswith("med.")
+            ]
+
+            # Laboratory processing (Layer C: verified per-analyte UUID group assignment)
+            current_lab_group = NO_ANCHOR_SENTINEL
+            for ext, ls, le, span in lab_items:
+                ft = ext.get("field_type", "")
+                if ft == "lab.value":
+                    current_lab_group = str(uuid.uuid4())
+                gid = current_lab_group if ft in ("lab.value", "lab.flag") else str(uuid.uuid4())
+                assoc = (
+                    AssociationStatus.UNAMBIGUOUS_SINGLE.value
+                    if gid != NO_ANCHOR_SENTINEL
+                    else AssociationStatus.UNANCHORED_ORPHAN.value
+                )
+                assigned_items.append((ext, ls, le, span, gid, assoc, {}))
+
+            # Medication processing (Layer C: Layered conservative association engine)
+            if med_items:
+                med_assigned = associate_segment_medications(seg.text, med_items)
+                for ext, ls, le, span, gid, assoc_status, meta in med_assigned:
+                    assigned_items.append((
+                        ext, ls, le, span, gid,
+                        assoc_status.value if hasattr(assoc_status, "value") else str(assoc_status),
+                        meta,
+                    ))
+
+            # Other fields (if any)
+            for ext, ls, le, span in other_items:
+                assigned_items.append((ext, ls, le, span, str(uuid.uuid4()), AssociationStatus.UNAMBIGUOUS_SINGLE.value, {}))
+
+        # 3. Sort assigned items deterministically by coordinates and priority
+        assigned_items.sort(key=lambda item: (
+            item[1],  # local_start
+            _field_priority(item[0].get("field_type", "")),
+            item[2],  # local_end
+            str(item[0].get("field_type", "")),
+            str(item[0].get("value", "")),
+        ))
+
+        # 4. Generate Evidence and Claims
+        for ext, local_start, local_end, source_span, group_id, assoc_status_str, meta in assigned_items:
+            field_type = ext.get("field_type", "")
+            value = ext.get("value", "")
+            unit_raw = ext.get("unit_raw")
+            confidence = float(ext.get("confidence", 0.80))
 
             char_start = char_offset + local_start
             char_end = char_offset + local_end
 
-            # Build bbox from page geometry
             bbox_list = page.get_bbox_for_span(char_start, char_end)
             if bbox_list is None:
                 bbox_model = BBoxModel(x0=0.0, y0=0.0, x1=0.0, y1=0.0)
@@ -722,7 +972,6 @@ class NarrativeExtractor:
             )
             all_evidences.append(evidence)
 
-            # Parse numeric value for numeric fields
             value_numeric: Optional[float] = None
             if field_type in ("lab.value", "med.dose"):
                 num_m = re.search(r"(-?\d+(?:\.\d+)?)", value)
@@ -731,6 +980,13 @@ class NarrativeExtractor:
                         value_numeric = float(num_m.group(1))
                     except ValueError:
                         pass
+
+            perm_temp = {"current", "historical", "discontinued", "planned", "unspecified"}
+            temp_status = meta.get("temporal_status", "unspecified")
+            if temp_status not in perm_temp:
+                temp_status = "unspecified"
+            if ext.get("temporal_status") in perm_temp and temp_status == "unspecified":
+                temp_status = ext["temporal_status"]
 
             claim = Claim(
                 document_id=document_id,
@@ -743,7 +999,30 @@ class NarrativeExtractor:
                 extraction_confidence=confidence,
                 evidence_id=evidence.evidence_id,
                 region_id=region_id,
+                temporal_status=temp_status,  # type: ignore[arg-type]
             )
+
+            # Attach dynamic association metadata to Claim
+            object.__setattr__(claim, "association_status", assoc_status_str)
+            if meta.get("slot_conflict"):
+                object.__setattr__(claim, "slot_conflict", True)
+            if meta.get("provisional"):
+                object.__setattr__(claim, "provisional", True)
+            if meta.get("shared"):
+                object.__setattr__(claim, "is_shared", True)
+            if meta.get("orphan"):
+                object.__setattr__(claim, "orphan", True)
+            if meta.get("temporal_status") == "conditional" or meta.get("is_conditional"):
+                object.__setattr__(claim, "is_conditional", True)
+                object.__setattr__(claim, "conditional_instruction", True)
+
             all_claims.append(claim)
+
+        diagnostics["rejected"].sort(key=lambda r: (
+            str(r.get("field_type", "")),
+            str(r.get("reason", "")),
+            str(r.get("value", "")),
+            str(r.get("evidence_text", "")),
+        ))
 
         return all_evidences, all_claims

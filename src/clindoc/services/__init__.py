@@ -56,12 +56,15 @@ __all__ = [
     "EHRAuthenticationError",
     "EHRValidationError",
     "EHRDuplicateSubmissionError",
+    "EHRDraftRejectionError",
+    "assert_no_draft_tags",
 ]
 
 from clindoc.services.fhir_export import FHIRExportService
 from clindoc.services.ehr_transport import (
     EHRAuthenticationError,
     EHRDuplicateSubmissionError,
+    EHRDraftRejectionError,
     EHRTimeoutError,
     EHRTransmissionResponse,
     EHRTransportError,
@@ -69,6 +72,7 @@ from clindoc.services.ehr_transport import (
     FHIRTransport,
     HTTPFHIRTransport,
     MockFHIRTransport,
+    assert_no_draft_tags,
 )
 from clindoc.services.ehr_integration import (
     EHRApprovalMissingError,

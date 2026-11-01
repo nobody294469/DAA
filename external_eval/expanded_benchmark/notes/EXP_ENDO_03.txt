@@ -1,0 +1,11 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+ADRENAL FUNCTION REVIEW
+Date: 2026-03-31    Patient: Synthetic Patient Endo-Exp-03
+MRN: PAT-291038    DOB: 1984-06-22    Dr. Karen White (NPI: 1849204820)
+
+Follow-up primary adrenal insufficiency (Addison disease).
+Blood work shows morning Cortisol 14.5 ug/dL and ACTH 35 pg/mL.
+Serum Sodium is 139 mmol/L and Potassium is 4.6 mmol/L.
+Patient will continue maintenance steroid replacement therapy.
+Hydrocortisone 20 mg oral once daily in divided doses.
+Fludrocortisone 0.1 mg PO daily in the morning.

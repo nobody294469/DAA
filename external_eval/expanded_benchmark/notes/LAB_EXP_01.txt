@@ -1,0 +1,25 @@
+[SYNTHETIC CLINICAL LABORATORY REPORT - NOT PHI - FOR EVALUATION ONLY]
+ACCREDITED DIAGNOSTIC LABORATORIES, INC.
+SPECIMEN ID: LAB-904128        ACCESSION: ACC-2026-88192
+PATIENT NAME: Synthetic Patient Lab-Exp-01    MRN: PAT-992140
+DOB: 1964-03-22    GENDER: M    AGE: 62
+ORDERING PHYSICIAN: Dr. Arthur Pendelton, MD (NPI: 1092837465)
+COLLECTION DATE: 2026-04-05 08:30 EST    REPORT DATE: 2026-04-05 11:45 EST
+
+COMPREHENSIVE METABOLIC PANEL (SERUM):
+Test Name               Result      Reference Range     Units       Flag
+------------------------------------------------------------------------
+Glucose                 105         70 - 99             mg/dL       HIGH
+BUN                     18          7 - 20              mg/dL       NORMAL
+Creatinine              1.1         0.7 - 1.3           mg/dL       NORMAL
+Sodium                  140         136 - 145           mmol/L      NORMAL
+Potassium               4.5         3.5 - 5.1           mmol/L      NORMAL
+Chloride                102         98 - 107            mmol/L      NORMAL
+Carbon Dioxide          26          22 - 29             mmol/L      NORMAL
+Calcium                 9.4         8.6 - 10.2          mg/dL       NORMAL
+Total Protein           7.1         6.4 - 8.3           g/dL        NORMAL
+Albumin                 4.3         3.5 - 5.0           g/dL        NORMAL
+Total Bilirubin         0.8         0.2 - 1.2           mg/dL       NORMAL
+Alkaline Phosphatase    78          44 - 121            IU/L        NORMAL
+AST                     24          10 - 40             IU/L        NORMAL
+ALT                     28          9 - 46              IU/L        NORMAL

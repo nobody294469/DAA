@@ -1,0 +1,18 @@
+[SYNTHETIC CLINICAL PRESCRIPTION ORDER - NOT PHI - FOR EVALUATION ONLY]
+GASTROENTEROLOGY ASSOCIATES
+DATE: 2026-04-25        ACCESSION: RX-84920
+PATIENT: Synthetic Patient Med-Exp-07        MRN: PAT-294018
+DOB: 1971-09-09    AGE: 54    SEX: M
+PRESCRIBER: Dr. Thomas Miller, MD (NPI: 1948273615)
+
+PRESCRIBED MEDICATIONS:
+
+Order #1:
+    Medication:   Omeprazole 40 mg oral delayed-release capsule
+    Sig:          Take 1 capsule oral once daily 30 minutes before breakfast
+    Dispense:     30 capsules    Refills: 5
+
+Order #2:
+    Medication:   Sucralfate 1 g oral tablet
+    Sig:          Take 1 tablet PO four times daily 1 hour before meals and at bedtime for 14 days
+    Dispense:     56 tablets    Refills: 0

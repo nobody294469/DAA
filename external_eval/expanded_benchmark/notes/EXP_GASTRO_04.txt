@@ -1,0 +1,11 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+ENDOSCOPY CLINIC FOLLOWUP
+Date: 2O26-O5-14    Patient: Synthetic Patient Gastro-Exp-04
+MRN: PAT-882018    DOB: 1972-12-04    Dr. Owen Hunt (NPI: 1749204931)
+
+LABORATORY DATA:
+Hemoglobin was 13.5 g/dL (NORMAL).
+Serum Creatinine was 0.8 mg/dL.
+
+MEDICATIONS:
+Famotidine 20 mg oral twice daily for 8 weeks.

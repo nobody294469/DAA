@@ -1,0 +1,104 @@
+{
+  "doc_id": "MED_EXP_03",
+  "category": "structured_medication",
+  "specialty": "Psychiatry",
+  "title": "Behavioral Health E-Prescription Confirmation",
+  "format": "prescription_pad",
+  "features": [
+    "retail_order",
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 8,
+  "claims": [
+    {
+      "document_id": "MED_EXP_03",
+      "field_type": "med.name",
+      "value": "Escitalopram",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Escitalopram",
+      "char_start": 369,
+      "char_end": 381,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_03",
+      "field_type": "med.dose",
+      "value": "10 mg",
+      "value_numeric": 10.0,
+      "unit_raw": "mg",
+      "evidence_text": "10 mg",
+      "char_start": 382,
+      "char_end": 387,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_03",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 388,
+      "char_end": 392,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_03",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 424,
+      "char_end": 434,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_03",
+      "field_type": "med.name",
+      "value": "Hydroxyzine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hydroxyzine",
+      "char_start": 499,
+      "char_end": 510,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_03",
+      "field_type": "med.dose",
+      "value": "25 mg",
+      "value_numeric": 25.0,
+      "unit_raw": "mg",
+      "evidence_text": "25 mg",
+      "char_start": 511,
+      "char_end": 516,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_03",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 550,
+      "char_end": 552,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_03",
+      "field_type": "med.frequency",
+      "value": "every 8 hours",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 8 hours",
+      "char_start": 553,
+      "char_end": 566,
+      "page_number": 1
+    }
+  ]
+}

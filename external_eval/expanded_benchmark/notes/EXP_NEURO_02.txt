@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+STROKE PREVENTION CLINIC
+Date: 2026-05-18    Patient: Synthetic Patient Neuro-Exp-02
+MRN: PAT-662018    DOB: 1958-08-14    Dr. Meredith Grey (NPI: 1549204933)
+
+LABORATORY RESULTS:
+LDL Cholesterol was 64 mg/dL (OPTIMAL).
+Total Cholesterol was 142 mg/dL.
+Hemoglobin A1c was 5.7% (NORMAL).
+
+SECONDARY STROKE PREVENTION:
+Clopidogrel 75 mg oral tablet once daily.
+Rosuvastatin 20 mg PO once daily in the evening.

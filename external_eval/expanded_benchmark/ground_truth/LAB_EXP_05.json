@@ -1,0 +1,236 @@
+{
+  "doc_id": "LAB_EXP_05",
+  "category": "structured_lab",
+  "specialty": "Gastroenterology / Hepatic",
+  "title": "Hepatic Function Panel",
+  "format": "tabular_ocr",
+  "features": [
+    "tabular",
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 20,
+  "claims": [
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.test_name",
+      "value": "Total Bilirubin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Total Bilirubin",
+      "char_start": 619,
+      "char_end": 634,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.value",
+      "value": "2.4",
+      "value_numeric": 2.4,
+      "unit_raw": null,
+      "evidence_text": "2.4",
+      "char_start": 643,
+      "char_end": 646,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.reference_range",
+      "value": "0.2 - 1.2",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "0.2 - 1.2",
+      "char_start": 655,
+      "char_end": 664,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 675,
+      "char_end": 680,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 687,
+      "char_end": 691,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.test_name",
+      "value": "Alkaline Phosphatase",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Alkaline Phosphatase",
+      "char_start": 765,
+      "char_end": 785,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.value",
+      "value": "195",
+      "value_numeric": 195.0,
+      "unit_raw": null,
+      "evidence_text": "195",
+      "char_start": 789,
+      "char_end": 792,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.reference_range",
+      "value": "40 - 130",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "40 - 130",
+      "char_start": 801,
+      "char_end": 809,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 821,
+      "char_end": 824,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 833,
+      "char_end": 837,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.test_name",
+      "value": "ALT",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ALT",
+      "char_start": 838,
+      "char_end": 841,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.value",
+      "value": "88",
+      "value_numeric": 88.0,
+      "unit_raw": null,
+      "evidence_text": "88",
+      "char_start": 862,
+      "char_end": 864,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.reference_range",
+      "value": "7 - 56",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "7 - 56",
+      "char_start": 874,
+      "char_end": 880,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 894,
+      "char_end": 897,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 906,
+      "char_end": 910,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.test_name",
+      "value": "AST",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "AST",
+      "char_start": 911,
+      "char_end": 914,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.value",
+      "value": "74",
+      "value_numeric": 74.0,
+      "unit_raw": null,
+      "evidence_text": "74",
+      "char_start": 935,
+      "char_end": 937,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.reference_range",
+      "value": "10 - 40",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10 - 40",
+      "char_start": 947,
+      "char_end": 954,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 967,
+      "char_end": 970,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_05",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 979,
+      "char_end": 983,
+      "page_number": 1
+    }
+  ]
+}

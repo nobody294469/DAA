@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+OPAT INFECTIOUS DISEASE SERVICE
+Date: 2O26-O4-27    Patient: Synthetic Patient Infect-Exp-04
+MRN: PAT-771028    DOB: 1968-09-02    Dr. Peter Parker (NPI: 1549204923)
+
+LABORATORIES:
+ESR was 38 mm/hr (HIGH).
+C-Reactive Protein was 18 mg/L (HIGH).
+White Blood Cell Count was 6.9 10*3/uL.
+
+OPAT PRESCRIPTION:
+Ertapenem 1 g IV once daily for 4 weeks.

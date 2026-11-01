@@ -1,0 +1,279 @@
+{
+  "doc_id": "EXP_RHEUM_01",
+  "category": "narrative_encounter",
+  "specialty": "Rheumatology",
+  "title": "Rheumatoid Arthritis Outpatient Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 24,
+  "claims": [
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.test_name",
+      "value": "C-Reactive Protein",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "C-Reactive Protein",
+      "char_start": 254,
+      "char_end": 272,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.value",
+      "value": "22",
+      "value_numeric": 22.0,
+      "unit_raw": null,
+      "evidence_text": "22",
+      "char_start": 277,
+      "char_end": 279,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.unit",
+      "value": "mg/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/L",
+      "char_start": 280,
+      "char_end": 284,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 286,
+      "char_end": 290,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.test_name",
+      "value": "Erythrocyte Sedimentation Rate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Erythrocyte Sedimentation Rate",
+      "char_start": 293,
+      "char_end": 323,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.value",
+      "value": "44",
+      "value_numeric": 44.0,
+      "unit_raw": null,
+      "evidence_text": "44",
+      "char_start": 328,
+      "char_end": 330,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.unit",
+      "value": "mm/hr",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mm/hr",
+      "char_start": 331,
+      "char_end": 336,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 338,
+      "char_end": 342,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.test_name",
+      "value": "Rheumatoid Factor",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Rheumatoid Factor",
+      "char_start": 345,
+      "char_end": 362,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.value",
+      "value": "68",
+      "value_numeric": 68.0,
+      "unit_raw": null,
+      "evidence_text": "68",
+      "char_start": 367,
+      "char_end": 369,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.unit",
+      "value": "IU/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IU/mL",
+      "char_start": 370,
+      "char_end": 375,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 377,
+      "char_end": 381,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.name",
+      "value": "Methotrexate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Methotrexate",
+      "char_start": 433,
+      "char_end": 445,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.dose",
+      "value": "15 mg",
+      "value_numeric": 15.0,
+      "unit_raw": "mg",
+      "evidence_text": "15 mg",
+      "char_start": 446,
+      "char_end": 451,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 452,
+      "char_end": 456,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.frequency",
+      "value": "once weekly",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once weekly",
+      "char_start": 464,
+      "char_end": 475,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.name",
+      "value": "Folic Acid",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Folic Acid",
+      "char_start": 488,
+      "char_end": 498,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.dose",
+      "value": "1 mg",
+      "value_numeric": 1.0,
+      "unit_raw": "mg",
+      "evidence_text": "1 mg",
+      "char_start": 499,
+      "char_end": 503,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 504,
+      "char_end": 506,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 507,
+      "char_end": 517,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.name",
+      "value": "Adalimumab",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Adalimumab",
+      "char_start": 519,
+      "char_end": 529,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.dose",
+      "value": "40 mg",
+      "value_numeric": 40.0,
+      "unit_raw": "mg",
+      "evidence_text": "40 mg",
+      "char_start": 530,
+      "char_end": 535,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.route",
+      "value": "subcutaneous",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "subcutaneous",
+      "char_start": 536,
+      "char_end": 548,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_01",
+      "field_type": "med.frequency",
+      "value": "every 2 weeks",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 2 weeks",
+      "char_start": 549,
+      "char_end": 562,
+      "page_number": 1
+    }
+  ]
+}

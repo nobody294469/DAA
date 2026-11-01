@@ -22,7 +22,7 @@ from typing import Any, Literal, Optional, Sequence
 from pydantic import BaseModel, ConfigDict, Field
 
 from clindoc.extract.contracts import (
-    Claim, DocumentExtractionOutput, FieldType, TIER_1_FIELDS, TIER_2_FIELDS,
+    Claim, DocumentExtractionOutput, Evidence, FieldType, TIER_1_FIELDS, TIER_2_FIELDS,
 )
 from clindoc.extract.deterministic import DeterministicExtractor, _FLAG_MAP, _ROUTE_VOCAB
 from clindoc.extract.gliner_fallback import GLiNERFallbackExtractor, MockGLiNERProvider
@@ -92,6 +92,12 @@ def normalize_field_value(field_type: str, val: Any) -> str:
         norm = re.sub(r"\s*[-–—]\s*", " - ", text)
         return re.sub(r"\s+", " ", norm).strip().lower()
 
+    if field_type == "med.duration":
+        # Normalize duration prefixes to align equivalent ground-truth representations
+        # e.g., "for 10 days" vs "10 days" vs "x 10 days" vs "duration: 10 days"
+        norm = re.sub(r"^(?:for|x|duration:)\s+", "", text, flags=re.IGNORECASE).strip().lower()
+        return re.sub(r"\s+", " ", norm).strip().lower()
+
     # Default text normalization: collapse whitespace, lowercase
     return re.sub(r"\s+", " ", text).strip().lower()
 
@@ -144,6 +150,60 @@ def is_partial_match(gt_claim: GroundTruthClaim | Claim, pred_claim: Claim) -> b
         return True
 
     return False
+
+
+def is_duplicate_claim(
+    candidate: Claim,
+    existing: Claim,
+    candidate_ev: Optional[Evidence] = None,
+    existing_ev: Optional[Evidence] = None,
+) -> bool:
+    """Determine whether candidate is a genuine duplicate of existing.
+
+    A claim is a duplicate iff:
+    1. Canonical field types match.
+    2. Normalized values (or numeric values) match.
+    3. Source location / entity association criteria indicate the same mention:
+       - If evidence objects are available for both:
+         - Same page_number.
+         - Spans overlap (max(s1, s2) < min(e1, e2)).
+         - If spans are disjoint (e.g. line 1 vs line 2), they are separate mentions (NOT duplicate).
+       - If evidence is unavailable:
+         - If both have group_id: match iff group_id == existing.group_id.
+         - If both have evidence_id: match iff evidence_id == existing.evidence_id.
+         - If region_ids differ: NOT duplicate.
+         - Otherwise fallback: treated as duplicate if in same region/doc without distinguishing metadata.
+    """
+    if candidate.field_type != existing.field_type:
+        return False
+
+    if not is_value_match(existing, candidate):
+        return False
+
+    # Check evidence-based spatial provenance
+    if candidate_ev is not None and existing_ev is not None:
+        if candidate_ev.page_number != existing_ev.page_number:
+            return False
+        # Overlapping spans on same page indicate the exact same text span / mention
+        overlap = max(candidate_ev.char_start, existing_ev.char_start) < min(
+            candidate_ev.char_end, existing_ev.char_end
+        )
+        return overlap
+
+    # Check explicit entity grouping (DEC-015)
+    if candidate.group_id is not None and existing.group_id is not None:
+        return candidate.group_id == existing.group_id
+
+    # Check evidence foreign key identity
+    if candidate.evidence_id and existing.evidence_id:
+        if candidate.evidence_id == existing.evidence_id:
+            return True
+
+    # If region_ids are known and distinct, they are in different regions
+    if candidate.region_id and existing.region_id and candidate.region_id != existing.region_id:
+        return False
+
+    return True
 
 
 # ─── GROUND TRUTH LOADER ─────────────────────────────────────────────────────

@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+OUTPATIENT MOOD DISORDERS CLINIC
+Date: 2026-06-04    Patient: Synthetic Patient Psych-Exp-02
+MRN: PAT-773018    DOB: 1993-04-16    Dr. Richard Webber (NPI: 1749204941)
+
+LABORATORY FINDINGS:
+Serum Sodium was 139 mmol/L (NORMAL).
+Serum Potassium was 4.1 mmol/L.
+
+PLAN:
+Sertraline 100 mg oral tablet once daily in the morning.
+Bupropion XL 150 mg PO once daily.

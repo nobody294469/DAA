@@ -1,0 +1,180 @@
+{
+  "doc_id": "LAB_EXP_07",
+  "category": "structured_lab",
+  "specialty": "Endocrinology / Thyroid",
+  "title": "Endocrine Panel - Missing Explicit Section Header",
+  "format": "tabular_ocr",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 15,
+  "claims": [
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.test_name",
+      "value": "TSH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "TSH",
+      "char_start": 298,
+      "char_end": 301,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.value",
+      "value": "4.85",
+      "value_numeric": 4.85,
+      "unit_raw": null,
+      "evidence_text": "4.85",
+      "char_start": 322,
+      "char_end": 326,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.reference_range",
+      "value": "0.45 - 4.50",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "0.45 - 4.50",
+      "char_start": 334,
+      "char_end": 345,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.unit",
+      "value": "uIU/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "uIU/mL",
+      "char_start": 354,
+      "char_end": 360,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 366,
+      "char_end": 370,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.test_name",
+      "value": "Free T4",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Free T4",
+      "char_start": 371,
+      "char_end": 378,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.value",
+      "value": "1.05",
+      "value_numeric": 1.05,
+      "unit_raw": null,
+      "evidence_text": "1.05",
+      "char_start": 395,
+      "char_end": 399,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.reference_range",
+      "value": "0.82 - 1.77",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "0.82 - 1.77",
+      "char_start": 407,
+      "char_end": 418,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.unit",
+      "value": "ng/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ng/dL",
+      "char_start": 427,
+      "char_end": 432,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 439,
+      "char_end": 445,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin A1c",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin A1c",
+      "char_start": 521,
+      "char_end": 535,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.value",
+      "value": "5.6",
+      "value_numeric": 5.6,
+      "unit_raw": null,
+      "evidence_text": "5.6",
+      "char_start": 545,
+      "char_end": 548,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.reference_range",
+      "value": "4.0 - 5.6",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "4.0 - 5.6",
+      "char_start": 557,
+      "char_end": 566,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.unit",
+      "value": "%",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "%",
+      "char_start": 577,
+      "char_end": 578,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_07",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 589,
+      "char_end": 595,
+      "page_number": 1
+    }
+  ]
+}

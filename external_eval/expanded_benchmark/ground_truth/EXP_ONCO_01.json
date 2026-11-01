@@ -1,0 +1,202 @@
+{
+  "doc_id": "EXP_ONCO_01",
+  "category": "narrative_encounter",
+  "specialty": "Oncology",
+  "title": "Breast Cancer Adjuvant Therapy Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 17,
+  "claims": [
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "White Blood Cell Count",
+      "char_start": 244,
+      "char_end": 266,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.value",
+      "value": "5.4",
+      "value_numeric": 5.4,
+      "unit_raw": null,
+      "evidence_text": "5.4",
+      "char_start": 271,
+      "char_end": 274,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 275,
+      "char_end": 282,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 284,
+      "char_end": 290,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin",
+      "char_start": 293,
+      "char_end": 303,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.value",
+      "value": "12.1",
+      "value_numeric": 12.1,
+      "unit_raw": null,
+      "evidence_text": "12.1",
+      "char_start": 308,
+      "char_end": 312,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 313,
+      "char_end": 317,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Platelet Count",
+      "char_start": 319,
+      "char_end": 333,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.value",
+      "value": "185",
+      "value_numeric": 185.0,
+      "unit_raw": null,
+      "evidence_text": "185",
+      "char_start": 338,
+      "char_end": 341,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 342,
+      "char_end": 349,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.test_name",
+      "value": "Alkaline Phosphatase",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Alkaline Phosphatase",
+      "char_start": 357,
+      "char_end": 377,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.value",
+      "value": "65",
+      "value_numeric": 65.0,
+      "unit_raw": null,
+      "evidence_text": "65",
+      "char_start": 382,
+      "char_end": 384,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "lab.unit",
+      "value": "IU/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IU/L",
+      "char_start": 385,
+      "char_end": 389,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "med.name",
+      "value": "Anastrozole",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Anastrozole",
+      "char_start": 408,
+      "char_end": 419,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "med.dose",
+      "value": "1 mg",
+      "value_numeric": 1.0,
+      "unit_raw": "mg",
+      "evidence_text": "1 mg",
+      "char_start": 420,
+      "char_end": 424,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 425,
+      "char_end": 429,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 437,
+      "char_end": 447,
+      "page_number": 1
+    }
+  ]
+}

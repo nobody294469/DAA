@@ -1,0 +1,246 @@
+{
+  "doc_id": "EXP_ONCO_03",
+  "category": "narrative_encounter",
+  "specialty": "Oncology",
+  "title": "Chemotherapy Follow-up - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 21,
+  "claims": [
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.test_name",
+      "value": "Neutrophil Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Neutrophil Count",
+      "char_start": 274,
+      "char_end": 290,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.value",
+      "value": "0.8",
+      "value_numeric": 0.8,
+      "unit_raw": null,
+      "evidence_text": "0.8",
+      "char_start": 295,
+      "char_end": 298,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 299,
+      "char_end": 306,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 308,
+      "char_end": 311,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Platelet Count",
+      "char_start": 314,
+      "char_end": 328,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.value",
+      "value": "95",
+      "value_numeric": 95.0,
+      "unit_raw": null,
+      "evidence_text": "95",
+      "char_start": 332,
+      "char_end": 334,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 335,
+      "char_end": 342,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 344,
+      "char_end": 347,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "White Blood Cell Count",
+      "char_start": 350,
+      "char_end": 372,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.value",
+      "value": "2.1",
+      "value_numeric": 2.1,
+      "unit_raw": null,
+      "evidence_text": "2.1",
+      "char_start": 376,
+      "char_end": 379,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 380,
+      "char_end": 387,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 389,
+      "char_end": 392,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "med.name",
+      "value": "Filgrastim",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Filgrastim",
+      "char_start": 395,
+      "char_end": 405,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "med.dose",
+      "value": "300 mcg",
+      "value_numeric": 300.0,
+      "unit_raw": "mcg",
+      "evidence_text": "300 mcg",
+      "char_start": 406,
+      "char_end": 413,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "med.route",
+      "value": "subcutaneous",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "subcutaneous",
+      "char_start": 414,
+      "char_end": 426,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 427,
+      "char_end": 437,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "med.duration",
+      "value": "for 3 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 3 days",
+      "char_start": 438,
+      "char_end": 448,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "med.name",
+      "value": "Ondansetron",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Ondansetron",
+      "char_start": 450,
+      "char_end": 461,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "med.dose",
+      "value": "8 mg",
+      "value_numeric": 8.0,
+      "unit_raw": "mg",
+      "evidence_text": "8 mg",
+      "char_start": 462,
+      "char_end": 466,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 467,
+      "char_end": 469,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_03",
+      "field_type": "med.frequency",
+      "value": "every 8 hours",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 8 hours",
+      "char_start": 470,
+      "char_end": 483,
+      "page_number": 1
+    }
+  ]
+}

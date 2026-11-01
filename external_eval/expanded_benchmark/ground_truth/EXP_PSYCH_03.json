@@ -1,0 +1,169 @@
+{
+  "doc_id": "EXP_PSYCH_03",
+  "category": "narrative_encounter",
+  "specialty": "Psychiatry",
+  "title": "Clozapine Monitoring Note - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 14,
+  "claims": [
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.test_name",
+      "value": "Neutrophil Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Neutrophil Count",
+      "char_start": 277,
+      "char_end": 293,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.value",
+      "value": "2.8",
+      "value_numeric": 2.8,
+      "unit_raw": null,
+      "evidence_text": "2.8",
+      "char_start": 298,
+      "char_end": 301,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 302,
+      "char_end": 309,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 311,
+      "char_end": 317,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "White Blood Cell Count",
+      "char_start": 320,
+      "char_end": 342,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.value",
+      "value": "5.9",
+      "value_numeric": 5.9,
+      "unit_raw": null,
+      "evidence_text": "5.9",
+      "char_start": 346,
+      "char_end": 349,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 350,
+      "char_end": 357,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Glucose",
+      "char_start": 373,
+      "char_end": 380,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.value",
+      "value": "98",
+      "value_numeric": 98.0,
+      "unit_raw": null,
+      "evidence_text": "98",
+      "char_start": 384,
+      "char_end": 386,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 387,
+      "char_end": 392,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "med.name",
+      "value": "Clozapine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Clozapine",
+      "char_start": 394,
+      "char_end": 403,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "med.dose",
+      "value": "300 mg",
+      "value_numeric": 300.0,
+      "unit_raw": "mg",
+      "evidence_text": "300 mg",
+      "char_start": 404,
+      "char_end": 410,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 411,
+      "char_end": 415,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PSYCH_03",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 423,
+      "char_end": 428,
+      "page_number": 1
+    }
+  ]
+}

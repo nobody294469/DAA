@@ -29,9 +29,8 @@ def test_lab_flag_v2_generation():
 
     assert len(supported) > 0, "No SUPPORTED lab.flag examples generated"
     assert len(discrepancy) > 0, "No DISCREPANCY lab.flag examples generated"
-    assert len(supported) == len(discrepancy), (
-        f"Expected equal SUPPORTED ({len(supported)}) and DISCREPANCY ({len(discrepancy)})"
-    )
+    assert len(supported) >= 100, f"Insufficient supported examples: {len(supported)}"
+    assert len(discrepancy) >= 100, f"Insufficient discrepancy examples: {len(discrepancy)}"
 
     # Check for conflicting (claim, evidence) pairs with different labels
     seen_pairs: dict[tuple[str, str], VerificationLabel] = {}

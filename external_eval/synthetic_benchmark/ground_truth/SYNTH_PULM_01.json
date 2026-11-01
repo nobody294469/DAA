@@ -1,0 +1,240 @@
+{
+  "doc_id": "SYNTH_PULM_01",
+  "specialty": "Pulmonology",
+  "title": "Pulmonary Consultation & Inpatient Discharge Note",
+  "is_synthetic": true,
+  "total_claims": 21,
+  "claims": [
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "lab.test_name",
+      "value": "WBC",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "WBC",
+      "char_start": 507,
+      "char_end": 510,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "lab.value",
+      "value": "7.8",
+      "value_numeric": 7.8,
+      "unit_raw": null,
+      "evidence_text": "7.8",
+      "char_start": 529,
+      "char_end": 532,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 533,
+      "char_end": 540,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 542,
+      "char_end": 548,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "lab.test_name",
+      "value": "CRP",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "CRP",
+      "char_start": 557,
+      "char_end": 560,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "lab.value",
+      "value": "8.2",
+      "value_numeric": 8.2,
+      "unit_raw": null,
+      "evidence_text": "8.2",
+      "char_start": 574,
+      "char_end": 577,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "lab.unit",
+      "value": "mg/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/L",
+      "char_start": 578,
+      "char_end": 582,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.name",
+      "value": "Ceftriaxone",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Ceftriaxone",
+      "char_start": 385,
+      "char_end": 396,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.dose",
+      "value": "1 g",
+      "value_numeric": 1.0,
+      "unit_raw": "g",
+      "evidence_text": "1 g",
+      "char_start": 397,
+      "char_end": 400,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.route",
+      "value": "IV",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IV",
+      "char_start": 401,
+      "char_end": 403,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 404,
+      "char_end": 414,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.duration",
+      "value": "3 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 3 days",
+      "char_start": 415,
+      "char_end": 425,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.name",
+      "value": "Azithromycin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Azithromycin",
+      "char_start": 618,
+      "char_end": 630,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.dose",
+      "value": "500 mg",
+      "value_numeric": 500.0,
+      "unit_raw": "mg",
+      "evidence_text": "500 mg",
+      "char_start": 631,
+      "char_end": 637,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 638,
+      "char_end": 640,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 641,
+      "char_end": 646,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.duration",
+      "value": "5 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 5 days",
+      "char_start": 647,
+      "char_end": 657,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.name",
+      "value": "Albuterol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Albuterol",
+      "char_start": 659,
+      "char_end": 668,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.dose",
+      "value": "90 mcg",
+      "value_numeric": 90.0,
+      "unit_raw": "mcg",
+      "evidence_text": "90 mcg",
+      "char_start": 677,
+      "char_end": 683,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.route",
+      "value": "by inhalation",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by inhalation",
+      "char_start": 684,
+      "char_end": 697,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_PULM_01",
+      "field_type": "med.frequency",
+      "value": "every 4 hours as needed",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 4 hours as needed",
+      "char_start": 698,
+      "char_end": 721,
+      "page_number": 1
+    }
+  ]
+}

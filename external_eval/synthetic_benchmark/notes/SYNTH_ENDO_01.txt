@@ -1,0 +1,18 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR FUNCTIONAL EVALUATION ONLY]
+PATIENT: Synthetic Patient Endo-02
+ENCOUNTER: Endocrinology Follow-up Visit
+DATE: 2026-03-20
+
+CHIEF COMPLAINT:
+Evaluation of type 2 diabetes mellitus glycemic control.
+
+HISTORY OF PRESENT ILLNESS:
+The patient is a 54-year-old female with long-standing type 2 diabetes mellitus. Blood glucose self-monitoring logs show fasting values ranging from 110 to 140 mg/dL without symptomatic hypoglycemia.
+
+LABORATORY FINDINGS:
+Laboratory evaluation today demonstrates Hemoglobin A1c of 7.4% (HIGH). Spot urine Microalbumin is 45 mg/g (HIGH). Serum Creatinine is stable at 0.9 mg/dL.
+
+MEDICATION PLAN:
+Continue Metformin 1000 mg PO BID with meals.
+Continue Empagliflozin 10 mg oral once daily.
+Add Glipizide 5 mg by mouth daily before breakfast for 30 days.

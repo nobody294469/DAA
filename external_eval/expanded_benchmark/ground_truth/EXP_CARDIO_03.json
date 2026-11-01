@@ -1,0 +1,191 @@
+{
+  "doc_id": "EXP_CARDIO_03",
+  "category": "narrative_encounter",
+  "specialty": "Cardiology",
+  "title": "Afib Clinic Note - Missing Section Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 16,
+  "claims": [
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 399,
+      "char_end": 408,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "lab.value",
+      "value": "4.1",
+      "value_numeric": 4.1,
+      "unit_raw": null,
+      "evidence_text": "4.1",
+      "char_start": 409,
+      "char_end": 412,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 413,
+      "char_end": 419,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "lab.test_name",
+      "value": "INR",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "INR",
+      "char_start": 424,
+      "char_end": 427,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "lab.value",
+      "value": "2.3",
+      "value_numeric": 2.3,
+      "unit_raw": null,
+      "evidence_text": "2.3",
+      "char_start": 428,
+      "char_end": 431,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 462,
+      "char_end": 472,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "lab.value",
+      "value": "1.1",
+      "value_numeric": 1.1,
+      "unit_raw": null,
+      "evidence_text": "1.1",
+      "char_start": 476,
+      "char_end": 479,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 480,
+      "char_end": 485,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "med.name",
+      "value": "Diltiazem",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Diltiazem",
+      "char_start": 567,
+      "char_end": 576,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "med.dose",
+      "value": "180 mg",
+      "value_numeric": 180.0,
+      "unit_raw": "mg",
+      "evidence_text": "180 mg",
+      "char_start": 577,
+      "char_end": 583,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 584,
+      "char_end": 586,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 587,
+      "char_end": 597,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "med.name",
+      "value": "Warfarin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Warfarin",
+      "char_start": 625,
+      "char_end": 633,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "med.dose",
+      "value": "5 mg",
+      "value_numeric": 5.0,
+      "unit_raw": "mg",
+      "evidence_text": "5 mg",
+      "char_start": 634,
+      "char_end": 638,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 639,
+      "char_end": 647,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_03",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 648,
+      "char_end": 653,
+      "page_number": 1
+    }
+  ]
+}

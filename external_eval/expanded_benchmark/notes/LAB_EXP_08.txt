@@ -1,0 +1,15 @@
+[SYNTHETIC CLINICAL LABORATORY REPORT - NOT PHI - FOR EVALUATION ONLY]
+INTENSIVE CARE UNIT RAPID LAB
+Time: 2O26-O4-26 14:15    Specimen: ABG-94820
+Patient: Synthetic Patient Lab-Exp-08    MRN: PAT-221940
+DOB: 1960-07-25    Age: 65    ICU Bed: 12
+Attending: Dr. Gregory House, MD (NPI: 1349204819)
+
+ARTERIAL BLOOD GAS PANEL:
+Analyte                 Value       Ref Interval        Units       Status
+--------------------------------------------------------------------------
+pH                      7.32        7.35 - 7.45                     LOW
+PaCO2                   48          35 - 45             mmHg        HIGH
+PaO2                    78          80 - 100            mmHg        LOW
+HCO3                    24          22 - 26             mEq/L       NORMAL
+Lactate                 2.8         0.5 - 2.0           mmol/L      HIGH

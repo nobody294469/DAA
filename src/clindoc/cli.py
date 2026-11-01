@@ -19,11 +19,104 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 import json
+import os
 from pathlib import Path
 import sys
 from typing import Any, Optional, Sequence, Union
+import uuid
 
 from fhir.resources.R4B.bundle import Bundle
+from fhir.resources.R4B.coding import Coding
+from fhir.resources.R4B.identifier import Identifier
+from fhir.resources.R4B.meta import Meta
+
+DRAFT_GOVERNANCE_SYSTEM = "http://clindoc.org/fhir/tag/governance-status"
+DRAFT_GOVERNANCE_CODE = "UNREVIEWED_CLI_DRAFT"
+DRAFT_GOVERNANCE_DISPLAY = "Unreviewed Automated Pipeline Draft — Not for Clinical Use"
+
+DRAFT_AUTH_SYSTEM = "http://clindoc.org/fhir/tag/export-authorization"
+DRAFT_AUTH_CODE = "UNAUTHORIZED_RESEARCH_DRAFT"
+DRAFT_AUTH_DISPLAY = "Unauthorized Research Draft — Prohibited from Clinical Ingestion"
+
+DRAFT_IDENTIFIER_SYSTEM = "http://clindoc.org/fhir/identifier/export-authorization"
+DRAFT_IDENTIFIER_VALUE = "UNAUTHORIZED_RESEARCH_DRAFT"
+
+GOVERNANCE_NOTICE_TEXT = (
+    "================================================================================\n"
+    "WARNING: UNAUTHORIZED RESEARCH DRAFT — STRICTLY PROHIBITED FROM PATIENT CARE\n"
+    "================================================================================\n"
+    "This FHIR R4B bundle was generated headlessly via the research CLI.\n"
+    "It has NOT undergone Mode 0 clinical review, Four-Eyes separation verification,\n"
+    "patient identity confirmation, or Gate 9 cryptographic audit ledger verification.\n"
+    "Transmission to an Electronic Health Record (EHR) system violates governance policy.\n"
+    "================================================================================\n"
+)
+
+FORBIDDEN_CLI_FLAGS = frozenset({
+    "--force",
+    "--approved",
+    "--skip-review",
+    "--force-final",
+    "--bypass-review",
+    "--allow-unreviewed",
+})
+
+
+def _atomic_write_text(path: Path, content: str, encoding: str = "utf-8") -> None:
+    """Safely and atomically write content to path using temporary file and atomic replace."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = path.with_suffix(f"{path.suffix}.tmp_{uuid.uuid4().hex[:8]}")
+    try:
+        with open(tmp_path, "w", encoding=encoding) as f:
+            f.write(content)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp_path, path)
+    except Exception:
+        if tmp_path.exists():
+            try:
+                tmp_path.unlink()
+            except OSError:
+                pass
+        raise
+
+
+def apply_cli_draft_markers(bundle: Bundle) -> Bundle:
+    """Apply normative FHIR R4B draft metadata tags and identifier (DEF-004 Tier 1).
+
+    Guarantees:
+      - Bundle.meta.tag contains UNREVIEWED_CLI_DRAFT and UNAUTHORIZED_RESEARCH_DRAFT.
+      - Bundle.identifier contains UNAUTHORIZED_RESEARCH_DRAFT.
+      - Bundle.meta.security is NOT populated with non-standard labels.
+      - Bundle.signature is strictly absent (None).
+    """
+    tag_unreviewed = Coding(
+        system=DRAFT_GOVERNANCE_SYSTEM,
+        code=DRAFT_GOVERNANCE_CODE,
+        display=DRAFT_GOVERNANCE_DISPLAY,
+    )
+    tag_unauth = Coding(
+        system=DRAFT_AUTH_SYSTEM,
+        code=DRAFT_AUTH_CODE,
+        display=DRAFT_AUTH_DISPLAY,
+    )
+
+    if bundle.meta is None:
+        bundle.meta = Meta()
+
+    existing_tags = [
+        t for t in (bundle.meta.tag or [])
+        if not (t.code in (DRAFT_GOVERNANCE_CODE, DRAFT_AUTH_CODE) and t.system in (DRAFT_GOVERNANCE_SYSTEM, DRAFT_AUTH_SYSTEM))
+    ]
+    bundle.meta.tag = existing_tags + [tag_unreviewed, tag_unauth]
+
+    bundle.identifier = Identifier(
+        system=DRAFT_IDENTIFIER_SYSTEM,
+        value=DRAFT_IDENTIFIER_VALUE,
+    )
+
+    bundle.signature = None
+    return bundle
 
 from clindoc.audit import AuditReport, generate_audit_report
 from clindoc.extract.contracts import Claim, Evidence
@@ -246,7 +339,9 @@ def process_document(
         evidence_map=evidence_map,
         verification_map=verification_map,
         document_id=doc_text.document_id,
+        enforce_req44_lifecycle=True,
     )
+    bundle = apply_cli_draft_markers(bundle)
 
     # ─── 6. Audit Report Generation (§7.8) ──────────────────────────────────
     audit_report = generate_audit_report(
@@ -257,13 +352,17 @@ def process_document(
         fhir_bundle_id=bundle.id,
     )
 
-    # ─── 7. Output Persistence ───────────────────────────────────────────────
+    # ─── 7. Output Persistence (DEF-004 Tier 2 Containment) ─────────────────
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    fhir_bundle_path = out_dir / "fhir_bundle.json"
-    with open(fhir_bundle_path, "w", encoding="utf-8") as f:
-        f.write(bundle.json(indent=2))
+    # Unconditionally write fhir_bundle.draft.json (never plain fhir_bundle.json)
+    fhir_bundle_path = out_dir / "fhir_bundle.draft.json"
+    _atomic_write_text(fhir_bundle_path, bundle.json(indent=2))
+
+    # Mandatory sidecar warning GOVERNANCE_NOTICE.txt
+    notice_path = out_dir / "GOVERNANCE_NOTICE.txt"
+    _atomic_write_text(notice_path, GOVERNANCE_NOTICE_TEXT)
 
     audit_report_path = out_dir / "audit_report.json"
     audit_report.save(audit_report_path, indent=2)
@@ -371,8 +470,8 @@ def batch_process(
                 profile=effective_profile,
             )
             # Also write prefixed artifacts to out_base for easy flat discovery
-            with open(out_base / f"{res.document_id}_fhir_bundle.json", "w", encoding="utf-8") as f:
-                f.write(res.fhir_bundle.json(indent=2))
+            flat_draft_path = out_base / f"{res.document_id}_fhir_bundle.draft.json"
+            _atomic_write_text(flat_draft_path, res.fhir_bundle.json(indent=2))
             res.audit_report.save(out_base / f"{res.document_id}_audit_report.json", indent=2)
 
             results.append(res)
@@ -381,6 +480,9 @@ def batch_process(
                 "file": file_path.name,
                 "error": str(err),
             })
+
+    # Write root GOVERNANCE_NOTICE.txt in out_base (DEF-004 Tier 2 Containment)
+    _atomic_write_text(out_base / "GOVERNANCE_NOTICE.txt", GOVERNANCE_NOTICE_TEXT)
 
     # Write batch execution summary
     batch_summary = {
@@ -398,6 +500,18 @@ def batch_process(
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     """CLI entry point for the clindoc command."""
+    # Strict DEF-004 bypass flag rejection
+    raw_args = list(sys.argv[1:] if argv is None else argv)
+    for arg in raw_args:
+        flag_name = arg.split("=")[0].strip().lower()
+        if flag_name in FORBIDDEN_CLI_FLAGS:
+            sys.stderr.write(
+                f"Error: Forbidden CLI bypass flag '{flag_name}' is strictly prohibited. "
+                "Headless CLI cannot produce approved or finalized clinical exports. "
+                "Clinical exports require Mode 0 review and Gate 9 cryptographic authorization.\n"
+            )
+            return 1
+
     parser = argparse.ArgumentParser(
         prog="clindoc",
         description="Clindoc2FHIR: Multimodal Clinical Document-to-FHIR Verification Pipeline",
@@ -425,7 +539,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         "--output-dir", "-o",
         type=str,
         required=True,
-        help="Directory to save output fhir_bundle.json and audit_report.json",
+        help="Directory to save output fhir_bundle.draft.json, audit_report.json, and GOVERNANCE_NOTICE.txt",
     )
     proc_parser.add_argument(
         "--document-id",

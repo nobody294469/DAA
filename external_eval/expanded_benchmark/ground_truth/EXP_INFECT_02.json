@@ -1,0 +1,169 @@
+{
+  "doc_id": "EXP_INFECT_02",
+  "category": "narrative_encounter",
+  "specialty": "Infectious Disease",
+  "title": "HIV / Viral Hepatitis Management",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 14,
+  "claims": [
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.test_name",
+      "value": "CD4 Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "CD4 Count",
+      "char_start": 257,
+      "char_end": 266,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.value",
+      "value": "680",
+      "value_numeric": 680.0,
+      "unit_raw": null,
+      "evidence_text": "680",
+      "char_start": 271,
+      "char_end": 274,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.unit",
+      "value": "cells/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "cells/uL",
+      "char_start": 275,
+      "char_end": 283,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 285,
+      "char_end": 291,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.test_name",
+      "value": "ALT",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ALT",
+      "char_start": 345,
+      "char_end": 348,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.value",
+      "value": "22",
+      "value_numeric": 22.0,
+      "unit_raw": null,
+      "evidence_text": "22",
+      "char_start": 353,
+      "char_end": 355,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 356,
+      "char_end": 359,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.test_name",
+      "value": "AST",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "AST",
+      "char_start": 364,
+      "char_end": 367,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.value",
+      "value": "20",
+      "value_numeric": 20.0,
+      "unit_raw": null,
+      "evidence_text": "20",
+      "char_start": 372,
+      "char_end": 374,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 375,
+      "char_end": 378,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "med.name",
+      "value": "Biktarvy",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Biktarvy",
+      "char_start": 405,
+      "char_end": 413,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "med.dose",
+      "value": "50-200-25 mg",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "50-200-25 mg",
+      "char_start": 414,
+      "char_end": 426,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 427,
+      "char_end": 431,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 439,
+      "char_end": 449,
+      "page_number": 1
+    }
+  ]
+}

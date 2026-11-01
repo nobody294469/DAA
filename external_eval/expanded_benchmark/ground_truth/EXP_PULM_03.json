@@ -1,0 +1,158 @@
+{
+  "doc_id": "EXP_PULM_03",
+  "category": "narrative_encounter",
+  "specialty": "Pulmonology",
+  "title": "Interstitial Lung Disease Note - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 13,
+  "claims": [
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "lab.test_name",
+      "value": "ALT",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ALT",
+      "char_start": 329,
+      "char_end": 332,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "lab.value",
+      "value": "34",
+      "value_numeric": 34.0,
+      "unit_raw": null,
+      "evidence_text": "34",
+      "char_start": 333,
+      "char_end": 335,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 336,
+      "char_end": 339,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "lab.test_name",
+      "value": "AST",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "AST",
+      "char_start": 344,
+      "char_end": 347,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "lab.value",
+      "value": "28",
+      "value_numeric": 28.0,
+      "unit_raw": null,
+      "evidence_text": "28",
+      "char_start": 348,
+      "char_end": 350,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 351,
+      "char_end": 354,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "lab.test_name",
+      "value": "Total Bilirubin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Total Bilirubin",
+      "char_start": 385,
+      "char_end": 400,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "lab.value",
+      "value": "0.7",
+      "value_numeric": 0.7,
+      "unit_raw": null,
+      "evidence_text": "0.7",
+      "char_start": 404,
+      "char_end": 407,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 408,
+      "char_end": 413,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "med.name",
+      "value": "Pirfenidone",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Pirfenidone",
+      "char_start": 415,
+      "char_end": 426,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "med.dose",
+      "value": "801 mg",
+      "value_numeric": 801.0,
+      "unit_raw": "mg",
+      "evidence_text": "801 mg",
+      "char_start": 427,
+      "char_end": 433,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 434,
+      "char_end": 436,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_PULM_03",
+      "field_type": "med.frequency",
+      "value": "three times daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "three times daily",
+      "char_start": 437,
+      "char_end": 454,
+      "page_number": 1
+    }
+  ]
+}

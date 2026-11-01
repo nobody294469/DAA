@@ -1,0 +1,262 @@
+{
+  "doc_id": "SYNTH_ENDO_01",
+  "specialty": "Endocrinology",
+  "title": "Endocrinology Follow-up Visit",
+  "is_synthetic": true,
+  "total_claims": 23,
+  "claims": [
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin A1c",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin A1c",
+      "char_start": 539,
+      "char_end": 553,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.value",
+      "value": "7.4",
+      "value_numeric": 7.4,
+      "unit_raw": null,
+      "evidence_text": "7.4",
+      "char_start": 557,
+      "char_end": 560,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.unit",
+      "value": "%",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "%",
+      "char_start": 560,
+      "char_end": 561,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 563,
+      "char_end": 567,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.test_name",
+      "value": "Microalbumin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Microalbumin",
+      "char_start": 581,
+      "char_end": 593,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.value",
+      "value": "45",
+      "value_numeric": 45.0,
+      "unit_raw": null,
+      "evidence_text": "45",
+      "char_start": 597,
+      "char_end": 599,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.unit",
+      "value": "mg/g",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/g",
+      "char_start": 600,
+      "char_end": 604,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 619,
+      "char_end": 629,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.value",
+      "value": "0.9",
+      "value_numeric": 0.9,
+      "unit_raw": null,
+      "evidence_text": "0.9",
+      "char_start": 643,
+      "char_end": 646,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 647,
+      "char_end": 652,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.name",
+      "value": "Metformin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Metformin",
+      "char_start": 681,
+      "char_end": 690,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.dose",
+      "value": "1000 mg",
+      "value_numeric": 1000.0,
+      "unit_raw": "mg",
+      "evidence_text": "1000 mg",
+      "char_start": 691,
+      "char_end": 698,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 699,
+      "char_end": 701,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.frequency",
+      "value": "BID",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BID",
+      "char_start": 702,
+      "char_end": 705,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.name",
+      "value": "Empagliflozin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Empagliflozin",
+      "char_start": 727,
+      "char_end": 740,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.dose",
+      "value": "10 mg",
+      "value_numeric": 10.0,
+      "unit_raw": "mg",
+      "evidence_text": "10 mg",
+      "char_start": 741,
+      "char_end": 746,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 747,
+      "char_end": 751,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 752,
+      "char_end": 762,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.name",
+      "value": "Glipizide",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Glipizide",
+      "char_start": 768,
+      "char_end": 777,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.dose",
+      "value": "5 mg",
+      "value_numeric": 5.0,
+      "unit_raw": "mg",
+      "evidence_text": "5 mg",
+      "char_start": 778,
+      "char_end": 782,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 783,
+      "char_end": 791,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 792,
+      "char_end": 797,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_ENDO_01",
+      "field_type": "med.duration",
+      "value": "30 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "30 days",
+      "char_start": 819,
+      "char_end": 826,
+      "page_number": 1
+    }
+  ]
+}

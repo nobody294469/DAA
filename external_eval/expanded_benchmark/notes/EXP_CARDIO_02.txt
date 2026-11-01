@@ -1,0 +1,14 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+ST. LUKE'S MEMORIAL HOSPITAL
+DISCHARGE SUMMARY
+PATIENT: Synthetic Patient Cardio-Exp-02    MRN: PAT-719302
+ADMISSION DATE: 2026-03-12    DISCHARGE DATE: 2026-03-15
+ATTENDING PHYSICIAN: Dr. Michael Torres, MD (NPI: 1749201839)
+
+HOSPITAL COURSE:
+The patient was admitted with chest pressure and diagnosed with NSTEMI. Cardiac catheterization revealed single-vessel LAD disease treated with drug-eluting stent. Peak Troponin I was 8.4 ng/mL and discharge Hemoglobin was 13.2 g/dL. Total Cholesterol on admission was 195 mg/dL.
+
+DISCHARGE MEDICATIONS:
+Aspirin 81 mg oral tablet once daily.
+Ticagrelor 90 mg PO BID for 12 months.
+Atorvastatin 80 mg by mouth daily at bedtime.

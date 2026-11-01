@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+COMPREHENSIVE EPILEPSY CLINIC
+Date: 2026-05-16    Patient: Synthetic Patient Neuro-Exp-01
+MRN: PAT-772018    DOB: 1991-03-22    Dr. Amelia Shepherd (NPI: 1649204932)
+
+THERAPEUTIC DRUG MONITORING:
+Serum Levetiracetam was 28 ug/mL (THERAPEUTIC).
+Serum Lamotrigine was 5.4 ug/mL (THERAPEUTIC).
+Serum Sodium was 138 mmol/L.
+
+ANTIEPILEPTIC REGIMEN:
+Levetiracetam 750 mg oral tablet twice daily.
+Lamotrigine 100 mg PO twice daily.

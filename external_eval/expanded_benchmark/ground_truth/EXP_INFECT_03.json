@@ -1,0 +1,136 @@
+{
+  "doc_id": "EXP_INFECT_03",
+  "category": "narrative_encounter",
+  "specialty": "Infectious Disease",
+  "title": "Lyme Disease Evaluation - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 11,
+  "claims": [
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Platelet Count",
+      "char_start": 323,
+      "char_end": 337,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "lab.value",
+      "value": "230",
+      "value_numeric": 230.0,
+      "unit_raw": null,
+      "evidence_text": "230",
+      "char_start": 341,
+      "char_end": 344,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 345,
+      "char_end": 352,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "lab.test_name",
+      "value": "ALT",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ALT",
+      "char_start": 360,
+      "char_end": 363,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "lab.value",
+      "value": "32",
+      "value_numeric": 32.0,
+      "unit_raw": null,
+      "evidence_text": "32",
+      "char_start": 367,
+      "char_end": 369,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 370,
+      "char_end": 373,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "med.name",
+      "value": "Doxycycline",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Doxycycline",
+      "char_start": 375,
+      "char_end": 386,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "med.dose",
+      "value": "100 mg",
+      "value_numeric": 100.0,
+      "unit_raw": "mg",
+      "evidence_text": "100 mg",
+      "char_start": 387,
+      "char_end": 393,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 394,
+      "char_end": 398,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 399,
+      "char_end": 410,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_INFECT_03",
+      "field_type": "med.duration",
+      "value": "for 21 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 21 days",
+      "char_start": 411,
+      "char_end": 422,
+      "page_number": 1
+    }
+  ]
+}

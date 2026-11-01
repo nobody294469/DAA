@@ -1,0 +1,224 @@
+{
+  "doc_id": "EXP_RHEUM_02",
+  "category": "narrative_encounter",
+  "specialty": "Rheumatology",
+  "title": "Systemic Lupus Erythematosus Progress Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 19,
+  "claims": [
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.test_name",
+      "value": "Complement C3",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Complement C3",
+      "char_start": 251,
+      "char_end": 264,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.value",
+      "value": "68",
+      "value_numeric": 68.0,
+      "unit_raw": null,
+      "evidence_text": "68",
+      "char_start": 269,
+      "char_end": 271,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 272,
+      "char_end": 277,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 279,
+      "char_end": 282,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.test_name",
+      "value": "Complement C4",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Complement C4",
+      "char_start": 285,
+      "char_end": 298,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.value",
+      "value": "11",
+      "value_numeric": 11.0,
+      "unit_raw": null,
+      "evidence_text": "11",
+      "char_start": 303,
+      "char_end": 305,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 306,
+      "char_end": 311,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 313,
+      "char_end": 316,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 366,
+      "char_end": 376,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.value",
+      "value": "0.8",
+      "value_numeric": 0.8,
+      "unit_raw": null,
+      "evidence_text": "0.8",
+      "char_start": 381,
+      "char_end": 384,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 385,
+      "char_end": 390,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "med.name",
+      "value": "Hydroxychloroquine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hydroxychloroquine",
+      "char_start": 413,
+      "char_end": 431,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "med.dose",
+      "value": "200 mg",
+      "value_numeric": 200.0,
+      "unit_raw": "mg",
+      "evidence_text": "200 mg",
+      "char_start": 432,
+      "char_end": 438,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 439,
+      "char_end": 443,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 451,
+      "char_end": 461,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "med.name",
+      "value": "Prednisone",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Prednisone",
+      "char_start": 463,
+      "char_end": 473,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "med.dose",
+      "value": "5 mg",
+      "value_numeric": 5.0,
+      "unit_raw": "mg",
+      "evidence_text": "5 mg",
+      "char_start": 474,
+      "char_end": 478,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 479,
+      "char_end": 481,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_02",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 482,
+      "char_end": 487,
+      "page_number": 1
+    }
+  ]
+}

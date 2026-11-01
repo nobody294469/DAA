@@ -1,0 +1,17 @@
+[SYNTHETIC CLINICAL LABORATORY REPORT - NOT PHI - FOR EVALUATION ONLY]
+LIVER & DIGESTIVE PATHOLOGY ASSOCIATES
+Date: 2026-04-17    Specimen: HEP-194820
+Patient: Synthetic Patient Lab-Exp-05    MRN: PAT-551928
+DOB: 1980-04-19    Sex: Male    Age: 46
+Physician: Dr. Kenneth Reed, MD (NPI: 1649203810)
+
+HEPATIC FUNCTION PANEL:
+Test                    Value       Normal Range        Units       Flag
+------------------------------------------------------------------------
+Total Protein           6.8         6.0 - 8.3           g/dL        NORMAL
+Albumin                 3.6         3.4 - 5.0           g/dL        NORMAL
+Total Bilirubin         2.4         0.2 - 1.2           mg/dL       HIGH
+Direct Bilirubin        1.1         0.0 - 0.3           mg/dL       HIGH
+Alkaline Phosphatase    195         40 - 130            U/L         HIGH
+ALT                     88          7 - 56              U/L         HIGH
+AST                     74          10 - 40             U/L         HIGH

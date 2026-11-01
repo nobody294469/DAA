@@ -1,0 +1,17 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+PULMONARY DISEASE CLINIC
+Date: 2026-04-04    Patient: Synthetic Patient Pulm-Exp-01
+MRN: PAT-904128    DOB: 1957-03-10    Age: 69
+Physician: Dr. Nancy Wheeler, MD (NPI: 1649203812)
+
+CHIEF COMPLAINT:
+Follow-up severe COPD with chronic bronchitis.
+
+LABORATORY FINDINGS:
+Recent CBC shows White Blood Cell Count 8.2 10*3/uL (NORMAL).
+Serum Bicarbonate was 31 mmol/L (HIGH).
+
+CURRENT MEDICATIONS:
+Continue Tiotropium 18 mcg inhalation once daily.
+Continue Budesonide-Formoterol 160-4.5 mcg inhalation twice daily.
+Continue Prednisone 10 mg oral once daily for 5 days.

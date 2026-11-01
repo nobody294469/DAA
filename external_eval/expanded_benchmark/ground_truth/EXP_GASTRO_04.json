@@ -1,0 +1,147 @@
+{
+  "doc_id": "EXP_GASTRO_04",
+  "category": "narrative_encounter",
+  "specialty": "Gastroenterology",
+  "title": "Peptic Ulcer Note - Simulated OCR Noise",
+  "format": "clinical_narrative_text",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 12,
+  "claims": [
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin",
+      "char_start": 243,
+      "char_end": 253,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "lab.value",
+      "value": "13.5",
+      "value_numeric": 13.5,
+      "unit_raw": null,
+      "evidence_text": "13.5",
+      "char_start": 258,
+      "char_end": 262,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 263,
+      "char_end": 267,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 269,
+      "char_end": 275,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 284,
+      "char_end": 294,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "lab.value",
+      "value": "0.8",
+      "value_numeric": 0.8,
+      "unit_raw": null,
+      "evidence_text": "0.8",
+      "char_start": 299,
+      "char_end": 302,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 303,
+      "char_end": 308,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "med.name",
+      "value": "Famotidine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Famotidine",
+      "char_start": 324,
+      "char_end": 334,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "med.dose",
+      "value": "20 mg",
+      "value_numeric": 20.0,
+      "unit_raw": "mg",
+      "evidence_text": "20 mg",
+      "char_start": 335,
+      "char_end": 340,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 341,
+      "char_end": 345,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 346,
+      "char_end": 357,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_04",
+      "field_type": "med.duration",
+      "value": "for 8 weeks",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 8 weeks",
+      "char_start": 358,
+      "char_end": 369,
+      "page_number": 1
+    }
+  ]
+}

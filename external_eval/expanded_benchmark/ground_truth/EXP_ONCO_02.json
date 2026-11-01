@@ -1,0 +1,191 @@
+{
+  "doc_id": "EXP_ONCO_02",
+  "category": "narrative_encounter",
+  "specialty": "Hematology",
+  "title": "Iron Deficiency Anemia Management",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 16,
+  "claims": [
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.test_name",
+      "value": "Ferritin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Ferritin",
+      "char_start": 254,
+      "char_end": 262,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.value",
+      "value": "8",
+      "value_numeric": 8.0,
+      "unit_raw": null,
+      "evidence_text": "8",
+      "char_start": 267,
+      "char_end": 268,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.unit",
+      "value": "ng/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ng/mL",
+      "char_start": 269,
+      "char_end": 274,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 276,
+      "char_end": 279,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin",
+      "char_start": 282,
+      "char_end": 292,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.value",
+      "value": "9.4",
+      "value_numeric": 9.4,
+      "unit_raw": null,
+      "evidence_text": "9.4",
+      "char_start": 297,
+      "char_end": 300,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 301,
+      "char_end": 305,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 307,
+      "char_end": 310,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.test_name",
+      "value": "Hematocrit",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hematocrit",
+      "char_start": 313,
+      "char_end": 323,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.value",
+      "value": "29.5",
+      "value_numeric": 29.5,
+      "unit_raw": null,
+      "evidence_text": "29.5",
+      "char_start": 328,
+      "char_end": 332,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.unit",
+      "value": "%",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "%",
+      "char_start": 332,
+      "char_end": 333,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 335,
+      "char_end": 338,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "med.name",
+      "value": "Ferrous Sulfate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Ferrous Sulfate",
+      "char_start": 372,
+      "char_end": 387,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "med.dose",
+      "value": "325 mg",
+      "value_numeric": 325.0,
+      "unit_raw": "mg",
+      "evidence_text": "325 mg",
+      "char_start": 388,
+      "char_end": 394,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 395,
+      "char_end": 399,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ONCO_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 407,
+      "char_end": 417,
+      "page_number": 1
+    }
+  ]
+}

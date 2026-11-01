@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+CANCER CARE CENTER
+Date: 2026-04-29    Patient: Synthetic Patient Onco-Exp-01
+MRN: PAT-661028    DOB: 1961-05-19    Dr. Eleanor Vance (NPI: 1449204924)
+
+LABORATORY MONITORING:
+White Blood Cell Count was 5.4 10*3/uL (NORMAL).
+Hemoglobin was 12.1 g/dL. Platelet Count was 185 10*3/uL.
+Serum Alkaline Phosphatase was 65 IU/L.
+
+ACTIVE REGIMEN:
+Anastrozole 1 mg oral tablet once daily.

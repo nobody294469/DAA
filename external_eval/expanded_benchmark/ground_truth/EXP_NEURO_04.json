@@ -1,0 +1,136 @@
+{
+  "doc_id": "EXP_NEURO_04",
+  "category": "narrative_encounter",
+  "specialty": "Neurology",
+  "title": "Multiple Sclerosis Note - Simulated OCR Noise",
+  "format": "clinical_narrative_text",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 11,
+  "claims": [
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "lab.test_name",
+      "value": "White Blood Cell Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "White Blood Cell Count",
+      "char_start": 250,
+      "char_end": 272,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "lab.value",
+      "value": "6.2",
+      "value_numeric": 6.2,
+      "unit_raw": null,
+      "evidence_text": "6.2",
+      "char_start": 277,
+      "char_end": 280,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 281,
+      "char_end": 288,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 290,
+      "char_end": 296,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "lab.test_name",
+      "value": "ALT",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ALT",
+      "char_start": 305,
+      "char_end": 308,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "lab.value",
+      "value": "24",
+      "value_numeric": 24.0,
+      "unit_raw": null,
+      "evidence_text": "24",
+      "char_start": 313,
+      "char_end": 315,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "lab.unit",
+      "value": "U/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "U/L",
+      "char_start": 316,
+      "char_end": 319,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "med.name",
+      "value": "Glatiramer Acetate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Glatiramer Acetate",
+      "char_start": 335,
+      "char_end": 353,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "med.dose",
+      "value": "20 mg",
+      "value_numeric": 20.0,
+      "unit_raw": "mg",
+      "evidence_text": "20 mg",
+      "char_start": 354,
+      "char_end": 359,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "med.route",
+      "value": "subcutaneous",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "subcutaneous",
+      "char_start": 360,
+      "char_end": 372,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_04",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 373,
+      "char_end": 383,
+      "page_number": 1
+    }
+  ]
+}

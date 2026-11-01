@@ -1,0 +1,202 @@
+{
+  "doc_id": "EXP_NEPHRO_03",
+  "category": "narrative_encounter",
+  "specialty": "Nephrology",
+  "title": "Kidney Transplant Follow-up - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 17,
+  "claims": [
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "lab.test_name",
+      "value": "Tacrolimus",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Tacrolimus",
+      "char_start": 323,
+      "char_end": 333,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "lab.value",
+      "value": "6.8",
+      "value_numeric": 6.8,
+      "unit_raw": null,
+      "evidence_text": "6.8",
+      "char_start": 350,
+      "char_end": 353,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "lab.unit",
+      "value": "ng/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ng/mL",
+      "char_start": 354,
+      "char_end": 359,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 367,
+      "char_end": 377,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "lab.value",
+      "value": "1.3",
+      "value_numeric": 1.3,
+      "unit_raw": null,
+      "evidence_text": "1.3",
+      "char_start": 381,
+      "char_end": 384,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 385,
+      "char_end": 390,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BUN",
+      "char_start": 395,
+      "char_end": 398,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "lab.value",
+      "value": "21",
+      "value_numeric": 21.0,
+      "unit_raw": null,
+      "evidence_text": "21",
+      "char_start": 402,
+      "char_end": 404,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 405,
+      "char_end": 410,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "med.name",
+      "value": "Tacrolimus",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Tacrolimus",
+      "char_start": 412,
+      "char_end": 422,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "med.dose",
+      "value": "2 mg",
+      "value_numeric": 2.0,
+      "unit_raw": "mg",
+      "evidence_text": "2 mg",
+      "char_start": 423,
+      "char_end": 427,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 428,
+      "char_end": 432,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 433,
+      "char_end": 444,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "med.name",
+      "value": "Mycophenolate Mofetil",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Mycophenolate Mofetil",
+      "char_start": 446,
+      "char_end": 467,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "med.dose",
+      "value": "500 mg",
+      "value_numeric": 500.0,
+      "unit_raw": "mg",
+      "evidence_text": "500 mg",
+      "char_start": 468,
+      "char_end": 474,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 475,
+      "char_end": 477,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEPHRO_03",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 478,
+      "char_end": 489,
+      "page_number": 1
+    }
+  ]
+}

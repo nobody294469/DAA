@@ -252,14 +252,19 @@ def test_h_explicit_grounded_flag_coexists_with_qualitative_value():
     bundle = claims_to_fhir_bundle(claims, ev_map, ver_map)
     obs = [e.resource for e in bundle.entry if e.resource.resource_type == "Observation"][0]
 
-    assert obs.valueString == "Negative"
+    # Phase 4.1: Verified qualitative values map to Observation.valueCodeableConcept with SNOMED CT
+    assert obs.valueCodeableConcept is not None
+    assert obs.valueCodeableConcept.text == "Negative"
+    assert obs.valueCodeableConcept.coding[0].code == "260385009"
+    assert obs.valueCodeableConcept.coding[0].system == "http://snomed.info/sct"
+    assert obs.valueString is None
     assert obs.valueQuantity is None
     assert obs.interpretation is not None
     assert obs.interpretation[0].coding[0].code == "N"
 
 
-def test_i_qualitative_value_exports_through_fhir_value_string():
-    """I. Qualitative value exports through FHIR Observation.valueString."""
+def test_i_qualitative_value_exports_through_fhir_value_codeable_concept_and_fallback():
+    """I. Verified qualitative values export through Observation.valueCodeableConcept; unmapped values export through valueString."""
     ev = _make_evidence(text="VDRL: Non-Reactive")
     claim = _make_claim(
         claim_id="c-val-vdrl",
@@ -275,8 +280,28 @@ def test_i_qualitative_value_exports_through_fhir_value_string():
     bundle = claims_to_fhir_bundle([claim], ev_map, ver_map)
     obs = [e.resource for e in bundle.entry if e.resource.resource_type == "Observation"][0]
 
-    assert obs.valueString == "Non-Reactive"
+    assert obs.valueCodeableConcept is not None
+    assert obs.valueCodeableConcept.text == "Non-Reactive"
+    assert obs.valueCodeableConcept.coding[0].code == "131194007"
+    assert obs.valueCodeableConcept.coding[0].system == "http://snomed.info/sct"
+    assert obs.valueString is None
     assert obs.valueQuantity is None
+
+    # Safe text-only fallback for unmapped qualitative finding
+    claim_unmapped = _make_claim(
+        claim_id="c-val-unmapped",
+        field_type="lab.value",
+        value="rare epithelial cells seen",
+        value_numeric=None,
+        normalized_code=None,
+        evidence_id="ev-qual-1",
+    )
+    ver_map_unmapped = {"c-val-unmapped": _make_verification("c-val-unmapped")}
+    bundle_unmapped = claims_to_fhir_bundle([claim_unmapped], ev_map, ver_map_unmapped)
+    obs_unmapped = [e.resource for e in bundle_unmapped.entry if e.resource.resource_type == "Observation"][0]
+    assert obs_unmapped.valueString == "rare epithelial cells seen"
+    assert obs_unmapped.valueCodeableConcept is None
+    assert obs_unmapped.valueQuantity is None
 
 
 def test_j_qualitative_value_never_exports_as_value_quantity_zero():
@@ -297,13 +322,15 @@ def test_j_qualitative_value_never_exports_as_value_quantity_zero():
         bundle = claims_to_fhir_bundle([claim], ev_map, ver_map)
         obs = [e.resource for e in bundle.entry if e.resource.resource_type == "Observation"][0]
 
-        assert obs.valueString == qv, f"Observation.valueString must equal '{qv}'"
+        assert obs.valueCodeableConcept is not None, f"Observation.valueCodeableConcept must be populated for '{qv}'"
+        assert obs.valueCodeableConcept.text == qv
         assert obs.valueQuantity is None, f"Observation.valueQuantity must NOT be emitted for qualitative '{qv}'"
+        assert obs.valueString is None
 
         # Check JSON representation to guarantee no 0.0 valueQuantity
         obs_dict = json.loads(obs.json())
         assert "valueQuantity" not in obs_dict, f"valueQuantity key must not exist in FHIR JSON for qualitative '{qv}'"
-        assert obs_dict.get("valueString") == qv
+        assert "valueCodeableConcept" in obs_dict
 
 
 def test_k_existing_numeric_lab_value_exports_through_value_quantity_as_before():

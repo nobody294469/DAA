@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+HEMATOLOGY CONSULTATION
+Date: 2026-05-01    Patient: Synthetic Patient Onco-Exp-02
+MRN: PAT-551028    DOB: 1988-11-23    Dr. Jonathan Crane (NPI: 1349204925)
+
+LABORATORY FINDINGS:
+Serum Ferritin was 8 ng/mL (LOW).
+Hemoglobin was 9.4 g/dL (LOW).
+Hematocrit was 29.5% (LOW).
+MCV was 72 fL (LOW).
+
+THERAPY:
+Ferrous Sulfate 325 mg oral tablet once daily with orange juice.

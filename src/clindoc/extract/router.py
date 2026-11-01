@@ -34,12 +34,15 @@ or verification cascade.
 """
 from __future__ import annotations
 
+import logging
 import re
 import uuid
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Optional, Union
 
 import yaml
+
+logger = logging.getLogger(__name__)
 
 from clindoc.extract.contracts import (
     Claim, DocumentExtractionOutput, Evidence,
@@ -95,6 +98,8 @@ class ExtractionRouter:
         med_catalog: dict | None = None,
         max_llm_retries: int = 2,
         profile: Optional[Union[RuntimeProfile, str]] = None,
+        enable_section_detection: bool | None = None,
+        section_detector: Any | None = None,
     ):
         """
         Args:
@@ -108,6 +113,8 @@ class ExtractionRouter:
             med_catalog: Optional medication catalog injection (for tests).
             max_llm_retries: Bounded LLM retry count (DEC-013: max 2).
             profile: Runtime execution profile (DEV or PRODUCTION).
+            enable_section_detection: Override section detection enabled flag (defaults to config).
+            section_detector: Optional injected section detector instance.
         """
         self.profile = RuntimeProfile.from_string(profile) if profile else get_active_profile()
         cfg = _load_extraction_config(config_path)
@@ -123,6 +130,27 @@ class ExtractionRouter:
             "escalation_rate_cap", _DEFAULT_ESCALATION_RATE_CAP
         )
 
+        # Section Detection (DEC-020 / PoC v3)
+        sec_cfg = cfg.get("section_detection", {})
+        if enable_section_detection is not None:
+            self.section_detection_enabled = enable_section_detection
+        else:
+            self.section_detection_enabled = sec_cfg.get("enabled", False)
+
+        if section_detector is not None:
+            self.section_detector = section_detector
+        elif self.section_detection_enabled:
+            try:
+                from clindoc.extract.section_detector import get_section_detector
+                self.section_detector = get_section_detector()
+            except Exception as e:
+                logger.warning(
+                    "SECTION_DETECTOR_INIT_FAILED: %s. Falling back to baseline.", e
+                )
+                self.section_detector = None
+        else:
+            self.section_detector = None
+
         # Sub-component construction
         region_cfg = cfg.get("region_classification", {})
         self.classifier = RegionClassifier(
@@ -134,6 +162,8 @@ class ExtractionRouter:
             loinc_map=loinc_map,
             ucum_map=ucum_map,
             med_catalog=med_catalog,
+            section_detector=self.section_detector,
+            enable_section_detection=self.section_detection_enabled,
         )
 
         # GLiNER: use injected provider or default to subprocess (lazy)
@@ -228,8 +258,20 @@ class ExtractionRouter:
         page_text = page.get_page_text()
         is_lab = self._detect_lab_page(doc.document_id, page_text, is_lab_default)
 
+        # Section detection (opt-in per page)
+        sections = None
+        if self.section_detection_enabled and self.section_detector is not None:
+            try:
+                sections = self.section_detector.detect_sections(page_text)
+            except Exception as e:
+                logger.warning(
+                    "SECTION_DETECTION_RUNTIME_FAILED in router for doc %s, p%s: %s. Falling back to baseline.",
+                    doc.document_id, page.page_number, e,
+                )
+                sections = None
+
         for rd in routing_decisions:
-            result = self._dispatch_region(doc, page, page_text, rd, is_lab)
+            result = self._dispatch_region(doc, page, page_text, rd, is_lab, sections=sections)
             results.append(result)
 
         return results
@@ -260,6 +302,7 @@ class ExtractionRouter:
         page_text: str,
         rd: RoutingDecision,
         is_lab: bool,
+        sections: list[Any] | None = None,
     ) -> ExtractionResult:
         """Dispatch a region to the appropriate extractor based on RoutingDecision."""
         region_text = self._get_region_text(rd, page_text)
@@ -270,7 +313,9 @@ class ExtractionRouter:
             char_offset = 0
 
         if rd.route == "deterministic":
-            return self._run_deterministic_path(doc, page, region_text, rd, is_lab, char_offset=char_offset)
+            return self._run_deterministic_path(
+                doc, page, region_text, rd, is_lab, char_offset=char_offset, sections=sections
+            )
         elif rd.route == "llm_narrative":
             return self._run_narrative_path(doc, page, region_text, rd, char_offset=char_offset)
         else:
@@ -315,6 +360,7 @@ class ExtractionRouter:
         rd: RoutingDecision,
         is_lab: bool,
         char_offset: int = 0,
+        sections: list[Any] | None = None,
     ) -> ExtractionResult:
         """Run deterministic extraction, escalate low-confidence Tier 1 to GLiNER and LLM (DEC-004)."""
         diagnostics: dict = {
@@ -327,7 +373,7 @@ class ExtractionRouter:
         # 1. Run deterministic extraction
         det_evidences, det_claims = self.deterministic.extract_region(
             doc.document_id, page, region_text, region_id=rd.region_id, is_lab=is_lab,
-            char_offset=char_offset,
+            char_offset=char_offset, sections=sections,
         )
 
         final_evidences: list[Evidence] = list(det_evidences)
@@ -374,13 +420,33 @@ class ExtractionRouter:
                 diagnostics["gliner_claims_added"] = 0
 
             # Check which low_conf claims were resolved by GLiNER
-            # Resolved if GLiNER produced claim of that field_type with confidence >= threshold
+            from clindoc.extract.evaluate import is_duplicate_claim
+
+            # Build evidence lookup across deterministic and GLiNER evidences
+            ev_lookup: dict[str, Evidence] = {e.evidence_id: e for e in final_evidences}
+            for e in gliner_evs:
+                ev_lookup[e.evidence_id] = e
+
             resolved_fields: set[str] = set()
             for g_clm in gliner_clms:
                 if g_clm.field_type in TIER_1_FIELDS and g_clm.extraction_confidence >= self.deterministic_threshold:
-                    final_claims.append(g_clm)
-                    resolved_fields.add(g_clm.field_type)
-            final_evidences.extend(gliner_evs)
+                    g_ev = ev_lookup.get(g_clm.evidence_id)
+                    # Check if g_clm duplicates any existing accepted claim at the same source location
+                    is_dup = any(
+                        is_duplicate_claim(g_clm, ex, candidate_ev=g_ev, existing_ev=ev_lookup.get(ex.evidence_id))
+                        for ex in final_claims
+                    )
+                    if not is_dup:
+                        final_claims.append(g_clm)
+                        if g_ev is not None and g_ev not in final_evidences:
+                            final_evidences.append(g_ev)
+                        resolved_fields.add(g_clm.field_type)
+                    else:
+                        diagnostics.setdefault("deduplicated_claims", []).append({
+                            "field_type": g_clm.field_type,
+                            "value": g_clm.value,
+                            "reason": "duplicate_at_source_location",
+                        })
 
             for low_claim in low_conf_tier1:
                 if low_claim.field_type not in resolved_fields:
@@ -404,12 +470,22 @@ class ExtractionRouter:
                     diagnostics["llm_diagnostics"] = llm_diag
                     llm_resolved_fields: set[str] = set()
 
+                    for e in llm_evs:
+                        ev_lookup[e.evidence_id] = e
+
                     # Accept LLM claims for unresolved Tier 1 fields
                     for l_clm in llm_clms:
                         if l_clm.field_type in TIER_1_FIELDS and l_clm.extraction_confidence >= self.deterministic_threshold:
-                            final_claims.append(l_clm)
-                            llm_resolved_fields.add(l_clm.field_type)
-                    final_evidences.extend(llm_evs)
+                            l_ev = ev_lookup.get(l_clm.evidence_id)
+                            is_dup = any(
+                                is_duplicate_claim(l_clm, ex, candidate_ev=l_ev, existing_ev=ev_lookup.get(ex.evidence_id))
+                                for ex in final_claims
+                            )
+                            if not is_dup:
+                                final_claims.append(l_clm)
+                                if l_ev is not None and l_ev not in final_evidences:
+                                    final_evidences.append(l_ev)
+                                llm_resolved_fields.add(l_clm.field_type)
 
                     # 4. Check if any fields failed all stages
                     for uc in unresolved_tier1:
@@ -428,6 +504,10 @@ class ExtractionRouter:
                             "status": "all_stages_failed",
                             "error": str(e),
                         })
+
+        # Ensure no orphaned evidence records remain: retain only evidence referenced by accepted claims
+        accepted_ev_ids = {c.evidence_id for c in final_claims}
+        final_evidences = [e for e in final_evidences if e.evidence_id in accepted_ev_ids]
 
         return ExtractionResult(
             routing_decision=rd,

@@ -77,3 +77,11 @@ extraction_confidence:
   min_emit_confidence: 0.30
   # Minimum acceptable OCR confidence in evidence span
   min_ocr_confidence: 0.50
+
+# ─── SECTION DETECTION (DEC-020 / PoC v3) ──────────────────────────────────────
+# Section-aware gating for laboratory extraction false-positive suppression.
+# Default: disabled (opt-in only, preserving baseline parity per PD-005).
+section_detection:
+  enabled: false
+  provider: "medspacy"
+  demographic_cutoff_chars: 400

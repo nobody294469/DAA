@@ -1,0 +1,268 @@
+{
+  "doc_id": "EXP_ENDO_01",
+  "category": "narrative_encounter",
+  "specialty": "Endocrinology",
+  "title": "Type 2 Diabetes Management Consultation",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 23,
+  "claims": [
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Glucose",
+      "char_start": 420,
+      "char_end": 427,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.value",
+      "value": "142",
+      "value_numeric": 142.0,
+      "unit_raw": null,
+      "evidence_text": "142",
+      "char_start": 432,
+      "char_end": 435,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 436,
+      "char_end": 441,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 443,
+      "char_end": 447,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin A1c",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin A1c",
+      "char_start": 450,
+      "char_end": 464,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.value",
+      "value": "7.8",
+      "value_numeric": 7.8,
+      "unit_raw": null,
+      "evidence_text": "7.8",
+      "char_start": 481,
+      "char_end": 484,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.unit",
+      "value": "%",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "%",
+      "char_start": 484,
+      "char_end": 485,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 487,
+      "char_end": 491,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 508,
+      "char_end": 518,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.value",
+      "value": "0.9",
+      "value_numeric": 0.9,
+      "unit_raw": null,
+      "evidence_text": "0.9",
+      "char_start": 566,
+      "char_end": 569,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 570,
+      "char_end": 575,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.name",
+      "value": "Metformin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Metformin",
+      "char_start": 638,
+      "char_end": 647,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.dose",
+      "value": "1000 mg",
+      "value_numeric": 1000.0,
+      "unit_raw": "mg",
+      "evidence_text": "1000 mg",
+      "char_start": 648,
+      "char_end": 655,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 656,
+      "char_end": 660,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 668,
+      "char_end": 679,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.name",
+      "value": "Empagliflozin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Empagliflozin",
+      "char_start": 697,
+      "char_end": 710,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.dose",
+      "value": "10 mg",
+      "value_numeric": 10.0,
+      "unit_raw": "mg",
+      "evidence_text": "10 mg",
+      "char_start": 711,
+      "char_end": 716,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 717,
+      "char_end": 719,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 720,
+      "char_end": 730,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.name",
+      "value": "Atorvastatin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Atorvastatin",
+      "char_start": 756,
+      "char_end": 768,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.dose",
+      "value": "20 mg",
+      "value_numeric": 20.0,
+      "unit_raw": "mg",
+      "evidence_text": "20 mg",
+      "char_start": 769,
+      "char_end": 774,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 775,
+      "char_end": 783,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_01",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 784,
+      "char_end": 789,
+      "page_number": 1
+    }
+  ]
+}

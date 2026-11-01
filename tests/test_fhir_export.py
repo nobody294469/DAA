@@ -190,6 +190,7 @@ def test_observation_mapping_with_loinc_ucum_and_provenance():
         claims=claims,
         evidence_map=ev_map,
         verification_map=ver_map,
+        document_metadata={"report_status": "final"},
         include_document_reference=True,
     )
 
@@ -484,15 +485,20 @@ def test_deterministic_serialization_and_sha256():
     v = make_test_verification()
 
     svc = FHIRExportService()
+    fixed_time = datetime.datetime(2026, 10, 30, 12, 0, 0, tzinfo=datetime.timezone.utc)
     res1 = svc.export_intermediate_representation(
         claims=[c],
         evidence_map={ev.evidence_id: ev},
         verification_map={c.claim_id: v},
+        pipeline_timing={"recorded_at": fixed_time},
+        document_metadata={"uploaded_at": fixed_time},
     )
     res2 = svc.export_intermediate_representation(
         claims=[c],
         evidence_map={ev.evidence_id: ev},
         verification_map={c.claim_id: v},
+        pipeline_timing={"recorded_at": fixed_time},
+        document_metadata={"uploaded_at": fixed_time},
     )
 
     assert res1.bundle_sha256 == res2.bundle_sha256

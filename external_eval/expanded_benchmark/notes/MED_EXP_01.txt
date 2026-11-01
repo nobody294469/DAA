@@ -1,0 +1,19 @@
+[SYNTHETIC CLINICAL PRESCRIPTION ORDER - NOT PHI - FOR EVALUATION ONLY]
+MEMORIAL REGIONAL HEART CENTER
+Order Date: 2026-04-10    Time: 09:15 EST
+Patient: Synthetic Patient Med-Exp-01    MRN: PAT-849201
+DOB: 1962-08-14    Age: 63    Gender: Male
+Prescriber: Dr. Elena Rostova, MD (NPI: 1092847192)
+Clinic Tel: (555) 432-8901    Fax: (555) 432-8902
+
+Prescribed Medications:
+
+Order #1:
+Medication: Atorvastatin 40 mg oral tablet
+Sig: Take 1 tablet by mouth once daily at bedtime
+Dispense: 90 tablets    Refills: 3
+
+Order #2:
+Medication: Metoprolol Succinate 50 mg oral tablet
+Sig: Take 1 tablet PO daily in the morning
+Dispense: 90 tablets    Refills: 3

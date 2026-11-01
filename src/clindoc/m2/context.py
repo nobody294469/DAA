@@ -174,46 +174,8 @@ def reconstruct_canonical_page_text(
         return "", []
 
     if is_tabular:
-        # Group tokens into horizontal rows
-        rows: list[list[dict[str, Any]]] = []
-        for l in page_lines:
-            placed = False
-            l_y0 = l["bbox"][1] if "bbox" in l and len(l["bbox"]) >= 2 else 0.0
-            for r in rows:
-                r_y0 = r[0]["bbox"][1] if "bbox" in r[0] and len(r[0]["bbox"]) >= 2 else 0.0
-                if abs(r_y0 - l_y0) < 2.5:
-                    r.append(l)
-                    placed = True
-                    break
-            if not placed:
-                rows.append([l])
-
-        row_records: list[dict[str, Any]] = []
-        row_texts: list[str] = []
-        current_offset = 0
-
-        for r in rows:
-            # Sort horizontally by x0
-            r_sorted = sorted(r, key=lambda x: x["bbox"][0] if "bbox" in x else 0.0)
-            text = " ".join(x.get("text", "") for x in r_sorted)
-            x0 = min(x["bbox"][0] for x in r_sorted if "bbox" in x)
-            y0 = min(x["bbox"][1] for x in r_sorted if "bbox" in x)
-            x1 = max(x["bbox"][2] for x in r_sorted if "bbox" in x)
-            y1 = max(x["bbox"][3] for x in r_sorted if "bbox" in x)
-            conf = sum(x.get("confidence", 1.0) for x in r_sorted) / max(len(r_sorted), 1)
-
-            row_records.append({
-                "text": text,
-                "bbox": [x0, y0, x1, y1],
-                "char_start": current_offset,
-                "char_end": current_offset + len(text),
-                "confidence": conf,
-                "page": page_number,
-            })
-            row_texts.append(text)
-            current_offset += len(text) + 1  # account for \n
-
-        return "\n".join(row_texts), row_records
+        from clindoc.ocr.table_layout import reconstruct_tabular_page_text
+        return reconstruct_tabular_page_text(page_lines, page_number=page_number)
 
     # Non-tabular documents: lines in sequence
     row_records = []

@@ -1,0 +1,11 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+INPATIENT DISCHARGE NOTE
+Date: 2O26-O4-12    Patient: Synthetic Patient Pulm-Exp-04
+MRN: PAT-601928    DOB: 1978-05-12    Dr. Kevin Hart (NPI: 1349203815)
+
+LABS:
+Procalcitonin was 0.08 ng/mL (NORMAL).
+White Blood Cell Count was 7.4 10*3/uL.
+
+DISCHARGE PRESCRIPTION:
+Azithromycin 250 mg oral once daily for 3 days.

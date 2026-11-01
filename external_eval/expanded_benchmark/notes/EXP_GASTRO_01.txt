@@ -1,0 +1,15 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+HEPATOLOGY OUTPATIENT CLINIC
+Date: 2026-05-07    Patient: Synthetic Patient Gastro-Exp-01
+MRN: PAT-221028    DOB: 1964-04-12    Dr. Daniel Cho (NPI: 1049204928)
+
+LABORATORY RESULTS:
+Serum Total Bilirubin was 2.8 mg/dL (HIGH).
+Serum Albumin was 2.7 g/dL (LOW).
+INR was 1.5 (HIGH). Platelet Count was 78 10*3/uL (LOW).
+Serum Sodium was 132 mmol/L (LOW).
+
+MEDICATION ORDERS:
+Spironolactone 100 mg oral tablet once daily in the morning.
+Furosemide 40 mg PO once daily.
+Lactulose 20 g by mouth three times daily.

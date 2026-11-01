@@ -1,0 +1,24 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+PATIENT: Synthetic Patient Cardio-Exp-01    MRN: PAT-819201
+ENCOUNTER: Cardiology Outpatient Visit    DATE: 2026-03-10
+DOB: 1958-09-12    AGE: 67    SEX: M
+PROVIDER: Dr. Sarah Vance, MD (NPI: 1092837461)    TEL: 555-019-2831
+VITALS: BP 126/78 mmHg, Pulse 68 bpm, Temp 98.4 F, SpO2 97% on room air
+
+CHIEF COMPLAINT:
+Follow-up chronic systolic heart failure (HFrEF, EF 30%).
+
+HISTORY OF PRESENT ILLNESS:
+The patient is a 67-year-old male presenting for routine follow-up. He reports stable exercise tolerance and denies orthopnea, paroxysmal nocturnal dyspnea, or chest pain. No peripheral edema.
+
+LABORATORY FINDINGS:
+Serum chemistries obtained today show Potassium 4.4 mmol/L (NORMAL). Serum BNP is stable at 110 pg/mL. BUN was 19 mg/dL and Creatinine was 1.0 mg/dL.
+
+ASSESSMENT AND PLAN:
+1. Heart failure with reduced ejection fraction - clinically stable.
+2. Continue guideline-directed medical therapy.
+
+MEDICATIONS:
+Continue Sacubitril-Valsartan 49-51 mg oral tablet twice daily.
+Continue Metoprolol Succinate 100 mg PO daily in the morning.
+Continue Spironolactone 25 mg by mouth once daily.

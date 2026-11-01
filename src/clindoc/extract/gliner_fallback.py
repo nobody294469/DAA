@@ -55,6 +55,228 @@ _REJECTED_LABELS: frozenset[str] = frozenset({
     "duration",   # med.duration is Tier 2 (DEC-019); must NOT be emitted by GLiNER
 })
 
+# Validation patterns for GLiNER claims
+_VITAL_PAT = re.compile(
+    r"""\b(?:BP\s+\d+/\d+|Pulse\s+\d+|Temp\s+\d+(?:\.\d+)?|SpO2\s+\d+%?|Heart\s+Rate\s+\d+|RR\s+\d+)\b""",
+    re.IGNORECASE,
+)
+_VITAL_LINE_PAT = re.compile(
+    r"""\b(?:vitals?|vital\s+signs?|blood\s+pressure|heart\s+rate|temperature|pulse|spo2|oxygen\s+saturation)\s*:""",
+    re.IGNORECASE,
+)
+_DATE_PAT = re.compile(r"""\b(?:\d{4}[-/.][01O]\d[-/.][0-3O]\d|[01O]\d[-/.][0-3O]\d[-/.]\d{2,4})\b""")
+_OCR_DATE_PAT = re.compile(r"""\b(?:[12][0-9O]{3}[-/.][0-9O]{2}[-/.][0-9O]{2})\b""")
+_METADATA_PAT = re.compile(r"""\b(?:mrn|npi|tel|phone|fax|dob|zip|pat|patient)\s*:?-?\s*[\w-]+""", re.IGNORECASE)
+_ID_CODE_PAT = re.compile(r"""\b[A-Za-z]{2,}-\d+\b""")
+_REF_INTERVAL_PAT = re.compile(r"""^\d+(?:\.\d+)?\s*[-–—]\s*\d+(?:\.\d+)?(?:\s+[a-zA-Z/%]+)?$""")
+_ANALYTE_SUFFIX_PAT = re.compile(r"""\b(?:protein|count|panel|screen|test|level|analyte|specimen|profile)\b""", re.IGNORECASE)
+
+_QUALITATIVE_LAB_TERMS = frozenset({
+    "negative", "positive", "non-reactive", "nonreactive", "reactive",
+    "detected", "not detected", "not-detected", "equivocal", "trace",
+    "present", "absent", "indeterminate",
+})
+
+_LAB_ANALYTE_OR_FLAG_WORDS = frozenset({
+    "normal", "high", "low", "critical", "elevated", "abnormal", "wnl",
+    "serum creatinine", "hemoglobin", "white blood cell count", "platelet count",
+    "bun", "serum sodium", "serum alt", "npi", "potassium", "serum potassium",
+    "creatinine", "total cholesterol", "hemoglobin a1c", "ast", "hematocrit",
+    "calcium", "total bilirubin", "serum tsh", "free t4", "free t3", "serum glucose",
+    "troponin i", "troponin t", "bnp", "peak troponin i", "peak troponin t",
+    "sodium", "chloride", "bicarbonate", "co2", "anion gap", "magnesium",
+    "phosphorus", "albumin", "total protein", "alkaline phosphatase", "alt",
+    "bilirubin", "inr", "pt", "ptt",
+    "cd4 count", "cd4", "paco2", "pao2", "hco3", "24-hour urine protein",
+    "urine protein", "total t3", "total t4", "viral load", "hiv viral load",
+})
+
+_CONCENTRATION_UNIT_PAT = re.compile(r"/(?:dL|min|g|mL|L|uL|mm3|hpf|lpf|kg)\b", re.IGNORECASE)
+_DOSE_UNIT_PAT = re.compile(
+    r"""\b(\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)*)\s*(mg|mcg|g|mL|units?|puffs?|tablets?|capsules?|tabs?|caps?|drops?|patches?|sprays?|mEq)\b(?!/(?:dL|min|g|mL|L|uL))""",
+    re.IGNORECASE,
+)
+_DISPENSE_PAT = re.compile(r"""(?:\b(?:dispense|refills?|quantity|qty)\s*:?\s*#?|#)\s*\d+""", re.IGNORECASE)
+
+
+def is_valid_gliner_lab_value(val: str, ctx: str = "") -> bool:
+    """Validate that an extracted GLiNER entity actually represents a lab value.
+
+    Rejects analyte names, categorical flags, vital signs, metadata tokens,
+    demographics, and reference intervals. Preserves numeric, signed, decimal,
+    and inequality-prefixed values, compound numeric values with units,
+    analyte-prefixed results (e.g. 'INR 2.3'), and standard qualitative lab
+    determinations.
+    """
+    v_clean = val.strip().lower()
+    if v_clean in _LAB_ANALYTE_OR_FLAG_WORDS:
+        return False
+    if v_clean in _QUALITATIVE_LAB_TERMS:
+        return True
+    if not re.search(r"\d", val):
+        return False
+    if _VITAL_PAT.search(val):
+        return False
+    if ctx and _VITAL_LINE_PAT.search(ctx) and _VITAL_PAT.search(ctx):
+        return False
+
+    # Metadata & demographic entity suppression
+    if _METADATA_PAT.search(val) or _ID_CODE_PAT.search(val) or _DATE_PAT.fullmatch(v_clean) or _OCR_DATE_PAT.fullmatch(val.strip()):
+        return False
+
+    # Standalone 10-digit NPI / phone numbers
+    if re.fullmatch(r"\d{10}", val.strip()):
+        return False
+
+    # Contextual age: e.g. "Age: 63"
+    if ctx and re.search(r"\bage\s*:\s*" + re.escape(val.strip()) + r"\b", ctx, re.IGNORECASE):
+        # Only reject if val is just the bare number without a lab concentration unit
+        if not re.search(r"\b(?:mg|mcg|g|mL|mmol|uL|U|IU|mEq|%|pg|cells)\b", val, re.IGNORECASE):
+            return False
+
+    # Contextual date / order prefix: e.g. "Date: 2O26-O4-28" or "Order: RX-19482"
+    if ctx and re.search(r"\b(?:date|order|rx)\s*:\s*" + re.escape(val.strip()), ctx, re.IGNORECASE):
+        if not re.search(r"\b(?:mg|mcg|g|mL|mmol|uL|U|IU|mEq|%|pg|cells)\b", val, re.IGNORECASE):
+            return False
+
+    # Hyphenated reference intervals: e.g. "7.35 - 7.45", "30 - 100 ng/mL"
+    if _REF_INTERVAL_PAT.search(val.strip()):
+        return False
+
+    # Comparator-plus-unit reference limit preceded by a result value on the same line:
+    # e.g. "eGFR 28 > 60 mL/min LOW" where "28" is the result and "> 60 mL/min" is the reference range.
+    if re.match(r"^[<>]=?\s*-?\d+(?:\.\d+)?", val.strip()):
+        if ctx:
+            idx_in_ctx = ctx.find(val)
+            if idx_in_ctx > 0:
+                preceding_ctx = ctx[:idx_in_ctx].strip()
+                if re.search(r"\b\d+(?:\.\d+)?\s*$", preceding_ctx):
+                    return False
+
+    # Analyte names with digits:
+    # 1. Names ending with descriptive analyte nouns (e.g. "24-hour urine protein", "CD4 Count")
+    if _ANALYTE_SUFFIX_PAT.search(val):
+        m_num = re.search(r"(?<![a-zA-Z\d.-])([<>]=?\s*-?\d+(?:\.\d+)?)(?![a-zA-Z\d])", val)
+        if not m_num or (m_num.start() == 0 and re.search(r"^\d+(?:-hour|-hr)\b", val, re.IGNORECASE)):
+            return False
+
+    # 2. Analyte codes where all digits are fused to letters without an independent measurement:
+    # e.g. "PaCO2", "PaO2", "HCO3", "Free T3"
+    tokens = val.split()
+    if all(re.search(r"[a-zA-Z]+\d+", tok) or not re.search(r"\d", tok) for tok in tokens):
+        return False
+
+    return True
+
+
+def is_valid_gliner_med_dose(val: str, ctx: str = "") -> bool:
+    """Validate that an extracted GLiNER entity actually represents a medication dose.
+
+    Rejects laboratory concentration units, dispense quantities, refill counts,
+    and unrelated numbers. Supports mass/volume units, dosage forms, and decimals.
+    """
+    v_clean = val.strip().lower()
+    if _CONCENTRATION_UNIT_PAT.search(val):
+        return False
+    if _DISPENSE_PAT.search(val):
+        return False
+    if _METADATA_PAT.search(val) or _DATE_PAT.search(val):
+        return False
+    if _DOSE_UNIT_PAT.search(val):
+        return True
+    if re.fullmatch(r"\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)*", val.strip()):
+        if ctx and _DOSE_UNIT_PAT.search(ctx):
+            return True
+        return False
+    return False
+
+
+_RECOGNIZED_LAB_FLAGS = frozenset({
+    "normal", "high", "low", "critical", "abnormal", "elevated",
+    "critical high", "critical low", "panic", "panic high", "panic low",
+    "wnl", "hi", "lo",
+    "h", "l",
+    "neg", "pos", "negative", "positive",
+    "reactive", "non-reactive", "nonreactive",
+    "undetectable", "detectable",
+    "equivocal", "indeterminate",
+})
+
+_QUANTITATIVE_FLAG_PAT = re.compile(r"^(?:[1-4]\+|\+{1,4})$")
+
+
+def is_valid_gliner_lab_flag(val: str, ctx: str = "") -> bool:
+    """Validate that an extracted GLiNER entity actually represents a clinical lab flag.
+
+    Accepts standardized categorical clinical flags (HIGH, LOW, NORMAL, CRITICAL,
+    ABNORMAL, ELEVATED, NEGATIVE, POSITIVE, REACTIVE, NON-REACTIVE, UNDETECTABLE,
+    DETECTABLE, H, L) and quantitative flags (1+, 2+, 3+, 4+).
+
+    Rejects header tokens, disclaimers ('PHI', 'NOT PHI', 'SYNTHETIC CLINICAL ENCOUNTER NOTE'),
+    patient/provider/encounter identifiers ('PAT-819201', NPIs, MRNs), dates, timestamps,
+    room/bed identifiers, pure numeric values, and long narrative phrases.
+    """
+    if not val or not val.strip():
+        return False
+
+    v_strip = val.strip()
+    # Strip leading/trailing brackets, parentheses, colons, punctuation
+    v_clean = re.sub(r"^[\s\(\[\{]+|[\s\)\]\}\.\,\:\;]+$", "", v_strip).strip().lower()
+    if not v_clean:
+        return False
+
+    # Length & word count bounds: flags are short tokens
+    if len(v_clean) > 25 or len(v_clean.split()) > 3:
+        return False
+
+    # Disclaimers, headers, metadata tokens
+    if re.search(
+        r"\b(?:phi|not\s+phi|synthetic|clinical|encounter|note|evaluation|only|disclaimer|report|attending|specimen)\b",
+        v_clean,
+    ):
+        return False
+    if _METADATA_PAT.search(v_strip) or _ID_CODE_PAT.search(v_strip):
+        return False
+    if _DATE_PAT.search(v_strip) or _OCR_DATE_PAT.search(v_strip):
+        return False
+    if re.search(r"\b\d{1,2}:\d{2}\b", v_strip):
+        return False
+    if re.search(r"\b(?:icu\s+)?bed\b|\broom\b", v_clean):
+        return False
+
+    # Pure numeric values (e.g. '12', '24', '145') are values/counts, not flags
+    if re.fullmatch(r"^-?\d+(?:\.\d+)?$", v_clean):
+        return False
+
+    # Single-char flags (H, L): must not be a unit suffix (e.g., '/L' in 'mEq/L' or 'g/dL')
+    if v_clean in {"h", "l"}:
+        if ctx:
+            idx = ctx.find(v_strip)
+            if idx > 0 and ctx[idx - 1] in "/-":
+                return False
+            if idx >= 0 and idx + len(v_strip) < len(ctx):
+                after_char = ctx[idx + len(v_strip)]
+                if after_char.isalnum():
+                    return False
+
+    # Contextual check: adjective modifying non-lab nouns (e.g., 'high risk', 'low blood pressure')
+    if v_clean in {"high", "low", "elevated", "abnormal"}:
+        if ctx and re.search(
+            r"\b" + re.escape(v_strip) + r"\s+(?:risk|blood\s+pressure|fever|potency|dose|doses|intake)\b",
+            ctx,
+            re.IGNORECASE,
+        ):
+            return False
+
+    # Check against allowlist of clinical flags and quantitative patterns
+    if v_clean in _RECOGNIZED_LAB_FLAGS:
+        return True
+    if _QUANTITATIVE_FLAG_PAT.fullmatch(v_clean):
+        return True
+
+    return False
+
+
 # The GLiNER worker's canonical label set (must match gliner_worker.py)
 _WORKER_LABELS = [
     "medication", "dosage", "dose unit", "dosage form",
@@ -143,7 +365,26 @@ class SubprocessGLiNERProvider:
             with open(out_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-        return data.get("results", [[] for _ in texts])
+        raw_results = data.get("results", [[] for _ in texts])
+        filtered_results = []
+        for text_item, ents in zip(texts, raw_results):
+            valid_ents = []
+            for ent in ents:
+                lbl = ent.get("label", "")
+                if lbl in ("lab_flag", "lab flag"):
+                    span_text = ent.get("text", "")
+                    start = ent.get("start", 0)
+                    end = ent.get("end", len(span_text))
+                    line_start = text_item.rfind("\n", 0, start) + 1
+                    line_end = text_item.find("\n", end)
+                    if line_end == -1:
+                        line_end = len(text_item)
+                    line_ctx = text_item[line_start:line_end]
+                    if not is_valid_gliner_lab_flag(span_text, line_ctx):
+                        continue
+                valid_ents.append(ent)
+            filtered_results.append(valid_ents)
+        return filtered_results
 
 
 # ─── MOCK PROVIDER (for tests, no model download) ────────────────────────────
@@ -332,6 +573,57 @@ class GLiNERFallbackExtractor:
                     diagnostics.setdefault("unsupported_labels", []).append(label)
                 continue
 
+            # Line context for contextual gating
+            line_start = region_text.rfind("\n", 0, span_start) + 1
+            line_end = region_text.find("\n", span_end)
+            if line_end == -1:
+                line_end = len(region_text)
+            line_ctx = region_text[line_start:line_end]
+
+            # Field-specific validation gates
+            if field_type == "lab.value":
+                if not is_valid_gliner_lab_value(span_text, line_ctx):
+                    self.last_diagnostics.setdefault("rejected_claims", []).append({
+                        "field_type": field_type,
+                        "value": span_text,
+                        "reason": "invalid_lab_value_or_vital_sign",
+                    })
+                    if diagnostics is not None:
+                        diagnostics.setdefault("rejected_claims", []).append({
+                            "field_type": field_type,
+                            "value": span_text,
+                            "reason": "invalid_lab_value_or_vital_sign",
+                        })
+                    continue
+            elif field_type == "med.dose":
+                if not is_valid_gliner_med_dose(span_text, line_ctx):
+                    self.last_diagnostics.setdefault("rejected_claims", []).append({
+                        "field_type": field_type,
+                        "value": span_text,
+                        "reason": "invalid_med_dose_or_quantity",
+                    })
+                    if diagnostics is not None:
+                        diagnostics.setdefault("rejected_claims", []).append({
+                            "field_type": field_type,
+                            "value": span_text,
+                            "reason": "invalid_med_dose_or_quantity",
+                        })
+                    continue
+            elif field_type == "lab.flag":
+                if not is_valid_gliner_lab_flag(span_text, line_ctx):
+                    self.last_diagnostics.setdefault("rejected_claims", []).append({
+                        "field_type": field_type,
+                        "value": span_text,
+                        "reason": "invalid_lab_flag_or_metadata",
+                    })
+                    if diagnostics is not None:
+                        diagnostics.setdefault("rejected_claims", []).append({
+                            "field_type": field_type,
+                            "value": span_text,
+                            "reason": "invalid_lab_flag_or_metadata",
+                        })
+                    continue
+
             # Compute page-local character offsets
             page_char_start = char_offset + span_start
             page_char_end = char_offset + span_end
@@ -371,7 +663,11 @@ class GLiNERFallbackExtractor:
                         pass
                 # Extract unit_raw for dose
                 if field_type == "med.dose":
-                    unit_m = re.search(r"\b(mg|mcg|g|mL|units?|puffs?)\b", span_text, re.IGNORECASE)
+                    unit_m = re.search(
+                        r"\b(mg|mcg|g|mL|units?|puffs?|tablets?|capsules?|tabs?|caps?|drops?|patches?|sprays?|mEq)\b",
+                        span_text,
+                        re.IGNORECASE,
+                    )
                     if unit_m:
                         unit_raw = unit_m.group(1).lower()
 

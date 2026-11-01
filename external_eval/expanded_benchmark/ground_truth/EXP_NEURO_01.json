@@ -1,0 +1,202 @@
+{
+  "doc_id": "EXP_NEURO_01",
+  "category": "narrative_encounter",
+  "specialty": "Neurology",
+  "title": "Epilepsy Clinic Management Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 17,
+  "claims": [
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "lab.test_name",
+      "value": "Levetiracetam",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Levetiracetam",
+      "char_start": 270,
+      "char_end": 283,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "lab.value",
+      "value": "28",
+      "value_numeric": 28.0,
+      "unit_raw": null,
+      "evidence_text": "28",
+      "char_start": 288,
+      "char_end": 290,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "lab.unit",
+      "value": "ug/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ug/mL",
+      "char_start": 291,
+      "char_end": 296,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "lab.test_name",
+      "value": "Lamotrigine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Lamotrigine",
+      "char_start": 318,
+      "char_end": 329,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "lab.value",
+      "value": "5.4",
+      "value_numeric": 5.4,
+      "unit_raw": null,
+      "evidence_text": "5.4",
+      "char_start": 334,
+      "char_end": 337,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "lab.unit",
+      "value": "ug/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ug/mL",
+      "char_start": 338,
+      "char_end": 343,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "lab.test_name",
+      "value": "Sodium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sodium",
+      "char_start": 365,
+      "char_end": 371,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "lab.value",
+      "value": "138",
+      "value_numeric": 138.0,
+      "unit_raw": null,
+      "evidence_text": "138",
+      "char_start": 376,
+      "char_end": 379,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 380,
+      "char_end": 386,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "med.name",
+      "value": "Levetiracetam",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Levetiracetam",
+      "char_start": 412,
+      "char_end": 425,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "med.dose",
+      "value": "750 mg",
+      "value_numeric": 750.0,
+      "unit_raw": "mg",
+      "evidence_text": "750 mg",
+      "char_start": 426,
+      "char_end": 432,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 433,
+      "char_end": 437,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 445,
+      "char_end": 456,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "med.name",
+      "value": "Lamotrigine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Lamotrigine",
+      "char_start": 458,
+      "char_end": 469,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "med.dose",
+      "value": "100 mg",
+      "value_numeric": 100.0,
+      "unit_raw": "mg",
+      "evidence_text": "100 mg",
+      "char_start": 470,
+      "char_end": 476,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 477,
+      "char_end": 479,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_NEURO_01",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 480,
+      "char_end": 491,
+      "page_number": 1
+    }
+  ]
+}

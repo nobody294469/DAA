@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+DIALYSIS CENTER PROGRESS NOTE
+Date: 2026-04-16    Patient: Synthetic Patient Nephro-Exp-02
+MRN: PAT-401928    DOB: 1965-01-24    Dr. Brian O'Connor (NPI: 1149203817)
+
+PRE-DIALYSIS LABS:
+Pre-dialysis Potassium was 5.4 mmol/L (HIGH).
+Serum Phosphorus was 5.8 mg/dL (HIGH).
+Serum Calcium was 9.1 mg/dL.
+
+MEDICATIONS:
+Sevelamer Carbonate 800 mg oral tablet three times daily with meals.
+Calcitriol 0.25 mcg PO once daily.

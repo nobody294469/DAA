@@ -1,0 +1,11 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+MULTIPLE SCLEROSIS CENTER
+Date: 2O26-O5-22    Patient: Synthetic Patient Neuro-Exp-04
+MRN: PAT-442018    DOB: 1986-06-25    Dr. Callie Torres (NPI: 1349204935)
+
+LABORATORY FINDINGS:
+White Blood Cell Count was 6.2 10*3/uL (NORMAL).
+Serum ALT was 24 U/L.
+
+MEDICATIONS:
+Glatiramer Acetate 20 mg subcutaneous once daily.

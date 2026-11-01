@@ -1,0 +1,17 @@
+[SYNTHETIC CLINICAL PRESCRIPTION ORDER - NOT PHI - FOR EVALUATION ONLY]
+ARTHRITIS & RHEUMATOLOGY CLINIC
+Date: 2O26-O4-28    Order: RX-19482
+Patient: Synthetic Patient Med-Exp-08    MRN: PAT-184920
+DOB: 1965-02-14    Physician: Dr. Sandra Hayes, MD (NPI: 1849203716)
+
+Prescriptions:
+
+Order #1:
+Medication: Meloxicam 15 mg oral tablet
+Sig: Take 1 tablet by mouth daily with meals
+Dispense: 30 tablets    Refills: 3
+
+Order #2:
+Medication: Methotrexate 15 mg oral tablet
+Sig: Take 15 mg PO once weekly on Mondays
+Dispense: 12 tablets    Refills: 2

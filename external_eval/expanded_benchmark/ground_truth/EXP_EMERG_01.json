@@ -1,0 +1,235 @@
+{
+  "doc_id": "EXP_EMERG_01",
+  "category": "narrative_encounter",
+  "specialty": "Emergency Medicine",
+  "title": "Emergency Department Chest Pain Protocol",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 20,
+  "claims": [
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.test_name",
+      "value": "Troponin T",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Troponin T",
+      "char_start": 378,
+      "char_end": 388,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.value",
+      "value": "12",
+      "value_numeric": 12.0,
+      "unit_raw": null,
+      "evidence_text": "12",
+      "char_start": 393,
+      "char_end": 395,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.unit",
+      "value": "ng/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ng/L",
+      "char_start": 396,
+      "char_end": 400,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 402,
+      "char_end": 408,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 417,
+      "char_end": 426,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.value",
+      "value": "4.0",
+      "value_numeric": 4.0,
+      "unit_raw": null,
+      "evidence_text": "4.0",
+      "char_start": 431,
+      "char_end": 434,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 435,
+      "char_end": 441,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 443,
+      "char_end": 449,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Glucose",
+      "char_start": 458,
+      "char_end": 465,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.value",
+      "value": "118",
+      "value_numeric": 118.0,
+      "unit_raw": null,
+      "evidence_text": "118",
+      "char_start": 470,
+      "char_end": 473,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 474,
+      "char_end": 479,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 481,
+      "char_end": 485,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "med.name",
+      "value": "Aspirin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Aspirin",
+      "char_start": 505,
+      "char_end": 512,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "med.dose",
+      "value": "324 mg",
+      "value_numeric": 324.0,
+      "unit_raw": "mg",
+      "evidence_text": "324 mg",
+      "char_start": 513,
+      "char_end": 519,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 520,
+      "char_end": 524,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "med.frequency",
+      "value": "once stat",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once stat",
+      "char_start": 541,
+      "char_end": 550,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "med.name",
+      "value": "Nitroglycerin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Nitroglycerin",
+      "char_start": 552,
+      "char_end": 565,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "med.dose",
+      "value": "0.4 mg",
+      "value_numeric": 0.4,
+      "unit_raw": "mg",
+      "evidence_text": "0.4 mg",
+      "char_start": 566,
+      "char_end": 572,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "med.route",
+      "value": "sublingual",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "sublingual",
+      "char_start": 573,
+      "char_end": 583,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_01",
+      "field_type": "med.frequency",
+      "value": "every 5 minutes",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 5 minutes",
+      "char_start": 584,
+      "char_end": 599,
+      "page_number": 1
+    }
+  ]
+}

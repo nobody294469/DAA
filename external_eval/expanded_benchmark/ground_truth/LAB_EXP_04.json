@@ -1,0 +1,225 @@
+{
+  "doc_id": "LAB_EXP_04",
+  "category": "structured_lab",
+  "specialty": "Nephrology / Renal",
+  "title": "Renal Function Panel - Tabular ASCII",
+  "format": "tabular_ocr",
+  "features": [
+    "ascii_table",
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 19,
+  "claims": [
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.test_name",
+      "value": "BUN",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BUN",
+      "char_start": 448,
+      "char_end": 451,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.value",
+      "value": "32",
+      "value_numeric": 32.0,
+      "unit_raw": null,
+      "evidence_text": "32",
+      "char_start": 467,
+      "char_end": 469,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.reference_range",
+      "value": "7 - 20",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "7 - 20",
+      "char_start": 479,
+      "char_end": 485,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 499,
+      "char_end": 504,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 510,
+      "char_end": 514,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 515,
+      "char_end": 525,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.value",
+      "value": "2.4",
+      "value_numeric": 2.4,
+      "unit_raw": null,
+      "evidence_text": "2.4",
+      "char_start": 534,
+      "char_end": 537,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.reference_range",
+      "value": "0.6 - 1.2",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "0.6 - 1.2",
+      "char_start": 546,
+      "char_end": 555,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 566,
+      "char_end": 571,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 577,
+      "char_end": 581,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.test_name",
+      "value": "eGFR",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "eGFR",
+      "char_start": 582,
+      "char_end": 586,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.value",
+      "value": "28",
+      "value_numeric": 28.0,
+      "unit_raw": null,
+      "evidence_text": "28",
+      "char_start": 601,
+      "char_end": 603,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.unit",
+      "value": "mL/min",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mL/min",
+      "char_start": 633,
+      "char_end": 639,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 644,
+      "char_end": 647,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.test_name",
+      "value": "Phosphorus",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Phosphorus",
+      "char_start": 648,
+      "char_end": 658,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.value",
+      "value": "5.1",
+      "value_numeric": 5.1,
+      "unit_raw": null,
+      "evidence_text": "5.1",
+      "char_start": 667,
+      "char_end": 670,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.reference_range",
+      "value": "2.5 - 4.5",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "2.5 - 4.5",
+      "char_start": 679,
+      "char_end": 688,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 699,
+      "char_end": 704,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 710,
+      "char_end": 714,
+      "page_number": 1
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+ICU CRITICAL CARE NOTE
+Date: 2O26-O4-O2    Patient: Synthetic Patient Endo-Exp-04
+MRN: PAT-194820    DOB: 1995-12-05    Dr. Steven King (NPI: 1749203811)
+
+LABORATORY FINDINGS:
+Serum Glucose was 340 mg/dL (HIGH).
+Anion Gap was 22 mmol/L (HIGH).
+Potassium was 5.2 mmol/L.
+
+MEDICATIONS:
+Insulin Glargine 24 units subcutaneous once daily at bedtime.

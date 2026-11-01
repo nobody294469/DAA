@@ -144,7 +144,7 @@ def test_lab_observation_mapping_and_validation():
     ev_map = {"ev-1": ev}
     ver_map = {c.claim_id: _make_verification(c.claim_id) for c in claims}
 
-    bundle = claims_to_fhir_bundle(claims, ev_map, ver_map)
+    bundle = claims_to_fhir_bundle(claims, ev_map, ver_map, document_metadata={"report_status": "final"})
 
     # 1. Official schema & integrity validation
     val = FHIRValidator.validate_bundle(bundle)
@@ -262,14 +262,17 @@ def test_two_tier_provenance_hierarchy_on_lab():
 
 # ─── MEDICATION & DEC-008 TESTS ──────────────────────────────────────────────
 
-def _make_med_claims(temporal_status: str = "current") -> tuple[list[Claim], dict[str, Evidence], dict[str, VerificationResult]]:
+def _make_med_claims(
+    temporal_status: str = "current",
+    text: str = "Metformin 500 mg oral twice daily for 90 days",
+) -> tuple[list[Claim], dict[str, Evidence], dict[str, VerificationResult]]:
     ev = Evidence(
         evidence_id="ev-med-1",
         document_id="DOC-MED-001",
         page_number=1,
-        text="Metformin 500 mg oral twice daily for 90 days",
+        text=text,
         char_start=0,
-        char_end=46,
+        char_end=len(text),
         bbox=BBoxModel(x0=20.0, y0=50.0, x1=250.0, y1=65.0),
         ocr_confidence=0.99,
     )
@@ -390,8 +393,11 @@ def test_medication_request_routing_prescription_doc():
 
 
 def test_medication_request_routing_planned_temporal_status():
-    """Verify temporal_status == 'planned' overrides to MedicationRequest per DEC-008."""
-    claims, ev_map, ver_map = _make_med_claims(temporal_status="planned")
+    """Verify temporal_status == 'planned' with clinician directive overrides to MedicationRequest per DEC-008 and REQ-44."""
+    claims, ev_map, ver_map = _make_med_claims(
+        temporal_status="planned",
+        text="Plan: Start Metformin 500 mg oral twice daily for 90 days",
+    )
     bundle = claims_to_fhir_bundle(claims, ev_map, ver_map, document_type="narrative_note")
 
     val = FHIRValidator.validate_bundle(bundle)
@@ -402,19 +408,23 @@ def test_medication_request_routing_planned_temporal_status():
     mr = next(e.resource for e in bundle.entry if isinstance(e.resource, MedicationRequest))
     assert mr.status == "active"
     assert mr.intent == "plan"
+    assert mr.medicationCodeableConcept.text == "Metformin"
+    assert len(mr.dosageInstruction) == 1
+    assert mr.dosageInstruction[0].doseAndRate[0].doseQuantity.value == 500.0
+    assert mr.dosageInstruction[0].doseAndRate[0].doseQuantity.unit == "mg"
 
 
 def test_discontinued_and_historical_statuses():
-    """Verify stopped / completed statuses are properly assigned."""
+    """Verify stopped / completed statuses are properly assigned when REQ-44 lifecycle enforcement is disabled."""
     # Discontinued -> stopped
     claims_disc, ev_disc, ver_disc = _make_med_claims(temporal_status="discontinued")
-    b_disc = claims_to_fhir_bundle(claims_disc, ev_disc, ver_disc, document_type="discharge_summary")
+    b_disc = claims_to_fhir_bundle(claims_disc, ev_disc, ver_disc, document_type="discharge_summary", enforce_req44_lifecycle=False)
     ms_disc = next(e.resource for e in b_disc.entry if isinstance(e.resource, MedicationStatement))
     assert ms_disc.status == "stopped"
 
     # Historical -> completed
     claims_hist, ev_hist, ver_hist = _make_med_claims(temporal_status="historical")
-    b_hist = claims_to_fhir_bundle(claims_hist, ev_hist, ver_hist, document_type="clinic_rx_pad")
+    b_hist = claims_to_fhir_bundle(claims_hist, ev_hist, ver_hist, document_type="clinic_rx_pad", enforce_req44_lifecycle=False)
     mr_hist = next(e.resource for e in b_hist.entry if isinstance(e.resource, MedicationRequest))
     assert mr_hist.status == "completed"
 

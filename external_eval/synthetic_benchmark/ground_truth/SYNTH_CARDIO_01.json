@@ -1,0 +1,251 @@
+{
+  "doc_id": "SYNTH_CARDIO_01",
+  "specialty": "Cardiology",
+  "title": "Cardiology Outpatient Consultation",
+  "is_synthetic": true,
+  "total_claims": 22,
+  "claims": [
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 539,
+      "char_end": 548,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.value",
+      "value": "4.2",
+      "value_numeric": 4.2,
+      "unit_raw": null,
+      "evidence_text": "4.2",
+      "char_start": 549,
+      "char_end": 552,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 553,
+      "char_end": 559,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 561,
+      "char_end": 567,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.test_name",
+      "value": "Digoxin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Digoxin",
+      "char_start": 570,
+      "char_end": 577,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.value",
+      "value": "1.1",
+      "value_numeric": 1.1,
+      "unit_raw": null,
+      "evidence_text": "1.1",
+      "char_start": 602,
+      "char_end": 605,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.unit",
+      "value": "ng/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ng/mL",
+      "char_start": 606,
+      "char_end": 611,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.test_name",
+      "value": "BNP",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BNP",
+      "char_start": 619,
+      "char_end": 622,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.value",
+      "value": "145",
+      "value_numeric": 145.0,
+      "unit_raw": null,
+      "evidence_text": "145",
+      "char_start": 639,
+      "char_end": 642,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "lab.unit",
+      "value": "pg/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "pg/mL",
+      "char_start": 643,
+      "char_end": 648,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.name",
+      "value": "Carvedilol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Carvedilol",
+      "char_start": 817,
+      "char_end": 827,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.dose",
+      "value": "25 mg",
+      "value_numeric": 25.0,
+      "unit_raw": "mg",
+      "evidence_text": "25 mg",
+      "char_start": 828,
+      "char_end": 833,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 834,
+      "char_end": 836,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 837,
+      "char_end": 848,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.name",
+      "value": "Furosemide",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Furosemide",
+      "char_start": 859,
+      "char_end": 869,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.dose",
+      "value": "40 mg",
+      "value_numeric": 40.0,
+      "unit_raw": "mg",
+      "evidence_text": "40 mg",
+      "char_start": 870,
+      "char_end": 875,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 876,
+      "char_end": 880,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily in the morning",
+      "char_start": 881,
+      "char_end": 906,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.name",
+      "value": "Apixaban",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Apixaban",
+      "char_start": 917,
+      "char_end": 925,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.dose",
+      "value": "5 mg",
+      "value_numeric": 5.0,
+      "unit_raw": "mg",
+      "evidence_text": "5 mg",
+      "char_start": 926,
+      "char_end": 930,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 931,
+      "char_end": 939,
+      "page_number": 1
+    },
+    {
+      "document_id": "SYNTH_CARDIO_01",
+      "field_type": "med.frequency",
+      "value": "BID",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "BID",
+      "char_start": 940,
+      "char_end": 943,
+      "page_number": 1
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "doc_id": "EXP_ENDO_03",
+  "category": "narrative_encounter",
+  "specialty": "Endocrinology",
+  "title": "Adrenal Clinic Note - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 20,
+  "claims": [
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.test_name",
+      "value": "Cortisol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Cortisol",
+      "char_start": 308,
+      "char_end": 316,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.value",
+      "value": "14.5",
+      "value_numeric": 14.5,
+      "unit_raw": null,
+      "evidence_text": "14.5",
+      "char_start": 317,
+      "char_end": 321,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.unit",
+      "value": "ug/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ug/dL",
+      "char_start": 322,
+      "char_end": 327,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.test_name",
+      "value": "ACTH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ACTH",
+      "char_start": 332,
+      "char_end": 336,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.value",
+      "value": "35",
+      "value_numeric": 35.0,
+      "unit_raw": null,
+      "evidence_text": "35",
+      "char_start": 337,
+      "char_end": 339,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.unit",
+      "value": "pg/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "pg/mL",
+      "char_start": 340,
+      "char_end": 345,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.test_name",
+      "value": "Sodium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sodium",
+      "char_start": 353,
+      "char_end": 359,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.value",
+      "value": "139",
+      "value_numeric": 139.0,
+      "unit_raw": null,
+      "evidence_text": "139",
+      "char_start": 363,
+      "char_end": 366,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 367,
+      "char_end": 373,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 378,
+      "char_end": 387,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.value",
+      "value": "4.6",
+      "value_numeric": 4.6,
+      "unit_raw": null,
+      "evidence_text": "4.6",
+      "char_start": 391,
+      "char_end": 394,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 395,
+      "char_end": 401,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "med.name",
+      "value": "Hydrocortisone",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hydrocortisone",
+      "char_start": 466,
+      "char_end": 480,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "med.dose",
+      "value": "20 mg",
+      "value_numeric": 20.0,
+      "unit_raw": "mg",
+      "evidence_text": "20 mg",
+      "char_start": 481,
+      "char_end": 486,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 487,
+      "char_end": 491,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 492,
+      "char_end": 502,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "med.name",
+      "value": "Fludrocortisone",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Fludrocortisone",
+      "char_start": 521,
+      "char_end": 536,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "med.dose",
+      "value": "0.1 mg",
+      "value_numeric": 0.1,
+      "unit_raw": "mg",
+      "evidence_text": "0.1 mg",
+      "char_start": 537,
+      "char_end": 543,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 544,
+      "char_end": 546,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_03",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 547,
+      "char_end": 552,
+      "page_number": 1
+    }
+  ]
+}

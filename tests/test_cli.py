@@ -68,11 +68,15 @@ def test_cli_process_single_document(sample_doc_json: Path, tmp_path: Path) -> N
     ret_code = main(argv)
     assert ret_code == 0
 
-    fhir_path = out_dir / "fhir_bundle.json"
+    fhir_path = out_dir / "fhir_bundle.draft.json"
     audit_path = out_dir / "audit_report.json"
+    notice_path = out_dir / "GOVERNANCE_NOTICE.txt"
 
-    assert fhir_path.exists(), "fhir_bundle.json was not created"
+    assert fhir_path.exists(), "fhir_bundle.draft.json was not created"
+    assert not (out_dir / "fhir_bundle.json").exists(), "fhir_bundle.json must NOT be created by CLI"
     assert audit_path.exists(), "audit_report.json was not created"
+    assert notice_path.exists(), "GOVERNANCE_NOTICE.txt was not created"
+    assert "WARNING: UNAUTHORIZED RESEARCH DRAFT" in notice_path.read_text(encoding="utf-8")
 
     # Validate FHIR bundle JSON structure
     with open(fhir_path, "r", encoding="utf-8") as f:
@@ -95,7 +99,10 @@ def test_process_document_direct_api(sample_doc_json: Path, tmp_path: Path) -> N
     result = process_document(input_file=sample_doc_json, output_dir=out_dir)
 
     assert result.document_id == "LAB_TEST_001"
+    assert result.fhir_bundle_path.name == "fhir_bundle.draft.json"
     assert result.fhir_bundle_path.exists()
+    assert (out_dir / "GOVERNANCE_NOTICE.txt").exists()
+    assert not (out_dir / "fhir_bundle.json").exists()
     assert result.audit_report_path.exists()
     assert result.n_claims > 0
     assert result.n_supported + result.n_discrepancy + result.n_insufficient_evidence == result.n_claims
@@ -120,10 +127,20 @@ def test_cli_batch_multiple_documents(tmp_path: Path) -> None:
     assert ret_code == 0
 
     # Check per-document subdirectories and artifacts
-    assert (out_dir / "LAB_DOC_A" / "fhir_bundle.json").exists()
+    assert (out_dir / "LAB_DOC_A" / "fhir_bundle.draft.json").exists()
+    assert (out_dir / "LAB_DOC_A" / "GOVERNANCE_NOTICE.txt").exists()
+    assert not (out_dir / "LAB_DOC_A" / "fhir_bundle.json").exists()
     assert (out_dir / "LAB_DOC_A" / "audit_report.json").exists()
-    assert (out_dir / "LAB_DOC_B" / "fhir_bundle.json").exists()
+
+    assert (out_dir / "LAB_DOC_B" / "fhir_bundle.draft.json").exists()
+    assert (out_dir / "LAB_DOC_B" / "GOVERNANCE_NOTICE.txt").exists()
+    assert not (out_dir / "LAB_DOC_B" / "fhir_bundle.json").exists()
     assert (out_dir / "LAB_DOC_B" / "audit_report.json").exists()
+
+    # Check root-level artifacts
+    assert (out_dir / "LAB_DOC_A_fhir_bundle.draft.json").exists()
+    assert (out_dir / "LAB_DOC_B_fhir_bundle.draft.json").exists()
+    assert (out_dir / "GOVERNANCE_NOTICE.txt").exists()
 
     # Check batch summary
     summary_path = out_dir / "batch_summary.json"
@@ -146,7 +163,7 @@ def test_cli_missing_input_file_fails(tmp_path: Path) -> None:
 
 def test_cli_unsupported_extension_fails(tmp_path: Path) -> None:
     """Test that unsupported file type causes failure and exit code 1."""
-    bad_file = tmp_path / "document.txt"
+    bad_file = tmp_path / "document.xyz"
     bad_file.write_text("Hello world", encoding="utf-8")
     out_dir = tmp_path / "output_fail"
 

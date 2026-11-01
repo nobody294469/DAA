@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "temporal-status",
+  "url": "http://clindoc.org/fhir/StructureDefinition/temporal-status",
+  "version": "1.0.0",
+  "name": "ClindocTemporalStatus",
+  "title": "Clinical Document Temporal Status Extension",
+  "status": "draft",
+  "experimental": false,
+  "date": "2026-10-30",
+  "publisher": "Clinical Document Verification & FHIR Export System",
+  "description": "Extension indicating the temporal context (current, historical, planned, discontinued) of an extracted clinical entity.",
+  "fhirVersion": "4.3.0",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Observation"
+    },
+    {
+      "type": "element",
+      "expression": "MedicationStatement"
+    },
+    {
+      "type": "element",
+      "expression": "MedicationRequest"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Clinical temporal status of extracted entity",
+        "definition": "Indicates whether the entity represents a current finding/order, historical context, planned intervention, or discontinued therapy.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://clindoc.org/fhir/StructureDefinition/temporal-status"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://clindoc.org/fhir/ValueSet/temporal-status"
+        }
+      }
+    ]
+  }
+}

@@ -5,6 +5,7 @@ from typing import Any
 from pydantic import BaseModel, Field
 
 from fhir.resources.R4B.bundle import Bundle
+from fhir.resources.R4B.device import Device
 from fhir.resources.R4B.diagnosticreport import DiagnosticReport
 from fhir.resources.R4B.documentreference import DocumentReference
 from fhir.resources.R4B.encounter import Encounter
@@ -18,13 +19,42 @@ from fhir.resources.R4B.provenance import Provenance
 
 
 from clindoc.fhir.constants import (
+    DIAGNOSTIC_REPORT_STATUSES,
     EXT_CLAIM_PROVENANCE,
+    EXT_COMPETING_CANDIDATE,
     EXT_SOURCE_EVIDENCE,
+    EXT_TEMPORAL_STATUS,
     EXT_VERIFICATION_STATUS,
     LOINC_SYSTEM,
+    MEDICATION_REQUEST_TEMPORAL_STATUSES,
+    MEDICATION_STATEMENT_TEMPORAL_STATUSES,
+    OBSERVATION_TEMPORAL_STATUSES,
     UCUM_SYSTEM,
 )
 from clindoc.verify.schema import VerificationStatus
+
+
+VALID_MED_REQUEST_STATUSES = {
+    "active",
+    "on-hold",
+    "cancelled",
+    "completed",
+    "entered-in-error",
+    "stopped",
+    "draft",
+    "unknown",
+}
+
+VALID_MED_STATEMENT_STATUSES = {
+    "active",
+    "completed",
+    "entered-in-error",
+    "intended",
+    "stopped",
+    "on-hold",
+    "unknown",
+    "not-taken",
+}
 
 
 VALID_VERIFICATION_STATUSES = {
@@ -134,12 +164,29 @@ class FHIRValidator:
 
             r_type = res.resource_type
 
+            # DEC-020 Base FHIR R4B validation: Reject fabricated US Core profile claims
+            if hasattr(res, "meta") and res.meta and res.meta.profile:
+                for p_url in res.meta.profile:
+                    if "hl7.org/fhir/us/core" in str(p_url).lower():
+                        errors.append(
+                            f"{r_type}/{res.id} declares US Core profile '{p_url}' which violates DEC-020 (target is FHIR R4B Base)"
+                        )
+
             if r_type == "Patient":
                 has_patient = True
 
             elif r_type == "DiagnosticReport":
                 has_diagnostic_report = True
                 diag: DiagnosticReport = res
+
+                # Check status
+                if diag.status not in DIAGNOSTIC_REPORT_STATUSES:
+                    errors.append(f"DiagnosticReport/{diag.id} invalid status '{diag.status}' (must be valid FHIR R4B status)")
+
+                # Check code
+                if not diag.code or (not diag.code.coding and not diag.code.text):
+                    errors.append(f"DiagnosticReport/{diag.id} missing code")
+
                 # Check subject reference
                 if not diag.subject or not diag.subject.reference:
                     errors.append(f"DiagnosticReport/{diag.id} missing subject reference")
@@ -152,11 +199,19 @@ class FHIRValidator:
 
                 # Check result references
                 if not diag.result:
-                    warnings.append(f"DiagnosticReport/{diag.id} contains no observation results")
+                    errors.append(f"DiagnosticReport/{diag.id} missing result references (empty DiagnosticReport)")
                 else:
                     for r_ref in diag.result:
                         if not r_ref.reference or r_ref.reference not in available_refs:
                             errors.append(f"DiagnosticReport/{diag.id} result reference '{r_ref.reference}' not found in bundle")
+                        elif not r_ref.reference.startswith("Observation/"):
+                            errors.append(f"DiagnosticReport/{diag.id} result reference '{r_ref.reference}' must target an Observation")
+
+                # Check presentedForm attachments
+                if diag.presentedForm:
+                    for pf in diag.presentedForm:
+                        if not pf.contentType:
+                            errors.append(f"DiagnosticReport/{diag.id} presentedForm attachment missing contentType")
 
             elif r_type == "Observation":
                 obs: Observation = res
@@ -178,7 +233,7 @@ class FHIRValidator:
                             errors.append(f"Observation/{obs.id} derivedFrom '{df.reference}' not found in bundle")
 
                 # Check status
-                if obs.status not in ("registered", "preliminary", "final", "amended", "corrected"):
+                if obs.status not in ("registered", "preliminary", "final", "amended", "corrected", "cancelled", "entered-in-error", "unknown"):
                     errors.append(f"Observation/{obs.id} invalid status '{obs.status}'")
 
                 # Check code
@@ -193,9 +248,42 @@ class FHIRValidator:
                     if not has_loinc:
                         warnings.append(f"Observation/{obs.id} has no LOINC coding")
 
-                # Check value[x] (valueQuantity for numeric, valueString for qualitative per PD-022)
-                if obs.valueQuantity is None and obs.valueString is None:
-                    errors.append(f"Observation/{obs.id} missing value[x] (expected valueQuantity or valueString)")
+                # Check value[x] exclusivity and presence (FHIR R4B Base + ClinicalDoc application constraint)
+                val_choices = [
+                    obs.valueQuantity is not None,
+                    obs.valueCodeableConcept is not None,
+                    obs.valueString is not None,
+                    obs.valueBoolean is not None,
+                    obs.valueInteger is not None,
+                    obs.valueRange is not None,
+                    obs.valueRatio is not None,
+                    obs.valueSampledData is not None,
+                    obs.valueTime is not None,
+                    obs.valueDateTime is not None,
+                    obs.valuePeriod is not None,
+                ]
+                num_populated = sum(1 for c in val_choices if c)
+                has_data_absent = obs.dataAbsentReason is not None and (
+                    bool(obs.dataAbsentReason.coding) or bool(obs.dataAbsentReason.text)
+                )
+                has_components = bool(obs.component)
+
+                if num_populated == 0:
+                    if not has_data_absent and not has_components:
+                        errors.append(
+                            f"Observation/{obs.id} missing value[x] without dataAbsentReason or component "
+                            "(ClinicalDoc application requirement: atomic observations must provide either value[x] or dataAbsentReason)"
+                        )
+                elif num_populated > 1:
+                    errors.append(
+                        f"Observation/{obs.id} has multiple value[x] choices populated "
+                        "(FHIR R4B choice elements allow at most one value[x])"
+                    )
+                elif has_data_absent:
+                    errors.append(
+                        f"Observation/{obs.id} has both value[x] and dataAbsentReason populated "
+                        "(FHIR R4B invariant: dataAbsentReason SHALL only be present if value[x] is absent)"
+                    )
                 elif obs.valueQuantity is not None:
                     if obs.valueQuantity.value is None:
                         errors.append(f"Observation/{obs.id} valueQuantity.value is None")
@@ -204,6 +292,9 @@ class FHIRValidator:
                 elif obs.valueString is not None:
                     if not obs.valueString.strip():
                         errors.append(f"Observation/{obs.id} valueString is empty")
+                elif obs.valueCodeableConcept is not None:
+                    if not obs.valueCodeableConcept.coding and not obs.valueCodeableConcept.text:
+                        errors.append(f"Observation/{obs.id} valueCodeableConcept is empty")
 
                 # Check verification / provenance extensions
                 ver_status_found = False
@@ -229,6 +320,9 @@ class FHIRValidator:
                                 ver_counts[ext.valueCode] = ver_counts.get(ext.valueCode, 0) + 1
                             else:
                                 errors.append(f"Observation/{obs.id} unknown verification status '{ext.valueCode}'")
+                        elif ext.url == EXT_TEMPORAL_STATUS:
+                            if ext.valueCode not in OBSERVATION_TEMPORAL_STATUSES:
+                                errors.append(f"Observation/{obs.id} invalid temporal status '{ext.valueCode}' (allowed: {sorted(OBSERVATION_TEMPORAL_STATUSES)})")
                         elif ext.url == EXT_SOURCE_EVIDENCE:
                             source_ev_found = True
 
@@ -264,9 +358,24 @@ class FHIRValidator:
                 if not getattr(res, "medicationCodeableConcept", None):
                     errors.append(f"{r_type}/{res.id} missing medicationCodeableConcept")
 
-                # Status
+                # Status & Intent Semantics
                 if not res.status:
                     errors.append(f"{r_type}/{res.id} missing status")
+                elif r_type == "MedicationRequest":
+                    if res.status not in VALID_MED_REQUEST_STATUSES:
+                        errors.append(f"MedicationRequest/{res.id} invalid status '{res.status}'")
+                    if not getattr(res, "intent", None):
+                        errors.append(f"MedicationRequest/{res.id} missing intent")
+                elif r_type == "MedicationStatement":
+                    if res.status not in VALID_MED_STATEMENT_STATUSES:
+                        errors.append(f"MedicationStatement/{res.id} invalid status '{res.status}'")
+
+                # Dosage structure validation
+                dosages = getattr(res, "dosageInstruction", None) or getattr(res, "dosage", None)
+                if dosages:
+                    for d_idx, d in enumerate(dosages):
+                        if not d.text and not d.doseAndRate:
+                            warnings.append(f"{r_type}/{res.id} dosage[{d_idx}] lacks both text and doseAndRate")
 
                 # Provenance extension check
                 prov_found = False
@@ -284,6 +393,14 @@ class FHIRValidator:
                             for req_f in ("claimId", "verificationId", "confidence", "stageReached", "evidenceText", "sourcePage", "sourceBoundingBox"):
                                 if req_f not in sub_map:
                                     errors.append(f"{r_type}/{res.id} provenance missing '{req_f}' sub-extension")
+                        elif ext.url == EXT_TEMPORAL_STATUS:
+                            allowed_temp = (
+                                MEDICATION_REQUEST_TEMPORAL_STATUSES
+                                if r_type == "MedicationRequest"
+                                else MEDICATION_STATEMENT_TEMPORAL_STATUSES
+                            )
+                            if ext.valueCode not in allowed_temp:
+                                errors.append(f"{r_type}/{res.id} invalid temporal status '{ext.valueCode}' (allowed: {sorted(allowed_temp)})")
 
                 if not prov_found:
                     errors.append(f"{r_type}/{res.id} missing claim-provenance extension ({EXT_CLAIM_PROVENANCE})")
@@ -298,6 +415,23 @@ class FHIRValidator:
                     errors.append(f"DocumentReference/{doc_ref.id} subject '{doc_ref.subject.reference}' not found in bundle")
                 if not doc_ref.content:
                     errors.append(f"DocumentReference/{doc_ref.id} missing content")
+                else:
+                    for cnt in doc_ref.content:
+                        if cnt.attachment and cnt.attachment.hash:
+                            import base64
+                            try:
+                                h_bytes = base64.b64decode(cnt.attachment.hash)
+                                if len(h_bytes) not in (20, 32):
+                                    errors.append(f"DocumentReference/{doc_ref.id} attachment.hash decoded byte length {len(h_bytes)} is not valid SHA-256 (32) or SHA-1 (20)")
+                            except Exception:
+                                errors.append(f"DocumentReference/{doc_ref.id} attachment.hash is not valid base64")
+
+            elif r_type == "Device":
+                dev: Device = res
+                if not dev.status:
+                    errors.append(f"Device/{dev.id} missing status")
+                if not dev.deviceName:
+                    errors.append(f"Device/{dev.id} missing deviceName")
 
             elif r_type == "Encounter":
                 enc: Encounter = res
@@ -312,6 +446,11 @@ class FHIRValidator:
 
             elif r_type == "Provenance":
                 prov: Provenance = res
+                if not prov.recorded:
+                    errors.append(f"Provenance/{prov.id} missing recorded timestamp")
+                elif not getattr(prov.recorded, "tzinfo", None):
+                    errors.append(f"Provenance/{prov.id} recorded timestamp must be timezone-aware UTC")
+
                 if not prov.target:
                     errors.append(f"Provenance/{prov.id} missing target references")
                 else:
@@ -329,11 +468,16 @@ class FHIRValidator:
                         if ent.what and ent.what.reference and ent.what.reference not in available_refs:
                             errors.append(f"Provenance/{prov.id} entity '{ent.what.reference}' not found in bundle")
 
+        # Bundle-level DEC-020 profile check
+        if hasattr(bundle, "meta") and bundle.meta and bundle.meta.profile:
+            for p_url in bundle.meta.profile:
+                if "hl7.org/fhir/us/core" in str(p_url).lower():
+                    errors.append(
+                        f"Bundle/{bundle.id} declares US Core profile '{p_url}' which violates DEC-020 (target is FHIR R4B Base)"
+                    )
+
         if not has_patient:
             errors.append("Bundle missing Patient resource")
-        # DiagnosticReport is required only if lab Observations are present in the bundle
-        if resource_counts.get("Observation", 0) > 0 and not has_diagnostic_report:
-            errors.append("Bundle missing DiagnosticReport resource for lab observations")
 
         is_valid = len(errors) == 0
 

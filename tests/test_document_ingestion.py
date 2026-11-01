@@ -233,7 +233,7 @@ def test_13_unreadable_invalid_document_handling(tmp_path, sample_empty_pdf):
         ingest_document(corrupt_pdf, force=True)
 
     # Unsupported extension
-    txt_file = tmp_path / "notes.txt"
+    txt_file = tmp_path / "notes.xyz"
     txt_file.write_text("Hello")
     with pytest.raises(UnsupportedFileTypeError):
         ingest_document(txt_file)

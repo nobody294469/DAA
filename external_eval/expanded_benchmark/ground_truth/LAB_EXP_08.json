@@ -1,0 +1,224 @@
+{
+  "doc_id": "LAB_EXP_08",
+  "category": "structured_lab",
+  "specialty": "Critical Care / Arterial Blood Gas",
+  "title": "ABG Panel - Simulated OCR Noise",
+  "format": "tabular_ocr",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 19,
+  "claims": [
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.test_name",
+      "value": "pH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "pH",
+      "char_start": 474,
+      "char_end": 476,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.value",
+      "value": "7.32",
+      "value_numeric": 7.32,
+      "unit_raw": null,
+      "evidence_text": "7.32",
+      "char_start": 498,
+      "char_end": 502,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.reference_range",
+      "value": "7.35 - 7.45",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "7.35 - 7.45",
+      "char_start": 510,
+      "char_end": 521,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 542,
+      "char_end": 545,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.test_name",
+      "value": "PaCO2",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PaCO2",
+      "char_start": 546,
+      "char_end": 551,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.value",
+      "value": "48",
+      "value_numeric": 48.0,
+      "unit_raw": null,
+      "evidence_text": "48",
+      "char_start": 570,
+      "char_end": 572,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.reference_range",
+      "value": "35 - 45",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "35 - 45",
+      "char_start": 582,
+      "char_end": 589,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.unit",
+      "value": "mmHg",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmHg",
+      "char_start": 602,
+      "char_end": 606,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 614,
+      "char_end": 618,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.test_name",
+      "value": "PaO2",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PaO2",
+      "char_start": 619,
+      "char_end": 623,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.value",
+      "value": "78",
+      "value_numeric": 78.0,
+      "unit_raw": null,
+      "evidence_text": "78",
+      "char_start": 643,
+      "char_end": 645,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.reference_range",
+      "value": "80 - 100",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "80 - 100",
+      "char_start": 655,
+      "char_end": 663,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.unit",
+      "value": "mmHg",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmHg",
+      "char_start": 675,
+      "char_end": 679,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 687,
+      "char_end": 690,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.test_name",
+      "value": "Lactate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Lactate",
+      "char_start": 766,
+      "char_end": 773,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.value",
+      "value": "2.8",
+      "value_numeric": 2.8,
+      "unit_raw": null,
+      "evidence_text": "2.8",
+      "char_start": 790,
+      "char_end": 793,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.reference_range",
+      "value": "0.5 - 2.0",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "0.5 - 2.0",
+      "char_start": 802,
+      "char_end": 811,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 822,
+      "char_end": 828,
+      "page_number": 1
+    },
+    {
+      "document_id": "LAB_EXP_08",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 834,
+      "char_end": 838,
+      "page_number": 1
+    }
+  ]
+}

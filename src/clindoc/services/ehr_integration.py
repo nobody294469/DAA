@@ -131,10 +131,16 @@ class EHRIntegrationService:
         audit_service: Optional[AuditService] = None,
         transport: Optional[FHIRTransport] = None,
         export_service: Optional[FHIRExportService] = None,
+        audit_ledger: Optional[Any] = None,
+        trust_store: Optional[Dict[str, Any]] = None,
+        revoked_key_ids: Optional[Set[str]] = None,
     ) -> None:
         self.audit_service = audit_service or AuditService()
         self.transport = transport or MockFHIRTransport()
         self.export_service = export_service or FHIRExportService(audit_service=self.audit_service)
+        self.audit_ledger = audit_ledger
+        self.trust_store = trust_store
+        self.revoked_key_ids = revoked_key_ids or set()
 
     def transmit_document_to_ehr(
         self,
@@ -219,12 +225,33 @@ class EHRIntegrationService:
             .first()
         )
 
+        transport_sha256 = None
         if existing_bundle:
             bundle_id = str(existing_bundle.id)
-            bundle_sha256 = existing_bundle.bundle_sha256
             bundle_dict = existing_bundle.bundle_payload
-            bundle_json = json.dumps(bundle_dict, indent=2, sort_keys=True)
             db_bundle_id = existing_bundle.id
+
+            # Stage 3.4 Complete Attestation Gateway:
+            # If audit_ledger is configured, verify complete attestation before release
+            if self.audit_ledger is not None:
+                from clindoc.audit.projection import AuditProjectionEngine
+                transport_bytes, verified_sha256 = AuditProjectionEngine.verify_bundle_complete_attestation(
+                    session=session,
+                    bundle_dict=bundle_dict,
+                    ledger_path=self.audit_ledger.ledger_path,
+                    checkpoint_path=self.audit_ledger.checkpoint_path,
+                    trust_store=self.trust_store,
+                    revoked_key_ids=self.revoked_key_ids,
+                    keyring=self.audit_ledger.keyring,
+                    key_id=self.audit_ledger.signing_key_id,
+                )
+                bundle_sha256 = verified_sha256
+                transport_sha256 = verified_sha256
+                bundle_json = transport_bytes.decode("utf-8")
+            else:
+                bundle_sha256 = existing_bundle.bundle_sha256
+                transport_sha256 = bundle_sha256
+                bundle_json = json.dumps(bundle_dict, indent=2, sort_keys=True)
         else:
             # Generate and validate bundle
             export_result: FHIRExportResult = self.export_service.export_document(
@@ -236,6 +263,7 @@ class EHRIntegrationService:
             )
             bundle_id = export_result.bundle_id
             bundle_sha256 = export_result.bundle_sha256
+            transport_sha256 = bundle_sha256
             bundle_json = export_result.bundle_json
             db_bundle_id = export_result.db_bundle_id
 
@@ -283,6 +311,7 @@ class EHRIntegrationService:
                 idempotency_key=idempotency_key,
                 correlation_id=corr_id,
                 document_id=str(doc_uuid),
+                expected_transport_sha256=transport_sha256,
             )
         except EHRTimeoutError as exc:
             elapsed = time.perf_counter() - start_time

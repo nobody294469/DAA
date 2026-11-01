@@ -1,0 +1,103 @@
+{
+  "doc_id": "MED_EXP_08",
+  "category": "structured_medication",
+  "specialty": "Rheumatology",
+  "title": "Rheumatology Rx - Simulated OCR Noise",
+  "format": "prescription_pad",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 8,
+  "claims": [
+    {
+      "document_id": "MED_EXP_08",
+      "field_type": "med.name",
+      "value": "Meloxicam",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Meloxicam",
+      "char_start": 305,
+      "char_end": 314,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_08",
+      "field_type": "med.dose",
+      "value": "15 mg",
+      "value_numeric": 15.0,
+      "unit_raw": "mg",
+      "evidence_text": "15 mg",
+      "char_start": 315,
+      "char_end": 320,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_08",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 352,
+      "char_end": 360,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_08",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 361,
+      "char_end": 366,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_08",
+      "field_type": "med.name",
+      "value": "Methotrexate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Methotrexate",
+      "char_start": 436,
+      "char_end": 448,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_08",
+      "field_type": "med.dose",
+      "value": "15 mg",
+      "value_numeric": 15.0,
+      "unit_raw": "mg",
+      "evidence_text": "15 mg",
+      "char_start": 449,
+      "char_end": 454,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_08",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 483,
+      "char_end": 485,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_08",
+      "field_type": "med.frequency",
+      "value": "once weekly",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once weekly",
+      "char_start": 486,
+      "char_end": 497,
+      "page_number": 1
+    }
+  ]
+}

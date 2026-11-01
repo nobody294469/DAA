@@ -1,0 +1,10 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+EMERGENCY DEPARTMENT NOTE
+Date: 2026-06-16    Patient: Synthetic Patient Emerg-Exp-03
+MRN: PAT-223018    DOB: 2001-08-20    Dr. Alex Karev (NPI: 1249204946)
+
+24-year-old presenting with RLQ abdominal pain and fever.
+Stat labs: White Blood Cell Count 14.8 10*3/uL (HIGH).
+Total Bilirubin was 0.9 mg/dL.
+Morphine 4 mg IV every 3 hours as needed for severe pain.
+Ondansetron 4 mg IV every 8 hours as needed for nausea.

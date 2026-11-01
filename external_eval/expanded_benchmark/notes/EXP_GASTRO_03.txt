@@ -1,0 +1,10 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+INPATIENT GASTROENTEROLOGY NOTE
+Date: 2026-05-11    Patient: Synthetic Patient Gastro-Exp-03
+MRN: PAT-992018    DOB: 1979-09-17    Dr. Mark Sloan (NPI: 1849204930)
+
+Hospital day 2 for acute biliary pancreatitis. Epigastric pain is resolving.
+Serum Lipase was 480 U/L (HIGH). Serum Amylase was 210 U/L (HIGH).
+Serum Triglycerides were 145 mg/dL. Calcium was 8.9 mg/dL.
+Tramadol 50 mg PO every 6 hours as needed for moderate pain.
+Pantoprazole 40 mg IV daily.

@@ -1,0 +1,114 @@
+{
+  "doc_id": "MED_EXP_07",
+  "category": "structured_medication",
+  "specialty": "Gastroenterology",
+  "title": "GI Clinic Prescription - Irregular Spacing",
+  "format": "prescription_pad",
+  "features": [
+    "irregular_spacing",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 9,
+  "claims": [
+    {
+      "document_id": "MED_EXP_07",
+      "field_type": "med.name",
+      "value": "Omeprazole",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Omeprazole",
+      "char_start": 348,
+      "char_end": 358,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_07",
+      "field_type": "med.dose",
+      "value": "40 mg",
+      "value_numeric": 40.0,
+      "unit_raw": "mg",
+      "evidence_text": "40 mg",
+      "char_start": 359,
+      "char_end": 364,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_07",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 365,
+      "char_end": 369,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_07",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 432,
+      "char_end": 442,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_07",
+      "field_type": "med.name",
+      "value": "Sucralfate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sucralfate",
+      "char_start": 544,
+      "char_end": 554,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_07",
+      "field_type": "med.dose",
+      "value": "1 g",
+      "value_numeric": 1.0,
+      "unit_raw": "g",
+      "evidence_text": "1 g",
+      "char_start": 555,
+      "char_end": 558,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_07",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 603,
+      "char_end": 605,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_07",
+      "field_type": "med.frequency",
+      "value": "four times daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "four times daily",
+      "char_start": 606,
+      "char_end": 622,
+      "page_number": 1
+    },
+    {
+      "document_id": "MED_EXP_07",
+      "field_type": "med.duration",
+      "value": "for 14 days",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "for 14 days",
+      "char_start": 658,
+      "char_end": 669,
+      "page_number": 1
+    }
+  ]
+}

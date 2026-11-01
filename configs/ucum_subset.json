@@ -5,5 +5,7 @@
   "10*3/uL": {"canonical": "10*3/uL", "ucum": "10*3/uL"},
   "10*6/uL": {"canonical": "10*6/uL", "ucum": "10*6/uL"},
   "U/L": {"canonical": "U/L", "ucum": "U/L"},
-  "%": {"canonical": "%", "ucum": "%"}
+  "%": {"canonical": "%", "ucum": "%"},
+  "mg/g": {"canonical": "mg/g", "ucum": "mg/g"},
+  "mg/mg": {"canonical": "mg/mg", "ucum": "mg/mg"}
 }

@@ -1,0 +1,247 @@
+{
+  "doc_id": "EXP_CARDIO_04",
+  "category": "narrative_encounter",
+  "specialty": "Cardiology",
+  "title": "Post-CABG Note - Simulated OCR Noise",
+  "format": "clinical_narrative_text",
+  "features": [
+    "simulated_ocr_noise",
+    "irregular_spacing",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 21,
+  "claims": [
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.test_name",
+      "value": "Hemoglobin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Hemoglobin",
+      "char_start": 245,
+      "char_end": 255,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.value",
+      "value": "10.8",
+      "value_numeric": 10.8,
+      "unit_raw": null,
+      "evidence_text": "10.8",
+      "char_start": 260,
+      "char_end": 264,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 265,
+      "char_end": 269,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 271,
+      "char_end": 274,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Platelet Count",
+      "char_start": 277,
+      "char_end": 291,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.value",
+      "value": "210",
+      "value_numeric": 210.0,
+      "unit_raw": null,
+      "evidence_text": "210",
+      "char_start": 296,
+      "char_end": 299,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 300,
+      "char_end": 307,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.test_name",
+      "value": "Sodium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Sodium",
+      "char_start": 315,
+      "char_end": 321,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.value",
+      "value": "138",
+      "value_numeric": 138.0,
+      "unit_raw": null,
+      "evidence_text": "138",
+      "char_start": 326,
+      "char_end": 329,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 330,
+      "char_end": 336,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 341,
+      "char_end": 350,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.value",
+      "value": "4.3",
+      "value_numeric": 4.3,
+      "unit_raw": null,
+      "evidence_text": "4.3",
+      "char_start": 355,
+      "char_end": 358,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 359,
+      "char_end": 365,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "med.name",
+      "value": "Metoprolol Tartrate",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Metoprolol Tartrate",
+      "char_start": 387,
+      "char_end": 406,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "med.dose",
+      "value": "25 mg",
+      "value_numeric": 25.0,
+      "unit_raw": "mg",
+      "evidence_text": "25 mg",
+      "char_start": 407,
+      "char_end": 412,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 413,
+      "char_end": 417,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "med.frequency",
+      "value": "twice daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "twice daily",
+      "char_start": 418,
+      "char_end": 429,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "med.name",
+      "value": "Aspirin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Aspirin",
+      "char_start": 431,
+      "char_end": 438,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "med.dose",
+      "value": "81 mg",
+      "value_numeric": 81.0,
+      "unit_raw": "mg",
+      "evidence_text": "81 mg",
+      "char_start": 439,
+      "char_end": 444,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 445,
+      "char_end": 447,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_CARDIO_04",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 448,
+      "char_end": 453,
+      "page_number": 1
+    }
+  ]
+}

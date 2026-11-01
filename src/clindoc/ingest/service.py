@@ -42,6 +42,14 @@ SUPPORTED_MIME_TYPES: Set[str] = {
     "image/png",
     "image/jpeg",
     "image/tiff",
+    "text/plain",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+}
+
+# Accepted client MIME aliases mapped to canonical MIME types
+MIME_ALIASES = {
+    "application/docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "application/msword": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 }
 
 
@@ -76,6 +84,30 @@ def sniff_mime_type(data: bytes) -> Optional[str]:
         return "image/jpeg"
     if data.startswith(b"II*\x00") or data.startswith(b"MM\x00*"):
         return "image/tiff"
+
+    # Check for DOCX (Zip archive containing word/document.xml or [Content_Types].xml)
+    if data.startswith(b"PK\x03\x04"):
+        try:
+            import io, zipfile
+            with zipfile.ZipFile(io.BytesIO(data)) as zf:
+                nl = zf.namelist()
+                if "word/document.xml" in nl or "[Content_Types].xml" in nl:
+                    return "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        except Exception:
+            pass
+
+    # Check for plain text (valid decodable text without null bytes or binary control codes)
+    if data and b"\x00" not in data[:2048]:
+        try:
+            import string
+            raw = data[3:] if data.startswith(b"\xef\xbb\xbf") else data
+            text_sample = raw[:4096].decode("utf-8")
+            printable = set(string.printable)
+            if sum(1 for c in text_sample if c in printable) / max(len(text_sample), 1) > 0.90:
+                return "text/plain"
+        except UnicodeDecodeError:
+            pass
+
     return None
 
 
@@ -138,8 +170,11 @@ class DocumentIngestionService:
         # 3. Magic-number / MIME type sniffing
         sniffed_mime = sniff_mime_type(raw_bytes)
 
+        # Normalize declared MIME through alias mapping if applicable
+        norm_declared_mime = MIME_ALIASES.get(declared_mime_type, declared_mime_type) if declared_mime_type else None
+
         # If declared MIME is explicitly unsupported, reject immediately with FAILED_INGEST
-        if declared_mime_type and declared_mime_type not in SUPPORTED_MIME_TYPES:
+        if norm_declared_mime and norm_declared_mime not in SUPPORTED_MIME_TYPES:
             get_metrics().record_document_status("failed_ingest")
             get_metrics().record_security_event("malformed_file")
             return ScreeningResult(
@@ -147,14 +182,29 @@ class DocumentIngestionService:
                 sha256=sha256_hex,
                 file_size_bytes=file_size,
                 page_count=0,
-                mime_type=declared_mime_type,
+                mime_type=declared_mime_type or norm_declared_mime,
                 is_quarantined=False,
                 is_duplicate=False,
                 error_message=f"Unsupported file format '{declared_mime_type}'. Permitted: {sorted(SUPPORTED_MIME_TYPES)}.",
             )
 
+        # Check for encrypted Office documents (Threat T-08)
+        if raw_bytes.startswith(b"\xd0\xcf\x11\xe0") and b"EncryptedPackage" in raw_bytes[:4096]:
+            get_metrics().record_document_status("quarantined")
+            get_metrics().record_security_event("encrypted_document")
+            return ScreeningResult(
+                status=DocumentStatus.QUARANTINED,
+                sha256=sha256_hex,
+                file_size_bytes=file_size,
+                page_count=0,
+                mime_type=norm_declared_mime or "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                is_quarantined=True,
+                is_duplicate=False,
+                error_message="Encrypted/password-protected documents are rejected by security policy (T-08).",
+            )
+
         # Header mismatch detection (declared a supported MIME like PDF, but magic bytes don't match)
-        if declared_mime_type and declared_mime_type != sniffed_mime:
+        if norm_declared_mime and norm_declared_mime != sniffed_mime:
             get_metrics().record_document_status("quarantined")
             get_metrics().record_security_event("mime_spoof")
             return ScreeningResult(
@@ -162,13 +212,13 @@ class DocumentIngestionService:
                 sha256=sha256_hex,
                 file_size_bytes=file_size,
                 page_count=0,
-                mime_type=declared_mime_type,
+                mime_type=declared_mime_type or norm_declared_mime,
                 is_quarantined=True,
                 is_duplicate=False,
                 error_message=f"MIME header spoofing detected: declared '{declared_mime_type}' but observed '{sniffed_mime or 'unknown'}'.",
             )
 
-        effective_mime = sniffed_mime or declared_mime_type or "application/octet-stream"
+        effective_mime = sniffed_mime or norm_declared_mime or "application/octet-stream"
 
         if effective_mime not in SUPPORTED_MIME_TYPES:
             get_metrics().record_document_status("failed_ingest")
@@ -184,7 +234,7 @@ class DocumentIngestionService:
                 error_message=f"Unsupported file format '{effective_mime}'. Permitted: {sorted(SUPPORTED_MIME_TYPES)}.",
             )
 
-        # 4. PDF Structural and Sanity Screening (W-02 / F-19)
+        # 4. Modality-specific Structural and Sanity Screening (W-02 / F-19)
         page_count = 1
         if effective_mime == "application/pdf":
             try:
@@ -241,20 +291,102 @@ class DocumentIngestionService:
                     error_message=f"PDF structural sanity check failed: {type(exc).__name__}: {exc}",
                 )
 
-            # 5. Page count limit check
-            if page_count > self.max_page_count:
-                get_metrics().record_document_status("failed_ingest")
-                get_metrics().record_security_event("excessive_pages")
+        elif effective_mime == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+            # DOCX Structural and Sanity Screening
+            # Check for encrypted DOCX (OLE Compound EncryptedPackage)
+            if raw_bytes.startswith(b"\xd0\xcf\x11\xe0") or b"EncryptedPackage" in raw_bytes[:4096]:
+                get_metrics().record_document_status("quarantined")
+                get_metrics().record_security_event("encrypted_document")
                 return ScreeningResult(
-                    status=DocumentStatus.FAILED_INGEST,
+                    status=DocumentStatus.QUARANTINED,
                     sha256=sha256_hex,
                     file_size_bytes=file_size,
-                    page_count=page_count,
+                    page_count=0,
                     mime_type=effective_mime,
-                    is_quarantined=False,
+                    is_quarantined=True,
                     is_duplicate=False,
-                    error_message=f"Page count {page_count} exceeds maximum limit of {self.max_page_count}.",
+                    error_message="Encrypted/password-protected documents are rejected by security policy (T-08).",
                 )
+            try:
+                import io, zipfile, xml.etree.ElementTree as ET
+                with zipfile.ZipFile(io.BytesIO(raw_bytes)) as zf:
+                    for zinfo in zf.infolist():
+                        if zinfo.flag_bits & 0x1:
+                            get_metrics().record_document_status("quarantined")
+                            get_metrics().record_security_event("encrypted_document")
+                            return ScreeningResult(
+                                status=DocumentStatus.QUARANTINED,
+                                sha256=sha256_hex,
+                                file_size_bytes=file_size,
+                                page_count=0,
+                                mime_type=effective_mime,
+                                is_quarantined=True,
+                                is_duplicate=False,
+                                error_message="Encrypted/password-protected documents are rejected by security policy (T-08).",
+                            )
+                    if "word/document.xml" not in zf.namelist():
+                        get_metrics().record_document_status("quarantined")
+                        get_metrics().record_security_event("malformed_file")
+                        return ScreeningResult(
+                            status=DocumentStatus.QUARANTINED,
+                            sha256=sha256_hex,
+                            file_size_bytes=file_size,
+                            page_count=0,
+                            mime_type=effective_mime,
+                            is_quarantined=True,
+                            is_duplicate=False,
+                            error_message="DOCX package is missing word/document.xml (corrupted structure).",
+                        )
+                    # Non-rendering probe of document.xml
+                    doc_xml = zf.read("word/document.xml")
+                    _ = ET.fromstring(doc_xml)
+
+                    # Estimate page count
+                    page_count = 1
+                    if "docProps/app.xml" in zf.namelist():
+                        try:
+                            app_xml = zf.read("docProps/app.xml")
+                            app_root = ET.fromstring(app_xml)
+                            pages_elem = app_root.find(".//{http://schemas.openxmlformats.org/officeDocument/2006/extended-properties}Pages")
+                            if pages_elem is not None and pages_elem.text:
+                                page_count = max(1, int(pages_elem.text))
+                        except Exception:
+                            pass
+                    if page_count == 1:
+                        p_count = doc_xml.count(b"<w:p>") + doc_xml.count(b"<w:p ")
+                        page_count = max(1, p_count // 35)
+            except Exception as exc:
+                get_metrics().record_document_status("quarantined")
+                get_metrics().record_security_event("malformed_file")
+                return ScreeningResult(
+                    status=DocumentStatus.QUARANTINED,
+                    sha256=sha256_hex,
+                    file_size_bytes=file_size,
+                    page_count=0,
+                    mime_type=effective_mime,
+                    is_quarantined=True,
+                    is_duplicate=False,
+                    error_message=f"DOCX structural sanity check failed: {type(exc).__name__}: {exc}",
+                )
+
+        elif effective_mime == "text/plain":
+            line_count = raw_bytes.count(b"\n") + 1
+            page_count = max(1, max(line_count // 50, len(raw_bytes) // 3000))
+
+        # 5. Page count limit check
+        if page_count > self.max_page_count:
+            get_metrics().record_document_status("failed_ingest")
+            get_metrics().record_security_event("excessive_pages")
+            return ScreeningResult(
+                status=DocumentStatus.FAILED_INGEST,
+                sha256=sha256_hex,
+                file_size_bytes=file_size,
+                page_count=page_count,
+                mime_type=effective_mime,
+                is_quarantined=False,
+                is_duplicate=False,
+                error_message=f"Page count {page_count} exceeds maximum limit of {self.max_page_count}.",
+            )
 
         # Successfully passed screening
         get_metrics().record_document_status("ingested")

@@ -1,0 +1,147 @@
+{
+  "doc_id": "EXP_ENDO_02",
+  "category": "narrative_encounter",
+  "specialty": "Endocrinology",
+  "title": "Thyroid Clinic Progress Note",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 12,
+  "claims": [
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "lab.test_name",
+      "value": "TSH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "TSH",
+      "char_start": 287,
+      "char_end": 290,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "lab.value",
+      "value": "6.2",
+      "value_numeric": 6.2,
+      "unit_raw": null,
+      "evidence_text": "6.2",
+      "char_start": 295,
+      "char_end": 298,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "lab.unit",
+      "value": "uIU/mL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "uIU/mL",
+      "char_start": 299,
+      "char_end": 305,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 307,
+      "char_end": 311,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "lab.test_name",
+      "value": "Free T4",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Free T4",
+      "char_start": 314,
+      "char_end": 321,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "lab.value",
+      "value": "0.95",
+      "value_numeric": 0.95,
+      "unit_raw": null,
+      "evidence_text": "0.95",
+      "char_start": 326,
+      "char_end": 330,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "lab.unit",
+      "value": "ng/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "ng/dL",
+      "char_start": 331,
+      "char_end": 336,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 338,
+      "char_end": 344,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "med.name",
+      "value": "Levothyroxine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Levothyroxine",
+      "char_start": 422,
+      "char_end": 435,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "med.dose",
+      "value": "112 mcg",
+      "value_numeric": 112.0,
+      "unit_raw": "mcg",
+      "evidence_text": "112 mcg",
+      "char_start": 436,
+      "char_end": 443,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 444,
+      "char_end": 448,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_02",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 456,
+      "char_end": 466,
+      "page_number": 1
+    }
+  ]
+}

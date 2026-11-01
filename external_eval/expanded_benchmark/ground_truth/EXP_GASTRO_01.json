@@ -1,0 +1,312 @@
+{
+  "doc_id": "EXP_GASTRO_01",
+  "category": "narrative_encounter",
+  "specialty": "Gastroenterology",
+  "title": "Cirrhosis Outpatient Clinic Review",
+  "format": "clinical_narrative_text",
+  "features": [
+    "standard_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 27,
+  "claims": [
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.test_name",
+      "value": "Total Bilirubin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Total Bilirubin",
+      "char_start": 256,
+      "char_end": 271,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.value",
+      "value": "2.8",
+      "value_numeric": 2.8,
+      "unit_raw": null,
+      "evidence_text": "2.8",
+      "char_start": 276,
+      "char_end": 279,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 280,
+      "char_end": 285,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 287,
+      "char_end": 291,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.test_name",
+      "value": "Albumin",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Albumin",
+      "char_start": 300,
+      "char_end": 307,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.value",
+      "value": "2.7",
+      "value_numeric": 2.7,
+      "unit_raw": null,
+      "evidence_text": "2.7",
+      "char_start": 312,
+      "char_end": 315,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.unit",
+      "value": "g/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "g/dL",
+      "char_start": 316,
+      "char_end": 320,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 322,
+      "char_end": 325,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.test_name",
+      "value": "INR",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "INR",
+      "char_start": 328,
+      "char_end": 331,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.value",
+      "value": "1.5",
+      "value_numeric": 1.5,
+      "unit_raw": null,
+      "evidence_text": "1.5",
+      "char_start": 336,
+      "char_end": 339,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 341,
+      "char_end": 345,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.test_name",
+      "value": "Platelet Count",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Platelet Count",
+      "char_start": 348,
+      "char_end": 362,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.value",
+      "value": "78",
+      "value_numeric": 78.0,
+      "unit_raw": null,
+      "evidence_text": "78",
+      "char_start": 367,
+      "char_end": 369,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.unit",
+      "value": "10*3/uL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "10*3/uL",
+      "char_start": 370,
+      "char_end": 377,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "lab.flag",
+      "value": "LOW",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "LOW",
+      "char_start": 379,
+      "char_end": 382,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.name",
+      "value": "Spironolactone",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Spironolactone",
+      "char_start": 440,
+      "char_end": 454,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.dose",
+      "value": "100 mg",
+      "value_numeric": 100.0,
+      "unit_raw": "mg",
+      "evidence_text": "100 mg",
+      "char_start": 455,
+      "char_end": 461,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.route",
+      "value": "oral",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "oral",
+      "char_start": 462,
+      "char_end": 466,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 474,
+      "char_end": 484,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.name",
+      "value": "Furosemide",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Furosemide",
+      "char_start": 501,
+      "char_end": 511,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.dose",
+      "value": "40 mg",
+      "value_numeric": 40.0,
+      "unit_raw": "mg",
+      "evidence_text": "40 mg",
+      "char_start": 512,
+      "char_end": 517,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 518,
+      "char_end": 520,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 521,
+      "char_end": 531,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.name",
+      "value": "Lactulose",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Lactulose",
+      "char_start": 533,
+      "char_end": 542,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.dose",
+      "value": "20 g",
+      "value_numeric": 20.0,
+      "unit_raw": "g",
+      "evidence_text": "20 g",
+      "char_start": 543,
+      "char_end": 547,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 548,
+      "char_end": 556,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_GASTRO_01",
+      "field_type": "med.frequency",
+      "value": "three times daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "three times daily",
+      "char_start": 557,
+      "char_end": 574,
+      "page_number": 1
+    }
+  ]
+}

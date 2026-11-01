@@ -1,0 +1,15 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+ARTHRITIS & RHEUMATOLOGY CENTER
+Date: 2026-05-24    Patient: Synthetic Patient Rheum-Exp-01
+MRN: PAT-332018    DOB: 1974-05-11    Dr. Jackson Avery (NPI: 1249204936)
+
+DIAGNOSTIC WORKUP:
+C-Reactive Protein was 22 mg/L (HIGH).
+Erythrocyte Sedimentation Rate was 44 mm/hr (HIGH).
+Rheumatoid Factor was 68 IU/mL (HIGH).
+Serum ALT was 21 U/L.
+
+IMMUNOMODULATORY REGIMEN:
+Methotrexate 15 mg oral tablet once weekly on Sundays.
+Folic Acid 1 mg PO once daily.
+Adalimumab 40 mg subcutaneous every 2 weeks.

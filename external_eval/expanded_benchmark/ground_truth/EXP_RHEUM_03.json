@@ -1,0 +1,169 @@
+{
+  "doc_id": "EXP_RHEUM_03",
+  "category": "narrative_encounter",
+  "specialty": "Rheumatology",
+  "title": "Gouty Arthritis Note - Missing Headings",
+  "format": "clinical_narrative_text",
+  "features": [
+    "missing_headings",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 14,
+  "claims": [
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "lab.test_name",
+      "value": "Uric Acid",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Uric Acid",
+      "char_start": 269,
+      "char_end": 278,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "lab.value",
+      "value": "5.4",
+      "value_numeric": 5.4,
+      "unit_raw": null,
+      "evidence_text": "5.4",
+      "char_start": 283,
+      "char_end": 286,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 287,
+      "char_end": 292,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "lab.test_name",
+      "value": "Creatinine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Creatinine",
+      "char_start": 322,
+      "char_end": 332,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "lab.value",
+      "value": "1.1",
+      "value_numeric": 1.1,
+      "unit_raw": null,
+      "evidence_text": "1.1",
+      "char_start": 336,
+      "char_end": 339,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 340,
+      "char_end": 345,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "med.name",
+      "value": "Allopurinol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Allopurinol",
+      "char_start": 369,
+      "char_end": 380,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "med.dose",
+      "value": "300 mg",
+      "value_numeric": 300.0,
+      "unit_raw": "mg",
+      "evidence_text": "300 mg",
+      "char_start": 381,
+      "char_end": 387,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "med.route",
+      "value": "PO",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "PO",
+      "char_start": 388,
+      "char_end": 390,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 391,
+      "char_end": 401,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "med.name",
+      "value": "Colchicine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Colchicine",
+      "char_start": 403,
+      "char_end": 413,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "med.dose",
+      "value": "0.6 mg",
+      "value_numeric": 0.6,
+      "unit_raw": "mg",
+      "evidence_text": "0.6 mg",
+      "char_start": 414,
+      "char_end": 420,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "med.route",
+      "value": "by mouth",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "by mouth",
+      "char_start": 421,
+      "char_end": 429,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_RHEUM_03",
+      "field_type": "med.frequency",
+      "value": "daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "daily",
+      "char_start": 430,
+      "char_end": 435,
+      "page_number": 1
+    }
+  ]
+}

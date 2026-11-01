@@ -1,0 +1,9 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+LYME & VECTOR-BORNE CLINIC
+Date: 2026-04-25    Patient: Synthetic Patient Infect-Exp-03
+MRN: PAT-881028    DOB: 1992-06-18    Dr. Sarah Paulson (NPI: 1649204922)
+
+Patient presenting with erythema migrans rash and fatigue.
+Serum Western Blot was POSITIVE. Platelet Count is 230 10*3/uL.
+Serum ALT is 32 U/L.
+Doxycycline 100 mg oral twice daily for 21 days.

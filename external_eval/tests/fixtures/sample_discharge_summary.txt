@@ -1,0 +1,10 @@
+Admission Date:  [**2026-03-10**]              Discharge Date:   [**2026-03-15**]
+
+DISCHARGE MEDICATIONS:
+1. Lisinopril 20 mg oral daily for hypertension.
+2. Metformin 500 mg by mouth BID with meals.
+3. Albuterol 2 puffs inhalation every 4 hours PRN wheezing.
+4. Amoxicillin 875 mg oral twice a day for 10 days for sinusitis.
+
+ADVERSE REACTIONS:
+Patient experienced mild nausea on day 2.

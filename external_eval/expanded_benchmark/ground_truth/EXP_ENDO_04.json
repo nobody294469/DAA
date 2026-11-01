@@ -1,0 +1,180 @@
+{
+  "doc_id": "EXP_ENDO_04",
+  "category": "narrative_encounter",
+  "specialty": "Endocrinology",
+  "title": "DKA ICU Note - Simulated OCR Noise",
+  "format": "clinical_narrative_text",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 15,
+  "claims": [
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.test_name",
+      "value": "Glucose",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Glucose",
+      "char_start": 250,
+      "char_end": 257,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.value",
+      "value": "340",
+      "value_numeric": 340.0,
+      "unit_raw": null,
+      "evidence_text": "340",
+      "char_start": 262,
+      "char_end": 265,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.unit",
+      "value": "mg/dL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mg/dL",
+      "char_start": 266,
+      "char_end": 271,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 273,
+      "char_end": 277,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.test_name",
+      "value": "Anion Gap",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Anion Gap",
+      "char_start": 280,
+      "char_end": 289,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.value",
+      "value": "22",
+      "value_numeric": 22.0,
+      "unit_raw": null,
+      "evidence_text": "22",
+      "char_start": 294,
+      "char_end": 296,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 297,
+      "char_end": 303,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.flag",
+      "value": "HIGH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "HIGH",
+      "char_start": 305,
+      "char_end": 309,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 312,
+      "char_end": 321,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.value",
+      "value": "5.2",
+      "value_numeric": 5.2,
+      "unit_raw": null,
+      "evidence_text": "5.2",
+      "char_start": 326,
+      "char_end": 329,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 330,
+      "char_end": 336,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "med.name",
+      "value": "Insulin Glargine",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Insulin Glargine",
+      "char_start": 352,
+      "char_end": 368,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "med.dose",
+      "value": "24 units",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "24 units",
+      "char_start": 369,
+      "char_end": 377,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "med.route",
+      "value": "subcutaneous",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "subcutaneous",
+      "char_start": 378,
+      "char_end": 390,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_ENDO_04",
+      "field_type": "med.frequency",
+      "value": "once daily",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once daily",
+      "char_start": 391,
+      "char_end": 401,
+      "page_number": 1
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+ADULT PSYCHIATRIC SERVICES
+Date: 2026-06-02    Patient: Synthetic Patient Psych-Exp-01
+MRN: PAT-883018    DOB: 1987-12-09    Dr. Miranda Bailey (NPI: 1849204940)
+
+MONITORING LABS:
+Serum Lithium level was 0.85 mEq/L (THERAPEUTIC).
+Serum TSH was 2.4 uIU/mL (NORMAL).
+Serum Creatinine was 0.9 mg/dL.
+
+PSYCHOTROPIC MEDICATIONS:
+Lithium Carbonate 600 mg oral tablet twice daily.
+Quetiapine 100 mg PO daily at bedtime.

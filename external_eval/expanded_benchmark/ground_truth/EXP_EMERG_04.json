@@ -1,0 +1,169 @@
+{
+  "doc_id": "EXP_EMERG_04",
+  "category": "narrative_encounter",
+  "specialty": "Emergency Medicine",
+  "title": "Acute Asthma Exacerbation ED Note - Simulated OCR Noise",
+  "format": "clinical_narrative_text",
+  "features": [
+    "simulated_ocr_noise",
+    "header_noise"
+  ],
+  "is_synthetic": true,
+  "total_claims": 14,
+  "claims": [
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "lab.test_name",
+      "value": "Potassium",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Potassium",
+      "char_start": 255,
+      "char_end": 264,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "lab.value",
+      "value": "3.8",
+      "value_numeric": 3.8,
+      "unit_raw": null,
+      "evidence_text": "3.8",
+      "char_start": 269,
+      "char_end": 272,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "lab.unit",
+      "value": "mmol/L",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "mmol/L",
+      "char_start": 273,
+      "char_end": 279,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "lab.flag",
+      "value": "NORMAL",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "NORMAL",
+      "char_start": 281,
+      "char_end": 287,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "lab.test_name",
+      "value": "pH",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "pH",
+      "char_start": 307,
+      "char_end": 309,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "lab.value",
+      "value": "7.38",
+      "value_numeric": 7.38,
+      "unit_raw": null,
+      "evidence_text": "7.38",
+      "char_start": 314,
+      "char_end": 318,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "med.name",
+      "value": "Methylprednisolone",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Methylprednisolone",
+      "char_start": 332,
+      "char_end": 350,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "med.dose",
+      "value": "125 mg",
+      "value_numeric": 125.0,
+      "unit_raw": "mg",
+      "evidence_text": "125 mg",
+      "char_start": 351,
+      "char_end": 357,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "med.route",
+      "value": "IV",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "IV",
+      "char_start": 358,
+      "char_end": 360,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "med.frequency",
+      "value": "once stat",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "once stat",
+      "char_start": 361,
+      "char_end": 370,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "med.name",
+      "value": "Albuterol",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "Albuterol",
+      "char_start": 372,
+      "char_end": 381,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "med.dose",
+      "value": "2.5 mg",
+      "value_numeric": 2.5,
+      "unit_raw": "mg",
+      "evidence_text": "2.5 mg",
+      "char_start": 382,
+      "char_end": 388,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "med.route",
+      "value": "inhalation",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "inhalation",
+      "char_start": 389,
+      "char_end": 399,
+      "page_number": 1
+    },
+    {
+      "document_id": "EXP_EMERG_04",
+      "field_type": "med.frequency",
+      "value": "every 20 minutes",
+      "value_numeric": null,
+      "unit_raw": null,
+      "evidence_text": "every 20 minutes",
+      "char_start": 400,
+      "char_end": 416,
+      "page_number": 1
+    }
+  ]
+}

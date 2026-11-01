@@ -13,6 +13,7 @@ Endpoints:
 from __future__ import annotations
 
 import logging
+import os
 from pathlib import Path
 from typing import Optional
 import uuid
@@ -59,6 +60,7 @@ from clindoc.services.ehr_integration import (
 )
 from clindoc.services.ehr_transport import (
     EHRAuthenticationError,
+    EHRDraftRejectionError,
     EHRTimeoutError,
     EHRTransportError,
     EHRValidationError,
@@ -447,19 +449,50 @@ async def get_document_fhir_bundle(
             detail=f"No exported FHIR bundle found for document '{document_id}'.",
         )
 
-    if bundle_row.bundle_payload:
-        return bundle_row.bundle_payload
+    bundle_dict = bundle_row.bundle_payload
+    if not bundle_dict:
+        try:
+            raw_bytes = blob_store.get(bundle_row.storage_ref)
+            import json as _json
+            bundle_dict = _json.loads(raw_bytes.decode("utf-8"))
+        except Exception as exc:
+            logger.error("Failed to retrieve FHIR bundle from storage for doc %s: %s", document_id, exc)
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Failed to retrieve FHIR bundle payload from storage.",
+            ) from exc
 
-    try:
-        raw_bytes = blob_store.get(bundle_row.storage_ref)
-        import json as _json
-        return _json.loads(raw_bytes.decode("utf-8"))
-    except Exception as exc:
-        logger.error("Failed to retrieve FHIR bundle from storage for doc %s: %s", document_id, exc)
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Failed to retrieve FHIR bundle payload from storage.",
-        ) from exc
+    # Stage 3.4 Complete Attestation Gateway Check:
+    # If the bundle carries an audit provenance extension or an audit ledger is active,
+    # verify complete attestation before release!
+    ledger_path_env = os.getenv("CLINDOC_AUDIT_LEDGER_PATH")
+    if ledger_path_env and os.path.exists(ledger_path_env):
+        from clindoc.audit.projection import AuditProjectionEngine
+        from clindoc.fhir.signing import IncompleteAttestationError, BundleSigningError
+
+        try:
+            exact_bytes, transport_sha256 = AuditProjectionEngine.verify_bundle_complete_attestation(
+                session=session,
+                bundle_dict=bundle_dict,
+                ledger_path=ledger_path_env,
+            )
+            return Response(
+                content=exact_bytes,
+                media_type="application/fhir+json",
+                headers={"X-Transport-SHA256": transport_sha256},
+            )
+        except IncompleteAttestationError as exc:
+            raise HTTPException(
+                status_code=status.HTTP_428_PRECONDITION_REQUIRED,
+                detail=f"Incomplete Attestation: {exc}",
+            ) from exc
+        except BundleSigningError as exc:
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail=f"Attestation Verification Failure: {exc}",
+            ) from exc
+
+    return bundle_dict
 
 
 @router.post("/{document_id}/transmit-ehr", status_code=status.HTTP_200_OK)
@@ -498,6 +531,8 @@ async def transmit_document_to_ehr(
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
     except EHRDuplicateSubmissionError as exc:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(exc)) from exc
+    except EHRDraftRejectionError as exc:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=str(exc)) from exc
     except EHRTimeoutError as exc:
         raise HTTPException(status_code=status.HTTP_504_GATEWAY_TIMEOUT, detail=str(exc)) from exc
     except EHRAuthenticationError as exc:

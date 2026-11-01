@@ -1,0 +1,18 @@
+[SYNTHETIC CLINICAL PRESCRIPTION ORDER - NOT PHI - FOR EVALUATION ONLY]
+PULMONARY DISEASE & ALLERGY SPECIALISTS
+Date: 2026-04-20    Order Number: 902148
+Patient: Synthetic Patient Med-Exp-05    MRN: PAT-401928
+DOB: 1968-12-01    Age: 57    Gender: Male
+Physician: Dr. Rachel Green, MD    NPI: 1029384756
+
+Prescriptions:
+
+Order #1:
+Medication: Fluticasone Propionate 110 mcg inhalation aerosol
+Sig: Inhale 2 puffs inhalation twice daily
+Dispense: 1 inhaler (12 g)    Refills: 3
+
+Order #2:
+Medication: Albuterol Sulfate 90 mcg inhalation aerosol
+Sig: Inhale 1 to 2 puffs inhalation every 4 hours as needed for shortness of breath
+Dispense: 1 canister (8.5 g)    Refills: 5

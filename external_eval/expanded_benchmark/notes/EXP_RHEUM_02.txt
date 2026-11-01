@@ -1,0 +1,14 @@
+[SYNTHETIC CLINICAL ENCOUNTER NOTE - NOT PHI - FOR EVALUATION ONLY]
+LUPUS CLINIC PROGRESS NOTE
+Date: 2026-05-26    Patient: Synthetic Patient Rheum-Exp-02
+MRN: PAT-222018    DOB: 1989-10-04    Dr. April Kepner (NPI: 1149204937)
+
+SEROLOGIC MONITORING:
+Complement C3 was 68 mg/dL (LOW).
+Complement C4 was 11 mg/dL (LOW).
+Platelet Count was 165 10*3/uL (NORMAL).
+Serum Creatinine was 0.8 mg/dL.
+
+ACTIVE MEDICATIONS:
+Hydroxychloroquine 200 mg oral tablet once daily.
+Prednisone 5 mg PO daily in the morning.
