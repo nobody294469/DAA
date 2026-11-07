@@ -284,6 +284,7 @@ def test_16_schema_validation(narrative_ground_truth_docs, canonical_examples):
 
 
 # ─── 17. Existing Task 2 Dataset Remained Byte-for-Byte Unchanged ─────────────
+@pytest.mark.skipif(not Path("data/m2_verification_pre_task3_backup/all_examples.jsonl").exists(), reason="needs the local pre-Task-3 backup (not in the repo)")
 def test_17_task2_dataset_preserved_byte_for_byte():
     backup_file = PRE_TASK3_BACKUP_DIR / "all_examples.jsonl"
     current_file = CANONICAL_DATA_DIR / "all_examples.jsonl"

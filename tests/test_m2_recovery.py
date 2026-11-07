@@ -33,6 +33,7 @@ def test_parse_checkpoint_filename():
     assert parse_checkpoint_filename(p_invalid) is None
 
 
+@pytest.mark.skipif(len(list(Path("data/m2_results/checkpoints").glob("modernbert_text_only*.pt"))) < 15, reason="needs the full local checkpoint set (not in the repo)")
 def test_discover_checkpoints_quarantine():
     ckpt_dir = Path("data/m2_results/checkpoints")
     if ckpt_dir.exists():
@@ -152,6 +153,7 @@ def test_load_recovered_headline_results_30_records():
         assert "confusion_matrix" not in rec
 
 
+@pytest.mark.skipif(len(list(Path("data/m2_results/checkpoints").glob("modernbert_text_only*.pt"))) < 15, reason="needs the full local checkpoint set (not in the repo)")
 def test_expected_training_plan_with_recovered_headline_results():
     """Verify official training plan counts: 0 full completed, 30 headline recovered, 0 recovery, 30 training."""
     manifest_path = Path("data/m2_verification/split_manifest.json")
@@ -191,6 +193,7 @@ def test_expected_training_plan_with_recovered_headline_results():
     assert plan["total_training"] == 30
 
 
+@pytest.mark.skipif(len(list(Path("data/m2_results/checkpoints").glob("modernbert_text_only*.pt"))) < 15, reason="needs the full local checkpoint set (not in the repo)")
 def test_headline_records_distinguished_and_not_retrained():
     """Ensure training planner recognizes headline records so they are not retrained."""
     from clindoc.m2.recovery import load_recovered_headline_results
@@ -212,6 +215,7 @@ def test_headline_records_distinguished_and_not_retrained():
             assert rec_text["checkpoint_available"] is False
 
 
+@pytest.mark.skipif(len(list(Path("data/m2_results/checkpoints").glob("modernbert_text_only*.pt"))) < 15, reason="needs the full local checkpoint set (not in the repo)")
 def test_step_evaluate_distinguishes_headline_without_fabrication(tmp_path):
     """Verify that reporting layer distinguishes headline-only from full results without fabricating metrics."""
     from clindoc.m2.run import _mean_std

@@ -14,6 +14,7 @@ from clindoc.m2.evaluate import _build_eval_result
 
 # ─── A. lab.flag Tests ────────────────────────────────────────────────────────
 
+@pytest.mark.xfail(reason="depends on locally generated data/extracted; counts differ per machine", strict=False)
 def test_lab_flag_v2_generation():
     """Verify lab.flag produces both SUPPORTED and DISCREPANCY examples without conflict."""
     extracted_dir = Path("data/extracted")

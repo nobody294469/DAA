@@ -475,7 +475,12 @@ class DeterministicExtractor:
             ))
 
         # --- lab.value (Tier 1 — deterministic attempt) ---
+        unit, unit_conf = extract_lab_unit(row_text)
         raw_val, num_val, val_conf = extract_lab_value(row_text)
+        if unit:  # prose rows can hold other numbers first ("aspirin 81 mg ... glucose 142 mg/dL"): the value sits by its unit
+            by_unit = re.search(r"(?<!\w)(-?\d+(?:\.\d+)?)\s{0,3}" + re.escape(unit) + r"(?![A-Za-z])", row_text, re.IGNORECASE)
+            if by_unit:
+                raw_val, num_val = by_unit.group(1), float(by_unit.group(1))
         if raw_val is not None:
             claims.append(Claim(
                 document_id=document_id,
@@ -491,7 +496,6 @@ class DeterministicExtractor:
             ))
 
         # --- lab.unit (Tier 2) ---
-        unit, unit_conf = extract_lab_unit(row_text)
         if unit is not None:
             claims.append(Claim(
                 document_id=document_id,
