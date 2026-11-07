@@ -12,6 +12,18 @@ import {
   getQuery, setQuery, debounce, prefersReducedMotion,
 } from './core.js';
 import { stackedBar } from './charts.js';
+import { STATIC as HOSTED } from './core.js';
+
+// The hosted site has no pipeline server: uploads go to the Solve page.
+if (HOSTED) {
+  const panel = document.getElementById('panel-upload');
+  if (panel) {  // keep the controls in the DOM (the rest of this file wires them) but show the link instead
+    [...panel.children].forEach((el) => { el.hidden = true; });
+    panel.insertAdjacentHTML('afterbegin', '<div class="stack"><p class="dropzone__title">Upload a document</p>'
+      + '<p class="field__help">Upload a text PDF or paste a note on the Solve page to extract medications, labs and vitals.</p>'
+      + '<a class="btn btn--primary" href="/solve.html">Open Solve</a></div>');
+  }
+}
 
 mountShell();
 renderServingBanner(document.getElementById('serving'));

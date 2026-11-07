@@ -23,6 +23,8 @@ import session  # noqa: E402
 from text_provider import extract_text  # noqa: E402  (copied from src/clindoc/extract by the deploy step)
 
 MAX_BYTES = 4_000_000
+LIMIT, WINDOW = 12, 600  # requests per visitor per 10 minutes
+_HITS: dict[str, list[float]] = {}  # ponytail: per warm instance only; move to a shared store if abuse shows up
 FIELDS = {"lab.value", "lab.flag", "lab.test_name", "med.name", "med.dose", "med.route", "med.frequency"}
 SYSTEM = ("You extract clinical facts from text. Return ONLY JSON: "
           '{"extractions":[{"field_type":"...","value":"...","evidence_text":"...","unit_raw":null,"group":"g1"}]}. '
@@ -124,8 +126,20 @@ class handler(BaseHTTPRequestHandler):
         online = bool(os.environ.get("CLINDOC_ONLINE_API_KEY", "").strip())
         self._send(200, {"ai": "on" if online else "off"})
 
+    def _within_limit(self) -> bool:
+        if self.headers.get("Sec-Fetch-Site", "same-origin") not in ("same-origin", "none"):  # other sites cannot spend our quota
+            self._send(403, {"error": "Not allowed."})
+            return False
+        ip, now = self.headers.get("x-forwarded-for", "?").split(",")[0].strip(), time.time()
+        hits = [t for t in _HITS.get(ip, []) if now - t < WINDOW]
+        _HITS[ip] = hits + [now]
+        if len(hits) >= LIMIT:
+            self._send(429, {"error": "Too many requests. Please wait a few minutes and try again."})
+            return False
+        return True
+
     def do_POST(self):
-        if not self._signed_in():
+        if not self._signed_in() or not self._within_limit():
             return
         try:
             n = int(self.headers.get("Content-Length", 0))

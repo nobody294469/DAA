@@ -35,6 +35,7 @@ or verification cascade.
 from __future__ import annotations
 
 import re
+from concurrent.futures import ThreadPoolExecutor
 import uuid
 from pathlib import Path
 from typing import Any, Optional
@@ -197,9 +198,12 @@ class ExtractionRouter:
         page_text = page.get_page_text()
         is_lab = self._detect_lab_page(doc.document_id, page_text, is_lab_default)
 
-        for rd in routing_decisions:
-            result = self._dispatch_region(doc, page, page_text, rd, is_lab)
-            results.append(result)
+        run = lambda rd: self._dispatch_region(doc, page, page_text, rd, is_lab)  # noqa: E731
+        if getattr(getattr(self.narrative, "_provider", None), "augments_regions", False) and len(routing_decisions) > 1:
+            with ThreadPoolExecutor(max_workers=4) as pool:  # each region waits on the online model: overlap the waits
+                results.extend(pool.map(run, routing_decisions))
+        else:
+            results.extend(map(run, routing_decisions))
 
         return results
 
@@ -326,7 +330,8 @@ class ExtractionRouter:
         #     because prose around a table row (spelled-out doses, brand names) is invisible to them.
         provider = getattr(self.narrative, "_provider", None)
         if (getattr(provider, "recovers_unparsed_regions", False)
-                and (getattr(provider, "augments_regions", False) or not any(c.field_type in TIER_1_FIELDS for c in det_claims))):
+                and (getattr(provider, "augments_regions", False) and len(region_text.strip()) >= 60  # skip headers and fragments
+                     or not any(c.field_type in TIER_1_FIELDS for c in det_claims))):
             try:
                 from clindoc.extract.text_provider import best_reading
                 rec_evs, rec_clms, rec_diag = self.narrative.extract(

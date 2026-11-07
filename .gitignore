@@ -111,3 +111,4 @@ presentation/package-lock.json
 
 server.log
 server.pid
+server.port

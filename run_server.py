@@ -19,7 +19,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 VENV_PY = ROOT / ".venv" / "Scripts" / "python.exe"
 PIDFILE = ROOT / "server.pid"
-URL = "http://127.0.0.1:8000"
+PORTFILE = ROOT / "server.port"
+import socket  # noqa: E402
 cmd = sys.argv[1] if len(sys.argv) > 1 else "start"
 
 # The global Python on this machine can have a broken torch; the project's own venv is the supported one.
@@ -27,11 +28,25 @@ if VENV_PY.exists() and Path(sys.executable).resolve() != VENV_PY.resolve():
     sys.exit(subprocess.call([str(VENV_PY), str(Path(__file__).resolve()), *sys.argv[1:]]))
 
 
+def url():
+    return f"http://127.0.0.1:{PORTFILE.read_text().strip() if PORTFILE.exists() else 8000}"
+
+
 def health():
+    """Our server's health, or None. Another app on the port (no stage_b in its answer) does not count."""
     try:
-        return json.load(urllib.request.urlopen(f"{URL}/api/health", timeout=3))
+        h = json.load(urllib.request.urlopen(f"{url()}/api/health", timeout=3))
+        return h if "stage_b" in h else None
     except Exception:
         return None
+
+
+def free_port():
+    for port in range(8000, 8020):  # 8000 first; skip ports other programs already hold
+        with socket.socket() as s:
+            if s.connect_ex(("127.0.0.1", port)) != 0:
+                return port
+    sys.exit("no free port between 8000 and 8019")
 
 
 def stop():
@@ -43,10 +58,12 @@ def stop():
 
 def start():
     if health():
-        print("already running:", URL)
+        print("already running:", url())
         return
+    port = free_port()
+    PORTFILE.write_text(str(port))
     env = {**os.environ, "PYTHONPATH": str(ROOT / "src"), "PYTHONDONTWRITEBYTECODE": "1"}
-    args = [sys.executable, "-m", "clindoc.cli", "serve", "--port", "8000", "--device", "cpu",
+    args = [sys.executable, "-m", "clindoc.cli", "serve", "--port", str(port), "--device", "cpu",
             "--checkpoint", "data/m2_results_v3/checkpoints/modernbert_text_only_v3_openmix_fold0_seed42.pt",
             "--llm", "data/judge_lora/Qwen2.5-1.5B-Instruct-v3"]
     detached, new_group, no_window = 0x00000008, 0x00000200, 0x08000000
@@ -57,8 +74,8 @@ def start():
     for _ in range(90):
         time.sleep(2)
         if health():
-            print("ready:", URL)
-            webbrowser.open(URL)
+            print("ready:", url())
+            webbrowser.open(url())
             return
         if p.poll() is not None:
             sys.exit(f"server exited early, see {ROOT / 'server.log'}")
