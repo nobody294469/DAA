@@ -2,6 +2,7 @@ import { mountShell, escapeHtml } from '/assets/js/core.js';
 
 mountShell();
 const $ = (id) => document.getElementById(id);
+const unit = (c) => (c.unit_raw && !String(c.value).toLowerCase().endsWith(String(c.unit_raw).toLowerCase()) ? ' ' + c.unit_raw : '');  // rules already put the unit in a dose value
 const b64 = (buf) => { let s = ''; const u = new Uint8Array(buf); for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
 const MAX = 2900000; // a PDF is sent as base64 (+33%); the server accepts a 4,000,000-byte request
 const EXAMPLE = 'Metoprolol 25 mg po BID for hypertension. Hemoglobin 9.2 g/dL (L). Blood pressure 118/76 mmHg, heart rate 72 bpm.';
@@ -72,9 +73,9 @@ async function run() {
       const rest = g.filter((c) => c !== name);
       const ev = [...new Set(g.map((c) => String(c.evidence_text ?? '').replace(/\s+/g, ' ')))].join(' · ');
       const src = g[0].source === 'ai' ? 'Smart' : 'Rules';
-      rest.forEach((c) => rowsData.push([item, label(c.field_type), c.value + (c.unit_raw ? ' ' + c.unit_raw : ''), ev, src]));
+      rest.forEach((c) => rowsData.push([item, label(c.field_type), c.value + unit(c), ev, src]));
       if (!rest.length) rowsData.push([item, '', '', ev, src]);
-      const vals = rest.map((c) => `<strong>${escapeHtml(label(c.field_type))}</strong> ${escapeHtml(c.value)}${c.unit_raw ? ' ' + escapeHtml(c.unit_raw) : ''}`).join('<br>');
+      const vals = rest.map((c) => `<strong>${escapeHtml(label(c.field_type))}</strong> ${escapeHtml(c.value)}${escapeHtml(unit(c))}`).join('<br>');
       return `<tr><td><strong>${escapeHtml(item)}</strong></td><td>${vals}</td><td class="mono text-sm">${escapeHtml(ev)}</td><td>${src}</td></tr>`;
     }).join('');
     $('out').innerHTML = `<p class="text-sm"><strong>${escapeHtml(summary([...groups.values()]))}</strong>${d.ai === 'failed' ? ' (smart extraction was unavailable, showing basic results)' : ''}.</p>` +
