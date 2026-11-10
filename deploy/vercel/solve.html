@@ -26,13 +26,19 @@
     </div>
     <div class="container container--wide stack" style="padding-block:24px">
       <p class="text-sm" id="ai-status" role="status">Checking AI status…</p>
-      <div class="stack">
-        <label class="btn btn--secondary" style="width:max-content">Choose a PDF<input class="visually-hidden" id="file" type="file" accept=".pdf,.txt"></label>
-        <textarea class="input" id="note" rows="8" spellcheck="false" placeholder="…or paste a clinical note, e.g. Metoprolol 25 mg po BID. Hemoglobin 9.2 g/dL (L). Blood pressure 118/76 mmHg."></textarea>
-        <div><button class="btn btn--primary btn--lg" id="run" type="button">Solve</button> <span class="text-sm muted" id="busy"></span></div>
-        <p class="text-sm muted">This page reads text PDFs and notes (up to 4 MB). Scanned images, the verification cascade and FHIR export need the local server. Uploaded text is processed to extract findings, so avoid uploading identifiable patient data.</p>
+      <div class="stack" id="drop">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <label class="btn btn--secondary">Choose a PDF or text file<input class="visually-hidden" id="file" type="file" accept=".pdf,.txt"></label>
+          <button class="btn btn--secondary" id="example" type="button">Try an example</button>
+          <span class="text-sm" id="fname" hidden></span>
+          <button class="btn btn--secondary" id="remove" type="button" hidden>Remove</button>
+        </div>
+        <textarea class="input" id="note" rows="8" spellcheck="false" placeholder="…or paste a clinical note, or drop a PDF or text file anywhere on this area. Ctrl+Enter runs Solve."></textarea>
+        <p class="field__error" id="err" role="alert" hidden></p>
+        <div><button class="btn btn--primary btn--lg" id="run" type="button">Solve</button> <span class="text-sm muted" id="busy" role="status"></span></div>
+        <p class="text-sm muted">This page reads text PDFs and notes (up to 3 MB). Scanned images, the verification cascade and FHIR export need the local server. Uploaded text is processed to extract findings, so avoid uploading identifiable patient data.</p>
       </div>
-      <div id="out"></div>
+      <div id="out" aria-live="polite"></div>
     </div>
   </main>
   <footer data-shell></footer>

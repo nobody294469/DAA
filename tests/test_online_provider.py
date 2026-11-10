@@ -101,3 +101,10 @@ def test_same_dose_from_rules_and_model_is_one_claim():
     extra = {"extractions": [{"field_type": "med.dose", "value": "75", "evidence_text": "75"}]}  # rules already have "75 mg"
     merged = json.loads(HybridTextProvider(OnlineLLMProvider(cfg, http_client=_Http(_Resp(200, extra)))).complete("", PROMPT))
     assert [e["value"] for e in merged["extractions"] if e["field_type"] == "med.dose"] == ["75 mg"]
+
+
+def test_malformed_online_items_do_not_cost_the_offline_findings():
+    cfg = OnlineConfig("k", "https://x.test/v1", "m", "off")
+    extra = {"extractions": ["junk", None, {"field_type": "med.route", "value": "po", "evidence_text": "po", "confidence": None}]}
+    merged = json.loads(HybridTextProvider(OnlineLLMProvider(cfg, http_client=_Http(_Resp(200, extra)))).complete("", PROMPT))
+    assert [e for e in merged["extractions"] if e["field_type"] == "med.name"]

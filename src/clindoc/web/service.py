@@ -300,7 +300,9 @@ def too_large() -> str:
 def _display_name(filename: str) -> str:
     """Sanitised name for display only; never used to build a path."""
     name = PurePosixPath(filename.replace("\\", "/")).name
-    name = re.sub(r"[^A-Za-z0-9._ -]", "_", name).strip(" .")[:100]
+    name = re.sub(r"[^A-Za-z0-9._ -]", "_", name).strip(" .")
+    ext = PurePosixPath(name).suffix if len(name) > 100 else ""  # a long name must keep its extension
+    name = name[:100 - len(ext[:10])] + ext[:10] if ext else name[:100]
     return name or "upload"
 
 
@@ -496,7 +498,9 @@ def verify(field_type: str, value: str, unit: Optional[str], entity: Optional[st
             "escalated": b.escalated, "escalation_reason": b.escalation_reason},
         "stage_c": None if sc is None else {
             "label": sc.label, "confidence": sc.calibrated_confidence, "contradiction_type": sc.contradiction_type,
-            "rationale": sc.rationale, "model_name": sc.model_name, "is_fallback": sc.is_fallback},
+            "rationale": sc.rationale, "is_fallback": sc.is_fallback,
+            # the hosted model's name is never shown (same rule as stage_c_status)
+            "model_name": "online judge" if stage_c_status()["mode"] == "online" else sc.model_name},
         "elapsed_ms": round((time.perf_counter() - start) * 1000),
     }
 

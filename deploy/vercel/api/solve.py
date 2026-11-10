@@ -89,9 +89,13 @@ def _ai(text: str) -> tuple[list[dict], str | None]:
         return [], "failed"
     keep = []
     for x in out if isinstance(out, list) else []:
+        if not isinstance(x, dict):  # a malformed item must not cost the rule-based findings
+            continue
         ev = _find(text, str(x.get("evidence_text", "")))
-        if x.get("field_type") in FIELDS and str(x.get("value", "")).strip() and ev:
-            keep.append({**x, "evidence_text": ev, "group": "ai-" + str(x.get("group", "0"))})
+        value, unit = x.get("value"), x.get("unit_raw")
+        if x.get("field_type") in FIELDS and isinstance(value, (str, int, float)) and str(value).strip() and ev:
+            keep.append({"field_type": x["field_type"], "value": str(value).strip(), "evidence_text": ev,  # strings only: the page calls string methods
+                         "unit_raw": unit if isinstance(unit, str) and unit.strip() else None, "group": "ai-" + str(x.get("group", "0"))})
     return keep, "ok"
 
 
@@ -144,7 +148,9 @@ class handler(BaseHTTPRequestHandler):
         try:
             n = int(self.headers.get("Content-Length", 0))
             if n > MAX_BYTES:
-                return self._send(413, {"error": "File too large (max 4 MB on the hosted demo)."})
+                return self._send(413, {"error": "File too large (max 3 MB on the hosted demo)."})
+            if n < 0:  # read(-1) would wait for a close that never comes
+                return self._send(400, {"error": "Bad request."})
             body = json.loads(self.rfile.read(n) or b"{}")
             text = _pdf_text(base64.b64decode(body["pdf_b64"])) if body.get("pdf_b64") else str(body.get("text", ""))
             if not text.strip():

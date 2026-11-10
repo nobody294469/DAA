@@ -145,11 +145,17 @@ class HybridTextProvider:
             logger.warning("online extraction failed (%s); using offline result only", type(exc).__name__)
             extra = []
         seen = {claim_key(e) for e in merged}
-        for e in extra:
+        for e in extra if isinstance(extra, list) else []:
+            if not isinstance(e, dict):  # a malformed item must not cost the offline findings
+                continue
             key = claim_key(e)
             # the NarrativeExtractor re-validates every span as a verbatim substring; only tidy obvious junk here
             if e.get("field_type") in PERMITTED_NARRATIVE_FIELDS and e.get("value") and e.get("evidence_text") and key not in seen:
-                e = {**e, "group": e.get("group") or f"on{len(seen)}", "confidence": min(float(e.get("confidence", 0.8)), 0.9)}
+                try:
+                    conf = min(float(e.get("confidence", 0.8)), 0.9)
+                except (TypeError, ValueError):  # "confidence": null / "high"
+                    conf = 0.8
+                e = {**e, "group": e.get("group") or f"on{len(seen)}", "confidence": conf}
                 merged.append(e)
                 seen.add(key)
         return json.dumps({"extractions": merged})

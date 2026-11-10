@@ -143,8 +143,8 @@ function pickFile(file) {
   const ext = (file.name.match(/\.[^.]+$/)?.[0] || '').toLowerCase();
   let msg = '';
   if (!EXTENSIONS.includes(ext)) msg = `${file.name} is not a supported type. Use a PDF, DocumentText JSON, PNG, JPG or TIFF file.`;
-  else if (file.size > MAX_BYTES) msg = `${file.name} is ${num(file.size / 1048576, 1)} MB; the upload limit is 15 MB.`;
-  else if (!file.size) msg = `${file.name} is empty.`;
+  else if (file.size > MAX_BYTES) msg = `${file.name} is ${num(file.size / 1048576, 1)} MB, over the 15 MB limit. Choose a smaller file.`;
+  else if (!file.size) msg = `${file.name} is empty. Choose a file with content.`;
   const err = $('file-error');
   err.hidden = !msg;
   err.innerHTML = msg ? `${icon('alert-triangle')}<span>${escapeHtml(msg)}</span>` : '';
@@ -216,6 +216,9 @@ async function run() {
   const btn = $('run');
   btn.disabled = true;
   btn.setAttribute('aria-busy', 'true');
+  const idleLabel = btn.innerHTML;
+  btn.textContent = 'Running…';
+  $('progress-note').textContent = 'A document can take up to a minute. Each step shows its result when the server answers.';
   if (drawer.open) { state.current = null; drawer.close(); }
   $('results').classList.add('is-loading-frame');
   $('progress').hidden = false;
@@ -261,6 +264,7 @@ async function run() {
   } finally {
     state.busy = false;
     btn.removeAttribute('aria-busy');
+    btn.innerHTML = idleLabel;
     $('results').classList.remove('is-loading-frame');
     updateSelection();
   }

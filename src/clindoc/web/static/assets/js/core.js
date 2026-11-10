@@ -151,14 +151,24 @@ export async function api(path, { method, json, body, timeout = 20000, signal, h
       });
     } catch {
       if (signal?.aborted) throw new ApiError('Request cancelled.', { kind: 'abort', path });
-      if (ctrl.signal.aborted) throw new ApiError(`No response within ${Math.round(timeout / 1000)} s.`, { kind: 'timeout', path });
-      throw new ApiError('Cannot reach the API server.', { kind: 'network', path });
+      if (ctrl.signal.aborted) throw new ApiError(`The server took too long to respond (over ${Math.round(timeout / 1000)} s). Try again, or use a shorter document.`, { kind: 'timeout', path });
+      throw new ApiError('Could not reach the server. Check that it is running and try again.', { kind: 'network', path });
     }
     const type = res.headers.get('content-type') || '';
     const data = type.includes('json') ? await res.json().catch(() => null) : await res.text();
     if (!res.ok) {
       const detail = data && typeof data === 'object' ? data.detail : null;
-      throw new ApiError(detailMessage(detail) || `${res.status} ${res.statusText || 'Error'}`.trim(), {
+      const FRIENDLY = {
+        413: 'That file is too large. The limit is 15 MB; try a smaller file.',
+        415: 'That file type is not supported. Use a PDF, DocumentText JSON, PNG, JPG or TIFF file.',
+        429: 'Too many requests right now. Wait a minute and try again.',
+      };
+      const d = detailMessage(detail);
+      const msg = FRIENDLY[res.status]
+        || (res.status === 422 ? `${d ? `${d} ` : ''}The document could not be read. Try a text-based PDF (not a scan).`.trim() : '')
+        || (res.status >= 500 ? 'The server had a problem. Try again in a moment.' : d)
+        || 'Something went wrong. Please try again.';
+      throw new ApiError(msg, {
         status: res.status, kind: 'http', detail, path,
       });
     }
@@ -322,7 +332,7 @@ export function renderError(el, err, onRetry, { title = 'Could not load data' } 
   // A 404 without a FastAPI `detail` on /api/* means the pages are served without the API (e.g. a plain static server).
   const offline = err?.kind === 'network' || err?.kind === 'timeout' || (err?.status === 404 && !err.detail && String(err.path).startsWith('/api/'));
   const hint = offline ? '<p class="muted">Start the API with <code>clindoc serve</code>, then retry.</p>' : '';
-  el.innerHTML = `<div class="alert alert--danger" role="alert">${icon('alert-triangle')}<div class="alert__body"><p class="alert__title">${escapeHtml(title)}</p><p>${escapeHtml(err?.message || String(err ?? 'Unknown error'))}</p>${hint}${onRetry ? `<div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-retry>${icon('refresh-cw')}Retry</button></div>` : ''}</div></div>`;
+  el.innerHTML = `<div class="alert alert--danger" role="alert">${icon('alert-triangle')}<div class="alert__body"><p class="alert__title">${escapeHtml(title)}</p><p>${escapeHtml(err?.message || 'Something went wrong. Please try again.')}</p>${hint}${onRetry ? `<div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-retry>${icon('refresh-cw')}Retry</button></div>` : ''}</div></div>`;
   el.querySelector('[data-retry]')?.addEventListener('click', onRetry);
 }
 
@@ -669,6 +679,7 @@ export const NAV = [
   ['results', 'Results', '/results.html'],
   ['model', 'Model', '/model.html'],
   ['docs', 'Docs', '/docs.html'],
+  ...(STATIC ? [['solve', 'Solve', '/solve.html']] : []),
 ];
 
 /* Google sign-in, only when the server sets CLINDOC_GOOGLE_CLIENT_ID (clindoc/web/auth.py).

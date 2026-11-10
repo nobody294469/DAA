@@ -29,3 +29,11 @@ def test_lab_value_is_the_number_next_to_its_unit(tmp_path):
     out = ExtractionRouter().extract_document(ingest_document(tmp_path / "LAB_t.pdf", document_id="LAB_t"))
     values = [c.value for r in out.regions for c in r.claims if c.field_type == "lab.value"]
     assert "81" not in values  # the dose of aspirin is not a lab result
+
+
+def test_long_letter_run_is_linear_and_drug_still_found():
+    import time
+    start = time.perf_counter()
+    ex = extract_text("A" * 30000 + " then Plavix 75 mg daily")  # was O(n^2): ~50 s for this input
+    assert time.perf_counter() - start < 5
+    assert [e["value"] for e in ex if e["field_type"] == "med.name"] == ["Plavix"]

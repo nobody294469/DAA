@@ -1,6 +1,7 @@
 const $ = (id) => document.getElementById(id);
 const say = (t) => { $('msg').textContent = t; $('msg').hidden = !t; };
-const next = (() => { const n = new URLSearchParams(location.search).get('next') || '/'; return n.startsWith('/') && !n.startsWith('//') ? n : '/'; })();
+// Resolve it the way the browser will ("/\evil.com" and "/<tab>/evil.com" both leave the site); keep same-origin paths only.
+const next = (() => { try { const u = new URL(new URLSearchParams(location.search).get('next') || '/', location.origin); return u.origin === location.origin ? u.pathname + u.search + u.hash : '/'; } catch (_) { return '/'; } })();
 
 const cfg = await fetch('/api/auth').then((r) => r.json()).catch(() => ({}));
 if (!cfg.enabled) location.replace('/');

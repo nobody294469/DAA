@@ -351,3 +351,9 @@ def test_static_index(client):
 def test_api_errors_are_json(client):
     r = client.get("/api/explorer/" + "x" * 10)
     assert r.status_code == 404 and r.json() == {"detail": "Unknown example"}
+
+
+def test_long_upload_name_keeps_its_extension():
+    name = service._display_name("x" * 150 + ".PDF")
+    assert len(name) == 100 and name.endswith(".PDF")
+    assert service._display_name("../../etc/passwd") == "passwd" and service._display_name("") == "upload"

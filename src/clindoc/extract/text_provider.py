@@ -19,7 +19,7 @@ from pathlib import Path
 _DOSE_UNITS = r"mg/kg|mg/m2|mcg|µg|ug|mg|g|mL|ml|units?|IU|mEq|meq|cc"
 # name (1-2 words) [ ( , : "dose of" "at" ] number unit
 _MED = re.compile(
-    rf"(?P<name>[A-Za-z][A-Za-z\-]{{2,}}(?:[ ][A-Za-z][A-Za-z\-]{{2,}})?)"
+    rf"(?<![A-Za-z\-])(?P<name>[A-Za-z][A-Za-z\-]{{2,}}(?:[ ][A-Za-z][A-Za-z\-]{{2,}})?)"
     rf"\s{{0,3}}[\(,:]?\s{{0,3}}(?:(?:dose|doses) (?:of )?|at |of |was |is |to )?"
     rf"(?P<dose>\d+(?:\.\d+)?)[ ]?(?P<unit>{_DOSE_UNITS})(?![/\w])")
 _STOP = {
@@ -122,7 +122,7 @@ def extract_text(text: str) -> list[dict]:
         toks = [t for t in (name or "").split() if _is_drug(t) and t.lower() not in _LABS]
         if not toks:
             continue
-        pos = text.lower().find(toks[-1].lower(), m.start("name"), m.end("name"))
+        pos = m.start("name") + m.group("name").lower().find(toks[-1].lower())  # name is ASCII: lower() keeps offsets
         mentions.append((pos, pos + len(toks[-1]), text[pos:pos + len(toks[-1])], m))
         taken.add((pos, pos + len(toks[-1])))
     for m in (x for x in _SUFFIX_WORD.finditer(text) if _DRUG_SUFFIX.search(x.group(0))):  # drug-like word endings, only when a dose follows (e.g. a table cell)
