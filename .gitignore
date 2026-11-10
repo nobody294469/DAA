@@ -112,3 +112,5 @@ presentation/package-lock.json
 server.log
 server.pid
 server.port
+deploy/vercel/api/_lib/text_provider.py
+deploy/vercel/api/_lib/data/

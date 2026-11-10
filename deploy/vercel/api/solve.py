@@ -16,11 +16,11 @@ import time
 import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler
-from urllib.parse import urlparse
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "_lib"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "..", "src", "clindoc", "extract"))  # local runs
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "_lib"))  # filled by scripts/deploy_vercel.py
 import session  # noqa: E402
-from text_provider import extract_text  # noqa: E402  (copied from src/clindoc/extract by the deploy step)
+from text_provider import claim_key, extract_text  # noqa: E402
 
 MAX_BYTES = 4_000_000
 LIMIT, WINDOW = 12, 600  # requests per visitor per 10 minutes
@@ -98,8 +98,8 @@ def _ai(text: str) -> tuple[list[dict], str | None]:
 def solve(text: str) -> dict:
     rules = [{**e, "source": "rules"} for e in extract_text(text)]
     ai, ai_info = _ai(text)
-    seen = {(e["field_type"], e["evidence_text"].lower()) for e in rules}
-    merged = rules + [{**e, "source": "ai"} for e in ai if (e["field_type"], e["evidence_text"].lower()) not in seen]
+    seen = {claim_key(e) for e in rules}
+    merged = rules + [{**e, "source": "ai"} for e in ai if claim_key(e) not in seen]
     online = bool(os.environ.get("CLINDOC_ONLINE_API_KEY", "").strip())
     return {"ai": "on" if ai_info == "ok" else ("failed" if online else "off"),
             "n_rules": len(rules), "n_ai": len(merged) - len(rules), "claims": merged}

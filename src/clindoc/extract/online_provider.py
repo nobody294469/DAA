@@ -21,7 +21,7 @@ from dataclasses import dataclass
 from urllib.parse import urlparse
 
 from clindoc.extract.llm_extractor import LLM_OUTPUT_SCHEMA, PERMITTED_NARRATIVE_FIELDS, _SYSTEM_PROMPT
-from clindoc.extract.text_provider import ClinicalTextProvider, extract_text
+from clindoc.extract.text_provider import ClinicalTextProvider, claim_key, extract_text
 
 logger = logging.getLogger(__name__)
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
@@ -144,9 +144,9 @@ class HybridTextProvider:
         except Exception as exc:  # noqa: BLE001: online is best-effort; never include the error body (may echo input)
             logger.warning("online extraction failed (%s); using offline result only", type(exc).__name__)
             extra = []
-        seen = {(e["field_type"], e["evidence_text"].lower()) for e in merged}
+        seen = {claim_key(e) for e in merged}
         for e in extra:
-            key = (e.get("field_type"), str(e.get("evidence_text", "")).lower())
+            key = claim_key(e)
             # the NarrativeExtractor re-validates every span as a verbatim substring; only tidy obvious junk here
             if e.get("field_type") in PERMITTED_NARRATIVE_FIELDS and e.get("value") and e.get("evidence_text") and key not in seen:
                 e = {**e, "group": e.get("group") or f"on{len(seen)}", "confidence": min(float(e.get("confidence", 0.8)), 0.9)}

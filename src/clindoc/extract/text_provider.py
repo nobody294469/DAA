@@ -196,6 +196,17 @@ def extract_text(text: str) -> list[dict]:
     return out
 
 
+_NUM = re.compile(r"\d+(?:\.\d+)?")
+
+
+def claim_key(e: dict) -> tuple:
+    """One key for the same finding spelled two ways ("81 mg" from the rules, "81" from a model)."""
+    ft = e.get("field_type")
+    n = _NUM.search(str(e.get("value", ""))) if ft in ("med.dose", "lab.value") else None
+    # ponytail: two drugs with the same dose share a key; key on the entity too if that ever drops a real finding
+    return (ft, n.group(0) if n else str(e.get("evidence_text", "")).lower().strip())
+
+
 def layout_text(page, start: int, end: int) -> str:
     """The page's words re-read row by row (top to bottom, left to right) from their positions.
 

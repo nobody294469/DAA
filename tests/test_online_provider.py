@@ -94,3 +94,10 @@ def test_busy_model_falls_back_to_next_model(monkeypatch):
     http = _Http(_Resp(503), _Resp(503), _Resp(200, {"extractions": []}))  # main: 2 busy answers, then backup answers
     OnlineLLMProvider(cfg, http_client=http).complete("s", "u")
     assert [h["model"] for h in http.sent] == ["main", "main", "backup"]
+
+
+def test_same_dose_from_rules_and_model_is_one_claim():
+    cfg = OnlineConfig("k", "https://x.test/v1", "m", "off")
+    extra = {"extractions": [{"field_type": "med.dose", "value": "75", "evidence_text": "75"}]}  # rules already have "75 mg"
+    merged = json.loads(HybridTextProvider(OnlineLLMProvider(cfg, http_client=_Http(_Resp(200, extra)))).complete("", PROMPT))
+    assert [e["value"] for e in merged["extractions"] if e["field_type"] == "med.dose"] == ["75 mg"]
